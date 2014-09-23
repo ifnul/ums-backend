@@ -7,6 +7,6 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
        default-autowire="byName">
 
-    <context:component-scan base-package="com.optigra.funnypictures.service" />
+    <context:component-scan base-package="org.lnu.is.service" />
 
 </beans>

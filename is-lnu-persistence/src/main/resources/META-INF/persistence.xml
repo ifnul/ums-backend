@@ -3,7 +3,7 @@
 <persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         
-        <class>com.optigra.funnypictures.model.Picture</class>
+        <class>org.lnu.is.model.Picture</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
