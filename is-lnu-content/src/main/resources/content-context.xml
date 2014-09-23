@@ -7,7 +7,7 @@
 
 
 	<alias name="fileSystemContentService" alias="contentService"/>
-	<bean id="fileSystemContentService" class="com.optigra.funnypictures.content.service.FileSystemContentService">
+	<bean id="fileSystemContentService" class="org.lnu.is.content.service.FileSystemContentService">
 		<property name="contentRepositoryPath" value="${content.repository.path}" />
 	</bean>
 
