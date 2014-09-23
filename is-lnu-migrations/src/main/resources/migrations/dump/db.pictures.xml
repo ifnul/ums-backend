@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    
+    <changeSet id="createPicture1" author="ivanursul">
+    	<insert tableName="picture">
+    		<column name="name">Picture1</column>
+    		<column name="url">url1</column>
+    	</insert>
+    	<insert tableName="picture">
+    		<column name="name">Picture2</column>
+    		<column name="url">url2</column>
+    	</insert>
+    	<insert tableName="picture">
+    		<column name="name">Picture3</column>
+    		<column name="url">url3</column>
+    	</insert>
+    	<insert tableName="picture">
+    		<column name="name">Picture4</column>
+    		<column name="url">url4</column>
+    	</insert>
+    	<insert tableName="picture">
+    		<column name="name">Picture5</column>
+    		<column name="url">url5</column>
+    	</insert>
+    </changeSet>
+ 
+</databaseChangeLog>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>is-lnu-migrations</groupId>
+	<artifactId>is-lnu-migrations</artifactId>
+	<name>is-lnu-migrations</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>is-lnu</groupId>
+		<artifactId>is-lnu</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-maven-plugin</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>3.2.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>status</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<changeLogFile>${migrations.location}</changeLogFile>
+					<driver>${jdbc.driverClassName}</driver>
+					<url>${jdbc.databaseurl}</url>
+					<username>${jdbc.username}</username>
+					<password>${jdbc.password}</password>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>9.1-901-1.jdbc4</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
