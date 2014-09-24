@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                           http://www.springframework.org/schema/security
+                           http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<security:http use-expressions="true">
+		<security:http-basic/>
+        <security:intercept-url pattern="/**" access="permitAll" />
+		
+		<security:remember-me key="is-lnu" user-service-ref="userDetailsService" />
+	</security:http>
+	
+	<!-- User Details Section -->
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider user-service-ref="userDetailsService">
+		
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="userDetailsService" />
+	</bean>
+
+	<bean id="userDetailsService" class="com.project.web.security.UserDetailsServiceImpl" />
+	
+</beans> 

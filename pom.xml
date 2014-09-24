@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>is-lnu</groupId>
@@ -20,7 +19,8 @@
 		<module>is-lnu-migrations</module>
 		<module>is-lnu-content</module>
 		<module>is-lnu-integration</module>
-	</modules>
+    	<module>is-lnu-security</module>
+  </modules>
 
 	<properties>
 		<java-version>1.7</java-version>
@@ -28,6 +28,7 @@
 
 		<version>0.0.1-SNAPSHOT</version>
 		<spring.version>4.1.0.RELEASE</spring.version>
+		<spring.security.version>3.2.5.RELEASE</spring.security.version>
 		<hibernate.version>4.2.0.Final</hibernate.version>
 		<slf4j.version>1.7.7</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
@@ -36,7 +37,7 @@
 		<migrations.location>src/main/resources/migrations/db.changelog.xml</migrations.location>
 
 		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-		<jdbc.databaseurl>jdbc:postgresql://localhost:5432/optigra-funnypictures</jdbc.databaseurl>
+		<jdbc.databaseurl>jdbc:postgresql://localhost:5432/is-lnu</jdbc.databaseurl>
 		<jdbc.username>postgres</jdbc.username>
 		<jdbc.password>postgres</jdbc.password>
 		<jpa.database>POSTGRESQL</jpa.database>
