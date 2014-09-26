@@ -5,6 +5,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
+	<properties>
+		<checkstyleDir>${basedir}/../checks</checkstyleDir>
+	</properties>
+
 	<parent>
 		<groupId>is-lnu</groupId>
 		<artifactId>is-lnu</artifactId>
@@ -13,7 +17,7 @@
 
 	<artifactId>is-lnu-security</artifactId>
 	<name>is-lnu-security</name>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.security</groupId>

@@ -7,7 +7,11 @@
 	<artifactId>is-lnu-domain</artifactId>
 	<name>is-lnu-domain</name>
 	<url>http://maven.apache.org</url>
-
+	
+	<properties>
+		<checkstyleDir>${basedir}/../checks</checkstyleDir>
+	</properties>
+	
 	<parent>
 		<groupId>is-lnu</groupId>
 		<artifactId>is-lnu</artifactId>

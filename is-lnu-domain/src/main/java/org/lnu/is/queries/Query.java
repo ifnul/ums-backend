@@ -10,6 +10,12 @@ public class Query<T> {
 
     private Map<String, Object> parameters;
 
+    /**
+     * Consructor for setting base Query<T> instance.
+     * @param entityClass Class instance of current entity.
+     * @param query JPQL query, that will be executed by entity manager.
+     * @param parameters All required parameters.
+     */
     public Query(final Class<T> entityClass, final String query, final Map<String, Object> parameters) {
         super();
         this.entityClass = entityClass;

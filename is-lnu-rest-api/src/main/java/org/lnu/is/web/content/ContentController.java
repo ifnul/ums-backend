@@ -43,7 +43,6 @@ public class ContentController extends BaseController {
         IOUtils.closeQuietly(in);
     }
     
-    
     @RequestMapping(value = "/content", method = RequestMethod.POST)
     public void postContent(final HttpServletRequest request, final HttpServletResponse response) throws Exception {
     	boolean isMultipart = ServletFileUpload.isMultipartContent(request);
