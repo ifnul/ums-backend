@@ -10,7 +10,16 @@ public class PagedResult<E> {
     private long count;
     private List<E> entities;
     
-	public PagedResult(Integer offset, Integer limit, long count, List<E> entities) {
+    /**
+     * Basic constructor for all required parameters.
+     * @date Sep 28, 2014
+     * @author ivanursul
+     * @param offset start position.
+     * @param limit Maximum of elements to be retrieved.
+     * @param count Count of all elements.
+     * @param entities list of elements, that will be returned.
+     */
+	public PagedResult(final Integer offset, final Integer limit, final long count, final List<E> entities) {
 		super();
 		this.offset = offset;
 		this.limit = limit;
@@ -22,7 +31,7 @@ public class PagedResult<E> {
 		return offset;
 	}
 
-	public void setOffset(Integer offset) {
+	public void setOffset(final Integer offset) {
 		this.offset = offset;
 	}
 
@@ -30,7 +39,7 @@ public class PagedResult<E> {
 		return limit;
 	}
 
-	public void setLimit(Integer limit) {
+	public void setLimit(final Integer limit) {
 		this.limit = limit;
 	}
 
@@ -38,7 +47,7 @@ public class PagedResult<E> {
 		return count;
 	}
 
-	public void setCount(long count) {
+	public void setCount(final long count) {
 		this.count = count;
 	}
 
@@ -46,7 +55,7 @@ public class PagedResult<E> {
 		return entities;
 	}
 
-	public void setEntities(List<E> entities) {
+	public void setEntities(final List<E> entities) {
 		this.entities = entities;
 	}
 
@@ -63,7 +72,7 @@ public class PagedResult<E> {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
