@@ -124,6 +124,7 @@
         <!-- See http://checkstyle.sf.net/config_blocks.html -->
         <module name="AvoidNestedBlocks"/>
         <module name="EmptyBlock"/>
+        <module name="NeedBraces"/>
         <module name="LeftCurly"/>
         <module name="RightCurly"/>
 
@@ -153,6 +154,7 @@
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>
+        <module name="FinalParameters"/>
         <module name="TodoComment">
             <property name="format" value="WARNING"/>
         </module>

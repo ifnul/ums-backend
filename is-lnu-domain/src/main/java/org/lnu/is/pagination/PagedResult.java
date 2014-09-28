@@ -73,30 +73,40 @@ public class PagedResult<E> {
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		PagedResult<?> other = (PagedResult<?>) obj;
-		if (count != other.count)
+		if (count != other.count) {
 			return false;
+		}
 		if (entities == null) {
-			if (other.entities != null)
+			if (other.entities != null) {
 				return false;
-		} else if (!entities.equals(other.entities))
+			}
+		} else if (!entities.equals(other.entities)) {
 			return false;
+		}
 		if (limit == null) {
-			if (other.limit != null)
+			if (other.limit != null) {
 				return false;
-		} else if (!limit.equals(other.limit))
+			}
+		} else if (!limit.equals(other.limit)) {
 			return false;
+		}
 		if (offset == null) {
-			if (other.offset != null)
+			if (other.offset != null) {
 				return false;
-		} else if (!offset.equals(other.offset))
+			}
+		} else if (!offset.equals(other.offset)) {
 			return false;
+		}
 		return true;
 	}
 
