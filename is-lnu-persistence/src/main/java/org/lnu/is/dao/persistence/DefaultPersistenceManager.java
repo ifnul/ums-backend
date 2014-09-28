@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository("persistenceManager")
 public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I> {
-    private static final Logger logger = LoggerFactory.getLogger(DefaultPersistenceManager.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultPersistenceManager.class);
 
     private static final String COUNT_QUERY = "SELECT COUNT(*) FROM %s a WHERE a IN(%s) ";
 
@@ -25,7 +25,7 @@ public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I>
 
     @Override
     public T create(final T entity) {
-		logger.info("Saving entity for class:{}", entity.getClass());
+		LOG.info("Saving entity for class:{}", entity.getClass());
 		entityManager.persist(entity);
 		return entity;
     }
@@ -38,13 +38,13 @@ public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I>
 
     @Override
     public T update(final T entity) {
-    	logger.info("Updating entity for class:{}", entity.getClass());
+    	LOG.info("Updating entity for class:{}", entity.getClass());
         return entityManager.merge(entity);
     }
 
     @Override
     public void remove(final T entity) {
-    	logger.info("Removing entity for class:{}", entity.getClass());
+    	LOG.info("Removing entity for class:{}", entity.getClass());
         entityManager.remove(entity);
     }
 
@@ -90,7 +90,7 @@ public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I>
     private <M> TypedQuery<M> createQuery(final String querySql, final Map<String, Object> parameters, final Class<M> clazz) {
         TypedQuery<M> typedQuery = entityManager.createQuery(querySql, clazz);
 
-        logger.info(String.format("Create JPQL: query=[%s]; parameters=[%s] ", querySql, parameters));
+        LOG.info(String.format("Create JPQL: query=[%s]; parameters=[%s] ", querySql, parameters));
 
         for (String key : parameters.keySet()) {
             typedQuery.setParameter(key, parameters.get(key));
