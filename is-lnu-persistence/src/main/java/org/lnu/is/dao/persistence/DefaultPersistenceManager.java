@@ -78,6 +78,14 @@ public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I>
         return result;
     }
 
+    /**
+     * Gets query count for every.
+     * @param <M> for generic class.
+     * @param querySql query
+     * @param parameters parameters.
+     * @param clazz class isstance.
+     * @return Count of elements in query
+     */
     private <M> Long getQueryCount(final String querySql, final Map<String, Object> parameters, final Class<M> clazz) {
 
         String jpQuery = String.format(COUNT_QUERY, clazz.getSimpleName(), querySql);
@@ -87,6 +95,14 @@ public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I>
         return countQuery.getSingleResult();
     }
 
+    /**
+     * Creates typed Query for entityManager.
+     * @param <M> for generic class.
+     * @param querySql query.
+     * @param parameters required parameters(can be empty)
+     * @param clazz class instance.
+     * @return Typed Query instance.
+     */
     private <M> TypedQuery<M> createQuery(final String querySql, final Map<String, Object> parameters, final Class<M> clazz) {
         TypedQuery<M> typedQuery = entityManager.createQuery(querySql, clazz);
 

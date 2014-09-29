@@ -69,6 +69,7 @@
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->
         <module name="JavadocMethod">
             <property name="allowMissingPropertyJavadoc" value="true" />
+            <property name="allowMissingParamTags" value="true"/>
         </module>
         <module name="JavadocStyle"/>
 

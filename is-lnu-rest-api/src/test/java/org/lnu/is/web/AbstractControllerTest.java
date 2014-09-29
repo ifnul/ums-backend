@@ -8,9 +8,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class AbstractControllerTest {
 
-	protected ObjectMapper objectMapper = new ObjectMapper();
+	private ObjectMapper objectMapper = new ObjectMapper();
 
-	protected void writeFromFields(final boolean flag) {
+	/**
+	 * Method for configuring object mapper to write from fields
+	 * or from getters.
+	 * @param flag flag
+	 */
+	private void writeFromFields(final boolean flag) {
 		if (flag) {
 			objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
@@ -23,6 +28,13 @@ public class AbstractControllerTest {
 		}
 	}
 
+	/**
+	 * Get's serialized json from resource.
+	 * @param object object.
+	 * @param writeFromFields write from fields
+	 * @return String json.
+	 * @throws JsonProcessingException exception, that can be throwned.
+	 */
 	protected String getJson(final Object object, final boolean writeFromFields) throws JsonProcessingException {
 		writeFromFields(writeFromFields);
 		return objectMapper.writeValueAsString(object);

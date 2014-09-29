@@ -27,4 +27,4 @@
 
 	<bean id="userDetailsService" class="com.project.web.security.UserDetailsServiceImpl" />
 	
-</beans> 
+</beans>

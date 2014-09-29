@@ -63,7 +63,8 @@ public class PagedResult<E> {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (count ^ (count >>> 32));
+		final int local = 32;
+		result = prime * result + (int) (count ^ (count >>> local));
 		result = prime * result
 				+ ((entities == null) ? 0 : entities.hashCode());
 		result = prime * result + ((limit == null) ? 0 : limit.hashCode());

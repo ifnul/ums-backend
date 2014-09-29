@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 public abstract class BaseController {
-	private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(BaseController.class);
 	
+	/**
+	 * Base method for handling exception. 
+	 * @param e exception instance
+	 * @return message resource.
+	 */
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = { Exception.class })
     @ResponseBody
     public MessageResource handleException(final Exception e) {
-    	logger.error("Handling general exception", e);
+    	LOG.error("Handling general exception", e);
     	
         MessageResource message = new MessageResource();
         message.setMessageType(MessageType.WARN);

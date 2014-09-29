@@ -7,7 +7,12 @@ public class PagedRequest {
     private Integer offset;
     private Integer limit;
 
-	public PagedRequest(Integer offset, Integer limit) {
+    /**
+     * Constructor with parameters.
+     * @param offset start position.
+     * @param limit limit position.
+     */
+	public PagedRequest(final Integer offset, final Integer limit) {
 		super();
 		this.offset = offset;
 		this.limit = limit;
@@ -17,7 +22,7 @@ public class PagedRequest {
 		return offset;
 	}
 
-	public void setOffset(Integer offset) {
+	public void setOffset(final Integer offset) {
 		this.offset = offset;
 	}
 
@@ -25,7 +30,7 @@ public class PagedRequest {
 		return limit;
 	}
 
-	public void setLimit(Integer limit) {
+	public void setLimit(final Integer limit) {
 		this.limit = limit;
 	}
 
@@ -39,24 +44,31 @@ public class PagedRequest {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		PagedRequest other = (PagedRequest) obj;
 		if (limit == null) {
-			if (other.limit != null)
+			if (other.limit != null) {
 				return false;
-		} else if (!limit.equals(other.limit))
+			}
+		} else if (!limit.equals(other.limit)) {
 			return false;
+		}
 		if (offset == null) {
-			if (other.offset != null)
+			if (other.offset != null) {
 				return false;
-		} else if (!offset.equals(other.offset))
+			}
+		} else if (!offset.equals(other.offset)) {
 			return false;
+		}
 		return true;
 	}
 

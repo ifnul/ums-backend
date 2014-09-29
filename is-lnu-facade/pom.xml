@@ -24,11 +24,6 @@
 			<artifactId>is-lnu-service</artifactId>
 			<version>${version}</version>
 		</dependency>
-		<dependency>
-			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-content</artifactId>
-			<version>${version}</version>
-		</dependency>
 	</dependencies>
 
 </project>

@@ -11,30 +11,39 @@ public abstract class AbstractDao<E, T> implements Dao<E, T> {
 	@Resource(name = "persistenceManager")
 	private PersistenceManager<E, T> persistenceManager;
 	
+	/**
+	 * Need to implement for each entity(User, Student, etc..).
+	 * @return Class instance
+	 */
 	public abstract Class<E> getEntityClass();
 	
 	@Override
-	public E findById(T id) {
+	public E findById(final T id) {
 		E entity = persistenceManager.findById(getEntityClass(), id);
 		return entity;
 	}
 
 	@Override
-	public void save(E entity) {
+	public void save(final E entity) {
 		persistenceManager.create(entity);
 	}
 
 	@Override
-	public void update(E entity) {
+	public void update(final E entity) {
 		persistenceManager.update(entity);
 	}
 
 	@Override
-	public void delete(E entity) {
+	public void delete(final E entity) {
 		persistenceManager.remove(entity);
 	}
 	
-	protected PagedResult<E> search(PagedSearch<E> searchRequest) {
+	/**
+	 * Method for searching results by part.
+	 * @param searchRequest search request.
+	 * @return Paged Result with part result. 
+	 */
+	protected PagedResult<E> search(final PagedSearch<E> searchRequest) {
 		return persistenceManager.search(searchRequest);
 	}
 }

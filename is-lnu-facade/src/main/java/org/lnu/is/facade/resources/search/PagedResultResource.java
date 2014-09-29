@@ -12,8 +12,15 @@ public class PagedResultResource<R> extends ApiResource {
     private List<R> entities;
     private String uri;
 
+    /**
+     * Base constructor.
+     */
     public PagedResultResource() { }
     
+    /**
+     * Constructor that takes uri.
+     * @param uri uri.
+     */
     public PagedResultResource(final String uri) {
         this.uri = uri;
     }
@@ -27,7 +34,7 @@ public class PagedResultResource<R> extends ApiResource {
 		return offset;
 	}
 
-	public void setOffset(Integer offset) {
+	public void setOffset(final Integer offset) {
 		this.offset = offset;
 	}
 
@@ -35,7 +42,7 @@ public class PagedResultResource<R> extends ApiResource {
 		return limit;
 	}
 
-	public void setLimit(Integer limit) {
+	public void setLimit(final Integer limit) {
 		this.limit = limit;
 	}
 
@@ -43,7 +50,7 @@ public class PagedResultResource<R> extends ApiResource {
 		return count;
 	}
 
-	public void setCount(long count) {
+	public void setCount(final long count) {
 		this.count = count;
 	}
 
@@ -51,21 +58,22 @@ public class PagedResultResource<R> extends ApiResource {
 		return entities;
 	}
 
-	public void setEntities(List<R> entities) {
+	public void setEntities(final List<R> entities) {
 		this.entities = entities;
 	}
 
-	public void setUri(String uri) {
+	public void setUri(final String uri) {
 		this.uri = uri;
 	}
-
-	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (count ^ (count >>> 32));
+		final int i = 32;
+		result = prime * result + (int) (count ^ (count >>> i));
+		result = prime * result
+				+ ((entities == null) ? 0 : entities.hashCode());
 		result = prime * result + ((limit == null) ? 0 : limit.hashCode());
 		result = prime * result + ((offset == null) ? 0 : offset.hashCode());
 		result = prime * result + ((uri == null) ? 0 : uri.hashCode());
@@ -73,31 +81,48 @@ public class PagedResultResource<R> extends ApiResource {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		PagedResultResource<?> other = (PagedResultResource<?>) obj;
-		if (count != other.count)
+		if (count != other.count) {
 			return false;
+		}
+		if (entities == null) {
+			if (other.entities != null) {
+				return false;
+			}
+		} else if (!entities.equals(other.entities)) {
+			return false;
+		}
 		if (limit == null) {
-			if (other.limit != null)
+			if (other.limit != null) {
 				return false;
-		} else if (!limit.equals(other.limit))
+			}
+		} else if (!limit.equals(other.limit)) {
 			return false;
+		}
 		if (offset == null) {
-			if (other.offset != null)
+			if (other.offset != null) {
 				return false;
-		} else if (!offset.equals(other.offset))
+			}
+		} else if (!offset.equals(other.offset)) {
 			return false;
+		}
 		if (uri == null) {
-			if (other.uri != null)
+			if (other.uri != null) {
 				return false;
-		} else if (!uri.equals(other.uri))
+			}
+		} else if (!uri.equals(other.uri)) {
 			return false;
+		}
 		return true;
 	}
 
@@ -107,5 +132,4 @@ public class PagedResultResource<R> extends ApiResource {
 				+ ", count=" + count + ", entities=" + entities + ", uri="
 				+ uri + "]";
 	}
-
 }

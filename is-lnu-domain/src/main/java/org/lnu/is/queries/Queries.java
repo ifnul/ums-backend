@@ -2,8 +2,12 @@ package org.lnu.is.queries;
 
 
 
-
-public class Queries {
+/**
+ * Class, that contains all required queries.
+ * @author ivanursul
+ *
+ */
+public final class Queries {
 	
 	private static final String FIND_PICTURES_QUERY_NAME = "Pictures.findPictures";
 	private static final String FIND_PICTURES_QUERY = "SELECT p FROM Picture p";
