@@ -115,21 +115,18 @@
         <module name="WhitespaceAfter"/>
         <module name="WhitespaceAround"/>
 
-
         <!-- Modifier Checks                                    -->
         <!-- See http://checkstyle.sf.net/config_modifiers.html -->
         <module name="ModifierOrder"/>
         <module name="RedundantModifier"/>
 
-
         <!-- Checks for blocks. You know, those {}'s         -->
         <!-- See http://checkstyle.sf.net/config_blocks.html -->
         <module name="AvoidNestedBlocks"/>
         <module name="EmptyBlock"/>
-        <module name="LeftCurly"/>
         <module name="NeedBraces"/>
+        <module name="LeftCurly"/>
         <module name="RightCurly"/>
-
 
         <!-- Checks for common coding problems               -->
         <!-- See http://checkstyle.sf.net/config_coding.html -->
@@ -140,7 +137,6 @@
         </module>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
-        <module name="MagicNumber"/>
         <module name="MissingSwitchDefault"/>
         <module name="RedundantThrows"/>
         <module name="SimplifyBooleanExpression"/>
@@ -151,11 +147,9 @@
         <!--
         <module name="DesignForExtension"/>
         -->
-        <module name="FinalClass"/>
         <module name="HideUtilityClassConstructor"/>
         <module name="InterfaceIsType"/>
         <module name="VisibilityModifier"/>
-
 
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
@@ -164,12 +158,8 @@
         <module name="TodoComment">
             <property name="format" value="WARNING"/>
         </module>
+        
         <module name="UpperEll"/>
-
-
-		
-		
-		
     </module>
 
 </module>

@@ -1,7 +1,7 @@
 package org.lnu.is.model.content;
 
 /**
- * MIME types
+ * MIME types.
  * @author iurii
  * Copied from https://github.com/wytzevanderploeg/java-mime-types/blob/master/src/main/java/org/vertedge/util/MimeType.java 
  */
@@ -662,41 +662,51 @@ public enum MimeType {
 		private String type;
 		private String extension;
 		
-		MimeType(String type, String extension) {
+
+		/**
+		 * Basic constructor.
+		 * @date Sep 28, 2014
+		 * @author ivanursul
+		 * @param type type of MimeType.
+		 * @param extension Extension.
+		 */
+		MimeType(final String type, final String extension) {
 			this.type = type;
 			this.extension = extension;
 		}
 
 		/**
-		 * Get a String representation of this type. e.g. "application/zip"
-		 * 
-		 * @return
+		 * Get a String representation of this type. e.g. "application/zip".
+		 * @date Sep 28, 2014
+		 * @author ivanursul
+		 * @return return type.
 		 */
 		public String getType() {
 			return type;
 		}
 
 		/**
-		 * Get the extension for this type. e.g. ".zip"
-		 * 
-		 * @return
+		 * Get the extension for this type. e.g. ".zip".
+		 * @date Sep 28, 2014
+		 * @author ivanursul
+		 * @return extension.
 		 */
 		public String getExtension() {
 			return extension;
 		}
 
 		/**
-		 * Gets the first matching mime-type for the given type
+		 * Gets the first matching mime-type for the given type.
 		 * 
 		 * @param type
 		 *            e.g. "application/zip"
 		 * @return The MimeType that matched the given type
 		 */
-		public static MimeType fromType(String type) {
+		public static MimeType fromType(final String type) {
 			if (type != null) {
-				type = type.trim().toLowerCase();
+				String tempType = type.trim().toLowerCase();
 				for (MimeType mt : MimeType.values()) {
-					if (mt.getType().equals(type)) {
+					if (mt.getType().equals(tempType)) {
 						return mt;
 					}
 				}
@@ -705,17 +715,17 @@ public enum MimeType {
 		}
 
 		/**
-		 * Gets the first matching mime-type for the given extension
+		 * Gets the first matching mime-type for the given extension.
 		 * 
 		 * @param extension
 		 *            e.g. ".zip"
 		 * @return The MimeType that matched the given extension
 		 */
-		public static MimeType fromExtension(String extension) {
+		public static MimeType fromExtension(final String extension) {
 			if (extension != null) {
-				extension = extension.trim().toLowerCase();
+				String tempExtension = extension.trim().toLowerCase();
 				for (MimeType mt : MimeType.values()) {
-					if (mt.getExtension().equals(extension)) {
+					if (mt.getExtension().equals(tempExtension)) {
 						return mt;
 					}
 				}

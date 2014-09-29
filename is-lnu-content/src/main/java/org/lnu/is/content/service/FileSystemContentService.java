@@ -23,7 +23,7 @@ public class FileSystemContentService implements ContentService {
 	private String contentRepositoryPath;
 
 	@Override
-	public Content getContentByPath(String path) {
+	public Content getContentByPath(final String path) {
 		Content content = null;
 
 		LOG.info("Read file from {}" + path);
@@ -48,7 +48,7 @@ public class FileSystemContentService implements ContentService {
 	}
 
 	@Override
-	public void saveContent(Content content) {
+	public void saveContent(final Content content) {
 		LOG.info("Save content: {}", content);
 
 		File file = new File(getFullfilePath(content.getPath()));
@@ -62,7 +62,12 @@ public class FileSystemContentService implements ContentService {
 		}
 	}
 
-	private String getFullfilePath(String filePath) {
+	/**
+	 * Method, that get's full path of file.
+	 * @param filePath file path.
+	 * @return formatted path.
+	 */
+	private String getFullfilePath(final String filePath) {
 		return getContentRepositoryPath() + filePath;
 	}
 
@@ -70,7 +75,7 @@ public class FileSystemContentService implements ContentService {
 		return contentRepositoryPath;
 	}
 
-	public void setContentRepositoryPath(String contentRepositoryPath) {
+	public void setContentRepositoryPath(final String contentRepositoryPath) {
 		this.contentRepositoryPath = contentRepositoryPath;
 	}
 }

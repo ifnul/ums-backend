@@ -18,7 +18,7 @@ public class Content {
 		return path;
 	}
 
-	public void setPath(String path) {
+	public void setPath(final String path) {
 		this.path = path;
 	}
 
@@ -26,7 +26,7 @@ public class Content {
 		return size;
 	}
 
-	public void setSize(Long size) {
+	public void setSize(final Long size) {
 		this.size = size;
 	}
 
@@ -34,7 +34,7 @@ public class Content {
 		return contentStream;
 	}
 
-	public void setContentStream(InputStream contentStream) {
+	public void setContentStream(final InputStream contentStream) {
 		this.contentStream = contentStream;
 	}
 
@@ -42,7 +42,7 @@ public class Content {
 		return mimeType;
 	}
 
-	public void setMimeType(MimeType mimeType) {
+	public void setMimeType(final MimeType mimeType) {
 		this.mimeType = mimeType;
 	}
 

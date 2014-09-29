@@ -12,7 +12,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.content.ContentSaveException;
 import org.lnu.is.content.model.Content;
-import org.lnu.is.content.service.FileSystemContentService;
 import org.lnu.is.model.content.MimeType;
 
 public class FileSystemContentServiceTest {
@@ -33,7 +32,7 @@ public class FileSystemContentServiceTest {
 		fileWriter.close();
 		
 		File saveFile = new File(contentRepositoryPath + saveFileName);
-		if(saveFile.exists()){
+		if (saveFile.exists()){
 			saveFile.delete();
 		}
 	}

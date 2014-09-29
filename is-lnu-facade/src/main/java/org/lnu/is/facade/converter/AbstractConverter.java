@@ -3,6 +3,13 @@ package org.lnu.is.facade.converter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Basic abstract converter, that implements two methods: convertAll with different signatures.
+ * @author ivanursul
+ *
+ * @param <SOURCE> From what class to convert
+ * @param <TARGET> To what class to convert
+ */
 public abstract class AbstractConverter<SOURCE, TARGET> implements Converter<SOURCE, TARGET> {
 
     @Override

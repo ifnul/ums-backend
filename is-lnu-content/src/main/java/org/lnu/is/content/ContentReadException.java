@@ -4,24 +4,47 @@ public class ContentReadException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Default constructor.
+	 */
 	public ContentReadException() {
 		super();
 	}
 
-	public ContentReadException(String message, Throwable cause,
-			boolean enableSuppression, boolean writableStackTrace) {
+	/**
+	 * Common exception constructor.
+	 * @param message message.
+	 * @param cause cause.
+	 * @param enableSuppression enableSuppression
+	 * @param writableStackTrace writableStackTrace
+	 */
+	public ContentReadException(final String message, final Throwable cause,
+			final boolean enableSuppression, final boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
 
-	public ContentReadException(String message, Throwable cause) {
+	/**
+	 * Common exception constructor.
+	 * @param message message
+	 * @param cause cause
+	 */
+	public ContentReadException(final String message, final Throwable cause) {
 		super(message, cause);
 	}
 
-	public ContentReadException(String message) {
+	/**
+	 * Common exception constructor.
+	 * @param message message
+	 */
+	public ContentReadException(final String message) {
 		super(message);
 	}
 
-	public ContentReadException(Throwable cause) {
+	/**
+	 * Common exception constructor.
+	 * @param cause cause
+	 */
+	public ContentReadException(final Throwable cause) {
 		super(cause);
 	}
 }
