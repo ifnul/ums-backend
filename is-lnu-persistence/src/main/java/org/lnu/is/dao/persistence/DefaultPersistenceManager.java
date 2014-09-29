@@ -2,6 +2,7 @@ package org.lnu.is.dao.persistence;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -108,8 +109,8 @@ public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I>
 
         LOG.info(String.format("Create JPQL: query=[%s]; parameters=[%s] ", querySql, parameters));
 
-        for (String key : parameters.keySet()) {
-            typedQuery.setParameter(key, parameters.get(key));
+        for (Entry<String, Object> entry : parameters.entrySet()) {
+            typedQuery.setParameter(entry.getKey(), entry.getValue());
         }
 
         return typedQuery;
