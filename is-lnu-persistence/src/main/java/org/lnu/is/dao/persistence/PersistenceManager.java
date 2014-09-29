@@ -15,7 +15,7 @@ public interface PersistenceManager<T, I> {
     T update(T entity);
 
     void remove(T entity);
-
+    
     T executeSingleResultQuery(Query<T> query);
 
     List<T> executeMultipleResultQuery(Query<T> query);
