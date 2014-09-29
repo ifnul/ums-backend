@@ -15,6 +15,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<checkstyleDir>${basedir}/../checks</checkstyleDir>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.liquibase</groupId>

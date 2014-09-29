@@ -24,6 +24,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gatling.version>2.0.0-RC1</gatling.version>
+		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 	</properties>
 
 	<dependencies>

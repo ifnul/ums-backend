@@ -18,7 +18,6 @@
 		<module>is-lnu-persistence</module>
 		<module>is-lnu-domain</module>
 		<module>is-lnu-migrations</module>
-		<module>is-lnu-content</module>
 		<module>is-lnu-integration</module>
 		<module>is-lnu-security</module>
 	</modules>
@@ -154,6 +153,7 @@
 				</executions>
 				<configuration>
 					<configLocation>${checkstyleDir}/checkstyle.xml</configLocation>
+					<suppressionsLocation>${checkstyleDir}/suppressions.xml</suppressionsLocation>
 					<failsOnError>true</failsOnError>
 					<failOnViolation>true</failOnViolation>
 				</configuration>
