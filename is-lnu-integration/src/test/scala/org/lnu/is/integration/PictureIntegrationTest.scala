@@ -4,7 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
-class PictureScenario extends Simulation {
+class PictureIntegrationTest extends Simulation {
 
   val httpConf = http
     .baseURL("http://computer-database.herokuapp.com") // Here is the root for all relative URLs

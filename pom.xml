@@ -18,7 +18,6 @@
 		<module>is-lnu-persistence</module>
 		<module>is-lnu-domain</module>
 		<module>is-lnu-migrations</module>
-		<module>is-lnu-integration</module>
 		<module>is-lnu-security</module>
 	</modules>
 
@@ -37,7 +36,7 @@
 		<migrations.location>src/main/resources/migrations/db.changelog.xml</migrations.location>
 
 		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-		<jdbc.databaseurl>jdbc:postgresql://localhost:5432/is-lnu</jdbc.databaseurl>
+		<jdbc.databaseurl>jdbc:postgresql://localhost:5432/lnu</jdbc.databaseurl>
 		<jdbc.username>postgres</jdbc.username>
 		<jdbc.password>postgres</jdbc.password>
 		<jpa.database>POSTGRESQL</jpa.database>
@@ -167,18 +166,34 @@
 		</resources>
 	</build>
 	<profiles>
+		
 		<profile>
 			<id>development</id>
 			<properties>
 				<migrations.location>src/main/resources/migrations/db.changelog.xml</migrations.location>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
+		
 		<profile>
 			<id>dump</id>
 			<properties>
 				<migrations.location>src/main/resources/migrations/db.changelog-initial-dataset.xml</migrations.location>
 			</properties>
+			<modules>
+				<module>is-lnu-migrations</module>
+			</modules>			
 		</profile>
+		
+		<profile>
+			<id>integration</id>
+			<modules>
+				<module>is-lnu-integration</module>
+			</modules>
+		</profile>
+		
 	</profiles>
 
 </project>
