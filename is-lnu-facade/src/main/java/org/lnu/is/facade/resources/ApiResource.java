@@ -1,5 +1,10 @@
 package org.lnu.is.facade.resources;
 
+/**
+ * Abstract class, that all resources need to implement.
+ * @author ivanursul
+ *
+ */
 public abstract class ApiResource {
 
 	/**

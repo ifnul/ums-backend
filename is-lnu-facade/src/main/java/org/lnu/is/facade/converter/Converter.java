@@ -2,6 +2,13 @@ package org.lnu.is.facade.converter;
 
 import java.util.List;
 
+/**
+ * Interface for converting one object into another.
+ * @author ivanursul
+ *
+ * @param <Source> Input object class
+ * @param <Target> Output object class
+ */
 public interface Converter<Source, Target> {
 
 	/**

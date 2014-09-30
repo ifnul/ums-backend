@@ -3,6 +3,13 @@ package org.lnu.is.pagination;
 import java.util.List;
 
 
+/**
+ * Class for getting paged result.
+ * This class is used when you need to get pagination result.
+ * @author ivanursul
+ *
+ * @param <E> E is a generic for entities.
+ */
 public class PagedResult<E> {
 
 	private Integer offset;

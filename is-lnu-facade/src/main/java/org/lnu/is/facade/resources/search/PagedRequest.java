@@ -1,7 +1,10 @@
 package org.lnu.is.facade.resources.search;
 
-
-
+/**
+ * Paged Request, that comes from controller.
+ * @author ivanursul
+ *
+ */
 public class PagedRequest {
 
     private Integer offset;

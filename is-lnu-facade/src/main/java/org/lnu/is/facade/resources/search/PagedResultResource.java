@@ -4,6 +4,13 @@ import java.util.List;
 
 import org.lnu.is.facade.resources.ApiResource;
 
+/**
+ * PagedResultResource, that is sent to response,
+ * when we need to have pagination response.
+ * @author ivanursul
+ *
+ * @param <R> Generic object class of resource
+ */
 public class PagedResultResource<R> extends ApiResource {
 
     private Integer offset;

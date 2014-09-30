@@ -67,6 +67,9 @@
 
         <!-- Checks for Javadoc comments.                     -->
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->
+        <module name="JavadocType">
+        	<property name="scope" value="public"/>
+        </module>
         <module name="JavadocMethod">
             <property name="allowMissingPropertyJavadoc" value="true" />
             <property name="allowMissingParamTags" value="true"/>

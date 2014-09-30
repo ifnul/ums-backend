@@ -15,6 +15,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+/**
+ * Persistance Manager to work with entityManager.
+ * @author ivanursul
+ *
+ * @param <T> Entity class.
+ * @param <I> IDentifier class.
+ */
 @Repository("persistenceManager")
 public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I> {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultPersistenceManager.class);

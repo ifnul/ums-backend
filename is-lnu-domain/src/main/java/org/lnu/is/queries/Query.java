@@ -2,6 +2,13 @@ package org.lnu.is.queries;
 
 import java.util.Map;
 
+/**
+ * Class, that incapsulates all required fields
+ * for retrieving result.
+ * @author ivanursul
+ *
+ * @param <T>
+ */
 public class Query<T> {
 
     private Class<T> entityClass;

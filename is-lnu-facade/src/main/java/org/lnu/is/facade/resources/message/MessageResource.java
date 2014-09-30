@@ -1,5 +1,11 @@
 package org.lnu.is.facade.resources.message;
 
+/**
+ * Resource for getting information
+ * about request.
+ * @author ivanursul
+ *
+ */
 public class MessageResource {
 
 	private MessageType messageType;
@@ -26,12 +32,15 @@ public class MessageResource {
 	public MessageType getMessageType() {
 		return messageType;
 	}
+	
 	public void setMessageType(final MessageType messageType) {
 		this.messageType = messageType;
 	}
+	
 	public String getMessage() {
 		return message;
 	}
+	
 	public void setMessage(final String message) {
 		this.message = message;
 	}

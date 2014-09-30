@@ -5,6 +5,14 @@ import org.lnu.is.facade.resources.search.PagedRequest;
 import org.lnu.is.pagination.PagedSearch;
 import org.springframework.stereotype.Component;
 
+/**
+ * Converter that converts from PagedRequest to PagedSearch.
+ * Main idea is that PagedRequest is from facade layer and
+ * PagedSearch is from domain layer.
+ * @author ivanursul
+ *
+ * @param <T> Entity class.
+ */
 @Component("pagedRequestConverter")
 public class PagedRequestConverter<T> extends AbstractConverter<PagedRequest, PagedSearch<T>> {
 

@@ -6,6 +6,15 @@ import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Query;
 
+/**
+ * Interface, that is used to incapsulate all work
+ * with entity manager or other objects, that are
+ * working with database.
+ * @author ivanursul
+ *
+ * @param <T> Entity Class
+ * @param <I> Identifier Class
+ */
 public interface PersistenceManager<T, I> {
 
 	/**

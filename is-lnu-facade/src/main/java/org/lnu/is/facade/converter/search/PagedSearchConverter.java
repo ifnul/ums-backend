@@ -7,7 +7,9 @@ import org.lnu.is.pagination.PagedResult;
 import org.springframework.stereotype.Component;
 
 /**
- * @date Feb 14, 2014
+ * PagedSearchConverter that converts from PagedREsult into PagedResultResource.
+ * Main idea is that PagedResult is from facade layer and
+ * PagedResultResource is from domain layer.
  * @author ivanursul
  *
  */

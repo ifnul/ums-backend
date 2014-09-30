@@ -1,11 +1,7 @@
 package org.lnu.is.queries;
-
-
-
 /**
  * Class, that contains all required queries.
  * @author ivanursul
- *
  */
 public final class Queries {
 	

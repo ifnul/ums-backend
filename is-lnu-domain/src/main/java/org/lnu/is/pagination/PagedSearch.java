@@ -6,10 +6,10 @@ import org.lnu.is.queries.Queries;
 
 
 /**
- * Class for paged queries.
- * @date Feb 6, 2014
+ * Class for getting paged result for pagination.
  * @author ivanursul
  *
+ * @param <T> Generic parameter for entity.
  */
 public class PagedSearch<T> {
     

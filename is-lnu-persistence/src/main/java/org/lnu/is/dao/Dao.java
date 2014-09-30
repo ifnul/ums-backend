@@ -1,5 +1,13 @@
 package org.lnu.is.dao;
 
+/**
+ * Interface, that has all methods, that are needed 
+ * to work with entities.
+ * @author ivanursul
+ *
+ * @param <E> Entity class.
+ * @param <T> Identifier class.
+ */
 public interface Dao<E, T> {
 
 	/**

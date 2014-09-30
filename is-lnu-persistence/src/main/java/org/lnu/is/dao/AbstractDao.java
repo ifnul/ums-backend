@@ -6,6 +6,14 @@ import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 
+/**
+ * Abstract implementation, that has
+ * all methods for convenient work with entities.
+ * @author ivanursul
+ *
+ * @param <E> Entity class.    
+ * @param <T> Identifier class.
+ */
 public abstract class AbstractDao<E, T> implements Dao<E, T> {
 
 	@Resource(name = "persistenceManager")

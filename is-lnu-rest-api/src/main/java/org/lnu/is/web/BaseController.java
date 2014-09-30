@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Basic Controller.
+ * Remember to extend this controller, when you are writing new controller.
+ * @author ivanursul
+ *
+ */
 public abstract class BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(BaseController.class);
 	
