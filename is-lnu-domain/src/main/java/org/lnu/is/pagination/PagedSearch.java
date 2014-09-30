@@ -21,7 +21,6 @@ public class PagedSearch<T> {
 	
     /**
      * Constructor with no parameters.
-     * @date Sep 28, 2014
      * @author ivanursul
      */
     public PagedSearch() {
@@ -30,7 +29,6 @@ public class PagedSearch<T> {
 
     /**
      * Basic constructor for setting all required fields to PagedSearch.
-     * @date Sep 28, 2014
      * @author ivanursul
      * @param offset start position.
      * @param limit Maximum of elements to be retrieved.

@@ -19,7 +19,6 @@ public class PagedResult<E> {
     
     /**
      * Basic constructor for all required parameters.
-     * @date Sep 28, 2014
      * @author ivanursul
      * @param offset start position.
      * @param limit Maximum of elements to be retrieved.

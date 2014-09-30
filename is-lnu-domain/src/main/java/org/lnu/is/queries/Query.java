@@ -7,7 +7,7 @@ import java.util.Map;
  * for retrieving result.
  * @author ivanursul
  *
- * @param <T>
+ * @param <T> Generic object class.
  */
 public class Query<T> {
 
@@ -18,7 +18,7 @@ public class Query<T> {
     private Map<String, Object> parameters;
 
     /**
-     * Consructor for setting base Query<T> instance.
+     * Consructor for setting base Query instance.
      * @param entityClass Class instance of current entity.
      * @param query JPQL query, that will be executed by entity manager.
      * @param parameters All required parameters.

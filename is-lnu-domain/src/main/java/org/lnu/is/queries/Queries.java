@@ -15,7 +15,6 @@ public final class Queries {
 
     /**
      * Constructor, which takes two parameters: name and query.
-     * @date Sep 28, 2014
      * @author ivanursul
      * @param queryName the name of query which will be stored in Queries class.
      * @param query query, which will be stored  in Queries class.
