@@ -10,6 +10,7 @@
 
 	<properties>
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
+		<findBugsDir>${basedir}/../findbugs</findBugsDir>
 	</properties>
 
 	<parent>
