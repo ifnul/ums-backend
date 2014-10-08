@@ -1,5 +1,7 @@
 package org.lnu.is.service.specoffer;
 
+import org.lnu.is.domain.specoffer.SpecOffer;
+
 /**
  * Interface, that describes specoffer
  * functionality for service layer.
@@ -7,5 +9,11 @@ package org.lnu.is.service.specoffer;
  *
  */
 public interface SpecOfferService {
+
+	/**
+	 * Method for creating specoffer in service layer.
+	 * @param specOffer
+	 */
+	void createSpecOffer(SpecOffer specOffer);
 
 }
