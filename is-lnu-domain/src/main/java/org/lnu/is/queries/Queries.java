@@ -5,10 +5,10 @@ package org.lnu.is.queries;
  */
 public final class Queries {
 	
-	private static final String FIND_PICTURES_QUERY_NAME = "Pictures.findPictures";
-	private static final String FIND_PICTURES_QUERY = "SELECT p FROM Picture p";
+	private static final String FIND_SPECOFFERS_QUERY_NAME = "SpecOffers.findSpecOffers";
+	private static final String FIND_SPECOFFERS_QUERY = "SELECT s FROM SpecOffer s";
 
-	public static final Queries FIND_PICTURES = new Queries(FIND_PICTURES_QUERY_NAME, FIND_PICTURES_QUERY);
+	public static final Queries FIND_SPECOFFERS = new Queries(FIND_SPECOFFERS_QUERY_NAME, FIND_SPECOFFERS_QUERY);
 
     private final String queryName;
     private final String query;
