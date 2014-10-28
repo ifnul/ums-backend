@@ -2,6 +2,7 @@
 *.settings
 *.project
 *.classpath
+*.iml
 target
 # Package Files #
 *.jar

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet author="illay" id="1">
+
+    <changeSet author="illay" id="Створення таблиці заяв абітурієнтів">
         <createTable remarks="Заява абітурієнта" tableName="q_dc_enrolment">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -30,9 +31,9 @@
             <column name="enrolmenttype_id" remarks="Ідентифікатор типу поступлення" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="evdate" remarks="Дата створення заяви" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="begdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="enddate" remarks="Дата закриття заяви(абітурієнт забрав заяву)" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="evdate" remarks="Дата створення заяви" type="TIMESTAMP"/>
+            <column name="begdate" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закриття заяви(абітурієнт забрав заяву)" type="TIMESTAMP"/>
             <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -50,12 +51,35 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>   
         </createTable>
+        
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_enrolment_id" tableName="q_dc_enrolment"/>
+        
+        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dc_enrolment" constraintName="fk_q_ob_specofer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
+        
+        <addForeignKeyConstraint baseColumnNames="enrolmenttype_id" baseTableName="q_dc_enrolment" constraintName="fk_q_rf_enrolmenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolmenttype"/>
+        
+        <createIndex indexName="fki_q_ob_department_id" tableName="q_dc_enrolment" unique="false">
+            <column name="department_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_ob_specofer_id" tableName="q_dc_enrolment" unique="false">
+            <column name="specoffer_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_od_personpaper_id" tableName="q_dc_enrolment" unique="false">
+            <column name="personpapper_id"/>
+        </createIndex>
+        
     </changeSet>
-    <changeSet author="illay" id="2">
+
+    <changeSet author="illay" id="Створення таблиці зв’язку між пільгами і заявою">
         <createTable remarks="Пільги в заяві" tableName="q_dt_enrolmentbenefit">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -82,12 +106,26 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+        
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_enrolmentbenefit" tableName="q_dt_enrolmentbenefit"/>
+        	
+        <addForeignKeyConstraint baseColumnNames="enrolment_id" baseTableName="q_dt_enrolmentbenefit" constraintName="fk_q_dc_enrolment_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_enrolment"/>
+        
+        <addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_dt_enrolmentbenefit" constraintName="fk_q_ob_benefits_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
+        
+         <createIndex indexName="fki_q_ob_benefits_id" tableName="q_dt_enrolmentbenefit" unique="false">
+            <column name="benefit_id"/>
+        </createIndex>
     </changeSet>
-    <changeSet author="illay" id="3">
+    
+    <changeSet author="illay" id="Створення таблиці зв’язку між придметами ЗНО і заявою">
         <createTable remarks="Предмети ЗНО в заяві" tableName="q_dt_enrolmentenrolsubject">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -118,12 +156,29 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_dt_enrolmentenrolsubject" tableName="q_dt_enrolmentenrolsubject"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="personenrolsubject_id" baseTableName="q_dt_enrolmentenrolsubject" constraintName="fk_q_ob_personenrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_personenrolsubject"/>
+    	
+    	<createIndex indexName="fki_q_ob_personenrolsubject_id" tableName="q_dt_enrolmentenrolsubject" unique="false">
+            <column name="personenrolsubject_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_rf_enrolsubject_id" tableName="q_dt_enrolmentenrolsubject" unique="false">
+            <column name="enrolsubject_id"/>
+        </createIndex>
+        
     </changeSet>
-    <changeSet author="illay" id="4">
+    
+    <changeSet author="illay" id="Створення таблиці статусу заявки">
         <createTable remarks="Статуси заяви" tableName="q_dt_enrolmentstatus">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -153,12 +208,28 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+        
+        <addPrimaryKey columnNames="id" constraintName="pk_dt_enrolmentstatus_id" tableName="q_dt_enrolmentstatus"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="specofferwave_id" baseTableName="q_dt_enrolmentstatus" constraintName="fk_q_ob_sprcofferwave_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_specofferwave"/>
+    	
+    	<createIndex indexName="fki_q_dc_enrolment_id" tableName="q_dt_enrolmentstatus" unique="false">
+            <column name="enrolment_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_ob_sprcofferwave_id" tableName="q_dt_enrolmentstatus" unique="false">
+            <column name="specofferwave_id"/>
+        </createIndex>
     </changeSet>
-    <changeSet author="illay" id="5">
+    
+    <changeSet author="illay" id="Створення таблиці всіх пільг">
         <createTable remarks="Таблиця ob_benefit містить дані про пільги" tableName="q_ob_benefit">
             <column name="id" remarks="Ідентифікатор пільги" type="BIGINT">
                 <constraints nullable="false"/>
@@ -170,8 +241,8 @@
             <column name="name" remarks="Назва пільги" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
-            <column name="begdata" remarks="Дата початку переваги" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="enddate" remarks="Дата закінчення переваги" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="begdata" remarks="Дата початку переваги" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закінчення переваги" type="TIMESTAMP"/>
             <column name="description" type="VARCHAR(255)"/>
             <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -190,12 +261,25 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+   		
+   	    <addPrimaryKey columnNames="id" constraintName="pk_ob_benifit" tableName="q_ob_benefit"/>
+   		 
+ 		<addForeignKeyConstraint baseColumnNames="benefittype_id" baseTableName="q_ob_benefit" constraintName="fk_q_rf_benefittype" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_benefittype"/>
+ 		
+ 		<createIndex indexName="fki_q_rf_benefittype" tableName="q_ob_benefit" unique="false">
+            <column name="benefittype_id"/>
+        </createIndex>
+        
     </changeSet>
-    <changeSet author="illay" id="6">
+    
+    <changeSet author="illay" id="Створення таблиці всіх підрозділів">
         <createTable remarks="Інформація про підрозділи, де:&#10;• в нелисткових записах ієрархії (які мають або можуть мати підпорядковані записи) зберігаються групи підрозділів (науково-навчальний інститут, навчальний інститут, підрозділ ІТ тощо);&#10;• в нелисткових записах ієрархії зберігаються підрозділи складної структури (Інститут комп’ютерних наук та інформаційних технологій, Бухгалтерія, НДЧ, ЦІЗ, ЦТЕ ЗТІ тощо);&#10;• в листкових записах ієрархії (які не мають підпорядкованих записів) зберігаються підрозділи простої структури або структурні одиниці інших підрозділів (Кафедра програмного забезпечення, Відділ проектування та впровадження програмних засобів, Відділ моніторингу та оперативного планування навчального процесу тощо)." tableName="q_ob_department">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -210,8 +294,8 @@
             <column name="manager" remarks="Керівник підрозділу" type="VARCHAR(50)"/>
             <column name="phone" remarks="Телефон підрозділу" type="VARCHAR(200)"/>
             <column name="email" remarks="e-mail підрозділу" type="VARCHAR(200)"/>
-            <column name="begdate" remarks="Дата створення підрозділу" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="enddate" remarks="Дата закриття підрозділу" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="begdate" remarks="Дата створення підрозділу" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закриття підрозділу" type="TIMESTAMP"/>
             <column name="order_id" remarks="Ідентифікатор наказу" type="BIGINT"/>
             <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -230,12 +314,25 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+
+		<addPrimaryKey columnNames="id" constraintName="pk_q_ob_department_id" tableName="q_ob_department"/>
+		
+		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_department" constraintName="fk_ob_department" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+		
+		<createIndex indexName="fki_ob_department" tableName="q_ob_department" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
+            
     </changeSet>
-    <changeSet author="illay" id="7">
+    
+    <changeSet author="illay" id="Створення таблиці всіх персон">
         <createTable remarks="Інформація про персону" tableName="q_ob_person">
             <column name="id" remarks="Ідентифікатор персони" type="BIGINT">
                 <constraints nullable="false"/>
@@ -262,8 +359,8 @@
                 <constraints nullable="false"/>
             </column>
             <column name="birthplace" remarks="Місце народження" type="VARCHAR(200)"/>
-            <column name="begdate" remarks="Дата народження" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="enddate" remarks="Дата смерті" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="begdate" remarks="Дата народження" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата смерті" type="TIMESTAMP"/>
             <column name="ismilitary" remarks="Відмітка, чи є персона військово-зобов&quot;язаною" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
@@ -287,12 +384,22 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    
+    	<addPrimaryKey columnNames="id" constraintName="pk_ob_person_id" tableName="q_ob_person"/>
+    	
+    	<createIndex indexName="fki_q_ob_person_id" tableName="q_ob_person" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
     </changeSet>
-    <changeSet author="illay" id="8">
+    
+    <changeSet author="illay" id="Створення таблиці всіх напрямів і спеціальностей">
         <createTable remarks="Напрями та спеціальності" tableName="q_ob_specialty">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -305,8 +412,8 @@
                 <constraints nullable="false"/>
             </column>
             <column name="cipher" remarks="Шифр спеціальності" type="VARCHAR(50)"/>
-            <column name="begdate" remarks="Дата початку" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="enddate" remarks="Дата закінчення" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="begdate" remarks="Дата початку" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закінчення" type="TIMESTAMP"/>
             <column name="parent_id" remarks="Ієрархічний ідентифікатор - Ієрархія (напрям, спеціальність, ...)" type="BIGINT"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -324,12 +431,29 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_specialty" tableName="q_ob_specialty"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_ob_specialty" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
+    	
+    	<createIndex indexName="fki_q_ob_specialty_id" tableName="q_ob_specialty" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_rf_specialtytype_id" tableName="q_ob_specialty" unique="false">
+            <column name="specialtytype_id"/>
+        </createIndex>
+        
     </changeSet>
-    <changeSet author="illay" id="9">
+    
+    <changeSet author="illay" id="Створення таблиці всіх пропоцицій">
         <createTable remarks="Пропозиція" tableName="q_ob_specoffer">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -343,7 +467,7 @@
             <column name="timeperiod_id" remarks="Ідентифікатор часового періоду" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="specoffertype" remarks="Ідентифікатор типу пропозиції" type="BIGINT"/>
+            <column name="specoffertype_id" remarks="Ідентифікатор типу пропозиції" type="BIGINT"/>
             <column name="docseries" remarks="Серія ліцензії" type="VARCHAR(50)"/>
             <column name="docnum" remarks="Номер ліцензії" type="VARCHAR(50)"/>
             <column name="eduformtype_id" remarks="Ідентифікатор форми навчання" type="BIGINT">
@@ -351,8 +475,8 @@
             </column>
             <column name="liccount" remarks="Кількість ліцензованих місць" type="INTEGER"/>
             <column name="statecount" remarks="Кількість місць державного замовлення" type="INTEGER"/>
-            <column name="begdate" remarks="Дата початку" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="enddate" remarks="Дата закінчення" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="begdate" remarks="Дата початку" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закінчення" type="TIMESTAMP"/>
             <column name="parent_id" remarks="Ієрархіічний ідентифікатор - Ієрархія(ліцензія =&gt; додаток до ліцензії)" type="BIGINT"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -370,12 +494,40 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+             <column name="update_date" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column> 
         </createTable>
+        
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_specoffer_id" tableName="q_ob_specoffer"/>
+        
+        <addForeignKeyConstraint baseColumnNames="specoffertype_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specoffertype"/>
+        
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+        
+        <addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
+        
+        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
+        
+        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_ob_specoffer" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
+        
+        <createIndex indexName="fki_q_ob_timeperiod_id" tableName="q_ob_specoffer" unique="false">
+            <column name="timeperiod_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_rf_eduformtype_id" tableName="q_ob_specoffer" unique="false">
+            <column name="eduformtype_id"/>
+        </createIndex>
+        
     </changeSet>
-    <changeSet author="illay" id="10">
+    
+    <changeSet author="illay" id="Створення таблиці пільги на конкретну спеціальність">
         <createTable remarks="Пільги на конкретну спеціальність" tableName="q_ob_specofferbenefit">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -402,12 +554,30 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_specofferbenefit_id" tableName="q_ob_specofferbenefit"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_ob_specofferbenefit" constraintName="fk_q_ob_benefit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_ob_specofferbenefit" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
+    	
+    	<createIndex indexName="fki_q_ob_benefit_id" tableName="q_ob_specofferbenefit" unique="false">
+            <column name="benefit_id"/>
+        </createIndex>
+        
+         <createIndex indexName="fki_q_ob_specoffer_id" tableName="q_ob_specofferbenefit" unique="false">
+            <column name="specoffer_id"/>
+        </createIndex>
     </changeSet>
-    <changeSet author="illay" id="11">
+
+    <changeSet author="illay" id="Створення таблиці часових періодів(рік, семестр, місяць)">
         <createTable remarks="Часові періоди (застосовується для систематизації об'єктів бази даних, наприклад таких як документи, по відношенню їх до конкретного навчального чи календарного року, семестру, чверті і т.д.)" tableName="q_ob_timeperiod">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -421,8 +591,8 @@
             <column name="numvalue" remarks="Числове позначення часового періоду (Для календарного року воно співпадає з текстовим позначенням; для навчального року це рік початку начального року)" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="begdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="enddate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="begdate" type="TIMESTAMP"/>
+            <column name="enddate" type="TIMESTAMP"/>
             <column name="parent_id" remarks="Ієрарічний ідентифікатор (Ієрархія: приналежність семестру до року і т.д.)" type="BIGINT"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -440,12 +610,19 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_timeperiod_id" tableName="q_ob_timeperiod"/>
+    	
     </changeSet>
-    <changeSet author="illay" id="12">
+    
+    <changeSet author="illay" id="Створення таблиці із балами зовнішнього національного оцінювання">
         <createTable remarks="Бали зовнішнього незалежного оцінювання" tableName="q_od_personenrolsubject">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -474,12 +651,21 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_od_personenrolsubject_id" tableName="q_od_personenrolsubject"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="personpaper_id" baseTableName="q_od_personenrolsubject" constraintName="fk_q_od_personpaper_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_personpaper"/>
+    	
     </changeSet>
-    <changeSet author="illay" id="13">
+    
+    <changeSet author="illay" id="Створення таблиці документів персон">
         <createTable remarks="Документи персони" tableName="q_od_personpaper">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -492,7 +678,7 @@
             </column>
             <column name="docseries" remarks="Серія документу" type="VARCHAR(50)"/>
             <column name="docnum" remarks="Номер документу" type="VARCHAR(50)"/>
-            <column name="docdate" remarks="Дата видачі документу" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="docdate" remarks="Дата видачі документу" type="TIMESTAMP"/>
             <column name="docissued" remarks="Ким видано документ" type="VARCHAR(200)"/>
             <column name="docpin" remarks="Пін-код сертифікату ЗНО" type="VARCHAR(50)"/>
             <column name="honorstype_id" remarks="Ідентифікатор типу відзнаки" type="BIGINT"/>
@@ -519,12 +705,19 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    	
+    	 <addPrimaryKey columnNames="id" constraintName="pk_q_od_personpapper_id" tableName="q_od_personpaper"/>
+    	 
     </changeSet>
-    <changeSet author="illay" id="14">
+    
+    <changeSet author="illay" id="Створення таблиці пільги по спеціальності">
         <createTable remarks="Пільги на конкретну спеціальність" tableName="q_od_specofferbenefit">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -551,12 +744,19 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    	
+    	 <addPrimaryKey columnNames="id" constraintName="pk_q_od_specofferbenefit" tableName="q_od_specofferbenefit"/>
+    	 
     </changeSet>
-    <changeSet author="illay" id="15">
+    
+    <changeSet author="illay" id="Створення таблиці предмети ЗНО на пропозицію">
         <createTable remarks="Пропозиція предметів ЗНО на напрям/спеціальність" tableName="q_od_specoffersubject">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -588,12 +788,23 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_od_specoffersubject_id" tableName="q_od_specoffersubject"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_od_specoffersubject" constraintName="fk_q_ob_specoffer" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="enrolsubject_id" baseTableName="q_od_specoffersubject" constraintName="fk_q_rf_enrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolsubject"/>
+    	
     </changeSet>
-    <changeSet author="illay" id="16">
+    
+    <changeSet author="illay" id="Створення таблиці довідник хвиль вступу">
         <createTable remarks="Довідник хвиль вступу" tableName="q_od_specofferwave">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -605,8 +816,8 @@
             <column name="statecount" remarks="Кількість місць державного замовлення" type="INTEGER"/>
             <column name="benefitcount" remarks="Кількість пільгових місць" type="INTEGER"/>
             <column name="targetcount" remarks="Кількість цільових місць у хвилі" type="INTEGER"/>
-            <column name="begdate" remarks="Дата початку хвилі" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="enddate" remarks="Дата закінчення хвилі" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="begdate" remarks="Дата початку хвилі" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закінчення хвилі" type="TIMESTAMP"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -623,12 +834,23 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_specofferewave" tableName="q_od_specofferwave"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_specofferwave" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="wavetype_id" baseTableName="q_od_specofferwave" constraintName="fk_q_rt_wavetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_wavetype"/>
+    	
     </changeSet>
-    <changeSet author="illay" id="17">
+    
+    <changeSet author="illay" id="Створення таблиці довідник типів пільг">
         <createTable remarks="Довідник типів пільг" tableName="q_rf_benefittype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -653,12 +875,16 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_benefittype" tableName="q_rf_benefittype"/>
+    	
     </changeSet>
-    <changeSet author="illay" id="18">
+    
+    <changeSet author="illay" id="Створення таблиці довідник форм навчання">
         <createTable remarks="Довідник форм навчання" tableName="q_rf_eduformtype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -682,12 +908,16 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_eduformtype" tableName="q_rf_eduformtype"/>
+    	
     </changeSet>
-    <changeSet author="illay" id="19">
+    
+    <changeSet author="illay" id="Створення таблиці довідник типів поступлень">
         <createTable remarks="Довідник типів поступлень(наприклад: поступлення по ЗНО,поступлення по співбесіді чи інше)" tableName="q_rf_enrolmenttype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -711,12 +941,16 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolmenttype" tableName="q_rf_enrolmenttype"/>
+    	
     </changeSet>
-    <changeSet author="illay" id="20">
+    
+    <changeSet author="illay" id="Створення таблиці довідник предметів ЗНО">
         <createTable remarks="Довідник предметів ЗНО" tableName="q_rf_enrolsubject">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -743,12 +977,18 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolsubject_id" tableName="q_rf_enrolsubject"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_enrolsubject" constraintName="fk_q_rf_enrolsubject_parent_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolsubject"/>
+    	
     </changeSet>
-    <changeSet author="illay" id="21">
+    
+    <changeSet author="illay" id="Створення таблиці довідник типів спеціальностей">
         <createTable remarks="Довідник типів спеціальностей" tableName="q_rf_specialtytype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -772,12 +1012,16 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+		
+		<addPrimaryKey columnNames="id" constraintName="pk_q_rf_specialtytype" tableName="q_rf_specialtytype"/>
+		
     </changeSet>
-    <changeSet author="illay" id="22">
+    
+    <changeSet author="illay" id="Створення таблиці типів пропозиції">
         <createTable remarks="Тип пропозиції(бакалавр за скороченими термінами навчання чи інше)" tableName="q_rf_specoffertype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -803,12 +1047,18 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_specoffertype_id" tableName="q_rf_specoffertype"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_rf_specoffertype" constraintName="fk_q_rf_specialtytype_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
+    	
     </changeSet>
-    <changeSet author="illay" id="23">
+    
+    <changeSet author="illay" id="Створення таблиці довідник типів статусу заяви">
         <createTable remarks="Довідник типів статусу заяви" tableName="q_rf_statustype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -832,12 +1082,16 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_statustype_id" tableName="q_rf_statustype"/>
+    
     </changeSet>
-    <changeSet author="illay" id="24">
+    
+    <changeSet author="illay" id="Створення таблиці довідник типів хвиль">
         <createTable remarks="Довідник типів хвиль" tableName="q_rf_wavetype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -861,232 +1115,13 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP WITHOUT TIME ZONE">
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-    </changeSet>
-    <changeSet author="illay" id="25">
-        <addPrimaryKey columnNames="id" constraintName="pk_dt_enrolmentstatus_id" tableName="q_dt_enrolmentstatus"/>
-    </changeSet>
-    <changeSet author="illay" id="26">
-        <addPrimaryKey columnNames="id" constraintName="pk_ob_benifit" tableName="q_ob_benefit"/>
-    </changeSet>
-    <changeSet author="illay" id="27">
-        <addPrimaryKey columnNames="id" constraintName="pk_ob_person_id" tableName="q_ob_person"/>
-    </changeSet>
-    <changeSet author="illay" id="28">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_enrolment_id" tableName="q_dc_enrolment"/>
-    </changeSet>
-    <changeSet author="illay" id="29">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_enrolmentbenefit" tableName="q_dt_enrolmentbenefit"/>
-    </changeSet>
-    <changeSet author="illay" id="30">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_enrolmentenrolsubject" tableName="q_dt_enrolmentenrolsubject"/>
-    </changeSet>
-    <changeSet author="illay" id="31">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_department_id" tableName="q_ob_department"/>
-    </changeSet>
-    <changeSet author="illay" id="32">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_specialty" tableName="q_ob_specialty"/>
-    </changeSet>
-    <changeSet author="illay" id="33">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_specoffer_id" tableName="q_ob_specoffer"/>
-    </changeSet>
-    <changeSet author="illay" id="34">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_specofferbenefit_id" tableName="q_ob_specofferbenefit"/>
-    </changeSet>
-    <changeSet author="illay" id="35">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_specofferewave" tableName="q_od_specofferwave"/>
-    </changeSet>
-    <changeSet author="illay" id="36">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_timeperiod_id" tableName="q_ob_timeperiod"/>
-    </changeSet>
-    <changeSet author="illay" id="37">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_od_personenrolsubject_id" tableName="q_od_personenrolsubject"/>
-    </changeSet>
-    <changeSet author="illay" id="38">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_od_personpapper_id" tableName="q_od_personpaper"/>
-    </changeSet>
-    <changeSet author="illay" id="39">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_od_specofferbenefit" tableName="q_od_specofferbenefit"/>
-    </changeSet>
-    <changeSet author="illay" id="40">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_od_specoffersubject_id" tableName="q_od_specoffersubject"/>
-    </changeSet>
-    <changeSet author="illay" id="41">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_benefittype" tableName="q_rf_benefittype"/>
-    </changeSet>
-    <changeSet author="illay" id="42">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_eduformtype" tableName="q_rf_eduformtype"/>
-    </changeSet>
-    <changeSet author="illay" id="43">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolmenttype" tableName="q_rf_enrolmenttype"/>
-    </changeSet>
-    <changeSet author="illay" id="44">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolsubject_id" tableName="q_rf_enrolsubject"/>
-    </changeSet>
-    <changeSet author="illay" id="45">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_specialtytype" tableName="q_rf_specialtytype"/>
-    </changeSet>
-    <changeSet author="illay" id="46">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_specoffertype_id" tableName="q_rf_specoffertype"/>
-    </changeSet>
-    <changeSet author="illay" id="47">
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_statustype_id" tableName="q_rf_statustype"/>
-    </changeSet>
-    <changeSet author="illay" id="48">
-        <addPrimaryKey columnNames="id" constraintName="pk_rf_wavetype_id" tableName="q_rf_wavetype"/>
-    </changeSet>
-    <changeSet author="illay" id="49">
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_department" constraintName="fk_ob_department" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
-    </changeSet>
-    <changeSet author="illay" id="50">
-        <addForeignKeyConstraint baseColumnNames="enrolment_id" baseTableName="q_dt_enrolmentbenefit" constraintName="fk_q_dc_enrolment_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_enrolment"/>
-    </changeSet>
-    <changeSet author="illay" id="51">
-        <addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_ob_specofferbenefit" constraintName="fk_q_ob_benefit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
-    </changeSet>
-    <changeSet author="illay" id="52">
-        <addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_dt_enrolmentbenefit" constraintName="fk_q_ob_benefits_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
-    </changeSet>
-    <changeSet author="illay" id="53">
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
-    </changeSet>
-    <changeSet author="illay" id="54">
-        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_specofferwave" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
-    </changeSet>
-    <changeSet author="illay" id="55">
-        <addForeignKeyConstraint baseColumnNames="personenrolsubject_id" baseTableName="q_dt_enrolmentenrolsubject" constraintName="fk_q_ob_personenrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_personenrolsubject"/>
-    </changeSet>
-    <changeSet author="illay" id="56">
-        <addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
-    </changeSet>
-    <changeSet author="illay" id="57">
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dc_enrolment" constraintName="fk_q_ob_specofer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
-    </changeSet>
-    <changeSet author="illay" id="58">
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_od_specoffersubject" constraintName="fk_q_ob_specoffer" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
-    </changeSet>
-    <changeSet author="illay" id="59">
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_ob_specofferbenefit" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
-    </changeSet>
-    <changeSet author="illay" id="60">
-        <addForeignKeyConstraint baseColumnNames="specofferwave_id" baseTableName="q_dt_enrolmentstatus" constraintName="fk_q_ob_sprcofferwave_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_specofferwave"/>
-    </changeSet>
-    <changeSet author="illay" id="61">
-        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
-    </changeSet>
-    <changeSet author="illay" id="62">
-        <addForeignKeyConstraint baseColumnNames="personpaper_id" baseTableName="q_od_personenrolsubject" constraintName="fk_q_od_personpaper_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_personpaper"/>
-    </changeSet>
-    <changeSet author="illay" id="63">
-        <addForeignKeyConstraint baseColumnNames="benefittype_id" baseTableName="q_ob_benefit" constraintName="fk_q_rf_benefittype" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_benefittype"/>
-    </changeSet>
-    <changeSet author="illay" id="64">
-        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_ob_specoffer" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
-    </changeSet>
-    <changeSet author="illay" id="65">
-        <addForeignKeyConstraint baseColumnNames="enrolmenttype_id" baseTableName="q_dc_enrolment" constraintName="fk_q_rf_enrolmenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolmenttype"/>
-    </changeSet>
-    <changeSet author="illay" id="66">
-        <addForeignKeyConstraint baseColumnNames="enrolsubject_id" baseTableName="q_od_specoffersubject" constraintName="fk_q_rf_enrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolsubject"/>
-    </changeSet>
-    <changeSet author="illay" id="67">
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_enrolsubject" constraintName="fk_q_rf_enrolsubject_parent_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolsubject"/>
-    </changeSet>
-    <changeSet author="illay" id="68">
-        <addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_ob_specialty" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
-    </changeSet>
-    <changeSet author="illay" id="69">
-        <addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_rf_specoffertype" constraintName="fk_q_rf_specialtytype_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
-    </changeSet>
-    <changeSet author="illay" id="70">
-        <addForeignKeyConstraint baseColumnNames="wavetype_id" baseTableName="q_od_specofferwave" constraintName="fk_q_rt_wavetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_wavetype"/>
-    </changeSet>
-    <changeSet author="illay" id="71">
-        <createIndex indexName="fki_ob_department" tableName="q_ob_department" unique="false">
-            <column name="parent_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="72">
-        <createIndex indexName="fki_q_dc_enrolment_id" tableName="q_dt_enrolmentstatus" unique="false">
-            <column name="enrolment_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="73">
-        <createIndex indexName="fki_q_ob_benefit_id" tableName="q_ob_specofferbenefit" unique="false">
-            <column name="benefit_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="74">
-        <createIndex indexName="fki_q_ob_benefits_id" tableName="q_dt_enrolmentbenefit" unique="false">
-            <column name="benefit_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="75">
-        <createIndex indexName="fki_q_ob_department_id" tableName="q_dc_enrolment" unique="false">
-            <column name="department_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="76">
-        <createIndex indexName="fki_q_ob_person_id" tableName="q_ob_person" unique="false">
-            <column name="parent_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="77">
-        <createIndex indexName="fki_q_ob_personenrolsubject_id" tableName="q_dt_enrolmentenrolsubject" unique="false">
-            <column name="personenrolsubject_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="78">
-        <createIndex indexName="fki_q_ob_specialty_id" tableName="q_ob_specialty" unique="false">
-            <column name="parent_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="79">
-        <createIndex indexName="fki_q_ob_specofer_id" tableName="q_dc_enrolment" unique="false">
-            <column name="specoffer_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="80">
-        <createIndex indexName="fki_q_ob_specoffer_id" tableName="q_ob_specofferbenefit" unique="false">
-            <column name="specoffer_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="81">
-        <createIndex indexName="fki_q_ob_sprcofferwave_id" tableName="q_dt_enrolmentstatus" unique="false">
-            <column name="specofferwave_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="82">
-        <createIndex indexName="fki_q_ob_timeperiod_id" tableName="q_ob_specoffer" unique="false">
-            <column name="timeperiod_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="83">
-        <createIndex indexName="fki_q_od_personpaper_id" tableName="q_dc_enrolment" unique="false">
-            <column name="personpapper_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="84">
-        <createIndex indexName="fki_q_rf_benefittype" tableName="q_ob_benefit" unique="false">
-            <column name="benefittype_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="85">
-        <createIndex indexName="fki_q_rf_eduformtype_id" tableName="q_ob_specoffer" unique="false">
-            <column name="eduformtype_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="86">
-        <createIndex indexName="fki_q_rf_enrolsubject_id" tableName="q_dt_enrolmentenrolsubject" unique="false">
-            <column name="enrolsubject_id"/>
-        </createIndex>
-    </changeSet>
-    <changeSet author="illay" id="87">
-        <createIndex indexName="fki_q_rf_specialtytype_id" tableName="q_ob_specialty" unique="false">
-            <column name="specialtytype_id"/>
-        </createIndex>
-    </changeSet>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_rf_wavetype_id" tableName="q_rf_wavetype"/>
+    	
+    </changeSet>
+    
 </databaseChangeLog>
