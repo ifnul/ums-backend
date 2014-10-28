@@ -1,582 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-
-    <changeSet author="illay" id="Створення таблиці заяв абітурієнтів">
-        <createTable remarks="Заява абітурієнта" tableName="q_dc_enrolment">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="docseries" remarks="Серія документу" type="VARCHAR(50)"/>
-            <column name="docnum" remarks="Номер документу" type="VARCHAR(50)"/>
-            <column name="doctext" remarks="Інформація про коди особливих умов вступу" type="VARCHAR(200)"/>
-            <column name="issate" remarks="Бюджет" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="iscontract" remarks="Контракт(навчання за кошти фіз.особи)" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT"/>
-            <column name="department_id" remarks="Ідентифікатор підрозділу" type="BIGINT"/>
-            <column name="personpapper_id" remarks="Ідентифікатор документу персони" type="BIGINT"/>
-            <column name="mark" remarks="Загальний бал" type="DOUBLE"/>
-            <column name="isprivilege" remarks="Відмітка про наявність пільги" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="ishostel" remarks="Відмітка про потребу у гуртожитку" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="enrolmenttype_id" remarks="Ідентифікатор типу поступлення" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="evdate" remarks="Дата створення заяви" type="TIMESTAMP"/>
-            <column name="begdate" type="TIMESTAMP"/>
-            <column name="enddate" remarks="Дата закриття заяви(абітурієнт забрав заяву)" type="TIMESTAMP"/>
-            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>   
-        </createTable>
-        
-        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_enrolment_id" tableName="q_dc_enrolment"/>
-        
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dc_enrolment" constraintName="fk_q_ob_specofer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
-        
-        <addForeignKeyConstraint baseColumnNames="enrolmenttype_id" baseTableName="q_dc_enrolment" constraintName="fk_q_rf_enrolmenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolmenttype"/>
-        
-        <createIndex indexName="fki_q_ob_department_id" tableName="q_dc_enrolment" unique="false">
-            <column name="department_id"/>
-        </createIndex>
-        
-        <createIndex indexName="fki_q_ob_specofer_id" tableName="q_dc_enrolment" unique="false">
-            <column name="specoffer_id"/>
-        </createIndex>
-        
-        <createIndex indexName="fki_q_od_personpaper_id" tableName="q_dc_enrolment" unique="false">
-            <column name="personpapper_id"/>
-        </createIndex>
-        
-    </changeSet>
-
-    <changeSet author="illay" id="Створення таблиці зв’язку між пільгами і заявою">
-        <createTable remarks="Пільги в заяві" tableName="q_dt_enrolmentbenefit">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="enrolment_id" remarks="Ідентифікатор заяви" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="benefit_id" remarks="Ідентифікатор пільги" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-        
-        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_enrolmentbenefit" tableName="q_dt_enrolmentbenefit"/>
-        	
-        <addForeignKeyConstraint baseColumnNames="enrolment_id" baseTableName="q_dt_enrolmentbenefit" constraintName="fk_q_dc_enrolment_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_enrolment"/>
-        
-        <addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_dt_enrolmentbenefit" constraintName="fk_q_ob_benefits_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
-        
-         <createIndex indexName="fki_q_ob_benefits_id" tableName="q_dt_enrolmentbenefit" unique="false">
-            <column name="benefit_id"/>
-        </createIndex>
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці зв’язку між придметами ЗНО і заявою">
-        <createTable remarks="Предмети ЗНО в заяві" tableName="q_dt_enrolmentenrolsubject">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="enrolment_id" remarks="Ідентифікатор заяви" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="enrolsubject_id" remarks="Ідентифікатор предмету зовнішнього незалежного оцінювання" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="personenrolsubject_id" remarks="Ідентифікатор балу ЗНО" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="mark" remarks="Бал предмету ЗНО" type="numeric"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    	
-    	<addPrimaryKey columnNames="id" constraintName="pk_q_dt_enrolmentenrolsubject" tableName="q_dt_enrolmentenrolsubject"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="personenrolsubject_id" baseTableName="q_dt_enrolmentenrolsubject" constraintName="fk_q_ob_personenrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_personenrolsubject"/>
-    	
-    	<createIndex indexName="fki_q_ob_personenrolsubject_id" tableName="q_dt_enrolmentenrolsubject" unique="false">
-            <column name="personenrolsubject_id"/>
-        </createIndex>
-        
-        <createIndex indexName="fki_q_rf_enrolsubject_id" tableName="q_dt_enrolmentenrolsubject" unique="false">
-            <column name="enrolsubject_id"/>
-        </createIndex>
-        
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці статусу заявки">
-        <createTable remarks="Статуси заяви" tableName="q_dt_enrolmentstatus">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="enrolment_id" remarks="Ідентифікатор заяви" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="specofferwave_id" remarks="Ідентифікатор хвиль вступу" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="enrolmentstatustype_id" remarks="Ідентифікатор статусу заяви" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-        
-        <addPrimaryKey columnNames="id" constraintName="pk_dt_enrolmentstatus_id" tableName="q_dt_enrolmentstatus"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="specofferwave_id" baseTableName="q_dt_enrolmentstatus" constraintName="fk_q_ob_sprcofferwave_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_specofferwave"/>
-    	
-    	<createIndex indexName="fki_q_dc_enrolment_id" tableName="q_dt_enrolmentstatus" unique="false">
-            <column name="enrolment_id"/>
-        </createIndex>
-        
-        <createIndex indexName="fki_q_ob_sprcofferwave_id" tableName="q_dt_enrolmentstatus" unique="false">
-            <column name="specofferwave_id"/>
-        </createIndex>
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці всіх пільг">
-        <createTable remarks="Таблиця ob_benefit містить дані про пільги" tableName="q_ob_benefit">
-            <column name="id" remarks="Ідентифікатор пільги" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="benefittype_id" remarks="Назва пільги" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="abbrname" type="BIGINT"/>
-            <column name="name" remarks="Назва пільги" type="VARCHAR(200)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="begdata" remarks="Дата початку переваги" type="TIMESTAMP"/>
-            <column name="enddate" remarks="Дата закінчення переваги" type="TIMESTAMP"/>
-            <column name="description" type="VARCHAR(255)"/>
-            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-   		
-   	    <addPrimaryKey columnNames="id" constraintName="pk_ob_benifit" tableName="q_ob_benefit"/>
-   		 
- 		<addForeignKeyConstraint baseColumnNames="benefittype_id" baseTableName="q_ob_benefit" constraintName="fk_q_rf_benefittype" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_benefittype"/>
- 		
- 		<createIndex indexName="fki_q_rf_benefittype" tableName="q_ob_benefit" unique="false">
-            <column name="benefittype_id"/>
-        </createIndex>
-        
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці всіх підрозділів">
-        <createTable remarks="Інформація про підрозділи, де:&#10;• в нелисткових записах ієрархії (які мають або можуть мати підпорядковані записи) зберігаються групи підрозділів (науково-навчальний інститут, навчальний інститут, підрозділ ІТ тощо);&#10;• в нелисткових записах ієрархії зберігаються підрозділи складної структури (Інститут комп’ютерних наук та інформаційних технологій, Бухгалтерія, НДЧ, ЦІЗ, ЦТЕ ЗТІ тощо);&#10;• в листкових записах ієрархії (які не мають підпорядкованих записів) зберігаються підрозділи простої структури або структурні одиниці інших підрозділів (Кафедра програмного забезпечення, Відділ проектування та впровадження програмних засобів, Відділ моніторингу та оперативного планування навчального процесу тощо)." tableName="q_ob_department">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="department_type" remarks="Ідентифікатор типу підрозділу" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="abbrname" remarks="Скорочена назва(абревіатура)" type="VARCHAR(50)"/>
-            <column name="name" remarks="Назва підрозділу" type="VARCHAR(200)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="manager" remarks="Керівник підрозділу" type="VARCHAR(50)"/>
-            <column name="phone" remarks="Телефон підрозділу" type="VARCHAR(200)"/>
-            <column name="email" remarks="e-mail підрозділу" type="VARCHAR(200)"/>
-            <column name="begdate" remarks="Дата створення підрозділу" type="TIMESTAMP"/>
-            <column name="enddate" remarks="Дата закриття підрозділу" type="TIMESTAMP"/>
-            <column name="order_id" remarks="Ідентифікатор наказу" type="BIGINT"/>
-            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-
-		<addPrimaryKey columnNames="id" constraintName="pk_q_ob_department_id" tableName="q_ob_department"/>
-		
-		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_department" constraintName="fk_ob_department" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
-		
-		<createIndex indexName="fki_ob_department" tableName="q_ob_department" unique="false">
-            <column name="parent_id"/>
-        </createIndex>
-            
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці всіх персон">
-        <createTable remarks="Інформація про персону" tableName="q_ob_person">
-            <column name="id" remarks="Ідентифікатор персони" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="persontype_id" remarks="Ідентифікатор типу персони" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="name" remarks="Повна назва персони – прізвище, ім’я та по-батькові" type="VARCHAR(200)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="firstname" remarks="Ім’я" type="VARCHAR(200)"/>
-            <column name="fathername" remarks="По-батькові" type="VARCHAR(200)"/>
-            <column name="surname" remarks="Прізвище" type="VARCHAR(200)"/>
-            <column name="photo" remarks="Шлях до файлу, де знаходиться фото" type="VARCHAR(250)"/>
-            <column name="gendertype_id" remarks="Ідентифікатор статі" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="marriedtype_id" remarks="Сімейний стан" type="BIGINT"/>
-            <column name="citizencountry_id" remarks="Ідентифікатор громадянства" type="BIGINT"/>
-            <column name="docseries" remarks="Серія особової справи" type="VARCHAR(50)"/>
-            <column name="docnum" remarks="Номер особової справи" type="VARCHAR(50)"/>
-            <column name="identifier" remarks="Індекс матеріально-відповідального" type="VARCHAR(50)"/>
-            <column name="resident" remarks="Резидент" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="birthplace" remarks="Місце народження" type="VARCHAR(200)"/>
-            <column name="begdate" remarks="Дата народження" type="TIMESTAMP"/>
-            <column name="enddate" remarks="Дата смерті" type="TIMESTAMP"/>
-            <column name="ismilitary" remarks="Відмітка, чи є персона військово-зобов&quot;язаною" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="ishostel" remarks="Відмітка про потребу у гуртожитоку" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    
-    	<addPrimaryKey columnNames="id" constraintName="pk_ob_person_id" tableName="q_ob_person"/>
-    	
-    	<createIndex indexName="fki_q_ob_person_id" tableName="q_ob_person" unique="false">
-            <column name="parent_id"/>
-        </createIndex>
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці всіх напрямів і спеціальностей">
-        <createTable remarks="Напрями та спеціальності" tableName="q_ob_specialty">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="specialtytype_id" remarks="Ідентифікатор типу спеціальності" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="abbrname" remarks="Абревіатура спеціальності" type="VARCHAR(50)"/>
-            <column name="name" remarks="Назва спеціальності" type="VARCHAR(200)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="cipher" remarks="Шифр спеціальності" type="VARCHAR(50)"/>
-            <column name="begdate" remarks="Дата початку" type="TIMESTAMP"/>
-            <column name="enddate" remarks="Дата закінчення" type="TIMESTAMP"/>
-            <column name="parent_id" remarks="Ієрархічний ідентифікатор - Ієрархія (напрям, спеціальність, ...)" type="BIGINT"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(255)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    	
-    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_specialty" tableName="q_ob_specialty"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_ob_specialty" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
-    	
-    	<createIndex indexName="fki_q_ob_specialty_id" tableName="q_ob_specialty" unique="false">
-            <column name="parent_id"/>
-        </createIndex>
-        
-        <createIndex indexName="fki_q_rf_specialtytype_id" tableName="q_ob_specialty" unique="false">
-            <column name="specialtytype_id"/>
-        </createIndex>
-        
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці всіх пропоцицій">
-        <createTable remarks="Пропозиція" tableName="q_ob_specoffer">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="specialty_id" remarks="Ідентифікатор спеціальності" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="department_id" remarks="Ідентифікатор підрозділу" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="timeperiod_id" remarks="Ідентифікатор часового періоду" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="specoffertype_id" remarks="Ідентифікатор типу пропозиції" type="BIGINT"/>
-            <column name="docseries" remarks="Серія ліцензії" type="VARCHAR(50)"/>
-            <column name="docnum" remarks="Номер ліцензії" type="VARCHAR(50)"/>
-            <column name="eduformtype_id" remarks="Ідентифікатор форми навчання" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="liccount" remarks="Кількість ліцензованих місць" type="INTEGER"/>
-            <column name="statecount" remarks="Кількість місць державного замовлення" type="INTEGER"/>
-            <column name="begdate" remarks="Дата початку" type="TIMESTAMP"/>
-            <column name="enddate" remarks="Дата закінчення" type="TIMESTAMP"/>
-            <column name="parent_id" remarks="Ієрархіічний ідентифікатор - Ієрархія(ліцензія =&gt; додаток до ліцензії)" type="BIGINT"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-             <column name="update_date" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column> 
-        </createTable>
-        
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_specoffer_id" tableName="q_ob_specoffer"/>
-        
-        <addForeignKeyConstraint baseColumnNames="specoffertype_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specoffertype"/>
-        
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
-        
-        <addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
-        
-        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
-        
-        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_ob_specoffer" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
-        
-        <createIndex indexName="fki_q_ob_timeperiod_id" tableName="q_ob_specoffer" unique="false">
-            <column name="timeperiod_id"/>
-        </createIndex>
-        
-        <createIndex indexName="fki_q_rf_eduformtype_id" tableName="q_ob_specoffer" unique="false">
-            <column name="eduformtype_id"/>
-        </createIndex>
-        
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці пільги на конкретну спеціальність">
-        <createTable remarks="Пільги на конкретну спеціальність" tableName="q_ob_specofferbenefit">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="benefit_id" remarks="Ідентифікатор квоти (пільги)" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    
-    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_specofferbenefit_id" tableName="q_ob_specofferbenefit"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_ob_specofferbenefit" constraintName="fk_q_ob_benefit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_ob_specofferbenefit" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
-    	
-    	<createIndex indexName="fki_q_ob_benefit_id" tableName="q_ob_specofferbenefit" unique="false">
-            <column name="benefit_id"/>
-        </createIndex>
-        
-         <createIndex indexName="fki_q_ob_specoffer_id" tableName="q_ob_specofferbenefit" unique="false">
-            <column name="specoffer_id"/>
-        </createIndex>
-    </changeSet>
-
     <changeSet author="illay" id="Створення таблиці часових періодів(рік, семестр, місяць)">
         <createTable remarks="Часові періоди (застосовується для систематизації об'єктів бази даних, наприклад таких як документи, по відношенню їх до конкретного навчального чи календарного року, семестру, чверті і т.д.)" tableName="q_ob_timeperiod">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -597,7 +20,7 @@
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="actual" remarks="Актуальність даних" type="INTEGER">
@@ -621,235 +44,7 @@
     	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_timeperiod_id" tableName="q_ob_timeperiod"/>
     	
     </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці із балами зовнішнього національного оцінювання">
-        <createTable remarks="Бали зовнішнього незалежного оцінювання" tableName="q_od_personenrolsubject">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT"/>
-            <column name="personpaper_id" remarks="Ідентифікатор сертифікату зовнішнього незалежного оцінювання" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="enrolsubject_id" remarks="Ідентифікатор предмету зовнішнього незалежного оцінювання" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="mark" remarks="Бал предмету зовнішнього незалежного оцінювання" type="DOUBLE"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    	
-    	<addPrimaryKey columnNames="id" constraintName="pk_q_od_personenrolsubject_id" tableName="q_od_personenrolsubject"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="personpaper_id" baseTableName="q_od_personenrolsubject" constraintName="fk_q_od_personpaper_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_personpaper"/>
-    	
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці документів персон">
-        <createTable remarks="Документи персони" tableName="q_od_personpaper">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="papertype_id" remarks="Ідентифікатор типу документу" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="docseries" remarks="Серія документу" type="VARCHAR(50)"/>
-            <column name="docnum" remarks="Номер документу" type="VARCHAR(50)"/>
-            <column name="docdate" remarks="Дата видачі документу" type="TIMESTAMP"/>
-            <column name="docissued" remarks="Ким видано документ" type="VARCHAR(200)"/>
-            <column name="docpin" remarks="Пін-код сертифікату ЗНО" type="VARCHAR(50)"/>
-            <column name="honorstype_id" remarks="Ідентифікатор типу відзнаки" type="BIGINT"/>
-            <column name="mark" remarks="Середній бал документу з оригіналом(копією)" type="DOUBLE"/>
-            <column name="ischecked" remarks="Відмітка про перевірку документу з оригіналом" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="isforeign" remarks="Відмітка про документ іноземного зразка" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    	
-    	 <addPrimaryKey columnNames="id" constraintName="pk_q_od_personpapper_id" tableName="q_od_personpaper"/>
-    	 
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці пільги по спеціальності">
-        <createTable remarks="Пільги на конкретну спеціальність" tableName="q_od_specofferbenefit">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="benefit_id" remarks="Ідентифікатор квоти (пільги)" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    	
-    	 <addPrimaryKey columnNames="id" constraintName="pk_q_od_specofferbenefit" tableName="q_od_specofferbenefit"/>
-    	 
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці предмети ЗНО на пропозицію">
-        <createTable remarks="Пропозиція предметів ЗНО на напрям/спеціальність" tableName="q_od_specoffersubject">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="enrolsubject_id" remarks="Ідентифікатор предмету зовнішнього незалежного оцінювання" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="ismajor" remarks="Ознака профільного предмету" type="INTEGER"/>
-            <column name="alternative" remarks="Альтернатива при виборі предмету ЗНО" type="INTEGER"/>
-            <column name="mark" remarks="Мінімальний бал з предмету ЗНО при поступленні" type="DOUBLE">
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    	
-    	<addPrimaryKey columnNames="id" constraintName="pk_q_od_specoffersubject_id" tableName="q_od_specoffersubject"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_od_specoffersubject" constraintName="fk_q_ob_specoffer" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="enrolsubject_id" baseTableName="q_od_specoffersubject" constraintName="fk_q_rf_enrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolsubject"/>
-    	
-    </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці довідник хвиль вступу">
-        <createTable remarks="Довідник хвиль вступу" tableName="q_od_specofferwave">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="wavetype_id" remarks="Ідентифікатор типів хвиль вступу" type="BIGINT"/>
-            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT"/>
-            <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT"/>
-            <column name="liccount" remarks="Кількість ліцензованих місць" type="INTEGER"/>
-            <column name="statecount" remarks="Кількість місць державного замовлення" type="INTEGER"/>
-            <column name="benefitcount" remarks="Кількість пільгових місць" type="INTEGER"/>
-            <column name="targetcount" remarks="Кількість цільових місць у хвилі" type="INTEGER"/>
-            <column name="begdate" remarks="Дата початку хвилі" type="TIMESTAMP"/>
-            <column name="enddate" remarks="Дата закінчення хвилі" type="TIMESTAMP"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    	
-    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_specofferewave" tableName="q_od_specofferwave"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_specofferwave" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="wavetype_id" baseTableName="q_od_specofferwave" constraintName="fk_q_rt_wavetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_wavetype"/>
-    	
-    </changeSet>
-    
+
     <changeSet author="illay" id="Створення таблиці довідник типів пільг">
         <createTable remarks="Довідник типів пільг" tableName="q_rf_benefittype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -862,7 +57,7 @@
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="actual" remarks="Актуальність даних" type="INTEGER">
@@ -895,7 +90,7 @@
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="actual" remarks="Актуальність даних" type="INTEGER">
@@ -928,7 +123,7 @@
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="actual" remarks="Актуальність даних" type="INTEGER">
@@ -964,7 +159,7 @@
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="actual" remarks="Актуальність даних" type="INTEGER">
@@ -999,7 +194,7 @@
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="actual" remarks="Актуальність даних" type="INTEGER">
@@ -1034,7 +229,7 @@
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="actual" remarks="Актуальність даних" type="INTEGER">
@@ -1069,7 +264,7 @@
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="processing" remarks="Ознака статусу запису" type="INTEGER">
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="actual" remarks="Актуальність даних" type="INTEGER">
@@ -1123,5 +318,889 @@
     	<addPrimaryKey columnNames="id" constraintName="pk_rf_wavetype_id" tableName="q_rf_wavetype"/>
     	
     </changeSet>
+    
+    <changeSet author="illay" id="Створення таблиці всіх підрозділів">
+        <createTable remarks="Інформація про підрозділи, де:&#10;• в нелисткових записах ієрархії (які мають або можуть мати підпорядковані записи) зберігаються групи підрозділів (науково-навчальний інститут, навчальний інститут, підрозділ ІТ тощо);&#10;• в нелисткових записах ієрархії зберігаються підрозділи складної структури (Інститут комп’ютерних наук та інформаційних технологій, Бухгалтерія, НДЧ, ЦІЗ, ЦТЕ ЗТІ тощо);&#10;• в листкових записах ієрархії (які не мають підпорядкованих записів) зберігаються підрозділи простої структури або структурні одиниці інших підрозділів (Кафедра програмного забезпечення, Відділ проектування та впровадження програмних засобів, Відділ моніторингу та оперативного планування навчального процесу тощо)." tableName="q_ob_department">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="department_type" remarks="Ідентифікатор типу підрозділу" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" remarks="Скорочена назва(абревіатура)" type="VARCHAR(50)"/>
+            <column name="name" remarks="Назва підрозділу" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="manager" remarks="Керівник підрозділу" type="VARCHAR(50)"/>
+            <column name="phone" remarks="Телефон підрозділу" type="VARCHAR(200)"/>
+            <column name="email" remarks="e-mail підрозділу" type="VARCHAR(200)"/>
+            <column name="begdate" remarks="Дата створення підрозділу" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закриття підрозділу" type="TIMESTAMP"/>
+            <column name="order_id" remarks="Ідентифікатор наказу" type="BIGINT"/>
+            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+
+		<addPrimaryKey columnNames="id" constraintName="pk_q_ob_department_id" tableName="q_ob_department"/>
+		
+		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_department" constraintName="fk_ob_department" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+		
+		<createIndex indexName="fki_ob_department" tableName="q_ob_department" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
+            
+    </changeSet>
+    
+    <changeSet author="illay" id="Створення таблиці всіх напрямів і спеціальностей">
+        <createTable remarks="Напрями та спеціальності" tableName="q_ob_specialty">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specialtytype_id" remarks="Ідентифікатор типу спеціальності" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" remarks="Абревіатура спеціальності" type="VARCHAR(50)"/>
+            <column name="name" remarks="Назва спеціальності" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cipher" remarks="Шифр спеціальності" type="VARCHAR(50)"/>
+            <column name="begdate" remarks="Дата початку" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закінчення" type="TIMESTAMP"/>
+            <column name="parent_id" remarks="Ієрархічний ідентифікатор - Ієрархія (напрям, спеціальність, ...)" type="BIGINT"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(255)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_specialty" tableName="q_ob_specialty"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_ob_specialty" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
+    	
+    	<createIndex indexName="fki_q_ob_specialty_id" tableName="q_ob_specialty" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_rf_specialtytype_id" tableName="q_ob_specialty" unique="false">
+            <column name="specialtytype_id"/>
+        </createIndex>
+        
+    </changeSet>
+   
+      <changeSet author="illay" id="Створення таблиці всіх пропоцицій">
+        <createTable remarks="Пропозиція" tableName="q_ob_specoffer">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specialty_id" remarks="Ідентифікатор спеціальності" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="department_id" remarks="Ідентифікатор підрозділу" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timeperiod_id" remarks="Ідентифікатор часового періоду" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specoffertype_id" remarks="Ідентифікатор типу пропозиції" type="BIGINT"/>
+            <column name="docseries" remarks="Серія ліцензії" type="VARCHAR(50)"/>
+            <column name="docnum" remarks="Номер ліцензії" type="VARCHAR(50)"/>
+            <column name="eduformtype_id" remarks="Ідентифікатор форми навчання" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="liccount" remarks="Кількість ліцензованих місць" type="INTEGER"/>
+            <column name="statecount" remarks="Кількість місць державного замовлення" type="INTEGER"/>
+            <column name="begdate" remarks="Дата початку" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закінчення" type="TIMESTAMP"/>
+            <column name="parent_id" remarks="Ієрархіічний ідентифікатор - Ієрархія(ліцензія =&gt; додаток до ліцензії)" type="BIGINT"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+             <column name="update_date" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column> 
+        </createTable>
+        
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_specoffer_id" tableName="q_ob_specoffer"/>
+        
+        <addForeignKeyConstraint baseColumnNames="specoffertype_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specoffertype"/>
+        
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+        
+        <addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
+        
+        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_ob_specoffer" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
+        
+        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_ob_specoffer" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
+        
+        <createIndex indexName="fki_q_ob_timeperiod_id" tableName="q_ob_specoffer" unique="false">
+            <column name="timeperiod_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_rf_eduformtype_id" tableName="q_ob_specoffer" unique="false">
+            <column name="eduformtype_id"/>
+        </createIndex>
+        
+    </changeSet>
+    
+    
+    <changeSet author="illay" id="Створення таблиці заяв абітурієнтів">
+        <createTable remarks="Заява абітурієнта" tableName="q_dc_enrolment">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="docseries" remarks="Серія документу" type="VARCHAR(50)"/>
+            <column name="docnum" remarks="Номер документу" type="VARCHAR(50)"/>
+            <column name="doctext" remarks="Інформація про коди особливих умов вступу" type="VARCHAR(200)"/>
+            <column name="issate" remarks="Бюджет" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="iscontract" remarks="Контракт(навчання за кошти фіз.особи)" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT"/>
+            <column name="department_id" remarks="Ідентифікатор підрозділу" type="BIGINT"/>
+            <column name="personpapper_id" remarks="Ідентифікатор документу персони" type="BIGINT"/>
+            <column name="mark" remarks="Загальний бал" type="DOUBLE"/>
+            <column name="isprivilege" remarks="Відмітка про наявність пільги" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ishostel" remarks="Відмітка про потребу у гуртожитку" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enrolmenttype_id" remarks="Ідентифікатор типу поступлення" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="evdate" remarks="Дата створення заяви" type="TIMESTAMP"/>
+            <column name="begdate" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закриття заяви(абітурієнт забрав заяву)" type="TIMESTAMP"/>
+            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>   
+        </createTable>
+        
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_enrolment_id" tableName="q_dc_enrolment"/>
+        
+        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dc_enrolment" constraintName="fk_q_ob_specofer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
+        
+        <addForeignKeyConstraint baseColumnNames="enrolmenttype_id" baseTableName="q_dc_enrolment" constraintName="fk_q_rf_enrolmenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolmenttype"/>
+        
+        <createIndex indexName="fki_q_ob_department_id" tableName="q_dc_enrolment" unique="false">
+            <column name="department_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_ob_specofer_id" tableName="q_dc_enrolment" unique="false">
+            <column name="specoffer_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_od_personpaper_id" tableName="q_dc_enrolment" unique="false">
+            <column name="personpapper_id"/>
+        </createIndex>
+        
+    </changeSet>
+
+<changeSet author="illay" id="Створення таблиці всіх пільг">
+        <createTable remarks="Таблиця ob_benefit містить дані про пільги" tableName="q_ob_benefit">
+            <column name="id" remarks="Ідентифікатор пільги" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="benefittype_id" remarks="Назва пільги" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="BIGINT"/>
+            <column name="name" remarks="Назва пільги" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="begdata" remarks="Дата початку переваги" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закінчення переваги" type="TIMESTAMP"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+   		
+   	    <addPrimaryKey columnNames="id" constraintName="pk_ob_benifit" tableName="q_ob_benefit"/>
+   		 
+ 		<addForeignKeyConstraint baseColumnNames="benefittype_id" baseTableName="q_ob_benefit" constraintName="fk_q_rf_benefittype" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_benefittype"/>
+ 		
+ 		<createIndex indexName="fki_q_rf_benefittype" tableName="q_ob_benefit" unique="false">
+            <column name="benefittype_id"/>
+        </createIndex>
+        
+    </changeSet>
+
+    <changeSet author="illay" id="Створення таблиці зв’язку між пільгами і заявою">
+        <createTable remarks="Пільги в заяві" tableName="q_dt_enrolmentbenefit">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enrolment_id" remarks="Ідентифікатор заяви" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="benefit_id" remarks="Ідентифікатор пільги" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+        
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_enrolmentbenefit" tableName="q_dt_enrolmentbenefit"/>
+        	
+        <addForeignKeyConstraint baseColumnNames="enrolment_id" baseTableName="q_dt_enrolmentbenefit" constraintName="fk_q_dc_enrolment_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_enrolment"/>
+        
+        <addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_dt_enrolmentbenefit" constraintName="fk_q_ob_benefits_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
+        
+         <createIndex indexName="fki_q_ob_benefits_id" tableName="q_dt_enrolmentbenefit" unique="false">
+            <column name="benefit_id"/>
+        </createIndex>
+    </changeSet>
+
+	    <changeSet author="illay" id="Створення таблиці документів персон">
+        <createTable remarks="Документи персони" tableName="q_od_personpaper">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="papertype_id" remarks="Ідентифікатор типу документу" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="docseries" remarks="Серія документу" type="VARCHAR(50)"/>
+            <column name="docnum" remarks="Номер документу" type="VARCHAR(50)"/>
+            <column name="docdate" remarks="Дата видачі документу" type="TIMESTAMP"/>
+            <column name="docissued" remarks="Ким видано документ" type="VARCHAR(200)"/>
+            <column name="docpin" remarks="Пін-код сертифікату ЗНО" type="VARCHAR(50)"/>
+            <column name="honorstype_id" remarks="Ідентифікатор типу відзнаки" type="BIGINT"/>
+            <column name="mark" remarks="Середній бал документу з оригіналом(копією)" type="DOUBLE"/>
+            <column name="ischecked" remarks="Відмітка про перевірку документу з оригіналом" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isforeign" remarks="Відмітка про документ іноземного зразка" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+    	
+    	 <addPrimaryKey columnNames="id" constraintName="pk_q_od_personpapper_id" tableName="q_od_personpaper"/>
+    	 
+    </changeSet>
+	
+	
+    <changeSet author="illay" id="Створення таблиці із балами зовнішнього національного оцінювання">
+        <createTable remarks="Бали зовнішнього незалежного оцінювання" tableName="q_od_personenrolsubject">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT"/>
+            <column name="personpaper_id" remarks="Ідентифікатор сертифікату зовнішнього незалежного оцінювання" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enrolsubject_id" remarks="Ідентифікатор предмету зовнішнього незалежного оцінювання" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mark" remarks="Бал предмету зовнішнього незалежного оцінювання" type="DOUBLE"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_od_personenrolsubject_id" tableName="q_od_personenrolsubject"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="personpaper_id" baseTableName="q_od_personenrolsubject" constraintName="fk_q_od_personpaper_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_personpaper"/>
+    	
+    </changeSet>
+    
+    
+    <changeSet author="illay" id="Створення таблиці зв’язку між придметами ЗНО і заявою">
+        <createTable remarks="Предмети ЗНО в заяві" tableName="q_dt_enrolmentenrolsubject">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enrolment_id" remarks="Ідентифікатор заяви" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enrolsubject_id" remarks="Ідентифікатор предмету зовнішнього незалежного оцінювання" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="personenrolsubject_id" remarks="Ідентифікатор балу ЗНО" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mark" remarks="Бал предмету ЗНО" type="numeric"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_dt_enrolmentenrolsubject" tableName="q_dt_enrolmentenrolsubject"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="personenrolsubject_id" baseTableName="q_dt_enrolmentenrolsubject" constraintName="fk_q_ob_personenrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_personenrolsubject"/>
+    	
+    	<createIndex indexName="fki_q_ob_personenrolsubject_id" tableName="q_dt_enrolmentenrolsubject" unique="false">
+            <column name="personenrolsubject_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_rf_enrolsubject_id" tableName="q_dt_enrolmentenrolsubject" unique="false">
+            <column name="enrolsubject_id"/>
+        </createIndex>
+        
+    </changeSet>
+
+ <changeSet author="illay" id="Створення таблиці всіх персон">
+        <createTable remarks="Інформація про персону" tableName="q_ob_person">
+            <column name="id" remarks="Ідентифікатор персони" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="persontype_id" remarks="Ідентифікатор типу персони" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" remarks="Повна назва персони – прізвище, ім’я та по-батькові" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" remarks="Ім’я" type="VARCHAR(200)"/>
+            <column name="fathername" remarks="По-батькові" type="VARCHAR(200)"/>
+            <column name="surname" remarks="Прізвище" type="VARCHAR(200)"/>
+            <column name="photo" remarks="Шлях до файлу, де знаходиться фото" type="VARCHAR(250)"/>
+            <column name="gendertype_id" remarks="Ідентифікатор статі" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="marriedtype_id" remarks="Сімейний стан" type="BIGINT"/>
+            <column name="citizencountry_id" remarks="Ідентифікатор громадянства" type="BIGINT"/>
+            <column name="docseries" remarks="Серія особової справи" type="VARCHAR(50)"/>
+            <column name="docnum" remarks="Номер особової справи" type="VARCHAR(50)"/>
+            <column name="identifier" remarks="Індекс матеріально-відповідального" type="VARCHAR(50)"/>
+            <column name="resident" remarks="Резидент" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birthplace" remarks="Місце народження" type="VARCHAR(200)"/>
+            <column name="begdate" remarks="Дата народження" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата смерті" type="TIMESTAMP"/>
+            <column name="ismilitary" remarks="Відмітка, чи є персона військово-зобов&quot;язаною" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ishostel" remarks="Відмітка про потребу у гуртожитоку" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+    
+    	<addPrimaryKey columnNames="id" constraintName="pk_ob_person_id" tableName="q_ob_person"/>
+    	
+    	<createIndex indexName="fki_q_ob_person_id" tableName="q_ob_person" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
+    </changeSet>
+    
+     <changeSet author="illay" id="Створення таблиці довідник хвиль вступу">
+        <createTable remarks="Довідник хвиль вступу" tableName="q_od_specofferwave">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="wavetype_id" remarks="Ідентифікатор типів хвиль вступу" type="BIGINT"/>
+            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT"/>
+            <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT"/>
+            <column name="liccount" remarks="Кількість ліцензованих місць" type="INTEGER"/>
+            <column name="statecount" remarks="Кількість місць державного замовлення" type="INTEGER"/>
+            <column name="benefitcount" remarks="Кількість пільгових місць" type="INTEGER"/>
+            <column name="targetcount" remarks="Кількість цільових місць у хвилі" type="INTEGER"/>
+            <column name="begdate" remarks="Дата початку хвилі" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закінчення хвилі" type="TIMESTAMP"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_specofferewave" tableName="q_od_specofferwave"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_specofferwave" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="wavetype_id" baseTableName="q_od_specofferwave" constraintName="fk_q_rt_wavetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_wavetype"/>
+    	
+    </changeSet>
+    
+    <changeSet author="illay" id="Створення таблиці статусу заявки">
+    
+            <createTable remarks="Статуси заяви" tableName="q_dt_enrolmentstatus">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enrolment_id" remarks="Ідентифікатор заяви" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specofferwave_id" remarks="Ідентифікатор хвиль вступу" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enrolmentstatustype_id" remarks="Ідентифікатор статусу заяви" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+        
+        <addPrimaryKey columnNames="id" constraintName="pk_dt_enrolmentstatus_id" tableName="q_dt_enrolmentstatus"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="specofferwave_id" baseTableName="q_dt_enrolmentstatus" constraintName="fk_q_ob_sprcofferwave_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_specofferwave"/>
+    	
+    	<createIndex indexName="fki_q_dc_enrolment_id" tableName="q_dt_enrolmentstatus" unique="false">
+            <column name="enrolment_id"/>
+        </createIndex>
+        
+        <createIndex indexName="fki_q_ob_sprcofferwave_id" tableName="q_dt_enrolmentstatus" unique="false">
+            <column name="specofferwave_id"/>
+        </createIndex>
+    </changeSet>
+    
+    <changeSet author="illay" id="Створення таблиці пільги на конкретну спеціальність">
+        <createTable remarks="Пільги на конкретну спеціальність" tableName="q_ob_specofferbenefit">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="benefit_id" remarks="Ідентифікатор квоти (пільги)" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+    
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_specofferbenefit_id" tableName="q_ob_specofferbenefit"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_ob_specofferbenefit" constraintName="fk_q_ob_benefit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_ob_specofferbenefit" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
+    	
+    	<createIndex indexName="fki_q_ob_benefit_id" tableName="q_ob_specofferbenefit" unique="false">
+            <column name="benefit_id"/>
+        </createIndex>
+        
+         <createIndex indexName="fki_q_ob_specoffer_id" tableName="q_ob_specofferbenefit" unique="false">
+            <column name="specoffer_id"/>
+        </createIndex>
+    </changeSet>
+     
+    <changeSet author="illay" id="Створення таблиці пільги по спеціальності">
+        <createTable remarks="Пільги на конкретну спеціальність" tableName="q_od_specofferbenefit">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="benefit_id" remarks="Ідентифікатор квоти (пільги)" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+    	
+    	 <addPrimaryKey columnNames="id" constraintName="pk_q_od_specofferbenefit" tableName="q_od_specofferbenefit"/>
+    	 
+    </changeSet>
+    
+    <changeSet author="illay" id="Створення таблиці предмети ЗНО на пропозицію">
+        <createTable remarks="Пропозиція предметів ЗНО на напрям/спеціальність" tableName="q_od_specoffersubject">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enrolsubject_id" remarks="Ідентифікатор предмету зовнішнього незалежного оцінювання" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ismajor" remarks="Ознака профільного предмету" type="INTEGER"/>
+            <column name="alternative" remarks="Альтернатива при виборі предмету ЗНО" type="INTEGER"/>
+            <column name="mark" remarks="Мінімальний бал з предмету ЗНО при поступленні" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+    	
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_od_specoffersubject_id" tableName="q_od_specoffersubject"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_od_specoffersubject" constraintName="fk_q_ob_specoffer" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="enrolsubject_id" baseTableName="q_od_specoffersubject" constraintName="fk_q_rf_enrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolsubject"/>
+    	
+    </changeSet>
+    
+    <changeSet id="Створення таблиці довідник типів адрес" author="illay">
+    	<createTable tableName="q_rf_addresstype" remarks="Довідник типу адрес">
+    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="abbrname" type="VARCHAR(50)" remarks=""></column>
+    		<column name="name" type="VARCHAR(200)" remarks="">
+    		`	<constraints nullable="false"/>
+    		</column>
+    	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>        	
+    	</createTable>
+    	
+    	<addPrimaryKey tableName="q_rf_adrresstype" columnNames="id" constraintName="pk_q_rf_adrresstype_id"/>
+    	
+    </changeSet>
+
+   
+   <changeSet id="Створення таблиці довідник типів адрес" author="illay">
+    	<createTable tableName="q_rf_adrresstype" remarks="Довідник типу адрес">
+    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="abbrname" type="VARCHAR(50)" remarks=""></column>
+    		<column name="name" type="VARCHAR(200)" remarks="">
+    		`	<constraints nullable="false"/>
+    		</column>
+    	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>        	
+    	</createTable>
+    	
+    	<addPrimaryKey tableName="q_rf_adrresstype" columnNames="id" constraintName="pk_q_rf_adrresstype_id"/>
+    	
+    </changeSet>
+   
     
 </databaseChangeLog>
