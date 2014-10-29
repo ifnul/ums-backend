@@ -1176,7 +1176,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -1184,47 +1184,8 @@
         	</column>        	
     	</createTable>
     	
-    	<addPrimaryKey tableName="q_rf_adrresstype" columnNames="id" constraintName="pk_q_rf_adrresstype_id"/>
+    	<addPrimaryKey tableName="q_rf_addresstype" columnNames="id" constraintName="pk_q_rf_adrresstype_id"/>
     	
     </changeSet>
-
-   
-   <changeSet id="Створення таблиці довідник типів адрес" author="illay">
-    	<createTable tableName="q_rf_adrresstype" remarks="Довідник типу адрес">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
-    			<constraints nullable="false"/>
-    		</column>
-    		<column name="abbrname" type="VARCHAR(50)" remarks=""></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
-    		`	<constraints nullable="false"/>
-    		</column>
-    	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>        	
-    	</createTable>
-    	
-    	<addPrimaryKey tableName="q_rf_adrresstype" columnNames="id" constraintName="pk_q_rf_adrresstype_id"/>
-    	
-    </changeSet>
-   
-    
+       
 </databaseChangeLog>
