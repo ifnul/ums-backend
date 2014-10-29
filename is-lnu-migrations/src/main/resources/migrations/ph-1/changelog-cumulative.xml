@@ -33,10 +33,10 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+            <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
             	<constraints nullable="false"/>
         	</column>
         </createTable>
@@ -70,9 +70,12 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+          <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_benefittype" tableName="q_rf_benefittype"/>
@@ -103,9 +106,12 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_eduformtype" tableName="q_rf_eduformtype"/>
@@ -136,9 +142,12 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolmenttype" tableName="q_rf_enrolmenttype"/>
@@ -172,9 +181,12 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolsubject_id" tableName="q_rf_enrolsubject"/>
@@ -207,9 +219,12 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 		
 		<addPrimaryKey columnNames="id" constraintName="pk_q_rf_specialtytype" tableName="q_rf_specialtytype"/>
@@ -242,9 +257,12 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_specoffertype_id" tableName="q_rf_specoffertype"/>
@@ -277,9 +295,12 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_statustype_id" tableName="q_rf_statustype"/>
@@ -310,9 +331,12 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_rf_wavetype_id" tableName="q_rf_wavetype"/>
@@ -354,7 +378,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -404,7 +428,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -470,7 +494,7 @@
             <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-             <column name="update_date" type="TIMESTAMP">
+             <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP" >
             	<constraints nullable="false"/>
         	</column>
         	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -551,7 +575,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -611,7 +635,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -656,7 +680,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -715,10 +739,10 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
             	<constraints nullable="false"/>
         	</column>
         </createTable>
@@ -757,10 +781,10 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
             	<constraints nullable="false"/>
         	</column>
         </createTable>
@@ -803,7 +827,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -877,7 +901,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -922,10 +946,10 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
             	<constraints nullable="false"/>
         	</column>
         </createTable>
@@ -969,7 +993,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -1017,7 +1041,7 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+            <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
@@ -1067,10 +1091,10 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
             	<constraints nullable="false"/>
         	</column>
         </createTable>
@@ -1111,10 +1135,10 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
             	<constraints nullable="false"/>
         	</column>
         </createTable>
@@ -1152,10 +1176,10 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
             	<constraints nullable="false"/>
         	</column>        	
     	</createTable>
@@ -1190,10 +1214,10 @@
             <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+         <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-        	<column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
             	<constraints nullable="false"/>
         	</column>        	
     	</createTable>
