@@ -3,15 +3,17 @@
 <persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         
-<!--    
+   
 		<class>org.lnu.is.domain.department.Department</class>
+		<class>org.lnu.is.domain.departmenttype.DepartmentType</class>
         <class>org.lnu.is.domain.eduformtype.EduFormType</class>
         <class>org.lnu.is.domain.specialty.Specialty</class>
         <class>org.lnu.is.domain.specialtype.SpecialtyType</class>
         <class>org.lnu.is.domain.specoffer.SpecOffer</class>
         <class>org.lnu.is.domain.specoffertype.SpecOfferType</class>
         <class>org.lnu.is.domain.timeperiod.TimePeriod</class> 
--->
+        <class>org.lnu.is.domain.timeperiodtype.TimePeriodType</class> 
+
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
