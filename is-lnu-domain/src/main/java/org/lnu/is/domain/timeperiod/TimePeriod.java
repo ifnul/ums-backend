@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,17 +16,17 @@ import org.lnu.is.domain.timeperiodtype.TimePeriodType;
  * @author ivanursul
  *
  */
-@Entity(name = "q_ob_timeperiod")
 @Table
+@Entity(name = "q_ob_timeperiod")
 public class TimePeriod extends Model {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private TimePeriod parent;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "timeperiodtype_id")
+
+	@ManyToOne
+	@JoinColumn(name = "timeperiodtype_id")
 	private TimePeriodType timePeriodType;
 	
 	@Column(name = "name")

@@ -3,6 +3,7 @@ package org.lnu.is.facade.resources.specoffer;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.facade.resources.ApiResource;
 
 /**
@@ -43,7 +44,7 @@ public class SpecOfferResource extends ApiResource {
 	
 	private String uapp;
 	
-	private Integer processing;
+	private RowStatus status;
 	
 	private Integer actual;
 	
@@ -174,12 +175,12 @@ public class SpecOfferResource extends ApiResource {
 		this.uapp = uapp;
 	}
 
-	public Integer getProcessing() {
-		return processing;
+	public RowStatus getStatus() {
+		return status;
 	}
 
-	public void setProcessing(final Integer processing) {
-		this.processing = processing;
+	public void setStatus(final RowStatus status) {
+		this.status = status;
 	}
 
 	public Integer getActual() {
@@ -217,7 +218,7 @@ public class SpecOfferResource extends ApiResource {
 				+ ((licCount == null) ? 0 : licCount.hashCode());
 		result = prime * result + ((note == null) ? 0 : note.hashCode());
 		result = prime * result
-				+ ((processing == null) ? 0 : processing.hashCode());
+				+ ((status == null) ? 0 : status.hashCode());
 		result = prime * result
 				+ ((specialtyId == null) ? 0 : specialtyId.hashCode());
 		result = prime * result
@@ -314,11 +315,11 @@ public class SpecOfferResource extends ApiResource {
 		} else if (!note.equals(other.note)) {
 			return false;
 		}
-		if (processing == null) {
-			if (other.processing != null) {
+		if (status == null) {
+			if (other.status != null) {
 				return false;
 			}
-		} else if (!processing.equals(other.processing)) {
+		} else if (!status.equals(other.status)) {
 			return false;
 		}
 		if (specialtyId == null) {
@@ -382,7 +383,7 @@ public class SpecOfferResource extends ApiResource {
 				+ ", eduFormTypeId=" + eduFormTypeId + ", licCount=" + licCount
 				+ ", stateCount=" + stateCount + ", begDate=" + begDate
 				+ ", endDate=" + endDate + ", uid=" + uid + ", utid=" + utid
-				+ ", uapp=" + uapp + ", processing=" + processing + ", actual="
+				+ ", uapp=" + uapp + ", processing=" + status + ", actual="
 				+ actual + ", note=" + note + "]";
 	}
 

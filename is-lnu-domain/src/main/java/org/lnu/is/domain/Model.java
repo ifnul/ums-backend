@@ -45,8 +45,7 @@ public abstract class Model implements Serializable {
     @Column(name = "id")
     private Long id;
     
-    // TODO : Change migrations - processing to status, and type to varchar
-	@Column(name = "processing")
+	@Column(name = "status")
 	@Enumerated(EnumType.STRING)
 	private RowStatus status;
 	
@@ -61,10 +60,13 @@ public abstract class Model implements Serializable {
 	
 	@Column(name = "crtusergroup")
 	private String crtUserGroup;
-	
-	@Column(name = "crtdate")
-	private Date crtDate;
+    
+	@Column(name = "create_date")
+    private Date createDate;
 
+    @Column(name = "update_date")
+    private Date updateDate;
+    	
 	@Column(name = "uid")
 	private Long uid;
 	
@@ -73,12 +75,6 @@ public abstract class Model implements Serializable {
 	
 	@Column(name = "uapp")
 	private String uapp;
-    
-    @Column(name = "create_date")
-    private Date createDate;
-
-    @Column(name = "update_date")
-    private Date updateDate;
     
     public Long getId() {
         return id;
@@ -144,14 +140,6 @@ public abstract class Model implements Serializable {
 		this.crtUserGroup = crtUserGroup;
 	}
 
-	public Date getCrtDate() {
-		return new Date(crtDate.getTime());
-	}
-
-	public void setCrtDate(final Date crtDate) {
-		this.crtDate = new Date(crtDate.getTime());
-	}
-
 	public Long getUid() {
 		return uid;
 	}
@@ -181,9 +169,6 @@ public abstract class Model implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((actual == null) ? 0 : actual.hashCode());
-		result = prime * result
-				+ ((createDate == null) ? 0 : createDate.hashCode());
-		result = prime * result + ((crtDate == null) ? 0 : crtDate.hashCode());
 		result = prime * result + ((crtUser == null) ? 0 : crtUser.hashCode());
 		result = prime * result
 				+ ((crtUserGroup == null) ? 0 : crtUserGroup.hashCode());
@@ -192,8 +177,6 @@ public abstract class Model implements Serializable {
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((uapp == null) ? 0 : uapp.hashCode());
 		result = prime * result + ((uid == null) ? 0 : uid.hashCode());
-		result = prime * result
-				+ ((updateDate == null) ? 0 : updateDate.hashCode());
 		result = prime * result + ((utid == null) ? 0 : utid.hashCode());
 		return result;
 	}
@@ -215,20 +198,6 @@ public abstract class Model implements Serializable {
 				return false;
 			}
 		} else if (!actual.equals(other.actual)) {
-			return false;
-		}
-		if (createDate == null) {
-			if (other.createDate != null) {
-				return false;
-			}
-		} else if (!createDate.equals(other.createDate)) {
-			return false;
-		}
-		if (crtDate == null) {
-			if (other.crtDate != null) {
-				return false;
-			}
-		} else if (!crtDate.equals(other.crtDate)) {
 			return false;
 		}
 		if (crtUser == null) {
@@ -276,13 +245,6 @@ public abstract class Model implements Serializable {
 		} else if (!uid.equals(other.uid)) {
 			return false;
 		}
-		if (updateDate == null) {
-			if (other.updateDate != null) {
-				return false;
-			}
-		} else if (!updateDate.equals(other.updateDate)) {
-			return false;
-		}
 		if (utid == null) {
 			if (other.utid != null) {
 				return false;
@@ -297,9 +259,9 @@ public abstract class Model implements Serializable {
 	public String toString() {
 		return "Model [id=" + id + ", status=" + status + ", actual=" + actual
 				+ ", note=" + note + ", crtUser=" + crtUser + ", crtUserGroup="
-				+ crtUserGroup + ", crtDate=" + crtDate + ", uid=" + uid
-				+ ", utid=" + utid + ", uapp=" + uapp + ", createDate="
-				+ createDate + ", updateDate=" + updateDate + "]";
+				+ crtUserGroup + ", createDate=" + createDate + ", updateDate="
+				+ updateDate + ", uid=" + uid + ", utid=" + utid + ", uapp="
+				+ uapp + "]";
 	}
 
 }

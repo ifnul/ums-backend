@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -25,9 +23,9 @@ public class Department extends Model {
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private Department parent;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "department_type")
+
+	@ManyToOne
+	@JoinColumn(name = "departmenttype_id")
 	private DepartmentType departmentType;
 	
 	@Column(name = "order_id")
