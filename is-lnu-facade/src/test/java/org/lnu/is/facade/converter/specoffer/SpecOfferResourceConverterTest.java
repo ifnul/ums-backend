@@ -51,7 +51,7 @@ public class SpecOfferResourceConverterTest {
 		specOfferType.setId(specOfferTypeId);
 		
 		Integer stateCount = 34;
-		RowStatus status = RowStatus.OK;
+		RowStatus status = RowStatus.ACTIVE;
 		String uapp = "uap";
 		Long uid = 124L;
 		
