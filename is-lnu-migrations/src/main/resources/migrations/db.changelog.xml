@@ -3,7 +3,24 @@
 	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    
-    <include file="ph-1/changelog-cumulative.xml" relativeToChangelogFile="true"/>
- 
+
+	<!-- Список всіх довідників -->
+ 	<include file="ph-1/changelog-rf.xml" relativeToChangelogFile="true"/>
+ 	<!-- Для роботи з ЄДБО -->
+ 	<include file="ph-1/changelog-tdcr.xml" relativeToChangelogFile="true"/>
+ 	<!--  -->
+	<include file="ph-1/changelog-ob.xml" relativeToChangelogFile="true"/>
+	<!--  -->
+	<include file="ph-1/changelog-od.xml" relativeToChangelogFile="true"/>
+	<!--  -->
+	<include file="ph-1/changelog-dc.xml" relativeToChangelogFile="true"/>
+	<!-- Таблиці для зв’язку багато до багальох -->
+ 	<include file="ph-1/changelog-dt.xml" relativeToChangelogFile="true"/>
+ 	<!--  -->
+ 	<include file="ph-1/changelog-lg.xml" relativeToChangelogFile="true"/>
+ 	<!--  -->
+ 	<include file="ph-1/changelog-op.xml" relativeToChangelogFile="true"/>
+ 	<!--  -->
+ 	<include file="ph-1/changelog-opr.xml" relativeToChangelogFile="true"/>
+ 	 	
 </databaseChangeLog>
