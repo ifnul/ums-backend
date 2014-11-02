@@ -16,10 +16,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resources.ApiResource;
-import org.lnu.is.facade.resources.search.PagedRequest;
-import org.lnu.is.facade.resources.search.PagedResultResource;
-import org.lnu.is.facade.resources.specoffer.SpecOfferResource;
+import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.facade.resource.search.PagedRequest;
+import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
@@ -32,6 +32,12 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultSpecOfferFacadeTest {
 
+	@Mock
+	private Converter<SpecOfferResource, SpecOffer> insertConverter;
+
+	@Mock
+	private Converter<SpecOfferResource, SpecOffer> updateConverter;
+	
 	@Mock
 	private Converter<SpecOfferResource, SpecOffer> specOfferResourceConverter;
 	
@@ -58,15 +64,6 @@ public class DefaultSpecOfferFacadeTest {
     	Long eduFormTypeId = 1L;
     	String docNum = "docNum";
     	Long departmentId = 23L;
-    	
-    	SpecOfferResource specOfferResource = new SpecOfferResource();
-    	specOfferResource.setBegDate(new Date());
-    	specOfferResource.setEndDate(new Date());
-		specOfferResource.setDepartmentId(departmentId);
-		specOfferResource.setDocNum(docNum);
-		specOfferResource.setEduFormTypeId(eduFormTypeId);
-		specOfferResource.setLicCount(licCount);
-		specOfferResource.setNote(note);
 
 		SpecOfferResource expected = new SpecOfferResource();
     	expected.setBegDate(new Date());
@@ -81,13 +78,14 @@ public class DefaultSpecOfferFacadeTest {
 		
 		// When
 		when(specOfferResourceConverter.convert(any(SpecOfferResource.class))).thenReturn(specOffer);
-		when(specOfferConverter.convert(any(SpecOffer.class))).thenReturn(specOfferResource);
+		when(specOfferConverter.convert(any(SpecOffer.class))).thenReturn(expected);
 		
-		SpecOfferResource actual = unit.createSpecOffer(specOfferResource);
+		SpecOfferResource actual = unit.createSpecOffer(expected);
 
 		// Then
-		verify(specOfferResourceConverter).convert(specOfferResource);
+		verify(specOfferResourceConverter).convert(expected);
 		verify(specOfferService).createSpecOffer(specOffer);
+		verify(insertConverter).convert(expected, specOffer);
 		
 		assertEquals(expected, actual);
 	}
@@ -122,6 +120,7 @@ public class DefaultSpecOfferFacadeTest {
 		verify(specOfferService).getSpecOffer(id);
 		verify(specOfferResourceConverter).convert(specOfferResource, specOffer);
 		verify(specOfferService).updateSpecOffer(specOffer);
+		verify(updateConverter).convert(specOfferResource, specOffer);
 	}
 	
 	@Test

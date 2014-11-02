@@ -8,7 +8,11 @@ public final class Queries {
 	private static final String FIND_SPECOFFERS_QUERY_NAME = "SpecOffers.findSpecOffers";
 	private static final String FIND_SPECOFFERS_QUERY = "SELECT s FROM SpecOffer s";
 
+	private static final String FIND_SPECIALTIES_QUERY_NAME = "Specialties.findSpecialties";
+	private static final String FIND_SPECIALTIES_QUERY = "SELECT s FROM Specialty s";
+
 	public static final Queries FIND_SPECOFFERS = new Queries(FIND_SPECOFFERS_QUERY_NAME, FIND_SPECOFFERS_QUERY);
+	public static final Queries FIND_SPECIALTIES = new Queries(FIND_SPECIALTIES_QUERY_NAME, FIND_SPECIALTIES_QUERY);
 
     private final String queryName;
     private final String query;

@@ -8,16 +8,16 @@ import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffertype.SpecOfferType;
 import org.lnu.is.domain.timeperiod.TimePeriod;
+import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resources.specoffer.SpecOfferResource;
-import org.springframework.stereotype.Component;
+import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
 
 /**
  * Converter, that convert from Resource to Entity.
  * @author ivanursul
  *
  */
-@Component("specOfferResourceConverter")
+@Converter("specOfferResourceConverter")
 public class SpecOfferResourceConverter extends AbstractConverter<SpecOfferResource, SpecOffer> {
 
 	@Override
@@ -38,7 +38,6 @@ public class SpecOfferResourceConverter extends AbstractConverter<SpecOfferResou
 		TimePeriod timePeriod = new TimePeriod();
 		timePeriod.setId(source.getTimePeriodId());
 
-		target.setActual(source.getActual());
 		target.setBegDate(source.getBegDate());
 		target.setDepartment(department);
 		target.setDocNum(source.getDocNum());
@@ -48,14 +47,10 @@ public class SpecOfferResourceConverter extends AbstractConverter<SpecOfferResou
 		target.setId(source.getId());
 		target.setLicCount(source.getLicCount());
 		target.setNote(source.getNote());
-		target.setStatus(source.getStatus());
 		target.setSpecialty(specialty);
 		target.setSpecOfferType(specOfferType);
 		target.setStateCount(source.getStateCount());
 		target.setTimePeriod(timePeriod);
-		target.setUapp(source.getUapp());
-		target.setUid(source.getUid());
-		target.setUtid(source.getUtid());
 		target.setUpdateDate(new Date());
 		
 		return target;

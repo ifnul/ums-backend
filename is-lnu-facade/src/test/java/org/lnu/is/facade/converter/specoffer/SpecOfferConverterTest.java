@@ -12,7 +12,7 @@ import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffertype.SpecOfferType;
 import org.lnu.is.domain.timeperiod.TimePeriod;
-import org.lnu.is.facade.resources.specoffer.SpecOfferResource;
+import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
 
 public class SpecOfferConverterTest {
 
@@ -91,7 +91,6 @@ public class SpecOfferConverterTest {
 		source.setUtid(utid);
 
 		SpecOfferResource expected = new SpecOfferResource();
-		expected.setActual(actualRow);
 		expected.setBegDate(begDate);
 		expected.setDepartmentId(departmentId);
 		expected.setDocNum(docNum);
@@ -104,11 +103,7 @@ public class SpecOfferConverterTest {
 		expected.setSpecialtyId(specialtyId);
 		expected.setSpecofferTypeId(specOfferTypeId);
 		expected.setStateCount(stateCount);
-		expected.setStatus(status);
 		expected.setTimePeriodId(timePeriodId);
-		expected.setUapp(uapp);
-		expected.setUid(uid);
-		expected.setUtid(utid);
 		
 		// When
 		SpecOfferResource actual = unit.convert(source);

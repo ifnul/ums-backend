@@ -1,8 +1,8 @@
 package org.lnu.is.facade.facade.specoffer;
 
-import org.lnu.is.facade.resources.search.PagedRequest;
-import org.lnu.is.facade.resources.search.PagedResultResource;
-import org.lnu.is.facade.resources.specoffer.SpecOfferResource;
+import org.lnu.is.facade.resource.search.PagedRequest;
+import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
 
 /**
  * Interface, that describes all operations
