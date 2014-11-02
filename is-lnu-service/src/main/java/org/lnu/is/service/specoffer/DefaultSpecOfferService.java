@@ -2,7 +2,7 @@ package org.lnu.is.service.specoffer;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.dao.SpecOfferDao;
+import org.lnu.is.dao.dao.specoffer.SpecOfferDao;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;

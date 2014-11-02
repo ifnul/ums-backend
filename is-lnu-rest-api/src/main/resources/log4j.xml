@@ -12,7 +12,7 @@
 
 	<!-- Log all logs to a separate log file every day -->
 	<appender name="fileAppender" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="file" value="${catalina.home}/logs/optigra-funny-pictures.log" />
+		<param name="file" value="${catalina.home}/logs/is-lnu.log" />
 		<param name="datePattern" value="'.'yyyy-MM-dd" />
 		<param name="append" value="true" />
 		<layout class="org.apache.log4j.PatternLayout">
@@ -31,7 +31,7 @@
 	</appender>
 
 	<!-- LOGGER LIST -->
-	<logger name="com.optigra.funnypictures">
+	<logger name="org.lnu.is">
 		<!-- level info logs -->
 		<level value="INFO" />
 		<appender-ref ref="fileAppender" />

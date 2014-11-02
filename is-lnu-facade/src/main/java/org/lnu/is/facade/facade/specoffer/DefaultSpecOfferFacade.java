@@ -6,10 +6,10 @@ import javax.annotation.Resource;
 
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resources.ApiResource;
-import org.lnu.is.facade.resources.search.PagedRequest;
-import org.lnu.is.facade.resources.search.PagedResultResource;
-import org.lnu.is.facade.resources.specoffer.SpecOfferResource;
+import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.facade.resource.search.PagedRequest;
+import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.specoffer.SpecOfferService;
@@ -33,6 +33,12 @@ public class DefaultSpecOfferFacade implements SpecOfferFacade {
 	@Resource(name = "specOfferService")
 	private SpecOfferService specOfferService;
 
+	@Resource(name = "insertConverter")
+	private Converter<SpecOfferResource, SpecOffer> insertConverter;
+
+	@Resource(name = "updateConverter")
+	private Converter<SpecOfferResource, SpecOffer> updateConverter;
+	
 	@Resource(name = "specOfferResourceConverter")
 	private Converter<SpecOfferResource, SpecOffer> specOfferResourceConverter;
 	
@@ -49,6 +55,7 @@ public class DefaultSpecOfferFacade implements SpecOfferFacade {
 	public SpecOfferResource createSpecOffer(final SpecOfferResource specOfferResource) {
 		//Converting from resource(Controller - Facade visibility) to Entity(Service - Dao visibility)
 		SpecOffer specOffer = specOfferResourceConverter.convert(specOfferResource);
+		insertConverter.convert(specOfferResource, specOffer);
 		// Delegating creation to service layer.
 		specOfferService.createSpecOffer(specOffer);
 		// Converting to specoffer resource with generated identity.
@@ -61,6 +68,8 @@ public class DefaultSpecOfferFacade implements SpecOfferFacade {
 		SpecOffer specOffer = specOfferService.getSpecOffer(id);
 		// Converting specoffer resource to specoffer.
 		specOfferResourceConverter.convert(specOfferResource, specOffer);
+		updateConverter.convert(specOfferResource, specOffer);
+		
 		// Updating -> Delegating this operation to service.
 		specOfferService.updateSpecOffer(specOffer);
 	}

@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.dao.dao.SpecOfferDao;
+import org.lnu.is.dao.dao.specoffer.SpecOfferDao;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
