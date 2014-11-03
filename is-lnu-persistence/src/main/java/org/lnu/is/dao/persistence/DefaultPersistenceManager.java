@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.lnu.is.domain.Model;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Query;
@@ -23,7 +25,7 @@ import org.springframework.stereotype.Repository;
  * @param <I> IDentifier class.
  */
 @Repository("persistenceManager")
-public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I> {
+public class DefaultPersistenceManager<T extends Model, I> implements PersistenceManager<T, I> {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultPersistenceManager.class);
 
     private static final String COUNT_QUERY = "SELECT COUNT(*) FROM %s a WHERE a IN(%s) ";
@@ -53,7 +55,9 @@ public class DefaultPersistenceManager<T, I> implements PersistenceManager<T, I>
     @Override
     public void remove(final T entity) {
     	LOG.info("Removing entity for class:{}", entity.getClass());
-        entityManager.remove(entity);
+        entity.setActual(0);
+        entity.setStatus(RowStatus.DELETED);
+        update(entity);
     }
 
     @Override
