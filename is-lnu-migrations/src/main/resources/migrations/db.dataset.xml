@@ -6,5 +6,8 @@
     
     <include file="data/rf_gendertype/db.rf_gendertype.xml" relativeToChangelogFile="true"/>
  	<include file="data/rf_enrolmentstatustype/db.rf_enrolmentstatustype.xml" relativeToChangelogFile="true"/>
+ 	<include file="data/rf_contacttype/db.rf_contacttype.xml" relativeToChangelogFile="true"/>
+ 	<include file="data/rf_coursetype/db.rf_coursetype.xml" relativeToChangelogFile="true"/>
+ 	<include file="data/rf_streettype/db.rf_streettype.xml" relativeToChangelogFile="true"/>
  	
 </databaseChangeLog>

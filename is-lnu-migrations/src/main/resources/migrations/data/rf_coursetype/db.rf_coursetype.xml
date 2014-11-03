@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    
+     <changeSet id="add q_rf_coursetype" author="illay">
+    	<insert tableName="q_rf_coursetype">
+    		<column name="id">1</column>
+    		<column name="abbrname"></column>
+    		<column name="name">1 Курс</column>
+    	    <column name="status">Active</column>
+            <column name="actual">1</column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+         	<column name="update_date">now()</column>
+            <column name="create_date">now()</column>
+       	</insert>
+       	<insert tableName="q_rf_coursetype">
+    		<column name="id">2</column>
+    		<column name="abbrname"></column>
+    		<column name="name">2 Курс</column>
+    	    <column name="status">Active</column>
+            <column name="actual">1</column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+         	<column name="update_date">now()</column>
+            <column name="create_date">now()</column>
+       	</insert>
+       	<insert tableName="q_rf_coursetype">
+    		<column name="id">3</column>
+    		<column name="abbrname"></column>
+    		<column name="name">3 Курс</column>
+    	    <column name="status">Active</column>
+            <column name="actual">1</column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+         	<column name="update_date">now()</column>
+            <column name="create_date">now()</column>
+       	</insert>
+       	<insert tableName="q_rf_coursetype">
+    		<column name="id">4</column>
+    		<column name="abbrname"></column>
+    		<column name="name">4 Курс</column>
+    	    <column name="status">Active</column>
+            <column name="actual">1</column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+         	<column name="update_date">now()</column>
+            <column name="create_date">now()</column>
+       	</insert>
+       	<insert tableName="q_rf_coursetype">
+    		<column name="id">5</column>
+    		<column name="abbrname"></column>
+    		<column name="name">5 Курс</column>
+    	    <column name="status">Active</column>
+            <column name="actual">1</column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+         	<column name="update_date">now()</column>
+            <column name="create_date">now()</column>
+       	</insert>
+       	<insert tableName="q_rf_coursetype">
+    		<column name="id">6</column>
+    		<column name="abbrname"></column>
+    		<column name="name">6 Курс</column>
+    	    <column name="status">Active</column>
+            <column name="actual">1</column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+         	<column name="update_date">now()</column>
+            <column name="create_date">now()</column>
+       	</insert>
+       	<insert tableName="q_rf_coursetype">
+    		<column name="id">7</column>
+    		<column name="abbrname"></column>
+    		<column name="name">7 Курс</column>
+    	    <column name="status">Active</column>
+            <column name="actual">1</column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+         	<column name="update_date">now()</column>
+            <column name="create_date">now()</column>
+       	</insert>
+    </changeSet>
+</databaseChangeLog>
