@@ -139,8 +139,6 @@ public class Department extends Model {
 		result = prime * result
 				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
-		result = prime * result
-				+ ((departmentType == null) ? 0 : departmentType.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((manager == null) ? 0 : manager.hashCode());
@@ -174,9 +172,6 @@ public class Department extends Model {
 				return false;
 			}
 		} else if (!begDate.equals(other.begDate)) {
-			return false;
-		}
-		if (departmentType != other.departmentType) {
 			return false;
 		}
 		if (email == null) {
@@ -226,10 +221,10 @@ public class Department extends Model {
 
 	@Override
 	public String toString() {
-		return "Department [departmentType=" + departmentType + ", orderId="
-				+ orderId + ", abbrName=" + abbrName + ", name=" + name
-				+ ", manager=" + manager + ", phone=" + phone + ", email="
-				+ email + ", begDate=" + begDate + ", endDate=" + endDate + "]";
+		return "Department [orderId=" + orderId + ", abbrName=" + abbrName
+				+ ", name=" + name + ", manager=" + manager + ", phone="
+				+ phone + ", email=" + email + ", begDate=" + begDate
+				+ ", endDate=" + endDate + "]";
 	}
-	
+
 }

@@ -17,18 +17,33 @@ public class SpecOfferConverter extends AbstractConverter<SpecOffer, SpecOfferRe
 	public SpecOfferResource convert(final SpecOffer source, final SpecOfferResource target) {
 		
 		target.setBegDate(source.getBegDate());
-		target.setDepartmentId(source.getDepartment().getId());
 		target.setDocNum(source.getDocNum());
 		target.setDocSeries(source.getDocSeries());
-		target.setEduFormTypeId(source.getEduFormType().getId());
 		target.setEndDate(source.getEndDate());
 		target.setId(source.getId());
 		target.setLicCount(source.getLicCount());
 		target.setNote(source.getNote());
-		target.setSpecialtyId(source.getSpecialty().getId());
-		target.setSpecofferTypeId(source.getSpecOfferType().getId());
 		target.setStateCount(source.getStateCount());
-		target.setTimePeriodId(source.getTimePeriod().getId());
+
+		if (source.getDepartment() != null) {
+			target.setDepartmentId(source.getDepartment().getId());
+		}
+		
+		if (source.getEduFormType() != null) {
+			target.setEduFormTypeId(source.getEduFormType().getId());
+		}
+		
+		if (source.getSpecialty() != null) {
+			target.setSpecialtyId(source.getSpecialty().getId());
+		}
+		
+		if (source.getSpecOfferType() != null) {
+			target.setSpecofferTypeId(source.getSpecOfferType().getId());
+		}
+		
+		if (source.getTimePeriod() != null) {
+			target.setTimePeriodId(source.getTimePeriod().getId());
+		}
 		
 		return target;
 	}

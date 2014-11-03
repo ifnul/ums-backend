@@ -1,5 +1,7 @@
 package org.lnu.is.facade.facade.department;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.lnu.is.domain.department.Department;
@@ -33,10 +35,10 @@ public class DefaultDepartmentFacade implements DepartmentFacade {
 	@Resource(name = "updateConverter")
 	private Converter<DepartmentResource, Department> updateConverter;
 	
-	//@Resource(name = "departmentResourceConverter")
+	@Resource(name = "departmentResourceConverter")
 	private Converter<DepartmentResource, Department> departmentResourceConverter;
 
-	//@Resource(name = "departmentConverter")
+	@Resource(name = "departmentConverter")
 	private Converter<Department, DepartmentResource> departmentConverter;
 	
 	@Resource(name = "pagedRequestConverter")
@@ -44,5 +46,54 @@ public class DefaultDepartmentFacade implements DepartmentFacade {
 
 	@Resource(name = "pagedSearchConverter")
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
+
+	@Override
+	public DepartmentResource createDepartment(final DepartmentResource departmentResource) {
+		Department department = new Department();
+		
+		departmentResourceConverter.convert(departmentResource, department);
+		insertConverter.convert(departmentResource, department);
+		departmentService.createDepartment(department);
+		
+		return departmentConverter.convert(department);
+	}
+
+	@Override
+	public void updateDepartment(final Long id, final DepartmentResource departmentResource) {
+		Department department = departmentService.getDepartment(id);
+		
+		departmentResourceConverter.convert(departmentResource, department);
+		updateConverter.convert(departmentResource, department);
+		departmentService.updateDepartment(department);
+	}
+
+	@Override
+	public DepartmentResource getDepartment(final Long id) {
+		Department department = departmentService.getDepartment(id);
+		return departmentConverter.convert(department);
+	}
+
+	@Override
+	public void removeDepartment(final Long id) {
+		Department department = departmentService.getDepartment(id);
+		departmentService.removeDepartment(department);
+	}
+
+	@Override
+	public PagedResultResource<DepartmentResource> getSpecialties(final PagedRequest pagedRequest) {
+		LOG.info("Get departments by paged request: {}", pagedRequest);
+
+		PagedSearch<Department> pagedSearch = pagedRequestConverter.convert(pagedRequest);
+
+		PagedResult<Department> pagedResult = departmentService.getDepartments(pagedSearch);
+
+		List<DepartmentResource> resources = departmentConverter.convertAll(pagedResult.getEntities());
+
+		PagedResultResource<DepartmentResource> pagedResultResource = new PagedResultResource<>("/departments");
+		pagedResultResource.setEntities(resources);
+		pagedResultConverter.convert(pagedResult, pagedResultResource);
+
+		return pagedResultResource;
+	}
 	
 }
