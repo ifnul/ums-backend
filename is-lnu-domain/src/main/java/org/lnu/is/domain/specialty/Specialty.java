@@ -15,8 +15,8 @@ import org.lnu.is.domain.specialtype.SpecialtyType;
  * Entity, that describes specialty table.
  *
  */
-@Table
-@Entity(name = "q_ob_specialty")
+@Entity
+@Table(name = "q_ob_specialty")
 public class Specialty extends Model {
 	private static final long serialVersionUID = 1L;
 
