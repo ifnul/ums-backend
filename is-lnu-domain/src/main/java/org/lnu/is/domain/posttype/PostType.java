@@ -1,4 +1,5 @@
-package org.lnu.is.domain.gendertype;
+
+package org.lnu.is.domain.posttype;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,14 +9,14 @@ import org.lnu.is.annotation.NotMapped;
 import org.lnu.is.domain.Model;
 
 /**
- * Gender Type entity.
+ * Post Type entity.
  * @author ivanursul
  *
  */
 @NotMapped
 @Entity
-@Table(name = "q_rf_gendertype")
-public class GenderType extends Model {
+@Table(name = "q_rf_posttype")
+public class PostType extends Model {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")
@@ -61,7 +62,7 @@ public class GenderType extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		GenderType other = (GenderType) obj;
+		PostType other = (PostType) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -81,7 +82,7 @@ public class GenderType extends Model {
 
 	@Override
 	public String toString() {
-		return "GenderType [abbrName=" + abbrName + ", name=" + name + "]";
+		return "PostType [abbrName=" + abbrName + ", name=" + name + "]";
 	}
 
 }
