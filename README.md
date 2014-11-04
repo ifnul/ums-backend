@@ -18,12 +18,16 @@
 - ###*STS (Spring Tools Suit) / Eclipse*
 
 Наступним кроком є встановлення *IDE*. Будь-яке з вищезазначених середовищ підходить для роботи з проектом. Більш детальна інформація наведена нижче :
-- [Eclipse]
-- [Spring Tools Suite]
+
+ [Eclipse]
+
+ [Spring Tools Suite]
 
 Для завантаження вибраного IDE перейдіть за посиланнями :
-- [Download STS]
-- [Download Eclipse]
+
+  [Download STS]
+
+  [Download Eclipse]
 
 ---
 - ###*PostgreSQL*
@@ -32,7 +36,8 @@
 До її складу входять *PostgreSQL Server* , *pgAdminIII* - графічна утиліта для керування БД та *StackBuilder* - менеджер доповнень.
 
 Завантажити її можна тут :
-- [Download PostgreSQL]
+
+ [Download PostgreSQL]
 
 ---
 
