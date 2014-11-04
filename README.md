@@ -19,15 +19,15 @@
 
 Наступним кроком є встановлення *IDE*. Будь-яке з вищезазначених середовищ підходить для роботи з проектом. Більш детальна інформація наведена нижче :
 
- [Eclipse]
+ + [Eclipse]
 
- [Spring Tools Suite]
+ + [Spring Tools Suite]
 
 Для завантаження вибраного *IDE* перейдіть за посиланнями :
 
-  [Download STS]
+  + [Download STS]
 
-  [Download Eclipse]
+  + [Download Eclipse]
 
 ---
 - ###*PostgreSQL*
@@ -37,7 +37,7 @@
 
 Завантажити її можна тут :
 
- [Download PostgreSQL]
++ [Download PostgreSQL]
 
 ---
 
