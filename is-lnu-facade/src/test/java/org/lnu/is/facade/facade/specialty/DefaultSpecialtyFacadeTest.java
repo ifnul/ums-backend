@@ -49,7 +49,7 @@ public class DefaultSpecialtyFacadeTest {
 	private SpecialtyService specialtyService;
 
 	@Mock
-	private Converter<PagedRequest, PagedSearch<Specialty>> pagedRequestConverter;
+	private Converter<PagedRequest<SpecialtyResource>, PagedSearch<Specialty>> pagedRequestConverter;
 
 	@Mock
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
@@ -194,7 +194,7 @@ public class DefaultSpecialtyFacadeTest {
 	@Test
 	public void testGetSpecialties() throws Exception {
 		// Given
-		PagedRequest pagedRequest = new PagedRequest(10, 10);
+		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(new SpecialtyResource(), 10, 10);
 		List<SpecialtyResource> funnyResources = Collections.singletonList(new SpecialtyResource());
 		PagedResultResource<SpecialtyResource> expectedFunnies = new PagedResultResource<>("/specialties");
 		expectedFunnies.setEntities(funnyResources);
@@ -208,7 +208,7 @@ public class DefaultSpecialtyFacadeTest {
 		PagedResult<Specialty> pagedResult = new PagedResult<Specialty>(offset, limit, count, entities);
 
 		// When
-		when(pagedRequestConverter.convert(any(PagedRequest.class))).thenReturn(pagedSearch);
+		when(pagedRequestConverter.convert(Matchers.<PagedRequest<SpecialtyResource>>any())).thenReturn(pagedSearch);
 		when(specialtyService.getSpecialties(Matchers.<PagedSearch<Specialty>> any())).thenReturn(pagedResult);
 		when(specialtyConverter.convertAll(anyListOf(Specialty.class))).thenReturn(funnyResources);
 

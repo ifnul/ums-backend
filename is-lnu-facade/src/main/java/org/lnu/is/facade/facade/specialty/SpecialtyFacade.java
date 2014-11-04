@@ -48,6 +48,6 @@ public interface SpecialtyFacade {
 	 * @param pagedRequest
 	 * @return paged result with multiple specialties.
 	 */
-	PagedResultResource<SpecialtyResource> getSpecialties(PagedRequest pagedRequest);
+	PagedResultResource<SpecialtyResource> getSpecialties(PagedRequest<SpecialtyResource> pagedRequest);
 
 }

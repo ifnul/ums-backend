@@ -42,7 +42,7 @@ public class DefaultDepartmentFacade implements DepartmentFacade {
 	private Converter<Department, DepartmentResource> departmentConverter;
 	
 	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest, PagedSearch<Department>> pagedRequestConverter;
+	private Converter<PagedRequest<DepartmentResource>, PagedSearch<Department>> pagedRequestConverter;
 
 	@Resource(name = "pagedSearchConverter")
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
@@ -80,10 +80,11 @@ public class DefaultDepartmentFacade implements DepartmentFacade {
 	}
 
 	@Override
-	public PagedResultResource<DepartmentResource> getSpecialties(final PagedRequest pagedRequest) {
+	public PagedResultResource<DepartmentResource> getDepartments(final PagedRequest<DepartmentResource> pagedRequest) {
 		LOG.info("Get departments by paged request: {}", pagedRequest);
 
 		PagedSearch<Department> pagedSearch = pagedRequestConverter.convert(pagedRequest);
+		pagedSearch.setEntity(departmentResourceConverter.convert(pagedRequest.getResource()));
 
 		PagedResult<Department> pagedResult = departmentService.getDepartments(pagedSearch);
 

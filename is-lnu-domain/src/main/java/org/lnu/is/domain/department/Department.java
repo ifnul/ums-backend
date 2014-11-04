@@ -28,8 +28,9 @@ public class Department extends Model {
 	@JoinColumn(name = "departmenttype_id")
 	private DepartmentType departmentType;
 	
-	@Column(name = "order_id")
-	private Long orderId;
+	//@ManyToOne
+	//@JoinColumn(name = "order_id")
+	//private Order order;
 	
 	@Column(name = "abbrname")
 	private String abbrName;
@@ -68,13 +69,13 @@ public class Department extends Model {
 		this.departmentType = departmentType;
 	}
 
-	public Long getOrderId() {
-		return orderId;
+/*	public Order getOrder() {
+		return order;
 	}
 
-	public void setOrderId(final Long orderId) {
-		this.orderId = orderId;
-	}
+	public void setOrder(final Order order) {
+		this.order = order;
+	}*/
 
 	public String getAbbrName() {
 		return abbrName;
@@ -117,19 +118,19 @@ public class Department extends Model {
 	}
 
 	public Date getBegDate() {
-		return new Date(begDate.getTime());
+		return begDate;
 	}
 
 	public void setBegDate(final Date begDate) {
-		this.begDate = new Date(begDate.getTime());
+		this.begDate = begDate;
 	}
 
 	public Date getEndDate() {
-		return new Date(endDate.getTime());
+		return endDate;
 	}
 
 	public void setEndDate(final Date endDate) {
-		this.endDate = new Date(endDate.getTime());
+		this.endDate = endDate;
 	}
 
 	@Override
@@ -143,7 +144,6 @@ public class Department extends Model {
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((manager == null) ? 0 : manager.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		return result;
 	}
@@ -202,13 +202,6 @@ public class Department extends Model {
 		} else if (!name.equals(other.name)) {
 			return false;
 		}
-		if (orderId == null) {
-			if (other.orderId != null) {
-				return false;
-			}
-		} else if (!orderId.equals(other.orderId)) {
-			return false;
-		}
 		if (phone == null) {
 			if (other.phone != null) {
 				return false;
@@ -221,7 +214,7 @@ public class Department extends Model {
 
 	@Override
 	public String toString() {
-		return "Department [orderId=" + orderId + ", abbrName=" + abbrName
+		return "Department [abbrName=" + abbrName
 				+ ", name=" + name + ", manager=" + manager + ", phone="
 				+ phone + ", email=" + email + ", begDate=" + begDate
 				+ ", endDate=" + endDate + "]";

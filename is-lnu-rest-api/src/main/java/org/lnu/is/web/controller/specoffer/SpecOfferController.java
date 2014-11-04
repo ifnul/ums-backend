@@ -140,9 +140,10 @@ public class SpecOfferController extends BaseController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping
 	public PagedResultResource<SpecOfferResource> getSpecOffers(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "20") final Integer limit) {
+			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
+			final SpecOfferResource resource) {
 		LOG.info("Retrieving PagedResultResource for Spec Offer Resources with offset: {}, limit: {}", offset, limit);
-		PagedRequest pagedRequest = new PagedRequest(offset, limit);
+		PagedRequest<SpecOfferResource> pagedRequest = new PagedRequest<SpecOfferResource>(resource, offset, limit);
 		return specOfferFacade.getSpecOffers(pagedRequest);
 	}
 }

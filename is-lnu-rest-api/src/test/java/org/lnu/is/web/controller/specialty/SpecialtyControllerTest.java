@@ -26,6 +26,7 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specialty.SpecialtyResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
@@ -191,10 +192,10 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 		expectedResource.setUri(uri);
 		expectedResource.setEntities(entities);
 		
-		PagedRequest pagedRequest = new PagedRequest(offset, limit);
+		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(new SpecialtyResource(), offset, limit);
 		
 		// When
-		when(specialtyFacade.getSpecialties(any(PagedRequest.class))).thenReturn(expectedResource);
+		when(specialtyFacade.getSpecialties(Matchers.<PagedRequest<SpecialtyResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then

@@ -3,6 +3,7 @@ package org.lnu.is.service.department;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.department.DepartmentDao;
+import org.lnu.is.dao.extractor.ParametersExtractor;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
@@ -19,6 +20,9 @@ public class DefaultDepartmentService implements DepartmentService {
 	@Resource(name = "departmentDao")
 	private DepartmentDao departmentDao;
 
+	@Resource(name = "departmentParametersExtractor")
+	private ParametersExtractor<Department> parametersExtractor;
+	
 	@Override
 	public void createDepartment(final Department department) {
 		departmentDao.save(department);
@@ -41,6 +45,9 @@ public class DefaultDepartmentService implements DepartmentService {
 
 	@Override
 	public PagedResult<Department> getDepartments(final PagedSearch<Department> pagedSearch) {
+		//Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch);
+		//pagedSearch.setParameters(parameters);
+		
 		return departmentDao.getDepartments(pagedSearch);
 	}
 }

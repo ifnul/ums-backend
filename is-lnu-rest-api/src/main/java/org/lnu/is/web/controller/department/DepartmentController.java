@@ -135,14 +135,16 @@ public class DepartmentController extends BaseController {
 	 * offset ant limit parameters.
 	 * @param offset start position.If not specified, default value will be - 0.
 	 * @param limit maximum results. If not specified, default value will be - 20.
+	 * @param resource - all form parameters.
 	 * @return Paged Result with generated entities.
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping
 	public PagedResultResource<DepartmentResource> getSpecialties(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "20") final Integer limit) {
+			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
+			final DepartmentResource resource) {
 		LOG.info("Retrieving PagedResultResource for Department Resources with offset: {}, limit: {}", offset, limit);
-		PagedRequest pagedRequest = new PagedRequest(offset, limit);
-		return departmentFacade.getSpecialties(pagedRequest);
+		PagedRequest<DepartmentResource> pagedRequest = new PagedRequest<DepartmentResource>(resource, offset, limit);
+		return departmentFacade.getDepartments(pagedRequest);
 	}	
 }

@@ -48,7 +48,7 @@ public class DefaultSpecOfferFacadeTest {
 	private SpecOfferService specOfferService;
 
 	@Mock
-	private Converter<PagedRequest, PagedSearch<SpecOffer>> pagedRequestConverter;
+	private Converter<PagedRequest<SpecOfferResource>, PagedSearch<SpecOffer>> pagedRequestConverter;
 
 	@Mock
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
@@ -176,7 +176,7 @@ public class DefaultSpecOfferFacadeTest {
 	@Test
 	public void testGetSpecOffers() throws Exception {
 		// Given
-		PagedRequest pagedRequest = new PagedRequest(10, 10);
+		PagedRequest<SpecOfferResource> pagedRequest = new PagedRequest<SpecOfferResource>(new SpecOfferResource(),10, 10);
 		List<SpecOfferResource> funnyResources = Collections.singletonList(new SpecOfferResource());
 		PagedResultResource<SpecOfferResource> expectedFunnies = new PagedResultResource<>("/specoffers");
 		expectedFunnies.setEntities(funnyResources);
@@ -190,7 +190,7 @@ public class DefaultSpecOfferFacadeTest {
 		PagedResult<SpecOffer> pagedResult = new PagedResult<SpecOffer>(offset, limit, count, entities);
 
 		// When
-		when(pagedRequestConverter.convert(any(PagedRequest.class))).thenReturn(pagedSearch);
+		when(pagedRequestConverter.convert(Matchers.<PagedRequest<SpecOfferResource>>any())).thenReturn(pagedSearch);
 		when(specOfferService.getSpecOffers(Matchers.<PagedSearch<SpecOffer>> any())).thenReturn(pagedResult);
 		when(specOfferConverter.convertAll(anyListOf(SpecOffer.class))).thenReturn(funnyResources);
 

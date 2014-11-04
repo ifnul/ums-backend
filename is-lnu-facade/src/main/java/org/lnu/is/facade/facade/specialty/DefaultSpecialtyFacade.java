@@ -42,7 +42,7 @@ public class DefaultSpecialtyFacade implements SpecialtyFacade {
 	private Converter<Specialty, SpecialtyResource> specialtyConverter;
 	
 	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest, PagedSearch<Specialty>> pagedRequestConverter;
+	private Converter<PagedRequest<SpecialtyResource>, PagedSearch<Specialty>> pagedRequestConverter;
 
 	@Resource(name = "pagedSearchConverter")
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
@@ -78,7 +78,7 @@ public class DefaultSpecialtyFacade implements SpecialtyFacade {
 	}
 
 	@Override
-	public PagedResultResource<SpecialtyResource> getSpecialties(final PagedRequest pagedRequest) {
+	public PagedResultResource<SpecialtyResource> getSpecialties(final PagedRequest<SpecialtyResource> pagedRequest) {
 		LOG.info("Get specialties by paged request: {}", pagedRequest);
 
 		PagedSearch<Specialty> pagedSearch = pagedRequestConverter.convert(pagedRequest);

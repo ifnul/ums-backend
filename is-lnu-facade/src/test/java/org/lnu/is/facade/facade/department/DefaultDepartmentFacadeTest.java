@@ -49,7 +49,7 @@ public class DefaultDepartmentFacadeTest {
 	private Converter<Department, DepartmentResource> departmentConverter;
 	
 	@Mock
-	private Converter<PagedRequest, PagedSearch<Department>> pagedRequestConverter;
+	private Converter<PagedRequest<DepartmentResource>, PagedSearch<Department>> pagedRequestConverter;
 
 	@Mock
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
@@ -198,7 +198,8 @@ public class DefaultDepartmentFacadeTest {
 	@Test
 	public void testGetSpecialties() throws Exception {
 		// Given
-		PagedRequest pagedRequest = new PagedRequest(10, 10);
+		DepartmentResource resource = new DepartmentResource();
+		PagedRequest<DepartmentResource> pagedRequest = new PagedRequest<DepartmentResource>(resource, 10, 10);
 		List<DepartmentResource> funnyResources = Collections.singletonList(new DepartmentResource());
 		PagedResultResource<DepartmentResource> expectedFunnies = new PagedResultResource<>("/departments");
 		expectedFunnies.setEntities(funnyResources);
@@ -212,11 +213,11 @@ public class DefaultDepartmentFacadeTest {
 		PagedResult<Department> pagedResult = new PagedResult<Department>(offset, limit, count, entities);
 
 		// When
-		when(pagedRequestConverter.convert(any(PagedRequest.class))).thenReturn(pagedSearch);
+		when(pagedRequestConverter.convert(Matchers.<PagedRequest<DepartmentResource>>any())).thenReturn(pagedSearch);
 		when(departmentService.getDepartments(Matchers.<PagedSearch<Department>> any())).thenReturn(pagedResult);
 		when(departmentConverter.convertAll(anyListOf(Department.class))).thenReturn(funnyResources);
 
-		PagedResultResource<DepartmentResource> actualFunnies = unit.getSpecialties(pagedRequest);
+		PagedResultResource<DepartmentResource> actualFunnies = unit.getDepartments(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

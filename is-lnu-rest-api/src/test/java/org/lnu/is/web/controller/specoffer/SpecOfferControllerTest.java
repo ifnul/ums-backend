@@ -25,8 +25,8 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
-import org.lnu.is.web.controller.specoffer.SpecOfferController;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
@@ -200,10 +200,10 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
 		expectedResource.setUri(uri);
 		expectedResource.setEntities(entities);
 		
-		PagedRequest pagedRequest = new PagedRequest(offset, limit);
+		PagedRequest<SpecOfferResource> pagedRequest = new PagedRequest<SpecOfferResource>(new SpecOfferResource(), offset, limit);
 		
 		// When
-		when(specOfferFacade.getSpecOffers(any(PagedRequest.class))).thenReturn(expectedResource);
+		when(specOfferFacade.getSpecOffers(Matchers.<PagedRequest<SpecOfferResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then

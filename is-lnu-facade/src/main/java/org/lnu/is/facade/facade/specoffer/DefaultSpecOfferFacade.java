@@ -46,7 +46,7 @@ public class DefaultSpecOfferFacade implements SpecOfferFacade {
 	private Converter<SpecOffer, SpecOfferResource> specOfferConverter;
 	
 	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest, PagedSearch<SpecOffer>> pagedRequestConverter;
+	private Converter<PagedRequest<SpecOfferResource>, PagedSearch<SpecOffer>> pagedRequestConverter;
 
 	@Resource(name = "pagedSearchConverter")
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
@@ -91,7 +91,7 @@ public class DefaultSpecOfferFacade implements SpecOfferFacade {
 	}
 
 	@Override
-	public PagedResultResource<SpecOfferResource> getSpecOffers(final PagedRequest pagedRequest) {
+	public PagedResultResource<SpecOfferResource> getSpecOffers(final PagedRequest<SpecOfferResource> pagedRequest) {
 		LOG.info("Get spec offers by paged request: {}", pagedRequest);
 
 		PagedSearch<SpecOffer> pagedSearch = pagedRequestConverter.convert(pagedRequest);

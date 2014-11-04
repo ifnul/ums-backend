@@ -50,7 +50,6 @@ public class SpecOffer extends Model {
 	@JoinColumn(name = "specoffertype_id")
 	private SpecOfferType specOfferType;
 	
-	
 	@Column(name = "docseries")
 	private String docSeries;
 	

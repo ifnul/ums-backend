@@ -141,9 +141,10 @@ public class SpecialtyController extends BaseController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping
 	public PagedResultResource<SpecialtyResource> getSpecialties(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "20") final Integer limit) {
+			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
+			final SpecialtyResource resource) {
 		LOG.info("Retrieving PagedResultResource for Specialty Resources with offset: {}, limit: {}", offset, limit);
-		PagedRequest pagedRequest = new PagedRequest(offset, limit);
+		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(resource, offset, limit);
 		return specialtyFacade.getSpecialties(pagedRequest);
 	}	
 }

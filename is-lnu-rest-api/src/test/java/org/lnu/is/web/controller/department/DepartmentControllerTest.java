@@ -26,6 +26,7 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
@@ -199,10 +200,10 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 		expectedResource.setUri(uri);
 		expectedResource.setEntities(entities);
 		
-		PagedRequest pagedRequest = new PagedRequest(offset, limit);
+		PagedRequest<DepartmentResource> pagedRequest = new PagedRequest<DepartmentResource>(new DepartmentResource(), offset, limit);
 		
 		// When
-		when(departmentFacade.getSpecialties(any(PagedRequest.class))).thenReturn(expectedResource);
+		when(departmentFacade.getDepartments(Matchers.<PagedRequest<DepartmentResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -212,6 +213,6 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(departmentFacade).getSpecialties(pagedRequest);
+		verify(departmentFacade).getDepartments(pagedRequest);
 	}
 }

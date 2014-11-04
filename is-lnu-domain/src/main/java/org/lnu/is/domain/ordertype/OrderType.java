@@ -1,4 +1,4 @@
-package org.lnu.is.domain.honorstype;
+package org.lnu.is.domain.ordertype;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,13 +7,13 @@ import javax.persistence.Table;
 import org.lnu.is.domain.Model;
 
 /**
- * Model, that describes honors type.
+ * Order Type entity.
  * @author ivanursul
  *
  */
 @Entity
-@Table(name = "q_rf_honorstype")
-public class HonorsType extends Model {
+@Table(name = "q_rf_ordertype")
+public class OrderType extends Model {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")
@@ -59,7 +59,7 @@ public class HonorsType extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		HonorsType other = (HonorsType) obj;
+		OrderType other = (OrderType) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -79,7 +79,7 @@ public class HonorsType extends Model {
 
 	@Override
 	public String toString() {
-		return "HonorsType [abbrName=" + abbrName + ", name=" + name + "]";
+		return "OrderType [abbrName=" + abbrName + ", name=" + name + "]";
 	}
 	
 }

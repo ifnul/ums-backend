@@ -874,12 +874,12 @@
   <Match>
     <Bug pattern="FI_PUBLIC_SHOULD_BE_PROTECTED"/>
   </Match>
-  <Match>
+<!--   <Match>
     <Bug pattern="EI_EXPOSE_REP2"/>
-  </Match>
-  <Match>
+  </Match> -->
+<!--   <Match>
     <Bug pattern="EI_EXPOSE_REP"/>
-  </Match>
+  </Match> -->
   <Match>
     <Bug pattern="EI_EXPOSE_STATIC_REP2"/>
   </Match>

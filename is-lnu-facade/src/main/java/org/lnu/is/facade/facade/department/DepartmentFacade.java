@@ -44,5 +44,5 @@ public interface DepartmentFacade {
 	 * @param pagedRequest request.
 	 * @return paged result.
 	 */
-	PagedResultResource<DepartmentResource> getSpecialties(PagedRequest pagedRequest);
+	PagedResultResource<DepartmentResource> getDepartments(PagedRequest<DepartmentResource> pagedRequest);
 }

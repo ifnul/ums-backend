@@ -18,6 +18,7 @@ public class PagedSearch<T> {
     private Queries query;
     private Map<String, Object> parameters;
     private Class<T> clazz;
+    private T entity;
 	
     /**
      * Constructor with no parameters.
@@ -86,14 +87,25 @@ public class PagedSearch<T> {
 		this.clazz = clazz;
 	}
 
+	public T getEntity() {
+		return entity;
+	}
+
+	public void setEntity(final T entity) {
+		this.entity = entity;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((clazz == null) ? 0 : clazz.hashCode());
+		result = prime * result + ((entity == null) ? 0 : entity.hashCode());
 		result = prime * result + ((limit == null) ? 0 : limit.hashCode());
 		result = prime * result + ((offset == null) ? 0 : offset.hashCode());
 		result = prime * result
 				+ ((parameters == null) ? 0 : parameters.hashCode());
+		result = prime * result + ((query == null) ? 0 : query.hashCode());
 		return result;
 	}
 
@@ -108,7 +120,21 @@ public class PagedSearch<T> {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		PagedSearch<?> other = (PagedSearch<?>) obj;
+		PagedSearch other = (PagedSearch) obj;
+		if (clazz == null) {
+			if (other.clazz != null) {
+				return false;
+			}
+		} else if (!clazz.equals(other.clazz)) {
+			return false;
+		}
+		if (entity == null) {
+			if (other.entity != null) {
+				return false;
+			}
+		} else if (!entity.equals(other.entity)) {
+			return false;
+		}
 		if (limit == null) {
 			if (other.limit != null) {
 				return false;
@@ -130,6 +156,13 @@ public class PagedSearch<T> {
 		} else if (!parameters.equals(other.parameters)) {
 			return false;
 		}
+		if (query == null) {
+			if (other.query != null) {
+				return false;
+			}
+		} else if (!query.equals(other.query)) {
+			return false;
+		}
 		return true;
 	}
 
@@ -137,7 +170,7 @@ public class PagedSearch<T> {
 	public String toString() {
 		return "PagedSearch [offset=" + offset + ", limit=" + limit
 				+ ", query=" + query + ", parameters=" + parameters
-				+ ", clazz=" + clazz + "]";
+				+ ", clazz=" + clazz + ", entity=" + entity + "]";
 	}
 
 }
