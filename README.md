@@ -25,9 +25,9 @@
 
 Для завантаження вибраного *IDE* перейдіть за посиланнями :
 
-  [Download STS]
+  + [Download STS]
 
-  [Download Eclipse]
+  + [Download Eclipse]
 
 ---
 - ###*PostgreSQL*
@@ -37,7 +37,7 @@
 
 Завантажити її можна тут :
 
- [Download PostgreSQL]
++ [Download PostgreSQL]
 
 ---
 
