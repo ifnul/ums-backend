@@ -3104,4 +3104,9 @@
     	<addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_ob_departmentspecialty" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
     	
     </changeSet>
+    
+    <changeSet id="add foreingkey q_ob_employee fk_q_rf_employeestatus_id" author="illay">
+    	<addForeignKeyConstraint baseColumnNames="employeestatus_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_employeestatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_employeestatus"/>
+    </changeSet>
+     
 </databaseChangeLog>
