@@ -7,6 +7,7 @@
 		<class>org.lnu.is.domain.department.Department</class>
 		<class>org.lnu.is.domain.departmenttype.DepartmentType</class>
         <class>org.lnu.is.domain.eduformtype.EduFormType</class>
+        <class>org.lnu.is.domain.honorstype.HonorsType</class>
         <class>org.lnu.is.domain.specialty.Specialty</class>
         <class>org.lnu.is.domain.specialtype.SpecialtyType</class>
         <class>org.lnu.is.domain.specoffer.SpecOffer</class>
