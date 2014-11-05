@@ -67,6 +67,9 @@ public class Employee extends Model {
 	@JoinColumn(name = "parent_id")
 	private Employee parent;
 	
+	@Column(name = "ranktype_id")
+	private Long rankTypeId;
+	
 	@Column(name = "name")
 	private String name;
 	
@@ -93,9 +96,6 @@ public class Employee extends Model {
 	
 	@Column(name = "ispansioner")
 	private Integer isPensioner;
-	
-	@Column(name = "ranktype_id")
-	private Long rankTypeId;
 	
 	@Column(name = "begdate")
 	private Date begDate;

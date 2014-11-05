@@ -1,6 +1,5 @@
 package org.lnu.is.domain.order;
 
-import java.security.cert.CertPathValidatorException.Reason;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -17,6 +16,7 @@ import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.optype.OpType;
 import org.lnu.is.domain.ordertype.OrderType;
 import org.lnu.is.domain.partner.Partner;
+import org.lnu.is.domain.reason.Reason;
 
 /**
  * Order entity.

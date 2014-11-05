@@ -1,4 +1,4 @@
-package org.lnu.is.domain.optype;
+package org.lnu.is.domain.reason;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,14 +8,14 @@ import org.lnu.is.annotation.NotMapped;
 import org.lnu.is.domain.Model;
 
 /**
- * Op Type entity.
+ * Reason entity.
  * @author ivanursul
  *
  */
 @NotMapped
 @Entity
-@Table(name = "q_rf_optype")
-public class OpType extends Model {
+@Table(name = "")
+public class Reason extends Model {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")
@@ -61,7 +61,7 @@ public class OpType extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		OpType other = (OpType) obj;
+		Reason other = (Reason) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -81,7 +81,7 @@ public class OpType extends Model {
 
 	@Override
 	public String toString() {
-		return "OpType [abbrName=" + abbrName + ", name=" + name + "]";
+		return "Reason [abbrName=" + abbrName + ", name=" + name + "]";
 	}
 
 }
