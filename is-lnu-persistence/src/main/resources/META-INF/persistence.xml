@@ -4,6 +4,10 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         
    
+		<class>org.lnu.is.domain.asset.Asset</class>
+        <class>org.lnu.is.domain.assetstate.AssetState</class> 
+        <class>org.lnu.is.domain.assetstatus.AssetStatus</class> 
+        <class>org.lnu.is.domain.assettype.AssetType</class> 
 		<class>org.lnu.is.domain.department.Department</class>
 		<class>org.lnu.is.domain.departmenttype.DepartmentType</class>
         <class>org.lnu.is.domain.eduformtype.EduFormType</class>
@@ -13,8 +17,22 @@
         <class>org.lnu.is.domain.specoffer.SpecOffer</class>
         <class>org.lnu.is.domain.specoffertype.SpecOfferType</class>
         <class>org.lnu.is.domain.timeperiod.TimePeriod</class> 
-        <class>org.lnu.is.domain.timeperiodtype.TimePeriodType</class> 
-
+        <class>org.lnu.is.domain.timeperiodtype.TimePeriodType</class>
+        <class>org.lnu.is.domain.employee.Employee</class> 
+        <class>org.lnu.is.domain.employeestatus.EmployeeStatus</class> 
+        <class>org.lnu.is.domain.employeetype.EmployeeType</class> 
+        <class>org.lnu.is.domain.gendertype.GenderType</class> 
+        <class>org.lnu.is.domain.jobtype.JobType</class> 
+        <class>org.lnu.is.domain.marriedtype.MarriedType</class> 
+        <class>org.lnu.is.domain.optype.OpType</class> 
+        <class>org.lnu.is.domain.order.Order</class> 
+        <class>org.lnu.is.domain.ordertype.OrderType</class> 
+        <class>org.lnu.is.domain.partner.Partner</class> 
+        <class>org.lnu.is.domain.person.Person</class> 
+        <class>org.lnu.is.domain.persontype.PersonType</class> 
+        <class>org.lnu.is.domain.post.Post</class> 
+        <class>org.lnu.is.domain.posttype.PostType</class> 
+        <class>org.lnu.is.domain.reason.Reason</class> 
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

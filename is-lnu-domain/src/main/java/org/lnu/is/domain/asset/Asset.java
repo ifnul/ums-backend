@@ -3,10 +3,11 @@ package org.lnu.is.domain.asset;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import org.lnu.is.annotation.NotMapped;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.assetstate.AssetState;
 import org.lnu.is.domain.assetstatus.AssetStatus;
@@ -21,7 +22,8 @@ import org.lnu.is.domain.partner.Partner;
  * @author ivanursul
  *
  */
-@NotMapped
+@Entity
+@Table(name = "q_ob_asset")
 public class Asset extends Model {
 	private static final long serialVersionUID = 1L;
 

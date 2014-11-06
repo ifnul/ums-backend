@@ -4,9 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.lnu.is.annotation.NotMapped;
 import org.lnu.is.domain.Model;
 
 /**
@@ -14,13 +15,13 @@ import org.lnu.is.domain.Model;
  * @author ivanursul
  *
  */
-@NotMapped
 @Entity
 @Table(name = "q_ob_partner")
 public class Partner extends Model {
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name = "parent_id")
+	@ManyToOne
+	@JoinColumn(name = "parent_id")
 	private Partner parent;
 	
 	@Column(name = "abbname")

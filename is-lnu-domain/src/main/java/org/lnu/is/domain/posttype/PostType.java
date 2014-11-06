@@ -5,7 +5,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.lnu.is.annotation.NotMapped;
 import org.lnu.is.domain.Model;
 
 /**
@@ -13,7 +12,6 @@ import org.lnu.is.domain.Model;
  * @author ivanursul
  *
  */
-@NotMapped
 @Entity
 @Table(name = "q_rf_posttype")
 public class PostType extends Model {

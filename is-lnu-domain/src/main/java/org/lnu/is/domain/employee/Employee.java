@@ -8,7 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.lnu.is.annotation.NotMapped;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employeestatus.EmployeeStatus;
@@ -25,7 +24,6 @@ import org.lnu.is.domain.post.Post;
  * @author ivanursul
  *
  */
-@NotMapped
 @Entity
 @Table(name = "q_ob_employee")
 public class Employee extends Model {

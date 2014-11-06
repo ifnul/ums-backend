@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.departmenttype.DepartmentType;
+import org.lnu.is.domain.order.Order;
 
 /**
  * Entity, that describes department table.
@@ -28,9 +29,9 @@ public class Department extends Model {
 	@JoinColumn(name = "departmenttype_id")
 	private DepartmentType departmentType;
 	
-	//@ManyToOne
-	//@JoinColumn(name = "order_id")
-	//private Order order;
+	@ManyToOne
+	@JoinColumn(name = "order_id")
+	private Order order;
 	
 	@Column(name = "abbrname")
 	private String abbrName;
@@ -69,13 +70,13 @@ public class Department extends Model {
 		this.departmentType = departmentType;
 	}
 
-/*	public Order getOrder() {
+	public Order getOrder() {
 		return order;
 	}
 
 	public void setOrder(final Order order) {
 		this.order = order;
-	}*/
+	}
 
 	public String getAbbrName() {
 		return abbrName;

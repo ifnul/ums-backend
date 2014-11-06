@@ -6,7 +6,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.lnu.is.annotation.NotMapped;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.posttype.PostType;
 
@@ -15,7 +14,6 @@ import org.lnu.is.domain.posttype.PostType;
  * @author ivanursul
  *
  */
-@NotMapped
 @Entity
 @Table(name = "q_ob_post")
 public class Post extends Model {
