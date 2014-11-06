@@ -6,7 +6,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.lnu.is.annotation.Mapped;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.coursetype.CourseType;
 import org.lnu.is.domain.eduformtype.EduFormType;
@@ -20,7 +19,6 @@ import org.lnu.is.domain.specialty.Specialty;
  * @author ivanursul
  *
  */
-@Mapped
 @Entity
 @Table(name = "q_dt_ordernewstudent")
 public class OrderNewStudent extends Model {
@@ -39,7 +37,7 @@ public class OrderNewStudent extends Model {
 	private Person person;
 
 	@ManyToOne
-	@JoinColumn(name = "courseType")
+	@JoinColumn(name = "coursetype_id")
 	private CourseType courseType;
 	
 	@ManyToOne

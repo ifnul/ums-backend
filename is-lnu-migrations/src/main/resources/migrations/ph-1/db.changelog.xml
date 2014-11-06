@@ -3108,5 +3108,17 @@
     <changeSet id="add foreingkey q_ob_employee fk_q_rf_employeestatus_id" author="illay">
     	<addForeignKeyConstraint baseColumnNames="employeestatus_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_employeestatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_employeestatus"/>
     </changeSet>
-     
+    <changeSet id="change abbrname type in q_ob_benefit table to varchar" author="ivanursul">
+	    <modifyDataType 
+	            columnName="abbrname"
+	            newDataType="VARCHAR(255)"
+	            schemaName="public"
+	            tableName="q_ob_benefit"/>
+    </changeSet>
+    <changeSet id="change begdata name to begdate in q_ob_benefit" author="ivanursul">
+    	<renameColumn tableName="q_ob_benefit" oldColumnName="begdata" newColumnName="begdate"/>
+    </changeSet> 
+    <changeSet id="change descriotion name to description in q_rf_enrolmentstatustype" author="ivanursul">
+    	<renameColumn tableName="q_rf_enrolmentstatustype" oldColumnName="descriotion" newColumnName="description"/>
+    </changeSet> 
 </databaseChangeLog>

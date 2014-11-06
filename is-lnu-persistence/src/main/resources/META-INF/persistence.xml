@@ -38,6 +38,33 @@
         <class>org.lnu.is.domain.papertype.PaperType</class>
         <class>org.lnu.is.domain.paperusage.PaperUsage</class>
         <class>org.lnu.is.domain.personpaper.PersonPaper</class>
+        <class>org.lnu.is.domain.addresstype.AddressType</class>
+        <class>org.lnu.is.domain.adminunit.AdminUnit</class>
+        <class>org.lnu.is.domain.adminunittype.AdminUnitType</class>
+        <class>org.lnu.is.domain.benefit.Benefit</class>
+        <class>org.lnu.is.domain.benefittype.BenefitType</class>
+        <class>org.lnu.is.domain.contacttype.ContactType</class>
+        <class>org.lnu.is.domain.coursetype.CourseType</class>
+        <class>org.lnu.is.domain.departmentaddress.DepartmentAddress</class>
+        <class>org.lnu.is.domain.departmentcontact.DepartmentContact</class>
+        <class>org.lnu.is.domain.departmentname.DepartmentName</class>
+        <class>org.lnu.is.domain.departmentspecialty.DepartmentSpecialty</class>
+        <class>org.lnu.is.domain.enrolmentbenefit.EnrolmentBenefit</class>
+        <class>org.lnu.is.domain.enrolmentenrolsubject.EnrolmentEnrolSubject</class>
+        <class>org.lnu.is.domain.enrolmentstatus.EnrolmentStatus</class>
+        <class>org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType</class>
+        <class>org.lnu.is.domain.enrolmentsubject.EnrolmentSubject</class>
+        <class>org.lnu.is.domain.error.Error</class>
+        <class>org.lnu.is.domain.importexport.ImportExport</class>
+        <class>org.lnu.is.domain.language.Language</class>
+        <class>org.lnu.is.domain.languagelevel.LanguageLevel</class>
+        <class>org.lnu.is.domain.ordernewstudent.OrderNewStudent</class>
+        <class>org.lnu.is.domain.personenrolmentsubject.PersonEnrolmentSubject</class>
+        <class>org.lnu.is.domain.personlanguage.PersonLanguage</class>
+        <class>org.lnu.is.domain.personname.PersonName</class>
+        <class>org.lnu.is.domain.specofferwave.SpecOfferWave</class>
+        <class>org.lnu.is.domain.streettype.StreetType</class>
+        <class>org.lnu.is.domain.wavetype.WaveType</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

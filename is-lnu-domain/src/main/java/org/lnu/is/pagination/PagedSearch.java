@@ -120,7 +120,7 @@ public class PagedSearch<T> {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		PagedSearch other = (PagedSearch) obj;
+		PagedSearch<?> other = (PagedSearch<?>) obj;
 		if (clazz == null) {
 			if (other.clazz != null) {
 				return false;

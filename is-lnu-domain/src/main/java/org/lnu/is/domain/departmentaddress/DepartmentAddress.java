@@ -6,7 +6,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.lnu.is.annotation.Mapped;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.domain.adminunit.AdminUnit;
@@ -18,7 +17,6 @@ import org.lnu.is.domain.streettype.StreetType;
  * @author ivanursul
  *
  */
-@Mapped
 @Entity
 @Table(name = "q_od_departmentaddress")
 public class DepartmentAddress extends Model {

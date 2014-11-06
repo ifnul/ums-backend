@@ -5,7 +5,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.lnu.is.annotation.Mapped;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.enrolment.Enrolment;
@@ -15,7 +14,6 @@ import org.lnu.is.domain.enrolment.Enrolment;
  * @author ivanursul
  *
  */
-@Mapped
 @Entity
 @Table(name = "q_dt_enrolmentbenefit")
 public class EnrolmentBenefit extends Model {

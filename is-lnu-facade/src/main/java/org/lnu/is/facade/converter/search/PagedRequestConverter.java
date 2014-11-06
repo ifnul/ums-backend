@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
  * @param <T> Entity class.
  */
 @Component("pagedRequestConverter")
-public class PagedRequestConverter<T> extends AbstractConverter<PagedRequest, PagedSearch<T>> {
+public class PagedRequestConverter<T> extends AbstractConverter<PagedRequest<?>, PagedSearch<T>> {
 
 	@Override
-	public PagedSearch<T> convert(final PagedRequest source, final PagedSearch<T> target) {
+	public PagedSearch<T> convert(final PagedRequest<?> source, final PagedSearch<T> target) {
 		
 		target.setOffset(source.getOffset());
 		target.setLimit(source.getLimit());
@@ -26,7 +26,7 @@ public class PagedRequestConverter<T> extends AbstractConverter<PagedRequest, Pa
 	}
 
 	@Override
-	public PagedSearch<T> convert(final PagedRequest source) {
+	public PagedSearch<T> convert(final PagedRequest<?> source) {
 		return convert(source, new PagedSearch<T>());
 	}
 

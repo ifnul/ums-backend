@@ -5,7 +5,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.lnu.is.annotation.Mapped;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.specialty.Specialty;
@@ -15,7 +14,6 @@ import org.lnu.is.domain.specialty.Specialty;
  * @author ivanursul
  *
  */
-@Mapped
 @Entity
 @Table(name = "q_ob_departmentspecialty")
 public class DepartmentSpecialty extends Model {

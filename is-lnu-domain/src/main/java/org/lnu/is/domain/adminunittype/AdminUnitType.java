@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.lnu.is.annotation.Mapped;
 import org.lnu.is.domain.Model;
 
 /**
@@ -12,7 +11,6 @@ import org.lnu.is.domain.Model;
  * @author ivanursul
  *
  */
-@Mapped
 @Entity
 @Table(name = "q_rf_adminunittype")
 public class AdminUnitType extends Model {
