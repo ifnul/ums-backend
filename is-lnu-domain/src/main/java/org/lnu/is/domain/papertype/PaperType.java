@@ -1,21 +1,28 @@
-package org.lnu.is.domain.employeestatus;
+package org.lnu.is.domain.papertype;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
+import org.lnu.is.domain.paperusage.PaperUsage;
 
 /**
- * Employee Status entity.
+ * Paper Type entity.
  * @author ivanursul
  *
  */
 @Entity
-@Table(name = "q_rf_employeestatus")
-public class EmployeeStatus extends Model {
+@Table(name = "q_rf_papertype")
+public class PaperType extends Model {
 	private static final long serialVersionUID = 1L;
 
+	@ManyToOne
+	@JoinColumn(name = "paperusage_id")
+	private PaperUsage paperUsage;
+	
 	@Column(name = "abbrname")
 	private String abbrName;
 	
@@ -36,6 +43,14 @@ public class EmployeeStatus extends Model {
 
 	public void setName(final String name) {
 		this.name = name;
+	}
+
+	public PaperUsage getPaperUsage() {
+		return paperUsage;
+	}
+
+	public void setPaperUsage(final PaperUsage paperUsage) {
+		this.paperUsage = paperUsage;
 	}
 
 	@Override
@@ -59,7 +74,7 @@ public class EmployeeStatus extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		EmployeeStatus other = (EmployeeStatus) obj;
+		PaperType other = (PaperType) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -79,7 +94,7 @@ public class EmployeeStatus extends Model {
 
 	@Override
 	public String toString() {
-		return "EmployeeStatus [abbrName=" + abbrName + ", name=" + name + "]";
+		return "PaperType [abbrName=" + abbrName + ", name=" + name + "]";
 	}
-
+	
 }

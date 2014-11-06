@@ -32,7 +32,12 @@
         <class>org.lnu.is.domain.persontype.PersonType</class> 
         <class>org.lnu.is.domain.post.Post</class> 
         <class>org.lnu.is.domain.posttype.PostType</class> 
-        <class>org.lnu.is.domain.reason.Reason</class> 
+        <class>org.lnu.is.domain.reason.Reason</class>
+        <class>org.lnu.is.domain.enrolment.Enrolment</class>
+        <class>org.lnu.is.domain.enrolmenttype.EnrolmentType</class>
+        <class>org.lnu.is.domain.papertype.PaperType</class>
+        <class>org.lnu.is.domain.paperusage.PaperUsage</class>
+        <class>org.lnu.is.domain.personpaper.PersonPaper</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

@@ -1,4 +1,4 @@
-package org.lnu.is.domain.employeestatus;
+package org.lnu.is.domain.paperusage;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,13 +7,13 @@ import javax.persistence.Table;
 import org.lnu.is.domain.Model;
 
 /**
- * Employee Status entity.
+ * Paper Usage entity.
  * @author ivanursul
  *
  */
 @Entity
-@Table(name = "q_rf_employeestatus")
-public class EmployeeStatus extends Model {
+@Table(name = "q_rf_paperusage")
+public class PaperUsage extends Model {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")
@@ -59,7 +59,7 @@ public class EmployeeStatus extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		EmployeeStatus other = (EmployeeStatus) obj;
+		PaperUsage other = (PaperUsage) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -79,7 +79,7 @@ public class EmployeeStatus extends Model {
 
 	@Override
 	public String toString() {
-		return "EmployeeStatus [abbrName=" + abbrName + ", name=" + name + "]";
+		return "PaperUsage [abbrName=" + abbrName + ", name=" + name + "]";
 	}
 
 }

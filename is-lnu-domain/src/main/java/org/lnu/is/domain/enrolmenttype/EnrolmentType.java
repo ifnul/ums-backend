@@ -1,4 +1,4 @@
-package org.lnu.is.domain.employeestatus;
+package org.lnu.is.domain.enrolmenttype;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,28 +7,17 @@ import javax.persistence.Table;
 import org.lnu.is.domain.Model;
 
 /**
- * Employee Status entity.
+ * Enrolment Type entity.
  * @author ivanursul
  *
  */
 @Entity
-@Table(name = "q_rf_employeestatus")
-public class EmployeeStatus extends Model {
+@Table(name = "q_rf_enrolmenttype")
+public class EnrolmentType extends Model {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "abbrname")
-	private String abbrName;
-	
 	@Column(name = "name")
 	private String name;
-
-	public String getAbbrName() {
-		return abbrName;
-	}
-
-	public void setAbbrName(final String abbrName) {
-		this.abbrName = abbrName;
-	}
 
 	public String getName() {
 		return name;
@@ -42,8 +31,6 @@ public class EmployeeStatus extends Model {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -59,14 +46,7 @@ public class EmployeeStatus extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		EmployeeStatus other = (EmployeeStatus) obj;
-		if (abbrName == null) {
-			if (other.abbrName != null) {
-				return false;
-			}
-		} else if (!abbrName.equals(other.abbrName)) {
-			return false;
-		}
+		EnrolmentType other = (EnrolmentType) obj;
 		if (name == null) {
 			if (other.name != null) {
 				return false;
@@ -79,7 +59,7 @@ public class EmployeeStatus extends Model {
 
 	@Override
 	public String toString() {
-		return "EmployeeStatus [abbrName=" + abbrName + ", name=" + name + "]";
+		return "EnrolmentType [name=" + name + "]";
 	}
-
+	
 }
