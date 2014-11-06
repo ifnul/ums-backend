@@ -13,7 +13,7 @@ import org.lnu.is.domain.Model;
 import org.lnu.is.domain.benefittype.BenefitType;
 
 /**
- * Benefit entity.
+ * Benefit  entity.
  * @author ivanursul
  *
  */
