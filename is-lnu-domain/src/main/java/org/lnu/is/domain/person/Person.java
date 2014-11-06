@@ -10,7 +10,6 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.NotMapped;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.citizencountry.CitizenCountry;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.persontype.PersonType;
@@ -53,9 +52,8 @@ public class Person extends Model {
 	@JoinColumn(name = "marriedtype_id")
 	private MarriedType marriedType;
 	
-	@ManyToOne
-	@JoinColumn(name = "citizencountry_id")
-	private CitizenCountry citizenCountry;
+	@Column(name = "citizencountry_id")
+	private Long citizenCountryId;
 	
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
@@ -152,12 +150,12 @@ public class Person extends Model {
 		this.marriedType = marriedType;
 	}
 
-	public CitizenCountry getCitizenCountry() {
-		return citizenCountry;
+	public Long getCitizenCountryId() {
+		return citizenCountryId;
 	}
 
-	public void setCitizenCountry(final CitizenCountry citizenCountry) {
-		this.citizenCountry = citizenCountry;
+	public void setCitizenCountryId(final Long citizenCountryId) {
+		this.citizenCountryId = citizenCountryId;
 	}
 
 	public Person getParent() {
