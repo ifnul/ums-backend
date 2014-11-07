@@ -3,8 +3,7 @@
 	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-	
-	
+
 	<changeSet id="Створення таблиці інформації про партнерів" author="illay">
 		<createTable tableName="q_ob_partner" remarks="Інформація про партнерів(установ,підприємнств,фірм,компаній тощо),де :-  в нелисткових записах ієрархії(які мають або можуть мати підпорядковані записи) зберігаються групи партнерів(ІТ-компанія,ПЗ-компанія тощо):-  в нелисткових записах ієрархії зберігаються партнери складної структури(які мають розподілену структуру з відділами,філіями тощо) :    -  в листкових записах ієрархії(які не мають підпорядкованих записів) зберігаються партнери простої структури або структурні одиниці інших партнерів(відділи, філії тощо).">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -92,7 +91,7 @@
     	<addPrimaryKey tableName="q_rf_assetstate" columnNames="id" constraintName="pk_q_rf_assetstate_id"/>
     	
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці інформація про статуси основних засобів" author="illay">
     	<createTable tableName="q_rf_assetstatus" remarks="Інформація про статуси основних засобів(на балансі,списаний,переданий тощо)">
     		<column name="id" remarks="Індинтифікатор" type="BIGINT">
@@ -127,7 +126,7 @@
     	
     	<addPrimaryKey tableName="q_rf_assetstatus" columnNames="id" constraintName="pk_q_rf_assetstatus_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці інформація про типи основних засобів" author="illay">
     	<createTable tableName="q_rf_assettype" remarks="Інформація про типи основних засобів (приміщення, комп’ютер, периферія, програмне забезпечення тощо)">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -163,7 +162,7 @@
     	
     	<addPrimaryKey tableName="q_rf_assettype" columnNames="id" constraintName="pk_q_rf_assettype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці інформація про типи операцій над основними засобами" author="illay">
     	<createTable tableName="q_rf_optype" remarks="Типи операцій над основними засобами (1 – прийняття, -1 – списання, 0 – модернізація, -10 – передача, 10 – повернення тощо">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -199,7 +198,7 @@
     	
     	<addPrimaryKey tableName="q_rf_optype" columnNames="id" constraintName="pk_q_rf_optype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник рівнів знання іноземної мови" author="illay">
     	<createTable tableName="q_rf_lanquagelevel" remarks="Довідник рівнів знання іноземної мови">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -272,7 +271,7 @@
     	
     	<addPrimaryKey tableName="q_rf_lanquage" columnNames="id" constraintName="pk_q_rf_lanquage_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів контактів" author="illay">
     	<createTable tableName="q_rf_contacttype" remarks="Довідник типів контактів (телефон, e-mail, web)">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -309,7 +308,6 @@
     	<addPrimaryKey tableName="q_rf_contacttype" columnNames="id" constraintName="pk_q_rf_contacttype_id"/>
     </changeSet>
 	
-
 	<changeSet id="Створення таблиці довідник типів вулиць" author="illay">
     	<createTable tableName="q_rf_streettype" remarks="Довідник типу вулиць">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -345,7 +343,7 @@
     	
     	<addPrimaryKey tableName="q_rf_streettype" columnNames="id" constraintName="pk_q_rf_streettype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник курсу навчання" author="illay">
     	<createTable tableName="q_rf_coursetype" remarks="Довідник курсу навчання (1-й,2-й,3-й, ... тощо)">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -381,7 +379,7 @@
     	
     	<addPrimaryKey tableName="q_rf_coursetype" columnNames="id" constraintName="pk_q_rf_course_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці інформація про підстави дій над основними засобами" author="illay">
     	<createTable tableName="q_rf_reason" remarks="Інформація про підстави дій над основними засобами (тендерна закупівля, закупівля, подарунок, моральне застаріння тощо)">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -417,7 +415,7 @@
     	
     	<addPrimaryKey tableName="q_rf_reason" columnNames="id" constraintName="pk_q_rf_reason_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів використання документів" author="illay">
     	<createTable tableName="q_rf_paperusage" remarks="Довідник типів використання документів">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -453,7 +451,7 @@
     	
     	<addPrimaryKey tableName="q_rf_paperusage" columnNames="id" constraintName="pk_q_rf_paperusage_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів документів" author="illay">
     	<createTable tableName="q_rf_papertype" remarks="Довідник типів документів">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -495,7 +493,7 @@
     	<addForeignKeyConstraint baseColumnNames="paperusage_id" baseTableName="q_rf_papertype" constraintName="fk_q_rf_paperusage_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_paperusage"/>
     	
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник статі персон" author="illay">
     	<createTable tableName="q_rf_gendertype" remarks="Довідник статі персон">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -531,7 +529,7 @@
     	
     	<addPrimaryKey tableName="q_rf_gendertype" columnNames="id" constraintName="pk_q_rf_gendertype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів статусу заявки" author="illay">
     	<createTable tableName="q_rf_enrolmentstatustype" remarks="Довідник типів статусу заявки">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -568,7 +566,7 @@
     	
     	<addPrimaryKey tableName="q_rf_enrolmentstatustype" columnNames="id" constraintName="pk_q_rf_enrolmentstatustype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів відзнак" author="illay">
     	<createTable tableName="q_rf_honorstype" remarks="Довідник типів відзнак">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -604,7 +602,7 @@
     	
     	<addPrimaryKey tableName="q_rf_honorstype" columnNames="id" constraintName="pk_q_rf_honorstype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник придметів ЗНО" author="illay">
     	<createTable tableName="q_rf_enrolsubject" remarks="Довідник придметів ЗНО">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -647,7 +645,7 @@
     	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_enrolsubject" constraintName="fk_q_rf_enrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolsubject"/>
     		
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник сімейного стану" author="illay">
     	<createTable tableName="q_rf_marriedtype" remarks="Довідник сімейного стану">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -684,7 +682,7 @@
     	<addPrimaryKey tableName="q_rf_marriedtype" columnNames="id" constraintName="pk_q_rf_marriedtype_id"/>
     	
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів персон" author="illay">
     	<createTable tableName="q_rf_persontype" remarks="Довідник типу персон">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -792,7 +790,7 @@
     	
     	<addPrimaryKey tableName="q_rf_timeperiodtype" columnNames="id" constraintName="pk_q_rf_timeperiodtype_id"/>
     </changeSet>
-
+    
     <changeSet author="illay" id="Створення таблиці довідник типів пільг">
         <createTable remarks="Довідник типів пільг" tableName="q_rf_benefittype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -1306,7 +1304,8 @@
     	
     	<addPrimaryKey tableName="q_rf_employeestatus" columnNames="id" constraintName="pk_q_rf_employeestatus_id"/>
     </changeSet>
-	  <changeSet author="illay" id="Створення таблиці часових періодів(рік, семестр, місяць)">
+    
+	<changeSet author="illay" id="Створення таблиці часових періодів(рік, семестр, місяць)">
         <createTable remarks="Часові періоди (застосовується для систематизації об'єктів бази даних, наприклад таких як документи, по відношенню їх до конкретного навчального чи календарного року, семестру, чверті і т.д.)" tableName="q_ob_timeperiod">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -1354,9 +1353,7 @@
     	<addForeignKeyConstraint baseColumnNames="timeperiodtype_id" baseTableName="q_ob_timeperiod" constraintName="fk_q_rf_enrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_timeperiodtype"/>
     	
     </changeSet>
-  
- 
-    
+     
     <changeSet author="illay" id="Створення таблиці всіх напрямів і спеціальностей">
         <createTable remarks="Напрями та спеціальності" tableName="q_ob_specialty">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -1412,8 +1409,6 @@
         </createIndex>
         
     </changeSet>
-   
-
     
     <changeSet author="illay" id="Створення таблиці всіх персон">
         <createTable remarks="Інформація про персону" tableName="q_ob_person">
@@ -1542,9 +1537,7 @@
         </createIndex>
         
     </changeSet>
-    
-   
-    
+     
     <changeSet id="Стврення таблиці aдміністративно-територіальні одиниці(КОАТУУ)" author="illay">
     	<createTable tableName="q_ob_adminunit" remarks="Адміністративно-територіальні одиниці">
     		<column name="id" type="BIGINT" remarks="Ідинтифікатор">
@@ -1609,7 +1602,6 @@
     	
     </changeSet>
     
-    
 	<changeSet id="Стврення таблиці посади" author="illay">
     	<createTable tableName="q_ob_post" remarks="Таблиця ob_post містить дані про посади/функції, де: 1.в неличтвових записах ієрархії(які мають або можуть мати підпорядковані записи) зберігаються групи посад(управлінн університетом, працівник підрозділу, функції підрозділу тощо); 2. в листвових записах ієрархії (які не мають підпорядкованих записів) зберігаються безпосередньо посади (ректор, проректор, директор інституту, завідувач кафедри, начальник відділу, професор, доцент тощо) і функції (декан, заступник декана, матеріально-відповідльний, системний адміністратор, відповідальний за охорону праці та пожежну безпеку тощо)">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -1655,7 +1647,7 @@
 		<addForeignKeyConstraint baseColumnNames="posttype_id" baseTableName="q_ob_post" constraintName="fk_q_rf_posttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_posttype"/>
     	
     </changeSet>
-
+    
     <changeSet author="illay" id="Створення таблиці документів персон">
         <createTable remarks="Документи персони" tableName="q_od_personpaper">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -1713,7 +1705,7 @@
     	<addForeignKeyConstraint baseColumnNames="honorstype_id" baseTableName="q_od_personpaper" constraintName="fk_q_rf_honorstype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_honorstype"/>
          
     </changeSet>
-
+    
     <changeSet author="illay" id="Створення таблиці із балами зовнішнього національного оцінювання">
         <createTable remarks="Бали зовнішнього незалежного оцінювання" tableName="q_od_personenrolsubject">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -2010,7 +2002,7 @@
             	<constraints nullable="false"/>
         	</column>
         </createTable>
-
+        
 		<addPrimaryKey columnNames="id" constraintName="pk_q_ob_department_id" tableName="q_ob_department"/>
 		
 		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_department" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
@@ -2022,6 +2014,7 @@
 		<createIndex indexName="fki_ob_department" tableName="q_ob_department" unique="false">
             <column name="parent_id"/>
         </createIndex>
+        
     	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_employee" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
 		
 		<addForeignKeyConstraint baseColumnNames="employeetype_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_employeetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_employeetype"/>
@@ -2039,9 +2032,7 @@
     	<addForeignKeyConstraint baseColumnNames="jobtype_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_jobtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_jobtype"/>
     		
 		<addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_ob_employee" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
-
 		<addForeignKeyConstraint baseColumnNames="employeestatus_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_employeestatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_employeestatus"/>
-
         <addForeignKeyConstraint baseColumnNames="ordertype_id" baseTableName="q_dc_order" constraintName="fk_q_rf_ordertype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_ordertype"/>
     	
     	<addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dc_order" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
@@ -2129,10 +2120,7 @@
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_od_departmentaddress_id" tableName="q_od_departmentaddress"/>
     	
-    	
     </changeSet>
-    
-    
     
  	<changeSet id="Створення таблиці журналу помилок" author="illay">
 		<createTable tableName="q_lg_error" remarks="Журсал посилок">
@@ -2172,6 +2160,7 @@
 		
 		<addPrimaryKey columnNames="id" constraintName="pk_q_lg_error" tableName="q_lg_error"/>
 	</changeSet>
+	
 	<changeSet id="Створення таблиці журналу операцій import/export даних з інших IC" author="illay">
 		<createTable tableName="q_lg_importexport">
 			<column name="id" type="BIGINT" remarks="Ідентифікатор">
@@ -2210,9 +2199,8 @@
 		
 		<addPrimaryKey columnNames="id" constraintName="pk_q_lg_importexport" tableName="q_lg_importexport"/>
 	</changeSet>
-
-
-          <changeSet author="illay" id="Створення таблиці всіх пропоцицій">
+	
+    <changeSet author="illay" id="Створення таблиці всіх пропоцицій">
         <createTable remarks="Пропозиція" tableName="q_ob_specoffer">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -2543,7 +2531,8 @@
         </createIndex>
         
     </changeSet>
-<changeSet author="illay" id="Створення таблиці довідник хвиль вступу">
+    
+	<changeSet author="illay" id="Створення таблиці довідник хвиль вступу">
         <createTable remarks="Довідник хвиль вступу" tableName="q_od_specofferwave">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -2629,7 +2618,6 @@
     	 <addPrimaryKey columnNames="id" constraintName="pk_q_od_specofferbenefit" tableName="q_od_specofferbenefit"/>
     	
     	<addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_od_specofferbenefit" constraintName="fk_q_ob_benefit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
-
 		<addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_od_specofferbenefit" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
         	 
     </changeSet>
@@ -2937,7 +2925,6 @@
     	
     </changeSet>
     
-    
     <changeSet  author="illay" id="Створення таблиці інформації про іноземні мови персони" >
         <createTable tableName="q_od_personlanquage" remarks="Інформація про іноземні мови персони" >
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -2985,6 +2972,7 @@
     	<addForeignKeyConstraint baseColumnNames="languagelevel_id" baseTableName="q_od_personlanquage" constraintName="fk_q_rf_languagelevel_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquagelevel"/>
     	
     </changeSet>
+    
     <changeSet  author="illay" id="Створення таблиці інформації про персону іноземною мовою" >
         <createTable tableName="q_od_personname" remarks="Інформація про персону іноземною мовою" >
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -3116,10 +3104,6 @@
         
         <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_od_departmentspecialty" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
     	
-    	
     </changeSet>    
-    <changeSet id="add foreingkey q_ob_employee fk_q_rf_employeestatus_id" author="illay">
-    	
-    </changeSet>
-
+    
 </databaseChangeLog>
