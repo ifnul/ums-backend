@@ -1,5 +1,6 @@
 package org.lnu.is.domain.specofferbenefit;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -12,20 +13,22 @@ import org.lnu.is.domain.specoffer.SpecOffer;
  *
  */
 @Entity
-@Table(name="q_ob_specofferbanefit")
+@Table(name = "q_od_specofferbanefit")
 public class SpecofferBenefit extends Model {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Column(name = "specoffer_id")
 	private SpecOffer specOffer;
 	
+	@Column(name = "benefit_id")
 	private Benefit benefit;
 
 	public SpecOffer getSpecOffer() {
 		return specOffer;
 	}
 
-	public void setSpecOffer(SpecOffer specOffer) {
+	public void setSpecOffer(final SpecOffer specOffer) {
 		this.specOffer = specOffer;
 	}
 
@@ -33,7 +36,7 @@ public class SpecofferBenefit extends Model {
 		return benefit;
 	}
 
-	public void setBenefit(Benefit benefit) {
+	public void setBenefit(final Benefit benefit) {
 		this.benefit = benefit;
 	}
 	

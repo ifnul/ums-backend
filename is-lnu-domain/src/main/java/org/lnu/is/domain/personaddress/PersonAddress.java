@@ -67,7 +67,7 @@ public class PersonAddress extends Model {
 		return person;
 	}
 
-	public void setPerson(Person person) {
+	public void setPerson(final Person person) {
 		this.person = person;
 	}
 
@@ -75,7 +75,7 @@ public class PersonAddress extends Model {
 		return addressType;
 	}
 
-	public void setAddressType(AddressType addressType) {
+	public void setAddressType(final AddressType addressType) {
 		this.addressType = addressType;
 	}
 
@@ -83,7 +83,7 @@ public class PersonAddress extends Model {
 		return zipCode;
 	}
 
-	public void setZipCode(String zipCode) {
+	public void setZipCode(final String zipCode) {
 		this.zipCode = zipCode;
 	}
 
@@ -91,7 +91,7 @@ public class PersonAddress extends Model {
 		return adminUnit;
 	}
 
-	public void setAdminUnit(AdminUnit adminUnit) {
+	public void setAdminUnit(final AdminUnit adminUnit) {
 		this.adminUnit = adminUnit;
 	}
 
@@ -99,7 +99,7 @@ public class PersonAddress extends Model {
 		return streetType;
 	}
 
-	public void setStreetType(StreetType streetType) {
+	public void setStreetType(final StreetType streetType) {
 		this.streetType = streetType;
 	}
 
@@ -107,7 +107,7 @@ public class PersonAddress extends Model {
 		return street;
 	}
 
-	public void setStreet(String street) {
+	public void setStreet(final String street) {
 		this.street = street;
 	}
 
@@ -115,7 +115,7 @@ public class PersonAddress extends Model {
 		return house;
 	}
 
-	public void setHouse(String house) {
+	public void setHouse(final String house) {
 		this.house = house;
 	}
 
@@ -123,7 +123,7 @@ public class PersonAddress extends Model {
 		return apartment;
 	}
 
-	public void setApartment(String apartment) {
+	public void setApartment(final String apartment) {
 		this.apartment = apartment;
 	}
 
@@ -131,7 +131,7 @@ public class PersonAddress extends Model {
 		return begDate;
 	}
 
-	public void setBegDate(Date begDate) {
+	public void setBegDate(final Date begDate) {
 		this.begDate = begDate;
 	}
 
@@ -139,7 +139,7 @@ public class PersonAddress extends Model {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
 	}
 
@@ -147,7 +147,7 @@ public class PersonAddress extends Model {
 		return asset;
 	}
 
-	public void setAsset(Asset asset) {
+	public void setAsset(final Asset asset) {
 		this.asset = asset;
 	}
 
@@ -166,44 +166,59 @@ public class PersonAddress extends Model {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
-		if (!super.equals(obj))
+		}
+		if (!super.equals(obj)) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		PersonAddress other = (PersonAddress) obj;
 		if (apartment == null) {
-			if (other.apartment != null)
+			if (other.apartment != null) {
 				return false;
-		} else if (!apartment.equals(other.apartment))
+			}
+		} else if (!apartment.equals(other.apartment)) {
 			return false;
+		}
 		if (begDate == null) {
-			if (other.begDate != null)
+			if (other.begDate != null) {
 				return false;
-		} else if (!begDate.equals(other.begDate))
+			}
+		} else if (!begDate.equals(other.begDate)) {
 			return false;
+		}
 		if (endDate == null) {
-			if (other.endDate != null)
+			if (other.endDate != null) {
 				return false;
-		} else if (!endDate.equals(other.endDate))
+			}
+		} else if (!endDate.equals(other.endDate)) {
 			return false;
+		}
 		if (house == null) {
-			if (other.house != null)
+			if (other.house != null) {
 				return false;
-		} else if (!house.equals(other.house))
+			}
+		} else if (!house.equals(other.house)) {
 			return false;
+		}
 		if (street == null) {
-			if (other.street != null)
+			if (other.street != null) {
 				return false;
-		} else if (!street.equals(other.street))
+			}
+		} else if (!street.equals(other.street)) {
 			return false;
+		}
 		if (zipCode == null) {
-			if (other.zipCode != null)
+			if (other.zipCode != null) {
 				return false;
-		} else if (!zipCode.equals(other.zipCode))
+			}
+		} else if (!zipCode.equals(other.zipCode)) {
 			return false;
+		}
 		return true;
 	}
 

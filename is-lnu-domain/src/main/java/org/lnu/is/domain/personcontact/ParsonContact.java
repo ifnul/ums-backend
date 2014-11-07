@@ -16,7 +16,7 @@ import org.lnu.is.domain.person.Person;
  *
  */
 @Entity
-@Table(name="q_od_personcontact")
+@Table(name = "q_od_personcontact")
 public class ParsonContact extends Model {
 
 	private static final long serialVersionUID = 1L;
@@ -29,14 +29,14 @@ public class ParsonContact extends Model {
 	@JoinColumn(name = "contacttype_id")
 	private ContactType contactType;
 	
-	@Column(name="strvalue")
+	@Column(name = "strvalue")
 	private String value;
 
 	public Person getPerson() {
 		return person;
 	}
 
-	public void setPerson(Person person) {
+	public void setPerson(final Person person) {
 		this.person = person;
 	}
 
@@ -44,7 +44,7 @@ public class ParsonContact extends Model {
 		return contactType;
 	}
 
-	public void setContactType(ContactType contactType) {
+	public void setContactType(final ContactType contactType) {
 		this.contactType = contactType;
 	}
 
@@ -52,7 +52,7 @@ public class ParsonContact extends Model {
 		return value;
 	}
 
-	public void setValue(String value) {
+	public void setValue(final String value) {
 		this.value = value;
 	}
 	
@@ -65,19 +65,24 @@ public class ParsonContact extends Model {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
-		if (!super.equals(obj))
+		}
+		if (!super.equals(obj)) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		ParsonContact other = (ParsonContact) obj;
 		if (value == null) {
-			if (other.value != null)
+			if (other.value != null) {
 				return false;
-		} else if (!value.equals(other.value))
+			}
+		} else if (!value.equals(other.value)) {
 			return false;
+		}
 		return true;
 	}
 

@@ -15,7 +15,7 @@ import org.lnu.is.domain.specoffer.SpecOffer;
  *
  */
 @Entity
-@Table(name="q_ob_specoffersubject")
+@Table(name = "q_ob_specoffersubject")
 public class SpecofferSubject extends Model {
 
 	private static final long serialVersionUID = 1L;
@@ -28,20 +28,20 @@ public class SpecofferSubject extends Model {
 	@JoinColumn(name = "enrolsubject_id")
 	private EnrolmentSubject enrolmentSubject;
 	
-	@Column(name="ismajor")
+	@Column(name = "ismajor")
 	private Boolean isMajor;
 	
-	@Column(name="alternative")
+	@Column(name = "alternative")
 	private Boolean alternative;
 	
-	@Column(name="mark")
+	@Column(name = "mark")
 	private Double mark;
 
 	public SpecOffer getSpacOffer() {
 		return spacOffer;
 	}
 
-	public void setSpacOffer(SpecOffer spacOffer) {
+	public void setSpacOffer(final SpecOffer spacOffer) {
 		this.spacOffer = spacOffer;
 	}
 
@@ -49,7 +49,7 @@ public class SpecofferSubject extends Model {
 		return enrolmentSubject;
 	}
 
-	public void setEnrolmentSubject(EnrolmentSubject enrolmentSubject) {
+	public void setEnrolmentSubject(final EnrolmentSubject enrolmentSubject) {
 		this.enrolmentSubject = enrolmentSubject;
 	}
 
@@ -57,7 +57,7 @@ public class SpecofferSubject extends Model {
 		return isMajor;
 	}
 
-	public void setIsMajor(Boolean isMajor) {
+	public void setIsMajor(final Boolean isMajor) {
 		this.isMajor = isMajor;
 	}
 
@@ -65,7 +65,7 @@ public class SpecofferSubject extends Model {
 		return alternative;
 	}
 
-	public void setAlternative(Boolean alternative) {
+	public void setAlternative(final Boolean alternative) {
 		this.alternative = alternative;
 	}
 
@@ -73,7 +73,7 @@ public class SpecofferSubject extends Model {
 		return mark;
 	}
 
-	public void setMark(Double mark) {
+	public void setMark(final Double mark) {
 		this.mark = mark;
 	}
 
@@ -89,29 +89,38 @@ public class SpecofferSubject extends Model {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
-		if (!super.equals(obj))
+		}
+		if (!super.equals(obj)) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		SpecofferSubject other = (SpecofferSubject) obj;
 		if (alternative == null) {
-			if (other.alternative != null)
+			if (other.alternative != null) {
 				return false;
-		} else if (!alternative.equals(other.alternative))
+			}
+		} else if (!alternative.equals(other.alternative)) {
 			return false;
+		}
 		if (isMajor == null) {
-			if (other.isMajor != null)
+			if (other.isMajor != null) {
 				return false;
-		} else if (!isMajor.equals(other.isMajor))
+			}
+		} else if (!isMajor.equals(other.isMajor)) {
 			return false;
+		}
 		if (mark == null) {
-			if (other.mark != null)
+			if (other.mark != null) {
 				return false;
-		} else if (!mark.equals(other.mark))
+			}
+		} else if (!mark.equals(other.mark)) {
 			return false;
+		}
 		return true;
 	}
 
