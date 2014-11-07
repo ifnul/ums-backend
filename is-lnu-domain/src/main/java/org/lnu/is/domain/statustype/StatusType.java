@@ -1,4 +1,4 @@
-package org.lnu.is.domain.posttype;
+package org.lnu.is.domain.statustype;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,13 +7,13 @@ import javax.persistence.Table;
 import org.lnu.is.domain.Model;
 
 /**
- * Post Type entity.
- * @author ivanursul
+ * Status Type entity.
+ * @author illay
  *
  */
 @Entity
-@Table(name = "q_rf_posttype")
-public class PostType extends Model {
+@Table(name = "q_rf_statustype")
+public class StatusType extends Model {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")
@@ -59,7 +59,7 @@ public class PostType extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		PostType other = (PostType) obj;
+		StatusType other = (StatusType) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -79,7 +79,7 @@ public class PostType extends Model {
 
 	@Override
 	public String toString() {
-		return "PostType [abbrName=" + abbrName + ", name=" + name + "]";
+		return "StatusType [abbrName=" + abbrName + ", name=" + name + "]";
 	}
 
 }
