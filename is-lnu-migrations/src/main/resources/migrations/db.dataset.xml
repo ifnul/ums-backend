@@ -4,10 +4,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     
-    <include file="data/rf_gendertype/db.rf_gendertype.xml" relativeToChangelogFile="true"/>
- 	<include file="data/rf_enrolmentstatustype/db.rf_enrolmentstatustype.xml" relativeToChangelogFile="true"/>
- 	<include file="data/rf_contacttype/db.rf_contacttype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_contacttype/db.rf_contacttype.xml" relativeToChangelogFile="true"/>
  	<include file="data/rf_coursetype/db.rf_coursetype.xml" relativeToChangelogFile="true"/>
+ 	<include file="data/rf_enrolmentstatustype/db.rf_enrolmentstatustype.xml" relativeToChangelogFile="true"/>
+ 	<include file="data/rf_enrolsubject/db.rf_enrolsubject.xml" relativeToChangelogFile="true"/>
+ 	<include file="data/rf_gendertype/db.rf_gendertype.xml" relativeToChangelogFile="true"/>
  	<include file="data/rf_streettype/db.rf_streettype.xml" relativeToChangelogFile="true"/>
  	
 </databaseChangeLog>
