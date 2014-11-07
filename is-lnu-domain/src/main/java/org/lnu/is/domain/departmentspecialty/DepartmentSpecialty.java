@@ -15,7 +15,7 @@ import org.lnu.is.domain.specialty.Specialty;
  *
  */
 @Entity
-@Table(name = "q_ob_departmentspecialty")
+@Table(name = "q_od_departmentspecialty")
 public class DepartmentSpecialty extends Model {
 	private static final long serialVersionUID = 1L;
 

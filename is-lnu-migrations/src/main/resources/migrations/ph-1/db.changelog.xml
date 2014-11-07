@@ -3,6 +3,8 @@
 	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+	
+	
 	<changeSet id="Створення таблиці інформації про партнерів" author="illay">
 		<createTable tableName="q_ob_partner" remarks="Інформація про партнерів(установ,підприємнств,фірм,компаній тощо),де :-  в нелисткових записах ієрархії(які мають або можуть мати підпорядковані записи) зберігаються групи партнерів(ІТ-компанія,ПЗ-компанія тощо):-  в нелисткових записах ієрархії зберігаються партнери складної структури(які мають розподілену структуру з відділами,філіями тощо) :    -  в листкових записах ієрархії(які не мають підпорядкованих записів) зберігаються партнери простої структури або структурні одиниці інших партнерів(відділи, філії тощо).">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -2429,7 +2431,7 @@
     
     	<addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_personaddress" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="addresstype_id" baseTableName="q_od_personaddress" constraintName="fk_q_rf_addresstype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ef_addresstype"/>
+    	<addForeignKeyConstraint baseColumnNames="addresstype_id" baseTableName="q_od_personaddress" constraintName="fk_q_rf_addresstype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_addresstype"/>
     	
     	<addForeignKeyConstraint baseColumnNames="adminunit_id" baseTableName="q_od_personaddress" constraintName="fk_q_ob_adminunit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_adminunit"/>
     	
