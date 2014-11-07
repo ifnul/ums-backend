@@ -16,4 +16,6 @@
 	<context:component-scan base-package="org.lnu.is.web.controller" />
 	<context:property-placeholder location="classpath:application.properties" />
 
+	<!-- TODO: IU - Make a separate config file -->
+	<bean id="springSwaggerConig" class = "com.mangofactory.swagger.configuration.SpringSwaggerConfig"/>
 </beans>
