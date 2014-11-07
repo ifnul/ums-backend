@@ -15,7 +15,7 @@ import org.lnu.is.domain.specoffer.SpecOffer;
  *
  */
 @Entity
-@Table(name = "q_ob_specoffersubject")
+@Table(name = "q_od_specoffersubject")
 public class SpecofferSubject extends Model {
 
 	private static final long serialVersionUID = 1L;
