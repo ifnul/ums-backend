@@ -2633,8 +2633,8 @@
             <column name="enrolsubject_id" remarks="Ідентифікатор предмету зовнішнього незалежного оцінювання" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="ismajor" remarks="Ознака профільного предмету" type="INTEGER"/>
-            <column name="alternative" remarks="Альтернатива при виборі предмету ЗНО" type="INTEGER"/>
+            <column name="ismajor" remarks="Ознака профільного предмету" type="BOOLEAN"/>
+            <column name="alternative" remarks="Альтернатива при виборі предмету ЗНО" type="BOOLEAN"/>
             <column name="mark" remarks="Мінімальний бал з предмету ЗНО при поступленні" type="DOUBLE">
                 <constraints nullable="false"/>
             </column>
