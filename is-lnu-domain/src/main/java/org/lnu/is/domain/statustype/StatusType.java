@@ -1,54 +1,26 @@
-package org.lnu.is.domain.departmentname;
+package org.lnu.is.domain.statustype;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.language.Language;
 
 /**
- * Department Name entity.
- * @author ivanursul
+ * Status Type entity.
+ * @author illay
  *
  */
 @Entity
-@Table(name = "q_od_departmentname")
-public class DepartmentName extends Model {
+@Table(name = "q_rf_statustype")
+public class StatusType extends Model {
 	private static final long serialVersionUID = 1L;
 
-	@ManyToOne
-	@JoinColumn(name = "department_id")
-	private Department department;
-	
-	@ManyToOne
-	@JoinColumn(name = "language_id")
-	private Language language;
-	
-	@Column(name = "abbname")
+	@Column(name = "abbrname")
 	private String abbrName;
 	
 	@Column(name = "name")
 	private String name;
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(final Department department) {
-		this.department = department;
-	}
-
-	public Language getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(final Language language) {
-		this.language = language;
-	}
 
 	public String getAbbrName() {
 		return abbrName;
@@ -87,7 +59,7 @@ public class DepartmentName extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		DepartmentName other = (DepartmentName) obj;
+		StatusType other = (StatusType) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -107,7 +79,7 @@ public class DepartmentName extends Model {
 
 	@Override
 	public String toString() {
-		return "DepartmentName [abbrName=" + abbrName + ", name=" + name + "]";
+		return "StatusType [abbrName=" + abbrName + ", name=" + name + "]";
 	}
-	
+
 }

@@ -3,27 +3,28 @@
 	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
 	<changeSet id="Створення таблиці інформації про партнерів" author="illay">
-    	<createTable tableName="q_ob_partner" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+		<createTable tableName="q_ob_partner" remarks="Інформація про партнерів(установ,підприємнств,фірм,компаній тощо),де :-  в нелисткових записах ієрархії(які мають або можуть мати підпорядковані записи) зберігаються групи партнерів(ІТ-компанія,ПЗ-компанія тощо):-  в нелисткових записах ієрархії зберігаються партнери складної структури(які мають розподілену структуру з відділами,філіями тощо) :    -  в листкових записах ієрархії(які не мають підпорядкованих записів) зберігаються партнери простої структури або структурні одиниці інших партнерів(відділи, філії тощо).">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="abbname" type="VARCHAR(50)" remarks="">
+    		<column name="abbname" type="VARCHAR(50)" remarks="Абревіатура партнера">
     		</column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Назва партнера">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="manager" type="VARCHAR(200)" remarks="">
+    		<column name="manager" type="VARCHAR(200)" remarks="Керівник">
     		</column>
-    		<column name="phone" type="VARCHAR(200)" remarks="">
+    		<column name="phone" type="VARCHAR(200)" remarks="Телефон">
     		</column>
-    		<column name="email" type="VARCHAR(200)" remarks="">
+    		<column name="email" type="VARCHAR(200)" remarks="e-mail">
     		</column>
-    		<column name="begdate" type="TIMESTAMP" remarks="">
+    		<column name="begdate" type="TIMESTAMP" remarks="Дата початку співпраці">
     		</column>
-    		<column name="enddate" type="TIMESTAMP" remarks="">
+    		<column name="enddate" type="TIMESTAMP" remarks="Дата закінчення співпраці">
     		</column>
-    		<column name="parent_id" remarks="" type="BIGINT">
+    		<column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT">
     			
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -56,11 +57,11 @@
     </changeSet>
 	
 	<changeSet id="Створення таблиці інформація про можливі стани основних засобів" author="illay">
-    	<createTable tableName="q_rf_assetstate" remarks="">
+    	<createTable tableName="q_rf_assetstate"  remarks="Інформація про можливі стани основних засобів(справний,несправний,відремонтований тощо)">
     		<column name="id" remarks="Індинтифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Стан матеріальних активів">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -90,13 +91,13 @@
     	<addPrimaryKey tableName="q_rf_assetstate" columnNames="id" constraintName="pk_q_rf_assetstate_id"/>
     	
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці інформація про статуси основних засобів" author="illay">
-    	<createTable tableName="q_rf_assetstatus" remarks="">
+    	<createTable tableName="q_rf_assetstatus" remarks="Інформація про статуси основних засобів(на балансі,списаний,переданий тощо)">
     		<column name="id" remarks="Індинтифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Статус матеріальних активів">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -125,14 +126,14 @@
     	
     	<addPrimaryKey tableName="q_rf_assetstatus" columnNames="id" constraintName="pk_q_rf_assetstatus_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці інформація про типи основних засобів" author="illay">
-    	<createTable tableName="q_rf_assettype" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    	<createTable tableName="q_rf_assettype" remarks="Інформація про типи основних засобів (приміщення, комп’ютер, периферія, програмне забезпечення тощо)">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Тип матеріальних активів/ресурсів">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -161,14 +162,14 @@
     	
     	<addPrimaryKey tableName="q_rf_assettype" columnNames="id" constraintName="pk_q_rf_assettype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці інформація про типи операцій над основними засобами" author="illay">
-    	<createTable tableName="q_rf_optype" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    	<createTable tableName="q_rf_optype" remarks="Типи операцій над основними засобами (1 – прийняття, -1 – списання, 0 – модернізація, -10 – передача, 10 – повернення тощо">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Тип операції">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -197,17 +198,17 @@
     	
     	<addPrimaryKey tableName="q_rf_optype" columnNames="id" constraintName="pk_q_rf_optype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник рівнів знання іноземної мови" author="illay">
-    	<createTable tableName="q_rf_lanquagelevel" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    	<createTable tableName="q_rf_lanquagelevel" remarks="Довідник рівнів знання іноземної мови">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Рівень">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="description" type="VARCHAR(250)" remarks=""></column>
+    		<column name="description" type="VARCHAR(250)" remarks="Детальний опис"></column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -236,12 +237,12 @@
     </changeSet>
 	
 	<changeSet id="Створення таблиці довідник іноземних мов" author="illay">
-    	<createTable tableName="q_rf_lanquage" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    	<createTable tableName="q_rf_lanquage" remarks="Довідник іноземних мов">
+    		<column name="id" remarks="Ідетифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Мова">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -270,14 +271,14 @@
     	
     	<addPrimaryKey tableName="q_rf_lanquage" columnNames="id" constraintName="pk_q_rf_lanquage_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів контактів" author="illay">
-    	<createTable tableName="q_rf_contacttype" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    	<createTable tableName="q_rf_contacttype" remarks="Довідник типів контактів (телефон, e-mail, web)">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Тип контакту">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -307,14 +308,13 @@
     	<addPrimaryKey tableName="q_rf_contacttype" columnNames="id" constraintName="pk_q_rf_contacttype_id"/>
     </changeSet>
 	
-
 	<changeSet id="Створення таблиці довідник типів вулиць" author="illay">
-    	<createTable tableName="q_rf_streettype" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    	<createTable tableName="q_rf_streettype" remarks="Довідник типу вулиць">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Тип вулиці">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -343,14 +343,14 @@
     	
     	<addPrimaryKey tableName="q_rf_streettype" columnNames="id" constraintName="pk_q_rf_streettype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник курсу навчання" author="illay">
-    	<createTable tableName="q_rf_coursetype" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    	<createTable tableName="q_rf_coursetype" remarks="Довідник курсу навчання (1-й,2-й,3-й, ... тощо)">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Назва курсу">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -379,14 +379,14 @@
     	
     	<addPrimaryKey tableName="q_rf_coursetype" columnNames="id" constraintName="pk_q_rf_course_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці інформація про підстави дій над основними засобами" author="illay">
-    	<createTable tableName="q_rf_reason" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    	<createTable tableName="q_rf_reason" remarks="Інформація про підстави дій над основними засобами (тендерна закупівля, закупівля, подарунок, моральне застаріння тощо)">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Тип підстави дій над основними засобами">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -415,10 +415,10 @@
     	
     	<addPrimaryKey tableName="q_rf_reason" columnNames="id" constraintName="pk_q_rf_reason_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів використання документів" author="illay">
     	<createTable tableName="q_rf_paperusage" remarks="Довідник типів використання документів">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -451,10 +451,10 @@
     	
     	<addPrimaryKey tableName="q_rf_paperusage" columnNames="id" constraintName="pk_q_rf_paperusage_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів документів" author="illay">
     	<createTable tableName="q_rf_papertype" remarks="Довідник типів документів">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -493,10 +493,10 @@
     	<addForeignKeyConstraint baseColumnNames="paperusage_id" baseTableName="q_rf_papertype" constraintName="fk_q_rf_paperusage_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_paperusage"/>
     	
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник статі персон" author="illay">
     	<createTable tableName="q_rf_gendertype" remarks="Довідник статі персон">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -529,17 +529,17 @@
     	
     	<addPrimaryKey tableName="q_rf_gendertype" columnNames="id" constraintName="pk_q_rf_gendertype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів статусу заявки" author="illay">
     	<createTable tableName="q_rf_enrolmentstatustype" remarks="Довідник типів статусу заявки">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
     		<column name="name" type="VARCHAR(200)" remarks="Тип статусу">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="descriotion" type="VARCHAR(700)" />
+    		<column name="description"  type="VARCHAR(700)" />
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -566,10 +566,10 @@
     	
     	<addPrimaryKey tableName="q_rf_enrolmentstatustype" columnNames="id" constraintName="pk_q_rf_enrolmentstatustype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів відзнак" author="illay">
     	<createTable tableName="q_rf_honorstype" remarks="Довідник типів відзнак">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -602,10 +602,10 @@
     	
     	<addPrimaryKey tableName="q_rf_honorstype" columnNames="id" constraintName="pk_q_rf_honorstype_id"/>
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник придметів ЗНО" author="illay">
     	<createTable tableName="q_rf_enrolsubject" remarks="Довідник придметів ЗНО">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -645,10 +645,10 @@
     	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_enrolsubject" constraintName="fk_q_rf_enrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolsubject"/>
     		
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник сімейного стану" author="illay">
     	<createTable tableName="q_rf_marriedtype" remarks="Довідник сімейного стану">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -682,10 +682,10 @@
     	<addPrimaryKey tableName="q_rf_marriedtype" columnNames="id" constraintName="pk_q_rf_marriedtype_id"/>
     	
     </changeSet>
-
+	
 	<changeSet id="Створення таблиці довідник типів персон" author="illay">
     	<createTable tableName="q_rf_persontype" remarks="Довідник типу персон">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -721,7 +721,7 @@
 	
     <changeSet id="Створення таблиці довідник типів адрес" author="illay">
     	<createTable tableName="q_rf_addresstype" remarks="Довідник типу адрес">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -757,7 +757,7 @@
     
 	<changeSet id="Створення таблиці довідник типів часових періодів" author="illay">
     	<createTable tableName="q_rf_timeperiodtype" remarks="Довідник типів часових періодів">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -790,12 +790,13 @@
     	
     	<addPrimaryKey tableName="q_rf_timeperiodtype" columnNames="id" constraintName="pk_q_rf_timeperiodtype_id"/>
     </changeSet>
-
+    
     <changeSet author="illay" id="Створення таблиці довідник типів пільг">
         <createTable remarks="Довідник типів пільг" tableName="q_rf_benefittype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
+            <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
             <column name="name" remarks="Тип пільги" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
@@ -833,6 +834,7 @@
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
+            <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
             <column name="name" remarks="Тип форми навчання" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
@@ -869,6 +871,7 @@
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
+            <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
             <column name="name" remarks="Назва поступлення" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
@@ -905,6 +908,7 @@
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
+            <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
             <column name="name" remarks="Тип спеціальності" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
@@ -942,7 +946,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="specialtytype_id" remarks="Ідентифікатор довідника типів спеціальностей" type="BIGINT"/>
-            <column name="abbrname" remarks="Скорочена назва(абревіатура)" type="VARCHAR(50)"/>
+           <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
             <column name="name" remarks="Тип пропозиції" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
@@ -981,7 +985,8 @@
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="name" type="VARCHAR(200)">
+           <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
+            <column name="name" remarks="Тип статусу" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -1017,6 +1022,7 @@
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
+            <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
             <column name="name" remarks="Тип статусу" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
@@ -1050,7 +1056,7 @@
     
     <changeSet id="Створення таблиці довідник типів підрозділів" author="illay">
     	<createTable tableName="q_rf_departmenttype" remarks="Довідник типів підрозділів(кафедра, інститут, загально університетський тощо)">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1086,7 +1092,7 @@
   
 	<changeSet id="Створення таблиці типи адіністративно-територіальних одиниць" author="illay">
     	<createTable tableName="q_rf_adminunittype" remarks="Довідник типів адмістративно-територіальних одиниць">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1122,11 +1128,11 @@
   	
 	<changeSet id="Створення таблиці довідник типів наказів" author="illay">
     	<createTable tableName="q_rf_ordertype" remarks="Довідник типів наказів">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Тип наказу">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -1158,11 +1164,11 @@
   	
 	<changeSet id="Створення таблиці довідник типів працівиків" author="illay">
     	<createTable tableName="q_rf_employeetype" remarks="Довідник типів працівиків">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Тип працівника">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -1193,12 +1199,12 @@
     </changeSet>
      	
 	<changeSet id="Створення таблиці довідник типів посад/функцій" author="illay">
-    	<createTable tableName="q_rf_posttype" remarks="">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    	<createTable tableName="q_rf_posttype" remarks="Довідник типів посад/функцій (керівник, викладач, допоміжний склад, функція ІТ, функція бухгалтерії тощо)">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Тип посади">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -1230,11 +1236,11 @@
     
     <changeSet id="Створення таблиці довідник типів робіт" author="illay">
     	<createTable tableName="q_rf_jobtype" remarks="Довідник типів робіт">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Тип роботи">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -1265,11 +1271,11 @@
     </changeSet>
     <changeSet id="Створення таблиці довідник статусів працівників" author="illay">
     	<createTable tableName="q_rf_employeestatus" remarks="Довідник статусів працівників">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Статуси працівників">
     			<constraints nullable="false"/>
     		</column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -1298,7 +1304,8 @@
     	
     	<addPrimaryKey tableName="q_rf_employeestatus" columnNames="id" constraintName="pk_q_rf_employeestatus_id"/>
     </changeSet>
-	  <changeSet author="illay" id="Створення таблиці часових періодів(рік, семестр, місяць)">
+    
+	<changeSet author="illay" id="Створення таблиці часових періодів(рік, семестр, місяць)">
         <createTable remarks="Часові періоди (застосовується для систематизації об'єктів бази даних, наприклад таких як документи, по відношенню їх до конкретного навчального чи календарного року, семестру, чверті і т.д.)" tableName="q_ob_timeperiod">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -1346,9 +1353,7 @@
     	<addForeignKeyConstraint baseColumnNames="timeperiodtype_id" baseTableName="q_ob_timeperiod" constraintName="fk_q_rf_enrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_timeperiodtype"/>
     	
     </changeSet>
-  
- 
-    
+     
     <changeSet author="illay" id="Створення таблиці всіх напрямів і спеціальностей">
         <createTable remarks="Напрями та спеціальності" tableName="q_ob_specialty">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -1404,8 +1409,6 @@
         </createIndex>
         
     </changeSet>
-   
-
     
     <changeSet author="illay" id="Створення таблиці всіх персон">
         <createTable remarks="Інформація про персону" tableName="q_ob_person">
@@ -1491,11 +1494,11 @@
             <column name="benefittype_id" remarks="Тип пільги" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="BIGINT"/>
+            <column name="abbrname" type="VARCHAR(50)"/>
             <column name="name" remarks="Назва пільги" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
-            <column name="begdata" remarks="Дата початку переваги" type="TIMESTAMP"/>
+            <column name="begdate" remarks="Дата початку переваги" type="TIMESTAMP"/>
             <column name="enddate" remarks="Дата закінчення переваги" type="TIMESTAMP"/>
             <column name="description" type="VARCHAR(255)"/>
             <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
@@ -1534,40 +1537,38 @@
         </createIndex>
         
     </changeSet>
-    
-   
-    
+     
     <changeSet id="Стврення таблиці aдміністративно-територіальні одиниці(КОАТУУ)" author="illay">
     	<createTable tableName="q_ob_adminunit" remarks="Адміністративно-територіальні одиниці">
     		<column name="id" type="BIGINT" remarks="Ідинтифікатор">
     			<constraints nullable="false"/>
     		</column>
     		
-    		<column name="adminunittype_id" type="BIGINT" remarks="">
+    		<column name="adminunittype_id" type="BIGINT" remarks="Ідентифікатор типу адміністративно-територіальної одиниці">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="identifier" type="VARCHAR(10)" remarks="">
+    		<column name="identifier" type="VARCHAR(10)" remarks="Ідентифікатор КОАТУУ адміністративно-територіальної одиниці">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Назва адміністративно-територіальної одиниці">
 				<constraints nullable="false"/>    			
     		</column>
-    		<column name="fullname" type="VARCHAR(200)" remarks="">
+    		<column name="fullname" type="VARCHAR(200)" remarks="Повна назва адміністративно-територіальної одиниці">
     		</column>
-    		<column name="identifier1" type="VARCHAR(10)" remarks="">
+    		<column name="identifier1" type="VARCHAR(10)" remarks="Обласний ідентифікатор КОАТУУ адміністративно-територіальних одиниць">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="identifier2" type="VARCHAR(10)" remarks="">
+    		<column name="identifier2" type="VARCHAR(10)" remarks="Районний ідентифікатор КОАТУУ адміністративно-територіальних одиниць">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="identifier3" type="VARCHAR(10)" remarks="">
+    		<column name="identifier3" type="VARCHAR(10)" remarks="Місцевий ідентифікатор КОАТУУ адміністративно-територіальних одиниць">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="begdate" type="TIMESTAMP" remarks="">
+    		<column name="begdate" type="TIMESTAMP" remarks="Дата початку">
     		</column>
-    		<column name="enddate" type="TIMESTAMP" remarks="">
+    		<column name="enddate" type="TIMESTAMP" remarks="Дата кінця">
     		</column>
-    		<column name="parent_id" type="BIGINT" remarks="">
+    		<column name="parent_id" type="BIGINT" remarks="Ієрархічний ідентифікатор">
     		</column>
     		<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -1601,20 +1602,19 @@
     	
     </changeSet>
     
-    
 	<changeSet id="Стврення таблиці посади" author="illay">
     	<createTable tableName="q_ob_post" remarks="Таблиця ob_post містить дані про посади/функції, де: 1.в неличтвових записах ієрархії(які мають або можуть мати підпорядковані записи) зберігаються групи посад(управлінн університетом, працівник підрозділу, функції підрозділу тощо); 2. в листвових записах ієрархії (які не мають підпорядкованих записів) зберігаються безпосередньо посади (ректор, проректор, директор інституту, завідувач кафедри, начальник відділу, професор, доцент тощо) і функції (декан, заступник декана, матеріально-відповідльний, системний адміністратор, відповідальний за охорону праці та пожежну безпеку тощо)">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Назва посади">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="posttype_id" type="BIGINT" remarks="">
+    		<column name="posttype_id" type="BIGINT" remarks="Ідентифікатор типу посади">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="parent_id" type="BIGINT" remarks="">
+    		<column name="parent_id" type="BIGINT" remarks="Ієрархічний ідентифікатор">
     		</column>
     		<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -1647,7 +1647,7 @@
 		<addForeignKeyConstraint baseColumnNames="posttype_id" baseTableName="q_ob_post" constraintName="fk_q_rf_posttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_posttype"/>
     	
     </changeSet>
-
+    
     <changeSet author="illay" id="Створення таблиці документів персон">
         <createTable remarks="Документи персони" tableName="q_od_personpaper">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -1705,7 +1705,7 @@
     	<addForeignKeyConstraint baseColumnNames="honorstype_id" baseTableName="q_od_personpaper" constraintName="fk_q_rf_honorstype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_honorstype"/>
          
     </changeSet>
-
+    
     <changeSet author="illay" id="Створення таблиці із балами зовнішнього національного оцінювання">
         <createTable remarks="Бали зовнішнього незалежного оцінювання" tableName="q_od_personenrolsubject">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
@@ -1757,39 +1757,39 @@
     
  	<changeSet id="Cтврення таблиці накази та інформації про працівників та інформацію про основні засоби та всіх підрозділів" author="illay">
  		<createTable tableName="q_ob_asset">
- 		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+ 		<column name="id" remarks="Ідентифікатор" type="BIGINT">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="assettype_id" type="BIGINT" remarks="">
+    		<column name="assettype_id" type="BIGINT" remarks="Ідентифікатор типу матеріальних активів">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="assetstate_id" type="BIGINT" remarks="">
+    		<column name="assetstate_id" type="BIGINT" remarks="Ідентифікатор стану">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="assetstatus_id" type="BIGINT" remarks="">
+    		<column name="assetstatus_id" type="BIGINT" remarks="Ідентифікатор статусу">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Повна назва">
     		
     		</column>
-    		<column name="invnum" type="VARCHAR(50)" remarks="">
+    		<column name="invnum" type="VARCHAR(50)" remarks="Інвентарний номер">
     		
     		</column>
-    		<column name="serialnum" type="VARCHAR(50)" remarks="">
+    		<column name="serialnum" type="VARCHAR(50)" remarks="Серійний номер">
     		
     		</column>
-    		<column name="department_id" type="BIGINT" remarks=""></column>
-    		<column name="employee_id" type="BIGINT" remarks=""></column>
-    		<column name="proddate" type="TIMESTAMP" remarks=""></column>
-    		<column name="begdate" type="TIMESTAMP" remarks=""></column>
-    		<column name="enddate" type="TIMESTAMP" remarks=""></column>
-    		<column name="price" type="DOUBLE" remarks=""></column>
-    		<column name="amount" type="DOUBLE" remarks=""></column>
-    		<column name="suma" type="DOUBLE" remarks=""></column>
-    		<column name="partner_id" type="BIGINT" remarks=""></column>
-    		<column name="description" type="VARCHAR(250)" remarks=""></column>
-    		<column name="order_id" type="BIGINT" remarks=""></column>
-    		<column name="parent_id" type="BIGINT" remarks=""></column>
+    		<column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу"></column>
+    		<column name="employee_id" type="BIGINT" remarks="Ідентифікатор працівника"></column>
+    		<column name="proddate" type="TIMESTAMP" remarks="Дата випуску"></column>
+    		<column name="begdate" type="TIMESTAMP" remarks="Дата введення в експлуатацію"></column>
+    		<column name="enddate" type="TIMESTAMP" remarks="Дата виведення з експлуатації (списання)"></column>
+    		<column name="price" type="DOUBLE" remarks="Вартість одиниці матеріального активу/ресурсу"></column>
+    		<column name="amount" type="DOUBLE" remarks="Кількість матеріальних активів/ресурсів"></column>
+    		<column name="suma" type="DOUBLE" remarks="Загальна вартість матеріальних активів/ресурсів"></column>
+    		<column name="partner_id" type="BIGINT" remarks="Ідентифікатор партнера"></column>
+    		<column name="description" type="VARCHAR(250)" remarks="Опис матеріальних активів"></column>
+    		<column name="order_id" type="BIGINT" remarks="Ідентифікатор наказу"></column>
+    		<column name="parent_id" type="BIGINT" remarks="Ієрархічний ідентифікатор"></column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -1816,61 +1816,61 @@
     	
     	<addPrimaryKey tableName="q_ob_asset" columnNames="id" constraintName="pk_q_ob_asset_id"/>
  		
- 	 	<createTable tableName="q_ob_employee" remarks="">
+ 	 	<createTable tableName="q_ob_employee" remarks="Інформація про працівників, де:•	в нелисткових записах ієрархії (які мають або можуть мати підпорядковані записи) зберігаються працівники за їхніми посадами (Доцента, Начальник відділу, Інженер тощо);•	в листкових записах ієрархії (які не мають підпорядкованих записів і є зв’язаними з нелистковими записами) працівники за їхніми додатковими обов’язками (матеріально-відповідальний, системний адміністратор тощо).">
     		<column name="id" type="BIGINT" remarks="Ідинтифікатор">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="employeetype_id" type="BIGINT" remarks="">
+    		<column name="employeetype_id" type="BIGINT" remarks="Ідентифікатор типу працівника">
     		</column>
-    		<column name="person_id" type="BIGINT" remarks="">
+    		<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
     		</column>
-    		<column name="name" type="VARCHAR(200)" remarks="">
+    		<column name="name" type="VARCHAR(200)" remarks="Повна назва персони – прізвище, ім’я та по-батькові">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="firstname" type="VARCHAR(200)" remarks="">
+    		<column name="firstname" type="VARCHAR(200)" remarks="Ім’я">
     		</column>
-    		<column name="fathername" type="VARCHAR(200)" remarks="">
+    		<column name="fathername" type="VARCHAR(200)" remarks="По-батькові">
     		</column>
-    		<column name="surname" type="VARCHAR(200)" remarks="">
+    		<column name="surname" type="VARCHAR(200)" remarks="Прізвище">
     		</column>
-    		<column name="birthdate" type="TIMESTAMP" remarks="">
+    		<column name="birthdate" type="TIMESTAMP" remarks="Дата народження працівника">
     		</column>
-    		<column name="invnum" type="VARCHAR(200)" remarks="">
+    		<column name="invnum" type="VARCHAR(200)" remarks="Інвентарний номер">
     		</column>
-    		<column name="rate" type="double" remarks="">
+    		<column name="rate" type="double" remarks="Ставка">
     		</column>
-    		<column name="isplurality" type="int" remarks="">
+    		<column name="isplurality" type="int" remarks="Працює за сумісництвом">
     		</column>
-    		<column name="ispansioner" type="int" remarks="">
+    		<column name="ispansioner" type="int" remarks="Ознака пенсіонера">
     		</column>
-    		<column name="gendertype_id" type="BIGINT" remarks="">
+    		<column name="gendertype_id" type="BIGINT" remarks="Ідентифікатор статі працівника">
     		</column>
-    		<column name="department_id" type="BIGINT" remarks="">
+    		<column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу">
     		</column>
     		<!-- FK -->
-    		<column name="ranktype_id" type="BIGINT" remarks="">
+    		<column name="ranktype_id" type="BIGINT" remarks="Ідентифікатор вченого звання">
     		</column>
-    		<column name="post_id" type="BIGINT" remarks="">
+    		<column name="post_id" type="BIGINT" remarks="Ідентифікатор посади">
     		</column>
-    		<column name="jobtype_id" type="BIGINT" remarks="">
+    		<column name="jobtype_id" type="BIGINT" remarks="Ідентифікатор типу роботи">
     		</column>
-    		<column name="employeestatus_id" type="BIGINT" remarks="">
+    		<column name="employeestatus_id" type="BIGINT" remarks="Ідентифікатор статусу працівника">
     		</column>
-    		<column name="begdate" type="TIMESTAMP" remarks="">
+    		<column name="begdate" type="TIMESTAMP" remarks="Дата прийняття на роботу">
     		</column>
-    		<column name="enddate" type="TIMESTAMP" remarks="">
+    		<column name="enddate" type="TIMESTAMP" remarks="Дата закінчення строкової угоди/контракту">
     		</column>
-    		<column name="docseries" type="VARCHAR(50)" remarks="">
+    		<column name="docseries" type="VARCHAR(50)" remarks="Серія особової справи">
     		</column>
-    		<column name="docnum" type="VARCHAR(50)" remarks="">
+    		<column name="docnum" type="VARCHAR(50)" remarks="Номер особової справи">
     		</column>
-    		<column name="phone" type="VARCHAR(200)" remarks="">
+    		<column name="phone" type="VARCHAR(200)" remarks="Телефон">
     		</column>
-    		<column name="email" type="VARCHAR(200)" remarks="">
+    		<column name="email" type="VARCHAR(200)" remarks="e-mail">
     		</column>
-    		<column name="order_id" type="BIGINT" remarks="">
+    		<column name="order_id" type="BIGINT" remarks="Ідентифікатор наказу/документу">
     		</column>
-    		<column name="parent_id" type="BIGINT" remarks="">
+    		<column name="parent_id" type="BIGINT" remarks="Ієрархічний ідентифікатор">
     		</column>
         	<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -1905,33 +1905,33 @@
    			<column name="ordertype_id" type="BIGINT" remarks="Ідентифікатор наказу">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="docseries" type="VARCHAR(50)" remarks=""></column> 
-   			<column name="docnum" type="VARCHAR(50)" remarks=""></column>
-   			<column name="docdate" type="TIMESTAMP" remarks=""></column>
-   			<column name="docissued" type="VARCHAR(200)" remarks=""></column>
-   			<column name="employee_id" type="BIGINT" remarks="">
+   			<column name="docseries" type="VARCHAR(50)" remarks="Серія наказу"></column> 
+   			<column name="docnum" type="VARCHAR(50)" remarks="Номер наказу"></column>
+   			<column name="docdate" type="TIMESTAMP" remarks="Дата наказу"></column>
+   			<column name="docissued" type="VARCHAR(200)" remarks="Ким видано наказ та № протоколу"></column>
+   			<column name="employee_id" type="BIGINT" remarks="Ідентифікатор працівника">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="asset_id" type="BIGINT" remarks="">
+   			<column name="asset_id" type="BIGINT" remarks="Ідентифікатор основних засобів чи матеріальних цінностей">
    				<constraints nullable="false"/>
    			</column>
-  			<column name="partner_id" type="BIGINT" remarks="">
+  			<column name="partner_id" type="BIGINT" remarks="Ідентифікатор партнера">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="optype_id" type="BIGINT" remarks="">
+   			<column name="optype_id" type="BIGINT" remarks="Ідентифікатор типу операцій над основними засобами">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="evdate" type="TIMESTAMP" remarks=""></column>
-   			<column name="begdate" type="TIMESTAMP" remarks=""></column>
-   			<column name="enddate" type="TIMESTAMP" remarks=""></column>
-   			<column name="department_id" type="BIGINT" remarks="">
+   			<column name="evdate" type="TIMESTAMP" remarks="Дата (рішення приймальної комісії)"></column>
+   			<column name="begdate" type="TIMESTAMP" remarks="Дата виконання наказу (зарахування)"></column>
+   			<column name="enddate" type="TIMESTAMP" remarks="Дата закриття наказу"></column>
+   			<column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="reason_id" type="BIGINT" remarks="">
+   			<column name="reason_id" type="BIGINT" remarks="Ідентифікатор підстави">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="reasontext" type="VARCHAR(250)" remarks=""></column>
-   			<column name="parent_id" type="BIGINT" remarks="">
+   			<column name="reasontext" type="VARCHAR(250)" remarks="Підстава"></column>
+   			<column name="parent_id" type="BIGINT" remarks="Ієрархічний ідентифікатор">
    				<constraints nullable="false"/>
    			</column>
    			<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -1961,7 +1961,7 @@
    		<addPrimaryKey columnNames="id" constraintName="pk_q_dc_order" tableName="q_dc_order"/>
     
     
-        <createTable remarks="Інформація про підрозділи, де:&#10;• в нелисткових записах ієрархії (які мають або можуть мати підпорядковані записи) зберігаються групи підрозділів (науково-навчальний інститут, навчальний інститут, підрозділ ІТ тощо);&#10;• в нелисткових записах ієрархії зберігаються підрозділи складної структури (Інститут комп’ютерних наук та інформаційних технологій, Бухгалтерія, НДЧ, ЦІЗ, ЦТЕ ЗТІ тощо);&#10;• в листкових записах ієрархії (які не мають підпорядкованих записів) зберігаються підрозділи простої структури або структурні одиниці інших підрозділів (Кафедра програмного забезпечення, Відділ проектування та впровадження програмних засобів, Відділ моніторингу та оперативного планування навчального процесу тощо)." tableName="q_ob_department">
+        <createTable remarks="Інформація про підрозділи, де:•	в нелисткових записах ієрархії (які мають або можуть мати підпорядковані записи) зберігаються групи підрозділів (науково-навчальний інститут, навчальний інститут, підрозділ ІТ тощо);•	в нелисткових записах ієрархії зберігаються підрозділи складної структури (Інститут комп’ютерних наук та інформаційних технологій, Бухгалтерія, НДЧ, ЦІЗ, ЦТЕ ЗТІ тощо);•	в листкових записах ієрархії (які не мають підпорядкованих записів) зберігаються підрозділи простої структури або структурні одиниці інших підрозділів (Кафедра програмного забезпечення, Відділ проектування та впровадження програмних засобів, Відділ моніторингу та оперативного планування навчального процесу тощо)." tableName="q_ob_department">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
@@ -2002,7 +2002,7 @@
             	<constraints nullable="false"/>
         	</column>
         </createTable>
-
+        
 		<addPrimaryKey columnNames="id" constraintName="pk_q_ob_department_id" tableName="q_ob_department"/>
 		
 		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_department" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
@@ -2014,6 +2014,7 @@
 		<createIndex indexName="fki_ob_department" tableName="q_ob_department" unique="false">
             <column name="parent_id"/>
         </createIndex>
+        
     	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_employee" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
 		
 		<addForeignKeyConstraint baseColumnNames="employeetype_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_employeetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_employeetype"/>
@@ -2031,7 +2032,7 @@
     	<addForeignKeyConstraint baseColumnNames="jobtype_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_jobtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_jobtype"/>
     		
 		<addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_ob_employee" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
-
+		<addForeignKeyConstraint baseColumnNames="employeestatus_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_employeestatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_employeestatus"/>
         <addForeignKeyConstraint baseColumnNames="ordertype_id" baseTableName="q_dc_order" constraintName="fk_q_rf_ordertype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_ordertype"/>
     	
     	<addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dc_order" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
@@ -2069,29 +2070,29 @@
     </changeSet>
     
     <changeSet author="illay" id="Створення таблиці детальний опис адреси підрозділу">
-        <createTable tableName="q_od_departmentaddress" remarks="">
+        <createTable tableName="q_od_departmentaddress" remarks="Детальний опис адреси підрозділу">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="department_id" type="BIGINT" remarks="">
+            <column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу">
             	<constraints nullable="false"/>
             </column>
-            <column name="addresstype_id" type="BIGINT" remarks="">
+            <column name="addresstype_id" type="BIGINT" remarks="Ідентифікатор типу адреси">
             	<constraints nullable="false"/>
             </column>
-            <column name="zipcode" type="varchar(50)" remarks=""> 
+            <column name="zipcode" type="varchar(50)" remarks="Поштовий індекс"> 
             </column>
-            <column name="adminunit_id" type="BIGINT" remarks="">
+            <column name="adminunit_id" type="BIGINT" remarks="Ідентифікатор адміністративно-територіальної одиниці">
             	<constraints nullable="false"/>
             </column>
-            <column name="streettype_id" type="BIGINT" remarks="">
+            <column name="streettype_id" type="BIGINT" remarks="Ідентифікатор типу вулиць">
             	<constraints nullable="false"/>
             </column>
-            <column name="street" type="varchar(200)" remarks="">
+            <column name="street" type="varchar(200)" remarks="Вулиця">
             </column>
-            <column name="house" type="varchar(200)" remarks="">
+            <column name="house" type="varchar(200)" remarks="Будинок">
             </column>
-            <column name="apartment" type="varchar(200)" remarks="">
+            <column name="apartment" type="varchar(200)" remarks="Квартира">
             </column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -2119,23 +2120,20 @@
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_od_departmentaddress_id" tableName="q_od_departmentaddress"/>
     	
-    	
     </changeSet>
-    
-    
     
  	<changeSet id="Створення таблиці журналу помилок" author="illay">
 		<createTable tableName="q_lg_error" remarks="Журсал посилок">
-			<column name="id" type="BIGINT" remarks="Індитифікатор">
+			<column name="id" type="BIGINT" remarks="Ідентифікатор">
 				<constraints nullable="false"/>
 			</column>
-			<column name="name" type="VARCHAR(200)" remarks=""></column>
-			<column name="invnum" type="VARCHAR(50)" remarks=""></column>
-			<column name="description" type="VARCHAR(250)" remarks=""></column>
-			<column name="clientos" type="VARCHAR(50)" remarks=""></column>
-			<column name="clientname" type="VARCHAR(50)" remarks=""></column>
-			<column name="clientversion" type="VARCHAR(50)" remarks=""></column>
-			<column name="clienttip" type="VARCHAR(50)" remarks=""></column>
+			<column name="name" type="VARCHAR(200)" remarks="Назва помилки"></column>
+			<column name="invnum" type="VARCHAR(50)" remarks="Номер помилки"></column>
+			<column name="description" type="VARCHAR(250)" remarks="Опис помилки"></column>
+			<column name="clientos" type="VARCHAR(50)" remarks="Операційна система клієнта, де відбулася помилка"></column>
+			<column name="clientname" type="VARCHAR(50)" remarks="Назва прикладної програми клієнта, де відбулася помилка (вербраузер)"></column>
+			<column name="clientversion" type="VARCHAR(50)" remarks="Версія прикладної програми клієнта, де відбулася помилка (вербраузер)"></column>
+			<column name="clienttip" type="VARCHAR(50)" remarks="ІР адресаклієнта, де відбулася помилка"></column>
 			<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -2162,18 +2160,19 @@
 		
 		<addPrimaryKey columnNames="id" constraintName="pk_q_lg_error" tableName="q_lg_error"/>
 	</changeSet>
+	
 	<changeSet id="Створення таблиці журналу операцій import/export даних з інших IC" author="illay">
 		<createTable tableName="q_lg_importexport">
-			<column name="id" type="BIGINT" remarks="Індитифікатор">
+			<column name="id" type="BIGINT" remarks="Ідентифікатор">
 				<constraints nullable="false"/>
 			</column>
-			<column name="name" type="VARCHAR(200)" remarks=""></column>
-			<column name="invnum" type="VARCHAR(50)" remarks=""></column>
-			<column name="description" type="VARCHAR(250)" remarks=""></column>
-			<column name="clientos" type="VARCHAR(50)" remarks=""></column>
-			<column name="clientname" type="VARCHAR(50)" remarks=""></column>
-			<column name="clientversion" type="VARCHAR(50)" remarks=""></column>
-			<column name="clienttip" type="VARCHAR(50)" remarks=""></column>
+			<column name="name" type="VARCHAR(200)" remarks="Назва операції і таблиця з якою відбувається операція (наприклад: import/tablename)"></column>
+			<column name="invnum" type="VARCHAR(50)" remarks="Ідентифікатор сесії"></column>
+			<column name="description" type="VARCHAR(250)" remarks="Опис операції за певною ознакою (import даних за критерієм - тільки на певну букву чи інший критерій)"></column>
+			<column name="clientos" type="VARCHAR(50)" remarks="Операційна система клієнта, де відбулається import/export"></column>
+			<column name="clientname" type="VARCHAR(50)" remarks="Назва прикладної програми клієнта, де відбулася import/export (вербраузер)"></column>
+			<column name="clientversion" type="VARCHAR(50)" remarks="Версія прикладної програми клієнта, де відбулася import/export (вербраузер)"></column>
+			<column name="clienttip" type="VARCHAR(50)" remarks="ІР адреса клієнта, де відбулася import/export"></column>
 			<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -2200,9 +2199,8 @@
 		
 		<addPrimaryKey columnNames="id" constraintName="pk_q_lg_importexport" tableName="q_lg_importexport"/>
 	</changeSet>
-
-
-          <changeSet author="illay" id="Створення таблиці всіх пропоцицій">
+	
+    <changeSet author="illay" id="Створення таблиці всіх пропоцицій">
         <createTable remarks="Пропозиція" tableName="q_ob_specoffer">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -2362,32 +2360,35 @@
     </changeSet>
     
     <changeSet id="Створення таблиці детальний опис адреси" author="illay">
-    	<createTable tableName="q_od_personaddress" remarks="">
+    	<createTable tableName="q_od_personaddress" remarks="Детальний опис адреси">
     			<column name="id" remarks="Ідентифікатор" type="BIGINT">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="person_id" type="BIGINT" remarks="">
+   			<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="zipcode" type="VARCHAR(50)" remarks="">
-   			</column>
-   			<column name="adminunit_id" type="BIGINT" remarks="">
+   			<column name="addresstype_id" type="BIGINT" remarks="Ідентифікатор типу адреси">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="streettype_id" type="BIGINT" remarks="">
+   			<column name="zipcode" type="VARCHAR(50)" remarks="Поштовий індекс">
+   			</column>
+   			<column name="adminunit_id" type="BIGINT" remarks="Ідентифікатор адміністративно-територіальної одиниці">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="street" type="VARCHAR(200)" remarks="">
+   			<column name="streettype_id" type="BIGINT" remarks="Ідентифікатор типу вулиць">
+   				<constraints nullable="false"/>
    			</column>
-   			<column name="house" type="VARCHAR(200)" remarks="">
+   			<column name="street" type="VARCHAR(200)" remarks="Вулиця">
    			</column>
-   			<column name="apartment" type="VARCHAR(200)" remarks="">
+   			<column name="house" type="VARCHAR(200)" remarks="Будинок">
    			</column>
-   			<column name="begdate" type="TIMESTAMP" remarks="">
+   			<column name="apartment" type="VARCHAR(200)" remarks="Квартира">
    			</column>
-   			<column name="enddate" type="TIMESTAMP" remarks="">
+   			<column name="begdate" type="TIMESTAMP" remarks="Дата поселення за певною адресою">
    			</column>
-   			<column name="asset_id" type="BIGINT" remarks="">
+   			<column name="enddate" type="TIMESTAMP" remarks="Дата виселення за певною адресою">
+   			</column>
+   			<column name="asset_id" type="BIGINT" remarks="Ідентифікатор матеріальних активів">
    				<constraints nullable="false"/>
    			</column>
   			<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -2417,6 +2418,8 @@
     	<addPrimaryKey columnNames="id" constraintName="pk_q_od_personaddress" tableName="q_od_personaddress"/>
     
     	<addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_personaddress" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="addresstype_id" baseTableName="q_od_personaddress" constraintName="fk_q_rf_addresstype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_addresstype"/>
     	
     	<addForeignKeyConstraint baseColumnNames="adminunit_id" baseTableName="q_od_personaddress" constraintName="fk_q_ob_adminunit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_adminunit"/>
     	
@@ -2528,7 +2531,8 @@
         </createIndex>
         
     </changeSet>
-<changeSet author="illay" id="Створення таблиці довідник хвиль вступу">
+    
+	<changeSet author="illay" id="Створення таблиці довідник хвиль вступу">
         <createTable remarks="Довідник хвиль вступу" tableName="q_od_specofferwave">
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
@@ -2614,7 +2618,6 @@
     	 <addPrimaryKey columnNames="id" constraintName="pk_q_od_specofferbenefit" tableName="q_od_specofferbenefit"/>
     	
     	<addForeignKeyConstraint baseColumnNames="benefit_id" baseTableName="q_od_specofferbenefit" constraintName="fk_q_ob_benefit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
-
 		<addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_od_specofferbenefit" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
         	 
     </changeSet>
@@ -2630,8 +2633,8 @@
             <column name="enrolsubject_id" remarks="Ідентифікатор предмету зовнішнього незалежного оцінювання" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="ismajor" remarks="Ознака профільного предмету" type="INTEGER"/>
-            <column name="alternative" remarks="Альтернатива при виборі предмету ЗНО" type="INTEGER"/>
+            <column name="ismajor" remarks="Ознака профільного предмету" type="BOOLEAN"/>
+            <column name="alternative" remarks="Альтернатива при виборі предмету ЗНО" type="BOOLEAN"/>
             <column name="mark" remarks="Мінімальний бал з предмету ЗНО при поступленні" type="DOUBLE">
                 <constraints nullable="false"/>
             </column>
@@ -2768,28 +2771,28 @@
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-    		<column name="order_id" type="BIGINT" remarks="">
+    		<column name="order_id" type="BIGINT" remarks="Ідентифікатор наказу">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="enrolment_id" type="BIGINT" remarks="">
+    		<column name="enrolment_id" type="BIGINT" remarks="Ідентифікатор заяви">
     			<constraints nullable="false"/>	
     		</column>
-    		<column name="person_id" type="BIGINT" remarks="">
+    		<column name="person_id" type="BIGINT" remarks="Ідентифікатор перcони">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="docseries" type="VARCHAR(50)" remarks="">
+    		<column name="docseries" type="VARCHAR(50)" remarks="Серія особової справи вступника">
     		</column>
-    		<column name="docnum" type="VARCHAR(50)" remarks="">
+    		<column name="docnum" type="VARCHAR(50)" remarks="Номер особової справи вступника">
     		</column>
-    		<column name="iscontract" type="INT" remarks="">
+    		<column name="iscontract" type="INT" remarks="Контракт (навчання за кошти фіз.осіб)">
     		</column>
-    		<column name="coursetype_id" type="BIGINT" remarks="">
+    		<column name="coursetype_id" type="BIGINT" remarks="Ідентифікатор курсу навчання на який зараховується/переводиться персона">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="specialty_id" type="BIGINT" remarks="">
+    		<column name="specialty_id" type="BIGINT" remarks="Ідентифікатор напряму/спеціальності">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="eduformtype_id" type="BIGINT" remarks="">
+    		<column name="eduformtype_id" type="BIGINT" remarks="Ідентифікатор форми навчання">
     			<constraints nullable="false"/>
     		</column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -2837,13 +2840,13 @@
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-    		<column name="person_id" type="BIGINT" remarks="">
+    		<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="contacttype_id" type="BIGINT" remarks="">
+    		<column name="contacttype_id" type="BIGINT" remarks="Ідентифікатор типу контакту">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="strvalue" type="VARCHAR(200)" remarks="">
+    		<column name="strvalue" type="VARCHAR(200)" remarks="Значення контакту">
     		</column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -2882,13 +2885,13 @@
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-    		<column name="department_id" type="BIGINT" remarks="">
+    		<column name="department_id" type="BIGINT" remarks="Ідентифікатор персони">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="contacttype_id" type="BIGINT" remarks="">
+    		<column name="contacttype_id" type="BIGINT" remarks="Ідентифікатор типу контакту">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="strvalue" type="VARCHAR(200)" remarks="">
+    		<column name="strvalue" type="VARCHAR(200)" remarks="Значення підрозділу">
     		</column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -2922,19 +2925,18 @@
     	
     </changeSet>
     
-    
     <changeSet  author="illay" id="Створення таблиці інформації про іноземні мови персони" >
-        <createTable tableName="q_ob_personlanquage" remarks="" >
+        <createTable tableName="q_od_personlanquage" remarks="Інформація про іноземні мови персони" >
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-    		<column name="person_id" type="BIGINT" remarks="">
+    		<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="language_id" type="BIGINT" remarks="">
+    		<column name="language_id" type="BIGINT" remarks="Ідентифікатор іноземної мови">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="languagelevel_id" type="BIGINT" remarks="">
+    		<column name="languagelevel_id" type="BIGINT" remarks="Ідентифікатор типу іноземної мови">
     			<constraints nullable="false"/>
     		</column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -2961,30 +2963,31 @@
         	</column>
         </createTable>
         
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_personlanquage" tableName="q_ob_personlanquage"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_personlanquage" tableName="q_od_personlanquage"/>
         
-        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_ob_personlanquage" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_personlanquage" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_ob_personlanquage" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
+    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_personlanquage" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="languagelevel_id" baseTableName="q_ob_personlanquage" constraintName="fk_q_rf_languagelevel_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquagelevel"/>
+    	<addForeignKeyConstraint baseColumnNames="languagelevel_id" baseTableName="q_od_personlanquage" constraintName="fk_q_rf_languagelevel_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquagelevel"/>
     	
     </changeSet>
+    
     <changeSet  author="illay" id="Створення таблиці інформації про персону іноземною мовою" >
-        <createTable tableName="q_ob_personname" remarks="" >
+        <createTable tableName="q_od_personname" remarks="Інформація про персону іноземною мовою" >
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-    		<column name="person_id" type="BIGINT" remarks="">
+    		<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="language_id" type="BIGINT" remarks="">
+    		<column name="language_id" type="BIGINT" remarks="Ідентифікатор іноземної мови">
     			<constraints nullable="false"/>
     		</column>
     		<column name="name" type="VARCHAR(200)" remarks=""></column>
-    		<column name="firstname" type="VARCHAR(200)" remarks=""></column>
-    		<column name="fathername" type="VARCHAR(200)" remarks=""></column>
-    		<column name="surname" type="VARCHAR(200)" remarks=""></column>
+    		<column name="firstname" type="VARCHAR(200)" remarks="Прізвище іноземною мовою"></column>
+    		<column name="fathername" type="VARCHAR(200)" remarks="По-батькові іноземною мовою"></column>
+    		<column name="surname" type="VARCHAR(200)" remarks="Ім’я іноземною мовою"></column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -3009,27 +3012,27 @@
         	</column>
         </createTable>
         
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_personname" tableName="q_ob_personname"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_personname" tableName="q_od_personname"/>
         
-        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_ob_personname" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_personname" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_ob_personname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
+    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_personname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
     	
     </changeSet>
     
     <changeSet  author="illay" id="Створення таблиці інформації про підрозділ іноземною мовою" >
-        <createTable tableName="q_ob_departmentname" remarks="" >
+        <createTable tableName="q_od_departmentname" remarks="Інформація про підрозділ іноземною мовою" >
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-    		<column name="department_id" type="BIGINT" remarks="">
+    		<column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="language_id" type="BIGINT" remarks="">
+    		<column name="language_id" type="BIGINT" remarks="Ідинтифікатор інозкмної мови">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="abbname" type="VARCHAR(200)" remarks=""></column>
-    		<column name="name" type="VARCHAR(200)" remarks=""></column>
+    		<column name="abbname" type="VARCHAR(200)" remarks="Скорочена назва(Абривіатура) іноземною мовою"></column>
+    		<column name="name" type="VARCHAR(200)" remarks="назва іноземною мовою"></column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -3054,23 +3057,23 @@
         	</column>
         </createTable>
         
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_departmentname" tableName="q_ob_departmentname"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_departmentname" tableName="q_od_departmentname"/>
         
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_ob_departmentname" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_od_departmentname" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_ob_departmentname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
+    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_departmentname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
     	
     </changeSet>
     
     <changeSet  author="illay" id="Створення таблиці інформації про напрямки та спеціалізаців в підрозділі" >
-        <createTable tableName="q_ob_departmentspecialty" remarks="" >
+        <createTable tableName="q_od_departmentspecialty" remarks=" Інформація про напрями та спеціальності в підрозділі" >
             <column name="id" remarks="Ідентифікатор" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-    		<column name="department_id" type="BIGINT" remarks="">
+    		<column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="specialty_id" type="BIGINT" remarks="">
+    		<column name="specialty_id" type="BIGINT" remarks="Ідентифікатор спеціальності">
     			<constraints nullable="false"/>
     		</column>
     		<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -3097,28 +3100,10 @@
         	</column>
         </createTable>
         
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_departmentspecialty" tableName="q_ob_departmentspecialty"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_departmentspecialty" tableName="q_od_departmentspecialty"/>
         
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_ob_departmentspecialty" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_od_departmentspecialty" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_ob_departmentspecialty" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
-    	
-    </changeSet>
+    </changeSet>    
     
-    <changeSet id="add foreingkey q_ob_employee fk_q_rf_employeestatus_id" author="illay">
-    	<addForeignKeyConstraint baseColumnNames="employeestatus_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_employeestatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_employeestatus"/>
-    </changeSet>
-    <changeSet id="change abbrname type in q_ob_benefit table to varchar" author="ivanursul">
-	    <modifyDataType 
-	            columnName="abbrname"
-	            newDataType="VARCHAR(255)"
-	            schemaName="public"
-	            tableName="q_ob_benefit"/>
-    </changeSet>
-    <changeSet id="change begdata name to begdate in q_ob_benefit" author="ivanursul">
-    	<renameColumn tableName="q_ob_benefit" oldColumnName="begdata" newColumnName="begdate"/>
-    </changeSet> 
-    <changeSet id="change descriotion name to description in q_rf_enrolmentstatustype" author="ivanursul">
-    	<renameColumn tableName="q_rf_enrolmentstatustype" oldColumnName="descriotion" newColumnName="description"/>
-    </changeSet> 
 </databaseChangeLog>

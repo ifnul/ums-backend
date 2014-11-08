@@ -65,6 +65,11 @@
         <class>org.lnu.is.domain.specofferwave.SpecOfferWave</class>
         <class>org.lnu.is.domain.streettype.StreetType</class>
         <class>org.lnu.is.domain.wavetype.WaveType</class>
+        <class>org.lnu.is.domain.personaddress.PersonAddress</class>
+        <class>org.lnu.is.domain.statustype.StatusType</class>
+        <class>org.lnu.is.domain.personcontact.ParsonContact</class>
+        <class>org.lnu.is.domain.specoffersubject.SpecofferSubject</class>
+        <class>org.lnu.is.domain.specofferbenefit.SpecofferBenefit</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

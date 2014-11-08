@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+
 /**
  * Controller, that handles all API with department entity.
  * @author ivanursul
@@ -27,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/departments")
+@Api(value = "department", description = "Departments", position = 2)
 public class DepartmentController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(DepartmentController.class);
 	
@@ -48,6 +52,7 @@ public class DepartmentController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
+	@ApiOperation(value = "Create Specoffer", position = 1)
 	public DepartmentResource createDepartment(@RequestBody final DepartmentResource departmentResource) {
 		LOG.info("Creating department: {}", departmentResource);
 		return departmentFacade.createDepartment(departmentResource);
@@ -71,6 +76,7 @@ public class DepartmentController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@ApiOperation(value = "Update Department", position = 2)
 	public MessageResource updateDepartment(@PathVariable("id") final Long id,
 			@RequestBody final DepartmentResource departmentResource) {
 		LOG.info("Updated department with id: {}, {}", id, departmentResource);
@@ -92,6 +98,7 @@ public class DepartmentController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@ApiOperation(value = "Get Department by id", position = 3)
 	public DepartmentResource getDepartment(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving department with id: {}", id);
 		return departmentFacade.getDepartment(id);
@@ -112,6 +119,7 @@ public class DepartmentController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@ApiOperation(value = "Delete Department by id", position = 4)
 	public MessageResource removeDepartment(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
 		departmentFacade.removeDepartment(id);
@@ -139,7 +147,8 @@ public class DepartmentController extends BaseController {
 	 * @return Paged Result with generated entities.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping
+	@RequestMapping(method = RequestMethod.GET)
+	@ApiOperation(value = "Get Departments", position = 5)
 	public PagedResultResource<DepartmentResource> getSpecialties(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
 			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
 			final DepartmentResource resource) {

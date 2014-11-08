@@ -1,4 +1,3 @@
-
 package org.lnu.is.domain.posttype;
 
 import javax.persistence.Column;

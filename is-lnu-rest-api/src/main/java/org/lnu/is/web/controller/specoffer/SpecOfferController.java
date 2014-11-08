@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+
 /**
  * Controller, that handles all operations
  * with specoffers.
@@ -27,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/specoffers")
+@Api(value = "specoffers", description = "Specoffers", position = 2)
 public class SpecOfferController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOfferController.class);
 	
@@ -48,6 +52,7 @@ public class SpecOfferController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
+	@ApiOperation(value = "Create Specoffer", position = 1)
 	public SpecOfferResource createSpecOffer(@RequestBody final SpecOfferResource specOfferResource) {
 		LOG.info("Creating specoffer: {}", specOfferResource);
 		return specOfferFacade.createSpecOffer(specOfferResource);
@@ -71,6 +76,7 @@ public class SpecOfferController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@ApiOperation(value = "Update SpecOffer", position = 2)
 	public MessageResource updateSpecOffer(@PathVariable("id") final Long id,
 			@RequestBody final SpecOfferResource specOfferResource) {
 		LOG.info("Updated specoffer with id: {}, {}", id, specOfferResource);
@@ -92,6 +98,7 @@ public class SpecOfferController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@ApiOperation(value = "Get's SpecOffer", position = 3)
 	public SpecOfferResource getSpecOffer(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving specoffer with id: {}", id);
 		return specOfferFacade.getSpecOffer(id);
@@ -112,6 +119,7 @@ public class SpecOfferController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@ApiOperation(value = "Remove Specoffer", position = 4)
 	public MessageResource removeSpecOffer(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
 		specOfferFacade.removeSpecOffer(id);
@@ -138,7 +146,8 @@ public class SpecOfferController extends BaseController {
 	 * @return Paged Result with generated entities.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping
+	@RequestMapping(method = RequestMethod.GET)
+	@ApiOperation(value = "Get's All SpecOffers", position = 5)
 	public PagedResultResource<SpecOfferResource> getSpecOffers(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
 			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
 			final SpecOfferResource resource) {

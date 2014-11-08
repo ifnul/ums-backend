@@ -16,7 +16,7 @@ import org.lnu.is.domain.person.Person;
  *
  */
 @Entity
-@Table(name = "q_ob_personlanquage")
+@Table(name = "q_od_personlanquage")
 public class PersonLanguage extends Model {
 	private static final long serialVersionUID = 1L;
 

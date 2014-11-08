@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+
 /**
  * Controller, that handles all operations with
  * Specialty entity.
@@ -28,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/specialties")
+@Api(value = "specialties", description = "Specialties", position = 2)
 public class SpecialtyController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecialtyController.class);
 	
@@ -49,6 +53,7 @@ public class SpecialtyController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
+	@ApiOperation(value = "Create Specialty", position = 1)
 	public SpecialtyResource createSpecialty(@RequestBody final SpecialtyResource specialtyResource) {
 		LOG.info("Creating specialty: {}", specialtyResource);
 		return specialtyFacade.createSpecialty(specialtyResource);
@@ -72,6 +77,7 @@ public class SpecialtyController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@ApiOperation(value = "Update Specialty", position = 2)
 	public MessageResource updateSpecialty(@PathVariable("id") final Long id,
 			@RequestBody final SpecialtyResource specialtyResource) {
 		LOG.info("Updated specialty with id: {}, {}", id, specialtyResource);
@@ -93,6 +99,7 @@ public class SpecialtyController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@ApiOperation(value = "Get Specailty by id", position = 3)
 	public SpecialtyResource getSpecialty(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving specialty with id: {}", id);
 		return specialtyFacade.getSpecialty(id);
@@ -113,6 +120,7 @@ public class SpecialtyController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@ApiOperation(value = "Delete Specialty", position = 4)
 	public MessageResource removeSpecialty(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
 		specialtyFacade.removeSpecialty(id);
@@ -139,7 +147,8 @@ public class SpecialtyController extends BaseController {
 	 * @return Paged Result with generated entities.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping
+	@RequestMapping(method = RequestMethod.GET)
+	@ApiOperation(value = "Get Specailties", position = 5)
 	public PagedResultResource<SpecialtyResource> getSpecialties(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
 			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
 			final SpecialtyResource resource) {

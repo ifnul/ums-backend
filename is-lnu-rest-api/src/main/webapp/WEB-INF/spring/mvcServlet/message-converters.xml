@@ -4,9 +4,12 @@
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+	<bean id="objectMapper" class="org.lnu.is.web.converters.CustomObjectMapper"/>
+
 	<bean id="xmlMessageConverter" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
 	<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		<property name="prettyPrint" value="${api.output.json.pretty}" />
+		<property name="objectMapper" ref="objectMapper"/>
 	</bean>
 
 	<bean
