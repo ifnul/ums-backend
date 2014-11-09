@@ -125,9 +125,61 @@
 >*mvn clean install*
 
 
+- ###Maven Build profiles
 
+*Maven* надає можливість змінювати настройки проекту в залежності від оточення(*пр. production / development*). Профілі описуються в файлі *pom.xml* та спрацьовують під час побудови проекту.
 
+Виглядає це так:
 
+```xml
+<profiles>
+  <profile>
+   <id>profilename</id>
+   <modules>
+    <module>modulename</module>
+   </modules>   
+  </profile>
+ </profiles>  
+</project>
+```
+
+Таким чином побудова проекту командою *mvn clean install* не буде включати модулі, що знаходяться у цьому профілі. Для їх включення використовується така команда :
+
+>*mvn -Pprofilename*
+
+Наприклад :
+
+>*mvn clean install -Pprofilename
+
+Ви можете включити виконання певних профілів за замовчуванням :
+
+```xml
+<profiles>
+  <profile>
+    <id>profilename</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+      ....
+  </profile>
+</profiles>
+```
+Існують і інші способи їх активації, з якими ви можете ознайомитись за посиланням :
+
+[Maven Profiles]
+
+- ###WAR files
+
+>*WAR(Web Application Archive*) - містить веб-аплікацію, яку можна розгорнути на сервері
+
+Модулі, які генерують *WAR - файли*, містять такий рядок у файлі *pom.xml* :
+>*<packaging>war</packaging>*
+
+Кожен *WAR* файл міститься у папці *target* відповідного модуля.
+
+У якості сервера ми використовуємо *Apache Tomcat 7.0.55*.
+
+Для того, аби розгорнути веб-аплікацію, потрібно перемістити *WAR* файл у папку *TOMCAT_HOME/Webapps* та запустити сервер.
 
 
 [посиланням]:http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
@@ -140,3 +192,4 @@
 [Maven]:http://maven.apache.org/download.cgi
 [PostgreSQL]:http://www.postgresql.org/docs/8.3/static/install-post.html
 [psql]:http://www.postgresql.org/docs/9.3/static/app-psql.html
+[Maven Profiles]:http://maven.apache.org/guides/introduction/introduction-to-profiles.html
