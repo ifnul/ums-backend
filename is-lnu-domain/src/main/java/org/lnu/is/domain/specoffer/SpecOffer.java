@@ -26,45 +26,81 @@ import org.lnu.is.domain.timeperiod.TimePeriod;
 public class SpecOffer extends Model {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Parent table identifier
+	 */
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private SpecOffer parent;
-
+	
+	/**
+	 * Specialty identifier
+	 */
 	@ManyToOne
 	@JoinColumn(name = "specialty_id")
 	private Specialty specialty;
 	
+	/**
+	 * Department identifier
+	 */
 	@ManyToOne
 	@JoinColumn(name = "department_id")
 	private Department department;
 	
+	/**
+	 * Time period identifier
+	 */
 	@ManyToOne
 	@JoinColumn(name = "timeperiod_id")
 	private TimePeriod timePeriod;
 	
+	/**
+	 * Educational form type identifier
+	 */
 	@ManyToOne
 	@JoinColumn(name = "eduformtype_id")
 	private EduFormType eduFormType;
 
+	/**
+	 * Specialty offer type identifier
+	 */
 	@ManyToOne
 	@JoinColumn(name = "specoffertype_id")
 	private SpecOfferType specOfferType;
 	
+	/**
+	 * License series
+	 */
 	@Column(name = "docseries")
 	private String docSeries;
 	
+	/**
+	 * License number
+	 */
 	@Column(name = "docnum")
 	private String docNum;
 	
+	/**
+	 * Amount of licensed spots
+	 */
 	@Column(name = "liccount")
 	private Integer licCount;
 	
+	/**
+	 * Amount of spots ordered by state
+	 */
 	@Column(name = "statecount")
 	private Integer stateCount;
 	
+	/**
+	 * Start date
+	 */
 	@Column(name = "begdate")
 	private Date begDate;
 	
+	/**
+	 * End date
+	 */
 	@Column(name = "enddate")
 	private Date endDate;
 	
