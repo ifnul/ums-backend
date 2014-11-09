@@ -1,95 +1,76 @@
-package org.lnu.is.domain.person;
+package org.lnu.is.facade.resource.person;
 
+import java.text.MessageFormat;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import org.lnu.is.domain.Model;
-import org.lnu.is.domain.gendertype.GenderType;
-import org.lnu.is.domain.marriedtype.MarriedType;
-import org.lnu.is.domain.persontype.PersonType;
+import org.lnu.is.facade.resource.ApiResource;
 
 /**
- * Person entity.
+ * Resource for person.
  * @author ivanursul
  *
  */
-@Entity
-@Table(name = "q_ob_person")
-public class Person extends Model {
-	private static final long serialVersionUID = 1L;
+public class PersonResource extends ApiResource {
 
-	@ManyToOne
-	@JoinColumn(name = "persontype_id")
-	private PersonType personType;
+	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name = "gendertype_id")
-	private GenderType genderType;
+	private Long personTypeId;
 	
-	@ManyToOne
-	@JoinColumn(name = "marriedtype_id")
-	private MarriedType marriedType;
-	
-	@Column(name = "citizencountry_id")
-	private Long citizenCountryId;
-	
-	@ManyToOne
-	@JoinColumn(name = "parent_id")
-	private Person parent;
-
-	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "firstname")
 	private String firstName;
 	
-	@Column(name = "fathername")
 	private String fatherName;
 	
-	@Column(name = "surname")
 	private String surname;
 	
-	@Column(name = "photo")
 	private String photo;
 	
-	@Column(name = "docseries")
+	private Long genderTypeId;
+	
+	private Long marriedTypeId;
+	
+	private Long citizenCountryId;
+	
+	private Long parentId;
+	
 	private String docSeries;
 	
-	@Column(name = "docnum")
 	private String docNum;
 	
-	@Column(name = "identifier")
 	private String identifier;
 	
-	@Column(name = "resident")
 	private Integer resident;
 	
-	@Column(name = "birthplace")
 	private String birthPlace;
 	
-	@Column(name = "begdate")
 	private Date begDate;
 	
-	@Column(name = "enddate")
 	private Date endDate;
 	
-	@Column(name = "ismilitary")
 	private Integer isMilitary;
 	
-	@Column(name = "ishostel")
 	private Integer isHostel;
 
-	public PersonType getPersonType() {
-		return personType;
+	@Override
+	public String getUri() {
+		return MessageFormat.format("/persons/{0}", id);
 	}
 
-	public void setPersonType(final PersonType personType) {
-		this.personType = personType;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(final Long id) {
+		this.id = id;
+	}
+
+	public Long getPersonTypeId() {
+		return personTypeId;
+	}
+
+	public void setPersonTypeId(final Long personTypeId) {
+		this.personTypeId = personTypeId;
 	}
 
 	public String getName() {
@@ -132,20 +113,20 @@ public class Person extends Model {
 		this.photo = photo;
 	}
 
-	public GenderType getGenderType() {
-		return genderType;
+	public Long getGenderTypeId() {
+		return genderTypeId;
 	}
 
-	public void setGenderType(final GenderType genderType) {
-		this.genderType = genderType;
+	public void setGenderTypeId(final Long genderTypeId) {
+		this.genderTypeId = genderTypeId;
 	}
 
-	public MarriedType getMarriedType() {
-		return marriedType;
+	public Long getMarriedTypeId() {
+		return marriedTypeId;
 	}
 
-	public void setMarriedType(final MarriedType marriedType) {
-		this.marriedType = marriedType;
+	public void setMarriedTypeId(final Long marriedTypeId) {
+		this.marriedTypeId = marriedTypeId;
 	}
 
 	public Long getCitizenCountryId() {
@@ -156,12 +137,12 @@ public class Person extends Model {
 		this.citizenCountryId = citizenCountryId;
 	}
 
-	public Person getParent() {
-		return parent;
+	public Long getParentId() {
+		return parentId;
 	}
 
-	public void setParent(final Person parent) {
-		this.parent = parent;
+	public void setParentId(final Long parentId) {
+		this.parentId = parentId;
 	}
 
 	public String getDocSeries() {
@@ -239,10 +220,13 @@ public class Person extends Model {
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
+		int result = 1;
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
 		result = prime * result
 				+ ((birthPlace == null) ? 0 : birthPlace.hashCode());
+		result = prime
+				* result
+				+ ((citizenCountryId == null) ? 0 : citizenCountryId.hashCode());
 		result = prime * result + ((docNum == null) ? 0 : docNum.hashCode());
 		result = prime * result
 				+ ((docSeries == null) ? 0 : docSeries.hashCode());
@@ -252,12 +236,21 @@ public class Person extends Model {
 		result = prime * result
 				+ ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result
+				+ ((genderTypeId == null) ? 0 : genderTypeId.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
 				+ ((identifier == null) ? 0 : identifier.hashCode());
 		result = prime * result
 				+ ((isHostel == null) ? 0 : isHostel.hashCode());
 		result = prime * result
 				+ ((isMilitary == null) ? 0 : isMilitary.hashCode());
+		result = prime * result
+				+ ((marriedTypeId == null) ? 0 : marriedTypeId.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((parentId == null) ? 0 : parentId.hashCode());
+		result = prime * result
+				+ ((personTypeId == null) ? 0 : personTypeId.hashCode());
 		result = prime * result + ((photo == null) ? 0 : photo.hashCode());
 		result = prime * result
 				+ ((resident == null) ? 0 : resident.hashCode());
@@ -270,13 +263,13 @@ public class Person extends Model {
 		if (this == obj) {
 			return true;
 		}
-		if (!super.equals(obj)) {
+		if (obj == null) {
 			return false;
 		}
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		Person other = (Person) obj;
+		PersonResource other = (PersonResource) obj;
 		if (begDate == null) {
 			if (other.begDate != null) {
 				return false;
@@ -289,6 +282,13 @@ public class Person extends Model {
 				return false;
 			}
 		} else if (!birthPlace.equals(other.birthPlace)) {
+			return false;
+		}
+		if (citizenCountryId == null) {
+			if (other.citizenCountryId != null) {
+				return false;
+			}
+		} else if (!citizenCountryId.equals(other.citizenCountryId)) {
 			return false;
 		}
 		if (docNum == null) {
@@ -326,6 +326,20 @@ public class Person extends Model {
 		} else if (!firstName.equals(other.firstName)) {
 			return false;
 		}
+		if (genderTypeId == null) {
+			if (other.genderTypeId != null) {
+				return false;
+			}
+		} else if (!genderTypeId.equals(other.genderTypeId)) {
+			return false;
+		}
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else if (!id.equals(other.id)) {
+			return false;
+		}
 		if (identifier == null) {
 			if (other.identifier != null) {
 				return false;
@@ -347,11 +361,32 @@ public class Person extends Model {
 		} else if (!isMilitary.equals(other.isMilitary)) {
 			return false;
 		}
+		if (marriedTypeId == null) {
+			if (other.marriedTypeId != null) {
+				return false;
+			}
+		} else if (!marriedTypeId.equals(other.marriedTypeId)) {
+			return false;
+		}
 		if (name == null) {
 			if (other.name != null) {
 				return false;
 			}
 		} else if (!name.equals(other.name)) {
+			return false;
+		}
+		if (parentId == null) {
+			if (other.parentId != null) {
+				return false;
+			}
+		} else if (!parentId.equals(other.parentId)) {
+			return false;
+		}
+		if (personTypeId == null) {
+			if (other.personTypeId != null) {
+				return false;
+			}
+		} else if (!personTypeId.equals(other.personTypeId)) {
 			return false;
 		}
 		if (photo == null) {
@@ -380,13 +415,16 @@ public class Person extends Model {
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", firstName=" + firstName
+		return "PersonResource [id=" + id + ", personTypeId=" + personTypeId
+				+ ", name=" + name + ", firstName=" + firstName
 				+ ", fatherName=" + fatherName + ", surname=" + surname
-				+ ", photo=" + photo + ", docSeries=" + docSeries + ", docNum="
-				+ docNum + ", identifier=" + identifier + ", resident="
-				+ resident + ", birthPlace=" + birthPlace + ", begDate="
-				+ begDate + ", endDate=" + endDate + ", isMilitary="
-				+ isMilitary + ", isHostel=" + isHostel + "]";
+				+ ", photo=" + photo + ", genderTypeId=" + genderTypeId
+				+ ", marriedTypeId=" + marriedTypeId + ", citizenCountryId="
+				+ citizenCountryId + ", parentId=" + parentId + ", docSeries="
+				+ docSeries + ", docNum=" + docNum + ", identifier="
+				+ identifier + ", resident=" + resident + ", birthPlace="
+				+ birthPlace + ", begDate=" + begDate + ", endDate=" + endDate
+				+ ", isMilitary=" + isMilitary + ", isHostel=" + isHostel + "]";
 	}
 
 }

@@ -169,6 +169,7 @@
 				<version>2.3.3</version>
 				<configuration>
 					<includeFilterFile>${findBugsDir}/findbugs-include.xml</includeFilterFile>
+					<excludeFilterFile>${findBugsDir}/findbugs-exclude.xml</excludeFilterFile>
 					<xmlOutput>true</xmlOutput>
 					<failOnError>true</failOnError>
 					<findbugsXmlOutput>true</findbugsXmlOutput>

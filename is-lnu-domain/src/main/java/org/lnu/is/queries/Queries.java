@@ -14,9 +14,13 @@ public final class Queries {
 	private static final String FIND_DEPARTMENTS_QUERY_NAME = "Departments.findDepartments";
 	private static final String FIND_DEPARTMENTS_QUERY = "SELECT d FROM Department d";
 
+	private static final String FIND_PERSONS_QUERY_NAME = "Persons.findPersons";
+	private static final String FIND_PERSONS_QUERY = "SELECT p FROM Person p";
+
 	public static final Queries FIND_SPECOFFERS = new Queries(FIND_SPECOFFERS_QUERY_NAME, FIND_SPECOFFERS_QUERY);
 	public static final Queries FIND_SPECIALTIES = new Queries(FIND_SPECIALTIES_QUERY_NAME, FIND_SPECIALTIES_QUERY);
 	public static final Queries FIND_DEPARTMENTS = new Queries(FIND_DEPARTMENTS_QUERY_NAME, FIND_DEPARTMENTS_QUERY);
+	public static final Queries FIND_PERSONS = new Queries(FIND_PERSONS_QUERY_NAME, FIND_PERSONS_QUERY);
 
     private final String queryName;
     private final String query;

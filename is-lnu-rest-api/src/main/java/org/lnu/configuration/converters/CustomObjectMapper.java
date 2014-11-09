@@ -1,4 +1,4 @@
-package org.lnu.is.web.converters;
+package org.lnu.configuration.converters;
 
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
