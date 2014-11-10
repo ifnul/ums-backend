@@ -1470,7 +1470,7 @@
             	<constraints nullable="false"/>
         	</column>
         </createTable>
-    
+		
     	<addPrimaryKey columnNames="id" constraintName="pk_ob_person_id" tableName="q_ob_person"/>
     	
     	<addForeignKeyConstraint baseColumnNames="persontype_id" baseTableName="q_ob_person" constraintName="fk_q_rf_persontype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_persontype"/>

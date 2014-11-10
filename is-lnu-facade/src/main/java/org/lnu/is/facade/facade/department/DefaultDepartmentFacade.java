@@ -16,12 +16,14 @@ import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.department.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Default implemenntation of facade for Deparment.
  * @author ivanursul
  *
  */
+@Transactional
 @Facade("departmentFacade")
 public class DefaultDepartmentFacade implements DepartmentFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultDepartmentFacade.class);

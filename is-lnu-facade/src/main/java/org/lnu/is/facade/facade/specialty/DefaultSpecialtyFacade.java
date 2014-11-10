@@ -16,12 +16,14 @@ import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.specialty.SpecialtyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Default implementation of specialty facade.
  * @author ivanursul
  *
  */
+@Transactional
 @Facade("specialtyFacade")
 public class DefaultSpecialtyFacade implements SpecialtyFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultSpecialtyFacade.class);

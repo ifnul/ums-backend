@@ -1,0 +1,21 @@
+{
+  "personTypeId": 1,
+  "citizenCountryId": 1,
+  "genderTypeId": 2,
+  "marriedTypeId": 2,
+  "begDate": "2014-01-01",
+  "endDate": "2015-01-01",
+  "firstName": "firstname",
+  "surname": "surname",
+  "fatherName": "father name",
+  "name": "name",
+  "identifier": "1413432",
+  "isHostel": 1,
+  "isMilitary": 1,
+  "photo": "photo",
+  "resident": 1,
+  "parentId": 0,
+  "birthPlace": "Ukraine, Lviv",
+  "docNum": "doc num",
+  "docSeries": "doc series"
+}
