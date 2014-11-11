@@ -3197,7 +3197,7 @@
     	
     </changeSet>    
     
-	<changeSet id="Створення таблиці тіло наказу на переміщення матеріальних цінностей" author="illay">
+	<changeSet id="Створення таблиці про тіло наказу на переміщення матеріальних цінностей" author="illay">
 		<createTable tableName="q_dt_orderassettransfer" remarks="Тіло наказу (документу)на переміщення матеріальних цінностей">
 			<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
@@ -3331,5 +3331,204 @@
         <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_orderduty" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
         
 	</changeSet>
-	
+	<changeSet id="Таблиця про тіло наказу на зарахування працівника на роботу" author="R_Pelypets">
+	<createTable tableName="q_dt_orderemployee" remarks="Тіло наказу на зарахування працівника на роботу"> 
+		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+                </column>
+    	<column name="order_id" remarks="Ідентифікатор наказу" type="BIGINT">
+  				<constraints nullable ="false"/>
+     	</column>
+		<column name="employee_id" remarks="Ідентифікатор працівника" type = "BIGINT">
+			    <constraints nullable = "false"/>
+		</column>
+		<column name="employeestatus" remarks="" type = "BIGINT"></column>
+		<column name="optype_id" remarks ="" type="BIGINT"></column>
+		<column name="rate" remarks ="Ставка" type ="BIGINT"></column>
+		<column name="begdate" remarks ="" type = "TIMESTAMP"></column>
+		<column name="enddate" remarks ="" type = "TIMESTAMP"/>
+		<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+		
+	</createTable>
+	<addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderemployee" tableName="q_dt_orderemployee"/>
+        
+    <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_orderemployee" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
+        
+    <addForeignKeyConstraint baseColumnNames="employeestatus_id" baseTableName="q_dt_orderemployee" constraintName="fk_q_rf_employeestatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_employeestatus"/>
+        
+    </changeSet>
+    
+    <changeSet id="Tаблиця про тіло наказу оформлення відпусток, лікарняних тощо" author="R_Pelypets">
+    	<createTable tableName="q_dt_orderemployeetimesheet" remarks="Тіло наказу для оформлення відпусток,лякарняних тощо ">
+    	<column name="id" remarks = "Ідентифікатор" type = "BIGINT"  autoIncrement="true">
+    	<constraints nullable = "false"/>
+    	</column>
+    	<column name="order_id" remarks = "Ідентифікатор наказу" type = "BIGINT">
+    	<constraints nullable = "false"/>
+    	</column>
+    	<column name="employee_id" remarks = "Ідентифікатор працівника" type = "BIGINY">
+    	<constraints nullable = "false"/>
+    	</column>
+    	<column name="timesheettype_id" remarks = "" type= "BIGINT"></column>
+    	<column name="dayamount" remarks = "" type = "TIMESPAMP"/>
+    	<column name="houramount" remarks = "" type = "TIMESPAMP"/>
+    	<column name="enddate" remarks = "" type = "TIMESPAMP"/>
+    	<column name="begdate" remarks = "" type = "TIMESPAMP"/>
+    	<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+    	</createTable>
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderemployeetimesheet" tableName="q_dt_orderemployeetimesheet"/>
+        
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_orderemployeetimesheet" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
+        
+        <addForeignKeyConstraint baseColumnNames="timesheettype_id" baseTableName="q_dt_orderemployeetimesheet" constraintName="fk_q_rf_timesheettype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_timesheettype"/>
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_orderemployeetimesheet" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
+    </changeSet>
+    
+    <changeSet id="Таблиця про тіло наказ(документ) на отримання нових матеріальних цінностей" author="R_Pelypets">
+    	<createTable tableName="q_dt_orderewasset" remarks = "Тіло наказу(документу) на отримання нових матеріальних цінностей">
+    		<column name="id" remarks = "Ідентифікатор" type = "BIGINT"  autoIncrement="true">
+    			<constraints nullable = "false"/>
+    		</column>
+    		<column name="asset_id" remarks="Ідентифікатор матеріальних цінностей" type = "BIGINT">
+    			<constraints nullable = "false"/>
+    		</column>
+    		<column name="assettype_id" remarks="Ідентифікатор типу матеріальних активів" type="BIGINT"/>
+			<column name="assetstate_id" remarks="Ідентифікатор стану" type="BIGINT"/>
+			<column name="assetstatus_id" remarks="Ідентифікатор статусу" type="BIGINT"/>
+			<column name="name" remarks="Повна назва" type="VARCHAR(200)"/>
+			<column name="invnum" remarks="Інвертний номер" type="VARCHAR(50)"/>
+			<column name="serialnum" remarks="Серійний номер" type="VARCHAR(50)"/>
+			<column name="proddate" remarks="Дата випуску" type="TIMESPAMP"/>
+			<column name="begdate" remarks="Дата введеня в експлуатацію" type="TIMESPAMP"/>
+			<column name="enddate" remarks="Дата виведення з експлуатації(списання)" type="TIMESPAMP"/>
+			<column name="price" remarks="Вартість одиниці матеріального активу/ресурсу" type="DOUBLE"/>
+			<column name="amount" remarks="Кількість матеріальних активів/ресурсів" type="DOUBLE"/>
+			<column name="suma" remarks="Загальна вартість матеріальних активів/ресурсів" type="DOUBLE"/>
+			<column name="description" remarks="Опис матеріальних активів" type="VARCHAR(250)"/>
+			<column name="order_id" remarks="Ідентифікатор наказу" type="BIGINT"/>
+			<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        	    	
+    	</createTable>
+    	<addPrimaryKey columnNames="id" constraintName="pk_q_dt_ordernewasset" tableName="q_dt_ordernewasset"/>
+        
+        <addForeignKeyConstraint baseColumnNames="asset_id" baseTableName="q_dt_ordernewasset" constraintName="fk_q_ob_asset_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_asset"/>
+        
+        <addForeignKeyConstraint baseColumnNames="assettype_id" baseTableName="q_dt_ordernewasset" constraintName="fk_q_rf_assettype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_assettype"/>
+        
+        <addForeignKeyConstraint baseColumnNames="assetstate_id" baseTableName="q_dt_ordernewasset" constraintName="fk_q_rf_assetstate_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_assetstate"/>
+    	
+   		 <addForeignKeyConstraint baseColumnNames="assetstatus_id" baseTableName="q_dt_ordernewasset" constraintName="fk_q_rf_assetstatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_assetstatus"/>
+    </changeSet>
+    
+    <changeSet id="Таблиця про тіло наказу на зарахування працівника на роботу" author="R_Pelypets">
+    	<createTable tableName="q_dt_ordernewemployee" remarks="Тіло наказу на зарахування працівника на роботу">
+    		<column name="id" remarks = "Ідентифікатор" type = "BIGINT"  autoIncrement="true">
+    			<constraints nullable = "false"/>
+    		</column>
+    		<column name="order_id" remarks="Ідентифікатор наказу" type="BIGINT"></column>
+    		<column name="person_id" remarks="Ідентифікатор персони" type="BIGINT"/>
+    		<column name="post_id" remarks="" type="BIGINT"/>
+    		<column name="jobtype_id" remarks="" type="BIGINT"/>
+    		<column name="docseries" remarks="Серія особової справи нового працівника" type="VARCHAR(50)"/>
+    		<column name="docnum" remarks="Номер особовї справи нового працівника" type="BARCHAR(50)"/>
+    		<column name="isplurality" remarks="" type="INTEGER"/>
+    		<column name="rate" remarks="" type="DOUBLE"/>
+    		<column name="begdate" remarks="" type="TIMESPAMP"/>
+    		<column name="enddate" remarks="" type="TIMESPAMP"/>
+    		<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        	
+   		</createTable>
+    
+    <addPrimaryKey columnNames="id" constraintName="pk_q_dt_ordernewemployee" tableName="q_dt_ordernewemployee"/>
+        
+    <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_ordernewemployee" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
+        
+    <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_dt_ordernewemployee" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>	
+    	
+    </changeSet>
 </databaseChangeLog>
