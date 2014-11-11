@@ -25,8 +25,8 @@ public class Property extends Model {
 	private PropertyType propertyType;
 	
 	@ManyToOne
-	@JoinColumn(name = "parrent_id")
-	private Property parrent;
+	@JoinColumn(name = "parent_id")
+	private Property parent;
 	
 	@Column(name = "abbrname")
 	private String abbrname;
@@ -40,12 +40,54 @@ public class Property extends Model {
 	@Column(name = "priority")
 	private Integer priority;
 
-	@Override
-	public String toString() {
-		return "Property [abbrname=" + abbrname + ", name=" + name
-				+ ", sortNum=" + sortNum + ", priority=" + priority + "]";
+	public PropertyType getPropertyType() {
+		return propertyType;
 	}
 
+	public void setPropertyType(final PropertyType propertyType) {
+		this.propertyType = propertyType;
+	}
+
+	public Property getParent() {
+		return parent;
+	}
+
+	public void setParent(final Property parent) {
+		this.parent = parent;
+	}
+
+	public String getAbbrname() {
+		return abbrname;
+	}
+
+	public void setAbbrname(final String abbrname) {
+		this.abbrname = abbrname;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(final String name) {
+		this.name = name;
+	}
+
+	public Integer getSortNum() {
+		return sortNum;
+	}
+
+	public void setSortNum(final Integer sortNum) {
+		this.sortNum = sortNum;
+	}
+
+	public Integer getPriority() {
+		return priority;
+	}
+
+	public void setPriority(final Integer priority) {
+		this.priority = priority;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -100,55 +142,13 @@ public class Property extends Model {
 			return false;
 		}
 		return true;
-	}
-
-	public PropertyType getPropertyType() {
-		return propertyType;
-	}
-
-	public void setPropertyType(final PropertyType propertyType) {
-		this.propertyType = propertyType;
-	}
-
-	public Property getParrent() {
-		return parrent;
-	}
-
-	public void setParrent(final Property parrent) {
-		this.parrent = parrent;
-	}
-
-	public String getAbbrname() {
-		return abbrname;
-	}
-
-	public void setAbbrname(final String abbrname) {
-		this.abbrname = abbrname;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(final String name) {
-		this.name = name;
-	}
-
-	public Integer getSortNum() {
-		return sortNum;
-	}
-
-	public void setSortNum(final Integer sortNum) {
-		this.sortNum = sortNum;
-	}
-
-	public Integer getPriority() {
-		return priority;
-	}
-
-	public void setPriority(final Integer priority) {
-		this.priority = priority;
-	}
+	}	
 	
-	
+	@Override
+	public String toString() {
+		return "Property [abbrname=" + abbrname + ", name=" + name
+				+ ", sortNum=" + sortNum + ", priority=" + priority + "]";
+	}
+
+
 }

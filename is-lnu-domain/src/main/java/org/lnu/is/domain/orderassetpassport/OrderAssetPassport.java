@@ -43,6 +43,54 @@ public class OrderAssetPassport extends Model {
 	@Column(name = "datevalue")
 	private Date dateValue;
 
+	public Asset getAsset() {
+		return asset;
+	}
+
+	public void setAsset(final Asset asset) {
+		this.asset = asset;
+	}
+
+	public Property getProperty() {
+		return property;
+	}
+
+	public void setProperty(final Property property) {
+		this.property = property;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(final String title) {
+		this.title = title;
+	}
+
+	public Double getNumValue() {
+		return numValue;
+	}
+
+	public void setNumValue(final Double numValue) {
+		this.numValue = numValue;
+	}
+
+	public String getStrValue() {
+		return strValue;
+	}
+
+	public void setStrValue(final String strValue) {
+		this.strValue = strValue;
+	}
+
+	public Date getDateValue() {
+		return dateValue;
+	}
+
+	public void setDateValue(final Date dateValue) {
+		this.dateValue = dateValue;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -108,53 +156,5 @@ public class OrderAssetPassport extends Model {
 				+ ", strValue=" + strValue + ", dateValue=" + dateValue + "]";
 	}
 
-	public Asset getAsset() {
-		return asset;
-	}
 
-	public void setAsset(final Asset asset) {
-		this.asset = asset;
-	}
-
-	public Property getProperty() {
-		return property;
-	}
-
-	public void setProperty(final Property property) {
-		this.property = property;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(final String title) {
-		this.title = title;
-	}
-
-	public Double getNumValue() {
-		return numValue;
-	}
-
-	public void setNumValue(final Double numValue) {
-		this.numValue = numValue;
-	}
-
-	public String getStrValue() {
-		return strValue;
-	}
-
-	public void setStrValue(final String strValue) {
-		this.strValue = strValue;
-	}
-
-	public Date getDateValue() {
-		return dateValue;
-	}
-
-	public void setDateValue(final Date dateValue) {
-		this.dateValue = dateValue;
-	}
-	
-	
 }

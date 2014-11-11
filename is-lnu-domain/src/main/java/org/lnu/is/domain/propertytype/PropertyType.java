@@ -12,7 +12,7 @@ import org.lnu.is.domain.Model;
  *
  */
 @Entity
-@Table(name = "q_rf_prorertytype")
+@Table(name = "q_rf_propertytype")
 public class PropertyType extends Model {
 
 	private static final long serialVersionUID = 1L;

@@ -2817,7 +2817,7 @@
 			</column>
 			<column name="title" type="VARCHAR(200)" remarks="Заголовок властивості"></column>
 			<column name="numvalue" type="double" remarks="Числове значення"></column>
-			<column name="strbalue" type="VARCHAR(200)" remarks="Стрічкове значення"></column>
+			<column name="strvalue" type="VARCHAR(200)" remarks="Стрічкове значення"></column>
 			<column name="datevalue" type="TIMESTAMP" remarks="Календарне значення(дата)"></column>
 			
 			<column name="asset_id" type="BIGINT" remarks="Ідентифікатор матеріального активу|статусу">
