@@ -12,7 +12,11 @@ import org.lnu.is.domain.Model;
 import org.lnu.is.domain.dutytype.DutyType;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
-
+/**
+ * Order Duty entity.
+ * @author illay
+ *
+ */
 @Entity
 @Table(name = "q_dt_orderduty")
 public class OrderDuty extends Model {

@@ -276,7 +276,7 @@
 	
 	<changeSet id="Створення таблиці довідник іноземних мов" author="illay">
     	<createTable tableName="q_rf_lanquage" remarks="Довідник іноземних мов">
-    		<column name="id" remarks="Ідетифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідетифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -2081,13 +2081,13 @@
     	
     	<addForeignKeyConstraint baseColumnNames="optype_id" baseTableName="q_dc_order" constraintName="fk_q_rf_optype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_optype"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_order" constraintName="fk_q_ob_depatment_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+    	<addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_order" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
     	
     	<addForeignKeyConstraint baseColumnNames="reason_id" baseTableName="q_dc_order" constraintName="fk_q_rf_reason_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_reason"/>
     	
     	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dc_order" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
     	
-    		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_asset" constraintName="fk_q_ob_asset_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_asset"/>
+    	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_asset" constraintName="fk_q_ob_asset_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_asset"/>
 	
 		<addForeignKeyConstraint baseColumnNames="assettype_id" baseTableName="q_ob_asset" constraintName="fk_q_rf_assettype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_assettype"/>
 		
@@ -2972,7 +2972,7 @@
     </changeSet>
     
     <changeSet  author="illay" id="Створення таблиці контактів підрозділу" >
-        <createTable tableName="q_od_depatmentcontact" remarks="Контакти підрозділу" >
+        <createTable tableName="q_od_departmentcontact" remarks="Контакти підрозділу" >
             <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
@@ -3008,11 +3008,11 @@
         	</column>
         </createTable>
         
-        <addPrimaryKey columnNames="id" constraintName="pk_q_od_depatmentcontact" tableName="q_od_depatmentcontact"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_departmentcontact" tableName="q_od_departmentcontact"/>
         
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_od_depatmentcontact" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_od_departmentcontact" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="contacttype_id" baseTableName="q_od_depatmentcontact" constraintName="fk_q_rf_contacttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_contacttype"/>
+    	<addForeignKeyConstraint baseColumnNames="contacttype_id" baseTableName="q_od_departmentcontact" constraintName="fk_q_rf_contacttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_contacttype"/>
     	
     </changeSet>
     
@@ -3210,7 +3210,7 @@
             </column>
             <column name="price" type="DOUBLE" remarks="Вартість одиниці матеріального активу/ресурсу"></column>
             <column name="amount" type="DOUBLE" remarks="Кількість матеріальних активів/ресурсів"></column>
-            <column name="sume" type="DOUBLE" remarks="Загальна сума маретіальних активів/ресурсів"></column>
+            <column name="suma" type="DOUBLE" remarks="Загальна сума маретіальних активів/ресурсів"></column>
 			<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -3321,6 +3321,7 @@
             	<constraints nullable="false"/>
         	</column>
 		</createTable>
+		
 		<addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderduty" tableName="q_dt_orderduty"/>
         
         <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_orderduty" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>

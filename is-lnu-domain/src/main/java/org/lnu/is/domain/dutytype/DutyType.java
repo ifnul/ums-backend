@@ -6,6 +6,11 @@ import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
 
+/**
+ * Duty Type entity.
+ * @author illay
+ *
+ */
 @Entity
 @Table(name = "q_rf_dutytype")
 public class DutyType extends Model {

@@ -16,7 +16,7 @@ import org.lnu.is.domain.department.Department;
  *
  */
 @Entity
-@Table(name = "q_od_depatmentcontact")
+@Table(name = "q_od_departmentcontact")
 public class DepartmentContact extends Model {
 	private static final long serialVersionUID = 1L;
 
