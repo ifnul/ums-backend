@@ -72,6 +72,7 @@
         <class>org.lnu.is.domain.property.Property</class>
         <class>org.lnu.is.domain.propertytype.PropertyType</class>
         <class>org.lnu.is.domain.orderassetpassport.OrderAssetPassport</class>
+        <class>org.lnu.is.domain.orderassettransfer.OrderAssetTransfer</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
