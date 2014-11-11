@@ -6,7 +6,7 @@ import org.lnu.is.facade.converter.AbstractConverter;
 import org.lnu.is.facade.resource.person.PersonResource;
 
 /**
- * Person Converter.
+ * Person converter.
  * @author ivanursul
  *
  */

@@ -11,8 +11,6 @@ import org.lnu.is.facade.resource.ApiResource;
  */
 public class EnrolmentSubjectResource extends ApiResource {
 
-	private Long id;
-	
 	private Long parentId;
 	
 	private String abbrName;
@@ -23,15 +21,7 @@ public class EnrolmentSubjectResource extends ApiResource {
 	
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/enrolmentsubjects/{0}", id);
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(final Long id) {
-		this.id = id;
+		return MessageFormat.format("/enrolmentsubjects/{0}", getId());
 	}
 
 	public Long getParentId() {
@@ -72,7 +62,6 @@ public class EnrolmentSubjectResource extends ApiResource {
 		int result = 1;
 		result = prime * result
 				+ ((abbrName == null) ? 0 : abbrName.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
 				+ ((isTesting == null) ? 0 : isTesting.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -98,13 +87,6 @@ public class EnrolmentSubjectResource extends ApiResource {
 				return false;
 			}
 		} else if (!abbrName.equals(other.abbrName)) {
-			return false;
-		}
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!id.equals(other.id)) {
 			return false;
 		}
 		if (isTesting == null) {
@@ -133,7 +115,7 @@ public class EnrolmentSubjectResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "EnrolmentSubjectResource [id=" + id + ", parentId=" + parentId
+		return "EnrolmentSubjectResource [parentId=" + parentId
 				+ ", abbrName=" + abbrName + ", name=" + name + ", isTesting="
 				+ isTesting + "]";
 	}

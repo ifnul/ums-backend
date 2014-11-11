@@ -13,8 +13,6 @@ import org.lnu.is.facade.resource.ApiResource;
  */
 public class SpecOfferResource extends ApiResource {
 
-	private Long id;
-	
 	private Long specialtyId;
 	
 	private Long departmentId;
@@ -41,15 +39,7 @@ public class SpecOfferResource extends ApiResource {
 	
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/specoffers/{0}", id);
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(final Long id) {
-		this.id = id;
+		return MessageFormat.format("/specoffers/{0}", getId());
 	}
 
 	public Long getSpecialtyId() {
@@ -161,7 +151,6 @@ public class SpecOfferResource extends ApiResource {
 		result = prime * result
 				+ ((eduFormTypeId == null) ? 0 : eduFormTypeId.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
 				+ ((licCount == null) ? 0 : licCount.hashCode());
 		result = prime * result + ((note == null) ? 0 : note.hashCode());
@@ -230,13 +219,6 @@ public class SpecOfferResource extends ApiResource {
 		} else if (!endDate.equals(other.endDate)) {
 			return false;
 		}
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!id.equals(other.id)) {
-			return false;
-		}
 		if (licCount == null) {
 			if (other.licCount != null) {
 				return false;
@@ -284,7 +266,7 @@ public class SpecOfferResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "SpecOfferResource [id=" + id + ", specialtyId=" + specialtyId
+		return "SpecOfferResource [specialtyId=" + specialtyId
 				+ ", departmentId=" + departmentId + ", timePeriodId="
 				+ timePeriodId + ", specofferTypeId=" + specofferTypeId
 				+ ", docSeries=" + docSeries + ", docNum=" + docNum

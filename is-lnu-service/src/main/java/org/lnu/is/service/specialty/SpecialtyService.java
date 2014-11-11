@@ -3,13 +3,14 @@ package org.lnu.is.service.specialty;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.service.Service;
 
 /**
  * Interface that declares all operations of Specialty entity.
  * @author ivanursul
  *
  */
-public interface SpecialtyService {
+public interface SpecialtyService extends Service<Specialty> {
 
 	/**
 	 * Method for creating.

@@ -1,60 +1,48 @@
-package org.lnu.is.domain.timeperiod;
+package org.lnu.is.facade.resource.timeperiod;
 
+import java.text.MessageFormat;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import org.lnu.is.domain.Model;
-import org.lnu.is.domain.timeperiodtype.TimePeriodType;
+import org.lnu.is.facade.resource.ApiResource;
 
 /**
- * Entity, that describes time period.
+ * Time Period Resource.
  * @author ivanursul
  *
  */
-@Entity
-@Table(name = "q_ob_timeperiod")
-public class TimePeriod extends Model {
-	private static final long serialVersionUID = 1L;
+public class TimePeriodResource extends ApiResource {
 
-	@ManyToOne
-	@JoinColumn(name = "parent_id")
-	private TimePeriod parent;
+	private Long parentId;
 
-	@ManyToOne
-	@JoinColumn(name = "timeperiodtype_id")
-	private TimePeriodType timePeriodType;
+	private Long timePeriodTypeId;
 	
-	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "numvalue")
 	private Integer numValue;
 	
-	@Column(name = "begdate")
 	private Date begDate;
 	
-	@Column(name = "enddate")
 	private Date endDate;
-
-	public TimePeriod getParent() {
-		return parent;
+	
+	@Override
+	public String getUri() {
+		return MessageFormat.format("/timeperiods/{0}", getId());
 	}
 
-	public void setParent(final TimePeriod parent) {
-		this.parent = parent;
+	public Long getParentId() {
+		return parentId;
 	}
 
-	public TimePeriodType getTimePeriodType() {
-		return timePeriodType;
+	public void setParentId(final Long parentId) {
+		this.parentId = parentId;
 	}
 
-	public void setTimePeriodType(final TimePeriodType timePeriodType) {
-		this.timePeriodType = timePeriodType;
+	public Long getTimePeriodTypeId() {
+		return timePeriodTypeId;
+	}
+
+	public void setTimePeriodTypeId(final Long timePeriodTypeId) {
+		this.timePeriodTypeId = timePeriodTypeId;
 	}
 
 	public String getName() {
@@ -74,23 +62,19 @@ public class TimePeriod extends Model {
 	}
 
 	public Date getBegDate() {
-		return new Date(begDate.getTime());
+		return begDate;
 	}
 
 	public void setBegDate(final Date begDate) {
-		this.begDate = new Date(begDate.getTime());
+		this.begDate = begDate;
 	}
 
 	public Date getEndDate() {
-		return new Date(endDate.getTime());
+		return endDate;
 	}
 
 	public void setEndDate(final Date endDate) {
-		this.endDate = new Date(endDate.getTime());
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+		this.endDate = endDate;
 	}
 
 	@Override
@@ -103,7 +87,10 @@ public class TimePeriod extends Model {
 		result = prime * result
 				+ ((numValue == null) ? 0 : numValue.hashCode());
 		result = prime * result
-				+ ((timePeriodType == null) ? 0 : timePeriodType.hashCode());
+				+ ((parentId == null) ? 0 : parentId.hashCode());
+		result = prime
+				* result
+				+ ((timePeriodTypeId == null) ? 0 : timePeriodTypeId.hashCode());
 		return result;
 	}
 
@@ -118,7 +105,7 @@ public class TimePeriod extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		TimePeriod other = (TimePeriod) obj;
+		TimePeriodResource other = (TimePeriodResource) obj;
 		if (begDate == null) {
 			if (other.begDate != null) {
 				return false;
@@ -147,7 +134,18 @@ public class TimePeriod extends Model {
 		} else if (!numValue.equals(other.numValue)) {
 			return false;
 		}
-		if (timePeriodType != other.timePeriodType) {
+		if (parentId == null) {
+			if (other.parentId != null) {
+				return false;
+			}
+		} else if (!parentId.equals(other.parentId)) {
+			return false;
+		}
+		if (timePeriodTypeId == null) {
+			if (other.timePeriodTypeId != null) {
+				return false;
+			}
+		} else if (!timePeriodTypeId.equals(other.timePeriodTypeId)) {
 			return false;
 		}
 		return true;
@@ -155,9 +153,10 @@ public class TimePeriod extends Model {
 
 	@Override
 	public String toString() {
-		return "TimePeriod [timePeriodType=" + timePeriodType + ", name="
-				+ name + ", numValue=" + numValue + ", begDate=" + begDate
+		return "TimePeriodResource [parentId=" + parentId
+				+ ", timePeriodTypeId=" + timePeriodTypeId + ", name=" + name
+				+ ", numValue=" + numValue + ", begDate=" + begDate
 				+ ", endDate=" + endDate + "]";
 	}
-	
+
 }

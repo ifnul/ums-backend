@@ -196,8 +196,8 @@ public class DefaultSpecialtyFacadeTest {
 		// Given
 		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(new SpecialtyResource(), 10, 10);
 		List<SpecialtyResource> funnyResources = Collections.singletonList(new SpecialtyResource());
-		PagedResultResource<SpecialtyResource> expectedFunnies = new PagedResultResource<>("/specialties");
-		expectedFunnies.setEntities(funnyResources);
+		PagedResultResource<SpecialtyResource> expected = new PagedResultResource<>("/specialties");
+		expected.setEntities(funnyResources);
 
 		int offset = 8;
 		int limit = 3;
@@ -212,14 +212,14 @@ public class DefaultSpecialtyFacadeTest {
 		when(specialtyService.getSpecialties(Matchers.<PagedSearch<Specialty>> any())).thenReturn(pagedResult);
 		when(specialtyConverter.convertAll(anyListOf(Specialty.class))).thenReturn(funnyResources);
 
-		PagedResultResource<SpecialtyResource> actualFunnies = unit.getSpecialties(pagedRequest);
+		PagedResultResource<SpecialtyResource> actual = unit.getSpecialties(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
 		verify(specialtyService).getSpecialties(pagedSearch);
 		verify(specialtyConverter).convertAll(entities);
-		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
+		verify(pagedResultConverter).convert(pagedResult, expected);
 
-		assertEquals(expectedFunnies, actualFunnies);
+		assertEquals(expected, actual);
 	}
 }

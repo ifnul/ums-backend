@@ -1,5 +1,6 @@
 package org.lnu.is.facade.facade.specialty;
 
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specialty.SpecialtyResource;
@@ -9,7 +10,7 @@ import org.lnu.is.facade.resource.specialty.SpecialtyResource;
  * @author ivanursul
  *
  */
-public interface SpecialtyFacade {
+public interface SpecialtyFacade extends Facade<SpecialtyResource> {
 
 	/**
 	 * CREATE.

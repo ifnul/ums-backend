@@ -1,5 +1,6 @@
 package org.lnu.is.facade.facade.department;
 
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.department.DepartmentResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -10,7 +11,7 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
  * @author ivanursul
  *
  */
-public interface DepartmentFacade {
+public interface DepartmentFacade extends Facade<DepartmentResource> {
 
 	/**
 	 * Method for creating new Department.

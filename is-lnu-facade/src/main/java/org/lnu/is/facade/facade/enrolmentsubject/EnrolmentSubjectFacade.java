@@ -1,5 +1,6 @@
 package org.lnu.is.facade.facade.enrolmentsubject;
 
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.enrolmentsubject.EnrolmentSubjectResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -9,7 +10,7 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
  * @author ivanursul
  *
  */
-public interface EnrolmentSubjectFacade {
+public interface EnrolmentSubjectFacade extends Facade<EnrolmentSubjectResource> {
 
 	/**
 	 * Method for getting paged result.

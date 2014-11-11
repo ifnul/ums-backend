@@ -1,5 +1,6 @@
 package org.lnu.is.facade.facade.person;
 
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.person.PersonResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -9,7 +10,7 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
  * @author ivanursul
  *
  */
-public interface PersonFacade {
+public interface PersonFacade extends Facade<PersonResource> {
 
 	/**
 	 * Method for creating person.

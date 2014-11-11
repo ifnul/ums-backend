@@ -3,6 +3,7 @@ package org.lnu.is.service.person;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.service.Service;
 
 
 /**
@@ -10,7 +11,7 @@ import org.lnu.is.pagination.PagedSearch;
  * @author ivanursul
  *
  */
-public interface PersonService {
+public interface PersonService extends Service<Person> {
 
 	/**
 	 * Method for creating new person.

@@ -3,6 +3,7 @@ package org.lnu.is.service.department;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.service.Service;
 
 /**
  * Interface, that declares all operations at service layer 
@@ -10,7 +11,7 @@ import org.lnu.is.pagination.PagedSearch;
  * @author ivanursul
  *
  */
-public interface DepartmentService {
+public interface DepartmentService extends Service<Department> {
 
 	/**
 	 * Method for creating department.
