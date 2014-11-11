@@ -162,6 +162,44 @@
     	
     	<addPrimaryKey tableName="q_rf_assettype" columnNames="id" constraintName="pk_q_rf_assettype_id"/>
     </changeSet>
+
+	<changeSet id="Створення таблиці довідник типів влавстивостей" author="illay">
+    	<createTable tableName="q_rf_propertytype" remarks="Довідник типів влавстивостей">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
+    		<column name="name" type="VARCHAR(200)" remarks="Тип властивостей">
+    			<constraints nullable="false"/>
+    		</column>
+    	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>        	
+    	</createTable>
+    	
+    	<addPrimaryKey tableName="q_rf_propertytype" columnNames="id" constraintName="pk_q_rf_propertytype_id"/>
+    	
+    </changeSet>
+
 	
 	<changeSet id="Створення таблиці інформація про типи операцій над основними засобами" author="illay">
     	<createTable tableName="q_rf_optype" remarks="Типи операцій над основними засобами (1 – прийняття, -1 – списання, 0 – модернізація, -10 – передача, 10 – повернення тощо">
@@ -1817,7 +1855,7 @@
     	<addPrimaryKey tableName="q_ob_asset" columnNames="id" constraintName="pk_q_ob_asset_id"/>
  		
  	 	<createTable tableName="q_ob_employee" remarks="Інформація про працівників, де:•	в нелисткових записах ієрархії (які мають або можуть мати підпорядковані записи) зберігаються працівники за їхніми посадами (Доцента, Начальник відділу, Інженер тощо);•	в листкових записах ієрархії (які не мають підпорядкованих записів і є зв’язаними з нелистковими записами) працівники за їхніми додатковими обов’язками (матеріально-відповідальний, системний адміністратор тощо).">
-    		<column name="id" type="BIGINT" remarks="Ідинтифікатор">
+    		<column name="id" type="BIGINT" remarks="Ідинтифікатор" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="employeetype_id" type="BIGINT" remarks="Ідентифікатор типу працівника">
@@ -2724,24 +2762,23 @@
             <column name="specofferwave_id"/>
         </createIndex>
     </changeSet>
-<!--
-	<changeSet author="illay" id="" >
-		<createTable tableName="q_dt_orderassetpassport">
-			<column name="id" type="BIGINT" remarks="">
+	<changeSet id="Таблиця про властивості|характеристики основних засобів" author="R_Pelypets">
+		<createTable tableName="q_ob_property" remarks ="Інформація про властивості|характеристики основних засобів(розміри,обсяг,маса,об'єм,колір тощо). Для кожної властивості необіхдно задати її тип valuetype,що відповідає можливим значенням Числовий,Символьний,Дата|Час,Бінарний">
+			<column name="id" type="BIGINT" remarks="Ідентифікатор" autoIncrement="true">
 				<constraints nullable="false"/>	
 			</column>
-			<column name="property_id" type="BIGINT" remarks="">
-				<constraints nullable="false"/>	
+			<column name="propertytype_id" remarks="Тип властивості" type ="BIGINT">
+			<constraints nullable = "false" />
 			</column>
-			<column name="title" type="VARCHAR(200)" remarks=""></column>
-			<column name="numvalue" type="double" remarks=""></column>
-			<column name="strbalue" type="VARCHAR(200)" remarks=""></column>
-			<column name="datevalue" type="TIMESTAMP" remarks=""></column>
-			FK
-			<column name="asset_id" type="BIGINT" remarks="">
-				<constraints nullable="false"/>
+			<column name="abbrname" remarks ="Абревіатура підрозділу" type="VARCHAR(50)"> </column>
+			<column name="name" remarks ="Назва властивості" type="VARCHAR(200)">
+			<constraints nullable ="false"/>
 			</column>
-			 <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+			<column name="sortnum" remarks ="Порядок сортування" type = "INTEGER"> </column>
+			<column name="priority" remarks="Перевага відображення(наприклад відображення cd-key)" type = "INTEGER"> </column>
+			<column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"></column>
+			
+		 	<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
             <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
@@ -2764,8 +2801,62 @@
             	<constraints nullable="false"/>
         	</column>
 		</createTable>
+		<addPrimaryKey columnNames="id" constraintName="pk_q_ob_property" tableName="q_ob_property"/>
+		
+		<addForeignKeyConstraint baseColumnNames="propertytype_id" baseTableName="q_ob_property" constraintName="fk_q_rf_propertytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_propertytype"/>
+		
+		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_property" constraintName="fk_q_ob_property_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_property"/>
+	</changeSet>
+	<changeSet author="illay" id="Створення таблиці про пастпорт матеріальних цінностей|активів" >
+		<createTable tableName="q_dt_orderassetpassport">
+			<column name="id" type="BIGINT" remarks="Ідентифікатор" autoIncrement="true">
+				<constraints nullable="false"/>	
+			</column>
+			<column name="property_id" type="BIGINT" remarks="Ідентифікатор властивостей">
+				<constraints nullable="false"/>	
+			</column>
+			<column name="title" type="VARCHAR(200)" remarks="Заголовок властивості"></column>
+			<column name="numvalue" type="double" remarks="Числове значення"></column>
+			<column name="strbalue" type="VARCHAR(200)" remarks="Стрічкове значення"></column>
+			<column name="datevalue" type="TIMESTAMP" remarks="Календарне значення(дата)"></column>
+			
+			<column name="asset_id" type="BIGINT" remarks="Ідентифікатор матеріального активу|статусу">
+				<constraints nullable="false"/>
+			</column>
+			
+			 <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        	
+		</createTable>
+		
+		<addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderassetpassport" tableName="q_dt_orderassetpassport"/>
+		
+		<addForeignKeyConstraint baseColumnNames="property_id" baseTableName="q_dt_orderassetpassport" constraintName="fk_q_ob_property_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_property"/>
+		
+		<addForeignKeyConstraint baseColumnNames="asset_id" baseTableName="q_dt_orderassetpassport" constraintName="fk_q_ob_asset_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_asset"/>
+		
 	</changeSet>    	
--->
+	
     <changeSet  author="illay" id="Створення таблиці накази на зарахування абітурієнтів" >
         <createTable tableName="q_dt_ordernewstudent" remarks="Накази на зарахування абітурієнтів" >
             <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
