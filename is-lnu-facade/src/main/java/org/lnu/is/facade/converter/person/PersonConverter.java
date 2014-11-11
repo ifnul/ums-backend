@@ -32,18 +32,23 @@ public class PersonConverter extends AbstractConverter<Person, PersonResource> {
 		target.setPhoto(source.getPhoto());
 		target.setResident(source.getResident());
 		target.setSurname(source.getSurname());
+		
 		if (source.getPersonType() != null) {
 			target.setPersonTypeId(source.getPersonType().getId());
 		}
+		
 		if (source.getGenderType() != null) {
 			target.setGenderTypeId(source.getGenderType().getId());
 		}
+		
 		if (source.getMarriedType() != null) {
 			target.setMarriedTypeId(source.getMarriedType().getId());
 		}
+		
 		if (source.getParent() != null) {
 			target.setParentId(source.getParent().getId());
 		}	
+		
 		return target;
 	}
 
