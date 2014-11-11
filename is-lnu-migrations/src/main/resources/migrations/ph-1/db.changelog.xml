@@ -6,7 +6,7 @@
 
 	<changeSet id="Створення таблиці інформації про партнерів" author="illay">
 		<createTable tableName="q_ob_partner" remarks="Інформація про партнерів(установ,підприємнств,фірм,компаній тощо),де :-  в нелисткових записах ієрархії(які мають або можуть мати підпорядковані записи) зберігаються групи партнерів(ІТ-компанія,ПЗ-компанія тощо):-  в нелисткових записах ієрархії зберігаються партнери складної структури(які мають розподілену структуру з відділами,філіями тощо) :    -  в листкових записах ієрархії(які не мають підпорядкованих записів) зберігаються партнери простої структури або структурні одиниці інших партнерів(відділи, філії тощо).">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbname" type="VARCHAR(50)" remarks="Абревіатура партнера">
@@ -58,7 +58,7 @@
 	
 	<changeSet id="Створення таблиці інформація про можливі стани основних засобів" author="illay">
     	<createTable tableName="q_rf_assetstate"  remarks="Інформація про можливі стани основних засобів(справний,несправний,відремонтований тощо)">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="name" type="VARCHAR(200)" remarks="Стан матеріальних активів">
@@ -94,7 +94,7 @@
 	
 	<changeSet id="Створення таблиці інформація про статуси основних засобів" author="illay">
     	<createTable tableName="q_rf_assetstatus" remarks="Інформація про статуси основних засобів(на балансі,списаний,переданий тощо)">
-    		<column name="id" remarks="Індинтифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="name" type="VARCHAR(200)" remarks="Статус матеріальних активів">
@@ -129,7 +129,7 @@
 	
 	<changeSet id="Створення таблиці інформація про типи основних засобів" author="illay">
     	<createTable tableName="q_rf_assettype" remarks="Інформація про типи основних засобів (приміщення, комп’ютер, периферія, програмне забезпечення тощо)">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -165,7 +165,7 @@
 	
 	<changeSet id="Створення таблиці інформація про типи операцій над основними засобами" author="illay">
     	<createTable tableName="q_rf_optype" remarks="Типи операцій над основними засобами (1 – прийняття, -1 – списання, 0 – модернізація, -10 – передача, 10 – повернення тощо">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -201,7 +201,7 @@
 	
 	<changeSet id="Створення таблиці довідник рівнів знання іноземної мови" author="illay">
     	<createTable tableName="q_rf_lanquagelevel" remarks="Довідник рівнів знання іноземної мови">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -274,7 +274,7 @@
 	
 	<changeSet id="Створення таблиці довідник типів контактів" author="illay">
     	<createTable tableName="q_rf_contacttype" remarks="Довідник типів контактів (телефон, e-mail, web)">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -310,7 +310,7 @@
 	
 	<changeSet id="Створення таблиці довідник типів вулиць" author="illay">
     	<createTable tableName="q_rf_streettype" remarks="Довідник типу вулиць">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -346,7 +346,7 @@
 	
 	<changeSet id="Створення таблиці довідник курсу навчання" author="illay">
     	<createTable tableName="q_rf_coursetype" remarks="Довідник курсу навчання (1-й,2-й,3-й, ... тощо)">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -382,7 +382,7 @@
 	
 	<changeSet id="Створення таблиці інформація про підстави дій над основними засобами" author="illay">
     	<createTable tableName="q_rf_reason" remarks="Інформація про підстави дій над основними засобами (тендерна закупівля, закупівля, подарунок, моральне застаріння тощо)">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -418,7 +418,7 @@
 	
 	<changeSet id="Створення таблиці довідник типів використання документів" author="illay">
     	<createTable tableName="q_rf_paperusage" remarks="Довідник типів використання документів">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -454,7 +454,7 @@
 	
 	<changeSet id="Створення таблиці довідник типів документів" author="illay">
     	<createTable tableName="q_rf_papertype" remarks="Довідник типів документів">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -496,7 +496,7 @@
 	
 	<changeSet id="Створення таблиці довідник статі персон" author="illay">
     	<createTable tableName="q_rf_gendertype" remarks="Довідник статі персон">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -532,7 +532,7 @@
 	
 	<changeSet id="Створення таблиці довідник типів статусу заявки" author="illay">
     	<createTable tableName="q_rf_enrolmentstatustype" remarks="Довідник типів статусу заявки">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -569,7 +569,7 @@
 	
 	<changeSet id="Створення таблиці довідник типів відзнак" author="illay">
     	<createTable tableName="q_rf_honorstype" remarks="Довідник типів відзнак">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -605,7 +605,7 @@
 	
 	<changeSet id="Створення таблиці довідник придметів ЗНО" author="illay">
     	<createTable tableName="q_rf_enrolsubject" remarks="Довідник придметів ЗНО">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -648,7 +648,7 @@
 	
 	<changeSet id="Створення таблиці довідник сімейного стану" author="illay">
     	<createTable tableName="q_rf_marriedtype" remarks="Довідник сімейного стану">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -685,7 +685,7 @@
 	
 	<changeSet id="Створення таблиці довідник типів персон" author="illay">
     	<createTable tableName="q_rf_persontype" remarks="Довідник типу персон">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -721,7 +721,7 @@
 	
     <changeSet id="Створення таблиці довідник типів адрес" author="illay">
     	<createTable tableName="q_rf_addresstype" remarks="Довідник типу адрес">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -757,7 +757,7 @@
     
 	<changeSet id="Створення таблиці довідник типів часових періодів" author="illay">
     	<createTable tableName="q_rf_timeperiodtype" remarks="Довідник типів часових періодів">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -793,7 +793,7 @@
     
     <changeSet author="illay" id="Створення таблиці довідник типів пільг">
         <createTable remarks="Довідник типів пільг" tableName="q_rf_benefittype">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -831,7 +831,7 @@
     
     <changeSet author="illay" id="Створення таблиці довідник форм навчання">
         <createTable remarks="Довідник форм навчання" tableName="q_rf_eduformtype">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -868,7 +868,7 @@
     
     <changeSet author="illay" id="Створення таблиці довідник типів поступлень">
         <createTable remarks="Довідник типів поступлень(наприклад: поступлення по ЗНО,поступлення по співбесіді чи інше)" tableName="q_rf_enrolmenttype">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -905,7 +905,7 @@
     
     <changeSet author="illay" id="Створення таблиці довідник типів спеціальностей">
         <createTable remarks="Довідник типів спеціальностей" tableName="q_rf_specialtytype">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -942,7 +942,7 @@
     
     <changeSet author="illay" id="Створення таблиці типів пропозиції">
         <createTable remarks="Тип пропозиції(бакалавр за скороченими термінами навчання чи інше)" tableName="q_rf_specoffertype">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="specialtytype_id" remarks="Ідентифікатор довідника типів спеціальностей" type="BIGINT"/>
@@ -982,7 +982,7 @@
     
     <changeSet author="illay" id="Створення таблиці довідник типів статусу заяви">
         <createTable remarks="Довідник типів статусу заяви" tableName="q_rf_statustype">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
            <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1019,7 +1019,7 @@
     
     <changeSet author="illay" id="Створення таблиці довідник типів хвиль">
         <createTable remarks="Довідник типів хвиль" tableName="q_rf_wavetype">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1056,7 +1056,7 @@
     
     <changeSet id="Створення таблиці довідник типів підрозділів" author="illay">
     	<createTable tableName="q_rf_departmenttype" remarks="Довідник типів підрозділів(кафедра, інститут, загально університетський тощо)">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1092,7 +1092,7 @@
   
 	<changeSet id="Створення таблиці типи адіністративно-територіальних одиниць" author="illay">
     	<createTable tableName="q_rf_adminunittype" remarks="Довідник типів адмістративно-територіальних одиниць">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1128,7 +1128,7 @@
   	
 	<changeSet id="Створення таблиці довідник типів наказів" author="illay">
     	<createTable tableName="q_rf_ordertype" remarks="Довідник типів наказів">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1164,7 +1164,7 @@
   	
 	<changeSet id="Створення таблиці довідник типів працівиків" author="illay">
     	<createTable tableName="q_rf_employeetype" remarks="Довідник типів працівиків">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1200,7 +1200,7 @@
      	
 	<changeSet id="Створення таблиці довідник типів посад/функцій" author="illay">
     	<createTable tableName="q_rf_posttype" remarks="Довідник типів посад/функцій (керівник, викладач, допоміжний склад, функція ІТ, функція бухгалтерії тощо)">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1236,7 +1236,7 @@
     
     <changeSet id="Створення таблиці довідник типів робіт" author="illay">
     	<createTable tableName="q_rf_jobtype" remarks="Довідник типів робіт">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1271,7 +1271,7 @@
     </changeSet>
     <changeSet id="Створення таблиці довідник статусів працівників" author="illay">
     	<createTable tableName="q_rf_employeestatus" remarks="Довідник статусів працівників">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1307,7 +1307,7 @@
     
 	<changeSet author="illay" id="Створення таблиці часових періодів(рік, семестр, місяць)">
         <createTable remarks="Часові періоди (застосовується для систематизації об'єктів бази даних, наприклад таких як документи, по відношенню їх до конкретного навчального чи календарного року, семестру, чверті і т.д.)" tableName="q_ob_timeperiod">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="timeperiodtype_id" remarks="Ідентифікатор типу часового періоду" type="BIGINT">
@@ -1356,7 +1356,7 @@
      
     <changeSet author="illay" id="Створення таблиці всіх напрямів і спеціальностей">
         <createTable remarks="Напрями та спеціальності" tableName="q_ob_specialty">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="specialtytype_id" remarks="Ідентифікатор типу спеціальності" type="BIGINT">
@@ -1412,7 +1412,7 @@
     
     <changeSet author="illay" id="Створення таблиці всіх персон">
         <createTable remarks="Інформація про персону" tableName="q_ob_person">
-            <column name="id" remarks="Ідентифікатор персони" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор персони" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="persontype_id" remarks="Ідентифікатор типу персони" type="BIGINT">
@@ -1488,7 +1488,7 @@
   
 	<changeSet author="illay" id="Створення таблиці всіх пільг">
         <createTable remarks="Таблиця ob_benefit містить дані про пільги" tableName="q_ob_benefit">
-            <column name="id" remarks="Ідентифікатор пільги" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор пільги" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="benefittype_id" remarks="Тип пільги" type="BIGINT">
@@ -1540,7 +1540,7 @@
      
     <changeSet id="Стврення таблиці aдміністративно-територіальні одиниці(КОАТУУ)" author="illay">
     	<createTable tableName="q_ob_adminunit" remarks="Адміністративно-територіальні одиниці">
-    		<column name="id" type="BIGINT" remarks="Ідинтифікатор">
+    		<column name="id" type="BIGINT" remarks="Ідинтифікатор" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		
@@ -1604,7 +1604,7 @@
     
 	<changeSet id="Стврення таблиці посади" author="illay">
     	<createTable tableName="q_ob_post" remarks="Таблиця ob_post містить дані про посади/функції, де: 1.в неличтвових записах ієрархії(які мають або можуть мати підпорядковані записи) зберігаються групи посад(управлінн університетом, працівник підрозділу, функції підрозділу тощо); 2. в листвових записах ієрархії (які не мають підпорядкованих записів) зберігаються безпосередньо посади (ректор, проректор, директор інституту, завідувач кафедри, начальник відділу, професор, доцент тощо) і функції (декан, заступник декана, матеріально-відповідльний, системний адміністратор, відповідальний за охорону праці та пожежну безпеку тощо)">
-    		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
@@ -1650,7 +1650,7 @@
     
     <changeSet author="illay" id="Створення таблиці документів персон">
         <createTable remarks="Документи персони" tableName="q_od_personpaper">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT">
@@ -1708,7 +1708,7 @@
     
     <changeSet author="illay" id="Створення таблиці із балами зовнішнього національного оцінювання">
         <createTable remarks="Бали зовнішнього незалежного оцінювання" tableName="q_od_personenrolsubject">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT">
@@ -1757,7 +1757,7 @@
     
  	<changeSet id="Cтврення таблиці накази та інформації про працівників та інформацію про основні засоби та всіх підрозділів" author="illay">
  		<createTable tableName="q_ob_asset">
- 		<column name="id" remarks="Ідентифікатор" type="BIGINT">
+ 		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
     		<column name="assettype_id" type="BIGINT" remarks="Ідентифікатор типу матеріальних активів">
@@ -1899,7 +1899,7 @@
     	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_employee_id" tableName="q_ob_employee"/>
     	
    		<createTable tableName="q_dc_order">
-   			<column name="id" remarks="Ідентифікатор" type="BIGINT">
+   			<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
    				<constraints nullable="false"/>
    			</column>
    			<column name="ordertype_id" type="BIGINT" remarks="Ідентифікатор наказу">
@@ -1962,7 +1962,7 @@
     
     
         <createTable remarks="Інформація про підрозділи, де:•	в нелисткових записах ієрархії (які мають або можуть мати підпорядковані записи) зберігаються групи підрозділів (науково-навчальний інститут, навчальний інститут, підрозділ ІТ тощо);•	в нелисткових записах ієрархії зберігаються підрозділи складної структури (Інститут комп’ютерних наук та інформаційних технологій, Бухгалтерія, НДЧ, ЦІЗ, ЦТЕ ЗТІ тощо);•	в листкових записах ієрархії (які не мають підпорядкованих записів) зберігаються підрозділи простої структури або структурні одиниці інших підрозділів (Кафедра програмного забезпечення, Відділ проектування та впровадження програмних засобів, Відділ моніторингу та оперативного планування навчального процесу тощо)." tableName="q_ob_department">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="departmenttype_id" remarks="Ідентифікатор типу підрозділу" type="BIGINT">
@@ -2071,7 +2071,7 @@
     
     <changeSet author="illay" id="Створення таблиці детальний опис адреси підрозділу">
         <createTable tableName="q_od_departmentaddress" remarks="Детальний опис адреси підрозділу">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу">
@@ -2124,7 +2124,7 @@
     
  	<changeSet id="Створення таблиці журналу помилок" author="illay">
 		<createTable tableName="q_lg_error" remarks="Журсал посилок">
-			<column name="id" type="BIGINT" remarks="Ідентифікатор">
+			<column name="id" type="BIGINT" remarks="Ідентифікатор" autoIncrement="true">
 				<constraints nullable="false"/>
 			</column>
 			<column name="name" type="VARCHAR(200)" remarks="Назва помилки"></column>
@@ -2163,7 +2163,7 @@
 	
 	<changeSet id="Створення таблиці журналу операцій import/export даних з інших IC" author="illay">
 		<createTable tableName="q_lg_importexport">
-			<column name="id" type="BIGINT" remarks="Ідентифікатор">
+			<column name="id" type="BIGINT" remarks="Ідентифікатор" autoIncrement="true">
 				<constraints nullable="false"/>
 			</column>
 			<column name="name" type="VARCHAR(200)" remarks="Назва операції і таблиця з якою відбувається операція (наприклад: import/tablename)"></column>
@@ -2202,7 +2202,7 @@
 	
     <changeSet author="illay" id="Створення таблиці всіх пропоцицій">
         <createTable remarks="Пропозиція" tableName="q_ob_specoffer">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="specialty_id" remarks="Ідентифікатор спеціальності" type="BIGINT">
@@ -2278,7 +2278,7 @@
     
     <changeSet author="illay" id="Створення таблиці заяв абітурієнтів">
         <createTable remarks="Заява абітурієнта" tableName="q_dc_enrolment">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="person_id" remarks="Ідентифікатор персони" type="BIGINT">
@@ -2361,7 +2361,7 @@
     
     <changeSet id="Створення таблиці детальний опис адреси" author="illay">
     	<createTable tableName="q_od_personaddress" remarks="Детальний опис адреси">
-    			<column name="id" remarks="Ідентифікатор" type="BIGINT">
+    			<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
    				<constraints nullable="false"/>
    			</column>
    			<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
@@ -2431,7 +2431,7 @@
 	
  	 <changeSet  author="illay" id="Створення таблиці зв’язку між пільгами і заявою" >
         <createTable tableName="q_dt_enrolmentbenefit" remarks="Пільги в заяві" >
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="enrolment_id" remarks="Ідентифікатор заяви" type="BIGINT">
@@ -2477,7 +2477,7 @@
 	
     <changeSet author="illay" id="Створення таблиці зв’язку між придметами ЗНО і заявою">
         <createTable tableName="q_dt_enrolmentenrolsubject" remarks="Предмети ЗНО в заяві">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="enrolment_id" remarks="Ідентифікатор заяви" type="BIGINT">
@@ -2534,7 +2534,7 @@
     
 	<changeSet author="illay" id="Створення таблиці довідник хвиль вступу">
         <createTable remarks="Довідник хвиль вступу" tableName="q_od_specofferwave">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="wavetype_id" remarks="Ідентифікатор типів хвиль вступу" type="BIGINT"/>
@@ -2582,7 +2582,7 @@
     
     <changeSet author="illay" id="Створення таблиці пільги по спеціальності">
         <createTable remarks="Пільги на конкретну спеціальність" tableName="q_od_specofferbenefit">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT">
@@ -2624,7 +2624,7 @@
     
     <changeSet author="illay" id="Створення таблиці предмети ЗНО на пропозицію">
         <createTable remarks="Пропозиція предметів ЗНО на напрям/спеціальність" tableName="q_od_specoffersubject">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT">
@@ -2672,7 +2672,7 @@
     
     <changeSet author="illay" id="Створення таблиці статусу заявки">
     	<createTable tableName="q_dt_enrolmentstatus" remarks="Статуси заяви" >
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="enrolment_id" remarks="Ідентифікатор заяви" type="BIGINT">
@@ -2768,7 +2768,7 @@
 -->
     <changeSet  author="illay" id="Створення таблиці накази на зарахування абітурієнтів" >
         <createTable tableName="q_dt_ordernewstudent" remarks="Накази на зарахування абітурієнтів" >
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
     		<column name="order_id" type="BIGINT" remarks="Ідентифікатор наказу">
@@ -2837,7 +2837,7 @@
     
     <changeSet  author="illay" id="Створення таблиці контактів персони" >
         <createTable tableName="q_od_personcontact" remarks="Контакти персони" >
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
     		<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
@@ -2882,7 +2882,7 @@
     
     <changeSet  author="illay" id="Створення таблиці контактів підрозділу" >
         <createTable tableName="q_od_depatmentcontact" remarks="Контакти підрозділу" >
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
     		<column name="department_id" type="BIGINT" remarks="Ідентифікатор персони">
@@ -2927,7 +2927,7 @@
     
     <changeSet  author="illay" id="Створення таблиці інформації про іноземні мови персони" >
         <createTable tableName="q_od_personlanquage" remarks="Інформація про іноземні мови персони" >
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
     		<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
@@ -2975,7 +2975,7 @@
     
     <changeSet  author="illay" id="Створення таблиці інформації про персону іноземною мовою" >
         <createTable tableName="q_od_personname" remarks="Інформація про персону іноземною мовою" >
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
     		<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
@@ -3022,7 +3022,7 @@
     
     <changeSet  author="illay" id="Створення таблиці інформації про підрозділ іноземною мовою" >
         <createTable tableName="q_od_departmentname" remarks="Інформація про підрозділ іноземною мовою" >
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
     		<column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу">
@@ -3067,7 +3067,7 @@
     
     <changeSet  author="illay" id="Створення таблиці інформації про напрямки та спеціалізаців в підрозділі" >
         <createTable tableName="q_od_departmentspecialty" remarks=" Інформація про напрями та спеціальності в підрозділі" >
-            <column name="id" remarks="Ідентифікатор" type="BIGINT">
+            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
     		<column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу">
