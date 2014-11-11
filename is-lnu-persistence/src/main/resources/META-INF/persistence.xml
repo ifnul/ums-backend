@@ -3,7 +3,6 @@
 <persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         
-   
 		<class>org.lnu.is.domain.asset.Asset</class>
         <class>org.lnu.is.domain.assetstate.AssetState</class> 
         <class>org.lnu.is.domain.assetstatus.AssetStatus</class> 

@@ -2,8 +2,6 @@ package org.lnu.is.facade.resource.search;
 
 import java.util.List;
 
-import org.lnu.is.facade.resource.ApiResource;
-
 /**
  * PagedResultResource, that is sent to response,
  * when we need to have pagination response.
@@ -11,7 +9,7 @@ import org.lnu.is.facade.resource.ApiResource;
  *
  * @param <R> Generic object class of resource
  */
-public class PagedResultResource<R> extends ApiResource {
+public class PagedResultResource<R> {
 
     private Integer offset;
     private Integer limit;
@@ -32,10 +30,6 @@ public class PagedResultResource<R> extends ApiResource {
         this.uri = uri;
     }
     
-    @Override
-    public String getUri() {
-        return uri;
-    }
 
 	public Integer getOffset() {
 		return offset;
@@ -67,6 +61,10 @@ public class PagedResultResource<R> extends ApiResource {
 
 	public void setEntities(final List<R> entities) {
 		this.entities = entities;
+	}
+
+	public String getUri() {
+		return uri;
 	}
 
 	public void setUri(final String uri) {

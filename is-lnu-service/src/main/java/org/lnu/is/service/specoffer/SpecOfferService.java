@@ -3,6 +3,7 @@ package org.lnu.is.service.specoffer;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.service.Service;
 
 /**
  * Interface, that describes specoffer
@@ -10,7 +11,7 @@ import org.lnu.is.pagination.PagedSearch;
  * @author ivanursul
  *
  */
-public interface SpecOfferService {
+public interface SpecOfferService extends Service<SpecOffer> {
 
 	/**
 	 * Method for creating specoffer in service layer.

@@ -11,8 +11,6 @@ import org.lnu.is.facade.resource.ApiResource;
  */
 public class DepartmentResource extends ApiResource {
 
-	private Long id;
-	
 	private Long parentId;
 
 	private Long departmentTypeId;
@@ -120,14 +118,6 @@ public class DepartmentResource extends ApiResource {
 		this.endDate = endDate;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(final Long id) {
-		this.id = id;
-	}
-
 	public String getNote() {
 		return note;
 	}
@@ -148,7 +138,6 @@ public class DepartmentResource extends ApiResource {
 				+ ((departmentTypeId == null) ? 0 : departmentTypeId.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((manager == null) ? 0 : manager.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((note == null) ? 0 : note.hashCode());
@@ -206,13 +195,6 @@ public class DepartmentResource extends ApiResource {
 		} else if (!endDate.equals(other.endDate)) {
 			return false;
 		}
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!id.equals(other.id)) {
-			return false;
-		}
 		if (manager == null) {
 			if (other.manager != null) {
 				return false;
@@ -260,7 +242,7 @@ public class DepartmentResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "DepartmentResource [id=" + id + ", parentId=" + parentId
+		return "DepartmentResource [parentId=" + parentId
 				+ ", departmentTypeId=" + departmentTypeId + ", orderId="
 				+ orderId + ", abbrName=" + abbrName + ", name=" + name
 				+ ", manager=" + manager + ", phone=" + phone + ", email="

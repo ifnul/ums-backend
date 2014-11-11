@@ -1,5 +1,6 @@
 package org.lnu.is.facade.facade.specoffer;
 
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
@@ -11,7 +12,7 @@ import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
  * @author ivanursul
  *
  */
-public interface SpecOfferFacade {
+public interface SpecOfferFacade extends Facade<SpecOfferResource> {
 
 	/**
 	 * Method for creating specoffer resource.

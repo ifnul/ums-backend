@@ -12,8 +12,6 @@ import org.lnu.is.facade.resource.ApiResource;
  */
 public class PersonResource extends ApiResource {
 
-	private Long id;
-	
 	private Long personTypeId;
 	
 	private String name;
@@ -54,15 +52,7 @@ public class PersonResource extends ApiResource {
 
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/persons/{0}", id);
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(final Long id) {
-		this.id = id;
+		return MessageFormat.format("/persons/{0}", getId());
 	}
 
 	public Long getPersonTypeId() {
@@ -237,7 +227,6 @@ public class PersonResource extends ApiResource {
 				+ ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result
 				+ ((genderTypeId == null) ? 0 : genderTypeId.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
 				+ ((identifier == null) ? 0 : identifier.hashCode());
 		result = prime * result
@@ -333,13 +322,6 @@ public class PersonResource extends ApiResource {
 		} else if (!genderTypeId.equals(other.genderTypeId)) {
 			return false;
 		}
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!id.equals(other.id)) {
-			return false;
-		}
 		if (identifier == null) {
 			if (other.identifier != null) {
 				return false;
@@ -415,7 +397,7 @@ public class PersonResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "PersonResource [id=" + id + ", personTypeId=" + personTypeId
+		return "PersonResource [personTypeId=" + personTypeId
 				+ ", name=" + name + ", firstName=" + firstName
 				+ ", fatherName=" + fatherName + ", surname=" + surname
 				+ ", photo=" + photo + ", genderTypeId=" + genderTypeId

@@ -12,8 +12,6 @@ import org.lnu.is.facade.resource.ApiResource;
  */
 public class SpecialtyResource extends ApiResource {
 
-	private Long id;
-	
 	private Long specialtyTypeId;
 
 	private Long parentId;
@@ -41,14 +39,6 @@ public class SpecialtyResource extends ApiResource {
 
 	public void setNote(final String note) {
 		this.note = note;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(final Long id) {
-		this.id = id;
 	}
 
 	public Long getSpecialtyTypeId() {
@@ -116,7 +106,6 @@ public class SpecialtyResource extends ApiResource {
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
 		result = prime * result + ((cipher == null) ? 0 : cipher.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((note == null) ? 0 : note.hashCode());
 		result = prime * result
@@ -166,13 +155,6 @@ public class SpecialtyResource extends ApiResource {
 		} else if (!endDate.equals(other.endDate)) {
 			return false;
 		}
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!id.equals(other.id)) {
-			return false;
-		}
 		if (name == null) {
 			if (other.name != null) {
 				return false;
@@ -206,7 +188,7 @@ public class SpecialtyResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "SpecialtyResource [id=" + id + ", specialtyTypeId="
+		return "SpecialtyResource [specialtyTypeId="
 				+ specialtyTypeId + ", parentId=" + parentId + ", abbrName="
 				+ abbrName + ", name=" + name + ", cipher=" + cipher
 				+ ", begDate=" + begDate + ", endDate=" + endDate + ", note="
