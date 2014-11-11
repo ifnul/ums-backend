@@ -17,10 +17,14 @@ public final class Queries {
 	private static final String FIND_PERSONS_QUERY_NAME = "Persons.findPersons";
 	private static final String FIND_PERSONS_QUERY = "SELECT p FROM Person p";
 
+	private static final String FIND_ENROLMENT_SUBJECTS_QUERY_NAME = "EnrolmentSubject.findEnrolmentSubjects";
+	private static final String FIND_ENROLMENT_SUBJECTS_QUERY = "SELECT e FROM EnrolmentSubject e";
+
 	public static final Queries FIND_SPECOFFERS = new Queries(FIND_SPECOFFERS_QUERY_NAME, FIND_SPECOFFERS_QUERY);
 	public static final Queries FIND_SPECIALTIES = new Queries(FIND_SPECIALTIES_QUERY_NAME, FIND_SPECIALTIES_QUERY);
 	public static final Queries FIND_DEPARTMENTS = new Queries(FIND_DEPARTMENTS_QUERY_NAME, FIND_DEPARTMENTS_QUERY);
 	public static final Queries FIND_PERSONS = new Queries(FIND_PERSONS_QUERY_NAME, FIND_PERSONS_QUERY);
+	public static final Queries FIND_ENROLMENT_SUBJECTS = new Queries(FIND_ENROLMENT_SUBJECTS_QUERY_NAME, FIND_ENROLMENT_SUBJECTS_QUERY);
 
     private final String queryName;
     private final String query;
