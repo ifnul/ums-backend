@@ -12,8 +12,8 @@ import org.lnu.is.domain.Model;
  * @author kushnir
  *
  */
-@Table
-@Entity(name = "q_rf_subjecttype")
+@Entity
+@Table(name = "q_rf_subjecttype")
 public class SubjectType extends Model {
 	private static final long serialVersionUID = 1L;
 
