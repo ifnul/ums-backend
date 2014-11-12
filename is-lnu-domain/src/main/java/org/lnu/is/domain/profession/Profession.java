@@ -14,8 +14,8 @@ import org.lnu.is.domain.Model;
  * @author kushnir
  *
  */
-@Table
-@Entity(name = "q_ob_profession")
+@Entity
+@Table(name = "q_ob_profession")
 public class Profession extends Model {
 	private static final long serialVersionUID = 1L;
 
