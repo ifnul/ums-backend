@@ -55,7 +55,8 @@
 							<dataFolder>src/test/resources/data</dataFolder>
 							<resultsFolder>target/gatling/results</resultsFolder>
 							<requestBodiesFolder>src/test/resources/request-bodies</requestBodiesFolder>
-							<simulationsFolder>src/test/scala</simulationsFolder>
+							<!-- <simulationsFolder>src/test/scala</simulationsFolder> -->
+							<simulationClass>org.lnu.is.integration.IntegrationTest</simulationClass>
 						</configuration>
 					</execution>
 				</executions>

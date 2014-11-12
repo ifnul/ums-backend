@@ -1,0 +1,13 @@
+[
+  {
+    "targetUrl":"/eduformtypes",
+    "expectedResponse":
+		{
+		  "offset" : 0,
+		  "limit" : 38,
+		  "count" : 0,
+		  "entities" : [ ],
+		  "uri" : "/eduformtypes"
+		}
+  }
+]

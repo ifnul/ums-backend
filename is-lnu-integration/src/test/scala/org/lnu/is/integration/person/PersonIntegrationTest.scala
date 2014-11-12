@@ -1,14 +1,10 @@
-package org.lnu.is.integration.person
+package org.lnu.is.integration
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
-class PersonIntegrationTest extends Simulation {
-
-  val httpConf = http
-    .baseURL("http://localhost:8080/is-lnu-rest-api/api")
-    .acceptHeader("application/json")
+object PersonIntegrationTest {
 
   val scn = scenario("Manage Persons")
     .exec(http("Post Person")
@@ -38,7 +34,5 @@ class PersonIntegrationTest extends Simulation {
     .exec(http("Delete Person")
       .delete("/persons/${identifier}")
       .check(status.is(204)))
-
-  setUp(
-    scn.inject(atOnceUsers(1)).protocols(httpConf))
+      
 }
