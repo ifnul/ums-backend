@@ -76,6 +76,19 @@
         <class>org.lnu.is.domain.timeperiodtype.TimePeriodType</class>
         <class>org.lnu.is.domain.wavetype.WaveType</class>
         
+        <class>org.lnu.is.domain.degreetype.DegreeType</class>
+        <class>org.lnu.is.domain.orderemployee.OrderEmployee</class>
+        <class>org.lnu.is.domain.timesheettype.TimeSheetType</class>
+        <class>org.lnu.is.domain.orderemployeetimesheet.OrderEmployeeTimeSheet</class>
+        <class>org.lnu.is.domain.ordernewasset.OrderNewAsset</class>
+        <class>org.lnu.is.domain.ordernewemployee.OrderNewEmployee</class>
+        <class>org.lnu.is.domain.degree.Degree</class>
+        <class>org.lnu.is.domain.profession.Profession</class>
+        <class>org.lnu.is.domain.subjecttype.SubjectType</class>
+        <class>org.lnu.is.domain.subject.Subject</class>
+        <class>org.lnu.is.domain.assetaddress.AssetAddress</class>
+        <class>org.lnu.is.domain.partneraddress.PartnerAddress</class>
+        
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <!-- value="create" to build a new database on each run; value="update" to modify an existing database; value="create-drop" means the same as "create" but also drops tables when Hibernate closes; value="validate" makes no changes to the database -->
