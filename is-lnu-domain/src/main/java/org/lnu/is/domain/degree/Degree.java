@@ -15,8 +15,8 @@ import org.lnu.is.domain.person.Person;
  * @author kushnir
  *
  */
-@Table
-@Entity(name = "q_ob_degree")
+@Entity
+@Table(name = "q_ob_degree")
 public class Degree extends Model {
 	private static final long serialVersionUID = 1L;
 
