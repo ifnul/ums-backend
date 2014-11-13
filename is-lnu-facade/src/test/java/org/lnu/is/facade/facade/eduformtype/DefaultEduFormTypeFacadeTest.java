@@ -1,4 +1,4 @@
-package org.lnu.is.facade.facade.edutoformtype;
+package org.lnu.is.facade.facade.eduformtype;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyListOf;
@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.facade.converter.Converter;
+import org.lnu.is.facade.facade.eduformtype.DefaultEduFormTypeFacade;
 import org.lnu.is.facade.resource.ApiResource;
 import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;

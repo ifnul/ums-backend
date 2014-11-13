@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.eduformtype;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.edutoformtype.EduFormTypeFacade;
+import org.lnu.is.facade.facade.eduformtype.EduFormTypeFacade;
 import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;

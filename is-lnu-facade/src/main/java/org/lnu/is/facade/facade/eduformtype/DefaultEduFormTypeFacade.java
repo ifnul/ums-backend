@@ -1,4 +1,4 @@
-package org.lnu.is.facade.facade.edutoformtype;
+package org.lnu.is.facade.facade.eduformtype;
 
 import java.util.List;
 

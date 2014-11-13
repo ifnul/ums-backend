@@ -1,4 +1,4 @@
-package org.lnu.is.web.controller.eduformtype;
+package org.lnu.is.web.controller.specoffertype;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -12,10 +12,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.eduformtype.EduFormTypeFacade;
-import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
+import org.lnu.is.facade.facade.specoffertype.SpecOfferTypeFacade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.facade.resource.specoffertype.SpecOfferTypeResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -25,13 +25,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @RunWith(MockitoJUnitRunner.class)
-public class EduFormTypeControllerTest extends AbstractControllerTest {
+public class SpecOfferTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private EduFormTypeFacade eduFormTypeFacade;
+	private SpecOfferTypeFacade specOfferTypeFacade;
 	
 	@InjectMocks
-	private EduFormTypeController unit;
+	private SpecOfferTypeController unit;
 	
     private MockMvc mockMvc;
 
@@ -41,38 +41,38 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
     }
     
     @Test
-	public void testGetEduFormTypes() throws Exception {
+	public void testGetSpecOfferTypes() throws Exception {
 		// Given
-    	String name = "form type 1";
-		EduFormTypeResource resource = new EduFormTypeResource();
+    	String name = "name";
+		SpecOfferTypeResource resource = new SpecOfferTypeResource();
 		resource.setName(name);
 		
-		List<EduFormTypeResource> entities = Arrays.asList(resource);
+		List<SpecOfferTypeResource> entities = Arrays.asList(resource);
 
 
 		Integer offset = 0;
 		long count = 1;
-		Integer limit = 38;
-		PagedResultResource<EduFormTypeResource> expected = new PagedResultResource<>("/eduformtypes");
+		Integer limit = 20;
+		PagedResultResource<SpecOfferTypeResource> expected = new PagedResultResource<>("/specoffertypes");
 		expected.setEntities(entities);
 		expected.setCount(count);
 		expected.setLimit(limit);
 		expected.setOffset(offset);
 
-		EduFormTypeResource paramResource = new EduFormTypeResource();
+		SpecOfferTypeResource paramResource = new SpecOfferTypeResource();
 		paramResource.setName(name);
-		PagedRequest<EduFormTypeResource> request = new PagedRequest<EduFormTypeResource>(paramResource, offset, limit);
+		PagedRequest<SpecOfferTypeResource> request = new PagedRequest<SpecOfferTypeResource>(paramResource, offset, limit);
 		
 		// When
-		when(eduFormTypeFacade.getEduFormTypes(Matchers.<PagedRequest<EduFormTypeResource>>any())).thenReturn(expected);
+		when(specOfferTypeFacade.getSpecOfferTypes(Matchers.<PagedRequest<SpecOfferTypeResource>>any())).thenReturn(expected);
     	String response = getJson(expected, false);
 
 		// Then
-    	mockMvc.perform(get("/eduformtypes")
+    	mockMvc.perform(get("/specoffertypes")
     			.param("name", name))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(eduFormTypeFacade).getEduFormTypes(request);
+		verify(specOfferTypeFacade).getSpecOfferTypes(request);
 	}
 }

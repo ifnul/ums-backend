@@ -11,7 +11,6 @@ import com.wordnik.swagger.model.ResourceListing;
 /**
  * Custom Object Mapper.
  * @author ivanursul
- *
  */
 public class CustomObjectMapper extends ObjectMapper {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +25,5 @@ public class CustomObjectMapper extends ObjectMapper {
 		module.addSerializer(ResourceListing.class, new SwaggerResourceListingJsonSerializer());
 		
 		registerModule(module);
-
 	}
 }
