@@ -56,10 +56,10 @@
         <class>org.lnu.is.domain.personlanguage.PersonLanguage</class>
         <class>org.lnu.is.domain.personname.PersonName</class>
         <class>org.lnu.is.domain.personpaper.PersonPaper</class>
-        
-        
-        
-        
+        <class>org.lnu.is.domain.personpension.PersonPension</class>
+        <class>org.lnu.is.domain.personwork.PersonWork</class>
+        <class>org.lnu.is.domain.postname.PostName</class>
+        <class>org.lnu.is.domain.propertyvalue.PropertyValue</class>
         <class>org.lnu.is.domain.publicactivityaward.PublicActivityAward</class>
         <class>org.lnu.is.domain.specofferbenefit.SpecofferBenefit</class>
         <class>org.lnu.is.domain.specoffersubject.SpecofferSubject</class>
@@ -103,6 +103,7 @@
         <class>org.lnu.is.domain.ordertype.OrderType</class> 
         <class>org.lnu.is.domain.papertype.PaperType</class>
         <class>org.lnu.is.domain.paperusage.PaperUsage</class>
+        <class>org.lnu.is.domain.pensiontype.PensionType</class>
         <class>org.lnu.is.domain.persontype.PersonType</class> 
         <class>org.lnu.is.domain.posttype.PostType</class> 
         <class>org.lnu.is.domain.propertytype.PropertyType</class>
@@ -111,7 +112,7 @@
         <class>org.lnu.is.domain.salarytype.SalaryType</class>
         <class>org.lnu.is.domain.specialtype.SpecialtyType</class>
         <class>org.lnu.is.domain.specoffertype.SpecOfferType</class>
-        
+        <class>org.lnu.is.domain.specstagetype.SpecStageType</class>
         <class>org.lnu.is.domain.statustype.StatusType</class>
         <class>org.lnu.is.domain.streettype.StreetType</class>
         <class>org.lnu.is.domain.subjecttype.SubjectType</class>

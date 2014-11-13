@@ -1,4 +1,4 @@
-package org.lnu.is.domain.departmentname;
+package org.lnu.is.domain.postname;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,39 +7,39 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.language.Language;
-
+import org.lnu.is.domain.post.Post;
 /**
- * Department Name entity.
- * @author ivanursul
+ * Post Name entity.
+ * @author illay
  *
  */
 @Entity
-@Table(name = "q_od_departmentname")
-public class DepartmentName extends Model {
-	private static final long serialVersionUID = 1L;
+@Table(name = "q_od_postname")
+public class PostName extends Model {
 
+	private static final long serialVersionUID = 1L;
+	
 	@ManyToOne
-	@JoinColumn(name = "department_id")
-	private Department department;
+	@JoinColumn(name = "post_id")
+	private Post post;
 	
 	@ManyToOne
 	@JoinColumn(name = "language_id")
 	private Language language;
 	
 	@Column(name = "abbrname")
-	private String abbrName;
+	private String abbrname;
 	
 	@Column(name = "name")
 	private String name;
 
-	public Department getDepartment() {
-		return department;
+	public Post getPost() {
+		return post;
 	}
 
-	public void setDepartment(final Department department) {
-		this.department = department;
+	public void setPost(final Post post) {
+		this.post = post;
 	}
 
 	public Language getLanguage() {
@@ -50,12 +50,12 @@ public class DepartmentName extends Model {
 		this.language = language;
 	}
 
-	public String getAbbrName() {
-		return abbrName;
+	public String getAbbrname() {
+		return abbrname;
 	}
 
-	public void setAbbrName(final String abbrName) {
-		this.abbrName = abbrName;
+	public void setAbbrname(final String abbrname) {
+		this.abbrname = abbrname;
 	}
 
 	public String getName() {
@@ -71,7 +71,7 @@ public class DepartmentName extends Model {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result
-				+ ((abbrName == null) ? 0 : abbrName.hashCode());
+				+ ((abbrname == null) ? 0 : abbrname.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -87,12 +87,12 @@ public class DepartmentName extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		DepartmentName other = (DepartmentName) obj;
-		if (abbrName == null) {
-			if (other.abbrName != null) {
+		PostName other = (PostName) obj;
+		if (abbrname == null) {
+			if (other.abbrname != null) {
 				return false;
 			}
-		} else if (!abbrName.equals(other.abbrName)) {
+		} else if (!abbrname.equals(other.abbrname)) {
 			return false;
 		}
 		if (name == null) {
@@ -107,7 +107,8 @@ public class DepartmentName extends Model {
 
 	@Override
 	public String toString() {
-		return "DepartmentName [abbrName=" + abbrName + ", name=" + name + "]";
+		return "PostName [abbrname=" + abbrname + ", name=" + name + "]";
 	}
+	
 	
 }

@@ -24,7 +24,7 @@ public class Partner extends Model {
 	@JoinColumn(name = "parent_id")
 	private Partner parent;
 	
-	@Column(name = "abbname")
+	@Column(name = "abbrname")
 	private String abbrName;
 
 	@Column(name = "name")

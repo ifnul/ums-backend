@@ -9,7 +9,7 @@
     		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="abbname" type="VARCHAR(50)" remarks="Абревіатура партнера">
+    		<column name="abbrname" type="VARCHAR(50)" remarks="Абревіатура партнера">
     		</column>
     		<column name="name" type="VARCHAR(200)" remarks="Назва партнера">
     			<constraints nullable="false"/>
@@ -3130,7 +3130,7 @@
     		<column name="language_id" type="BIGINT" remarks="Ідинтифікатор інозкмної мови">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="abbname" type="VARCHAR(200)" remarks="Скорочена назва(Абривіатура) іноземною мовою"></column>
+    		<column name="abbrname" type="VARCHAR(200)" remarks="Скорочена назва(Абривіатура) іноземною мовою"></column>
     		<column name="name" type="VARCHAR(200)" remarks="назва іноземною мовою"></column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -4583,7 +4583,7 @@
     		<column name="language_id" type="BIGINT" remarks="Ідинтифікатор інозкмної мови">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="abbname" type="VARCHAR(200)" remarks="Скорочена назва(Абривіатура) іноземною мовою"></column>
+    		<column name="abbrname" type="VARCHAR(200)" remarks="Скорочена назва(Абривіатура) іноземною мовою"></column>
     		<column name="name" type="VARCHAR(200)" remarks="назва іноземною мовою"></column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
