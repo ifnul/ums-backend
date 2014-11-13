@@ -10,6 +10,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.specoffertype.SpecOfferTypeDao;
+import org.lnu.is.dao.extractor.ParametersExtractor;
 import org.lnu.is.domain.specoffertype.SpecOfferType;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
@@ -23,6 +24,9 @@ public class DefaultSpecOfferTypeServiceTest {
 	
 	@Mock
 	private SpecOfferTypeDao enrolmentSubjectDao;
+	
+	@Mock
+	private ParametersExtractor<SpecOfferType> parametersExtractor;
 	
 	@InjectMocks
 	private DefaultSpecOfferTypeService unit;
@@ -39,11 +43,11 @@ public class DefaultSpecOfferTypeServiceTest {
 		PagedResult<SpecOfferType> expected = new PagedResult<SpecOfferType>(offset, limit, count, entities);
 		
 		// When
-		when(enrolmentSubjectDao.getSpecOfferTypes(Matchers.<PagedSearch<SpecOfferType>>any())).thenReturn(expected);
+		when(enrolmentSubjectDao.getEntities(Matchers.<PagedSearch<SpecOfferType>>any())).thenReturn(expected);
 		PagedResult<SpecOfferType> actual = unit.getSpecOfferTypes(pagedSearch);
 
 		// Then
-		verify(enrolmentSubjectDao).getSpecOfferTypes(pagedSearch);
+		verify(enrolmentSubjectDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

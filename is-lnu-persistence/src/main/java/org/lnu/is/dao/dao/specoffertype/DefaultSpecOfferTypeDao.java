@@ -1,12 +1,10 @@
 package org.lnu.is.dao.dao.specoffertype;
 
-import java.util.Collections;
+import javax.annotation.Resource;
 
 import org.lnu.is.dao.AbstractDao;
+import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.specoffertype.SpecOfferType;
-import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -23,15 +21,9 @@ public class DefaultSpecOfferTypeDao extends AbstractDao<SpecOfferType, Long> im
 	}
 
 	@Override
-	public PagedResult<SpecOfferType> getSpecOfferTypes(final PagedSearch<SpecOfferType> pagedSearch) {
-		
-		Queries query = Queries.FIND_SPECOFFER_TYPES;
-
-		pagedSearch.setClazz(getEntityClass());
-		pagedSearch.setParameters(Collections.<String, Object>emptyMap());
-		pagedSearch.setQuery(query);
-		
-		return search(pagedSearch);
+	@Resource(name = "specOfferTypeQueryBuilder")
+	public void setQueryBuilder(final QueryBuilder<SpecOfferType> queryBuilder) {
+		super.setQueryBuilder(queryBuilder);
 	}
 
 }

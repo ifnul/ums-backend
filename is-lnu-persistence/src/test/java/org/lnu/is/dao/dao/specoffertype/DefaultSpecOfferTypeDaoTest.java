@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.specoffertype.SpecOfferType;
 import org.lnu.is.pagination.PagedResult;
@@ -25,6 +26,9 @@ public class DefaultSpecOfferTypeDaoTest {
 
 	@Mock
 	private PersistenceManager<SpecOfferType, Long> persistenceManager;
+	
+	@Mock
+	private QueryBuilder<SpecOfferType> queryBuilder;
 	
 	@InjectMocks
 	private DefaultSpecOfferTypeDao unit;
@@ -44,7 +48,7 @@ public class DefaultSpecOfferTypeDaoTest {
 		
 		// When
 		when(persistenceManager.search(Matchers.<PagedSearch<SpecOfferType>>any())).thenReturn(expected);
-		PagedResult<SpecOfferType> actual = unit.getSpecOfferTypes(pagedSearch);
+		PagedResult<SpecOfferType> actual = unit.getEntities(pagedSearch);
 
 		// Then
 		verify(persistenceManager).search(pagedSearch);

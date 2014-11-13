@@ -31,6 +31,9 @@ public class DefaultSpecOfferTypeFacade implements SpecOfferTypeFacade {
 	
 	@Resource(name = "specOfferTypeConverter")
 	private Converter<SpecOfferType, SpecOfferTypeResource> specOfferTypeConverter;
+
+	@Resource(name = "specOfferTypeResourceConverter")
+	private Converter<SpecOfferTypeResource, SpecOfferType> specOfferTypeResourceConverter;
 	
 	@Resource(name = "specOfferTypeService")
 	private SpecOfferTypeService specOfferTypeService;
@@ -39,6 +42,8 @@ public class DefaultSpecOfferTypeFacade implements SpecOfferTypeFacade {
 	public PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(final PagedRequest<SpecOfferTypeResource> request) {
 		
 		PagedSearch<SpecOfferType> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(specOfferTypeResourceConverter.convert(request.getResource()));
+		
 		PagedResult<SpecOfferType> pagedResult = specOfferTypeService.getSpecOfferTypes(pagedSearch);
 		
 		List<SpecOfferTypeResource> resources = specOfferTypeConverter.convertAll(pagedResult.getEntities());

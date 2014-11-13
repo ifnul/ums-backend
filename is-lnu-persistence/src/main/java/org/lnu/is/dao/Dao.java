@@ -1,5 +1,8 @@
 package org.lnu.is.dao;
 
+import org.lnu.is.pagination.PagedResult;
+import org.lnu.is.pagination.PagedSearch;
+
 /**
  * Interface, that has all methods, that are needed 
  * to work with entities.
@@ -35,5 +38,11 @@ public interface Dao<E, T> {
 	 */
 	void delete(E entity);
 	
+	/**
+	 * Method for getting paged Result.
+	 * @param pagedSearch
+	 * @return paged result.
+	 */
+	PagedResult<E> getEntities(PagedSearch<E> pagedSearch);
 }
 

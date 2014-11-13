@@ -47,7 +47,7 @@ public final class Queries {
      * @param queryName the name of query which will be stored in Queries class.
      * @param query query, which will be stored  in Queries class.
      */
-    private Queries(final String queryName, final String query) {
+    public Queries(final String queryName, final String query) {
         this.queryName = queryName;
         this.query = query;
     }

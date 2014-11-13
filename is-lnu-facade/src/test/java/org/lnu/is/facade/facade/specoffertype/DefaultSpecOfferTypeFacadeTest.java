@@ -43,6 +43,9 @@ public class DefaultSpecOfferTypeFacadeTest {
 
 	@Mock
 	private Converter<SpecOfferType, SpecOfferTypeResource> specOfferTypeConverter;
+
+	@Mock
+	private Converter<SpecOfferTypeResource, SpecOfferType> specOfferTypeResourceConverter;
 	
 	@Test
 	public void testGetSpecialties() throws Exception {
