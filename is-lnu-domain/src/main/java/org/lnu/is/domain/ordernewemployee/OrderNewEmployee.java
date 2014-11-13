@@ -21,7 +21,7 @@ import org.lnu.is.domain.post.Post;
  *
  */
 @Entity
-@Table(name = "q_dt_ordіernewemployee")
+@Table(name = "q_dt_ordernewemployee")
 public class OrderNewEmployee extends Model {
 	private static final long serialVersionUID = 1L;
 
@@ -56,7 +56,7 @@ public class OrderNewEmployee extends Model {
 	@Column(name = "begdate")
 	private Date begDate;
 
-	@Column(name = "endDate")
+	@Column(name = "enddate")
 	private Date endDate;
 
 	public Order getOrder() {

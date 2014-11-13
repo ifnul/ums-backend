@@ -28,7 +28,7 @@ public class PartnerAddress extends Model {
 	private AdminUnit adminUnit;
 
 	@ManyToOne
-	@JoinColumn(name = "asset_id")
+	@JoinColumn(name = "partner_id")
 	private Partner partner;
 
 	@ManyToOne

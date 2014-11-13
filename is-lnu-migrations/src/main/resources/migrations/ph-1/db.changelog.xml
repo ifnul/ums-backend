@@ -4913,7 +4913,7 @@
     			<constraints nullable="false"/>
     		</column>
     		<column name="suma" type="DOUBLE" remarks="Сума за кожен окреми тип оплати"></column>
-    		<column name="paremt_id" type="BIGINT" remarks="Ієрархічний ідентифікатор"></column>
+    		<column name="parent_id" type="BIGINT" remarks="Ієрархічний ідентифікатор"></column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -4943,6 +4943,8 @@
         <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_od_employeesalary" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
         
         <addForeignKeyConstraint baseColumnNames="salarytype_id" baseTableName="q_od_employeesalary" constraintName="fk_q_rf_salarytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_salarytype"/>
+        
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_od_employeesalary" constraintName="fk_q_od_employeesalary_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_employeesalary"/>
     	
     </changeSet>
         
