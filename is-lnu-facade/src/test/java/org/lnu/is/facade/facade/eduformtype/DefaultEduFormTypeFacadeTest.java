@@ -52,7 +52,7 @@ public class DefaultEduFormTypeFacadeTest {
 		PagedRequest<EduFormTypeResource> pagedRequest = new PagedRequest<EduFormTypeResource>(resource, 10, 10);
 		List<EduFormTypeResource> funnyResources = Collections.singletonList(new EduFormTypeResource());
 		PagedResultResource<EduFormTypeResource> expectedFunnies = new PagedResultResource<>("/eduformtypes");
-		expectedFunnies.setEntities(funnyResources);
+		expectedFunnies.setResources(funnyResources);
 
 		int offset = 8;
 		int limit = 3;

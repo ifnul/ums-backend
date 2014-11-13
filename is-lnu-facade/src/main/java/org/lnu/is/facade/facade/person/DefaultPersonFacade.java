@@ -90,7 +90,7 @@ public class DefaultPersonFacade implements PersonFacade {
 		List<PersonResource> resources = personConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<PersonResource> pagedResultResource = new PagedResultResource<>("/persons");
-		pagedResultResource.setEntities(resources);
+		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 
 		return pagedResultResource;

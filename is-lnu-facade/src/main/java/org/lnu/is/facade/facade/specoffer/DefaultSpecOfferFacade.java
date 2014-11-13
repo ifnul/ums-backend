@@ -101,7 +101,7 @@ public class DefaultSpecOfferFacade implements SpecOfferFacade {
 		List<SpecOfferResource> resources = specOfferConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<SpecOfferResource> pagedResultResource = new PagedResultResource<>("/specoffers");
-		pagedResultResource.setEntities(resources);
+		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 
 		return pagedResultResource;

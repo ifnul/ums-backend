@@ -44,7 +44,7 @@ public class DefaultEnrolmentSubjectFacade implements EnrolmentSubjectFacade {
 		List<EnrolmentSubjectResource> resources = enrolmentSubjectConverter.convertAll(pagedResult.getEntities());
 		
 		PagedResultResource<EnrolmentSubjectResource> pagedResultResource = new PagedResultResource<>("/enrolmentsubjects");
-		pagedResultResource.setEntities(resources);
+		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 		
 		return pagedResultResource;

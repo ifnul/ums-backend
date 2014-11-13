@@ -44,7 +44,7 @@ public class DefaultEduFormTypeFacade implements EduFormTypeFacade {
 		List<EduFormTypeResource> resources = eduFormTypeConverter.convertAll(pagedResult.getEntities());
 		
 		PagedResultResource<EduFormTypeResource> pagedResultResource = new PagedResultResource<>("/eduformtypes");
-		pagedResultResource.setEntities(resources);
+		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 		
 		return pagedResultResource;

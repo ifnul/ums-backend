@@ -198,7 +198,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 		expectedResource.setLimit(limit);
 		expectedResource.setOffset(offset);
 		expectedResource.setUri(uri);
-		expectedResource.setEntities(entities);
+		expectedResource.setResources(entities);
 		
 		PagedRequest<DepartmentResource> pagedRequest = new PagedRequest<DepartmentResource>(new DepartmentResource(), offset, limit);
 		

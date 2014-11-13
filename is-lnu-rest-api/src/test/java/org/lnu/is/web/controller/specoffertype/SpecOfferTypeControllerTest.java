@@ -54,7 +54,7 @@ public class SpecOfferTypeControllerTest extends AbstractControllerTest {
 		long count = 1;
 		Integer limit = 20;
 		PagedResultResource<SpecOfferTypeResource> expected = new PagedResultResource<>("/specoffertypes");
-		expected.setEntities(entities);
+		expected.setResources(entities);
 		expected.setCount(count);
 		expected.setLimit(limit);
 		expected.setOffset(offset);

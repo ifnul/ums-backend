@@ -93,7 +93,7 @@ public class DefaultDepartmentFacade implements DepartmentFacade {
 		List<DepartmentResource> resources = departmentConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<DepartmentResource> pagedResultResource = new PagedResultResource<>("/departments");
-		pagedResultResource.setEntities(resources);
+		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 
 		return pagedResultResource;

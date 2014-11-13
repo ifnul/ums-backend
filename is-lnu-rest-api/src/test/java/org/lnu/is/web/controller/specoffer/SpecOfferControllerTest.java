@@ -198,7 +198,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
 		expectedResource.setLimit(limit);
 		expectedResource.setOffset(offset);
 		expectedResource.setUri(uri);
-		expectedResource.setEntities(entities);
+		expectedResource.setResources(entities);
 		
 		PagedRequest<SpecOfferResource> pagedRequest = new PagedRequest<SpecOfferResource>(new SpecOfferResource(), offset, limit);
 		

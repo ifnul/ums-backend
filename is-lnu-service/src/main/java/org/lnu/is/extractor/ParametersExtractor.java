@@ -1,4 +1,4 @@
-package org.lnu.is.dao.extractor;
+package org.lnu.is.extractor;
 
 import java.util.Map;
 

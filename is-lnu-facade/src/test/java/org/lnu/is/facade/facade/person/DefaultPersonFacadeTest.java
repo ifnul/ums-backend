@@ -178,7 +178,7 @@ public class DefaultPersonFacadeTest {
 		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), 10, 10);
 		List<PersonResource> funnyResources = Collections.singletonList(new PersonResource());
 		PagedResultResource<PersonResource> expectedFunnies = new PagedResultResource<>("/persons");
-		expectedFunnies.setEntities(funnyResources);
+		expectedFunnies.setResources(funnyResources);
 
 		int offset = 8;
 		int limit = 3;

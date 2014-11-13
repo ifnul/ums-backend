@@ -1,9 +1,12 @@
 package org.lnu.is.service.timeperiod;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.timeperiod.TimePeriodDao;
 import org.lnu.is.domain.timeperiod.TimePeriod;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.springframework.stereotype.Service;
@@ -19,9 +22,15 @@ public class DefaultTimePeriodService implements TimePeriodService {
 	@Resource(name = "timePeriodDao")
 	private TimePeriodDao timePeriodDao;
 	
+	@Resource(name = "timePeriodParametersExtractor")
+	private ParametersExtractor<TimePeriod> parametersExtractor;
+	
 	@Override
 	public PagedResult<TimePeriod> getTimePeriods(final PagedSearch<TimePeriod> pagedSearch) {
-		return timePeriodDao.getTimePeriods(pagedSearch);
+		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch);
+		pagedSearch.setParameters(parameters);
+		
+		return timePeriodDao.getEntities(pagedSearch);
 	}
 
 }

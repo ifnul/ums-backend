@@ -202,7 +202,7 @@ public class DefaultDepartmentFacadeTest {
 		PagedRequest<DepartmentResource> pagedRequest = new PagedRequest<DepartmentResource>(resource, 10, 10);
 		List<DepartmentResource> funnyResources = Collections.singletonList(new DepartmentResource());
 		PagedResultResource<DepartmentResource> expectedFunnies = new PagedResultResource<>("/departments");
-		expectedFunnies.setEntities(funnyResources);
+		expectedFunnies.setResources(funnyResources);
 
 		int offset = 8;
 		int limit = 3;

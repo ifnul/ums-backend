@@ -162,7 +162,7 @@ public class PersonControllerTest extends AbstractControllerTest {
 		expectedResource.setLimit(limit);
 		expectedResource.setOffset(offset);
 		expectedResource.setUri(uri);
-		expectedResource.setEntities(entities);
+		expectedResource.setResources(entities);
 		
 		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), offset, limit);
 		

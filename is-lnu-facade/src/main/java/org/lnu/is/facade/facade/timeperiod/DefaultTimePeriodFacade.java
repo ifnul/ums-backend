@@ -31,6 +31,9 @@ public class DefaultTimePeriodFacade implements TimePeriodFacade {
 
 	@Resource(name = "timePeriodConverter")
 	private Converter<TimePeriod, TimePeriodResource> timePeriodConverter;
+
+	@Resource(name = "timePeriodResourceConverter")
+	private Converter<TimePeriodResource, TimePeriod> timePeriodResourceConverter;
 	
 	@Resource(name = "pagedRequestConverter")
 	private Converter<PagedRequest<TimePeriodResource>, PagedSearch<TimePeriod>> pagedRequestConverter;
@@ -43,11 +46,13 @@ public class DefaultTimePeriodFacade implements TimePeriodFacade {
 		LOG.info("Get time periods by paged request: {}", request);
 
 		PagedSearch<TimePeriod> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(timePeriodResourceConverter.convert(request.getResource()));
+		
 		PagedResult<TimePeriod> pagedResult = timePeriodService.getTimePeriods(pagedSearch);
 		List<TimePeriodResource> resources = timePeriodConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<TimePeriodResource> pagedResultResource = new PagedResultResource<>("/timeperiods");
-		pagedResultResource.setEntities(resources);
+		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 
 		return pagedResultResource;

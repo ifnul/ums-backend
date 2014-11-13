@@ -190,7 +190,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 		expectedResource.setLimit(limit);
 		expectedResource.setOffset(offset);
 		expectedResource.setUri(uri);
-		expectedResource.setEntities(entities);
+		expectedResource.setResources(entities);
 		
 		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(new SpecialtyResource(), offset, limit);
 		

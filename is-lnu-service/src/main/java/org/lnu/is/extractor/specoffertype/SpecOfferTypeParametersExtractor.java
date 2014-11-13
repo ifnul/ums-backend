@@ -1,4 +1,4 @@
-package org.lnu.is.dao.extractor.specoffertype;
+package org.lnu.is.extractor.specoffertype;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,9 +6,9 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.specialtytype.SpecialtyTypeDao;
-import org.lnu.is.dao.extractor.ParametersExtractor;
 import org.lnu.is.domain.specialtype.SpecialtyType;
 import org.lnu.is.domain.specoffertype.SpecOfferType;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedSearch;
 import org.springframework.stereotype.Component;
 

@@ -90,7 +90,7 @@ public class DefaultSpecialtyFacade implements SpecialtyFacade {
 		List<SpecialtyResource> resources = specialtyConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<SpecialtyResource> pagedResultResource = new PagedResultResource<>("/specialties");
-		pagedResultResource.setEntities(resources);
+		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 
 		return pagedResultResource;

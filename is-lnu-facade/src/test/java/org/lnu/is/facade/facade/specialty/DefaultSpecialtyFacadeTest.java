@@ -197,7 +197,7 @@ public class DefaultSpecialtyFacadeTest {
 		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(new SpecialtyResource(), 10, 10);
 		List<SpecialtyResource> funnyResources = Collections.singletonList(new SpecialtyResource());
 		PagedResultResource<SpecialtyResource> expected = new PagedResultResource<>("/specialties");
-		expected.setEntities(funnyResources);
+		expected.setResources(funnyResources);
 
 		int offset = 8;
 		int limit = 3;

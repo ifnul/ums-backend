@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.facade.timeperiod.DefaultTimePeriodFacade;
 import org.lnu.is.facade.resource.ApiResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -37,6 +36,9 @@ public class DefaultTimePeriodFacadeTest {
 	private Converter<TimePeriod, TimePeriodResource> timePeriodConverter;
 	
 	@Mock
+	private Converter<TimePeriodResource, TimePeriod> timePeriodResourceConverter;
+	
+	@Mock
 	private Converter<PagedRequest<TimePeriodResource>, PagedSearch<TimePeriod>> pagedRequestConverter;
 
 	@Mock
@@ -51,7 +53,7 @@ public class DefaultTimePeriodFacadeTest {
 		PagedRequest<TimePeriodResource> pagedRequest = new PagedRequest<TimePeriodResource>(new TimePeriodResource(), 10, 10);
 		List<TimePeriodResource> funnyResources = Collections.singletonList(new TimePeriodResource());
 		PagedResultResource<TimePeriodResource> expected = new PagedResultResource<>("/timeperiods");
-		expected.setEntities(funnyResources);
+		expected.setResources(funnyResources);
 
 		int offset = 8;
 		int limit = 3;

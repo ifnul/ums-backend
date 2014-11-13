@@ -179,7 +179,7 @@ public class DefaultSpecOfferFacadeTest {
 		PagedRequest<SpecOfferResource> pagedRequest = new PagedRequest<SpecOfferResource>(new SpecOfferResource(),10, 10);
 		List<SpecOfferResource> funnyResources = Collections.singletonList(new SpecOfferResource());
 		PagedResultResource<SpecOfferResource> expectedFunnies = new PagedResultResource<>("/specoffers");
-		expectedFunnies.setEntities(funnyResources);
+		expectedFunnies.setResources(funnyResources);
 
 		int offset = 8;
 		int limit = 3;

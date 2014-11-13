@@ -60,7 +60,7 @@ public class TimePeriodControllerTest extends AbstractControllerTest {
 		expectedResource.setLimit(limit);
 		expectedResource.setOffset(offset);
 		expectedResource.setUri(uri);
-		expectedResource.setEntities(entities);
+		expectedResource.setResources(entities);
 		
 		PagedRequest<TimePeriodResource> pagedRequest = new PagedRequest<TimePeriodResource>(new TimePeriodResource(), offset, limit);
 		

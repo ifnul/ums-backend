@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.timeperiod.TimePeriodDao;
 import org.lnu.is.domain.timeperiod.TimePeriod;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.mockito.InjectMocks;
@@ -23,6 +24,9 @@ public class DefaultTimePeriodServiceTest {
 	
 	@Mock
 	private TimePeriodDao timePeriodDao;
+	
+	@Mock
+	private ParametersExtractor<TimePeriod> parametersExtractor;
 	
 	@InjectMocks
 	private DefaultTimePeriodService unit;
@@ -40,11 +44,11 @@ public class DefaultTimePeriodServiceTest {
 		PagedResult<TimePeriod> expected = new PagedResult<TimePeriod>(offset, limit, count, entities);
 		
 		// When
-		when(timePeriodDao.getTimePeriods(Matchers.<PagedSearch<TimePeriod>>any())).thenReturn(expected);
+		when(timePeriodDao.getEntities(Matchers.<PagedSearch<TimePeriod>>any())).thenReturn(expected);
 		PagedResult<TimePeriod> actual = unit.getTimePeriods(pagedSearch);
 
 		// Then
-		verify(timePeriodDao).getTimePeriods(pagedSearch);
+		verify(timePeriodDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}	
 }

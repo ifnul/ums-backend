@@ -8,5 +8,6 @@
        default-autowire="byName">
 
     <context:component-scan base-package="org.lnu.is.service" />
+    <context:component-scan base-package="org.lnu.is.extractor" />
 
 </beans>

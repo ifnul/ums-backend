@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.pagination.PagedResult;
@@ -25,6 +26,9 @@ public class DefaultTimePeriodDaoTest {
 
 	@Mock
 	private PersistenceManager<TimePeriod, Long> persistenceManager;
+	
+	@Mock
+	private QueryBuilder<TimePeriod> queryBuilder;
 	
 	@InjectMocks
 	private DefaultTimePeriodDao unit;
@@ -44,7 +48,7 @@ public class DefaultTimePeriodDaoTest {
 		
 		// When
 		when(persistenceManager.search(Matchers.<PagedSearch<TimePeriod>>any())).thenReturn(expected);
-		PagedResult<TimePeriod> actual = unit.getTimePeriods(pagedSearch);
+		PagedResult<TimePeriod> actual = unit.getEntities(pagedSearch);
 
 		// Then
 		verify(persistenceManager).search(pagedSearch);

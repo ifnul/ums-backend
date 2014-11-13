@@ -54,7 +54,7 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
 		long count = 1;
 		Integer limit = 38;
 		PagedResultResource<EduFormTypeResource> expected = new PagedResultResource<>("/eduformtypes");
-		expected.setEntities(entities);
+		expected.setResources(entities);
 		expected.setCount(count);
 		expected.setLimit(limit);
 		expected.setOffset(offset);

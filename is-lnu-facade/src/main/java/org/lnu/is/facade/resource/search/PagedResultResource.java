@@ -14,7 +14,7 @@ public class PagedResultResource<R> {
     private Integer offset;
     private Integer limit;
     private long count;
-    private List<R> entities;
+    private List<R> resources;
     private String uri;
 
     /**
@@ -55,12 +55,12 @@ public class PagedResultResource<R> {
 		this.count = count;
 	}
 
-	public List<R> getEntities() {
-		return entities;
+	public List<R> getResources() {
+		return resources;
 	}
 
-	public void setEntities(final List<R> entities) {
-		this.entities = entities;
+	public void setResources(final List<R> resources) {
+		this.resources = resources;
 	}
 
 	public String getUri() {
@@ -78,7 +78,7 @@ public class PagedResultResource<R> {
 		final int i = 32;
 		result = prime * result + (int) (count ^ (count >>> i));
 		result = prime * result
-				+ ((entities == null) ? 0 : entities.hashCode());
+				+ ((resources == null) ? 0 : resources.hashCode());
 		result = prime * result + ((limit == null) ? 0 : limit.hashCode());
 		result = prime * result + ((offset == null) ? 0 : offset.hashCode());
 		result = prime * result + ((uri == null) ? 0 : uri.hashCode());
@@ -100,11 +100,11 @@ public class PagedResultResource<R> {
 		if (count != other.count) {
 			return false;
 		}
-		if (entities == null) {
-			if (other.entities != null) {
+		if (resources == null) {
+			if (other.resources != null) {
 				return false;
 			}
-		} else if (!entities.equals(other.entities)) {
+		} else if (!resources.equals(other.resources)) {
 			return false;
 		}
 		if (limit == null) {
@@ -134,7 +134,7 @@ public class PagedResultResource<R> {
 	@Override
 	public String toString() {
 		return "PagedResultResource [offset=" + offset + ", limit=" + limit
-				+ ", count=" + count + ", entities=" + entities + ", uri="
+				+ ", count=" + count + ", entities=" + resources + ", uri="
 				+ uri + "]";
 	}
 }
