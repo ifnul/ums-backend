@@ -53,16 +53,6 @@ public abstract class AbstractDao<E, T> implements Dao<E, T> {
 	public void delete(final E entity) {
 		persistenceManager.remove(entity);
 	}
-	
-	/**
-	 * Method for searching results by part.
-	 * @param searchRequest search request.
-	 * @return Paged Result with part result. 
-	 */
-	//TODO: IU - Remove this method.
-	protected PagedResult<E> search(final PagedSearch<E> searchRequest) {
-		return persistenceManager.search(searchRequest);
-	}
 
 	@Override
 	public PagedResult<E> getEntities(final PagedSearch<E> pagedSearch) {
