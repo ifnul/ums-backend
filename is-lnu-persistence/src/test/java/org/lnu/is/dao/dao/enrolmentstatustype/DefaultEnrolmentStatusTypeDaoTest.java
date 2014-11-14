@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
 import org.lnu.is.pagination.PagedResult;
@@ -25,6 +26,9 @@ public class DefaultEnrolmentStatusTypeDaoTest {
 	
 	@Mock
 	private PersistenceManager<EnrolmentStatusType, Long> persistenceManager;
+	
+	@Mock
+	private QueryBuilder<EnrolmentStatusType> queryBuilder;
 	
 	@InjectMocks
 	private DefaultEnrolmentStatusTypeDao unit;
