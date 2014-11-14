@@ -105,12 +105,12 @@ public class DefaultEnrolmentStatusTypeServiceTest {
 		PagedResult<EnrolmentStatusType> expected = new PagedResult<EnrolmentStatusType>(offset, limit, count, entities);
 		
 		// When
-		when(enrolmentStatusTypeDao.getEnrolmentStatusTypes(Matchers.<PagedSearch<EnrolmentStatusType>>any())).thenReturn(expected);
+		when(enrolmentStatusTypeDao.getEntities(Matchers.<PagedSearch<EnrolmentStatusType>>any())).thenReturn(expected);
 		
 		PagedResult<EnrolmentStatusType> actual = unit.getEnrolmentStatusTypes(pagedSearch);
 
 		// Then
-		verify(enrolmentStatusTypeDao).getEnrolmentStatusTypes(pagedSearch);
+		verify(enrolmentStatusTypeDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 
