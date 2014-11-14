@@ -21,26 +21,26 @@ public interface EnrolmentStatusTypeService extends Service<EnrolmentStatusType>
 
 	/**
 	 * Method for getting enrolmentstatustype by it's identifier.
-	 * @param id identifier.
+	 * @param id identifier
 	 * @return EnrolmentStatusType entity.
 	 */
 	EnrolmentStatusType getEnrolmentStatusType(Long id);
 
 	/**
 	 * Method for updating enrolmentstatustype.
-	 * @param enrolmentStatusType entity.
+	 * @param enrolmentStatusType entity
 	 */
 	void updateEnrolmentStatusType(EnrolmentStatusType enrolmentStatusType);
-
+	
 	/**
 	 * Method for removing enrolmentstatustype by it's identifier.
-	 * @param EnrolmentStatusType enrolmentStatusType.
+	 * @param enrolmentStatusType entity
 	 */
 	void removeEnrolmentStatusType(EnrolmentStatusType enrolmentStatusType);
 
 	/**
 	 * Method for getting enrolmentStatusTypes as paged result.
-	 * @param pagedSearch search context.
+	 * @param pagedSearch search context
 	 * @return Paged Entities.
 	 */
 	PagedResult<EnrolmentStatusType> getEnrolmentStatusTypes(PagedSearch<EnrolmentStatusType> pagedSearch);

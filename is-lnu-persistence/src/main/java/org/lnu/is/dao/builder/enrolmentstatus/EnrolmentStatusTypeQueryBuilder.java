@@ -5,7 +5,11 @@ import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
 import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
-
+/**
+ * Enrolment Status Type query builder.
+ * @author OlehZanevych
+ *
+ */
 @Component("enrolmentStatusTypeQueryBuilder")
 public class EnrolmentStatusTypeQueryBuilder implements QueryBuilder<EnrolmentStatusType> {
 

@@ -29,6 +29,9 @@ public final class Queries {
 	private static final String FIND_SPECOFFER_TYPES_QUERY_NAME = "SpecOfferType.findSpecOfferTypes";
 	private static final String FIND_SPECOFFER_TYPES_QUERY = "SELECT s FROM SpecOfferType s";
 
+	private static final String FIND_ENROLMENT_STATUS_TYPES_QUERY_NAME = "EnrolmentStatusType.findEnrolmentStatusTypes";
+	private static final String FIND_ENROLMENT_STATUS_TYPES_QUERY = "SELECT e FROM EnrolmentStatusType e";
+	
 	public static final Queries FIND_SPECOFFERS = new Queries(FIND_SPECOFFERS_QUERY_NAME, FIND_SPECOFFERS_QUERY);
 	public static final Queries FIND_SPECIALTIES = new Queries(FIND_SPECIALTIES_QUERY_NAME, FIND_SPECIALTIES_QUERY);
 	public static final Queries FIND_DEPARTMENTS = new Queries(FIND_DEPARTMENTS_QUERY_NAME, FIND_DEPARTMENTS_QUERY);
@@ -37,7 +40,8 @@ public final class Queries {
 	public static final Queries FIND_TIME_PERIODS = new Queries(FIND_TIME_PERIODS_QUERY_NAME, FIND_TIME_PERIODS_QUERY);
 	public static final Queries FIND_EDU_FORM_TYPES = new Queries(FIND_EDU_FORM_TYPES_QUERY_NAME, FIND_EDU_FORM_TYPES_QUERY);
 	public static final Queries FIND_SPECOFFER_TYPES = new Queries(FIND_SPECOFFER_TYPES_QUERY_NAME, FIND_SPECOFFER_TYPES_QUERY);
-
+	public static final Queries FIND_ENROLMENT_STATUS_TYPES = new Queries(FIND_ENROLMENT_STATUS_TYPES_QUERY_NAME, FIND_ENROLMENT_STATUS_TYPES_QUERY);
+	
     private final String queryName;
     private final String query;
 
