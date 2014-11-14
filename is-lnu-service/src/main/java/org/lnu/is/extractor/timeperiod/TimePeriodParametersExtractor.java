@@ -8,9 +8,7 @@ import javax.annotation.Resource;
 import org.lnu.is.dao.dao.timeperiod.TimePeriodDao;
 import org.lnu.is.dao.dao.timeperiodtype.TimePeriodTypeDao;
 import org.lnu.is.domain.timeperiod.TimePeriod;
-import org.lnu.is.domain.timeperiodtype.TimePeriodType;
-import org.lnu.is.extractor.ParametersExtractor;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,7 +17,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component("timePeriodParametersExtractor")
-public class TimePeriodParametersExtractor implements ParametersExtractor<TimePeriod> {
+public class TimePeriodParametersExtractor extends AbstractParametersExtractor<TimePeriod> {
 
 	@Resource(name = "timePeriodDao")
 	private TimePeriodDao timePeriodDao;
@@ -28,35 +26,16 @@ public class TimePeriodParametersExtractor implements ParametersExtractor<TimePe
 	private TimePeriodTypeDao timePeriodTypeDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final PagedSearch<TimePeriod> pagedSearch) {
-		TimePeriod context = pagedSearch.getEntity();
+	public Map<String, Object> getParameters(final TimePeriod entity) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
-		if (context.getBegDate() != null) {
-			parameters.put("begDate", context.getBegDate());
-		}
-		
-		if (context.getEndDate() != null) {
-			parameters.put("endDate", context.getEndDate());
-		}
-		
-		if (context.getName() != null) {
-			parameters.put("name", context.getName());
-		}
-		
-		if (context.getNumValue() != null) {
-			parameters.put("numValue", context.getNumValue());
-		}
-		
-		if (context.getParent() != null) {
-			TimePeriod parent = timePeriodDao.findById(context.getParent().getId());
-			parameters.put("parent", parent);
-		}
-		
-		if (context.getTimePeriodType() != null) {
-			TimePeriodType timePeriodType = timePeriodTypeDao.findById(context.getTimePeriodType().getId());
-			parameters.put("timePeriodType", timePeriodType);
-		}
+		addParameter(entity.getBegDate(), "begDate", parameters);
+		addParameter(entity.getEndDate(), "endDate", parameters);
+		addParameter(entity.getName(), "name", parameters);
+		addParameter(entity.getNumValue(), "numValue", parameters);
+
+		addParameter(entity.getParent(), timePeriodDao, "parent", parameters);
+		addParameter(entity.getTimePeriodType(), timePeriodTypeDao, "timePeriodType", parameters);
 		
 		return parameters;
 	}

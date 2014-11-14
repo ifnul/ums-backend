@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.person.PersonDao;
 import org.lnu.is.domain.person.Person;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.mockito.InjectMocks;
@@ -25,6 +26,9 @@ public class DefaultPersonServiceTest {
 
 	@Mock
 	private PersonDao personDao;
+	
+	@Mock
+	private ParametersExtractor<Person> parametersExtractor;
 	
 	@InjectMocks
 	private DefaultPersonService unit;
@@ -94,11 +98,11 @@ public class DefaultPersonServiceTest {
 		PagedResult<Person> expected = new PagedResult<Person>(offset, limit, count, entities);
 		
 		// When
-		when(personDao.getPersons(Matchers.<PagedSearch<Person>>any())).thenReturn(expected);
+		when(personDao.getEntities(Matchers.<PagedSearch<Person>>any())).thenReturn(expected);
 		PagedResult<Person> actual = unit.getPersons(pagedSearch);
 
 		// Then
-		verify(personDao).getPersons(pagedSearch);
+		verify(personDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

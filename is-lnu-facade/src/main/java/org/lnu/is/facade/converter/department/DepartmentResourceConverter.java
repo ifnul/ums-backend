@@ -25,7 +25,7 @@ public class DepartmentResourceConverter extends AbstractConverter<DepartmentRes
 			target.setDepartmentType(departmentType);
 		}
 		
-		if (source.getDepartmentTypeId() != null) {
+		if (source.getParentId() != null) {
 			Department parent = new Department();
 			parent.setId(source.getParentId());
 			target.setParent(parent);

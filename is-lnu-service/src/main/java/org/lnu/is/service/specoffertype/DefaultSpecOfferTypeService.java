@@ -27,7 +27,7 @@ public class DefaultSpecOfferTypeService implements SpecOfferTypeService {
 	
 	@Override
 	public PagedResult<SpecOfferType> getSpecOfferTypes(final PagedSearch<SpecOfferType> pagedSearch) {
-		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch);
+		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
 		return specOfferTypeDao.getEntities(pagedSearch);

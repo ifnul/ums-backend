@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.department.DepartmentDao;
 import org.lnu.is.domain.department.Department;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.mockito.InjectMocks;
@@ -24,6 +25,9 @@ public class DefaultDepartmentServiceTest {
 
 	@Mock
 	private DepartmentDao departmentDao;
+	
+	@Mock
+	private ParametersExtractor<Department> parametersExtractor;
 	
 	@InjectMocks
 	private DefaultDepartmentService unit;
@@ -94,11 +98,11 @@ public class DefaultDepartmentServiceTest {
 		PagedResult<Department> expected = new PagedResult<Department>(offset, limit, count, entities);
 		
 		// When
-		when(departmentDao.getDepartments(Matchers.<PagedSearch<Department>>any())).thenReturn(expected);
+		when(departmentDao.getEntities(Matchers.<PagedSearch<Department>>any())).thenReturn(expected);
 		PagedResult<Department> actual = unit.getDepartments(pagedSearch);
 
 		// Then
-		verify(departmentDao).getDepartments(pagedSearch);
+		verify(departmentDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.pagination.PagedResult;
@@ -25,6 +26,9 @@ public class DefaultDepartmentDaoTest {
 
 	@Mock
 	private PersistenceManager<Department, Long> persistenceManager;
+	
+	@Mock
+	private QueryBuilder<Department> queryBuilder;
 	
 	@InjectMocks
 	private DefaultDepartmentDao unit;
@@ -44,7 +48,7 @@ public class DefaultDepartmentDaoTest {
 		
 		// When
 		when(persistenceManager.search(Matchers.<PagedSearch<Department>>any())).thenReturn(expected);
-		PagedResult<Department> actual = unit.getDepartments(pagedSearch);
+		PagedResult<Department> actual = unit.getEntities(pagedSearch);
 
 		// Then
 		verify(persistenceManager).search(pagedSearch);

@@ -84,6 +84,7 @@ public class DefaultPersonFacade implements PersonFacade {
 		LOG.info("Get persons by paged request: {}", pagedRequest);
 
 		PagedSearch<Person> pagedSearch = pagedRequestConverter.convert(pagedRequest);
+		pagedSearch.setEntity(personResourceConverter.convert(pagedRequest.getResource()));
 
 		PagedResult<Person> pagedResult = personService.getPersons(pagedSearch);
 

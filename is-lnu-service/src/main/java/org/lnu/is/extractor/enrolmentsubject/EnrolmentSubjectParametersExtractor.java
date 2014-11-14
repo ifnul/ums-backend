@@ -7,8 +7,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.enrolmentsubject.EnrolmentSubjectDao;
 import org.lnu.is.domain.enrolmentsubject.EnrolmentSubject;
-import org.lnu.is.extractor.ParametersExtractor;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,32 +16,20 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component("enrolmentSubjectParametersExtractor")
-public class EnrolmentSubjectParametersExtractor implements ParametersExtractor<EnrolmentSubject> {
+public class EnrolmentSubjectParametersExtractor extends AbstractParametersExtractor<EnrolmentSubject> {
 
 	@Resource(name = "enrolmentSubjectDao")
 	private EnrolmentSubjectDao enrolmentSubjectDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final PagedSearch<EnrolmentSubject> pagedSearch) {
-		EnrolmentSubject entity = pagedSearch.getEntity();
+	public Map<String, Object> getParameters(final EnrolmentSubject entity) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
-		if (entity.getParent() != null) {
-			EnrolmentSubject parent = enrolmentSubjectDao.findById(entity.getParent().getId());
-			parameters.put("parent", parent);
-		}
-		
-		if (entity.getAbbrName() != null) {
-			parameters.put("abbrName", entity.getAbbrName());
-		}
-		
-		if (entity.getName() != null) {
-			parameters.put("name", entity.getName());
-		}
-		
-		if (entity.getIsTesting() != null) {
-			parameters.put("isTesting", entity.getIsTesting());
-		}
+		addParameter(entity.getParent(), enrolmentSubjectDao, "parent", parameters);
+
+		addParameter(entity.getAbbrName(), "abbrName", parameters);
+		addParameter(entity.getName(), "name", parameters);
+		addParameter(entity.getIsTesting(), "isTesting", parameters);
 		
 		return parameters;
 	}

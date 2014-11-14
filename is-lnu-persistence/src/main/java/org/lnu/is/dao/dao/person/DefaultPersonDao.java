@@ -1,12 +1,10 @@
 package org.lnu.is.dao.dao.person;
 
-import java.util.Collections;
+import javax.annotation.Resource;
 
 import org.lnu.is.dao.AbstractDao;
+import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -23,15 +21,9 @@ public class DefaultPersonDao extends AbstractDao<Person, Long> implements Perso
 	}
 
 	@Override
-	public PagedResult<Person> getPersons(final PagedSearch<Person> pagedSearch) {
-
-		Queries query = Queries.FIND_PERSONS;
-
-		pagedSearch.setClazz(getEntityClass());
-		pagedSearch.setParameters(Collections.<String, Object>emptyMap());
-		pagedSearch.setQuery(query);
-
-		return search(pagedSearch);
+	@Resource(name = "personQueryBuilder")
+	public void setQueryBuilder(final QueryBuilder<Person> queryBuilder) {
+		super.setQueryBuilder(queryBuilder);
 	}
 
 }

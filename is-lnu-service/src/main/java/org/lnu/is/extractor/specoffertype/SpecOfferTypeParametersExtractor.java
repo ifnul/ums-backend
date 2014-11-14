@@ -6,10 +6,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.specialtytype.SpecialtyTypeDao;
-import org.lnu.is.domain.specialtype.SpecialtyType;
 import org.lnu.is.domain.specoffertype.SpecOfferType;
-import org.lnu.is.extractor.ParametersExtractor;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -18,29 +16,19 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component("specOfferTypeParametersExtractor")
-public class SpecOfferTypeParametersExtractor implements ParametersExtractor<SpecOfferType> {
+public class SpecOfferTypeParametersExtractor extends AbstractParametersExtractor<SpecOfferType> {
 
 	@Resource(name = "specialtyTypeDao")
 	private SpecialtyTypeDao specialtyTypeDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final PagedSearch<SpecOfferType> pagedSearch) {
-		SpecOfferType context = pagedSearch.getEntity();
-		
+	public Map<String, Object> getParameters(final SpecOfferType entity) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
-		if (context.getAbbrName() != null) {
-			parameters.put("abbrName", context.getAbbrName());
-		}
-		
-		if (context.getName() != null) {
-			parameters.put("name", context.getName());
-		}
-		
-		if (context.getSpecialtyType() != null) {
-			SpecialtyType specialtyType = specialtyTypeDao.findById(context.getSpecialtyType().getId());
-			parameters.put("specialtyType", specialtyType);
-		}
+		addParameter(entity.getAbbrName(), "abbrName", parameters);
+		addParameter(entity.getName(), "name", parameters);
+
+		addParameter(entity.getSpecialtyType(), specialtyTypeDao, "specialtyType", parameters);
 		
 		return parameters;
 	}

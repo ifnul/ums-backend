@@ -27,7 +27,7 @@ public class DefaultEnrolmentSubjectService implements EnrolmentSubjectService {
 	
 	@Override
 	public PagedResult<EnrolmentSubject> getEnrolmentSubjects(final PagedSearch<EnrolmentSubject> pagedSearch) {
-		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch);
+		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
 		return enrolmentSubjectDao.getEntities(pagedSearch);

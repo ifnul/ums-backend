@@ -8,9 +8,7 @@ import javax.annotation.Resource;
 import org.lnu.is.dao.dao.specialty.SpecialtyDao;
 import org.lnu.is.dao.dao.specialtytype.SpecialtyTypeDao;
 import org.lnu.is.domain.specialty.Specialty;
-import org.lnu.is.domain.specialtype.SpecialtyType;
-import org.lnu.is.extractor.ParametersExtractor;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,7 +17,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component("specialtyParametersExtractor")
-public class SpecialtyParametersExtractor implements ParametersExtractor<Specialty> {
+public class SpecialtyParametersExtractor extends AbstractParametersExtractor<Specialty> {
 
 	@Resource(name = "specialtyTypeDao")
 	private SpecialtyTypeDao specialtyTypeDao;
@@ -28,39 +26,17 @@ public class SpecialtyParametersExtractor implements ParametersExtractor<Special
 	private SpecialtyDao specialtyDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final PagedSearch<Specialty> pagedSearch) {
-		Specialty entity = pagedSearch.getEntity();
+	public Map<String, Object> getParameters(final Specialty entity) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
-		if (entity.getSpecialtyType() != null) {
-			SpecialtyType specialtyType = specialtyTypeDao.findById(entity.getSpecialtyType().getId());
-			parameters.put("specialtyType", specialtyType);
-		}
-		
-		if (entity.getParent() != null) {
-			Specialty parent = specialtyDao.findById(entity.getParent().getId());
-			parameters.put("parent", parent);
-		}
-		
-		if (entity.getAbbrName() != null) {
-			parameters.put("abbrName", entity.getAbbrName());
-		}
-		
-		if (entity.getName() != null) {
-			parameters.put("name", entity.getName());
-		}
-		
-		if (entity.getCipher() != null) {
-			parameters.put("cipher", entity.getCipher());
-		}
-		
-		if (entity.getBegDate() != null) {
-			parameters.put("begDate", entity.getBegDate());
-		}
-		
-		if (entity.getEndDate() != null) {
-			parameters.put("endDate", entity.getEndDate());
-		}
+		addParameter(entity.getSpecialtyType(), specialtyTypeDao, "specialtyType", parameters);
+		addParameter(entity.getParent(), specialtyDao, "parent", parameters);
+
+		addParameter(entity.getAbbrName(), "abbrName", parameters);
+		addParameter(entity.getName(), "name", parameters);
+		addParameter(entity.getCipher(), "cipher", parameters);
+		addParameter(entity.getBegDate(), "begDate", parameters);
+		addParameter(entity.getEndDate(), "endDate", parameters);
 		
 		return parameters;
 	}

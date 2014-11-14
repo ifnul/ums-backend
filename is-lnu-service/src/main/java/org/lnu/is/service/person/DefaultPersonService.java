@@ -1,9 +1,12 @@
 package org.lnu.is.service.person;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.person.PersonDao;
 import org.lnu.is.domain.person.Person;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.springframework.stereotype.Service;
@@ -19,6 +22,9 @@ public class DefaultPersonService implements PersonService {
 	@Resource(name = "personDao")
 	private PersonDao personDao;
 
+	@Resource(name = "personParametersExtractor")
+	private ParametersExtractor<Person> parametersExtractor;
+	
 	@Override
 	public void createPerson(final Person person) {
 		personDao.save(person);
@@ -41,7 +47,10 @@ public class DefaultPersonService implements PersonService {
 
 	@Override
 	public PagedResult<Person> getPersons(final PagedSearch<Person> pagedSearch) {
-		return personDao.getPersons(pagedSearch);
+		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
+		pagedSearch.setParameters(parameters);
+		
+		return personDao.getEntities(pagedSearch);
 	}
 	
 }

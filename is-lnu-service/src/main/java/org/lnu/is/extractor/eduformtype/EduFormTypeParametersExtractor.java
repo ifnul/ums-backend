@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.lnu.is.domain.eduformtype.EduFormType;
-import org.lnu.is.extractor.ParametersExtractor;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,16 +13,13 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component("eduFormTypeParametersExtractor")
-public class EduFormTypeParametersExtractor implements ParametersExtractor<EduFormType> {
+public class EduFormTypeParametersExtractor extends AbstractParametersExtractor<EduFormType> {
 
 	@Override
-	public Map<String, Object> getParameters(final PagedSearch<EduFormType> pagedSearch) {
-		EduFormType entity = new EduFormType();
+	public Map<String, Object> getParameters(final EduFormType entity) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
-		if (entity.getName() != null) {
-			parameters.put("name", entity.getName());
-		}
+		addParameter(entity.getName(), "name", parameters);
 		
 		return parameters;
 	}

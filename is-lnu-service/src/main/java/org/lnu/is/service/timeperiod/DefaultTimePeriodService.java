@@ -27,7 +27,7 @@ public class DefaultTimePeriodService implements TimePeriodService {
 	
 	@Override
 	public PagedResult<TimePeriod> getTimePeriods(final PagedSearch<TimePeriod> pagedSearch) {
-		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch);
+		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
 		return timePeriodDao.getEntities(pagedSearch);

@@ -14,6 +14,6 @@ object EduFormTypeIntegrationTest {
     .exec(http("Edu Form Types Get Paged Result")
       .get("${targetUrl}")
       .check(bodyString.transform(Jackson.parse).is("${expectedResponse}"))
-    )        
+    )
 
 }

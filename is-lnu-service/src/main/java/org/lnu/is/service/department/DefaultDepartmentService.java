@@ -1,9 +1,12 @@
 package org.lnu.is.service.department;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.department.DepartmentDao;
 import org.lnu.is.domain.department.Department;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.springframework.stereotype.Service;
@@ -18,6 +21,9 @@ public class DefaultDepartmentService implements DepartmentService {
 
 	@Resource(name = "departmentDao")
 	private DepartmentDao departmentDao;
+	
+	@Resource(name = "departmentParametersExtractor")
+	private ParametersExtractor<Department> parametersExtractor;
 	
 	@Override
 	public void createDepartment(final Department department) {
@@ -41,6 +47,9 @@ public class DefaultDepartmentService implements DepartmentService {
 
 	@Override
 	public PagedResult<Department> getDepartments(final PagedSearch<Department> pagedSearch) {
-		return departmentDao.getDepartments(pagedSearch);
+		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
+		pagedSearch.setParameters(parameters);
+		
+		return departmentDao.getEntities(pagedSearch);
 	}
 }

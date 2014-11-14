@@ -48,7 +48,7 @@ public class DefaultSpecialtyService implements SpecialtyService {
 
 	@Override
 	public PagedResult<Specialty> getSpecialties(final PagedSearch<Specialty> pagedSearch) {
-		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch);
+		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
 		return specialtyDao.getEntities(pagedSearch);
