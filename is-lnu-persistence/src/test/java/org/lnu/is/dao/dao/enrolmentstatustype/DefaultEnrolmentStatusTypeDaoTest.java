@@ -45,7 +45,7 @@ public class DefaultEnrolmentStatusTypeDaoTest {
 		
 		// When
 		when(persistenceManager.search(Matchers.<PagedSearch<EnrolmentStatusType>>any())).thenReturn(expected);
-		PagedResult<EnrolmentStatusType> actual = unit.getEnrolmentStatusTypes(pagedSearch);
+		PagedResult<EnrolmentStatusType> actual = unit.getEntities(pagedSearch);
 
 		// Then
 		verify(persistenceManager).search(pagedSearch);
