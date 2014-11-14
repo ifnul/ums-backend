@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.facade.eduformtype.DefaultEduFormTypeFacade;
 import org.lnu.is.facade.resource.ApiResource;
 import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -44,6 +43,9 @@ public class DefaultEduFormTypeFacadeTest {
 
 	@Mock
 	private Converter<EduFormType, EduFormTypeResource> eduFormTypeConverter;
+	
+	@Mock
+	private Converter<EduFormTypeResource, EduFormType> eduFormTypeResourceConverter;
 	
 	@Test
 	public void testGetSpecialties() throws Exception {

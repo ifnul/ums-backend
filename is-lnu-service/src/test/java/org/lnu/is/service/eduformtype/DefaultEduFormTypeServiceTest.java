@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.eduformtype.EduFormTypeDao;
 import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.mockito.InjectMocks;
@@ -23,6 +24,9 @@ public class DefaultEduFormTypeServiceTest {
 
 	@Mock
 	private EduFormTypeDao enrolmentSubjectDao;
+	
+	@Mock
+	private ParametersExtractor<EduFormType> parametersExtractor;
 	
 	@InjectMocks
 	private DefaultEduFormTypeService unit;
@@ -39,11 +43,11 @@ public class DefaultEduFormTypeServiceTest {
 		PagedResult<EduFormType> expected = new PagedResult<EduFormType>(offset, limit, count, entities);
 		
 		// When
-		when(enrolmentSubjectDao.getEduFormTypes(Matchers.<PagedSearch<EduFormType>>any())).thenReturn(expected);
+		when(enrolmentSubjectDao.getEntities(Matchers.<PagedSearch<EduFormType>>any())).thenReturn(expected);
 		PagedResult<EduFormType> actual = unit.getEduFormTypes(pagedSearch);
 
 		// Then
-		verify(enrolmentSubjectDao).getEduFormTypes(pagedSearch);
+		verify(enrolmentSubjectDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

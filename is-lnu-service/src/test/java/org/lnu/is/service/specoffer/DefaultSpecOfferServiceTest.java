@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.specoffer.SpecOfferDao;
 import org.lnu.is.domain.specoffer.SpecOffer;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
@@ -26,6 +27,9 @@ public class DefaultSpecOfferServiceTest {
 
 	@Mock
 	private SpecOfferDao specOfferDao;
+	
+	@Mock
+	private ParametersExtractor<SpecOffer> parametersExtractor;
 	
 	@InjectMocks
 	private DefaultSpecOfferService unit;
@@ -100,12 +104,12 @@ public class DefaultSpecOfferServiceTest {
 		PagedResult<SpecOffer> expected = new PagedResult<SpecOffer>(offset, limit, count, entities);
 		
 		// When
-		when(specOfferDao.getSpecOffers(Matchers.<PagedSearch<SpecOffer>>any())).thenReturn(expected);
+		when(specOfferDao.getEntities(Matchers.<PagedSearch<SpecOffer>>any())).thenReturn(expected);
 		
 		PagedResult<SpecOffer> actual = unit.getSpecOffers(pagedSearch);
 
 		// Then
-		verify(specOfferDao).getSpecOffers(pagedSearch);
+		verify(specOfferDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

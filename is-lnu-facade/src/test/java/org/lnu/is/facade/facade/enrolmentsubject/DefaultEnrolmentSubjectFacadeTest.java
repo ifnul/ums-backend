@@ -44,6 +44,9 @@ public class DefaultEnrolmentSubjectFacadeTest {
 	@Mock
 	private Converter<EnrolmentSubject, EnrolmentSubjectResource> enrolmentSubjectConverter;
 	
+	@Mock
+	private Converter<EnrolmentSubjectResource, EnrolmentSubject> enrolmentSubjectResourceConverter;
+	
 	@Test
 	public void testGetSpecialties() throws Exception {
 		// Given

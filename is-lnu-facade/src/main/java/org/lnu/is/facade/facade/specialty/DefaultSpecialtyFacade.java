@@ -84,7 +84,8 @@ public class DefaultSpecialtyFacade implements SpecialtyFacade {
 		LOG.info("Get specialties by paged request: {}", pagedRequest);
 
 		PagedSearch<Specialty> pagedSearch = pagedRequestConverter.convert(pagedRequest);
-
+		pagedSearch.setEntity(specialtyResourceConverter.convert(pagedRequest.getResource()));
+		
 		PagedResult<Specialty> pagedResult = specialtyService.getSpecialties(pagedSearch);
 
 		List<SpecialtyResource> resources = specialtyConverter.convertAll(pagedResult.getEntities());

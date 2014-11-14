@@ -1,9 +1,12 @@
 package org.lnu.is.service.specoffer;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.specoffer.SpecOfferDao;
 import org.lnu.is.domain.specoffer.SpecOffer;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,9 @@ public class DefaultSpecOfferService implements SpecOfferService {
 	@Resource(name = "specOfferDao")
 	private SpecOfferDao specOfferDao;
 
+	@Resource(name = "specOfferParametersExtractor")
+	private ParametersExtractor<SpecOffer> parametersExtractor;
+	
 	@Override
 	public void createSpecOffer(final SpecOffer specOffer) {
 		specOfferDao.save(specOffer);
@@ -42,7 +48,10 @@ public class DefaultSpecOfferService implements SpecOfferService {
 
 	@Override
 	public PagedResult<SpecOffer> getSpecOffers(final PagedSearch<SpecOffer> pagedSearch) {
-		return specOfferDao.getSpecOffers(pagedSearch);
+		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch);
+		pagedSearch.setParameters(parameters);
+		
+		return specOfferDao.getEntities(pagedSearch);
 	}
 	
 }

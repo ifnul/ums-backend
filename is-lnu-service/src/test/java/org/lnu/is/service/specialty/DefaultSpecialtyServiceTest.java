@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.specialty.SpecialtyDao;
 import org.lnu.is.domain.specialty.Specialty;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.mockito.InjectMocks;
@@ -26,6 +27,9 @@ public class DefaultSpecialtyServiceTest {
 
 	@Mock
 	private SpecialtyDao specialtyDao;
+	
+	@Mock
+	private ParametersExtractor<Specialty> parametersExtractor;
 	
 	@InjectMocks
 	private DefaultSpecialtyService unit;
@@ -96,11 +100,11 @@ public class DefaultSpecialtyServiceTest {
 		PagedResult<Specialty> expected = new PagedResult<Specialty>(offset, limit, count, entities);
 		
 		// When
-		when(specialtyDao.getSpecialties(Matchers.<PagedSearch<Specialty>>any())).thenReturn(expected);
+		when(specialtyDao.getEntities(Matchers.<PagedSearch<Specialty>>any())).thenReturn(expected);
 		PagedResult<Specialty> actual = unit.getSpecialties(pagedSearch);
 
 		// Then
-		verify(specialtyDao).getSpecialties(pagedSearch);
+		verify(specialtyDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

@@ -17,33 +17,35 @@ public class DepartmentResourceConverter extends AbstractConverter<DepartmentRes
 
 	@Override
 	public Department convert(final DepartmentResource source, final Department target) {
-		
-		DepartmentType departmentType = new DepartmentType();
-		departmentType.setId(source.getDepartmentTypeId());
 
-		Department parent = new Department();
-		parent.setId(source.getParentId());
-
-		Order order = new Order();
-		order.setId(source.getOrderId());
-
-		if (source.getBegDate() != null) {
-			target.setBegDate(source.getBegDate());
+		if (source.getDepartmentTypeId() != null) {
+			DepartmentType departmentType = new DepartmentType();
+			departmentType.setId(source.getDepartmentTypeId());
+			
+			target.setDepartmentType(departmentType);
 		}
 		
-		if (source.getEndDate() != null) {
-			target.setEndDate(source.getEndDate());
+		if (source.getDepartmentTypeId() != null) {
+			Department parent = new Department();
+			parent.setId(source.getParentId());
+			target.setParent(parent);
+		}
+
+		if (source.getOrderId() != null) {
+			Order order = new Order();
+			order.setId(source.getOrderId());
+			
+			target.setOrder(order);
 		}
 		
+		target.setEndDate(source.getEndDate());
+		target.setBegDate(source.getBegDate());
 		target.setAbbrName(source.getAbbrName());
-		target.setDepartmentType(departmentType);
 		target.setEmail(source.getEmail());
 		target.setManager(source.getManager());
 		target.setName(source.getName());
 		target.setNote(source.getNote());
-		target.setParent(parent);
 		target.setPhone(source.getPhone());
-		//target.setOrder(order);
 		
 		return target;
 	}

@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.pagination.PagedResult;
@@ -25,6 +26,9 @@ public class DefaultEduFormTypeDaoTest {
 
 	@Mock
 	private PersistenceManager<EduFormType, Long> persistenceManager;
+	
+	@Mock
+	private QueryBuilder<EduFormType> queryBuilder;
 	
 	@InjectMocks
 	private DefaultEduFormTypeDao unit;
@@ -44,7 +48,7 @@ public class DefaultEduFormTypeDaoTest {
 		
 		// When
 		when(persistenceManager.search(Matchers.<PagedSearch<EduFormType>>any())).thenReturn(expected);
-		PagedResult<EduFormType> actual = unit.getEduFormTypes(pagedSearch);
+		PagedResult<EduFormType> actual = unit.getEntities(pagedSearch);
 
 		// Then
 		verify(persistenceManager).search(pagedSearch);

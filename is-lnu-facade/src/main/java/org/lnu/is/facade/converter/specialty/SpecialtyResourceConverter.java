@@ -18,19 +18,23 @@ public class SpecialtyResourceConverter extends AbstractConverter<SpecialtyResou
 	@Override
 	public Specialty convert(final SpecialtyResource source, final Specialty target) {
 
-		Specialty parent = new Specialty();
-		parent.setId(source.getParentId());
+		if (source.getParentId() != null) {
+			Specialty parent = new Specialty();
+			parent.setId(source.getParentId());
+			target.setParent(parent);
+		}
 		
-		SpecialtyType specialtyType = new SpecialtyType();
-		specialtyType.setId(source.getSpecialtyTypeId());
+		if (source.getSpecialtyTypeId() != null) {
+			SpecialtyType specialtyType = new SpecialtyType();
+			specialtyType.setId(source.getSpecialtyTypeId());
+			target.setSpecialtyType(specialtyType);
+		}		
 		
 		target.setAbbrName(source.getAbbrName());
 		target.setBegDate(source.getBegDate());
 		target.setCipher(source.getCipher());
 		target.setEndDate(source.getEndDate());
 		target.setName(source.getName());
-		target.setParent(parent);
-		target.setSpecialtyType(specialtyType);
 		target.setNote(source.getNote());
 		
 		return target;

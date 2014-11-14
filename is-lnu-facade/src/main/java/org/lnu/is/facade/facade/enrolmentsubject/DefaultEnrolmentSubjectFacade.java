@@ -29,8 +29,11 @@ public class DefaultEnrolmentSubjectFacade implements EnrolmentSubjectFacade {
 	@Resource(name = "pagedSearchConverter")
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 	
-	//@Resource(name = "enrolmentSubjectConverter")
+	@Resource(name = "enrolmentSubjectConverter")
 	private Converter<EnrolmentSubject, EnrolmentSubjectResource> enrolmentSubjectConverter;
+	
+	@Resource(name = "enrolmentSubjectResourceConverter")
+	private Converter<EnrolmentSubjectResource, EnrolmentSubject> enrolmentSubjectResourceConverter;
 	
 	@Resource(name = "enrolmentSubjectService")
 	private EnrolmentSubjectService enrolmentSubjectService;
@@ -39,6 +42,8 @@ public class DefaultEnrolmentSubjectFacade implements EnrolmentSubjectFacade {
 	public PagedResultResource<EnrolmentSubjectResource> getEnrolmentSubjects(final PagedRequest<EnrolmentSubjectResource> request) {
 		
 		PagedSearch<EnrolmentSubject> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(enrolmentSubjectResourceConverter.convert(request.getResource()));
+		
 		PagedResult<EnrolmentSubject> pagedResult = enrolmentSubjectService.getEnrolmentSubjects(pagedSearch);
 		
 		List<EnrolmentSubjectResource> resources = enrolmentSubjectConverter.convertAll(pagedResult.getEntities());

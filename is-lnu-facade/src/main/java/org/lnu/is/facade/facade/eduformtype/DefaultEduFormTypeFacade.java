@@ -32,6 +32,9 @@ public class DefaultEduFormTypeFacade implements EduFormTypeFacade {
 	@Resource(name = "eduFormTypeConverter")
 	private Converter<EduFormType, EduFormTypeResource> eduFormTypeConverter;
 	
+	@Resource(name = "eduFormTypeResourceConverter")
+	private Converter<EduFormTypeResource, EduFormType> eduFormTypeResourceConverter;
+	
 	@Resource(name = "eduFormTypeService")
 	private EduFormTypeService eduFormTypeService;
 	
@@ -39,6 +42,8 @@ public class DefaultEduFormTypeFacade implements EduFormTypeFacade {
 	public PagedResultResource<EduFormTypeResource> getEduFormTypes(final PagedRequest<EduFormTypeResource> request) {
 		
 		PagedSearch<EduFormType> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(eduFormTypeResourceConverter.convert(request.getResource()));
+		
 		PagedResult<EduFormType> pagedResult = eduFormTypeService.getEduFormTypes(pagedSearch);
 		
 		List<EduFormTypeResource> resources = eduFormTypeConverter.convertAll(pagedResult.getEntities());

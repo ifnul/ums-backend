@@ -1,7 +1,5 @@
 package org.lnu.is.facade.converter.specoffer;
 
-import java.util.Date;
-
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.domain.specialty.Specialty;
@@ -23,35 +21,49 @@ public class SpecOfferResourceConverter extends AbstractConverter<SpecOfferResou
 	@Override
 	public SpecOffer convert(final SpecOfferResource source, final SpecOffer target) {
 		
-		Department department = new Department();
-		department.setId(source.getDepartmentId());
+		if (source.getDepartmentId() != null) {
+			Department department = new Department();
+			department.setId(source.getDepartmentId());
+
+			target.setDepartment(department);
+		}
 		
-		EduFormType eduFormType = new EduFormType();
-		eduFormType.setId(source.getEduFormTypeId());
+		if (source.getEduFormTypeId() != null) {
+			EduFormType eduFormType = new EduFormType();
+			eduFormType.setId(source.getEduFormTypeId());
 		
-		Specialty specialty = new Specialty();
-		specialty.setId(source.getSpecialtyId());
+			target.setEduFormType(eduFormType);
+		}
+		
+		if (source.getSpecialtyId() != null) {
+			Specialty specialty = new Specialty();
+			specialty.setId(source.getSpecialtyId());
 
-		SpecOfferType specOfferType = new SpecOfferType();
-		specOfferType.setId(source.getSpecofferTypeId());
+			target.setSpecialty(specialty);
+		}
 
-		TimePeriod timePeriod = new TimePeriod();
-		timePeriod.setId(source.getTimePeriodId());
+		if (source.getSpecofferTypeId() != null) {
+			SpecOfferType specOfferType = new SpecOfferType();
+			specOfferType.setId(source.getSpecofferTypeId());
 
+			target.setSpecOfferType(specOfferType);
+		}
+
+		if (source.getTimePeriodId() != null) {
+			TimePeriod timePeriod = new TimePeriod();
+			timePeriod.setId(source.getTimePeriodId());
+			
+			target.setTimePeriod(timePeriod);
+		}
+		
 		target.setBegDate(source.getBegDate());
-		target.setDepartment(department);
 		target.setDocNum(source.getDocNum());
 		target.setDocSeries(source.getDocSeries());
-		target.setEduFormType(eduFormType);
 		target.setEndDate(source.getEndDate());
 		target.setId(source.getId());
 		target.setLicCount(source.getLicCount());
 		target.setNote(source.getNote());
-		target.setSpecialty(specialty);
-		target.setSpecOfferType(specOfferType);
 		target.setStateCount(source.getStateCount());
-		target.setTimePeriod(timePeriod);
-		target.setUpdateDate(new Date());
 		
 		return target;
 	}

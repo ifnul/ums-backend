@@ -82,19 +82,19 @@ public class SpecialtyResource extends ApiResource {
 	}
 
 	public Date getBegDate() {
-		return new Date(begDate.getTime());
+		return begDate;
 	}
 
 	public void setBegDate(final Date begDate) {
-		this.begDate = new Date(begDate.getTime());
+		this.begDate = begDate;
 	}
 
 	public Date getEndDate() {
-		return new Date(endDate.getTime());
+		return endDate;
 	}
 
 	public void setEndDate(final Date endDate) {
-		this.endDate = new Date(endDate.getTime());
+		this.endDate = endDate;
 	}
 
 	@Override

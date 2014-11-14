@@ -95,7 +95,8 @@ public class DefaultSpecOfferFacade implements SpecOfferFacade {
 		LOG.info("Get spec offers by paged request: {}", pagedRequest);
 
 		PagedSearch<SpecOffer> pagedSearch = pagedRequestConverter.convert(pagedRequest);
-
+		pagedSearch.setEntity(specOfferResourceConverter.convert(pagedRequest.getResource()));
+		
 		PagedResult<SpecOffer> pagedResult = specOfferService.getSpecOffers(pagedSearch);
 
 		List<SpecOfferResource> resources = specOfferConverter.convertAll(pagedResult.getEntities());

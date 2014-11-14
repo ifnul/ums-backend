@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.enrolmentsubject.EnrolmentSubjectDao;
 import org.lnu.is.domain.enrolmentsubject.EnrolmentSubject;
+import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.mockito.InjectMocks;
@@ -23,6 +24,9 @@ public class DefaultEnrolmentSubjectServiceTest {
 
 	@Mock
 	private EnrolmentSubjectDao enrolmentSubjectDao;
+	
+	@Mock
+	private ParametersExtractor<EnrolmentSubject> parametersExtractor;
 	
 	@InjectMocks
 	private DefaultEnrolmentSubjectService unit;
@@ -39,11 +43,11 @@ public class DefaultEnrolmentSubjectServiceTest {
 		PagedResult<EnrolmentSubject> expected = new PagedResult<EnrolmentSubject>(offset, limit, count, entities);
 		
 		// When
-		when(enrolmentSubjectDao.getEnrolmentSubjects(Matchers.<PagedSearch<EnrolmentSubject>>any())).thenReturn(expected);
+		when(enrolmentSubjectDao.getEntities(Matchers.<PagedSearch<EnrolmentSubject>>any())).thenReturn(expected);
 		PagedResult<EnrolmentSubject> actual = unit.getEnrolmentSubjects(pagedSearch);
 
 		// Then
-		verify(enrolmentSubjectDao).getEnrolmentSubjects(pagedSearch);
+		verify(enrolmentSubjectDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }
