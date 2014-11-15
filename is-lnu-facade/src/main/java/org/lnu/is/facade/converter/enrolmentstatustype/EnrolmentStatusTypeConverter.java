@@ -12,13 +12,10 @@ import org.lnu.is.facade.resource.enrolmentstatustype.EnrolmentStatusTypeResourc
  *
  */
 @Converter("enrolmentStatusTypeConverter")
-public class EnrolmentStatusTypeConverter extends
-		AbstractConverter<EnrolmentStatusType, EnrolmentStatusTypeResource> {
+public class EnrolmentStatusTypeConverter extends AbstractConverter<EnrolmentStatusType, EnrolmentStatusTypeResource> {
 
 	@Override
-	public EnrolmentStatusTypeResource convert(
-			final EnrolmentStatusType source,
-			final EnrolmentStatusTypeResource target) {
+	public EnrolmentStatusTypeResource convert(final EnrolmentStatusType source, final EnrolmentStatusTypeResource target) {
 
 		target.setId(source.getId());
 		target.setAbbrName(source.getAbbrName());
