@@ -23,8 +23,7 @@ import org.lnu.is.service.enrolmentstatustype.EnrolmentStatusTypeService;
  */
 
 @Facade("enrolmentStatusTypeFacade")
-public class DefaultEnrolmentStatusTypeFacade implements
-		EnrolmentStatusTypeFacade {
+public class DefaultEnrolmentStatusTypeFacade implements EnrolmentStatusTypeFacade {
 
 	@Resource(name = "pagedRequestConverter")
 	private Converter<PagedRequest<EnrolmentStatusTypeResource>, PagedSearch<EnrolmentStatusType>> pagedRequestConverter;
@@ -42,22 +41,16 @@ public class DefaultEnrolmentStatusTypeFacade implements
 	private EnrolmentStatusTypeService enrolmentStatusTypeService;
 
 	@Override
-	public PagedResultResource<EnrolmentStatusTypeResource> getEnrolmentStatusTypes(
-			final PagedRequest<EnrolmentStatusTypeResource> request) {
+	public PagedResultResource<EnrolmentStatusTypeResource> getEnrolmentStatusTypes(final PagedRequest<EnrolmentStatusTypeResource> request) {
 
-		PagedSearch<EnrolmentStatusType> pagedSearch = pagedRequestConverter
-				.convert(request);
-		pagedSearch.setEntity(enrolmentStatusTypeResourceConverter
-				.convert(request.getResource()));
+		PagedSearch<EnrolmentStatusType> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(enrolmentStatusTypeResourceConverter.convert(request.getResource()));
 
-		PagedResult<EnrolmentStatusType> pagedResult = enrolmentStatusTypeService
-				.getEnrolmentStatusTypes(pagedSearch);
+		PagedResult<EnrolmentStatusType> pagedResult = enrolmentStatusTypeService.getEnrolmentStatusTypes(pagedSearch);
 
-		List<EnrolmentStatusTypeResource> resources = enrolmentStatusTypeConverter
-				.convertAll(pagedResult.getEntities());
+		List<EnrolmentStatusTypeResource> resources = enrolmentStatusTypeConverter.convertAll(pagedResult.getEntities());
 
-		PagedResultResource<EnrolmentStatusTypeResource> pagedResultResource = new PagedResultResource<EnrolmentStatusTypeResource>(
-				"/enrolmentstatustypes");
+		PagedResultResource<EnrolmentStatusTypeResource> pagedResultResource = new PagedResultResource<EnrolmentStatusTypeResource>("/enrolmentstatustypes");
 
 		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);

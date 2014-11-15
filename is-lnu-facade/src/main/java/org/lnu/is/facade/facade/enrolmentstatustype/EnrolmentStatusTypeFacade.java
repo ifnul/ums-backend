@@ -18,6 +18,5 @@ public interface EnrolmentStatusTypeFacade {
 	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<EnrolmentStatusTypeResource> getEnrolmentStatusTypes(
-			PagedRequest<EnrolmentStatusTypeResource> request);
+	PagedResultResource<EnrolmentStatusTypeResource> getEnrolmentStatusTypes(PagedRequest<EnrolmentStatusTypeResource> request);
 }

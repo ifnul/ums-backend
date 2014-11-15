@@ -52,10 +52,8 @@ public class EnrolmentStatusTypeResource extends ApiResource {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((abbrName == null) ? 0 : abbrName.hashCode());
-		result = prime * result
-				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((abbrName == null) ? 0 : abbrName.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -98,8 +96,7 @@ public class EnrolmentStatusTypeResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "EnrolmentStatusTypeResource [abbrName=" + abbrName + ", name="
-				+ name + ", description=" + description + "]";
+		return "EnrolmentStatusTypeResource [abbrName=" + abbrName + ", name=" + name + ", description=" + description + "]";
 	}
 
 }
