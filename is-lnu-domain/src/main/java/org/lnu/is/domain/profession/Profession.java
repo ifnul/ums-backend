@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
 
 /**
@@ -14,6 +15,7 @@ import org.lnu.is.domain.Model;
  * @author kushnir
  *
  */
+@OB
 @Entity
 @Table(name = "q_ob_profession")
 public class Profession extends Model {

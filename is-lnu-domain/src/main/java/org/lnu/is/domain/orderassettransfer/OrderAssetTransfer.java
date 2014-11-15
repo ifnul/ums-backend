@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.order.Order;
@@ -15,6 +16,7 @@ import org.lnu.is.domain.order.Order;
  * @author illay
  *
  */
+@DT
 @Entity
 @Table(name = "q_dt_orderassettransfer")
 public class OrderAssetTransfer extends Model {

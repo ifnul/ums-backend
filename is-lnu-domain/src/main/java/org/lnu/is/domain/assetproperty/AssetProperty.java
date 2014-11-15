@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.property.Property;
@@ -17,6 +18,7 @@ import org.lnu.is.domain.property.Property;
  * @author illay
  *
  */
+@OD
 @Entity
 @Table(name = "q_od_assetproperty")
 public class AssetProperty extends Model {

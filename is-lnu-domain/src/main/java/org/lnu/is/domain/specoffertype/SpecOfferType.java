@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.RF;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.specialtype.SpecialtyType;
 
@@ -14,6 +15,7 @@ import org.lnu.is.domain.specialtype.SpecialtyType;
  * @author ivanursul
  *
  */
+@RF
 @Entity
 @Table(name = "q_rf_specoffertype")
 public class SpecOfferType extends Model {

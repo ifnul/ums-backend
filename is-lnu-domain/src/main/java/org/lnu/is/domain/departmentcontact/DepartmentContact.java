@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.contacttype.ContactType;
 import org.lnu.is.domain.department.Department;
@@ -15,6 +16,7 @@ import org.lnu.is.domain.department.Department;
  * @author ivanursul
  *
  */
+@OD
 @Entity
 @Table(name = "q_od_departmentcontact")
 public class DepartmentContact extends Model {

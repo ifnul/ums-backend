@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.post.Post;
@@ -14,6 +15,7 @@ import org.lnu.is.domain.post.Post;
  * @author illay
  *
  */
+@OD
 @Entity
 @Table(name = "q_od_postname")
 public class PostName extends Model {

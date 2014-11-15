@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.Model;
 
 /**
@@ -11,6 +12,7 @@ import org.lnu.is.domain.Model;
  * @author ivanursul
  *
  */
+@DT
 @Entity
 @Table(name = "q_rf_ordertype")
 public class OrderType extends Model {

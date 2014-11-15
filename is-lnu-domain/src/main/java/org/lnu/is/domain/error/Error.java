@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.Mapped;
+import org.lnu.is.annotation.dbtable.LG;
 import org.lnu.is.domain.Model;
 
 /**
@@ -12,6 +13,7 @@ import org.lnu.is.domain.Model;
  * @author ivanursul
  *
  */
+@LG
 @Mapped
 @Entity
 @Table(name = "q_lg_error")

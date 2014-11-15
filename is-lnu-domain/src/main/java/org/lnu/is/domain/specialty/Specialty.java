@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.specialtype.SpecialtyType;
 
@@ -15,6 +16,7 @@ import org.lnu.is.domain.specialtype.SpecialtyType;
  * Entity, that describes specialty table.
  *
  */
+@OB
 @Entity
 @Table(name = "q_ob_specialty")
 public class Specialty extends Model {

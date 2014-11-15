@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.employeestatus.EmployeeStatus;
@@ -20,6 +21,7 @@ import org.lnu.is.domain.order.Order;
  * @author kushnir
  *
  */
+@DT
 @Entity
 @Table(name = "q_dt_orderemployee")
 public class OrderEmployee extends Model {

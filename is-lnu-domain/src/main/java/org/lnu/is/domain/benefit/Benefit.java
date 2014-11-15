@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.benefittype.BenefitType;
 
@@ -16,6 +17,7 @@ import org.lnu.is.domain.benefittype.BenefitType;
  * @author ivanursul
  *
  */
+@OB
 @Entity
 @Table(name = "q_ob_benefit")
 public class Benefit extends Model {

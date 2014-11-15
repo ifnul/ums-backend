@@ -5,6 +5,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.specoffer.SpecOffer;
@@ -13,6 +14,7 @@ import org.lnu.is.domain.specoffer.SpecOffer;
  * @author illay
  *
  */
+@OD
 @Entity
 @Table(name = "q_od_specofferbenefit")
 public class SpecofferBenefit extends Model {

@@ -5,6 +5,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.languagelevel.LanguageLevel;
@@ -15,6 +16,7 @@ import org.lnu.is.domain.person.Person;
  * @author ivanursul
  *
  */
+@OD
 @Entity
 @Table(name = "q_od_personlanquage")
 public class PersonLanguage extends Model {

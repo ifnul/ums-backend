@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
@@ -18,6 +19,7 @@ import org.lnu.is.domain.persontype.PersonType;
  * @author ivanursul
  *
  */
+@OB
 @Entity
 @Table(name = "q_ob_person")
 public class Person extends Model {

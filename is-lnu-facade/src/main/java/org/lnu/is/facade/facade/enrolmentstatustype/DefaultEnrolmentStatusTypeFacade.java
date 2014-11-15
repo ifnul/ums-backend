@@ -38,7 +38,7 @@ public class DefaultEnrolmentStatusTypeFacade implements
 	@Resource(name = "enrolmentStatusTypeResourceConverter")
 	private Converter<EnrolmentStatusTypeResource, EnrolmentStatusType> enrolmentStatusTypeResourceConverter;
 
-	@Resource(name = "enrolementStatusTypeService")
+	@Resource(name = "enrolmentStatusTypeService")
 	private EnrolmentStatusTypeService enrolmentStatusTypeService;
 
 	@Override

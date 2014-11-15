@@ -4,12 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.RF;
 import org.lnu.is.domain.Model;
 
 /**
  * Entity, that describes eduformtype table.
  *
  */
+@RF
 @Entity
 @Table(name = "q_rf_eduformtype")
 public class EduFormType extends Model {

@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.subjecttype.SubjectType;
 
@@ -15,6 +16,7 @@ import org.lnu.is.domain.subjecttype.SubjectType;
  * @author kushnir
  *
  */
+@OB
 @Entity
 @Table(name = "q_ob_subject")
 public class Subject extends Model {

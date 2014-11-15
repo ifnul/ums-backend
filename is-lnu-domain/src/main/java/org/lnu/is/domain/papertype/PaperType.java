@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.RF;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.paperusage.PaperUsage;
 
@@ -14,6 +15,7 @@ import org.lnu.is.domain.paperusage.PaperUsage;
  * @author ivanursul
  *
  */
+@RF
 @Entity
 @Table(name = "q_rf_papertype")
 public class PaperType extends Model {

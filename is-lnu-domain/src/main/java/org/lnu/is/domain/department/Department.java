@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.departmenttype.DepartmentType;
 import org.lnu.is.domain.order.Order;
@@ -16,6 +17,7 @@ import org.lnu.is.domain.order.Order;
  * Entity, that describes department table.
  *
  */
+@OB
 @Entity
 @Table(name = "q_ob_department")
 public class Department extends Model {
