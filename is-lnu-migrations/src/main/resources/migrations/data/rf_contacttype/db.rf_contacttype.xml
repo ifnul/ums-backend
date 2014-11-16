@@ -9,7 +9,7 @@
     		<column name="id">1</column>
     		<column name="abbrname"></column>
     		<column name="name">Телефон</column>
-    	    <column name="status">Active</column>
+    	    <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="crtuser">illay</column>
             <column name="crtusergroup">create</column>
@@ -20,7 +20,7 @@
     		<column name="id">2</column>
     		<column name="abbrname"></column>
     		<column name="name">Мобільний</column>
-    	    <column name="status">Active</column>
+    	    <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="crtuser">illay</column>
             <column name="crtusergroup">create</column>
@@ -31,7 +31,7 @@
     		<column name="id">3</column>
     		<column name="abbrname"></column>
     		<column name="name">e-mail</column>
-    	    <column name="status">Active</column>
+    	    <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="crtuser">illay</column>
             <column name="crtusergroup">create</column>
@@ -42,7 +42,7 @@
     		<column name="id">4</column>
     		<column name="abbrname"></column>
     		<column name="name">ICQ</column>
-    	    <column name="status">Active</column>
+    	    <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="crtuser">illay</column>
             <column name="crtusergroup">create</column>
@@ -53,7 +53,7 @@
     		<column name="id">5</column>
     		<column name="abbrname"></column>
     		<column name="name">Skype</column>
-    	    <column name="status">Active</column>
+    	    <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="crtuser">illay</column>
             <column name="crtusergroup">create</column>

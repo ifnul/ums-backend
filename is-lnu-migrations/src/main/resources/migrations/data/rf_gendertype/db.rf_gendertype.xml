@@ -9,7 +9,7 @@
     		<column name="id">1</column>
     		<column name="abbrname">Ч</column>
     		<column name="name">Чоловіча</column>
-    	    <column name="status">Active</column>
+    	    <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="crtuser">illay</column>
             <column name="crtusergroup">create</column>
@@ -20,7 +20,7 @@
     		<column name="id">2</column>
     		<column name="abbrname">Ж</column>
     		<column name="name">Жіноча</column>
-    	    <column name="status">Active</column>
+    	    <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="crtuser">illay</column>
             <column name="crtusergroup">create</column>
