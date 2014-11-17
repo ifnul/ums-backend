@@ -53,7 +53,7 @@ public class DefaultSpecOfferTypeFacadeTest {
 		SpecOfferTypeResource resource = new SpecOfferTypeResource();
 		PagedRequest<SpecOfferTypeResource> pagedRequest = new PagedRequest<SpecOfferTypeResource>(resource, 10, 10);
 		List<SpecOfferTypeResource> funnyResources = Collections.singletonList(new SpecOfferTypeResource());
-		PagedResultResource<SpecOfferTypeResource> expectedFunnies = new PagedResultResource<>("/specoffertypes");
+		PagedResultResource<SpecOfferTypeResource> expectedFunnies = new PagedResultResource<>("/specoffers/types");
 		expectedFunnies.setResources(funnyResources);
 
 		int offset = 8;

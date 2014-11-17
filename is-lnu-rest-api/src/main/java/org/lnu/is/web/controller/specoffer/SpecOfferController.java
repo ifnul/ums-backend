@@ -3,11 +3,13 @@ package org.lnu.is.web.controller.specoffer;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.specoffer.SpecOfferFacade;
+import org.lnu.is.facade.facade.specoffertype.SpecOfferTypeFacade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
+import org.lnu.is.facade.resource.specoffertype.SpecOfferTypeResource;
 import org.lnu.is.web.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +39,9 @@ public class SpecOfferController extends BaseController {
 	@Resource(name = "specOfferFacade")
 	private SpecOfferFacade specOfferFacade;
 
+	@Resource(name = "specOfferTypeFacade")
+	private SpecOfferTypeFacade specOfferTypeFacade;
+	
 	/**
 	 * Method for creating new specoffer.
 	 * Http Method - POST.
@@ -154,5 +159,23 @@ public class SpecOfferController extends BaseController {
 		LOG.info("Retrieving PagedResultResource for Spec Offer Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<SpecOfferResource> pagedRequest = new PagedRequest<SpecOfferResource>(resource, offset, limit);
 		return specOfferFacade.getSpecOffers(pagedRequest);
+	}
+	
+	/**
+	 * Method for getting paged result.
+	 * @param offset
+	 * @param limit
+	 * @param resource
+	 * @return paged result.
+	 */
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/types", method = RequestMethod.GET)
+	@ApiOperation(value = "Get's All SpecOfferTypes", position = 5)
+	public PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
+			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
+			final SpecOfferTypeResource resource) {
+		LOG.info("Retrieving PagedResultResource for Spec Offer Type Resources with offset: {}, limit: {}", offset, limit);
+		PagedRequest<SpecOfferTypeResource> pagedRequest = new PagedRequest<SpecOfferTypeResource>(resource, offset, limit);
+		return specOfferTypeFacade.getSpecOfferTypes(pagedRequest);
 	}
 }

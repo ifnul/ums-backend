@@ -50,7 +50,7 @@ public class DefaultEnrolmentStatusTypeFacade implements EnrolmentStatusTypeFaca
 
 		List<EnrolmentStatusTypeResource> resources = enrolmentStatusTypeConverter.convertAll(pagedResult.getEntities());
 
-		PagedResultResource<EnrolmentStatusTypeResource> pagedResultResource = new PagedResultResource<EnrolmentStatusTypeResource>("/enrolmentstatustypes");
+		PagedResultResource<EnrolmentStatusTypeResource> pagedResultResource = new PagedResultResource<EnrolmentStatusTypeResource>("/enrolments/statustypes");
 
 		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);

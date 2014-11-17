@@ -19,11 +19,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.specoffer.SpecOfferFacade;
+import org.lnu.is.facade.facade.specoffertype.SpecOfferTypeFacade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
+import org.lnu.is.facade.resource.specoffertype.SpecOfferTypeResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -38,6 +40,9 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
 
 	@Mock
 	private SpecOfferFacade specOfferFacade;
+	
+	@Mock
+	private SpecOfferTypeFacade specOfferTypeFacade;
 	
 	@InjectMocks
 	private SpecOfferController unit;
@@ -214,5 +219,40 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     		.andExpect(content().string(response));
     	
 		verify(specOfferFacade).getSpecOffers(pagedRequest);
+	}
+    
+    @Test
+	public void testGetSpecOfferTypes() throws Exception {
+		// Given
+    	String name = "name";
+		SpecOfferTypeResource resource = new SpecOfferTypeResource();
+		resource.setName(name);
+		
+		List<SpecOfferTypeResource> entities = Arrays.asList(resource);
+
+		Integer offset = 0;
+		long count = 1;
+		Integer limit = 20;
+		PagedResultResource<SpecOfferTypeResource> expected = new PagedResultResource<>("/specoffers/types");
+		expected.setResources(entities);
+		expected.setCount(count);
+		expected.setLimit(limit);
+		expected.setOffset(offset);
+
+		SpecOfferTypeResource paramResource = new SpecOfferTypeResource();
+		paramResource.setName(name);
+		PagedRequest<SpecOfferTypeResource> request = new PagedRequest<SpecOfferTypeResource>(paramResource, offset, limit);
+		
+		// When
+		when(specOfferTypeFacade.getSpecOfferTypes(Matchers.<PagedRequest<SpecOfferTypeResource>>any())).thenReturn(expected);
+    	String response = getJson(expected, false);
+
+		// Then
+    	mockMvc.perform(get("/specoffers/types")
+    			.param("name", name))
+    		.andExpect(status().isOk())
+    		.andExpect(content().string(response));
+    	
+		verify(specOfferTypeFacade).getSpecOfferTypes(request);
 	}
 }

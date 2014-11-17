@@ -52,7 +52,7 @@ public class DefaultEnrolmentStatusTypeFacadeTest {
 		EnrolmentStatusTypeResource resource = new EnrolmentStatusTypeResource();
 		PagedRequest<EnrolmentStatusTypeResource> pagedRequest = new PagedRequest<EnrolmentStatusTypeResource>(resource, 10, 10);
 		List<EnrolmentStatusTypeResource> someResources = Collections.singletonList(new EnrolmentStatusTypeResource());
-		PagedResultResource<EnrolmentStatusTypeResource> expectedResources = new PagedResultResource<>("/enrolmentstatustypes");
+		PagedResultResource<EnrolmentStatusTypeResource> expectedResources = new PagedResultResource<>("/enrolments/statustypes");
 		expectedResources.setResources(someResources);
 
 		int offset = 8;

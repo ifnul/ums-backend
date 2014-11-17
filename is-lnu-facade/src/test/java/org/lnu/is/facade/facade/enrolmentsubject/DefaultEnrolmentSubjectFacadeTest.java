@@ -53,7 +53,7 @@ public class DefaultEnrolmentSubjectFacadeTest {
 		EnrolmentSubjectResource resource = new EnrolmentSubjectResource();
 		PagedRequest<EnrolmentSubjectResource> pagedRequest = new PagedRequest<EnrolmentSubjectResource>(resource, 10, 10);
 		List<EnrolmentSubjectResource> funnyResources = Collections.singletonList(new EnrolmentSubjectResource());
-		PagedResultResource<EnrolmentSubjectResource> expectedFunnies = new PagedResultResource<>("/enrolmentsubjects");
+		PagedResultResource<EnrolmentSubjectResource> expectedFunnies = new PagedResultResource<>("/enrolments/subjects");
 		expectedFunnies.setResources(funnyResources);
 
 		int offset = 8;
