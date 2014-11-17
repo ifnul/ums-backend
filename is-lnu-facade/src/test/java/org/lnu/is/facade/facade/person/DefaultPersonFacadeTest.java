@@ -32,6 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultPersonFacadeTest {
+
 	@Mock
 	private Converter<PersonResource, Person> insertConverter;
 

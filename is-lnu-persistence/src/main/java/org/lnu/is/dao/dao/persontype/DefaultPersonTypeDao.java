@@ -1,6 +1,9 @@
 package org.lnu.is.dao.dao.persontype;
 
+import javax.annotation.Resource;
+
 import org.lnu.is.dao.AbstractDao;
+import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.persontype.PersonType;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +18,12 @@ public class DefaultPersonTypeDao extends AbstractDao<PersonType, Long> implemen
 	@Override
 	public Class<PersonType> getEntityClass() {
 		return PersonType.class;
+	}
+
+	@Override
+	@Resource(name = "personTypeQueryBuilder")
+	public void setQueryBuilder(final QueryBuilder<PersonType> queryBuilder) {
+		super.setQueryBuilder(queryBuilder);
 	}
 
 }
