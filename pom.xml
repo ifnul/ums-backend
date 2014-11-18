@@ -18,6 +18,7 @@
 		<module>is-lnu-domain</module>
 		<module>is-lnu-migrations</module>
 		<module>is-lnu-security</module>
+    <module>is-lnu-ui</module>
   </modules>
 
 	<properties>
@@ -231,7 +232,7 @@
 					<artifactId>maven-pmd-plugin</artifactId>
 					<version>3.2</version>
 		            <configuration>
-		                <check></check>
+		                <check/>
 		                <formats>
 		                    <format>html</format>
 		                    <format>xml</format>

@@ -29,8 +29,7 @@ public class DefaultEduFormTypeService implements EduFormTypeService {
 	public PagedResult<EduFormType> getEduFormTypes(final PagedSearch<EduFormType> pagedSearch) {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
-		
+
 		return eduFormTypeDao.getEntities(pagedSearch);
 	}
-
 }

@@ -12,6 +12,7 @@ import org.lnu.is.domain.Model;
  * @author ivanursul
  *
  */
+// TODO: Assign task to Oleg
 @RF
 @Entity
 @Table(name = "q_rf_contacttype")
