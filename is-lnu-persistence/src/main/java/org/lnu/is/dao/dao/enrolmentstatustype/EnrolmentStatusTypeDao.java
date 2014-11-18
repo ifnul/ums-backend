@@ -1,7 +1,7 @@
 package org.lnu.is.dao.dao.enrolmentstatustype;
 
 import org.lnu.is.dao.Dao;
-import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 
 /**
  * Persistence for EnrolmentStatusTypeDao dao layer.

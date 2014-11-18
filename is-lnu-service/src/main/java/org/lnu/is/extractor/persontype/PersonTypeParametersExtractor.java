@@ -3,7 +3,7 @@ package org.lnu.is.extractor.persontype;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.lnu.is.domain.persontype.PersonType;
+import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 

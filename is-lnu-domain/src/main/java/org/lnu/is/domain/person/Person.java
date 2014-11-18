@@ -1,18 +1,20 @@
 package org.lnu.is.domain.person;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
-import org.lnu.is.domain.persontype.PersonType;
+import org.lnu.is.domain.specoffer.SpecOfferWave;
 
 /**
  * Person entity.
@@ -44,6 +46,39 @@ public class Person extends Model {
 	@JoinColumn(name = "parent_id")
 	private Person parent;
 
+	@OneToMany(mappedBy = "person")
+	private List<PersonAddress> adresses;
+	
+	@OneToMany(mappedBy = "person")
+	private List<PersonAward> awards;
+
+	@OneToMany(mappedBy = "person")
+	private List<PersonContact> contacts;
+	
+	@OneToMany(mappedBy = "person")
+	private List<PersonEducation> educations;
+	
+	@OneToMany(mappedBy = "person")
+	private List<PersonEnrolmentSubject> enrolmentSubjects;
+	
+	@OneToMany(mappedBy = "person")
+	private List<PersonFamily> families;
+	
+	@OneToMany(mappedBy = "person")
+	private List<PersonLanguage> languages;
+	
+	@OneToMany(mappedBy = "person")
+	private List<PersonName> names;
+	
+	@OneToMany(mappedBy = "person")
+	private List<PersonPaper> papers;
+	
+	@OneToMany(mappedBy = "person")
+	private List<PersonPension> pensions;
+	
+	@OneToMany(mappedBy = "person")
+	private List<SpecOfferWave> waves;
+	
 	@Column(name = "name")
 	private String name;
 	
@@ -236,6 +271,94 @@ public class Person extends Model {
 
 	public void setIsHostel(final Integer isHostel) {
 		this.isHostel = isHostel;
+	}
+
+	public List<PersonAddress> getAdresses() {
+		return adresses;
+	}
+
+	public void setAdresses(final List<PersonAddress> adresses) {
+		this.adresses = adresses;
+	}
+
+	public List<PersonAward> getAwards() {
+		return awards;
+	}
+
+	public void setAwards(final List<PersonAward> awards) {
+		this.awards = awards;
+	}
+
+	public List<PersonContact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(final List<PersonContact> contacts) {
+		this.contacts = contacts;
+	}
+
+	public List<PersonEducation> getEducations() {
+		return educations;
+	}
+
+	public void setEducations(final List<PersonEducation> educations) {
+		this.educations = educations;
+	}
+
+	public List<PersonEnrolmentSubject> getEnrolmentSubjects() {
+		return enrolmentSubjects;
+	}
+
+	public void setEnrolmentSubjects(final List<PersonEnrolmentSubject> enrolmentSubjects) {
+		this.enrolmentSubjects = enrolmentSubjects;
+	}
+
+	public List<PersonFamily> getFamilies() {
+		return families;
+	}
+
+	public void setFamilies(final List<PersonFamily> families) {
+		this.families = families;
+	}
+
+	public List<PersonLanguage> getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(final List<PersonLanguage> languages) {
+		this.languages = languages;
+	}
+
+	public List<PersonName> getNames() {
+		return names;
+	}
+
+	public void setNames(final List<PersonName> names) {
+		this.names = names;
+	}
+
+	public List<PersonPaper> getPapers() {
+		return papers;
+	}
+
+	public void setPapers(final List<PersonPaper> papers) {
+		this.papers = papers;
+	}
+
+	public List<PersonPension> getPensions() {
+		return pensions;
+	}
+
+	public void setPensions(final List<PersonPension> pensions) {
+		this.pensions = pensions;
+	}
+
+	public List<SpecOfferWave> getWaves() {
+		return waves;
+	}
+
+	public void setWaves(final List<SpecOfferWave> waves) {
+		this.waves = waves;
 	}
 
 	@Override

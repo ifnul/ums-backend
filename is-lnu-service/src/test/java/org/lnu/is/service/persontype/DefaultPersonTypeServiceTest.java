@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.persontype.PersonTypeDao;
-import org.lnu.is.domain.persontype.PersonType;
+import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;

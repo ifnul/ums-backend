@@ -2,7 +2,7 @@ package org.lnu.is.dao.builder.enrolmentsubject;
 
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
-import org.lnu.is.domain.enrolmentsubject.EnrolmentSubject;
+import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 

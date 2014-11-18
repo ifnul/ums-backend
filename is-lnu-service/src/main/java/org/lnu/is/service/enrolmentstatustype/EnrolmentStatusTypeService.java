@@ -1,6 +1,6 @@
 package org.lnu.is.service.enrolmentstatustype;
 
-import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.Service;

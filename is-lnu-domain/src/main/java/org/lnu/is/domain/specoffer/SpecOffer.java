@@ -1,11 +1,13 @@
 package org.lnu.is.domain.specoffer;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
@@ -13,7 +15,6 @@ import org.lnu.is.domain.Model;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.domain.specialty.Specialty;
-import org.lnu.is.domain.specoffertype.SpecOfferType;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 
 /**
@@ -51,6 +52,15 @@ public class SpecOffer extends Model {
 	@ManyToOne
 	@JoinColumn(name = "specoffertype_id")
 	private SpecOfferType specOfferType;
+	
+	@OneToMany(mappedBy = "specOffer")
+	private List<SpecofferBenefit> benefits;
+	
+	@OneToMany(mappedBy = "specOffer")
+	private List<SpecofferSubject> subjects;
+	
+	@OneToMany(mappedBy = "specOffer")
+	private List<SpecOfferWave> waves;
 	
 	@Column(name = "docseries")
 	private String docSeries;
@@ -164,6 +174,30 @@ public class SpecOffer extends Model {
 
 	public void setSpecOfferType(final SpecOfferType specOfferType) {
 		this.specOfferType = specOfferType;
+	}
+
+	public List<SpecofferBenefit> getBenefits() {
+		return benefits;
+	}
+
+	public void setBenefits(final List<SpecofferBenefit> benefits) {
+		this.benefits = benefits;
+	}
+
+	public List<SpecofferSubject> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(final List<SpecofferSubject> subjects) {
+		this.subjects = subjects;
+	}
+
+	public List<SpecOfferWave> getWaves() {
+		return waves;
+	}
+
+	public void setWaves(final List<SpecOfferWave> waves) {
+		this.waves = waves;
 	}
 
 	@Override

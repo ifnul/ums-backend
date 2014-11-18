@@ -1,7 +1,7 @@
 package org.lnu.is.dao.dao.persontype;
 
 import org.lnu.is.dao.Dao;
-import org.lnu.is.domain.persontype.PersonType;
+import org.lnu.is.domain.person.PersonType;
 
 /**
  * Person Type interface.

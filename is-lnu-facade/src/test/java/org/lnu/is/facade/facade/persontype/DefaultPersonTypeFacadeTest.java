@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.domain.persontype.PersonType;
+import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.facade.converter.Converter;
 import org.lnu.is.facade.facade.persontypes.DefaultPersonTypeFacade;
 import org.lnu.is.facade.resource.ApiResource;

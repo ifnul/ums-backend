@@ -12,7 +12,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.enrolmentstatustype.EnrolmentStatusTypeDao;
-import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;

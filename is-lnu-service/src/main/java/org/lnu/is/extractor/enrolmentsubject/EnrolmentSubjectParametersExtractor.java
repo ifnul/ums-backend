@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.enrolmentsubject.EnrolmentSubjectDao;
-import org.lnu.is.domain.enrolmentsubject.EnrolmentSubject;
+import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 

@@ -12,7 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
-import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;

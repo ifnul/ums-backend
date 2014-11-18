@@ -1,7 +1,7 @@
 package org.lnu.is.dao.dao.specoffertype;
 
 import org.lnu.is.dao.Dao;
-import org.lnu.is.domain.specoffertype.SpecOfferType;
+import org.lnu.is.domain.specoffer.SpecOfferType;
 
 /**
  * Spec Offer Type interface.

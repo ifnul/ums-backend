@@ -1,11 +1,13 @@
 package org.lnu.is.domain.order;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DC;
@@ -14,7 +16,6 @@ import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.optype.OpType;
-import org.lnu.is.domain.ordertype.OrderType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
 
@@ -60,6 +61,27 @@ public class Order extends Model {
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private Order parent;
+	
+	@OneToMany(mappedBy = "order")
+	private List<OrderAssetTransfer> assetTransfers;
+	
+	@OneToMany(mappedBy = "order")
+	private List<OrderDuty> duties;
+
+	@OneToMany(mappedBy = "order")
+	private List<OrderEmployee> employees;
+	
+	@OneToMany(mappedBy = "order")
+	private List<OrderEmployeeTimeSheet> employeeTimeSheets;
+	
+	@OneToMany(mappedBy = "order")
+	private List<OrderNewAsset> newAssets;
+	
+	@OneToMany(mappedBy = "order")
+	private List<OrderNewEmployee> newEmployees;
+	
+	@OneToMany(mappedBy = "order")
+	private List<OrderNewStudent> newStudents;
 	
 	@Column(name = "reasontext")
 	private String reasonText;
@@ -189,6 +211,63 @@ public class Order extends Model {
 
 	public void setEvDate(final Date evDate) {
 		this.evDate = evDate;
+	}
+
+	public List<OrderAssetTransfer> getAssetTransfers() {
+		return assetTransfers;
+	}
+
+	public void setAssetTransfers(final List<OrderAssetTransfer> assetTransfers) {
+		this.assetTransfers = assetTransfers;
+	}
+
+	public List<OrderDuty> getDuties() {
+		return duties;
+	}
+
+	public void setDuties(final List<OrderDuty> duties) {
+		this.duties = duties;
+	}
+
+	public List<OrderEmployee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(final List<OrderEmployee> employees) {
+		this.employees = employees;
+	}
+
+	public List<OrderEmployeeTimeSheet> getEmployeeTimeSheets() {
+		return employeeTimeSheets;
+	}
+
+	public void setEmployeeTimeSheets(
+			final List<OrderEmployeeTimeSheet> employeeTimeSheets) {
+		this.employeeTimeSheets = employeeTimeSheets;
+	}
+
+	public List<OrderNewAsset> getNewAssets() {
+		return newAssets;
+	}
+
+	public void setNewAssets(final List<OrderNewAsset> newAssets) {
+		this.newAssets = newAssets;
+	}
+
+	public List<OrderNewEmployee> getNewEmployees() {
+		return newEmployees;
+	}
+
+	public void setNewEmployees(final List<OrderNewEmployee> newEmployees) {
+		this.newEmployees = newEmployees;
+	}
+
+	public List<OrderNewStudent> getNewStudents() {
+		return newStudents;
+	}
+
+	public void setNewStudents(final List<OrderNewStudent> newStudents) {
+		this.newStudents = newStudents;
 	}
 
 	@Override

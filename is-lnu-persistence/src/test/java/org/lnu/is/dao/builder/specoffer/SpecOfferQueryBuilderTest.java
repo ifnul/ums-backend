@@ -9,7 +9,7 @@ import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffertype.SpecOfferType;
+import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.queries.Queries;
 

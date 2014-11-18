@@ -3,7 +3,7 @@ package org.lnu.is.service.enrolmentstatustype;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.enrolmentstatustype.EnrolmentStatusTypeDao;
-import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;

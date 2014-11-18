@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.specialtype.SpecialtyType;
-import org.lnu.is.domain.specoffertype.SpecOfferType;
+import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.queries.Queries;
 
 public class SpecOfferTypeQueryBuilderTest {

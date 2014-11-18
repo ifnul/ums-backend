@@ -3,7 +3,7 @@ package org.lnu.is.facade.converter.enrolmentstatustype;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.facade.resource.enrolmentstatustype.EnrolmentStatusTypeResource;
 
 public class EnrolmentStatusTypeConverterTest {

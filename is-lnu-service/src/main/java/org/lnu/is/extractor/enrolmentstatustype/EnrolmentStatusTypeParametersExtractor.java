@@ -3,7 +3,7 @@ package org.lnu.is.extractor.enrolmentstatustype;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 

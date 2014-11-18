@@ -1,19 +1,20 @@
 package org.lnu.is.domain.enrolment;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DC;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.enrolmenttype.EnrolmentType;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.personpaper.PersonPaper;
+import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
 
 /**
@@ -50,6 +51,15 @@ public class Enrolment extends Model {
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private Enrolment parent;
+	
+	@OneToMany(mappedBy = "enrolment")
+	private List<EnrolmentBenefit> benefits;
+	
+	@OneToMany(mappedBy = "enrolment")
+	private List<EnrolmentEnrolSubject> enrolmentSubjects;
+	
+	@OneToMany(mappedBy = "enrolment")
+	private List<EnrolmentStatus> statuses;
 	
 	@Column(name = "mark")
 	private Double mark;
@@ -218,6 +228,30 @@ public class Enrolment extends Model {
 
 	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
+	}
+
+	public List<EnrolmentBenefit> getBenefits() {
+		return benefits;
+	}
+
+	public void setBenefits(final List<EnrolmentBenefit> benefits) {
+		this.benefits = benefits;
+	}
+
+	public List<EnrolmentEnrolSubject> getEnrolmentSubjects() {
+		return enrolmentSubjects;
+	}
+
+	public void setEnrolmentSubjects(final List<EnrolmentEnrolSubject> enrolmentSubjects) {
+		this.enrolmentSubjects = enrolmentSubjects;
+	}
+
+	public List<EnrolmentStatus> getStatuses() {
+		return statuses;
+	}
+
+	public void setStatuses(final List<EnrolmentStatus> statuses) {
+		this.statuses = statuses;
 	}
 
 	@Override

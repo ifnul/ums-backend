@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.enrolmentsubject;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.domain.enrolmentsubject.EnrolmentSubject;
+import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.queries.Queries;
 
 public class EnrolmentSubjectQueryBuilderTest {

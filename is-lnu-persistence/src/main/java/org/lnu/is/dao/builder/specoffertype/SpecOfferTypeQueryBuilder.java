@@ -2,7 +2,7 @@ package org.lnu.is.dao.builder.specoffertype;
 
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
-import org.lnu.is.domain.specoffertype.SpecOfferType;
+import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package org.lnu.is.facade.converter.enrolmentstatustype;
 
-import org.lnu.is.domain.enrolmentstatustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
 import org.lnu.is.facade.resource.enrolmentstatustype.EnrolmentStatusTypeResource;

@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.domain.enrolmentsubject.EnrolmentSubject;
+import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.facade.converter.Converter;
 import org.lnu.is.facade.resource.ApiResource;
 import org.lnu.is.facade.resource.enrolmentsubject.EnrolmentSubjectResource;

@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.dao.AbstractDao;
 import org.lnu.is.dao.builder.QueryBuilder;
-import org.lnu.is.domain.enrolmentsubject.EnrolmentSubject;
+import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.springframework.stereotype.Repository;
 
 /**

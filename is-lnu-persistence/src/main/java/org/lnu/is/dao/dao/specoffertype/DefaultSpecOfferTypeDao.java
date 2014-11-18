@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.dao.AbstractDao;
 import org.lnu.is.dao.builder.QueryBuilder;
-import org.lnu.is.domain.specoffertype.SpecOfferType;
+import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.springframework.stereotype.Repository;
 
 /**
