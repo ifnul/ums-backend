@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.timeperiod.TimePeriodDao;
-import org.lnu.is.dao.dao.timeperiodtype.TimePeriodTypeDao;
+import org.lnu.is.dao.dao.timeperiod.type.TimePeriodTypeDao;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;

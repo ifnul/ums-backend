@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import org.lnu.is.dao.dao.gendertype.GenderTypeDao;
 import org.lnu.is.dao.dao.marriedtype.MarriedTypeDao;
 import org.lnu.is.dao.dao.person.PersonDao;
-import org.lnu.is.dao.dao.persontype.PersonTypeDao;
+import org.lnu.is.dao.dao.person.type.PersonTypeDao;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;

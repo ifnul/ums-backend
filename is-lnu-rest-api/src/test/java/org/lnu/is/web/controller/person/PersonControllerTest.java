@@ -19,11 +19,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.person.PersonFacade;
-import org.lnu.is.facade.facade.persontypes.PersonTypeFacade;
+import org.lnu.is.facade.facade.person.types.PersonTypeFacade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.PersonResource;
-import org.lnu.is.facade.resource.persontype.PersonTypeResource;
+import org.lnu.is.facade.resource.person.type.PersonTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
@@ -53,7 +53,6 @@ public class PersonControllerTest extends AbstractControllerTest {
     public void setup() {
     	  this.mockMvc = MockMvcBuilders.standaloneSetup(unit).build();
     }
- 
     
     @Test
 	public void testCreatePerson() throws Exception {

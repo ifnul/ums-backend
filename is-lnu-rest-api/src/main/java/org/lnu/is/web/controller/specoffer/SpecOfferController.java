@@ -3,13 +3,13 @@ package org.lnu.is.web.controller.specoffer;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.specoffer.SpecOfferFacade;
-import org.lnu.is.facade.facade.specoffertype.SpecOfferTypeFacade;
+import org.lnu.is.facade.facade.specoffer.type.SpecOfferTypeFacade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
-import org.lnu.is.facade.resource.specoffertype.SpecOfferTypeResource;
+import org.lnu.is.facade.resource.specoffer.type.SpecOfferTypeResource;
 import org.lnu.is.web.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

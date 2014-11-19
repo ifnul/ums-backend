@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.department.DepartmentDao;
-import org.lnu.is.dao.dao.departmenttype.DepartmentTypeDao;
+import org.lnu.is.dao.dao.department.type.DepartmentTypeDao;
 import org.lnu.is.dao.dao.order.OrderDao;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.extractor.AbstractParametersExtractor;

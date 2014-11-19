@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.specialty.SpecialtyDao;
-import org.lnu.is.dao.dao.specialtytype.SpecialtyTypeDao;
+import org.lnu.is.dao.dao.specialty.type.SpecialtyTypeDao;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;

@@ -3,11 +3,11 @@ package org.lnu.is.web.controller.person;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.person.PersonFacade;
-import org.lnu.is.facade.facade.persontypes.PersonTypeFacade;
+import org.lnu.is.facade.facade.person.types.PersonTypeFacade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.PersonResource;
-import org.lnu.is.facade.resource.persontype.PersonTypeResource;
+import org.lnu.is.facade.resource.person.type.PersonTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.BaseController;
@@ -122,6 +122,7 @@ public class PersonController extends BaseController {
 	}
 	
 	/**
+	 * TODO: IU - Place to separate controller.
 	 * Method for getting person type resources.
 	 * @param offset
 	 * @param limit
@@ -138,4 +139,5 @@ public class PersonController extends BaseController {
 		PagedRequest<PersonTypeResource> pagedRequest = new PagedRequest<PersonTypeResource>(resource, offset, limit);
 		return personTypeFacade.getPersonTypes(pagedRequest);
 	}
+	
 }

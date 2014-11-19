@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.department;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -32,6 +33,59 @@ public class DefaultDepartmentDaoTest {
 	
 	@InjectMocks
 	private DefaultDepartmentDao unit;
+	
+	@Test
+	public void testSave() throws Exception {
+		// Given
+		String abbrName = "abbrName";
+		Department entity = new Department();
+		entity.setAbbrName(abbrName);
+
+		// When
+		unit.save(entity);
+
+		// Then
+		verify(persistenceManager).create(entity);
+	}
+	
+	@Test
+	public void testUpdate() throws Exception {
+		// Given
+		Department entity = new Department();
+		
+		// When
+		unit.update(entity);
+
+		// Then
+		verify(persistenceManager).update(entity);
+	}
+	
+	@Test
+	public void testDelete() throws Exception {
+		// Given
+		Department entity = new Department();
+
+		// When
+		unit.delete(entity);
+
+		// Then
+		verify(persistenceManager).remove(entity);
+	}
+	
+	@Test
+	public void testFindById() throws Exception {
+		// Given
+		Long id = 1L;
+		Department expected = new Department();
+		
+		// When
+		when(persistenceManager.findById(Matchers.<Class<Department>>any(), anyLong())).thenReturn(expected);
+		Department actual = unit.findById(id);
+
+		// Then
+		verify(persistenceManager).findById(Department.class, id);
+		assertEquals(expected, actual);
+	}
 	
 	@Test
 	public void testGetDepartments() throws Exception {

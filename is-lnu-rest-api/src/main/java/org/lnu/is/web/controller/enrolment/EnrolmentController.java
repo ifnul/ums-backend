@@ -2,10 +2,10 @@ package org.lnu.is.web.controller.enrolment;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.enrolmentstatustype.EnrolmentStatusTypeFacade;
-import org.lnu.is.facade.facade.enrolmentsubject.EnrolmentSubjectFacade;
-import org.lnu.is.facade.resource.enrolmentstatustype.EnrolmentStatusTypeResource;
-import org.lnu.is.facade.resource.enrolmentsubject.EnrolmentSubjectResource;
+import org.lnu.is.facade.facade.enrolment.statustype.EnrolmentStatusTypeFacade;
+import org.lnu.is.facade.facade.enrolment.subject.EnrolmentSubjectFacade;
+import org.lnu.is.facade.resource.enrolment.statustype.EnrolmentStatusTypeResource;
+import org.lnu.is.facade.resource.enrolment.subject.EnrolmentSubjectResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.BaseController;

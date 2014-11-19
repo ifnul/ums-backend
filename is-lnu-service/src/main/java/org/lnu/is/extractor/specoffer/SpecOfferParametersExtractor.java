@@ -9,7 +9,7 @@ import org.lnu.is.dao.dao.department.DepartmentDao;
 import org.lnu.is.dao.dao.eduformtype.EduFormTypeDao;
 import org.lnu.is.dao.dao.specialty.SpecialtyDao;
 import org.lnu.is.dao.dao.specoffer.SpecOfferDao;
-import org.lnu.is.dao.dao.specoffertype.SpecOfferTypeDao;
+import org.lnu.is.dao.dao.specoffer.type.SpecOfferTypeDao;
 import org.lnu.is.dao.dao.timeperiod.TimePeriodDao;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.extractor.AbstractParametersExtractor;
