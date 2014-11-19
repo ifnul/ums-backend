@@ -3,44 +3,51 @@
 <persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         
+        <!-- Asset related entities -->
         <class>org.lnu.is.domain.asset.Asset</class>
-        <class>org.lnu.is.domain.assetaddress.AssetAddress</class>
-        <class>org.lnu.is.domain.assetproperty.AssetProperty</class>
-        <class>org.lnu.is.domain.assetref.AssetRef</class>
-        <class>org.lnu.is.domain.assetstate.AssetState</class> 
-        <class>org.lnu.is.domain.assetstatus.AssetStatus</class> 
-        <class>org.lnu.is.domain.assettype.AssetType</class> 
+        <class>org.lnu.is.domain.asset.AssetAddress</class>
+        <class>org.lnu.is.domain.asset.AssetProperty</class>
+        <class>org.lnu.is.domain.asset.AssetRef</class>
+        <class>org.lnu.is.domain.asset.AssetState</class> 
+        <class>org.lnu.is.domain.asset.AssetStatus</class> 
+        <class>org.lnu.is.domain.asset.AssetType</class> 
 
-        <class>org.lnu.is.domain.department.Department</class>
-        <class>org.lnu.is.domain.departmenttype.DepartmentType</class>
-        <class>org.lnu.is.domain.departmentaddress.DepartmentAddress</class>
-        <class>org.lnu.is.domain.departmentcontact.DepartmentContact</class>
-        <class>org.lnu.is.domain.departmentname.DepartmentName</class>
-        <class>org.lnu.is.domain.departmentspecialty.DepartmentSpecialty</class>
-
-		<class>org.lnu.is.domain.employee.Employee</class> 
-        <class>org.lnu.is.domain.employeestatus.EmployeeStatus</class> 
-        <class>org.lnu.is.domain.employeetype.EmployeeType</class> 
-        <class>org.lnu.is.domain.employeecontact.EmployeeContact</class>
-        <class>org.lnu.is.domain.employeeprofession.EmployeeProfession</class>
-        <class>org.lnu.is.domain.employeeselary.EmployeeSalary</class>
-        <class>org.lnu.is.domain.employeeschedule.EmployeeSchedule</class>
-
-        <class>org.lnu.is.domain.partner.Partner</class>
-        <class>org.lnu.is.domain.partneraddress.PartnerAddress</class>
-        
-        <class>org.lnu.is.domain.specialty.Specialty</class>
-        <class>org.lnu.is.domain.specialtype.SpecialtyType</class>
-        
+        <!-- Benefit related entities -->
         <class>org.lnu.is.domain.benefit.Benefit</class>
-		<class>org.lnu.is.domain.benefittype.BenefitType</class>
+		<class>org.lnu.is.domain.benefit.BenefitType</class>
 
+		<!-- Department related entities -->
+        <class>org.lnu.is.domain.department.Department</class>
+        <class>org.lnu.is.domain.department.DepartmentType</class>
+        <class>org.lnu.is.domain.department.DepartmentAddress</class>
+        <class>org.lnu.is.domain.department.DepartmentContact</class>
+        <class>org.lnu.is.domain.department.DepartmentName</class>
+        <class>org.lnu.is.domain.department.DepartmentSpecialty</class>
+
+		<!-- Employee related entities -->
+		<class>org.lnu.is.domain.employee.Employee</class> 
+        <class>org.lnu.is.domain.employee.EmployeeStatus</class> 
+        <class>org.lnu.is.domain.employee.EmployeeType</class> 
+        <class>org.lnu.is.domain.employee.EmployeeContact</class>
+        <class>org.lnu.is.domain.employee.EmployeeProfession</class>
+        <class>org.lnu.is.domain.employee.EmployeeSallary</class>
+        <class>org.lnu.is.domain.employee.EmployeeSchedule</class>
+
+		<!-- Partner related entities -->
+        <class>org.lnu.is.domain.partner.Partner</class>
+        <class>org.lnu.is.domain.partner.PartnerAddress</class>
+        
+        <!-- Specialty related entities -->
+        <class>org.lnu.is.domain.specialty.Specialty</class>
+        <class>org.lnu.is.domain.specialty.SpecialtyType</class>
+        
+		<!-- Degree related enities -->
         <class>org.lnu.is.domain.degree.Degree</class>
-        <class>org.lnu.is.domain.degreetype.DegreeType</class>
+        <class>org.lnu.is.domain.degree.DegreeType</class>
 
+		<!-- Language related entities -->
         <class>org.lnu.is.domain.language.Language</class>
-        <class>org.lnu.is.domain.languagelevel.LanguageLevel</class>
-
+        <class>org.lnu.is.domain.language.LanguageLevel</class>
 
 		<!-- Enrolment related entities -->
         <class>org.lnu.is.domain.enrolment.Enrolment</class>
@@ -84,49 +91,65 @@
         <class>org.lnu.is.domain.specoffer.SpecofferSubject</class>
         <class>org.lnu.is.domain.specoffer.SpecOfferWave</class>
         <class>org.lnu.is.domain.specoffer.SpecOfferType</class>
-        
+		
+		<!-- Admin Unit related entities -->        
+        <class>org.lnu.is.domain.adminunit.AdminUnit</class>
+        <class>org.lnu.is.domain.adminunittype.AdminUnitType</class>
+		
+		<!-- Post related entities -->
+        <class>org.lnu.is.domain.post.Post</class> 
+        <class>org.lnu.is.domain.post.PostName</class>
+
+		<!-- Property related entities -->
+        <class>org.lnu.is.domain.property.Property</class>
+        <class>org.lnu.is.domain.property.PropertyValue</class>
+        <class>org.lnu.is.domain.property.PropertyType</class>
+
+		<!-- Public Activity entities -->
+        <class>org.lnu.is.domain.publicactivity.PublicActivity</class>
+        <class>org.lnu.is.domain.publicactivity.PublicActivityAward</class>
+        <class>org.lnu.is.domain.publicactivity.PublicActivityType</class>
+		
+		<!-- Subject related entities -->
+        <class>org.lnu.is.domain.subject.Subject</class>
+        <class>org.lnu.is.domain.subject.SubjectType</class>
+
+		<!-- Absence related entities -->
+        <class>org.lnu.is.domain.absence.Absence</class>
+        <class>org.lnu.is.domain.absence.AbsenceType</class>
+		
+		<!-- Time period related entities -->
+        <class>org.lnu.is.domain.timeperiod.TimePeriod</class> 
+        <class>org.lnu.is.domain.timeperiod.TimePeriodType</class>
+
+        <!-- Types - references -->
         <class>org.lnu.is.domain.familytype.FamilyType</class>
         <class>org.lnu.is.domain.gendertype.GenderType</class> 
         <class>org.lnu.is.domain.honorstype.HonorsType</class>
-        <class>org.lnu.is.domain.absencetype.AbsenceType</class>
         <class>org.lnu.is.domain.addresstype.AddressType</class>
         <class>org.lnu.is.domain.contacttype.ContactType</class>
         <class>org.lnu.is.domain.marriedtype.MarriedType</class> 
         <class>org.lnu.is.domain.jobtype.JobType</class> 
         <class>org.lnu.is.domain.posttype.PostType</class> 
         <class>org.lnu.is.domain.pensiontype.PensionType</class>
-        <class>org.lnu.is.domain.propertytype.PropertyType</class>
         <class>org.lnu.is.domain.optype.OpType</class> 
         <class>org.lnu.is.domain.papertype.PaperType</class>
         <class>org.lnu.is.domain.coursetype.CourseType</class>
         <class>org.lnu.is.domain.dutytype.DutyType</class>
-        <class>org.lnu.is.domain.publicactivitytype.PublicActivityType</class>
         <class>org.lnu.is.domain.educationtype.EducationType</class>
         <class>org.lnu.is.domain.eduformtype.EduFormType</class>
-        <class>org.lnu.is.domain.adminunittype.AdminUnitType</class>
         <class>org.lnu.is.domain.salarytype.SalaryType</class>
         <class>org.lnu.is.domain.specstagetype.SpecStageType</class>
         <class>org.lnu.is.domain.statustype.StatusType</class>
         <class>org.lnu.is.domain.streettype.StreetType</class>
-        <class>org.lnu.is.domain.subjecttype.SubjectType</class>
-        <class>org.lnu.is.domain.timeperiodtype.TimePeriodType</class>
         <class>org.lnu.is.domain.timesheettype.TimeSheetType</class>
         <class>org.lnu.is.domain.wavetype.WaveType</class>
-
+		
+		<!-- Not structured yet :| -->
         <class>org.lnu.is.domain.error.Error</class>
         <class>org.lnu.is.domain.importexport.ImportExport</class>
-        <class>org.lnu.is.domain.adminunit.AdminUnit</class>
-        <class>org.lnu.is.domain.post.Post</class> 
-        <class>org.lnu.is.domain.profession.Profession</class>
-        <class>org.lnu.is.domain.property.Property</class>
-        <class>org.lnu.is.domain.publicactivity.PublicActivity</class>
-        <class>org.lnu.is.domain.subject.Subject</class>
-        <class>org.lnu.is.domain.absence.Absence</class>
-        <class>org.lnu.is.domain.postname.PostName</class>
-        <class>org.lnu.is.domain.propertyvalue.PropertyValue</class>
-        <class>org.lnu.is.domain.publicactivityaward.PublicActivityAward</class>
-        <class>org.lnu.is.domain.timeperiod.TimePeriod</class> 
         <class>org.lnu.is.domain.paperusage.PaperUsage</class>
+        <class>org.lnu.is.domain.profession.Profession</class>
         <class>org.lnu.is.domain.reason.Reason</class>
         
         <properties>

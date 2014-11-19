@@ -1,7 +1,7 @@
 package org.lnu.is.dao.dao.timeperiodtype;
 
 import org.lnu.is.dao.AbstractDao;
-import org.lnu.is.domain.timeperiodtype.TimePeriodType;
+import org.lnu.is.domain.timeperiod.TimePeriodType;
 import org.springframework.stereotype.Repository;
 
 /**

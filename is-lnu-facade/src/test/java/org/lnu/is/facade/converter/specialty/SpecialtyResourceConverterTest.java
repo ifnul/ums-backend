@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.junit.Test;
 import org.lnu.is.domain.specialty.Specialty;
-import org.lnu.is.domain.specialtype.SpecialtyType;
+import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.facade.resource.specialty.SpecialtyResource;
 
 

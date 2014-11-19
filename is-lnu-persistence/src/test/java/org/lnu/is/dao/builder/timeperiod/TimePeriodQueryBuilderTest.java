@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.junit.Test;
 import org.lnu.is.domain.timeperiod.TimePeriod;
-import org.lnu.is.domain.timeperiodtype.TimePeriodType;
+import org.lnu.is.domain.timeperiod.TimePeriodType;
 import org.lnu.is.queries.Queries;
 
 public class TimePeriodQueryBuilderTest {

@@ -15,7 +15,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.specialty.Specialty;
-import org.lnu.is.domain.specialtype.SpecialtyType;
+import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.facade.converter.Converter;
 import org.lnu.is.facade.resource.ApiResource;
 import org.lnu.is.facade.resource.search.PagedRequest;

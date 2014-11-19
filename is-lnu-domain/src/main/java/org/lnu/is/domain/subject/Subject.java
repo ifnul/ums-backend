@@ -8,7 +8,6 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.subjecttype.SubjectType;
 
 /**
  * Subject entity.

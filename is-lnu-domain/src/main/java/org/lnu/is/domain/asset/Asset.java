@@ -1,18 +1,17 @@
 package org.lnu.is.domain.asset;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.assetstate.AssetState;
-import org.lnu.is.domain.assetstatus.AssetStatus;
-import org.lnu.is.domain.assettype.AssetType;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
@@ -60,6 +59,15 @@ public class Asset extends Model {
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private Asset parent;
+	
+	@OneToMany(mappedBy = "asset")
+	private List<AssetAddress> addresses;
+	
+	@OneToMany(mappedBy = "asset")
+	private List<AssetProperty> properties;
+	
+	@OneToMany(mappedBy = "asset")
+	private List<AssetRef> references;
 	
 	@Column(name = "name")
 	private String name;
@@ -233,6 +241,30 @@ public class Asset extends Model {
 
 	public void setDescription(final String description) {
 		this.description = description;
+	}
+
+	public List<AssetAddress> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(final List<AssetAddress> addresses) {
+		this.addresses = addresses;
+	}
+
+	public List<AssetProperty> getProperties() {
+		return properties;
+	}
+
+	public void setProperties(final List<AssetProperty> properties) {
+		this.properties = properties;
+	}
+
+	public List<AssetRef> getReferences() {
+		return references;
+	}
+
+	public void setReferences(final List<AssetRef> references) {
+		this.references = references;
 	}
 
 	@Override

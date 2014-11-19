@@ -1,6 +1,6 @@
 package org.lnu.is.facade.converter.specoffertype;
 
-import org.lnu.is.domain.specialtype.SpecialtyType;
+import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;

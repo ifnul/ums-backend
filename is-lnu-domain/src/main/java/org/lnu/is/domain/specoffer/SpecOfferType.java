@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.specialtype.SpecialtyType;
+import org.lnu.is.domain.specialty.SpecialtyType;
 
 /**
  * Entity, that describes type of specoffer.

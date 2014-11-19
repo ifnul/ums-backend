@@ -1,14 +1,16 @@
 package org.lnu.is.domain.property;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.propertytype.PropertyType;
 
 /**
  * Property entity.
@@ -29,6 +31,9 @@ public class Property extends Model {
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private Property parent;
+	
+	@OneToMany(mappedBy = "property")
+	private List<PropertyValue> values;
 	
 	@Column(name = "abbrname")
 	private String abbrname;
@@ -90,6 +95,14 @@ public class Property extends Model {
 		this.priority = priority;
 	}
 	
+	public List<PropertyValue> getValues() {
+		return values;
+	}
+
+	public void setValues(final List<PropertyValue> values) {
+		this.values = values;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

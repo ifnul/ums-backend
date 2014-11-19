@@ -1,7 +1,7 @@
 package org.lnu.is.facade.converter.timeperiod;
 
 import org.lnu.is.domain.timeperiod.TimePeriod;
-import org.lnu.is.domain.timeperiodtype.TimePeriodType;
+import org.lnu.is.domain.timeperiod.TimePeriodType;
 import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
 import org.lnu.is.facade.resource.timeperiod.TimePeriodResource;

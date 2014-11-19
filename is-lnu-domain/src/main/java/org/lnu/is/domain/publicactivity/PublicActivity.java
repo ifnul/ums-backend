@@ -1,16 +1,17 @@
 package org.lnu.is.domain.publicactivity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.publicactivitytype.PublicActivityType;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 
 /**
@@ -32,6 +33,9 @@ public class PublicActivity extends Model {
 	@ManyToOne
 	@JoinColumn(name = "timeperiod_id")
 	private TimePeriod timePeriod;
+	
+	@OneToMany(mappedBy = "publicActivity")
+	private List<PublicActivityAward> awards;
 	
 	@Column(name = "name")
 	private String name;
@@ -80,6 +84,14 @@ public class PublicActivity extends Model {
 
 	public void setEnbDate(final Date enbDate) {
 		this.enbDate = enbDate;
+	}
+
+	public List<PublicActivityAward> getAwards() {
+		return awards;
+	}
+
+	public void setAwards(final List<PublicActivityAward> awards) {
+		this.awards = awards;
 	}
 
 	@Override

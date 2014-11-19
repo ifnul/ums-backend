@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.publicactivityaward.PublicActivityAward;
+import org.lnu.is.domain.publicactivity.PublicActivityAward;
 /**
  * Person Award entity.
  * @author illay

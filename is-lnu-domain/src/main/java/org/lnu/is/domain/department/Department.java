@@ -1,17 +1,21 @@
 package org.lnu.is.domain.department;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.departmenttype.DepartmentType;
 import org.lnu.is.domain.order.Order;
+import org.lnu.is.domain.specialty.Specialty;
 
 /**
  * Entity, that describes department table.
@@ -30,6 +34,21 @@ public class Department extends Model {
 	@ManyToOne
 	@JoinColumn(name = "departmenttype_id")
 	private DepartmentType departmentType;
+	
+	@OneToMany(mappedBy = "department")
+	private List<DepartmentAddress> addresses;
+	
+	@OneToMany(mappedBy = "department")
+	private List<DepartmentContact> contacts;
+	
+	@OneToMany(mappedBy = "department")
+	private List<DepartmentName> names;
+	
+	@ManyToMany
+	@JoinTable(name = "q_od_departmentspecialty", 
+		joinColumns = { @JoinColumn(name = "department_id") },
+		inverseJoinColumns = { @JoinColumn(name = "specialty_id") })
+	private List<Specialty> specialties;
 	
 	@ManyToOne
 	@JoinColumn(name = "order_id")
@@ -134,6 +153,38 @@ public class Department extends Model {
 
 	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
+	}
+
+	public List<DepartmentAddress> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(final List<DepartmentAddress> addresses) {
+		this.addresses = addresses;
+	}
+
+	public List<DepartmentContact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(final List<DepartmentContact> contacts) {
+		this.contacts = contacts;
+	}
+
+	public List<DepartmentName> getNames() {
+		return names;
+	}
+
+	public void setNames(final List<DepartmentName> names) {
+		this.names = names;
+	}
+
+	public List<Specialty> getSpecialties() {
+		return specialties;
+	}
+
+	public void setSpecialties(final List<Specialty> specialties) {
+		this.specialties = specialties;
 	}
 
 	@Override

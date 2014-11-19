@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.absencetype.AbsenceType;
 import org.lnu.is.domain.person.Person;
 /**
  * Absence entity.

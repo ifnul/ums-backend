@@ -1,7 +1,7 @@
 package org.lnu.is.dao.dao.timeperiodtype;
 
 import org.lnu.is.dao.Dao;
-import org.lnu.is.domain.timeperiodtype.TimePeriodType;
+import org.lnu.is.domain.timeperiod.TimePeriodType;
 
 /**
  * Time Period Type Dao interface.

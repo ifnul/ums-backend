@@ -1,16 +1,19 @@
 package org.lnu.is.domain.specialty;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.specialtype.SpecialtyType;
+import org.lnu.is.domain.department.Department;
 
 /**
  * Entity, that describes specialty table.
@@ -29,6 +32,12 @@ public class Specialty extends Model {
 	@ManyToOne
 	@JoinColumn(name = "specialtytype_id")
 	private SpecialtyType specialtyType;
+	
+	@ManyToMany
+	@JoinTable(name = "q_od_departmentspecialty", 
+		joinColumns = { @JoinColumn(name = "specialty_id") },
+		inverseJoinColumns = { @JoinColumn(name = "department_id") })
+	private List<Department> departments;
 	
 	@Column(name = "abbrname")
 	private String abbrName;
@@ -99,6 +108,14 @@ public class Specialty extends Model {
 
 	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
+	}
+
+	public List<Department> getDepartments() {
+		return departments;
+	}
+
+	public void setDepartments(final List<Department> departments) {
+		this.departments = departments;
 	}
 
 	@Override

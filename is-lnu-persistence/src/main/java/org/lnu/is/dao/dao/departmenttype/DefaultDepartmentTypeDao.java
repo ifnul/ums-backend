@@ -1,7 +1,7 @@
 package org.lnu.is.dao.dao.departmenttype;
 
 import org.lnu.is.dao.AbstractDao;
-import org.lnu.is.domain.departmenttype.DepartmentType;
+import org.lnu.is.domain.department.DepartmentType;
 import org.springframework.stereotype.Repository;
 
 /**

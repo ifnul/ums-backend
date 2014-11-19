@@ -1,9 +1,12 @@
 package org.lnu.is.domain.post;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
@@ -35,6 +38,9 @@ public class Post extends Model {
 	@JoinColumn(name = "parent_id")
 	private Post parent;
 
+	@OneToMany(mappedBy = "post")
+	private List<PostName> names;
+	
 	public String getAbbrName() {
 		return abbrName;
 	}
@@ -49,6 +55,30 @@ public class Post extends Model {
 
 	public void setName(final String name) {
 		this.name = name;
+	}
+
+	public PostType getPostType() {
+		return postType;
+	}
+
+	public void setPostType(final PostType postType) {
+		this.postType = postType;
+	}
+
+	public Post getParent() {
+		return parent;
+	}
+
+	public void setParent(final Post parent) {
+		this.parent = parent;
+	}
+
+	public List<PostName> getNames() {
+		return names;
+	}
+
+	public void setNames(final List<PostName> names) {
+		this.names = names;
 	}
 
 	@Override

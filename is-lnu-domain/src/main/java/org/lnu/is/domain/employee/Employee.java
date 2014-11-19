@@ -1,18 +1,18 @@
 package org.lnu.is.domain.employee;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.employeestatus.EmployeeStatus;
-import org.lnu.is.domain.employeetype.EmployeeType;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.jobtype.JobType;
 import org.lnu.is.domain.order.Order;
@@ -66,6 +66,15 @@ public class Employee extends Model {
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private Employee parent;
+	
+	@OneToMany(mappedBy = "employee")
+	private List<EmployeeContact> contacts;
+	
+	@OneToMany(mappedBy = "employee")
+	private List<EmployeeSallary> sallaries;
+	
+	@OneToMany(mappedBy = "employee")
+	private List<EmployeeSchedule> schedules;
 	
 	@Column(name = "ranktype_id")
 	private Long rankTypeId;
@@ -249,6 +258,251 @@ public class Employee extends Model {
 
 	public void setEmail(final String email) {
 		this.email = email;
+	}
+
+	public EmployeeType getEmployeeType() {
+		return employeeType;
+	}
+
+	public void setEmployeeType(final EmployeeType employeeType) {
+		this.employeeType = employeeType;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(final Person person) {
+		this.person = person;
+	}
+
+	public GenderType getGenderType() {
+		return genderType;
+	}
+
+	public void setGenderType(final GenderType genderType) {
+		this.genderType = genderType;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(final Department department) {
+		this.department = department;
+	}
+
+	public JobType getJobType() {
+		return jobType;
+	}
+
+	public void setJobType(final JobType jobType) {
+		this.jobType = jobType;
+	}
+
+	public EmployeeStatus getEmployeeStatus() {
+		return employeeStatus;
+	}
+
+	public void setEmployeeStatus(final EmployeeStatus employeeStatus) {
+		this.employeeStatus = employeeStatus;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(final Order order) {
+		this.order = order;
+	}
+
+	public Employee getParent() {
+		return parent;
+	}
+
+	public void setParent(final Employee parent) {
+		this.parent = parent;
+	}
+
+	public List<EmployeeContact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(final List<EmployeeContact> contacts) {
+		this.contacts = contacts;
+	}
+
+	public List<EmployeeSallary> getSallaries() {
+		return sallaries;
+	}
+
+	public void setSallaries(final List<EmployeeSallary> sallaries) {
+		this.sallaries = sallaries;
+	}
+
+	public List<EmployeeSchedule> getSchedules() {
+		return schedules;
+	}
+
+	public void setSchedules(final List<EmployeeSchedule> schedules) {
+		this.schedules = schedules;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
+		result = prime * result
+				+ ((birthDate == null) ? 0 : birthDate.hashCode());
+		result = prime * result + ((docNum == null) ? 0 : docNum.hashCode());
+		result = prime * result
+				+ ((docSeries == null) ? 0 : docSeries.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
+		result = prime * result
+				+ ((fatherName == null) ? 0 : fatherName.hashCode());
+		result = prime * result
+				+ ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((invNum == null) ? 0 : invNum.hashCode());
+		result = prime * result
+				+ ((isPensioner == null) ? 0 : isPensioner.hashCode());
+		result = prime * result
+				+ ((isPlurality == null) ? 0 : isPlurality.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
+		result = prime * result
+				+ ((rankTypeId == null) ? 0 : rankTypeId.hashCode());
+		result = prime * result + ((rate == null) ? 0 : rate.hashCode());
+		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(final Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Employee other = (Employee) obj;
+		if (begDate == null) {
+			if (other.begDate != null) {
+				return false;
+			}
+		} else if (!begDate.equals(other.begDate)) {
+			return false;
+		}
+		if (birthDate == null) {
+			if (other.birthDate != null) {
+				return false;
+			}
+		} else if (!birthDate.equals(other.birthDate)) {
+			return false;
+		}
+		if (docNum == null) {
+			if (other.docNum != null) {
+				return false;
+			}
+		} else if (!docNum.equals(other.docNum)) {
+			return false;
+		}
+		if (docSeries == null) {
+			if (other.docSeries != null) {
+				return false;
+			}
+		} else if (!docSeries.equals(other.docSeries)) {
+			return false;
+		}
+		if (email == null) {
+			if (other.email != null) {
+				return false;
+			}
+		} else if (!email.equals(other.email)) {
+			return false;
+		}
+		if (endDate == null) {
+			if (other.endDate != null) {
+				return false;
+			}
+		} else if (!endDate.equals(other.endDate)) {
+			return false;
+		}
+		if (fatherName == null) {
+			if (other.fatherName != null) {
+				return false;
+			}
+		} else if (!fatherName.equals(other.fatherName)) {
+			return false;
+		}
+		if (firstName == null) {
+			if (other.firstName != null) {
+				return false;
+			}
+		} else if (!firstName.equals(other.firstName)) {
+			return false;
+		}
+		if (invNum == null) {
+			if (other.invNum != null) {
+				return false;
+			}
+		} else if (!invNum.equals(other.invNum)) {
+			return false;
+		}
+		if (isPensioner == null) {
+			if (other.isPensioner != null) {
+				return false;
+			}
+		} else if (!isPensioner.equals(other.isPensioner)) {
+			return false;
+		}
+		if (isPlurality == null) {
+			if (other.isPlurality != null) {
+				return false;
+			}
+		} else if (!isPlurality.equals(other.isPlurality)) {
+			return false;
+		}
+		if (name == null) {
+			if (other.name != null) {
+				return false;
+			}
+		} else if (!name.equals(other.name)) {
+			return false;
+		}
+		if (phone == null) {
+			if (other.phone != null) {
+				return false;
+			}
+		} else if (!phone.equals(other.phone)) {
+			return false;
+		}
+		if (rankTypeId == null) {
+			if (other.rankTypeId != null) {
+				return false;
+			}
+		} else if (!rankTypeId.equals(other.rankTypeId)) {
+			return false;
+		}
+		if (rate == null) {
+			if (other.rate != null) {
+				return false;
+			}
+		} else if (!rate.equals(other.rate)) {
+			return false;
+		}
+		if (surname == null) {
+			if (other.surname != null) {
+				return false;
+			}
+		} else if (!surname.equals(other.surname)) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
