@@ -182,6 +182,25 @@
 Для того, аби розгорнути веб-аплікацію, потрібно перемістити *WAR* файл у папку *TOMCAT_HOME/Webapps* та запустити сервер.
 
 
+- ###Git 
+
+Для зручної та ефективної роботи з проектом варто використовувати *[Git]*. 
+
+Нижче наведений список команд, які часто використовуються :
+
+>*git clone ***HTTPS-link*** - клонує проект з веб-ресурсу у папку, у якій ви знаходитесь. Як альтернативу HTTPS-link'y можна використовувати SSH. Про його налаштування можна почитати [тут].*
+
+>*git pull - команда має виконуватись із папки проекту та оновлює його відповідно до останніх змін.*
+
+>*git status - відображає зміни між локальною та онлайн версіями проектів*
+
+>*git add -A - використовується з метою додання зміннених та новостворених  файлів перед операцією commit*
+
+>*git commit -m "Commit message" - готує файли та інформацію про зміни для подальшої загрузки у репозиторій з коментарем Сommit message*
+
+>*git push - записує зміни у репозиторій*
+
+
 [посиланням]:http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
 [Eclipse]:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Fint_eclipse.htm
 [Spring Tools Suite]:http://spring.io/tools
@@ -193,3 +212,5 @@
 [PostgreSQL]:http://www.postgresql.org/docs/8.3/static/install-post.html
 [psql]:http://www.postgresql.org/docs/9.3/static/app-psql.html
 [Maven Profiles]:http://maven.apache.org/guides/introduction/introduction-to-profiles.html
+[Git]:http://git-scm.com/downloads
+[тут]:https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git
