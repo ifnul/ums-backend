@@ -30,7 +30,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 public class GenderTypeController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(GenderTypeController.class);
 
-	@Resource
+	@Resource(name = "genderTypeFacade")
 	private GenderTypeFacade genderTypeFacade;
 
 	/**
