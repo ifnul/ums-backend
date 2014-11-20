@@ -14,6 +14,7 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.enrolment.statustype.EnrolmentStatusTypeService;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Enrolment Status Type Facade.
@@ -21,7 +22,7 @@ import org.lnu.is.service.enrolment.statustype.EnrolmentStatusTypeService;
  * @author kushnir
  *
  */
-
+@Transactional
 @Facade("enrolmentStatusTypeFacade")
 public class DefaultEnrolmentStatusTypeFacade implements EnrolmentStatusTypeFacade {
 

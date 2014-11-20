@@ -14,12 +14,14 @@ import org.lnu.is.facade.resource.specoffer.type.SpecOfferTypeResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.specoffer.type.SpecOfferTypeService;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Default Spec Offer Type Facade.
  * @author ivanursul
  *
  */
+@Transactional
 @Facade("specOfferTypeFacade")
 public class DefaultSpecOfferTypeFacade implements SpecOfferTypeFacade {
 

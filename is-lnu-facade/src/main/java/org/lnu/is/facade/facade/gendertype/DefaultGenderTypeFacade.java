@@ -14,6 +14,7 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.gendertype.GenderTypeService;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Gender Type Facade.
@@ -21,7 +22,7 @@ import org.lnu.is.service.gendertype.GenderTypeService;
  * @author kushnir
  *
  */
-
+@Transactional
 @Facade("genderTypeFacade")
 public class DefaultGenderTypeFacade implements GenderTypeFacade {
 

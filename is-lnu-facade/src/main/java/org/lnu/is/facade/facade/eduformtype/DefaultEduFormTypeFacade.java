@@ -14,12 +14,14 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.eduformtype.EduFormTypeService;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
  * @author ivanursul
  *
  */
+@Transactional
 @Facade("eduFormTypeFacade")
 public class DefaultEduFormTypeFacade implements EduFormTypeFacade {
 

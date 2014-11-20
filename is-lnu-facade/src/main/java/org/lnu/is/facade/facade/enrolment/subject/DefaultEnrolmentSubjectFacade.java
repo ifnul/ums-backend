@@ -14,12 +14,14 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.enrolment.subject.EnrolmentSubjectService;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Default implementation of enrolment subject facade.
  * @author ivanursul
  *
  */
+@Transactional
 @Facade("enrolmentSubjectFacade")
 public class DefaultEnrolmentSubjectFacade implements EnrolmentSubjectFacade {
 

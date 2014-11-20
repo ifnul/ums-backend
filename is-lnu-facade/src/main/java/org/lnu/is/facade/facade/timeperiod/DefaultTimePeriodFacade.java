@@ -16,12 +16,14 @@ import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.timeperiod.TimePeriodService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Time Period Facade.
  * @author ivanursul
  *
  */
+@Transactional
 @Facade("timePeriodFacade")
 public class DefaultTimePeriodFacade implements TimePeriodFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultTimePeriodFacade.class);

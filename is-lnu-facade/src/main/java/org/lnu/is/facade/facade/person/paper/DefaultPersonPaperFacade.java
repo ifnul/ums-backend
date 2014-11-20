@@ -17,12 +17,14 @@ import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.person.paper.PersonPaperService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Default implementation of person paper facade.
  * @author ivanursul
  *
  */
+@Transactional
 @Facade("personPaperFacade")
 public class DefaultPersonPaperFacade implements PersonPaperFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonPaperFacade.class);
