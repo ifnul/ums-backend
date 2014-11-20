@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.person;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.person.PersonPaperFacade;
+import org.lnu.is.facade.facade.person.paper.PersonPaperFacade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.paper.PersonPaperResource;
@@ -26,7 +26,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 /**
  * Controller, that handles all operations with person.
  * @author ivanursul
- * TODO: Ivan Ursul: Write unit tests.
+ * 
  */
 @RestController
 @RequestMapping("/persons")
@@ -50,8 +50,7 @@ public class PersonPaperController extends BaseController {
 	public PersonPaperResource createPersonPaper(@RequestBody final PersonPaperResource personPaperResource,
 			@PathVariable("personId") final Long personId) {
 		LOG.info("Creating personPaper: {}", personPaperResource);
-		
-		return personPaperFacade.createPersonPaper(personId, personPaperResource);
+		return personPaperFacade.createPersonPaper(personPaperResource);
 	}
 	
 	/**
@@ -69,7 +68,7 @@ public class PersonPaperController extends BaseController {
  			@RequestBody final PersonPaperResource personPaperResource) {
 		LOG.info("Updating personPaper with id: {}, {}", personPaperId, personPaperResource);
 		
-		personPaperFacade.updatePersonPaper(personId, personPaperId, personPaperResource);
+		personPaperFacade.updatePersonPaper(personPaperId, personPaperResource);
 		return new MessageResource(MessageType.INFO, "Person Paper Updated");
 	}
 	
@@ -86,7 +85,7 @@ public class PersonPaperController extends BaseController {
 			@PathVariable("personPaperId") final Long personPaperId) {
 		LOG.info("Retrieving personPaper with id: {}", personPaperId);
 		
-		return personPaperFacade.getPersonPaper(personId, personPaperId);
+		return personPaperFacade.getPersonPaper(personPaperId);
 	}
 	
 	/**
@@ -101,7 +100,7 @@ public class PersonPaperController extends BaseController {
 	public MessageResource removePersonPaper(@PathVariable("personId") final Long personId,
 			@PathVariable("personPaperId") final Long personPaperId) {
 		LOG.info("Removing personPaper with id: {}", personPaperId);
-		personPaperFacade.removePersonPaper(personId, personPaperId);
+		personPaperFacade.removePersonPaper(personPaperId);
 		
 		return new MessageResource(MessageType.INFO, "PersonPaper removed");
 	}
@@ -115,16 +114,17 @@ public class PersonPaperController extends BaseController {
 	 * @return paged result.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{personId}/papers", method = RequestMethod.GET)
+	@RequestMapping(value = "/{person}/papers", method = RequestMethod.GET)
 	@ApiOperation(value = "Get PersonPapers", position = 5)
 	public PagedResultResource<PersonPaperResource> getPersonPapers(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
 			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
-			@PathVariable("personId") final Long personId,
+			@PathVariable("person") final Long persId,
 			final PersonPaperResource resource) {
-		LOG.info("Retrieving PagedResultResource for PersonPaper:{} Resources with offset: {}, limit: {}", personId, offset, limit);
+		LOG.info("Retrieving PagedResultResource for PersonPaper:{} Resources with offset: {}, limit: {}", persId, offset, limit);
+		resource.setPersonId(persId);
 		PagedRequest<PersonPaperResource> pagedRequest = new PagedRequest<PersonPaperResource>(resource, offset, limit);
 		
-		return personPaperFacade.getPersonPapers(personId, pagedRequest);
+		return personPaperFacade.getPersonPapers(pagedRequest);
 	}
 	
 }
