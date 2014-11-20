@@ -4,7 +4,7 @@ import org.lnu.is.dao.Dao;
 import org.lnu.is.domain.marriedtype.MarriedType;
 
 /**
- * Married Type interfface.
+ * Married Type interface.
  * @author ivanursul
  *
  */

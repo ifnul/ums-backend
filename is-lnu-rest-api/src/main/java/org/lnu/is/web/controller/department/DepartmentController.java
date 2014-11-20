@@ -44,7 +44,7 @@ public class DepartmentController extends BaseController {
 	 * PS - to help you understand how you should map methods, this
 	 * method url will look like:
 	 * 
-	 * http://localhost:8080/is-lnu-rest-api/api/specailties,
+	 * http://localhost:8080/is-lnu-rest-api/api/specialties,
 	 * the method should be POST
 	 * 
 	 * @param departmentResource
