@@ -40,7 +40,10 @@ public class DefaultSpecialtyDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<Specialty> pagedSearch = new PagedSearch<Specialty>(offset, limit, Queries.FIND_SPECIALTIES, Collections.<String, Object> emptyMap(), Specialty.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<Specialty> pagedSearch = new PagedSearch<Specialty>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), Specialty.class);
 
 		Specialty entity1 = new Specialty();
 		List<Specialty> entities = Arrays.asList(entity1);

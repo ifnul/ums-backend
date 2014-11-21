@@ -11,7 +11,6 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
-import org.lnu.is.dao.dao.specoffer.type.DefaultSpecOfferTypeDao;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.pagination.PagedResult;
@@ -41,7 +40,10 @@ public class DefaultSpecOfferTypeDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<SpecOfferType> pagedSearch = new PagedSearch<SpecOfferType>(offset, limit, Queries.FIND_SPECOFFER_TYPES, Collections.<String, Object> emptyMap(), SpecOfferType.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<SpecOfferType> pagedSearch = new PagedSearch<SpecOfferType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), SpecOfferType.class);
 
 		SpecOfferType entity1 = new SpecOfferType();
 		List<SpecOfferType> entities = Arrays.asList(entity1);

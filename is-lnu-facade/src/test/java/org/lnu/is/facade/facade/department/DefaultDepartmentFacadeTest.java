@@ -208,7 +208,10 @@ public class DefaultDepartmentFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<Department> pagedSearch = new PagedSearch<Department>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), Department.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<Department> pagedSearch = new PagedSearch<Department>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), Department.class);
 		List<Department> entities = Arrays.asList(new Department());
 		PagedResult<Department> pagedResult = new PagedResult<Department>(offset, limit, count, entities);
 

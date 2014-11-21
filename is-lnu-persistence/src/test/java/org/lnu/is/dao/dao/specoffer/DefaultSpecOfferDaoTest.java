@@ -40,7 +40,10 @@ public class DefaultSpecOfferDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<SpecOffer> pagedSearch = new PagedSearch<SpecOffer>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), SpecOffer.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<SpecOffer> pagedSearch = new PagedSearch<SpecOffer>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), SpecOffer.class);
 
 		SpecOffer entity1 = new SpecOffer();
 		List<SpecOffer> entities = Arrays.asList(entity1);

@@ -40,8 +40,10 @@ public class DefaultEduFormTypeDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<EduFormType> pagedSearch = new PagedSearch<EduFormType>(offset, limit, Queries.FIND_PERSONS, Collections.<String, Object> emptyMap(), EduFormType.class);
-
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<EduFormType> pagedSearch = new PagedSearch<EduFormType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), EduFormType.class);
 		EduFormType entity1 = new EduFormType();
 		List<EduFormType> entities = Arrays.asList(entity1);
 		PagedResult<EduFormType> expected = new PagedResult<EduFormType>(offset, limit, count, entities);

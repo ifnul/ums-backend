@@ -203,7 +203,10 @@ public class DefaultSpecialtyFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<Specialty> pagedSearch = new PagedSearch<Specialty>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), Specialty.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<Specialty> pagedSearch = new PagedSearch<Specialty>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), Specialty.class);
 		List<Specialty> entities = Arrays.asList(new Specialty());
 		PagedResult<Specialty> pagedResult = new PagedResult<Specialty>(offset, limit, count, entities);
 

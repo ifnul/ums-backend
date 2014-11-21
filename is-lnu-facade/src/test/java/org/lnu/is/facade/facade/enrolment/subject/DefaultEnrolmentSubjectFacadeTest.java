@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.facade.enrolment.subject.DefaultEnrolmentSubjectFacade;
 import org.lnu.is.facade.resource.ApiResource;
 import org.lnu.is.facade.resource.enrolment.subject.EnrolmentSubjectResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -61,7 +60,10 @@ public class DefaultEnrolmentSubjectFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<EnrolmentSubject> pagedSearch = new PagedSearch<EnrolmentSubject>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), EnrolmentSubject.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<EnrolmentSubject> pagedSearch = new PagedSearch<EnrolmentSubject>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), EnrolmentSubject.class);
 		List<EnrolmentSubject> entities = Arrays.asList(new EnrolmentSubject());
 		PagedResult<EnrolmentSubject> pagedResult = new PagedResult<EnrolmentSubject>(offset, limit, count, entities);
 

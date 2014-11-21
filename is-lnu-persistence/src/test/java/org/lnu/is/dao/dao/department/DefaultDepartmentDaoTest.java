@@ -94,7 +94,10 @@ public class DefaultDepartmentDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<Department> pagedSearch = new PagedSearch<Department>(offset, limit, Queries.FIND_SPECIALTIES, Collections.<String, Object> emptyMap(), Department.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<Department> pagedSearch = new PagedSearch<Department>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), Department.class);
 
 		Department entity1 = new Department();
 		List<Department> entities = Arrays.asList(entity1);

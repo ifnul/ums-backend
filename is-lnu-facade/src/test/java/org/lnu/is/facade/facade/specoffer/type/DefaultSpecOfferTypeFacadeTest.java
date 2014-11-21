@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.facade.specoffer.type.DefaultSpecOfferTypeFacade;
 import org.lnu.is.facade.resource.ApiResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -61,7 +60,10 @@ public class DefaultSpecOfferTypeFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<SpecOfferType> pagedSearch = new PagedSearch<SpecOfferType>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), SpecOfferType.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<SpecOfferType> pagedSearch = new PagedSearch<SpecOfferType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), SpecOfferType.class);
 		List<SpecOfferType> entities = Arrays.asList(new SpecOfferType());
 		PagedResult<SpecOfferType> pagedResult = new PagedResult<SpecOfferType>(offset, limit, count, entities);
 

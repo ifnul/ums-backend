@@ -59,7 +59,10 @@ public class DefaultTimePeriodFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<TimePeriod> pagedSearch = new PagedSearch<TimePeriod>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), TimePeriod.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<TimePeriod> pagedSearch = new PagedSearch<TimePeriod>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), TimePeriod.class);
 		List<TimePeriod> entities = Arrays.asList(new TimePeriod());
 		PagedResult<TimePeriod> pagedResult = new PagedResult<TimePeriod>(offset, limit, count, entities);
 

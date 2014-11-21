@@ -11,7 +11,6 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
-import org.lnu.is.dao.dao.enrolment.subject.DefaultEnrolmentSubjectDao;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.pagination.PagedResult;
@@ -41,7 +40,10 @@ public class DefaultEnrolmentSubjectDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<EnrolmentSubject> pagedSearch = new PagedSearch<EnrolmentSubject>(offset, limit, Queries.FIND_PERSONS, Collections.<String, Object> emptyMap(), EnrolmentSubject.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<EnrolmentSubject> pagedSearch = new PagedSearch<EnrolmentSubject>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), EnrolmentSubject.class);
 
 		EnrolmentSubject entity1 = new EnrolmentSubject();
 		List<EnrolmentSubject> entities = Arrays.asList(entity1);

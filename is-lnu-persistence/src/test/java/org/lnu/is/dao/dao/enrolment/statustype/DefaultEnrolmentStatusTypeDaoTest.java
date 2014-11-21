@@ -11,7 +11,6 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
-import org.lnu.is.dao.dao.enrolment.statustype.DefaultEnrolmentStatusTypeDao;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.pagination.PagedResult;
@@ -42,7 +41,10 @@ public class DefaultEnrolmentStatusTypeDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<EnrolmentStatusType> pagedSearch = new PagedSearch<EnrolmentStatusType>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<EnrolmentStatusType> pagedSearch = new PagedSearch<EnrolmentStatusType>(offset, limit, new Queries(queryName,query), Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
 
 		EnrolmentStatusType entity1 = new EnrolmentStatusType();
 		List<EnrolmentStatusType> entities = Arrays.asList(entity1);

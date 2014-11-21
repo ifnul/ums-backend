@@ -60,7 +60,10 @@ public class DefaultGenderTypeFacadeTest {
 		int offset = 3;
 		int count = 100;
 
-		PagedSearch<GenderType> pagedSearch = new PagedSearch<GenderType>(offset, limit, Queries.FIND_GENDER_TYPES, Collections.<String, Object> emptyMap(),
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<GenderType> pagedSearch = new PagedSearch<GenderType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(),
 				GenderType.class);
 		List<GenderType> entities = Arrays.asList(new GenderType());
 		PagedResult<GenderType> pagedResult = new PagedResult<GenderType>(offset, limit, count, entities);

@@ -157,7 +157,10 @@ public class DefaultPersonPaperFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<PersonPaper> pagedSearch = new PagedSearch<PersonPaper>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), PersonPaper.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<PersonPaper> pagedSearch = new PagedSearch<PersonPaper>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), PersonPaper.class);
 		List<PersonPaper> entities = Arrays.asList(new PersonPaper());
 		PagedResult<PersonPaper> pagedResult = new PagedResult<PersonPaper>(offset, limit, count, entities);
 

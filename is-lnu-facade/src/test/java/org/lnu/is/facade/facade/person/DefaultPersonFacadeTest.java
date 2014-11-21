@@ -185,7 +185,10 @@ public class DefaultPersonFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<Person> pagedSearch = new PagedSearch<Person>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), Person.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<Person> pagedSearch = new PagedSearch<Person>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), Person.class);
 		List<Person> entities = Arrays.asList(new Person());
 		PagedResult<Person> pagedResult = new PagedResult<Person>(offset, limit, count, entities);
 

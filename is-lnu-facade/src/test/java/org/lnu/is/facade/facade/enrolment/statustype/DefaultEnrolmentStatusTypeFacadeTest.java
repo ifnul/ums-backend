@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.facade.enrolment.statustype.DefaultEnrolmentStatusTypeFacade;
 import org.lnu.is.facade.resource.ApiResource;
 import org.lnu.is.facade.resource.enrolment.statustype.EnrolmentStatusTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -60,7 +59,10 @@ public class DefaultEnrolmentStatusTypeFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<EnrolmentStatusType> pagedSearch = new PagedSearch<EnrolmentStatusType>(offset, limit, Queries.FIND_ENROLMENT_STATUS_TYPES, Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<EnrolmentStatusType> pagedSearch = new PagedSearch<EnrolmentStatusType>(offset, limit,new Queries(queryName, query),Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
 		List<EnrolmentStatusType> entities = Arrays.asList(new EnrolmentStatusType());
 		PagedResult<EnrolmentStatusType> pagedResult = new PagedResult<EnrolmentStatusType>(offset, limit, count, entities);
 		

@@ -185,7 +185,10 @@ public class DefaultSpecOfferFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<SpecOffer> pagedSearch = new PagedSearch<SpecOffer>(offset, limit, Queries.FIND_SPECOFFERS, Collections.<String, Object> emptyMap(), SpecOffer.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<SpecOffer> pagedSearch = new PagedSearch<SpecOffer>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), SpecOffer.class);
 		List<SpecOffer> entities = Arrays.asList(new SpecOffer());
 		PagedResult<SpecOffer> pagedResult = new PagedResult<SpecOffer>(offset, limit, count, entities);
 

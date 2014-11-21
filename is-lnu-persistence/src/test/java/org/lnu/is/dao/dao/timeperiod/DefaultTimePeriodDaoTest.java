@@ -40,7 +40,10 @@ public class DefaultTimePeriodDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		PagedSearch<TimePeriod> pagedSearch = new PagedSearch<TimePeriod>(offset, limit, Queries.FIND_SPECIALTIES, Collections.<String, Object> emptyMap(), TimePeriod.class);
+		String query = "query";
+		String queryName = "queryName";
+		
+		PagedSearch<TimePeriod> pagedSearch = new PagedSearch<TimePeriod>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), TimePeriod.class);
 
 		TimePeriod entity1 = new TimePeriod();
 		List<TimePeriod> entities = Arrays.asList(entity1);

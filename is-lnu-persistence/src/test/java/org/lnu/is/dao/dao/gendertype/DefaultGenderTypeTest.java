@@ -39,8 +39,11 @@ public class DefaultGenderTypeTest {
 		int offset = 10;
 		int limit = 10;
 		int count = 100;
+		
+		String query = "query";
+		String queryName = "queryName";
 
-		PagedSearch<GenderType> pagedSearch = new PagedSearch<GenderType>(offset, limit, Queries.FIND_GENDER_TYPES, Collections.<String, Object> emptyMap(),
+		PagedSearch<GenderType> pagedSearch = new PagedSearch<GenderType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(),
 				GenderType.class);
 
 		GenderType entity = new GenderType();
