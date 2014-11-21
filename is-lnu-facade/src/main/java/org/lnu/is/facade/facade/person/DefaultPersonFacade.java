@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.facade.annotations.Facade;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.facade.facade.BaseFacade;
 import org.lnu.is.facade.resource.person.PersonResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -25,66 +25,64 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @Facade("personFacade")
-public class DefaultPersonFacade implements PersonFacade {
+public class DefaultPersonFacade extends BaseFacade<PersonResource, Person> implements PersonFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonFacade.class);
 	
 	@Resource(name = "personService")
 	private PersonService personService;
 
-	@Resource(name = "insertConverter")
-	private Converter<PersonResource, Person> insertConverter;
-
-	@Resource(name = "updateConverter")
-	private Converter<PersonResource, Person> updateConverter;
-	
 	@Resource(name = "personResourceConverter")
 	private Converter<PersonResource, Person> personResourceConverter;
 
 	@Resource(name = "personConverter")
 	private Converter<Person, PersonResource> personConverter;
 	
-	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest<PersonResource>, PagedSearch<Person>> pagedRequestConverter;
-
-	@Resource(name = "pagedSearchConverter")
-	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
-
 	@Override
-	public PersonResource createPerson(final PersonResource personResource) {
-		Person person = personResourceConverter.convert(personResource);
-		insertConverter.convert(personResource, person);
+	public PersonResource createPerson(final PersonResource resource) {
+		LOG.info("Creating person: {}", resource);
+		
+		Person person = personResourceConverter.convert(resource);
+		
+		insertConverter.convert(resource, person);
 		personService.createPerson(person);
+		
 		return personConverter.convert(person);
 	}
 
 	@Override
-	public void updatePerson(final Long id, final PersonResource personResource) {
+	public void updatePerson(final Long id, final PersonResource resource) {
+		LOG.info("Updating person with id: {}, resource: {}", id, resource);
+		
 		Person person = personService.getPerson(id);
 		
-		personResourceConverter.convert(personResource, person);
-		updateConverter.convert(personResource, person);
+		personResourceConverter.convert(resource, person);
+		updateConverter.convert(resource, person);
 		
 		personService.updatePerson(person);
 	}
 
 	@Override
 	public PersonResource getPerson(final Long id) {
+		LOG.info("Getting person with id: {}", id);
+		
 		Person person = personService.getPerson(id);
 		return personConverter.convert(person);
 	}
 
 	@Override
 	public void removePerson(final Long id) {
+		LOG.info("Removing person with id: {}", id);
+		
 		Person person = personService.getPerson(id);
 		personService.removePerson(person);
 	}
 
 	@Override
-	public PagedResultResource<PersonResource> getPersons(final PagedRequest<PersonResource> pagedRequest) {
-		LOG.info("Get persons by paged request: {}", pagedRequest);
+	public PagedResultResource<PersonResource> getPersons(final PagedRequest<PersonResource> request) {
+		LOG.info("Get persons by paged request: {}", request);
 
-		PagedSearch<Person> pagedSearch = pagedRequestConverter.convert(pagedRequest);
-		pagedSearch.setEntity(personResourceConverter.convert(pagedRequest.getResource()));
+		PagedSearch<Person> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(personResourceConverter.convert(request.getResource()));
 
 		PagedResult<Person> pagedResult = personService.getPersons(pagedSearch);
 

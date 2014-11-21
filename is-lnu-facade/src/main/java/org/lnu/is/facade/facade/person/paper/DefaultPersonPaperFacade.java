@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.facade.annotations.Facade;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.facade.facade.BaseFacade;
 import org.lnu.is.facade.resource.person.paper.PersonPaperResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -26,79 +26,67 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @Facade("personPaperFacade")
-public class DefaultPersonPaperFacade implements PersonPaperFacade {
+public class DefaultPersonPaperFacade extends BaseFacade<PersonPaperResource, PersonPaper> implements PersonPaperFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonPaperFacade.class);
 	
 	@Resource(name = "personPaperService")
 	private PersonPaperService personPaperService;
 
-	@Resource(name = "insertConverter")
-	private Converter<PersonPaperResource, PersonPaper> insertConverter;
-
-	@Resource(name = "updateConverter")
-	private Converter<PersonPaperResource, PersonPaper> updateConverter;
-	
 	@Resource(name = "personPaperResourceConverter")
 	private Converter<PersonPaperResource, PersonPaper> personPaperResourceConverter;
 
 	@Resource(name = "personPaperConverter")
 	private Converter<PersonPaper, PersonPaperResource> personPaperConverter;
-	
-	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest<PersonPaperResource>, PagedSearch<PersonPaper>> pagedRequestConverter;
-
-	@Resource(name = "pagedSearchConverter")
-	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 
 	@Override
-	public PersonPaperResource createPersonPaper(final PersonPaperResource personPaperResource) {
-		LOG.info("Creating person paper: {}", personPaperResource);
+	public PersonPaperResource createPersonPaper(final PersonPaperResource resource) {
+		LOG.info("Creating person paper: {}", resource);
 		
-		PersonPaper personPaper = personPaperResourceConverter.convert(personPaperResource);
-		insertConverter.convert(personPaperResource, personPaper);
+		PersonPaper personPaper = personPaperResourceConverter.convert(resource);
+		insertConverter.convert(resource, personPaper);
 		personPaperService.createPersonPaper(personPaper);
 		return personPaperConverter.convert(personPaper);
 	}
 
 	@Override
-	public void updatePersonPaper(final Long personPaperId, final PersonPaperResource personPaperResource) {
-		LOG.info("Updating person-paper({}): {}", personPaperId, personPaperResource);
+	public void updatePersonPaper(final Long personPaperId, final PersonPaperResource resource) {
+		LOG.info("Updating person-paper({}): {}", personPaperId, resource);
 		
 		PersonPaper personPaper = personPaperService.getPersonPaper(personPaperId);
 		
-		personPaperResourceConverter.convert(personPaperResource, personPaper);
-		updateConverter.convert(personPaperResource, personPaper);
+		personPaperResourceConverter.convert(resource, personPaper);
+		updateConverter.convert(resource, personPaper);
 		
 		personPaperService.updatePersonPaper(personPaper);
 	}
 
 	@Override
-	public PersonPaperResource getPersonPaper(final Long personPaperId) {
-		LOG.info("Getting person paper with id: {}", personPaperId);
+	public PersonPaperResource getPersonPaper(final Long id) {
+		LOG.info("Getting person paper with id: {}", id);
 		
-		PersonPaper personPaper = personPaperService.getPersonPaper(personPaperId);
+		PersonPaper personPaper = personPaperService.getPersonPaper(id);
 		return personPaperConverter.convert(personPaper);
 	}
 
 	@Override
-	public void removePersonPaper(final Long personPaperId) {
-		LOG.info("Removing person-paper with id: {}", personPaperId);
-		PersonPaper personPaper = personPaperService.getPersonPaper(personPaperId);
+	public void removePersonPaper(final Long id) {
+		LOG.info("Removing person-paper with id: {}", id);
+		PersonPaper personPaper = personPaperService.getPersonPaper(id);
 		personPaperService.removePersonPaper(personPaper);
 	}
 
 	@Override
-	public PagedResultResource<PersonPaperResource> getPersonPapers(final PagedRequest<PersonPaperResource> pagedRequest) {
-		LOG.info("Get person papers by paged request: {}", pagedRequest);
+	public PagedResultResource<PersonPaperResource> getPersonPapers(final PagedRequest<PersonPaperResource> request) {
+		LOG.info("Get person papers by paged request: {}", request);
 
-		PagedSearch<PersonPaper> pagedSearch = pagedRequestConverter.convert(pagedRequest);
-		pagedSearch.setEntity(personPaperResourceConverter.convert(pagedRequest.getResource()));
+		PagedSearch<PersonPaper> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(personPaperResourceConverter.convert(request.getResource()));
 
 		PagedResult<PersonPaper> pagedResult = personPaperService.getPersonPapers(pagedSearch);
 
 		List<PersonPaperResource> resources = personPaperConverter.convertAll(pagedResult.getEntities());
 
-		PagedResultResource<PersonPaperResource> pagedResultResource = new PagedResultResource<>(MessageFormat.format("/persons/{0}/papers", pagedRequest.getResource().getPersonId()));
+		PagedResultResource<PersonPaperResource> pagedResultResource = new PagedResultResource<>(MessageFormat.format("/persons/{0}/papers", request.getResource().getPersonId()));
 		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 

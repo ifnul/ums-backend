@@ -1,6 +1,5 @@
 package org.lnu.is.facade.facade.department;
 
-import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.department.DepartmentResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -11,21 +10,21 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
  * @author ivanursul
  *
  */
-public interface DepartmentFacade extends Facade<DepartmentResource> {
+public interface DepartmentFacade {
 
 	/**
 	 * Method for creating new Department.
-	 * @param departmentResource resource
+	 * @param resource resource
 	 * @return department with generated identifier.
 	 */
-	DepartmentResource createDepartment(DepartmentResource departmentResource);
+	DepartmentResource createDepartment(DepartmentResource resource);
 
 	/**
 	 * Method for updating department.
 	 * @param id identifier.
-	 * @param departmentResource department resource.
+	 * @param resource department resource.
 	 */
-	void updateDepartment(Long id, DepartmentResource departmentResource);
+	void updateDepartment(Long id, DepartmentResource resource);
 
 	/**
 	 * Method for getting ready department.
@@ -42,8 +41,8 @@ public interface DepartmentFacade extends Facade<DepartmentResource> {
 
 	/**
 	 * Method for getting paged result for departments.
-	 * @param pagedRequest request.
+	 * @param request request.
 	 * @return paged result.
 	 */
-	PagedResultResource<DepartmentResource> getDepartments(PagedRequest<DepartmentResource> pagedRequest);
+	PagedResultResource<DepartmentResource> getDepartments(PagedRequest<DepartmentResource> request);
 }

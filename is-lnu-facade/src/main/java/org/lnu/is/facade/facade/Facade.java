@@ -1,11 +1,12 @@
 package org.lnu.is.facade.facade;
 
 /**
- * Default implementation of facade.
+ * Facade interface.
  * @author ivanursul
  *
- * @param <T> Resource.
+ * @param <RESOURCE> resource.
+ * @param <ENTITIY> entity.
  */
-public interface Facade<T> {
+public interface Facade<RESOURCE, ENTITIY> {
 
 }

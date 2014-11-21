@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.facade.annotations.Facade;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.facade.facade.BaseFacade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specialty.SpecialtyResource;
@@ -25,66 +25,64 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @Facade("specialtyFacade")
-public class DefaultSpecialtyFacade implements SpecialtyFacade {
+public class DefaultSpecialtyFacade extends BaseFacade<SpecialtyResource, Specialty> implements SpecialtyFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultSpecialtyFacade.class);
 	
 	@Resource(name = "specialtyService")
 	private SpecialtyService specialtyService;
 
-	@Resource(name = "insertConverter")
-	private Converter<SpecialtyResource, Specialty> insertConverter;
-
-	@Resource(name = "updateConverter")
-	private Converter<SpecialtyResource, Specialty> updateConverter;
-	
 	@Resource(name = "specialtyResourceConverter")
 	private Converter<SpecialtyResource, Specialty> specialtyResourceConverter;
 
 	@Resource(name = "specialtyConverter")
 	private Converter<Specialty, SpecialtyResource> specialtyConverter;
 	
-	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest<SpecialtyResource>, PagedSearch<Specialty>> pagedRequestConverter;
-
-	@Resource(name = "pagedSearchConverter")
-	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
-	
 	@Override
-	public SpecialtyResource createSpecialty(final SpecialtyResource specialtyResource) {
-		Specialty specialty = specialtyResourceConverter.convert(specialtyResource);
-		insertConverter.convert(specialtyResource, specialty);
+	public SpecialtyResource createSpecialty(final SpecialtyResource resource) {
+		LOG.info("Creating new specialty, {}", resource);
+		
+		Specialty specialty = specialtyResourceConverter.convert(resource);
+		
+		insertConverter.convert(resource, specialty);
 		specialty = specialtyService.createSpecialty(specialty);
+		
 		return specialtyConverter.convert(specialty);
 	}
 
 	@Override
-	public void updateSpecialty(final Long id, final SpecialtyResource specialtyResource) {
+	public void updateSpecialty(final Long id, final SpecialtyResource resource) {
+		LOG.info("Updating specialty with id:{}, resource", id, resource);
+		
 		Specialty specialty = specialtyService.getSpecialty(id);
 		
-		specialtyResourceConverter.convert(specialtyResource, specialty);
-		updateConverter.convert(specialtyResource, specialty);
+		specialtyResourceConverter.convert(resource, specialty);
+		updateConverter.convert(resource, specialty);
 		
 		specialtyService.updateSpecialty(specialty);
 	}
 
 	@Override
 	public SpecialtyResource getSpecialty(final Long id) {
+		LOG.info("Getting specialty with id: {}", id);
+		
 		Specialty specialty = specialtyService.getSpecialty(id);
 		return specialtyConverter.convert(specialty);
 	}
 
 	@Override
 	public void removeSpecialty(final Long id) {
+		LOG.info("Removing specialty:{}", id);
+		
 		Specialty specialty = specialtyService.getSpecialty(id);
 		specialtyService.removeSpecialty(specialty);
 	}
 
 	@Override
-	public PagedResultResource<SpecialtyResource> getSpecialties(final PagedRequest<SpecialtyResource> pagedRequest) {
-		LOG.info("Get specialties by paged request: {}", pagedRequest);
+	public PagedResultResource<SpecialtyResource> getSpecialties(final PagedRequest<SpecialtyResource> request) {
+		LOG.info("Getting specialties by paged request: {}", request);
 
-		PagedSearch<Specialty> pagedSearch = pagedRequestConverter.convert(pagedRequest);
-		pagedSearch.setEntity(specialtyResourceConverter.convert(pagedRequest.getResource()));
+		PagedSearch<Specialty> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(specialtyResourceConverter.convert(request.getResource()));
 		
 		PagedResult<Specialty> pagedResult = specialtyService.getSpecialties(pagedSearch);
 

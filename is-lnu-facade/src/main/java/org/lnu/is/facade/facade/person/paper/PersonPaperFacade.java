@@ -14,43 +14,43 @@ public interface PersonPaperFacade {
 	/**
 	 * Method for creating person paper.
 	 * @author ivanursul
-	 * @param personPaperResource
+	 * @param resource
 	 * @return person paper with generated identifier.
 	 */
-	PersonPaperResource createPersonPaper(PersonPaperResource personPaperResource);
+	PersonPaperResource createPersonPaper(PersonPaperResource resource);
 
 	/**
 	 * Method for updating person paper.
 	 * @author ivanursul
-	 * @param personPaperId
-	 * @param personPaperResource
+	 * @param id
+	 * @param resource
 	 */
-	void updatePersonPaper(Long personPaperId, PersonPaperResource personPaperResource);
+	void updatePersonPaper(Long id, PersonPaperResource resource);
 
 	/**
 	 * Method for getting person paper identifier.
 	 * @author ivanursul
 	 * @param personId
-	 * @param personPaperId
+	 * @param id
 	 * @return person paper.
 	 */
-	PersonPaperResource getPersonPaper(Long personPaperId);
+	PersonPaperResource getPersonPaper(Long id);
 
 	/**
 	 * Method for removing person paper.
 	 * @author ivanursul
 	 * @param personId
-	 * @param personPaperId
+	 * @param id
 	 */
-	void removePersonPaper(Long personPaperId);
+	void removePersonPaper(Long id);
 
 	/**
 	 * Method for getting paged result for person papers.
 	 * @author ivanursul
 	 * @param personId
-	 * @param pagedRequest
+	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<PersonPaperResource> getPersonPapers(PagedRequest<PersonPaperResource> pagedRequest);
+	PagedResultResource<PersonPaperResource> getPersonPapers(PagedRequest<PersonPaperResource> request);
 
 }

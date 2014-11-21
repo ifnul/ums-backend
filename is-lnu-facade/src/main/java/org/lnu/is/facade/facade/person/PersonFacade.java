@@ -1,6 +1,5 @@
 package org.lnu.is.facade.facade.person;
 
-import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.person.PersonResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -10,23 +9,23 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
  * @author ivanursul
  *
  */
-public interface PersonFacade extends Facade<PersonResource> {
+public interface PersonFacade {
 
 	/**
 	 * Method for creating person.
 	 * @author ivanursul
-	 * @param personResource
+	 * @param resource
 	 * @return person resource.
 	 */
-	PersonResource createPerson(PersonResource personResource);
+	PersonResource createPerson(PersonResource resource);
 
 	/**
 	 * Method for updating person.
 	 * @author ivanursul
 	 * @param id
-	 * @param personResource
+	 * @param resource
 	 */
-	void updatePerson(Long id, PersonResource personResource);
+	void updatePerson(Long id, PersonResource resource);
 
 	/**
 	 * Method for getting person by identifier.
@@ -46,9 +45,9 @@ public interface PersonFacade extends Facade<PersonResource> {
 	/**
 	 * Method for getting persons.
 	 * @author ivanursul
-	 * @param pagedRequest
+	 * @param request
 	 * @return pagedResult.
 	 */
-	PagedResultResource<PersonResource> getPersons(PagedRequest<PersonResource> pagedRequest);
+	PagedResultResource<PersonResource> getPersons(PagedRequest<PersonResource> request);
 
 }

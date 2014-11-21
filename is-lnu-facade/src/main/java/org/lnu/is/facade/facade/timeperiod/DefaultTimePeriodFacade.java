@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.facade.annotations.Facade;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.facade.facade.BaseFacade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.timeperiod.TimePeriodResource;
@@ -25,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @Facade("timePeriodFacade")
-public class DefaultTimePeriodFacade implements TimePeriodFacade {
+public class DefaultTimePeriodFacade extends BaseFacade<TimePeriodResource, TimePeriod> implements TimePeriodFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultTimePeriodFacade.class);
 	
 	@Resource(name = "timePeriodService")
@@ -36,12 +36,6 @@ public class DefaultTimePeriodFacade implements TimePeriodFacade {
 
 	@Resource(name = "timePeriodResourceConverter")
 	private Converter<TimePeriodResource, TimePeriod> timePeriodResourceConverter;
-	
-	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest<TimePeriodResource>, PagedSearch<TimePeriod>> pagedRequestConverter;
-
-	@Resource(name = "pagedSearchConverter")
-	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 	
 	@Override
 	public PagedResultResource<TimePeriodResource> getTimePeriods(final PagedRequest<TimePeriodResource> request) {

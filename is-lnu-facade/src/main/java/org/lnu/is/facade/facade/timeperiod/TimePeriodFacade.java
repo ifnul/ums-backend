@@ -1,6 +1,5 @@
 package org.lnu.is.facade.facade.timeperiod;
 
-import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.timeperiod.TimePeriodResource;
@@ -10,7 +9,7 @@ import org.lnu.is.facade.resource.timeperiod.TimePeriodResource;
  * @author ivanursul
  *
  */
-public interface TimePeriodFacade extends Facade<TimePeriodResource> {
+public interface TimePeriodFacade {
 
 	/**
 	 * Method for getting time periods.

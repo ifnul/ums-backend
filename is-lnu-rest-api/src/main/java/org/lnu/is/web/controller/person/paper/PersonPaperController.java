@@ -1,4 +1,4 @@
-package org.lnu.is.web.controller.person;
+package org.lnu.is.web.controller.person.paper;
 
 import javax.annotation.Resource;
 

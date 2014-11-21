@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.facade.facade.BaseFacade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
@@ -27,75 +27,62 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @Component("specOfferFacade")
-public class DefaultSpecOfferFacade implements SpecOfferFacade {
+public class DefaultSpecOfferFacade extends BaseFacade<SpecOfferResource, SpecOffer> implements SpecOfferFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultSpecOfferFacade.class);
 	
 	@Resource(name = "specOfferService")
 	private SpecOfferService specOfferService;
 
-	@Resource(name = "insertConverter")
-	private Converter<SpecOfferResource, SpecOffer> insertConverter;
-
-	@Resource(name = "updateConverter")
-	private Converter<SpecOfferResource, SpecOffer> updateConverter;
-	
 	@Resource(name = "specOfferResourceConverter")
 	private Converter<SpecOfferResource, SpecOffer> specOfferResourceConverter;
 	
 	@Resource(name = "specOfferConverter")
 	private Converter<SpecOffer, SpecOfferResource> specOfferConverter;
 	
-	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest<SpecOfferResource>, PagedSearch<SpecOffer>> pagedRequestConverter;
-
-	@Resource(name = "pagedSearchConverter")
-	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
-	
 	@Override
-	public SpecOfferResource createSpecOffer(final SpecOfferResource specOfferResource) {
-		//Converting from resource(Controller - Facade visibility) to Entity(Service - Dao visibility)
-		SpecOffer specOffer = specOfferResourceConverter.convert(specOfferResource);
-		insertConverter.convert(specOfferResource, specOffer);
-		// Delegating creation to service layer.
+	public SpecOfferResource createSpecOffer(final SpecOfferResource resource) {
+		LOG.info("Creating spec offer: {}", resource);
+		SpecOffer specOffer = specOfferResourceConverter.convert(resource);
+		
+		insertConverter.convert(resource, specOffer);
 		specOfferService.createSpecOffer(specOffer);
-		// Converting to specoffer resource with generated identity.
+
 		return specOfferConverter.convert(specOffer);
 	}
 
 	@Override
-	public void updateSpecOffer(final Long id, final SpecOfferResource specOfferResource) {
-		// Getting current specoffer by it's idenfitier.
+	public void updateSpecOffer(final Long id, final SpecOfferResource resource) {
+		LOG.info("Updating spec offer: {}, {}", id, resource);
 		SpecOffer specOffer = specOfferService.getSpecOffer(id);
-		// Converting specoffer resource to specoffer.
-		specOfferResourceConverter.convert(specOfferResource, specOffer);
-		updateConverter.convert(specOfferResource, specOffer);
+
+		specOfferResourceConverter.convert(resource, specOffer);
+		updateConverter.convert(resource, specOffer);
 		
-		// Updating -> Delegating this operation to service.
 		specOfferService.updateSpecOffer(specOffer);
 	}
 
 	@Override
 	public SpecOfferResource getSpecOffer(final Long id) {
-		// Getting current specoffer by it's idenfitier.
+		LOG.info("Getting specoffer with id {}", id);
+		
 		SpecOffer specOffer = specOfferService.getSpecOffer(id);
-		// Converting specoffer to spec offer resource
 		return specOfferConverter.convert(specOffer);
 	}
 
 	@Override
 	public void removeSpecOffer(final Long id) {
-		// Getting current specoffer by it's idenfitier.
+		LOG.info("Removing specoffer with id: {}", id);
+		
 		SpecOffer specOffer = specOfferService.getSpecOffer(id);
-		// Delegating remove operation to service layer.
 		specOfferService.removeSpecOffer(specOffer);
 	}
 
 	@Override
-	public PagedResultResource<SpecOfferResource> getSpecOffers(final PagedRequest<SpecOfferResource> pagedRequest) {
-		LOG.info("Get spec offers by paged request: {}", pagedRequest);
+	public PagedResultResource<SpecOfferResource> getSpecOffers(final PagedRequest<SpecOfferResource> request) {
+		LOG.info("Get spec offers by paged request: {}", request);
 
-		PagedSearch<SpecOffer> pagedSearch = pagedRequestConverter.convert(pagedRequest);
-		pagedSearch.setEntity(specOfferResourceConverter.convert(pagedRequest.getResource()));
+		PagedSearch<SpecOffer> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(specOfferResourceConverter.convert(request.getResource()));
 		
 		PagedResult<SpecOffer> pagedResult = specOfferService.getSpecOffers(pagedSearch);
 

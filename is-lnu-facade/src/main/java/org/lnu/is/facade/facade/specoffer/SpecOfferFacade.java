@@ -1,6 +1,5 @@
 package org.lnu.is.facade.facade.specoffer;
 
-import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
@@ -12,21 +11,21 @@ import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
  * @author ivanursul
  *
  */
-public interface SpecOfferFacade extends Facade<SpecOfferResource> {
+public interface SpecOfferFacade {
 
 	/**
 	 * Method for creating specoffer resource.
-	 * @param specOfferResource Resource, that needs to be created.
+	 * @param resource Resource, that needs to be created.
 	 * @return specoffer with generated identifier.
 	 */
-	SpecOfferResource createSpecOffer(SpecOfferResource specOfferResource);
+	SpecOfferResource createSpecOffer(SpecOfferResource resource);
 
 	/**
 	 * Method for updating specoffer.
 	 * @param id identifier of specoffer
-	 * @param specOfferResource resourcse.
+	 * @param resource resourcse.
 	 */
-	void updateSpecOffer(Long id, SpecOfferResource specOfferResource);
+	void updateSpecOffer(Long id, SpecOfferResource resource);
 
 	/**
 	 * Method for getting spec offer resource by it's identifier.
@@ -45,9 +44,9 @@ public interface SpecOfferFacade extends Facade<SpecOfferResource> {
 	/**
 	 * Method for getting paged result for spec offers.
 	 * 
-	 * @param pagedRequest request.
+	 * @param request request.
 	 * @return PagedResult resource.
 	 */
-	PagedResultResource<SpecOfferResource> getSpecOffers(PagedRequest<SpecOfferResource> pagedRequest);
+	PagedResultResource<SpecOfferResource> getSpecOffers(PagedRequest<SpecOfferResource> request);
 
 }

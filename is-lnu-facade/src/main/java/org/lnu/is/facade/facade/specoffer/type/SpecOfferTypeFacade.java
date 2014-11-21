@@ -13,9 +13,9 @@ public interface SpecOfferTypeFacade {
 
 	/**
 	 * Method for getting spec offer types.
-	 * @param pagedRequest
+	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(PagedRequest<SpecOfferTypeResource> pagedRequest);
+	PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(PagedRequest<SpecOfferTypeResource> request);
 
 }

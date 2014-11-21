@@ -1,6 +1,5 @@
 package org.lnu.is.facade.facade.specialty;
 
-import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specialty.SpecialtyResource;
@@ -10,23 +9,23 @@ import org.lnu.is.facade.resource.specialty.SpecialtyResource;
  * @author ivanursul
  *
  */
-public interface SpecialtyFacade extends Facade<SpecialtyResource> {
+public interface SpecialtyFacade {
 
 	/**
 	 * CREATE.
 	 * @author ivanursul
-	 * @param specialtyResource resource.
+	 * @param resource resource.
 	 * @return specialty with generated identifier.
 	 */
-	SpecialtyResource createSpecialty(SpecialtyResource specialtyResource);
+	SpecialtyResource createSpecialty(SpecialtyResource resource);
 
 	/**
 	 * UPDATE.
 	 * @author ivanursul
 	 * @param id identifier.
-	 * @param specialtyResource resource.
+	 * @param resource resource.
 	 */
-	void updateSpecialty(Long id, SpecialtyResource specialtyResource);
+	void updateSpecialty(Long id, SpecialtyResource resource);
 
 	/**
 	 * READ.
@@ -46,9 +45,9 @@ public interface SpecialtyFacade extends Facade<SpecialtyResource> {
 	/**
 	 * READ - multiple.
 	 * @author ivanursul
-	 * @param pagedRequest
+	 * @param request
 	 * @return paged result with multiple specialties.
 	 */
-	PagedResultResource<SpecialtyResource> getSpecialties(PagedRequest<SpecialtyResource> pagedRequest);
+	PagedResultResource<SpecialtyResource> getSpecialties(PagedRequest<SpecialtyResource> request);
 
 }

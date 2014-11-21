@@ -7,13 +7,15 @@ import javax.annotation.Resource;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.facade.annotations.Facade;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.facade.facade.BaseFacade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.type.SpecOfferTypeResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.specoffer.type.SpecOfferTypeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -23,13 +25,8 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @Facade("specOfferTypeFacade")
-public class DefaultSpecOfferTypeFacade implements SpecOfferTypeFacade {
-
-	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest<SpecOfferTypeResource>, PagedSearch<SpecOfferType>> pagedRequestConverter;
-
-	@Resource(name = "pagedSearchConverter")
-	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
+public class DefaultSpecOfferTypeFacade extends BaseFacade<SpecOfferTypeResource, SpecOfferType> implements SpecOfferTypeFacade {
+	private static final Logger LOG = LoggerFactory.getLogger(DefaultSpecOfferTypeFacade.class);
 	
 	@Resource(name = "specOfferTypeConverter")
 	private Converter<SpecOfferType, SpecOfferTypeResource> specOfferTypeConverter;
@@ -42,6 +39,7 @@ public class DefaultSpecOfferTypeFacade implements SpecOfferTypeFacade {
 	
 	@Override
 	public PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(final PagedRequest<SpecOfferTypeResource> request) {
+		LOG.info("Getting paged result for spec offer type, reuqest: {}", request);
 		
 		PagedSearch<SpecOfferType> pagedSearch = pagedRequestConverter.convert(request);
 		pagedSearch.setEntity(specOfferTypeResourceConverter.convert(request.getResource()));

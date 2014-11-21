@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.facade.annotations.Facade;
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.facade.facade.BaseFacade;
 import org.lnu.is.facade.resource.person.type.PersonTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -25,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @Facade("personTypeFacade")
-public class DefaultPersonTypeFacade implements PersonTypeFacade {
+public class DefaultPersonTypeFacade extends BaseFacade<PersonTypeResource, PersonType> implements PersonTypeFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonTypeFacade.class);
 
 	@Resource(name = "personTypeService")
@@ -37,18 +37,12 @@ public class DefaultPersonTypeFacade implements PersonTypeFacade {
 	@Resource(name = "personTypeConverter")
 	private Converter<PersonType, PersonTypeResource> personTypeConverter;
 	
-	@Resource(name = "pagedRequestConverter")
-	private Converter<PagedRequest<PersonTypeResource>, PagedSearch<PersonType>> pagedRequestConverter;
-
-	@Resource(name = "pagedSearchConverter")
-	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
-	
 	@Override
-	public PagedResultResource<PersonTypeResource> getPersonTypes(final PagedRequest<PersonTypeResource> pagedRequest) {
-		LOG.info("Getting person types by paged request: {}", pagedRequest);
+	public PagedResultResource<PersonTypeResource> getPersonTypes(final PagedRequest<PersonTypeResource> request) {
+		LOG.info("Getting person types by paged request: {}", request);
 
-		PagedSearch<PersonType> pagedSearch = pagedRequestConverter.convert(pagedRequest);
-		pagedSearch.setEntity(personTypeResourceConverter.convert(pagedRequest.getResource()));
+		PagedSearch<PersonType> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(personTypeResourceConverter.convert(request.getResource()));
 
 		PagedResult<PersonType> pagedResult = personTypeService.getPersonTypes(pagedSearch);
 
