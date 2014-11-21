@@ -18,7 +18,7 @@ public class GenderTypeResource extends ApiResource {
 
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/gendertype/{0}", getId());
+		return MessageFormat.format("/gendertypes/{0}", getId());
 	}
 
 	public String getAbbrName() {

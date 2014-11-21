@@ -3,7 +3,11 @@ package org.lnu.is.facade.resource.jobtype;
 import java.text.MessageFormat;
 
 import org.lnu.is.facade.resource.ApiResource;
-
+/**
+ * 
+ * @author kushnir
+ *
+ */
 public class JobTypeResource extends ApiResource {
 
 	private String name;
@@ -12,7 +16,7 @@ public class JobTypeResource extends ApiResource {
 
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/jobtype/{0}", getId());
+		return MessageFormat.format("/jobtypes/{0}", getId());
 	}
 
 	public String getName() {

@@ -17,7 +17,11 @@ import org.lnu.is.service.jobtype.JobTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
-
+/**
+ * 
+ * @author kushnir
+ *
+ */
 @Transactional
 @Facade("jobTypeFacade")
 public class DefaultJobTypeFacade extends BaseFacade<JobTypeResource, JobType> implements JobTypeFacade {

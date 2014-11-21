@@ -4,7 +4,11 @@ import org.lnu.is.domain.jobtype.JobType;
 import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
 import org.lnu.is.facade.resource.jobtype.JobTypeResource;
-
+/**
+ * 
+ * @author kushnir
+ *
+ */
 @Converter("jobTypeConverter")
 public class JobTypeConverter extends AbstractConverter<JobType, JobTypeResource> {
 
