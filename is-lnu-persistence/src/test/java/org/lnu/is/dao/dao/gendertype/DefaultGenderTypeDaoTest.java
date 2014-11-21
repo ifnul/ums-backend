@@ -22,7 +22,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DefaultGenderTypeTest {
+public class DefaultGenderTypeDaoTest {
 
 	@Mock
 	private PersistenceManager<GenderType, Long> persistenceManager;
