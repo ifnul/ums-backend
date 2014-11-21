@@ -19,11 +19,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.person.PersonFacade;
-import org.lnu.is.facade.facade.person.types.PersonTypeFacade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.PersonResource;
-import org.lnu.is.facade.resource.person.type.PersonTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
@@ -40,9 +38,6 @@ public class PersonControllerTest extends AbstractControllerTest {
 
 	@Mock
 	private PersonFacade personFacade;
-	
-	@Mock
-	private PersonTypeFacade personTypeFacade;
 	
 	@InjectMocks
 	private PersonController unit;
@@ -183,44 +178,5 @@ public class PersonControllerTest extends AbstractControllerTest {
     	
 		verify(personFacade).getPersons(pagedRequest);
 	}
-    
-    @Test
-    public void testGetPersonTypes() throws Exception {
-    	// Given
-    	Long id = 1L;
-    	String abbrName = "abbr name";
-    	String name = "name";
-    	
-    	PersonTypeResource personResource = new PersonTypeResource();
-    	personResource.setId(id);
-		personResource.setAbbrName(abbrName);
-		personResource.setName(name);
-    	
-    	long count = 100;
-    	int limit = 25;
-    	Integer offset = 10;
-    	String uri = "/persons/types";
-    	List<PersonTypeResource> entities = Arrays.asList(personResource);
-    	PagedResultResource<PersonTypeResource> expectedResource = new PagedResultResource<>();
-    	expectedResource.setCount(count);
-    	expectedResource.setLimit(limit);
-    	expectedResource.setOffset(offset);
-    	expectedResource.setUri(uri);
-    	expectedResource.setResources(entities);
-    	
-    	PagedRequest<PersonTypeResource> pagedRequest = new PagedRequest<PersonTypeResource>(new PersonTypeResource(), offset, limit);
-    	
-    	// When
-    	when(personTypeFacade.getPersonTypes(Matchers.<PagedRequest<PersonTypeResource>>any())).thenReturn(expectedResource);
-    	String response = getJson(expectedResource, false);
-    	
-    	// Then
-    	mockMvc.perform(get("/persons/types")
-    			.param("offset", String.valueOf(offset))
-    			.param("limit", String.valueOf(limit)))
-    			.andExpect(status().isOk())
-    			.andExpect(content().string(response));
-    	
-    	verify(personTypeFacade).getPersonTypes(pagedRequest);
-    }
+  
 }

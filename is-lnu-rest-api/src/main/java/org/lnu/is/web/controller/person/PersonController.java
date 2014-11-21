@@ -3,11 +3,9 @@ package org.lnu.is.web.controller.person;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.person.PersonFacade;
-import org.lnu.is.facade.facade.person.types.PersonTypeFacade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.PersonResource;
-import org.lnu.is.facade.resource.person.type.PersonTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.BaseController;
@@ -27,6 +25,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 
 /**
  * Persons controller.
+ * 
  * @author ivanursul
  *
  */
@@ -35,15 +34,13 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @Api(value = "persons", description = "Persons", position = 2)
 public class PersonController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonController.class);
-	
+
 	@Resource(name = "personFacade")
 	private PersonFacade personFacade;
-	
-	@Resource(name = "personTypeFacade")
-	private PersonTypeFacade personTypeFacade;
-	
+
 	/**
 	 * Method for creating new person.
+	 * 
 	 * @author ivanursul
 	 * @param personResource
 	 * @return person with generated identifier.
@@ -55,9 +52,10 @@ public class PersonController extends BaseController {
 		LOG.info("Creating person: {}", personResource);
 		return personFacade.createPerson(personResource);
 	}
-	
+
 	/**
 	 * Method for updating person.
+	 * 
 	 * @author ivanursul
 	 * @param id
 	 * @param personResource
@@ -72,9 +70,10 @@ public class PersonController extends BaseController {
 		personFacade.updatePerson(id, personResource);
 		return new MessageResource(MessageType.INFO, "Person Updated");
 	}
-	
+
 	/**
 	 * Method for getting person by identifier.
+	 * 
 	 * @author ivanursul
 	 * @param id
 	 * @return person.
@@ -86,9 +85,10 @@ public class PersonController extends BaseController {
 		LOG.info("Retrieving person with id: {}", id);
 		return personFacade.getPerson(id);
 	}
-	
+
 	/**
 	 * Method for removing person.
+	 * 
 	 * @author ivanursul
 	 * @param id
 	 * @return message resource.
@@ -101,9 +101,10 @@ public class PersonController extends BaseController {
 		personFacade.removePerson(id);
 		return new MessageResource(MessageType.INFO, "Person removed");
 	}
-	
+
 	/**
 	 * Method for geting paged result of persons.
+	 * 
 	 * @author ivanursul
 	 * @param offset
 	 * @param limit
@@ -113,31 +114,12 @@ public class PersonController extends BaseController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get Persons", position = 5)
-	public PagedResultResource<PersonResource> getPersons(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
+	public PagedResultResource<PersonResource> getPersons(
+			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
+			@RequestParam(value = "limit", defaultValue = "20") final Integer limit, 
 			final PersonResource resource) {
 		LOG.info("Retrieving PagedResultResource for Person Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(resource, offset, limit);
 		return personFacade.getPersons(pagedRequest);
 	}
-	
-	/**
-	 * TODO: IU - Place to separate controller.
-	 * Method for getting person type resources.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result resource with person types.
-	 */
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/types", method = RequestMethod.GET)
-	@ApiOperation(value = "Get Person Types")
-	public PagedResultResource<PersonTypeResource> getPersonTypes(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
-			final PersonTypeResource resource) {
-		LOG.info("Retrieving PagedResultResource for Person Types with offset: {}, limit: {}", offset, limit);
-		PagedRequest<PersonTypeResource> pagedRequest = new PagedRequest<PersonTypeResource>(resource, offset, limit);
-		return personTypeFacade.getPersonTypes(pagedRequest);
-	}
-	
 }
