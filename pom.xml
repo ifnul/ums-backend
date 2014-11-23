@@ -38,7 +38,7 @@
 		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
 		<jdbc.databaseurl>jdbc:postgresql://localhost:5432/lnu</jdbc.databaseurl>
 		<jdbc.username>postgres</jdbc.username>
-		<jdbc.password>postgres</jdbc.password>
+		<jdbc.password>4796347963</jdbc.password>
 		<jpa.database>POSTGRESQL</jpa.database>
 		<jpa.showSql>true</jpa.showSql>
 		<content.repository.path>~/tmp/is-lnu</content.repository.path>
