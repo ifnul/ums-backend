@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 import org.lnu.is.dao.AbstractDao;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.jobtype.JobType;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  *
  */
 
-@Component("jobTypeDao")
+@Repository("jobTypeDao")
 public class DefaultJobTypeDao extends AbstractDao<JobType, Long> implements JobTypeDao {
 
 	@Override
