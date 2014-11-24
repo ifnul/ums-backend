@@ -13,7 +13,6 @@ public interface EnrolmentSubjectFacade {
 
 	/**
 	 * Method for getting paged result.
-	 * @author ivanursul
 	 * @param request
 	 * @return paged result.
 	 */

@@ -26,7 +26,6 @@ import org.lnu.is.facade.resource.person.paper.PersonPaperResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
-import org.lnu.is.web.controller.person.paper.PersonPaperController;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;

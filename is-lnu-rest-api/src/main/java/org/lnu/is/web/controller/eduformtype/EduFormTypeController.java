@@ -35,7 +35,6 @@ public class EduFormTypeController extends BaseController {
 	
 	/**
 	 * Method for getting paged result.
-	 * @author ivanursul
 	 * @param offset
 	 * @param limit
 	 * @param resource

@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.person.type;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.dao.builder.person.type.PersonTypeQueryBuilder;
 import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.queries.Queries;
 

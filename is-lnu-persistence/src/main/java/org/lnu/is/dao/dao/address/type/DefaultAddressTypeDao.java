@@ -1,4 +1,4 @@
-package org.lnu.is.dao.dao.addresstype;
+package org.lnu.is.dao.dao.address.type;
 
 import javax.annotation.Resource;
 

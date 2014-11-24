@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.specoffer.type;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.dao.builder.specoffer.type.SpecOfferTypeQueryBuilder;
 import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.queries.Queries;

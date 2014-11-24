@@ -1,4 +1,4 @@
-package org.lnu.is.dao.dao.addresstype;
+package org.lnu.is.dao.dao.address.type;
 
 import org.lnu.is.dao.Dao;
 import org.lnu.is.domain.addresstype.AddressType;

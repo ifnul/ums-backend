@@ -14,7 +14,6 @@ import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.service.enrolment.subject.DefaultEnrolmentSubjectService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;

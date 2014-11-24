@@ -21,7 +21,6 @@ public interface PersonPaperFacade {
 
 	/**
 	 * Method for updating person paper.
-	 * @author ivanursul
 	 * @param id
 	 * @param resource
 	 */
@@ -29,7 +28,6 @@ public interface PersonPaperFacade {
 
 	/**
 	 * Method for getting person paper identifier.
-	 * @author ivanursul
 	 * @param personId
 	 * @param id
 	 * @return person paper.
@@ -38,7 +36,6 @@ public interface PersonPaperFacade {
 
 	/**
 	 * Method for removing person paper.
-	 * @author ivanursul
 	 * @param personId
 	 * @param id
 	 */
@@ -46,7 +43,6 @@ public interface PersonPaperFacade {
 
 	/**
 	 * Method for getting paged result for person papers.
-	 * @author ivanursul
 	 * @param personId
 	 * @param request
 	 * @return paged result.

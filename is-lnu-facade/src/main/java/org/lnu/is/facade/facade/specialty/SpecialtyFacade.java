@@ -13,7 +13,6 @@ public interface SpecialtyFacade {
 
 	/**
 	 * CREATE.
-	 * @author ivanursul
 	 * @param resource resource.
 	 * @return specialty with generated identifier.
 	 */
@@ -21,7 +20,6 @@ public interface SpecialtyFacade {
 
 	/**
 	 * UPDATE.
-	 * @author ivanursul
 	 * @param id identifier.
 	 * @param resource resource.
 	 */
@@ -29,7 +27,6 @@ public interface SpecialtyFacade {
 
 	/**
 	 * READ.
-	 * @author ivanursul
 	 * @param id identifier.
 	 * @return specialty.
 	 */
@@ -37,14 +34,12 @@ public interface SpecialtyFacade {
 
 	/**
 	 * DELETE.
-	 * @author ivanursul
 	 * @param id identifier.
 	 */
 	void removeSpecialty(Long id);
 
 	/**
 	 * READ - multiple.
-	 * @author ivanursul
 	 * @param request
 	 * @return paged result with multiple specialties.
 	 */

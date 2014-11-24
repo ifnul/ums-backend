@@ -14,7 +14,6 @@ import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.service.person.type.DefaultPersonTypeService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;

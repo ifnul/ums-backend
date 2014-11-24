@@ -59,7 +59,6 @@ public class EnrolmentController extends BaseController {
 	
 	/**
 	 * Method for getting paged result for enrolment subjects.
-	 * @author ivanursul
 	 * @param offset
 	 * @param limit
 	 * @param resource

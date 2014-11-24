@@ -40,8 +40,6 @@ public class PersonController extends BaseController {
 
 	/**
 	 * Method for creating new person.
-	 * 
-	 * @author ivanursul
 	 * @param personResource
 	 * @return person with generated identifier.
 	 */
@@ -55,8 +53,6 @@ public class PersonController extends BaseController {
 
 	/**
 	 * Method for updating person.
-	 * 
-	 * @author ivanursul
 	 * @param id
 	 * @param personResource
 	 * @return message resource.
@@ -73,8 +69,6 @@ public class PersonController extends BaseController {
 
 	/**
 	 * Method for getting person by identifier.
-	 * 
-	 * @author ivanursul
 	 * @param id
 	 * @return person.
 	 */
@@ -88,8 +82,6 @@ public class PersonController extends BaseController {
 
 	/**
 	 * Method for removing person.
-	 * 
-	 * @author ivanursul
 	 * @param id
 	 * @return message resource.
 	 */
@@ -105,7 +97,6 @@ public class PersonController extends BaseController {
 	/**
 	 * Method for geting paged result of persons.
 	 * 
-	 * @author ivanursul
 	 * @param offset
 	 * @param limit
 	 * @param resource

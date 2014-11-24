@@ -23,7 +23,6 @@ import org.lnu.is.domain.streettype.StreetType;
 @Entity
 @Table(name = "q_od_personaddress")
 public class PersonAddress extends Model {
-
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
@@ -34,9 +33,6 @@ public class PersonAddress extends Model {
 	@JoinColumn(name = "addresstype_id")
 	private AddressType addressType;
 	
-	@Column(name = "zipcode")
-	private String zipCode;
-	
 	@ManyToOne
 	@JoinColumn(name = "adminunit_id")
 	private AdminUnit adminUnit;
@@ -44,6 +40,13 @@ public class PersonAddress extends Model {
 	@ManyToOne
 	@JoinColumn(name = "streettype_id")
 	private StreetType streetType;
+
+	@ManyToOne
+	@JoinColumn(name = "asset_id")
+	private Asset asset;
+
+	@Column(name = "zipcode")
+	private String zipCode;
 	
 	@Column(name = "street")
 	private String street;
@@ -59,10 +62,6 @@ public class PersonAddress extends Model {
 	
 	@Column(name = "enddate")
 	private Date endDate;
-	
-	@ManyToOne
-	@JoinColumn(name = "asset_id")
-	private Asset asset;
 
 	public Person getPerson() {
 		return person;

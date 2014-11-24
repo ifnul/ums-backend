@@ -4,7 +4,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.dao.addresstype.AddressTypeDao;
+import org.lnu.is.dao.dao.address.type.AddressTypeDao;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;

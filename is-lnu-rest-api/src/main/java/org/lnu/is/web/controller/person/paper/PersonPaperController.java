@@ -39,7 +39,6 @@ public class PersonPaperController extends BaseController {
 	
 	/**
 	 * Method for creating person paper.
-	 * @author ivanursul
 	 * @param personPaperResource
 	 * @param personId
 	 * @return generated person paper.
@@ -55,7 +54,6 @@ public class PersonPaperController extends BaseController {
 	
 	/**
 	 * Method for updating personPaper.
-	 * @author ivanursul
 	 * @param id
 	 * @param personPaperResource
 	 * @return message resource.
@@ -74,7 +72,6 @@ public class PersonPaperController extends BaseController {
 	
 	/**
 	 * Method for getting personPaper by identifier.
-	 * @author ivanursul
 	 * @param id
 	 * @return personPaper.
 	 */
@@ -90,7 +87,6 @@ public class PersonPaperController extends BaseController {
 	
 	/**
 	 * Method for removing personPaper.
-	 * @author ivanursul
 	 * @param id
 	 * @return message resource.
 	 */
@@ -107,7 +103,6 @@ public class PersonPaperController extends BaseController {
 	
 	/**
 	 * Method for geting paged result of person papers.
-	 * @author ivanursul
 	 * @param offset
 	 * @param limit
 	 * @param resource

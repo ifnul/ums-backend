@@ -1,4 +1,4 @@
-package org.lnu.is.dao.dao.addresstype;
+package org.lnu.is.dao.dao.address.type;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
+import org.lnu.is.dao.dao.address.type.DefaultAddressTypeDao;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.pagination.PagedResult;

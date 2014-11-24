@@ -18,7 +18,7 @@ import org.lnu.is.domain.person.Person;
 @Entity
 @Table(name = "q_od_absence")
 public class Absence extends Model {
-
+	
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne

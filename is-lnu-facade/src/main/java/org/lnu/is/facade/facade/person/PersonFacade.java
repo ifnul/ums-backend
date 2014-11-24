@@ -13,7 +13,6 @@ public interface PersonFacade {
 
 	/**
 	 * Method for creating person.
-	 * @author ivanursul
 	 * @param resource
 	 * @return person resource.
 	 */
@@ -21,7 +20,6 @@ public interface PersonFacade {
 
 	/**
 	 * Method for updating person.
-	 * @author ivanursul
 	 * @param id
 	 * @param resource
 	 */
@@ -29,7 +27,6 @@ public interface PersonFacade {
 
 	/**
 	 * Method for getting person by identifier.
-	 * @author ivanursul
 	 * @param id
 	 * @return person resource.
 	 */
@@ -37,14 +34,12 @@ public interface PersonFacade {
 
 	/**
 	 * Method for removing person.
-	 * @author ivanursul
 	 * @param id
 	 */
 	void removePerson(Long id);
 
 	/**
 	 * Method for getting persons.
-	 * @author ivanursul
 	 * @param request
 	 * @return pagedResult.
 	 */

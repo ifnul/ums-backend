@@ -14,7 +14,6 @@ import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.service.specoffer.type.DefaultSpecOfferTypeService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
