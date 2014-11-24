@@ -577,7 +577,7 @@
     		<column name="name" type="VARCHAR(200)" remarks="Тип статусу">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="description"  type="VARCHAR(700)" />
+    		<column name="description"  type="VARCHAR(700)" remarks="Опис"/>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -1357,8 +1357,8 @@
             <column name="numvalue" remarks="Числове позначення часового періоду (Для календарного року воно співпадає з текстовим позначенням; для навчального року це рік початку начального року)" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="begdate" type="TIMESTAMP"/>
-            <column name="enddate" type="TIMESTAMP"/>
+            <column name="begdate" type="TIMESTAMP" remarks="Час початку періоду"/>
+            <column name="enddate" type="TIMESTAMP" remarks="Час закінчення періоду"/>
             <column name="parent_id" remarks="Ієрарічний ідентифікатор (Ієрархія: приналежність семестру до року і т.д.)" type="BIGINT"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -1532,13 +1532,13 @@
             <column name="benefittype_id" remarks="Тип пільги" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="abbrname" type="VARCHAR(50)" remarks="Абривіатура(Скорочена назва)"/>
             <column name="name" remarks="Назва пільги" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
             <column name="begdate" remarks="Дата початку переваги" type="TIMESTAMP"/>
             <column name="enddate" remarks="Дата закінчення переваги" type="TIMESTAMP"/>
-            <column name="description" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)" remarks="Опис"/>
             <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
@@ -1794,7 +1794,7 @@
     </changeSet>
     
  	<changeSet id="Cтврення таблиці накази та інформації про працівників та інформацію про основні засоби та всіх підрозділів" author="illay">
- 		<createTable tableName="q_ob_asset">
+ 		<createTable tableName="q_ob_asset" remarks="Накази та інформації про працівників та інформацію про основні засоби та всіх підрозділів">
  		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
@@ -1936,11 +1936,11 @@
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_ob_employee_id" tableName="q_ob_employee"/>
     	
-   		<createTable tableName="q_dc_order">
-   			<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
+   		<createTable tableName="q_dc_order" remarks="Накази">
+   			<column name="id" remarks="Ідентифікатор наказу" type="BIGINT" autoIncrement="true">
    				<constraints nullable="false"/>
    			</column>
-   			<column name="ordertype_id" type="BIGINT" remarks="Ідентифікатор наказу">
+   			<column name="ordertype_id" type="BIGINT" remarks="Ідентифікатор типу наказу">
    				<constraints nullable="false"/>
    			</column>
    			<column name="docseries" type="VARCHAR(50)" remarks="Серія наказу"></column> 
@@ -2169,7 +2169,7 @@
     </changeSet>
     
  	<changeSet id="Створення таблиці журналу помилок" author="illay">
-		<createTable tableName="q_lg_error" remarks="Журсал посилок">
+		<createTable tableName="q_lg_error" remarks="Журсал помилок">
 			<column name="id" type="BIGINT" remarks="Ідентифікатор" autoIncrement="true">
 				<constraints nullable="false"/>
 			</column>
@@ -2208,7 +2208,7 @@
 	</changeSet>
 	
 	<changeSet id="Створення таблиці журналу операцій import/export даних з інших IC" author="illay">
-		<createTable tableName="q_lg_importexport">
+		<createTable tableName="q_lg_importexport" remarks="Журналу операцій import/export даних з інших IC">
 			<column name="id" type="BIGINT" remarks="Ідентифікатор" autoIncrement="true">
 				<constraints nullable="false"/>
 			</column>
@@ -2353,7 +2353,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="evdate" remarks="Дата створення заяви" type="TIMESTAMP"/>
-            <column name="begdate" type="TIMESTAMP"/>
+            <column name="begdate" remarks="" type="TIMESTAMP"/>
             <column name="enddate" remarks="Дата закриття заяви(абітурієнт забрав заяву)" type="TIMESTAMP"/>
             <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
@@ -3083,7 +3083,7 @@
     		<column name="language_id" type="BIGINT" remarks="Ідентифікатор іноземної мови">
     			<constraints nullable="false"/>
     		</column>
-    		<column name="name" type="VARCHAR(200)" remarks=""></column>
+    		<column name="name" type="VARCHAR(200)" remarks="Ім’я іноземною мовою"></column>
     		<column name="firstname" type="VARCHAR(200)" remarks="Прізвище іноземною мовою"></column>
     		<column name="fathername" type="VARCHAR(200)" remarks="По-батькові іноземною мовою"></column>
     		<column name="surname" type="VARCHAR(200)" remarks="Ім’я іноземною мовою"></column>
@@ -3202,6 +3202,8 @@
         <addPrimaryKey columnNames="id" constraintName="pk_q_od_departmentspecialty" tableName="q_od_departmentspecialty"/>
         
         <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_od_departmentspecialty" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+        
+        <addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_od_departmentspecialty" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
     	
     </changeSet>    
     
@@ -3429,7 +3431,7 @@
     </changeSet>
     
     <changeSet id="Tаблиця про тіло наказу оформлення відпусток, лікарняних тощо" author="R_Pelypets">
-    	<createTable tableName="q_dt_orderemployeetimesheet" remarks="Тіло наказу для оформлення відпусток,лякарняних тощо ">
+    	<createTable tableName="q_dt_orderemployeetimesheet" remarks="Тіло наказу для оформлення відпусток,лікарняних тощо ">
 	    	<column name="id" remarks = "Ідентифікатор" type = "BIGINT"  autoIncrement="true">
 	    		<constraints nullable = "false"/>
 	    	</column>
@@ -5301,9 +5303,9 @@
         </createTable>
         
         <addPrimaryKey columnNames="id" constraintName="pk_q_od_personwork" tableName="q_od_personwork"/>
-        
+           
         <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_personwork" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
-        
+       
         <addForeignKeyConstraint baseColumnNames="jobtype_id" baseTableName="q_od_personwork" constraintName="fk_q_rf_jovtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_jobtype"/>
         
         <addForeignKeyConstraint baseColumnNames="specstagetype_id" baseTableName="q_od_personwork" constraintName="fk_q_rf_specstagetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specstagetype"/>
