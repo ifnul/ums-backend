@@ -1,4 +1,4 @@
-package org.lnu.is.extractor.paper.type;
+package org.lnu.is.dao.dao.paper.type;
 
 import org.lnu.is.dao.Dao;
 import org.lnu.is.domain.papertype.PaperType;

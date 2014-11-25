@@ -1,6 +1,7 @@
 package org.lnu.is.web.controller.specoffer;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.specoffer.SpecOfferFacade;
 import org.lnu.is.facade.facade.specoffer.type.SpecOfferTypeFacade;
@@ -58,7 +59,7 @@ public class SpecOfferController extends BaseController {
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Specoffer", position = 1)
-	public SpecOfferResource createSpecOffer(@RequestBody final SpecOfferResource specOfferResource) {
+	public SpecOfferResource createSpecOffer(@Valid @RequestBody final SpecOfferResource specOfferResource) {
 		LOG.info("Creating specoffer: {}", specOfferResource);
 		return specOfferFacade.createSpecOffer(specOfferResource);
 	}

@@ -28,5 +28,5 @@ public abstract class BaseFacade<RESOURCE, ENTITY> implements Facade<RESOURCE, E
 
 	@Resource(name = "pagedSearchConverter")
 	protected Converter<PagedResult<ENTITY>, PagedResultResource<RESOURCE>> pagedResultConverter;
-	
+
 }

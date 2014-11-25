@@ -6,10 +6,10 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.honors.type.HonorsTypeDao;
+import org.lnu.is.dao.dao.paper.type.PaperTypeDao;
 import org.lnu.is.dao.dao.person.PersonDao;
 import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.lnu.is.extractor.paper.type.PaperTypeDao;
 import org.springframework.stereotype.Component;
 
 /**

@@ -10,5 +10,5 @@ import org.lnu.is.domain.person.PersonAddress;
  *
  */
 public interface PersonAddressDao extends Dao<PersonAddress, Long> {
-
+	
 }

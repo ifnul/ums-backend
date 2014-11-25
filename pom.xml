@@ -18,7 +18,7 @@
 		<module>is-lnu-domain</module>
 		<module>is-lnu-migrations</module>
 		<module>is-lnu-security</module>
-    <module>is-lnu-ui</module>
+    	<module>is-lnu-ui</module>
   </modules>
 
 	<properties>
