@@ -38,13 +38,13 @@ public class DefaultEnrolmentSubjectFacadeTest {
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 	
 	@Mock
-	private EnrolmentSubjectService enrolmentSubjectService;
+	private EnrolmentSubjectService service;
 
 	@Mock
-	private Converter<EnrolmentSubject, EnrolmentSubjectResource> enrolmentSubjectConverter;
+	private Converter<EnrolmentSubject, EnrolmentSubjectResource> entityConverter;
 	
 	@Mock
-	private Converter<EnrolmentSubjectResource, EnrolmentSubject> enrolmentSubjectResourceConverter;
+	private Converter<EnrolmentSubjectResource, EnrolmentSubject> resourceConverter;
 	
 	@Test
 	public void testGetSpecialties() throws Exception {
@@ -65,15 +65,15 @@ public class DefaultEnrolmentSubjectFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<EnrolmentSubjectResource>>any())).thenReturn(pagedSearch);
-		when(enrolmentSubjectService.getEnrolmentSubjects(Matchers.<PagedSearch<EnrolmentSubject>> any())).thenReturn(pagedResult);
-		when(enrolmentSubjectConverter.convertAll(anyListOf(EnrolmentSubject.class))).thenReturn(funnyResources);
+		when(service.getEnrolmentSubjects(Matchers.<PagedSearch<EnrolmentSubject>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(EnrolmentSubject.class))).thenReturn(funnyResources);
 
 		PagedResultResource<EnrolmentSubjectResource> actualFunnies = unit.getEnrolmentSubjects(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(enrolmentSubjectService).getEnrolmentSubjects(pagedSearch);
-		verify(enrolmentSubjectConverter).convertAll(entities);
+		verify(service).getEnrolmentSubjects(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actualFunnies);

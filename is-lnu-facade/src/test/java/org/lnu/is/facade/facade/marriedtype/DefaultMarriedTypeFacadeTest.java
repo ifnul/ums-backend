@@ -27,10 +27,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultMarriedTypeFacadeTest {
 
 	@Mock
-	private Converter<MarriedType, MarriedTypeResource> marriedTypeConverter;
+	private Converter<MarriedType, MarriedTypeResource> entityConverter;
 
 	@Mock
-	private Converter<MarriedTypeResource, MarriedType> marriedTypeResourceConverter;
+	private Converter<MarriedTypeResource, MarriedType> resourceConverter;
 
 	@Mock
 	private Converter<PagedRequest<MarriedTypeResource>, PagedSearch<MarriedType>> pagedRequestConverter;
@@ -39,7 +39,7 @@ public class DefaultMarriedTypeFacadeTest {
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 
 	@Mock
-	private MarriedTypeService marriedTypeService;
+	private MarriedTypeService service;
 
 	@InjectMocks
 	private DefaultMarriedTypeFacade unit;
@@ -65,15 +65,15 @@ public class DefaultMarriedTypeFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<MarriedTypeResource>> any())).thenReturn(pagedSearch);
-		when(marriedTypeService.getMarriedTypes(Matchers.<PagedSearch<MarriedType>> any())).thenReturn(pagedResult);
-		when(marriedTypeConverter.convertAll(Matchers.anyListOf(MarriedType.class))).thenReturn(resources);
+		when(service.getMarriedTypes(Matchers.<PagedSearch<MarriedType>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(Matchers.anyListOf(MarriedType.class))).thenReturn(resources);
 
 		PagedResultResource<MarriedTypeResource> actual = unit.getMarriedTypes(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(marriedTypeService).getMarriedTypes(pagedSearch);
-		verify(marriedTypeConverter).convertAll(entities);
+		verify(service).getMarriedTypes(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expected);
 		assertEquals(expected, actual);
 	}

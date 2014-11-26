@@ -27,49 +27,48 @@ import org.slf4j.LoggerFactory;
 public class DefaultPersonAwardFacade extends BaseFacade<PersonAwardResource, PersonAward> implements PersonAwardFacade {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonAwardFacade.class);
 	
-	//TODO: Ivan Ursul - Move Converters to BaseFacade.
 	@Resource(name = "personAwardResourceConverter")
-	private Converter<PersonAwardResource, PersonAward> personAwardResourceConverter;
+	private Converter<PersonAwardResource, PersonAward> resourceConverter;
 	
 	@Resource(name = "personAwardConverter")
-	private Converter<PersonAward, PersonAwardResource> personAwardConverter;
+	private Converter<PersonAward, PersonAwardResource> entityConverter;
 	
 	@Resource(name = "personAwardService")
-	private PersonAwardService personAwardService;
+	private PersonAwardService service;
 	
 	@Override
 	public PersonAwardResource createAward(final PersonAwardResource resource) {
 		LOG.info("Creating award: {}", resource);
 		PersonAward award = new PersonAward();
 				
-		personAwardResourceConverter.convert(resource, award);
+		resourceConverter.convert(resource, award);
 		insertConverter.convert(resource, award);
-		personAwardService.createAward(award);
+		service.createAward(award);
 		
-		return personAwardConverter.convert(award);
+		return entityConverter.convert(award);
 	}
 
 	@Override
 	public void updateAward(final Long personAwardId, final PersonAwardResource resource) {
 		LOG.info("Updating award({}): {}", personAwardId, resource);
 		
-		PersonAward award = personAwardService.getAward(personAwardId);
-		personAwardResourceConverter.convert(resource, award);
+		PersonAward award = service.getAward(personAwardId);
+		resourceConverter.convert(resource, award);
 		updateConverter.convert(resource, award);
 		
-		personAwardService.updateAward(award);
+		service.updateAward(award);
 	}
 
 	@Override
 	public PersonAwardResource getAward(final Long personAwardId) {
-		PersonAward award = personAwardService.getAward(personAwardId);
-		return personAwardConverter.convert(award);
+		PersonAward award = service.getAward(personAwardId);
+		return entityConverter.convert(award);
 	}
 
 	@Override
 	public void removeAward(final Long personAwardId) {
-		PersonAward award = personAwardService.getAward(personAwardId);
-		personAwardService.removeAward(award);
+		PersonAward award = service.getAward(personAwardId);
+		service.removeAward(award);
 	}
 
 	@Override
@@ -77,11 +76,11 @@ public class DefaultPersonAwardFacade extends BaseFacade<PersonAwardResource, Pe
 		LOG.info("Get person awards by paged request: {}", request);
 
 		PagedSearch<PersonAward> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(personAwardResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<PersonAward> pagedResult = personAwardService.getAwards(pagedSearch);
+		PagedResult<PersonAward> pagedResult = service.getAwards(pagedSearch);
 
-		List<PersonAwardResource> resources = personAwardConverter.convertAll(pagedResult.getEntities());
+		List<PersonAwardResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<PersonAwardResource> pagedResultResource = new PagedResultResource<>(MessageFormat.format("/persons/{0}/awards", request.getResource().getPersonId()));
 		pagedResultResource.setResources(resources);

@@ -38,13 +38,13 @@ public class DefaultGenderTypeFacadeTest {
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 
 	@Mock
-	private GenderTypeService genderTypeService;
+	private GenderTypeService service;
 
 	@Mock
-	private Converter<GenderType, GenderTypeResource> genderTypeConverter;
+	private Converter<GenderType, GenderTypeResource> entityConverter;
 
 	@Mock
-	private Converter<GenderTypeResource, GenderType> genderTypeResourceConverter;
+	private Converter<GenderTypeResource, GenderType> resourceConverter;
 
 	@Test
 	public void getGenderTypes() throws Exception {
@@ -66,15 +66,15 @@ public class DefaultGenderTypeFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<GenderTypeResource>> any())).thenReturn(pagedSearch);
-		when(genderTypeService.getGenderTypes(Matchers.<PagedSearch<GenderType>> any())).thenReturn(pagedResult);
-		when(genderTypeConverter.convertAll(anyListOf(GenderType.class))).thenReturn(myResources);
+		when(service.getGenderTypes(Matchers.<PagedSearch<GenderType>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(GenderType.class))).thenReturn(myResources);
 
 		PagedResultResource<GenderTypeResource> actualResources = unit.getGenderTypes(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(genderTypeService).getGenderTypes(pagedSearch);
-		verify(genderTypeConverter).convertAll(entities);
+		verify(service).getGenderTypes(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedResources);
 
 		assertEquals(expectedResources, actualResources);

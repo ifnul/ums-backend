@@ -39,13 +39,13 @@ public class DefaultSpecialtyFacadeTest {
 	private Converter<SpecialtyResource, Specialty> updateConverter;
 	
 	@Mock
-	private Converter<SpecialtyResource, Specialty> specialtyResourceConverter;
+	private Converter<SpecialtyResource, Specialty> resourceConverter;
 	
 	@Mock
-	private Converter<Specialty, SpecialtyResource> specialtyConverter;
+	private Converter<Specialty, SpecialtyResource> entityConverter;
 	
 	@Mock
-	private SpecialtyService specialtyService;
+	private SpecialtyService service;
 
 	@Mock
 	private Converter<PagedRequest<SpecialtyResource>, PagedSearch<Specialty>> pagedRequestConverter;
@@ -83,14 +83,14 @@ public class DefaultSpecialtyFacadeTest {
 		specialty.setSpecialtyType(specialtyType);
 		
 		// When
-		when(specialtyResourceConverter.convert(any(SpecialtyResource.class))).thenReturn(specialty);
-		when(specialtyConverter.convert(any(Specialty.class))).thenReturn(expected);
+		when(resourceConverter.convert(any(SpecialtyResource.class))).thenReturn(specialty);
+		when(entityConverter.convert(any(Specialty.class))).thenReturn(expected);
 		
 		SpecialtyResource actual = unit.createSpecialty(expected);
 
 		// Then
-		verify(specialtyResourceConverter).convert(expected);
-		verify(specialtyService).createSpecialty(specialty);
+		verify(resourceConverter).convert(expected);
+		verify(service).createSpecialty(specialty);
 		verify(insertConverter).convert(expected, specialty);
 		
 		assertEquals(expected, actual);
@@ -124,14 +124,14 @@ public class DefaultSpecialtyFacadeTest {
 		specialty.setSpecialtyType(specialtyType);
 		
 		// When
-		when(specialtyService.getSpecialty(anyLong())).thenReturn(specialty);
+		when(service.getSpecialty(anyLong())).thenReturn(specialty);
 		
 		unit.updateSpecialty(id, expected);
 
 		// Then
-		verify(specialtyService).getSpecialty(id);
-		verify(specialtyResourceConverter).convert(expected, specialty);
-		verify(specialtyService).updateSpecialty(specialty);
+		verify(service).getSpecialty(id);
+		verify(resourceConverter).convert(expected, specialty);
+		verify(service).updateSpecialty(specialty);
 		verify(updateConverter).convert(expected, specialty);
 	}
 	
@@ -163,13 +163,13 @@ public class DefaultSpecialtyFacadeTest {
 		specialty.setSpecialtyType(specialtyType);
 
 		// When
-		when(specialtyService.getSpecialty(anyLong())).thenReturn(specialty);
-		when(specialtyConverter.convert(any(Specialty.class))).thenReturn(expected);
+		when(service.getSpecialty(anyLong())).thenReturn(specialty);
+		when(entityConverter.convert(any(Specialty.class))).thenReturn(expected);
 		SpecialtyResource actual = unit.getSpecialty(id);
 
 		// Then
-		verify(specialtyService).getSpecialty(id);
-		verify(specialtyConverter).convert(specialty);
+		verify(service).getSpecialty(id);
+		verify(entityConverter).convert(specialty);
 		assertEquals(expected, actual);
 	}
 	
@@ -182,12 +182,12 @@ public class DefaultSpecialtyFacadeTest {
 		specialty.setId(id);
 		
 		// When
-		when(specialtyService.getSpecialty(anyLong())).thenReturn(specialty);
+		when(service.getSpecialty(anyLong())).thenReturn(specialty);
 		unit.removeSpecialty(id);
 
 		// Then
-		verify(specialtyService).getSpecialty(id);
-		verify(specialtyService).removeSpecialty(specialty);
+		verify(service).getSpecialty(id);
+		verify(service).removeSpecialty(specialty);
 	}
 	
 	@Test
@@ -208,15 +208,15 @@ public class DefaultSpecialtyFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<SpecialtyResource>>any())).thenReturn(pagedSearch);
-		when(specialtyService.getSpecialties(Matchers.<PagedSearch<Specialty>> any())).thenReturn(pagedResult);
-		when(specialtyConverter.convertAll(anyListOf(Specialty.class))).thenReturn(funnyResources);
+		when(service.getSpecialties(Matchers.<PagedSearch<Specialty>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(Specialty.class))).thenReturn(funnyResources);
 
 		PagedResultResource<SpecialtyResource> actual = unit.getSpecialties(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(specialtyService).getSpecialties(pagedSearch);
-		verify(specialtyConverter).convertAll(entities);
+		verify(service).getSpecialties(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expected);
 
 		assertEquals(expected, actual);

@@ -29,24 +29,24 @@ public class DefaultSpecOfferTypeFacade extends BaseFacade<SpecOfferTypeResource
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultSpecOfferTypeFacade.class);
 	
 	@Resource(name = "specOfferTypeConverter")
-	private Converter<SpecOfferType, SpecOfferTypeResource> specOfferTypeConverter;
+	private Converter<SpecOfferType, SpecOfferTypeResource> entityConverter;
 
 	@Resource(name = "specOfferTypeResourceConverter")
-	private Converter<SpecOfferTypeResource, SpecOfferType> specOfferTypeResourceConverter;
+	private Converter<SpecOfferTypeResource, SpecOfferType> resourceConverter;
 	
 	@Resource(name = "specOfferTypeService")
-	private SpecOfferTypeService specOfferTypeService;
+	private SpecOfferTypeService service;
 	
 	@Override
 	public PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(final PagedRequest<SpecOfferTypeResource> request) {
 		LOG.info("Getting paged result for spec offer type, reuqest: {}", request);
 		
 		PagedSearch<SpecOfferType> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(specOfferTypeResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 		
-		PagedResult<SpecOfferType> pagedResult = specOfferTypeService.getSpecOfferTypes(pagedSearch);
+		PagedResult<SpecOfferType> pagedResult = service.getSpecOfferTypes(pagedSearch);
 		
-		List<SpecOfferTypeResource> resources = specOfferTypeConverter.convertAll(pagedResult.getEntities());
+		List<SpecOfferTypeResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 		
 		PagedResultResource<SpecOfferTypeResource> pagedResultResource = new PagedResultResource<>("/specoffers/types");
 		pagedResultResource.setResources(resources);

@@ -29,52 +29,52 @@ public class DefaultPersonFacade extends BaseFacade<PersonResource, Person> impl
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonFacade.class);
 	
 	@Resource(name = "personService")
-	private PersonService personService;
+	private PersonService service;
 
 	@Resource(name = "personResourceConverter")
-	private Converter<PersonResource, Person> personResourceConverter;
+	private Converter<PersonResource, Person> resourceConverter;
 
 	@Resource(name = "personConverter")
-	private Converter<Person, PersonResource> personConverter;
+	private Converter<Person, PersonResource> entityConverter;
 	
 	@Override
 	public PersonResource createPerson(final PersonResource resource) {
 		LOG.info("Creating person: {}", resource);
 		
-		Person person = personResourceConverter.convert(resource);
+		Person person = resourceConverter.convert(resource);
 		
 		insertConverter.convert(resource, person);
-		personService.createPerson(person);
+		service.createPerson(person);
 		
-		return personConverter.convert(person);
+		return entityConverter.convert(person);
 	}
 
 	@Override
 	public void updatePerson(final Long id, final PersonResource resource) {
 		LOG.info("Updating person with id: {}, resource: {}", id, resource);
 		
-		Person person = personService.getPerson(id);
+		Person person = service.getPerson(id);
 		
-		personResourceConverter.convert(resource, person);
+		resourceConverter.convert(resource, person);
 		updateConverter.convert(resource, person);
 		
-		personService.updatePerson(person);
+		service.updatePerson(person);
 	}
 
 	@Override
 	public PersonResource getPerson(final Long id) {
 		LOG.info("Getting person with id: {}", id);
 		
-		Person person = personService.getPerson(id);
-		return personConverter.convert(person);
+		Person person = service.getPerson(id);
+		return entityConverter.convert(person);
 	}
 
 	@Override
 	public void removePerson(final Long id) {
 		LOG.info("Removing person with id: {}", id);
 		
-		Person person = personService.getPerson(id);
-		personService.removePerson(person);
+		Person person = service.getPerson(id);
+		service.removePerson(person);
 	}
 
 	@Override
@@ -82,11 +82,11 @@ public class DefaultPersonFacade extends BaseFacade<PersonResource, Person> impl
 		LOG.info("Get persons by paged request: {}", request);
 
 		PagedSearch<Person> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(personResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<Person> pagedResult = personService.getPersons(pagedSearch);
+		PagedResult<Person> pagedResult = service.getPersons(pagedSearch);
 
-		List<PersonResource> resources = personConverter.convertAll(pagedResult.getEntities());
+		List<PersonResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<PersonResource> pagedResultResource = new PagedResultResource<>("/persons");
 		pagedResultResource.setResources(resources);

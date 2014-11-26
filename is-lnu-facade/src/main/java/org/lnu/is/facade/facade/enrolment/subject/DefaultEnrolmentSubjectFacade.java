@@ -29,24 +29,24 @@ public class DefaultEnrolmentSubjectFacade extends BaseFacade<EnrolmentSubjectRe
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultEnrolmentSubjectFacade.class);
 	
 	@Resource(name = "enrolmentSubjectConverter")
-	private Converter<EnrolmentSubject, EnrolmentSubjectResource> enrolmentSubjectConverter;
+	private Converter<EnrolmentSubject, EnrolmentSubjectResource> entityConverter;
 	
 	@Resource(name = "enrolmentSubjectResourceConverter")
-	private Converter<EnrolmentSubjectResource, EnrolmentSubject> enrolmentSubjectResourceConverter;
+	private Converter<EnrolmentSubjectResource, EnrolmentSubject> resourceConverter;
 	
 	@Resource(name = "enrolmentSubjectService")
-	private EnrolmentSubjectService enrolmentSubjectService;
+	private EnrolmentSubjectService service;
 	
 	@Override
 	public PagedResultResource<EnrolmentSubjectResource> getEnrolmentSubjects(final PagedRequest<EnrolmentSubjectResource> request) {
 		LOG.info("Getting paged result for enrolment subjects: {}", request);
 		
 		PagedSearch<EnrolmentSubject> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(enrolmentSubjectResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 		
-		PagedResult<EnrolmentSubject> pagedResult = enrolmentSubjectService.getEnrolmentSubjects(pagedSearch);
+		PagedResult<EnrolmentSubject> pagedResult = service.getEnrolmentSubjects(pagedSearch);
 		
-		List<EnrolmentSubjectResource> resources = enrolmentSubjectConverter.convertAll(pagedResult.getEntities());
+		List<EnrolmentSubjectResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 		
 		PagedResultResource<EnrolmentSubjectResource> pagedResultResource = new PagedResultResource<>("/enrolments/subjects");
 		pagedResultResource.setResources(resources);

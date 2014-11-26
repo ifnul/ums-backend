@@ -29,23 +29,23 @@ public class DefaultMarriedTypeFacade extends BaseFacade<MarriedTypeResource, Ma
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultMarriedTypeFacade.class);
 	
 	@Resource(name = "marriedTypeConverter")
-	private Converter<MarriedType, MarriedTypeResource> marriedTypeConverter;
+	private Converter<MarriedType, MarriedTypeResource> entityConverter;
 	
 	@Resource(name = "marriedTypeResourceConverter")
-	private Converter<MarriedTypeResource, MarriedType> marriedTypeResourceConverter;
+	private Converter<MarriedTypeResource, MarriedType> resourceConverter;
 	
 	@Resource(name = "marriedTypeService")
-	private MarriedTypeService marriedTypeService;
+	private MarriedTypeService service;
 	
 	@Override
 	public PagedResultResource<MarriedTypeResource> getMarriedTypes(final PagedRequest<MarriedTypeResource> request) {
 		LOG.info("Getting paged result for married types: {}", request);
 		
 		PagedSearch<MarriedType> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(marriedTypeResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<MarriedType> pagedResult = marriedTypeService.getMarriedTypes(pagedSearch);
-		List<MarriedTypeResource> resources = marriedTypeConverter.convertAll(pagedResult.getEntities());
+		PagedResult<MarriedType> pagedResult = service.getMarriedTypes(pagedSearch);
+		List<MarriedTypeResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 		PagedResultResource<MarriedTypeResource> pagedResultResource = new PagedResultResource<MarriedTypeResource>("/marriedtypes");
 
 		pagedResultResource.setResources(resources);

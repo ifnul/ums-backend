@@ -31,50 +31,50 @@ public class DefaultSpecOfferFacade extends BaseFacade<SpecOfferResource, SpecOf
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultSpecOfferFacade.class);
 	
 	@Resource(name = "specOfferService")
-	private SpecOfferService specOfferService;
+	private SpecOfferService service;
 
 	@Resource(name = "specOfferResourceConverter")
-	private Converter<SpecOfferResource, SpecOffer> specOfferResourceConverter;
+	private Converter<SpecOfferResource, SpecOffer> resourceConverter;
 	
 	@Resource(name = "specOfferConverter")
-	private Converter<SpecOffer, SpecOfferResource> specOfferConverter;
+	private Converter<SpecOffer, SpecOfferResource> entityConverter;
 	
 	@Override
 	public SpecOfferResource createSpecOffer(final SpecOfferResource resource) {
 		LOG.info("Creating spec offer: {}", resource);
-		SpecOffer specOffer = specOfferResourceConverter.convert(resource);
+		SpecOffer specOffer = resourceConverter.convert(resource);
 		
 		insertConverter.convert(resource, specOffer);
-		specOfferService.createSpecOffer(specOffer);
+		service.createSpecOffer(specOffer);
 
-		return specOfferConverter.convert(specOffer);
+		return entityConverter.convert(specOffer);
 	}
 
 	@Override
 	public void updateSpecOffer(final Long id, final SpecOfferResource resource) {
 		LOG.info("Updating spec offer: {}, {}", id, resource);
-		SpecOffer specOffer = specOfferService.getSpecOffer(id);
+		SpecOffer specOffer = service.getSpecOffer(id);
 
-		specOfferResourceConverter.convert(resource, specOffer);
+		resourceConverter.convert(resource, specOffer);
 		updateConverter.convert(resource, specOffer);
 		
-		specOfferService.updateSpecOffer(specOffer);
+		service.updateSpecOffer(specOffer);
 	}
 
 	@Override
 	public SpecOfferResource getSpecOffer(final Long id) {
 		LOG.info("Getting specoffer with id {}", id);
 		
-		SpecOffer specOffer = specOfferService.getSpecOffer(id);
-		return specOfferConverter.convert(specOffer);
+		SpecOffer specOffer = service.getSpecOffer(id);
+		return entityConverter.convert(specOffer);
 	}
 
 	@Override
 	public void removeSpecOffer(final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
 		
-		SpecOffer specOffer = specOfferService.getSpecOffer(id);
-		specOfferService.removeSpecOffer(specOffer);
+		SpecOffer specOffer = service.getSpecOffer(id);
+		service.removeSpecOffer(specOffer);
 	}
 
 	@Override
@@ -82,11 +82,11 @@ public class DefaultSpecOfferFacade extends BaseFacade<SpecOfferResource, SpecOf
 		LOG.info("Get spec offers by paged request: {}", request);
 
 		PagedSearch<SpecOffer> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(specOfferResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 		
-		PagedResult<SpecOffer> pagedResult = specOfferService.getSpecOffers(pagedSearch);
+		PagedResult<SpecOffer> pagedResult = service.getSpecOffers(pagedSearch);
 
-		List<SpecOfferResource> resources = specOfferConverter.convertAll(pagedResult.getEntities());
+		List<SpecOfferResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<SpecOfferResource> pagedResultResource = new PagedResultResource<>("/specoffers");
 		pagedResultResource.setResources(resources);

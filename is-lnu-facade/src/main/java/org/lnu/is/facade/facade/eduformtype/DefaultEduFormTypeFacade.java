@@ -29,24 +29,24 @@ public class DefaultEduFormTypeFacade extends BaseFacade<EduFormTypeResource, Ed
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultEduFormTypeFacade.class);
 	
 	@Resource(name = "eduFormTypeConverter")
-	private Converter<EduFormType, EduFormTypeResource> eduFormTypeConverter;
+	private Converter<EduFormType, EduFormTypeResource> entityConverter;
 	
 	@Resource(name = "eduFormTypeResourceConverter")
-	private Converter<EduFormTypeResource, EduFormType> eduFormTypeResourceConverter;
+	private Converter<EduFormTypeResource, EduFormType> resourceConverter;
 	
 	@Resource(name = "eduFormTypeService")
-	private EduFormTypeService eduFormTypeService;
+	private EduFormTypeService service;
 	
 	@Override
 	public PagedResultResource<EduFormTypeResource> getEduFormTypes(final PagedRequest<EduFormTypeResource> request) {
 		LOG.info("Getting paged result for edu form types: {}", request);
 		
 		PagedSearch<EduFormType> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(eduFormTypeResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 		
-		PagedResult<EduFormType> pagedResult = eduFormTypeService.getEduFormTypes(pagedSearch);
+		PagedResult<EduFormType> pagedResult = service.getEduFormTypes(pagedSearch);
 		
-		List<EduFormTypeResource> resources = eduFormTypeConverter.convertAll(pagedResult.getEntities());
+		List<EduFormTypeResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 		
 		PagedResultResource<EduFormTypeResource> pagedResultResource = new PagedResultResource<>("/eduformtypes");
 		pagedResultResource.setResources(resources);

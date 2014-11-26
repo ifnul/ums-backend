@@ -43,13 +43,13 @@ public class DefaultPersonAddressFacadeTest {
 	private Converter<PagedResult<PersonAddress>, PagedResultResource<PersonAddressResource>> pagedResultConverter;
 	
 	@Mock
-	private Converter<PersonAddressResource, PersonAddress> personAddressResourceConverter;
+	private Converter<PersonAddressResource, PersonAddress> resourceConverter;
 	
 	@Mock
-	private Converter<PersonAddress, PersonAddressResource> personAddressConverter;
+	private Converter<PersonAddress, PersonAddressResource> entityConverter;
 	
 	@Mock
-	private PersonAddressService personAddressService;
+	private PersonAddressService service;
 	
 	@InjectMocks
 	private DefaultPersonAddressFacade unit;
@@ -67,15 +67,15 @@ public class DefaultPersonAddressFacadeTest {
 		PersonAddress address = new PersonAddress();
 		
 		// When
-		when(personAddressConverter.convert(any(PersonAddress.class))).thenReturn(resource);
+		when(entityConverter.convert(any(PersonAddress.class))).thenReturn(resource);
 		
 		PersonAddressResource actual = unit.createAddress(resource);
 
 		// Then
-		verify(personAddressResourceConverter).convert(resource, address);
+		verify(resourceConverter).convert(resource, address);
 		verify(insertConverter).convert(resource, address);
-		verify(personAddressService).createAddress(address);
-		verify(personAddressConverter).convert(address);
+		verify(service).createAddress(address);
+		verify(entityConverter).convert(address);
 		
 		assertEquals(resource, actual);
 	}
@@ -88,13 +88,13 @@ public class DefaultPersonAddressFacadeTest {
 		PersonAddress address = new PersonAddress();
 
 		// When
-		when(personAddressService.getAddress(anyLong())).thenReturn(address);
+		when(service.getAddress(anyLong())).thenReturn(address);
 		unit.updateAddress(addressId, resource);
 
 		// Then
-		verify(personAddressService).getAddress(addressId);
-		verify(personAddressResourceConverter).convert(resource, address);
-		verify(personAddressService).updateAddress(address);
+		verify(service).getAddress(addressId);
+		verify(resourceConverter).convert(resource, address);
+		verify(service).updateAddress(address);
 	}
 	
 	@Test
@@ -109,13 +109,13 @@ public class DefaultPersonAddressFacadeTest {
 		personAddress.setId(id);
 
 		// When
-		when(personAddressService.getAddress(anyLong())).thenReturn(personAddress);
-		when(personAddressConverter.convert(any(PersonAddress.class))).thenReturn(expected);
+		when(service.getAddress(anyLong())).thenReturn(personAddress);
+		when(entityConverter.convert(any(PersonAddress.class))).thenReturn(expected);
 		PersonAddressResource actual = unit.getAddress(id);
 
 		// Then
-		verify(personAddressService).getAddress(id);
-		verify(personAddressConverter).convert(personAddress);
+		verify(service).getAddress(id);
+		verify(entityConverter).convert(personAddress);
 		assertEquals(expected, actual);
 	}
 	
@@ -140,15 +140,15 @@ public class DefaultPersonAddressFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<PersonAddressResource>>any())).thenReturn(pagedSearch);
-		when(personAddressService.getAddresses(Matchers.<PagedSearch<PersonAddress>> any())).thenReturn(pagedResult);
-		when(personAddressConverter.convertAll(anyListOf(PersonAddress.class))).thenReturn(funnyResources);
+		when(service.getAddresses(Matchers.<PagedSearch<PersonAddress>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(PersonAddress.class))).thenReturn(funnyResources);
 
 		PagedResultResource<PersonAddressResource> actualFunnies = unit.getAddresses(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(personAddressService).getAddresses(pagedSearch);
-		verify(personAddressConverter).convertAll(entities);
+		verify(service).getAddresses(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actualFunnies);

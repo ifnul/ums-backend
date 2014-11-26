@@ -37,13 +37,13 @@ public class DefaultPersonTypeFacadeTest {
 	private Converter<PersonResource, PersonType> updateConverter;
 	
 	@Mock
-	private Converter<PersonResource, PersonType> personTypeResourceConverter;
+	private Converter<PersonResource, PersonType> resourceConverter;
 	
 	@Mock
-	private Converter<PersonType, PersonResource> personTypeConverter;
+	private Converter<PersonType, PersonResource> entityConverter;
 	
 	@Mock
-	private PersonTypeService personTypeService;
+	private PersonTypeService service;
 
 	@Mock
 	private Converter<PagedRequest<PersonTypeResource>, PagedSearch<PersonType>> pagedRequestConverter;
@@ -72,15 +72,15 @@ public class DefaultPersonTypeFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<PersonTypeResource>>any())).thenReturn(pagedSearch);
-		when(personTypeService.getPersonTypes(Matchers.<PagedSearch<PersonType>> any())).thenReturn(pagedResult);
-		when(personTypeConverter.convertAll(anyListOf(PersonType.class))).thenReturn(funnyResources);
+		when(service.getPersonTypes(Matchers.<PagedSearch<PersonType>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(PersonType.class))).thenReturn(funnyResources);
 
 		PagedResultResource<PersonTypeResource> actual = unit.getPersonTypes(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(personTypeService).getPersonTypes(pagedSearch);
-		verify(personTypeConverter).convertAll(entities);
+		verify(service).getPersonTypes(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actual);

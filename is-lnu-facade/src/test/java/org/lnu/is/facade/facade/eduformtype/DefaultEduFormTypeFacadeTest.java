@@ -38,13 +38,13 @@ public class DefaultEduFormTypeFacadeTest {
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 	
 	@Mock
-	private EduFormTypeService eduFormTypeService;
+	private EduFormTypeService service;
 
 	@Mock
-	private Converter<EduFormType, EduFormTypeResource> eduFormTypeConverter;
+	private Converter<EduFormType, EduFormTypeResource> entityConverter;
 	
 	@Mock
-	private Converter<EduFormTypeResource, EduFormType> eduFormTypeResourceConverter;
+	private Converter<EduFormTypeResource, EduFormType> resourceConverter;
 	
 	@Test
 	public void testGetSpecialties() throws Exception {
@@ -65,15 +65,15 @@ public class DefaultEduFormTypeFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<EduFormTypeResource>>any())).thenReturn(pagedSearch);
-		when(eduFormTypeService.getEduFormTypes(Matchers.<PagedSearch<EduFormType>> any())).thenReturn(pagedResult);
-		when(eduFormTypeConverter.convertAll(anyListOf(EduFormType.class))).thenReturn(funnyResources);
+		when(service.getEduFormTypes(Matchers.<PagedSearch<EduFormType>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(EduFormType.class))).thenReturn(funnyResources);
 
 		PagedResultResource<EduFormTypeResource> actualFunnies = unit.getEduFormTypes(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(eduFormTypeService).getEduFormTypes(pagedSearch);
-		verify(eduFormTypeConverter).convertAll(entities);
+		verify(service).getEduFormTypes(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actualFunnies);

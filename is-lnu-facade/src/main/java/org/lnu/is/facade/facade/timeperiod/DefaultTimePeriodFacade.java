@@ -29,23 +29,23 @@ public class DefaultTimePeriodFacade extends BaseFacade<TimePeriodResource, Time
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultTimePeriodFacade.class);
 	
 	@Resource(name = "timePeriodService")
-	private TimePeriodService timePeriodService;
+	private TimePeriodService service;
 
 	@Resource(name = "timePeriodConverter")
-	private Converter<TimePeriod, TimePeriodResource> timePeriodConverter;
+	private Converter<TimePeriod, TimePeriodResource> entityConverter;
 
 	@Resource(name = "timePeriodResourceConverter")
-	private Converter<TimePeriodResource, TimePeriod> timePeriodResourceConverter;
+	private Converter<TimePeriodResource, TimePeriod> resourceConverter;
 	
 	@Override
 	public PagedResultResource<TimePeriodResource> getTimePeriods(final PagedRequest<TimePeriodResource> request) {
 		LOG.info("Get time periods by paged request: {}", request);
 
 		PagedSearch<TimePeriod> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(timePeriodResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 		
-		PagedResult<TimePeriod> pagedResult = timePeriodService.getTimePeriods(pagedSearch);
-		List<TimePeriodResource> resources = timePeriodConverter.convertAll(pagedResult.getEntities());
+		PagedResult<TimePeriod> pagedResult = service.getTimePeriods(pagedSearch);
+		List<TimePeriodResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<TimePeriodResource> pagedResultResource = new PagedResultResource<>("/timeperiods");
 		pagedResultResource.setResources(resources);

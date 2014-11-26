@@ -33,7 +33,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultPersonPaperFacadeTest {
 
 	@Mock
-	private PersonPaperService personPaperService;
+	private PersonPaperService service;
 
 	@Mock
 	private Converter<PersonPaperResource, PersonPaper> insertConverter;
@@ -42,10 +42,10 @@ public class DefaultPersonPaperFacadeTest {
 	private Converter<PersonPaperResource, PersonPaper> updateConverter;
 	
 	@Mock
-	private Converter<PersonPaperResource, PersonPaper> personPaperResourceConverter;
+	private Converter<PersonPaperResource, PersonPaper> resourceConverter;
 
 	@Mock
-	private Converter<PersonPaper, PersonPaperResource> personPaperConverter;
+	private Converter<PersonPaper, PersonPaperResource> entityConverter;
 	
 	@Mock
 	private Converter<PagedRequest<PersonPaperResource>, PagedSearch<PersonPaper>> pagedRequestConverter;
@@ -65,14 +65,14 @@ public class DefaultPersonPaperFacadeTest {
 		PersonPaper personPaper = new PersonPaper();
 		
 		// When
-		when(personPaperResourceConverter.convert(any(PersonPaperResource.class))).thenReturn(personPaper);
-		when(personPaperConverter.convert(any(PersonPaper.class))).thenReturn(expected);
+		when(resourceConverter.convert(any(PersonPaperResource.class))).thenReturn(personPaper);
+		when(entityConverter.convert(any(PersonPaper.class))).thenReturn(expected);
 		
 		PersonPaperResource actual = unit.createPersonPaper(expected);
 
 		// Then
-		verify(personPaperResourceConverter).convert(expected);
-		verify(personPaperService).createPersonPaper(personPaper);
+		verify(resourceConverter).convert(expected);
+		verify(service).createPersonPaper(personPaper);
 		verify(insertConverter).convert(expected, personPaper);
 		
 		assertEquals(expected, actual);
@@ -91,14 +91,14 @@ public class DefaultPersonPaperFacadeTest {
 		personPaper.setId(id);
 		
 		// When
-		when(personPaperService.getPersonPaper(anyLong())).thenReturn(personPaper);
+		when(service.getPersonPaper(anyLong())).thenReturn(personPaper);
 		
 		unit.updatePersonPaper(id, expected);
 
 		// Then
-		verify(personPaperService).getPersonPaper(id);
-		verify(personPaperResourceConverter).convert(expected, personPaper);
-		verify(personPaperService).updatePersonPaper(personPaper);
+		verify(service).getPersonPaper(id);
+		verify(resourceConverter).convert(expected, personPaper);
+		verify(service).updatePersonPaper(personPaper);
 		verify(updateConverter).convert(expected, personPaper);
 	}
 
@@ -114,13 +114,13 @@ public class DefaultPersonPaperFacadeTest {
 		personPaper.setId(id);
 
 		// When
-		when(personPaperService.getPersonPaper(anyLong())).thenReturn(personPaper);
-		when(personPaperConverter.convert(any(PersonPaper.class))).thenReturn(expected);
+		when(service.getPersonPaper(anyLong())).thenReturn(personPaper);
+		when(entityConverter.convert(any(PersonPaper.class))).thenReturn(expected);
 		PersonPaperResource actual = unit.getPersonPaper(id);
 
 		// Then
-		verify(personPaperService).getPersonPaper(id);
-		verify(personPaperConverter).convert(personPaper);
+		verify(service).getPersonPaper(id);
+		verify(entityConverter).convert(personPaper);
 		assertEquals(expected, actual);
 	}
 	
@@ -133,12 +133,12 @@ public class DefaultPersonPaperFacadeTest {
 		personPaper.setId(id);
 		
 		// When
-		when(personPaperService.getPersonPaper(anyLong())).thenReturn(personPaper);
+		when(service.getPersonPaper(anyLong())).thenReturn(personPaper);
 		unit.removePersonPaper(id);
 
 		// Then
-		verify(personPaperService).getPersonPaper(id);
-		verify(personPaperService).removePersonPaper(personPaper);
+		verify(service).getPersonPaper(id);
+		verify(service).removePersonPaper(personPaper);
 	}
 	
 	@Test
@@ -162,15 +162,15 @@ public class DefaultPersonPaperFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<PersonPaperResource>>any())).thenReturn(pagedSearch);
-		when(personPaperService.getPersonPapers(Matchers.<PagedSearch<PersonPaper>> any())).thenReturn(pagedResult);
-		when(personPaperConverter.convertAll(anyListOf(PersonPaper.class))).thenReturn(funnyResources);
+		when(service.getPersonPapers(Matchers.<PagedSearch<PersonPaper>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(PersonPaper.class))).thenReturn(funnyResources);
 
 		PagedResultResource<PersonPaperResource> actualFunnies = unit.getPersonPapers(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(personPaperService).getPersonPapers(pagedSearch);
-		verify(personPaperConverter).convertAll(entities);
+		verify(service).getPersonPapers(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actualFunnies);

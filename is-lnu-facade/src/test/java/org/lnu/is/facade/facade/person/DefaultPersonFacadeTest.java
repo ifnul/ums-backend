@@ -39,13 +39,13 @@ public class DefaultPersonFacadeTest {
 	private Converter<PersonResource, Person> updateConverter;
 	
 	@Mock
-	private Converter<PersonResource, Person> personResourceConverter;
+	private Converter<PersonResource, Person> resourceConverter;
 	
 	@Mock
-	private Converter<Person, PersonResource> personConverter;
+	private Converter<Person, PersonResource> entityConverter;
 	
 	@Mock
-	private PersonService personService;
+	private PersonService service;
 
 	@Mock
 	private Converter<PagedRequest<PersonResource>, PagedSearch<Person>> pagedRequestConverter;
@@ -77,14 +77,14 @@ public class DefaultPersonFacadeTest {
 		person.setPersonType(personType);
 		
 		// When
-		when(personResourceConverter.convert(any(PersonResource.class))).thenReturn(person);
-		when(personConverter.convert(any(Person.class))).thenReturn(expected);
+		when(resourceConverter.convert(any(PersonResource.class))).thenReturn(person);
+		when(entityConverter.convert(any(Person.class))).thenReturn(expected);
 		
 		PersonResource actual = unit.createPerson(expected);
 
 		// Then
-		verify(personResourceConverter).convert(expected);
-		verify(personService).createPerson(person);
+		verify(resourceConverter).convert(expected);
+		verify(service).createPerson(person);
 		verify(insertConverter).convert(expected, person);
 		
 		assertEquals(expected, actual);
@@ -112,14 +112,14 @@ public class DefaultPersonFacadeTest {
 		person.setPersonType(personType);
 		
 		// When
-		when(personService.getPerson(anyLong())).thenReturn(person);
+		when(service.getPerson(anyLong())).thenReturn(person);
 		
 		unit.updatePerson(id, expected);
 
 		// Then
-		verify(personService).getPerson(id);
-		verify(personResourceConverter).convert(expected, person);
-		verify(personService).updatePerson(person);
+		verify(service).getPerson(id);
+		verify(resourceConverter).convert(expected, person);
+		verify(service).updatePerson(person);
 		verify(updateConverter).convert(expected, person);
 	}
 	
@@ -145,13 +145,13 @@ public class DefaultPersonFacadeTest {
 		person.setPersonType(personType);
 
 		// When
-		when(personService.getPerson(anyLong())).thenReturn(person);
-		when(personConverter.convert(any(Person.class))).thenReturn(expected);
+		when(service.getPerson(anyLong())).thenReturn(person);
+		when(entityConverter.convert(any(Person.class))).thenReturn(expected);
 		PersonResource actual = unit.getPerson(id);
 
 		// Then
-		verify(personService).getPerson(id);
-		verify(personConverter).convert(person);
+		verify(service).getPerson(id);
+		verify(entityConverter).convert(person);
 		assertEquals(expected, actual);
 	}
 	
@@ -164,12 +164,12 @@ public class DefaultPersonFacadeTest {
 		person.setId(id);
 		
 		// When
-		when(personService.getPerson(anyLong())).thenReturn(person);
+		when(service.getPerson(anyLong())).thenReturn(person);
 		unit.removePerson(id);
 
 		// Then
-		verify(personService).getPerson(id);
-		verify(personService).removePerson(person);
+		verify(service).getPerson(id);
+		verify(service).removePerson(person);
 	}
 	
 	@Test
@@ -190,15 +190,15 @@ public class DefaultPersonFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<PersonResource>>any())).thenReturn(pagedSearch);
-		when(personService.getPersons(Matchers.<PagedSearch<Person>> any())).thenReturn(pagedResult);
-		when(personConverter.convertAll(anyListOf(Person.class))).thenReturn(funnyResources);
+		when(service.getPersons(Matchers.<PagedSearch<Person>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(Person.class))).thenReturn(funnyResources);
 
 		PagedResultResource<PersonResource> actualFunnies = unit.getPersons(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(personService).getPersons(pagedSearch);
-		verify(personConverter).convertAll(entities);
+		verify(service).getPersons(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actualFunnies);

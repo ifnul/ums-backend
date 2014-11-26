@@ -38,13 +38,13 @@ public class DefaultAddressTypeFacadeTest {
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 
 	@Mock
-	private AddressTypeService addressTypeService;
+	private AddressTypeService service;
 
 	@Mock
-	private Converter<AddressType, AddressTypeResource> addressTypeConverter;
+	private Converter<AddressType, AddressTypeResource> entityConverter;
 
 	@Mock
-	private Converter<AddressTypeResource, AddressType> addressTypeResourceConverter;
+	private Converter<AddressTypeResource, AddressType> resourceConverter;
 
 	@Test
 	public void getAddressTypes() throws Exception {
@@ -75,10 +75,10 @@ public class DefaultAddressTypeFacadeTest {
 						.<PagedRequest<AddressTypeResource>> any()))
 				.thenReturn(pagedSearch);
 		when(
-				addressTypeService.getAddressTypes(Matchers
+				service.getAddressTypes(Matchers
 						.<PagedSearch<AddressType>> any())).thenReturn(
 				pagedResult);
-		when(addressTypeConverter.convertAll(anyListOf(AddressType.class)))
+		when(entityConverter.convertAll(anyListOf(AddressType.class)))
 				.thenReturn(myResources);
 
 		PagedResultResource<AddressTypeResource> actualResources = unit
@@ -86,8 +86,8 @@ public class DefaultAddressTypeFacadeTest {
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(addressTypeService).getAddressTypes(pagedSearch);
-		verify(addressTypeConverter).convertAll(entities);
+		verify(service).getAddressTypes(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedResources);
 
 		assertEquals(expectedResources, actualResources);

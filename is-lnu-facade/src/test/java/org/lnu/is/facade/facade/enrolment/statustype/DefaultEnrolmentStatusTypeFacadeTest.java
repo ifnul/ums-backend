@@ -37,13 +37,13 @@ public class DefaultEnrolmentStatusTypeFacadeTest {
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 	
 	@Mock
-	private EnrolmentStatusTypeService enrolmentStatusTypeService;
+	private EnrolmentStatusTypeService service;
 
 	@Mock
-	private Converter<EnrolmentStatusType, EnrolmentStatusTypeResource> enrolmentStatusTypeConverter;
+	private Converter<EnrolmentStatusType, EnrolmentStatusTypeResource> entityConverter;
 	
 	@Mock
-	private Converter<EnrolmentStatusTypeResource, EnrolmentStatusType> enrolmentStatusTypeResourceConverter;
+	private Converter<EnrolmentStatusTypeResource, EnrolmentStatusType> resourceConverter;
 	
 	@Test
 	public void testGetStatusTypes() throws Exception {
@@ -64,15 +64,15 @@ public class DefaultEnrolmentStatusTypeFacadeTest {
 		
 		//When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<EnrolmentStatusTypeResource>>any())).thenReturn(pagedSearch);
-		when(enrolmentStatusTypeService.getEnrolmentStatusTypes(Matchers.<PagedSearch<EnrolmentStatusType>> any())).thenReturn(pagedResult);
-		when(enrolmentStatusTypeConverter.convertAll(anyListOf(EnrolmentStatusType.class))).thenReturn(someResources);
+		when(service.getEnrolmentStatusTypes(Matchers.<PagedSearch<EnrolmentStatusType>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(EnrolmentStatusType.class))).thenReturn(someResources);
 
 		PagedResultResource<EnrolmentStatusTypeResource> actualResources = unit.getEnrolmentStatusTypes(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(enrolmentStatusTypeService).getEnrolmentStatusTypes(pagedSearch);
-		verify(enrolmentStatusTypeConverter).convertAll(entities);
+		verify(service).getEnrolmentStatusTypes(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedResources);
 
 		assertEquals(expectedResources, actualResources);

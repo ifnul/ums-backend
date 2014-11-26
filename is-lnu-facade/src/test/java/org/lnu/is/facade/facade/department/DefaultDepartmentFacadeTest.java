@@ -33,7 +33,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultDepartmentFacadeTest {
 	
 	@Mock
-	private DepartmentService departmentService;
+	private DepartmentService service;
 
 	@Mock
 	private Converter<DepartmentResource, Department> insertConverter;
@@ -42,10 +42,10 @@ public class DefaultDepartmentFacadeTest {
 	private Converter<DepartmentResource, Department> updateConverter;
 	
 	@Mock
-	private Converter<DepartmentResource, Department> departmentResourceConverter;
+	private Converter<DepartmentResource, Department> resourceConverter;
 
 	@Mock
-	private Converter<Department, DepartmentResource> departmentConverter;
+	private Converter<Department, DepartmentResource> entityConverter;
 	
 	@Mock
 	private Converter<PagedRequest<DepartmentResource>, PagedSearch<Department>> pagedRequestConverter;
@@ -86,13 +86,13 @@ public class DefaultDepartmentFacadeTest {
 		department.setDepartmentType(departmentType);
 		
 		// When
-		when(departmentConverter.convert(any(Department.class))).thenReturn(expected);
+		when(entityConverter.convert(any(Department.class))).thenReturn(expected);
 		
 		DepartmentResource actual = unit.createDepartment(expected);
 
 		// Then
-		verify(departmentResourceConverter).convert(expected, createdDepartment);
-		verify(departmentService).createDepartment(createdDepartment);
+		verify(resourceConverter).convert(expected, createdDepartment);
+		verify(service).createDepartment(createdDepartment);
 		verify(insertConverter).convert(expected, createdDepartment);
 		
 		assertEquals(expected, actual);
@@ -127,14 +127,14 @@ public class DefaultDepartmentFacadeTest {
 		department.setDepartmentType(departmentType);
 		
 		// When
-		when(departmentService.getDepartment(anyLong())).thenReturn(department);
+		when(service.getDepartment(anyLong())).thenReturn(department);
 		
 		unit.updateDepartment(id, expected);
 
 		// Then
-		verify(departmentService).getDepartment(id);
-		verify(departmentResourceConverter).convert(expected, department);
-		verify(departmentService).updateDepartment(department);
+		verify(service).getDepartment(id);
+		verify(resourceConverter).convert(expected, department);
+		verify(service).updateDepartment(department);
 		verify(updateConverter).convert(expected, department);
 	}
 	
@@ -167,13 +167,13 @@ public class DefaultDepartmentFacadeTest {
 		department.setDepartmentType(departmentType);
 
 		// When
-		when(departmentService.getDepartment(anyLong())).thenReturn(department);
-		when(departmentConverter.convert(any(Department.class))).thenReturn(expected);
+		when(service.getDepartment(anyLong())).thenReturn(department);
+		when(entityConverter.convert(any(Department.class))).thenReturn(expected);
 		DepartmentResource actual = unit.getDepartment(id);
 
 		// Then
-		verify(departmentService).getDepartment(id);
-		verify(departmentConverter).convert(department);
+		verify(service).getDepartment(id);
+		verify(entityConverter).convert(department);
 		assertEquals(expected, actual);
 	}
 	
@@ -186,12 +186,12 @@ public class DefaultDepartmentFacadeTest {
 		department.setId(id);
 		
 		// When
-		when(departmentService.getDepartment(anyLong())).thenReturn(department);
+		when(service.getDepartment(anyLong())).thenReturn(department);
 		unit.removeDepartment(id);
 
 		// Then
-		verify(departmentService).getDepartment(id);
-		verify(departmentService).removeDepartment(department);
+		verify(service).getDepartment(id);
+		verify(service).removeDepartment(department);
 	}
 	
 	@Test
@@ -214,15 +214,15 @@ public class DefaultDepartmentFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<DepartmentResource>>any())).thenReturn(pagedSearch);
-		when(departmentService.getDepartments(Matchers.<PagedSearch<Department>> any())).thenReturn(pagedResult);
-		when(departmentConverter.convertAll(anyListOf(Department.class))).thenReturn(funnyResources);
+		when(service.getDepartments(Matchers.<PagedSearch<Department>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(Department.class))).thenReturn(funnyResources);
 
 		PagedResultResource<DepartmentResource> actualFunnies = unit.getDepartments(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(departmentService).getDepartments(pagedSearch);
-		verify(departmentConverter).convertAll(entities);
+		verify(service).getDepartments(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actualFunnies);

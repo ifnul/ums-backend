@@ -30,23 +30,23 @@ public class DefaultGenderTypeFacade extends BaseFacade<GenderTypeResource, Gend
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultGenderTypeFacade.class);
 	
 	@Resource(name = "genderTypeConverter")
-	private Converter<GenderType, GenderTypeResource> genderTypeConverter;
+	private Converter<GenderType, GenderTypeResource> entityConverter;
 
 	@Resource(name = "genderTypeResourceConverter")
-	private Converter<GenderTypeResource, GenderType> genderTypeResourceConverter;
+	private Converter<GenderTypeResource, GenderType> resourceConverter;
 
 	@Resource(name = "genderTypeService")
-	private GenderTypeService genderTypeService;
+	private GenderTypeService service;
 
 	@Override
 	public PagedResultResource<GenderTypeResource> getGenderTypes(final PagedRequest<GenderTypeResource> request) {
 		LOG.info("Getting paged result for gender types: {}", request);
 		
 		PagedSearch<GenderType> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(genderTypeResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<GenderType> pagedResult = genderTypeService.getGenderTypes(pagedSearch);
-		List<GenderTypeResource> resources = genderTypeConverter.convertAll(pagedResult.getEntities());
+		PagedResult<GenderType> pagedResult = service.getGenderTypes(pagedSearch);
+		List<GenderTypeResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<GenderTypeResource> pagedResultResource = new PagedResultResource<>("/gendertypes");
 		pagedResultResource.setResources(resources);

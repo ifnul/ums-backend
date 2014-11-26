@@ -29,52 +29,52 @@ public class DefaultSpecialtyFacade extends BaseFacade<SpecialtyResource, Specia
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultSpecialtyFacade.class);
 	
 	@Resource(name = "specialtyService")
-	private SpecialtyService specialtyService;
+	private SpecialtyService service;
 
 	@Resource(name = "specialtyResourceConverter")
-	private Converter<SpecialtyResource, Specialty> specialtyResourceConverter;
+	private Converter<SpecialtyResource, Specialty> resourceConverter;
 
 	@Resource(name = "specialtyConverter")
-	private Converter<Specialty, SpecialtyResource> specialtyConverter;
+	private Converter<Specialty, SpecialtyResource> entityConverter;
 	
 	@Override
 	public SpecialtyResource createSpecialty(final SpecialtyResource resource) {
 		LOG.info("Creating new specialty, {}", resource);
 		
-		Specialty specialty = specialtyResourceConverter.convert(resource);
+		Specialty specialty = resourceConverter.convert(resource);
 		
 		insertConverter.convert(resource, specialty);
-		specialty = specialtyService.createSpecialty(specialty);
+		specialty = service.createSpecialty(specialty);
 		
-		return specialtyConverter.convert(specialty);
+		return entityConverter.convert(specialty);
 	}
 
 	@Override
 	public void updateSpecialty(final Long id, final SpecialtyResource resource) {
 		LOG.info("Updating specialty with id:{}, resource", id, resource);
 		
-		Specialty specialty = specialtyService.getSpecialty(id);
+		Specialty specialty = service.getSpecialty(id);
 		
-		specialtyResourceConverter.convert(resource, specialty);
+		resourceConverter.convert(resource, specialty);
 		updateConverter.convert(resource, specialty);
 		
-		specialtyService.updateSpecialty(specialty);
+		service.updateSpecialty(specialty);
 	}
 
 	@Override
 	public SpecialtyResource getSpecialty(final Long id) {
 		LOG.info("Getting specialty with id: {}", id);
 		
-		Specialty specialty = specialtyService.getSpecialty(id);
-		return specialtyConverter.convert(specialty);
+		Specialty specialty = service.getSpecialty(id);
+		return entityConverter.convert(specialty);
 	}
 
 	@Override
 	public void removeSpecialty(final Long id) {
 		LOG.info("Removing specialty:{}", id);
 		
-		Specialty specialty = specialtyService.getSpecialty(id);
-		specialtyService.removeSpecialty(specialty);
+		Specialty specialty = service.getSpecialty(id);
+		service.removeSpecialty(specialty);
 	}
 
 	@Override
@@ -82,11 +82,11 @@ public class DefaultSpecialtyFacade extends BaseFacade<SpecialtyResource, Specia
 		LOG.info("Getting specialties by paged request: {}", request);
 
 		PagedSearch<Specialty> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(specialtyResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 		
-		PagedResult<Specialty> pagedResult = specialtyService.getSpecialties(pagedSearch);
+		PagedResult<Specialty> pagedResult = service.getSpecialties(pagedSearch);
 
-		List<SpecialtyResource> resources = specialtyConverter.convertAll(pagedResult.getEntities());
+		List<SpecialtyResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<SpecialtyResource> pagedResultResource = new PagedResultResource<>("/specialties");
 		pagedResultResource.setResources(resources);

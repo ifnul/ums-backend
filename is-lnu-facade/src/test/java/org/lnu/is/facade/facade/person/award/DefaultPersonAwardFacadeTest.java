@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultPersonAwardFacadeTest {
 
 	@Mock
-	private PersonAwardService personAwardService;
+	private PersonAwardService service;
 
 	@Mock
 	private Converter<PersonAwardResource, PersonAward> insertConverter;
@@ -41,10 +41,10 @@ public class DefaultPersonAwardFacadeTest {
 	private Converter<PersonAwardResource, PersonAward> updateConverter;
 	
 	@Mock
-	private Converter<PersonAwardResource, PersonAward> personAwardResourceConverter;
+	private Converter<PersonAwardResource, PersonAward> resourceConverter;
 
 	@Mock
-	private Converter<PersonAward, PersonAwardResource> personAwardConverter;
+	private Converter<PersonAward, PersonAwardResource> entityConverter;
 	
 	@Mock
 	private Converter<PagedRequest<PersonAwardResource>, PagedSearch<PersonAward>> pagedRequestConverter;
@@ -63,14 +63,14 @@ public class DefaultPersonAwardFacadeTest {
 		PersonAward personAward = new PersonAward();
 		
 		// When
-		when(personAwardResourceConverter.convert(any(PersonAwardResource.class))).thenReturn(personAward);
-		when(personAwardConverter.convert(any(PersonAward.class))).thenReturn(expected);
+		when(resourceConverter.convert(any(PersonAwardResource.class))).thenReturn(personAward);
+		when(entityConverter.convert(any(PersonAward.class))).thenReturn(expected);
 		
 		PersonAwardResource actual = unit.createAward(expected);
 
 		// Then
-		verify(personAwardResourceConverter).convert(expected, new PersonAward());
-		verify(personAwardService).createAward(personAward);
+		verify(resourceConverter).convert(expected, new PersonAward());
+		verify(service).createAward(personAward);
 		verify(insertConverter).convert(expected, personAward);
 		
 		assertEquals(expected, actual);
@@ -88,14 +88,14 @@ public class DefaultPersonAwardFacadeTest {
 		personAward.setId(id);
 		
 		// When
-		when(personAwardService.getAward(anyLong())).thenReturn(personAward);
+		when(service.getAward(anyLong())).thenReturn(personAward);
 		
 		unit.updateAward(id, expected);
 
 		// Then
-		verify(personAwardService).getAward(id);
-		verify(personAwardResourceConverter).convert(expected, personAward);
-		verify(personAwardService).updateAward(personAward);
+		verify(service).getAward(id);
+		verify(resourceConverter).convert(expected, personAward);
+		verify(service).updateAward(personAward);
 		verify(updateConverter).convert(expected, personAward);
 	}
 
@@ -111,13 +111,13 @@ public class DefaultPersonAwardFacadeTest {
 		personAward.setId(id);
 
 		// When
-		when(personAwardService.getAward(anyLong())).thenReturn(personAward);
-		when(personAwardConverter.convert(any(PersonAward.class))).thenReturn(expected);
+		when(service.getAward(anyLong())).thenReturn(personAward);
+		when(entityConverter.convert(any(PersonAward.class))).thenReturn(expected);
 		PersonAwardResource actual = unit.getAward(id);
 
 		// Then
-		verify(personAwardService).getAward(id);
-		verify(personAwardConverter).convert(personAward);
+		verify(service).getAward(id);
+		verify(entityConverter).convert(personAward);
 		assertEquals(expected, actual);
 	}
 	
@@ -130,12 +130,12 @@ public class DefaultPersonAwardFacadeTest {
 		personAward.setId(id);
 		
 		// When
-		when(personAwardService.getAward(anyLong())).thenReturn(personAward);
+		when(service.getAward(anyLong())).thenReturn(personAward);
 		unit.removeAward(id);
 
 		// Then
-		verify(personAwardService).getAward(id);
-		verify(personAwardService).removeAward(personAward);
+		verify(service).getAward(id);
+		verify(service).removeAward(personAward);
 	}
 	
 	@Test
@@ -159,15 +159,15 @@ public class DefaultPersonAwardFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<PersonAwardResource>>any())).thenReturn(pagedSearch);
-		when(personAwardService.getAwards(Matchers.<PagedSearch<PersonAward>> any())).thenReturn(pagedResult);
-		when(personAwardConverter.convertAll(anyListOf(PersonAward.class))).thenReturn(funnyResources);
+		when(service.getAwards(Matchers.<PagedSearch<PersonAward>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(PersonAward.class))).thenReturn(funnyResources);
 
 		PagedResultResource<PersonAwardResource> actualFunnies = unit.getAwards(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(personAwardService).getAwards(pagedSearch);
-		verify(personAwardConverter).convertAll(entities);
+		verify(service).getAwards(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actualFunnies);

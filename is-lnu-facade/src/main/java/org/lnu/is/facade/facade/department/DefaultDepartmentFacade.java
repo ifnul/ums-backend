@@ -29,13 +29,13 @@ public class DefaultDepartmentFacade extends BaseFacade<DepartmentResource, Depa
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultDepartmentFacade.class);
 	
 	@Resource(name = "departmentService")
-	private DepartmentService departmentService;
+	private DepartmentService service;
 
 	@Resource(name = "departmentResourceConverter")
-	private Converter<DepartmentResource, Department> departmentResourceConverter;
+	private Converter<DepartmentResource, Department> resourceConverter;
 
 	@Resource(name = "departmentConverter")
-	private Converter<Department, DepartmentResource> departmentConverter;
+	private Converter<Department, DepartmentResource> entityConverter;
 	
 	@Override
 	public DepartmentResource createDepartment(final DepartmentResource resource) {
@@ -43,40 +43,40 @@ public class DefaultDepartmentFacade extends BaseFacade<DepartmentResource, Depa
 		
 		Department department = new Department();
 		
-		departmentResourceConverter.convert(resource, department);
+		resourceConverter.convert(resource, department);
 		insertConverter.convert(resource, department);
 		
-		departmentService.createDepartment(department);
+		service.createDepartment(department);
 		
-		return departmentConverter.convert(department);
+		return entityConverter.convert(department);
 	}
 
 	@Override
 	public void updateDepartment(final Long id, final DepartmentResource resource) {
 		LOG.info("Updating department:{}, {}", id, resource);
 		
-		Department department = departmentService.getDepartment(id);
+		Department department = service.getDepartment(id);
 		
-		departmentResourceConverter.convert(resource, department);
+		resourceConverter.convert(resource, department);
 		updateConverter.convert(resource, department);
 		
-		departmentService.updateDepartment(department);
+		service.updateDepartment(department);
 	}
 
 	@Override
 	public DepartmentResource getDepartment(final Long id) {
 		LOG.info("Getting department: {}", id);
 		
-		Department department = departmentService.getDepartment(id);
-		return departmentConverter.convert(department);
+		Department department = service.getDepartment(id);
+		return entityConverter.convert(department);
 	}
 
 	@Override
 	public void removeDepartment(final Long id) {
 		LOG.info("Removing department: {}", id);
 		
-		Department department = departmentService.getDepartment(id);
-		departmentService.removeDepartment(department);
+		Department department = service.getDepartment(id);
+		service.removeDepartment(department);
 	}
 
 	@Override
@@ -84,11 +84,11 @@ public class DefaultDepartmentFacade extends BaseFacade<DepartmentResource, Depa
 		LOG.info("Get departments by paged request: {}", request);
 
 		PagedSearch<Department> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(departmentResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<Department> pagedResult = departmentService.getDepartments(pagedSearch);
+		PagedResult<Department> pagedResult = service.getDepartments(pagedSearch);
 
-		List<DepartmentResource> resources = departmentConverter.convertAll(pagedResult.getEntities());
+		List<DepartmentResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<DepartmentResource> pagedResultResource = new PagedResultResource<>("/departments");
 		pagedResultResource.setResources(resources);

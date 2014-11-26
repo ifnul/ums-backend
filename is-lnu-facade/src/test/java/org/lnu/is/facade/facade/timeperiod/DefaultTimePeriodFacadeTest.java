@@ -29,13 +29,13 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultTimePeriodFacadeTest {
 
 	@Mock
-	private TimePeriodService timePeriodService;
+	private TimePeriodService service;
 
 	@Mock
-	private Converter<TimePeriod, TimePeriodResource> timePeriodConverter;
+	private Converter<TimePeriod, TimePeriodResource> entityConverter;
 	
 	@Mock
-	private Converter<TimePeriodResource, TimePeriod> timePeriodResourceConverter;
+	private Converter<TimePeriodResource, TimePeriod> resourceConverter;
 	
 	@Mock
 	private Converter<PagedRequest<TimePeriodResource>, PagedSearch<TimePeriod>> pagedRequestConverter;
@@ -64,15 +64,15 @@ public class DefaultTimePeriodFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<TimePeriodResource>>any())).thenReturn(pagedSearch);
-		when(timePeriodService.getTimePeriods(Matchers.<PagedSearch<TimePeriod>> any())).thenReturn(pagedResult);
-		when(timePeriodConverter.convertAll(anyListOf(TimePeriod.class))).thenReturn(funnyResources);
+		when(service.getTimePeriods(Matchers.<PagedSearch<TimePeriod>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(TimePeriod.class))).thenReturn(funnyResources);
 
 		PagedResultResource<TimePeriodResource> actual = unit.getTimePeriods(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(timePeriodService).getTimePeriods(pagedSearch);
-		verify(timePeriodConverter).convertAll(entities);
+		verify(service).getTimePeriods(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expected);
 
 		assertEquals(expected, actual);

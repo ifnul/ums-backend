@@ -29,24 +29,24 @@ public class DefaultPersonTypeFacade extends BaseFacade<PersonTypeResource, Pers
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonTypeFacade.class);
 
 	@Resource(name = "personTypeService")
-	private PersonTypeService personTypeService;
+	private PersonTypeService service;
 	
 	@Resource(name = "personTypeResourceConverter")
-	private Converter<PersonTypeResource, PersonType> personTypeResourceConverter;
+	private Converter<PersonTypeResource, PersonType> resourceConverter;
 	
 	@Resource(name = "personTypeConverter")
-	private Converter<PersonType, PersonTypeResource> personTypeConverter;
+	private Converter<PersonType, PersonTypeResource> entityConverter;
 	
 	@Override
 	public PagedResultResource<PersonTypeResource> getPersonTypes(final PagedRequest<PersonTypeResource> request) {
 		LOG.info("Getting person types by paged request: {}", request);
 
 		PagedSearch<PersonType> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(personTypeResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<PersonType> pagedResult = personTypeService.getPersonTypes(pagedSearch);
+		PagedResult<PersonType> pagedResult = service.getPersonTypes(pagedSearch);
 
-		List<PersonTypeResource> resources = personTypeConverter.convertAll(pagedResult.getEntities());
+		List<PersonTypeResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<PersonTypeResource> pagedResultResource = new PagedResultResource<>("/persons/types");
 		pagedResultResource.setResources(resources);

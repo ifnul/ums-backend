@@ -38,13 +38,13 @@ public class DefaultSpecOfferTypeFacadeTest {
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 	
 	@Mock
-	private SpecOfferTypeService specOfferTypeService;
+	private SpecOfferTypeService service;
 
 	@Mock
-	private Converter<SpecOfferType, SpecOfferTypeResource> specOfferTypeConverter;
+	private Converter<SpecOfferType, SpecOfferTypeResource> entityConverter;
 
 	@Mock
-	private Converter<SpecOfferTypeResource, SpecOfferType> specOfferTypeResourceConverter;
+	private Converter<SpecOfferTypeResource, SpecOfferType> resourceConverter;
 	
 	@Test
 	public void testGetSpecialties() throws Exception {
@@ -65,15 +65,15 @@ public class DefaultSpecOfferTypeFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<SpecOfferTypeResource>>any())).thenReturn(pagedSearch);
-		when(specOfferTypeService.getSpecOfferTypes(Matchers.<PagedSearch<SpecOfferType>> any())).thenReturn(pagedResult);
-		when(specOfferTypeConverter.convertAll(anyListOf(SpecOfferType.class))).thenReturn(funnyResources);
+		when(service.getSpecOfferTypes(Matchers.<PagedSearch<SpecOfferType>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(SpecOfferType.class))).thenReturn(funnyResources);
 
 		PagedResultResource<SpecOfferTypeResource> actualFunnies = unit.getSpecOfferTypes(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(specOfferTypeService).getSpecOfferTypes(pagedSearch);
-		verify(specOfferTypeConverter).convertAll(entities);
+		verify(service).getSpecOfferTypes(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actualFunnies);

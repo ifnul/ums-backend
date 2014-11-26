@@ -31,13 +31,13 @@ public class DefaultPersonAddressFacade extends BaseFacade<PersonAddressResource
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonAddressFacade.class);
 	
 	@Resource(name = "personAddressResourceConverter")
-	private Converter<PersonAddressResource, PersonAddress> personAddressResourceConverter;
+	private Converter<PersonAddressResource, PersonAddress> resourceConverter;
 
 	@Resource(name = "personAddressConverter")
-	private Converter<PersonAddress, PersonAddressResource> personAddressConverter;
+	private Converter<PersonAddress, PersonAddressResource> entityConverter;
 	
 	@Resource(name = "personAddressService")
-	private PersonAddressService personAddressService;
+	private PersonAddressService service;
 	
 	@Override
 	public PersonAddressResource createAddress(final PersonAddressResource resource) {
@@ -45,28 +45,28 @@ public class DefaultPersonAddressFacade extends BaseFacade<PersonAddressResource
 		
 		PersonAddress address = new PersonAddress();
 		
-		personAddressResourceConverter.convert(resource, address);
+		resourceConverter.convert(resource, address);
 		insertConverter.convert(resource, address);
-		personAddressService.createAddress(address);
+		service.createAddress(address);
 		
-		return personAddressConverter.convert(address);
+		return entityConverter.convert(address);
 	}
 
 	@Override
 	public void updateAddress(final Long addressId, final PersonAddressResource resource) {
 		LOG.info("Updating person address resource({}): {}", addressId, resource);
 		
-		PersonAddress address = personAddressService.getAddress(addressId);
-		personAddressResourceConverter.convert(resource, address);
-		personAddressService.updateAddress(address);
+		PersonAddress address = service.getAddress(addressId);
+		resourceConverter.convert(resource, address);
+		service.updateAddress(address);
 	}
 
 	@Override
 	public PersonAddressResource getAddress(final Long addressId) {
 		LOG.info("Getting person address({})", addressId);
 		
-		PersonAddress address = personAddressService.getAddress(addressId);
-		return personAddressConverter.convert(address);
+		PersonAddress address = service.getAddress(addressId);
+		return entityConverter.convert(address);
 	}
 
 	@Override
@@ -74,11 +74,11 @@ public class DefaultPersonAddressFacade extends BaseFacade<PersonAddressResource
 		LOG.info("Get person papers by paged request: {}", request);
 
 		PagedSearch<PersonAddress> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(personAddressResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<PersonAddress> pagedResult = personAddressService.getAddresses(pagedSearch);
+		PagedResult<PersonAddress> pagedResult = service.getAddresses(pagedSearch);
 
-		List<PersonAddressResource> resources = personAddressConverter.convertAll(pagedResult.getEntities());
+		List<PersonAddressResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<PersonAddressResource> pagedResultResource = new PagedResultResource<>(MessageFormat.format("/persons/{0}/addresses", request.getResource().getPersonId()));
 		pagedResultResource.setResources(resources);
@@ -89,8 +89,8 @@ public class DefaultPersonAddressFacade extends BaseFacade<PersonAddressResource
 
 	@Override
 	public void deleteAddress(final Long addressId) {
-		PersonAddress address = personAddressService.getAddress(addressId);
-		personAddressService.deleteAddress(address);
+		PersonAddress address = service.getAddress(addressId);
+		service.deleteAddress(address);
 	}
 
 }

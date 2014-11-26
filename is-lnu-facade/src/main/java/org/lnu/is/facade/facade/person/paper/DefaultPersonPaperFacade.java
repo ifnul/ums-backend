@@ -30,49 +30,49 @@ public class DefaultPersonPaperFacade extends BaseFacade<PersonPaperResource, Pe
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonPaperFacade.class);
 	
 	@Resource(name = "personPaperService")
-	private PersonPaperService personPaperService;
+	private PersonPaperService service;
 
 	@Resource(name = "personPaperResourceConverter")
-	private Converter<PersonPaperResource, PersonPaper> personPaperResourceConverter;
+	private Converter<PersonPaperResource, PersonPaper> resourceConverter;
 
 	@Resource(name = "personPaperConverter")
-	private Converter<PersonPaper, PersonPaperResource> personPaperConverter;
+	private Converter<PersonPaper, PersonPaperResource> entityConverter;
 
 	@Override
 	public PersonPaperResource createPersonPaper(final PersonPaperResource resource) {
 		LOG.info("Creating person paper: {}", resource);
 		
-		PersonPaper personPaper = personPaperResourceConverter.convert(resource);
+		PersonPaper personPaper = resourceConverter.convert(resource);
 		insertConverter.convert(resource, personPaper);
-		personPaperService.createPersonPaper(personPaper);
-		return personPaperConverter.convert(personPaper);
+		service.createPersonPaper(personPaper);
+		return entityConverter.convert(personPaper);
 	}
 
 	@Override
 	public void updatePersonPaper(final Long personPaperId, final PersonPaperResource resource) {
 		LOG.info("Updating person-paper({}): {}", personPaperId, resource);
 		
-		PersonPaper personPaper = personPaperService.getPersonPaper(personPaperId);
+		PersonPaper personPaper = service.getPersonPaper(personPaperId);
 		
-		personPaperResourceConverter.convert(resource, personPaper);
+		resourceConverter.convert(resource, personPaper);
 		updateConverter.convert(resource, personPaper);
 		
-		personPaperService.updatePersonPaper(personPaper);
+		service.updatePersonPaper(personPaper);
 	}
 
 	@Override
 	public PersonPaperResource getPersonPaper(final Long id) {
 		LOG.info("Getting person paper with id: {}", id);
 		
-		PersonPaper personPaper = personPaperService.getPersonPaper(id);
-		return personPaperConverter.convert(personPaper);
+		PersonPaper personPaper = service.getPersonPaper(id);
+		return entityConverter.convert(personPaper);
 	}
 
 	@Override
 	public void removePersonPaper(final Long id) {
 		LOG.info("Removing person-paper with id: {}", id);
-		PersonPaper personPaper = personPaperService.getPersonPaper(id);
-		personPaperService.removePersonPaper(personPaper);
+		PersonPaper personPaper = service.getPersonPaper(id);
+		service.removePersonPaper(personPaper);
 	}
 
 	@Override
@@ -80,11 +80,11 @@ public class DefaultPersonPaperFacade extends BaseFacade<PersonPaperResource, Pe
 		LOG.info("Get person papers by paged request: {}", request);
 
 		PagedSearch<PersonPaper> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(personPaperResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<PersonPaper> pagedResult = personPaperService.getPersonPapers(pagedSearch);
+		PagedResult<PersonPaper> pagedResult = service.getPersonPapers(pagedSearch);
 
-		List<PersonPaperResource> resources = personPaperConverter.convertAll(pagedResult.getEntities());
+		List<PersonPaperResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<PersonPaperResource> pagedResultResource = new PagedResultResource<>(MessageFormat.format("/persons/{0}/papers", request.getResource().getPersonId()));
 		pagedResultResource.setResources(resources);

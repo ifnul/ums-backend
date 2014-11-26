@@ -26,38 +26,30 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @Facade("addressTypeFacade")
-public class DefaultAddressTypeFacade extends
-		BaseFacade<AddressTypeResource, AddressType> implements
-		AddressTypeFacade {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(DefaultAddressTypeFacade.class);
+public class DefaultAddressTypeFacade extends BaseFacade<AddressTypeResource, AddressType> implements AddressTypeFacade {
+	private static final Logger LOG = LoggerFactory.getLogger(DefaultAddressTypeFacade.class);
 
 	@Resource(name = "addressTypeConverter")
-	private Converter<AddressType, AddressTypeResource> addressTypeConverter;
+	private Converter<AddressType, AddressTypeResource> entityConverter;
 
 	@Resource(name = "addressTypeResourceConverter")
-	private Converter<AddressTypeResource, AddressType> addressTypeResourceConverter;
+	private Converter<AddressTypeResource, AddressType> resourceConverter;
 
 	@Resource(name = "addressTypeService")
-	private AddressTypeService addressTypeService;
+	private AddressTypeService service;
 
 	@Override
 	public PagedResultResource<AddressTypeResource> getAddressTypes(
 			final PagedRequest<AddressTypeResource> request) {
 		LOG.info("Getting PagedResultResources for Address Types :", request);
 
-		PagedSearch<AddressType> pagedSearch = pagedRequestConverter
-				.convert(request);
-		pagedSearch.setEntity(addressTypeResourceConverter.convert(request
-				.getResource()));
+		PagedSearch<AddressType> pagedSearch = pagedRequestConverter .convert(request);
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<AddressType> pagedResult = addressTypeService
-				.getAddressTypes(pagedSearch);
-		List<AddressTypeResource> resources = addressTypeConverter
-				.convertAll(pagedResult.getEntities());
+		PagedResult<AddressType> pagedResult = service.getAddressTypes(pagedSearch);
+		List<AddressTypeResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
-		PagedResultResource<AddressTypeResource> pagedResultResource = new PagedResultResource<>(
-				"/addresstypes");
+		PagedResultResource<AddressTypeResource> pagedResultResource = new PagedResultResource<>("/addresstypes");
 		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 

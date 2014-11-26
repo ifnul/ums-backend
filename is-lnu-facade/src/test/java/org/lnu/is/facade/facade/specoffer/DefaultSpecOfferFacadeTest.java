@@ -38,13 +38,13 @@ public class DefaultSpecOfferFacadeTest {
 	private Converter<SpecOfferResource, SpecOffer> updateConverter;
 	
 	@Mock
-	private Converter<SpecOfferResource, SpecOffer> specOfferResourceConverter;
+	private Converter<SpecOfferResource, SpecOffer> resourceConverter;
 	
 	@Mock
-	private Converter<SpecOffer, SpecOfferResource> specOfferConverter;
+	private Converter<SpecOffer, SpecOfferResource> entityConverter;
 	
 	@Mock
-	private SpecOfferService specOfferService;
+	private SpecOfferService service;
 
 	@Mock
 	private Converter<PagedRequest<SpecOfferResource>, PagedSearch<SpecOffer>> pagedRequestConverter;
@@ -76,14 +76,14 @@ public class DefaultSpecOfferFacadeTest {
 		SpecOffer specOffer = new SpecOffer();
 		
 		// When
-		when(specOfferResourceConverter.convert(any(SpecOfferResource.class))).thenReturn(specOffer);
-		when(specOfferConverter.convert(any(SpecOffer.class))).thenReturn(expected);
+		when(resourceConverter.convert(any(SpecOfferResource.class))).thenReturn(specOffer);
+		when(entityConverter.convert(any(SpecOffer.class))).thenReturn(expected);
 		
 		SpecOfferResource actual = unit.createSpecOffer(expected);
 
 		// Then
-		verify(specOfferResourceConverter).convert(expected);
-		verify(specOfferService).createSpecOffer(specOffer);
+		verify(resourceConverter).convert(expected);
+		verify(service).createSpecOffer(specOffer);
 		verify(insertConverter).convert(expected, specOffer);
 		
 		assertEquals(expected, actual);
@@ -111,14 +111,14 @@ public class DefaultSpecOfferFacadeTest {
 		SpecOffer specOffer = new SpecOffer();
 		
 		// When
-		when(specOfferService.getSpecOffer(anyLong())).thenReturn(specOffer);
+		when(service.getSpecOffer(anyLong())).thenReturn(specOffer);
 		
 		unit.updateSpecOffer(id, specOfferResource);
 
 		// Then
-		verify(specOfferService).getSpecOffer(id);
-		verify(specOfferResourceConverter).convert(specOfferResource, specOffer);
-		verify(specOfferService).updateSpecOffer(specOffer);
+		verify(service).getSpecOffer(id);
+		verify(resourceConverter).convert(specOfferResource, specOffer);
+		verify(service).updateSpecOffer(specOffer);
 		verify(updateConverter).convert(specOfferResource, specOffer);
 	}
 	
@@ -145,13 +145,13 @@ public class DefaultSpecOfferFacadeTest {
 		specOffer.setId(id);
 
 		// When
-		when(specOfferService.getSpecOffer(anyLong())).thenReturn(specOffer);
-		when(specOfferConverter.convert(any(SpecOffer.class))).thenReturn(expected);
+		when(service.getSpecOffer(anyLong())).thenReturn(specOffer);
+		when(entityConverter.convert(any(SpecOffer.class))).thenReturn(expected);
 		SpecOfferResource actual = unit.getSpecOffer(id);
 
 		// Then
-		verify(specOfferService).getSpecOffer(id);
-		verify(specOfferConverter).convert(specOffer);
+		verify(service).getSpecOffer(id);
+		verify(entityConverter).convert(specOffer);
 		assertEquals(expected, actual);
 	}
 	
@@ -164,12 +164,12 @@ public class DefaultSpecOfferFacadeTest {
 		specOffer.setId(id);
 		
 		// When
-		when(specOfferService.getSpecOffer(anyLong())).thenReturn(specOffer);
+		when(service.getSpecOffer(anyLong())).thenReturn(specOffer);
 		unit.removeSpecOffer(id);
 
 		// Then
-		verify(specOfferService).getSpecOffer(id);
-		verify(specOfferService).removeSpecOffer(specOffer);
+		verify(service).getSpecOffer(id);
+		verify(service).removeSpecOffer(specOffer);
 	}
 	
 	@Test
@@ -190,15 +190,15 @@ public class DefaultSpecOfferFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<SpecOfferResource>>any())).thenReturn(pagedSearch);
-		when(specOfferService.getSpecOffers(Matchers.<PagedSearch<SpecOffer>> any())).thenReturn(pagedResult);
-		when(specOfferConverter.convertAll(anyListOf(SpecOffer.class))).thenReturn(funnyResources);
+		when(service.getSpecOffers(Matchers.<PagedSearch<SpecOffer>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(anyListOf(SpecOffer.class))).thenReturn(funnyResources);
 
 		PagedResultResource<SpecOfferResource> actualFunnies = unit.getSpecOffers(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(specOfferService).getSpecOffers(pagedSearch);
-		verify(specOfferConverter).convertAll(entities);
+		verify(service).getSpecOffers(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
 
 		assertEquals(expectedFunnies, actualFunnies);

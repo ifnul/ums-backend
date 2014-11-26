@@ -30,24 +30,24 @@ public class DefaultEnrolmentStatusTypeFacade extends BaseFacade<EnrolmentStatus
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultEnrolmentStatusTypeFacade.class);
 	
 	@Resource(name = "enrolmentStatusTypeConverter")
-	private Converter<EnrolmentStatusType, EnrolmentStatusTypeResource> enrolmentStatusTypeConverter;
+	private Converter<EnrolmentStatusType, EnrolmentStatusTypeResource> entityConverter;
 
 	@Resource(name = "enrolmentStatusTypeResourceConverter")
-	private Converter<EnrolmentStatusTypeResource, EnrolmentStatusType> enrolmentStatusTypeResourceConverter;
+	private Converter<EnrolmentStatusTypeResource, EnrolmentStatusType> resourceConverter;
 
 	@Resource(name = "enrolmentStatusTypeService")
-	private EnrolmentStatusTypeService enrolmentStatusTypeService;
+	private EnrolmentStatusTypeService service;
 
 	@Override
 	public PagedResultResource<EnrolmentStatusTypeResource> getEnrolmentStatusTypes(final PagedRequest<EnrolmentStatusTypeResource> request) {
 		LOG.info("Getting paged result for enrolment status type resources : {}", request);
 		
 		PagedSearch<EnrolmentStatusType> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(enrolmentStatusTypeResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<EnrolmentStatusType> pagedResult = enrolmentStatusTypeService.getEnrolmentStatusTypes(pagedSearch);
+		PagedResult<EnrolmentStatusType> pagedResult = service.getEnrolmentStatusTypes(pagedSearch);
 
-		List<EnrolmentStatusTypeResource> resources = enrolmentStatusTypeConverter.convertAll(pagedResult.getEntities());
+		List<EnrolmentStatusTypeResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 
 		PagedResultResource<EnrolmentStatusTypeResource> pagedResultResource = new PagedResultResource<EnrolmentStatusTypeResource>("/enrolments/statustypes");
 

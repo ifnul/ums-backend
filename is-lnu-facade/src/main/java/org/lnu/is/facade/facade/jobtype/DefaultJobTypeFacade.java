@@ -28,23 +28,23 @@ public class DefaultJobTypeFacade extends BaseFacade<JobTypeResource, JobType> i
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultJobTypeFacade.class);
 
 	@Resource(name = "jobTypeConverter")
-	private Converter<JobType, JobTypeResource> jobTypeConverter;
+	private Converter<JobType, JobTypeResource> entityConverter;
 
 	@Resource(name = "jobTypeResourceConverter")
-	private Converter<JobTypeResource, JobType> jobTypeResourceConverter;
+	private Converter<JobTypeResource, JobType> resourceConverter;
 
 	@Resource(name = "jobTypeService")
-	private JobTypeService jobTypeService;
+	private JobTypeService service;
 
 	@Override
 	public PagedResultResource<JobTypeResource> getJobTypes(final PagedRequest<JobTypeResource> request) {
 		LOG.info("Getting paged result for job types: {}", request);
 
 		PagedSearch<JobType> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(jobTypeResourceConverter.convert(request.getResource()));
+		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<JobType> pagedResult = jobTypeService.getJobTypes(pagedSearch);
-		List<JobTypeResource> resources = jobTypeConverter.convertAll(pagedResult.getEntities());
+		PagedResult<JobType> pagedResult = service.getJobTypes(pagedSearch);
+		List<JobTypeResource> resources = entityConverter.convertAll(pagedResult.getEntities());
 		PagedResultResource<JobTypeResource> pagedResultResource = new PagedResultResource<JobTypeResource>("/jobtypes");
 
 		pagedResultResource.setResources(resources);

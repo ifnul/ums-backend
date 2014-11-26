@@ -27,10 +27,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultJobTypeFacadeTest {
 
 	@Mock
-	private Converter<JobType, JobTypeResource> jobTypeConverter;
+	private Converter<JobType, JobTypeResource> entityConverter;
 
 	@Mock
-	private Converter<JobTypeResource, JobType> jobTypeResourceConverter;
+	private Converter<JobTypeResource, JobType> resourceConverter;
 
 	@Mock
 	private Converter<PagedRequest<JobTypeResource>, PagedSearch<JobType>> pagedRequestConverter;
@@ -39,7 +39,7 @@ public class DefaultJobTypeFacadeTest {
 	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 
 	@Mock
-	private JobTypeService jobTypeService;
+	private JobTypeService service;
 
 	@InjectMocks
 	private DefaultJobTypeFacade unit;
@@ -65,15 +65,15 @@ public class DefaultJobTypeFacadeTest {
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<JobTypeResource>> any())).thenReturn(pagedSearch);
-		when(jobTypeService.getJobTypes(Matchers.<PagedSearch<JobType>> any())).thenReturn(pagedResult);
-		when(jobTypeConverter.convertAll(Matchers.anyListOf(JobType.class))).thenReturn(resources);
+		when(service.getJobTypes(Matchers.<PagedSearch<JobType>> any())).thenReturn(pagedResult);
+		when(entityConverter.convertAll(Matchers.anyListOf(JobType.class))).thenReturn(resources);
 
 		PagedResultResource<JobTypeResource> actual = unit.getJobTypes(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(jobTypeService).getJobTypes(pagedSearch);
-		verify(jobTypeConverter).convertAll(entities);
+		verify(service).getJobTypes(pagedSearch);
+		verify(entityConverter).convertAll(entities);
 		verify(pagedResultConverter).convert(pagedResult, expected);
 		assertEquals(expected, actual);
 	}
