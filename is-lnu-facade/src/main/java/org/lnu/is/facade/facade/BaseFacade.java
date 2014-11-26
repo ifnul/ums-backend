@@ -41,6 +41,7 @@ public abstract class BaseFacade<RESOURCE, ENTITY> implements Facade<RESOURCE, E
 	
 	protected abstract String getUriForPagedResult(PagedRequest<RESOURCE> request);
 	
+	@Override
 	public PagedResultResource<RESOURCE> getResources(final PagedRequest<RESOURCE> request) {
 		LOG.info("Getting paged result resource for {0}: {1}", request.getResource().getClass().getSimpleName(), request);
 

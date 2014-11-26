@@ -1,5 +1,6 @@
 package org.lnu.is.facade.facade;
 
+
 /**
  * Facade interface.
  * @author ivanursul
@@ -8,5 +9,6 @@ package org.lnu.is.facade.facade;
  * @param <ENTITIY> entity.
  */
 public interface Facade<RESOURCE, ENTITIY> {
-
+	
+	//PagedResultResource<RESOURCE> getResources(final PagedRequest<RESOURCE> request);
 }
