@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.specoffer.type;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.specoffer.SpecOfferType;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Component("specOfferTypeQueryBuilder")
 public class SpecOfferTypeQueryBuilder implements QueryBuilder<SpecOfferType> {
 
-	private static final String QUERY_NAME = "SpecOfferTypeQueryBuilder";
 	private static final String QUERY = "SELECT s FROM SpecOfferType s %s";
 
 	private static final String NAME_CONDITION = "s.name LIKE CONCAT('%',:name,'%') ";
@@ -22,7 +20,7 @@ public class SpecOfferTypeQueryBuilder implements QueryBuilder<SpecOfferType> {
 	private static final String SPECIALTY_TYPE_CONDITION = "s.specialtyType = :specialtyType";
 	
 	@Override
-	public Queries build(final SpecOfferType context) {
+	public String build(final SpecOfferType context) {
 		
 		String query = BaseQueryBuilder.getInstance(QUERY)
 				.where()
@@ -31,7 +29,7 @@ public class SpecOfferTypeQueryBuilder implements QueryBuilder<SpecOfferType> {
 				.addOrCondition(SPECIALTY_TYPE_CONDITION, context.getSpecialtyType())
 				.build();
 		
-		return new Queries(QUERY_NAME, query);
+		return query;
 	}
 
 }

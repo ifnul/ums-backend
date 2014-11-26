@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.enrolment.subject;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Component("enrolmentSubjectQueryBuilder")
 public class EnrolmentSubjectQueryBuilder implements QueryBuilder<EnrolmentSubject> {
 
-	private static final String QUERY_NAME = "EnrolmentSubjectQueryBuilder";
 	private static final String QUERY = "SELECT e FROM EnrolmentSubject e %s";
 
 	private static final String PARENT_CONDITION = "e.parent = :parent ";
@@ -24,7 +22,7 @@ public class EnrolmentSubjectQueryBuilder implements QueryBuilder<EnrolmentSubje
 	
 	
 	@Override
-	public Queries build(final EnrolmentSubject context) {
+	public String build(final EnrolmentSubject context) {
 		
 		String query = BaseQueryBuilder.getInstance(QUERY)
 				.where()
@@ -34,7 +32,7 @@ public class EnrolmentSubjectQueryBuilder implements QueryBuilder<EnrolmentSubje
 				.addOrCondition(ISTESTING_CONDITION, context.getIsTesting())
 				.build();
 		
-		return new Queries(QUERY_NAME, query);
+		return query;
 	}
 
 }

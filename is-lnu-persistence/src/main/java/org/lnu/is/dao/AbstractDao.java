@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
@@ -57,13 +58,13 @@ public abstract class AbstractDao<E, T> implements Dao<E, T> {
 	@Override
 	public PagedResult<E> getEntities(final PagedSearch<E> pagedSearch) {
 
-		Queries query = queryBuilder.build(pagedSearch.getEntity());
-
-		pagedSearch.setClazz(getEntityClass());
-		pagedSearch.setParameters(pagedSearch.getParameters());
-		pagedSearch.setQuery(query);
-
-		return persistenceManager.search(pagedSearch);
+		String querySql = queryBuilder.build(pagedSearch.getEntity());
+		Queries<E> queries = new Queries<E>(getEntityClass(), querySql);
+		
+		PagedQuerySearch<E> pagedQuerySearch = new PagedQuerySearch<E>(queries, pagedSearch.getOffset(), 
+				pagedSearch.getLimit(), pagedSearch.getParameters(), getEntityClass());
+		
+		return persistenceManager.search(pagedQuerySearch);
 	}
 	
 }

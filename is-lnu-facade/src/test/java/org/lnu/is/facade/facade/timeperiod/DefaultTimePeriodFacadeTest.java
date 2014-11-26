@@ -19,7 +19,6 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.timeperiod.TimePeriodResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.lnu.is.service.timeperiod.TimePeriodService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -59,10 +58,7 @@ public class DefaultTimePeriodFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
-		
-		PagedSearch<TimePeriod> pagedSearch = new PagedSearch<TimePeriod>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), TimePeriod.class);
+		PagedSearch<TimePeriod> pagedSearch = new PagedSearch<TimePeriod>(offset, limit, Collections.<String, Object> emptyMap(), TimePeriod.class);
 		List<TimePeriod> entities = Arrays.asList(new TimePeriod());
 		PagedResult<TimePeriod> pagedResult = new PagedResult<TimePeriod>(offset, limit, count, entities);
 

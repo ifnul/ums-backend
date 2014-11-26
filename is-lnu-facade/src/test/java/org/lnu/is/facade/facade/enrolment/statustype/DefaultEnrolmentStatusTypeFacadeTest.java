@@ -19,7 +19,6 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.lnu.is.service.enrolment.statustype.EnrolmentStatusTypeService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -59,10 +58,7 @@ public class DefaultEnrolmentStatusTypeFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
-		
-		PagedSearch<EnrolmentStatusType> pagedSearch = new PagedSearch<EnrolmentStatusType>(offset, limit,new Queries(queryName, query),Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
+		PagedSearch<EnrolmentStatusType> pagedSearch = new PagedSearch<EnrolmentStatusType>(offset, limit, Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
 		List<EnrolmentStatusType> entities = Arrays.asList(new EnrolmentStatusType());
 		PagedResult<EnrolmentStatusType> pagedResult = new PagedResult<EnrolmentStatusType>(offset, limit, count, entities);
 		

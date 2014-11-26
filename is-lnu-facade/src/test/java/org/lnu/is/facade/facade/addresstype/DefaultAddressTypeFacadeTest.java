@@ -19,7 +19,6 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.lnu.is.service.addresstype.AddressTypeService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -63,12 +62,8 @@ public class DefaultAddressTypeFacadeTest {
 		int offset = 3;
 		int count = 100;
 
-		String queryCommand = "query";
-		String queryName = "queryName";
-		Queries query = new Queries(queryName, queryCommand);
-
 		PagedSearch<AddressType> pagedSearch = new PagedSearch<AddressType>(
-				offset, limit, query, Collections.<String, Object> emptyMap(),
+				offset, limit, Collections.<String, Object> emptyMap(),
 				AddressType.class);
 		List<AddressType> entities = Arrays.asList(new AddressType());
 		PagedResult<AddressType> pagedResult = new PagedResult<AddressType>(

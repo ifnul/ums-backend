@@ -15,7 +15,6 @@ import org.lnu.is.dao.dao.enrolment.statustype.EnrolmentStatusTypeDao;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
@@ -98,10 +97,7 @@ public class DefaultEnrolmentStatusTypeServiceTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
-		
-		PagedSearch<EnrolmentStatusType> pagedSearch = new PagedSearch<EnrolmentStatusType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
+		PagedSearch<EnrolmentStatusType> pagedSearch = new PagedSearch<EnrolmentStatusType>(offset, limit, Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
 
 		EnrolmentStatusType entity1 = new EnrolmentStatusType();
 		List<EnrolmentStatusType> entities = Arrays.asList(entity1);

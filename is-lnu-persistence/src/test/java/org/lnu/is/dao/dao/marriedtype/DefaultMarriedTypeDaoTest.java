@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.marriedtype;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -13,8 +14,8 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.marriedtype.MarriedType;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -41,18 +42,18 @@ public class DefaultMarriedTypeDaoTest {
 		int count = 100;
 
 		String queryCommand = "query";
-		String queryName = "queryName";
 
-		Queries query = new Queries(queryName, queryCommand);
+		Queries<MarriedType> query = new Queries<MarriedType>(MarriedType.class, queryCommand);
 
-		PagedSearch<MarriedType> pagedSearch = new PagedSearch<MarriedType>(offset, limit, query, Collections.<String, Object> emptyMap(), MarriedType.class);
+		PagedQuerySearch<MarriedType> pagedSearch = new PagedQuerySearch<MarriedType>(query, offset, limit, Collections.<String, Object> emptyMap(), MarriedType.class);
 
 		MarriedType entity = new MarriedType();
 		List<MarriedType> entities = Arrays.asList(entity);
 		PagedResult<MarriedType> expected = new PagedResult<MarriedType>(offset, limit, count, entities);
 
 		// When
-		when(persistenceManager.search(Matchers.<PagedSearch<MarriedType>> any())).thenReturn(expected);
+		when(queryBuilder.build(any(MarriedType.class))).thenReturn(queryCommand);
+		when(persistenceManager.search(Matchers.<PagedQuerySearch<MarriedType>> any())).thenReturn(expected);
 		PagedResult<MarriedType> actual = unit.getEntities(pagedSearch);
 
 		// Then

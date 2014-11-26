@@ -10,8 +10,8 @@ import javax.persistence.TypedQuery;
 
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,9 +77,10 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     }
 
     @Override
-    public PagedResult<T> search(final PagedSearch<T> searchRequest) {
+    public PagedResult<T> search(final PagedQuerySearch<T> searchRequest) {
         Query<T> finalQuery =  new Query<T>(searchRequest.getClazz(), searchRequest.getQuery().getQuery(), searchRequest.getParameters());
-        TypedQuery<T> typedQuery = createQuery(finalQuery.getQuery(), finalQuery.getParameters(), finalQuery.getEntityClass());
+        
+        TypedQuery<T> typedQuery = createQuery(searchRequest.getQuery().getQuery(), searchRequest.getParameters(), searchRequest.getClazz());
         typedQuery.setFirstResult(searchRequest.getOffset());
         typedQuery.setMaxResults(searchRequest.getLimit());
 

@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.person;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Component("personQueryBuilder")
 public class PersonQueryBuilder implements QueryBuilder<Person> {
 
-	private static final String QUERY_NAME = "PersonQueryBuilder";
 	private static final String QUERY = "SELECT p FROM Person p %s";
 
 	private static final String PARENT_CONDITION = "p.parent = :parent ";
@@ -40,7 +38,7 @@ public class PersonQueryBuilder implements QueryBuilder<Person> {
 	
 	
 	@Override
-	public Queries build(final Person context) {
+	public String build(final Person context) {
 		
 		String query = BaseQueryBuilder.getInstance(QUERY)
 				.where()
@@ -64,7 +62,7 @@ public class PersonQueryBuilder implements QueryBuilder<Person> {
 				.addOrCondition(ISHOSTEL_CONDITION, context.getIsHostel())
 				.build();
 		
-		return new Queries(QUERY_NAME, query);
+		return query;
 	}
 
 }

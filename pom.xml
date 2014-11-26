@@ -39,7 +39,7 @@
 		<jdbc.databaseurl>jdbc:postgresql://localhost:5432/lnu</jdbc.databaseurl>
 		<jdbc.username>postgres</jdbc.username>
 		<jdbc.password>postgres</jdbc.password>
-		<jpa.database>lnu</jpa.database>
+		<jpa.database>POSTGRESQL</jpa.database>
 		<jpa.showSql>true</jpa.showSql>
 		<content.repository.path>~/tmp/is-lnu</content.repository.path>
 		<api.output.json.pretty>true</api.output.json.pretty>

@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.jobtype;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -13,8 +14,8 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.jobtype.JobType;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -41,18 +42,18 @@ public class DefaultJobTypeDaoTest {
 		int count = 100;
 
 		String queryCommand = "query";
-		String queryName = "queryName";
 
-		Queries query = new Queries(queryName, queryCommand);
+		Queries<JobType> query = new Queries<JobType>(JobType.class, queryCommand);
 
-		PagedSearch<JobType> pagedSearch = new PagedSearch<JobType>(offset, limit, query, Collections.<String, Object> emptyMap(), JobType.class);
+		PagedQuerySearch<JobType> pagedSearch = new PagedQuerySearch<JobType>(query, offset, limit, Collections.<String, Object> emptyMap(), JobType.class);
 
 		JobType entity = new JobType();
 		List<JobType> entities = Arrays.asList(entity);
 		PagedResult<JobType> expected = new PagedResult<JobType>(offset, limit, count, entities);
 
 		// When
-		when(persistenceManager.search(Matchers.<PagedSearch<JobType>> any())).thenReturn(expected);
+		when(queryBuilder.build(any(JobType.class))).thenReturn(queryCommand);
+		when(persistenceManager.search(Matchers.<PagedQuerySearch<JobType>> any())).thenReturn(expected);
 		PagedResult<JobType> actual = unit.getEntities(pagedSearch);
 
 		// Then

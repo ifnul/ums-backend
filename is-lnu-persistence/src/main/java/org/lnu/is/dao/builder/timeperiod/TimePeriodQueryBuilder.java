@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.timeperiod;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.timeperiod.TimePeriod;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Component;
  */
 @Component("timePeriodQueryBuilder")
 public class TimePeriodQueryBuilder implements QueryBuilder<TimePeriod> {
-	private static final String QUERY_NAME = "TimePeriodQueryBuilder";
 	private static final String QUERY = "SELECT t FROM TimePeriod t %s";
 
 	private static final String PARENT_CONDITION = "t.parent = :parent ";
@@ -24,7 +22,7 @@ public class TimePeriodQueryBuilder implements QueryBuilder<TimePeriod> {
 	private static final String END_DATE_CONDITION = "t.endDate >= :endDate";
 
 	@Override
-	public Queries build(final TimePeriod context) {
+	public String build(final TimePeriod context) {
 		String query = BaseQueryBuilder.getInstance(QUERY)
 				.where()
 				.addOrCondition(PARENT_CONDITION, context.getParent())
@@ -35,7 +33,7 @@ public class TimePeriodQueryBuilder implements QueryBuilder<TimePeriod> {
 				.addOrCondition(END_DATE_CONDITION, context.getBegDate())
 				.build();
 		
-		return new Queries(QUERY_NAME, query);
+		return query;
 	}
 
 }

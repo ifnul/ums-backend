@@ -11,7 +11,6 @@ import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.domain.timeperiod.TimePeriod;
-import org.lnu.is.queries.Queries;
 
 public class SpecOfferQueryBuilderTest {
 
@@ -48,8 +47,7 @@ public class SpecOfferQueryBuilderTest {
 		String expectedQuery = "SELECT s FROM SpecOffer s WHERE s.parent = :parent OR s.specialty = :specialty OR s.department = :department OR s.timePeriod = :timePeriod OR s.eduFormType = :eduFormType OR s.specOfferType :specOfferType OR s.docSeries LIKE CONCAT('%',:docSeries,'%') OR s.docNum LIKE CONCAT('%',:docNum,'%') OR s.licCount = :licCount OR s.stateCount = :stateCount OR t.begDate <= :begDate OR t.endDate >= :endDate";
 		
 		// When
-		Queries actual = unit.build(context);
-		String actualQuery = actual.getQuery();
+		String actualQuery = unit.build(context);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -62,8 +60,7 @@ public class SpecOfferQueryBuilderTest {
 		String expectedQuery = "SELECT s FROM SpecOffer s ";
 		
 		// When
-		Queries actual = unit.build(context);
-		String actualQuery = actual.getQuery();
+		String actualQuery = unit.build(context);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

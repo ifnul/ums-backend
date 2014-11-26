@@ -2,8 +2,6 @@ package org.lnu.is.pagination;
 
 import java.util.Map;
 
-import org.lnu.is.queries.Queries;
-
 
 /**
  * Class for getting paged result for pagination.
@@ -15,7 +13,6 @@ public class PagedSearch<T> {
     
 	private Integer offset;
     private Integer limit;
-    private Queries query;
     private Map<String, Object> parameters;
     private Class<T> clazz;
     private T entity;
@@ -33,16 +30,14 @@ public class PagedSearch<T> {
      * @author ivanursul
      * @param offset start position.
      * @param limit Maximum of elements to be retrieved.
-     * @param query query, that will be executed.
      * @param parameters required parameters(can be empty)
      * @param clazz Class instance for mapping.
      */
-	public PagedSearch(final Integer offset, final Integer limit, final Queries query,
+	public PagedSearch(final Integer offset, final Integer limit,
 			final Map<String, Object> parameters, final Class<T> clazz) {
 		super();
 		this.offset = offset;
 		this.limit = limit;
-		this.query = query;
 		this.parameters = parameters;
 		this.clazz = clazz;
 	}
@@ -61,14 +56,6 @@ public class PagedSearch<T> {
 
 	public void setLimit(final Integer limit) {
 		this.limit = limit;
-	}
-
-	public Queries getQuery() {
-		return query;
-	}
-
-	public void setQuery(final Queries query) {
-		this.query = query;
 	}
 
 	public Map<String, Object> getParameters() {
@@ -105,7 +92,6 @@ public class PagedSearch<T> {
 		result = prime * result + ((offset == null) ? 0 : offset.hashCode());
 		result = prime * result
 				+ ((parameters == null) ? 0 : parameters.hashCode());
-		result = prime * result + ((query == null) ? 0 : query.hashCode());
 		return result;
 	}
 
@@ -156,20 +142,12 @@ public class PagedSearch<T> {
 		} else if (!parameters.equals(other.parameters)) {
 			return false;
 		}
-		if (query == null) {
-			if (other.query != null) {
-				return false;
-			}
-		} else if (!query.equals(other.query)) {
-			return false;
-		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "PagedSearch [offset=" + offset + ", limit=" + limit
-				+ ", query=" + query + ", parameters=" + parameters
+		return "PagedSearch [offset=" + offset + ", limit=" + limit + ", parameters=" + parameters
 				+ ", clazz=" + clazz + ", entity=" + entity + "]";
 	}
 

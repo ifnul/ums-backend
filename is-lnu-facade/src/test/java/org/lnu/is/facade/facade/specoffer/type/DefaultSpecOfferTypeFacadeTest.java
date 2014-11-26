@@ -19,7 +19,6 @@ import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.type.SpecOfferTypeResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.lnu.is.service.specoffer.type.SpecOfferTypeService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -60,10 +59,7 @@ public class DefaultSpecOfferTypeFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
-		
-		PagedSearch<SpecOfferType> pagedSearch = new PagedSearch<SpecOfferType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), SpecOfferType.class);
+		PagedSearch<SpecOfferType> pagedSearch = new PagedSearch<SpecOfferType>(offset, limit, Collections.<String, Object> emptyMap(), SpecOfferType.class);
 		List<SpecOfferType> entities = Arrays.asList(new SpecOfferType());
 		PagedResult<SpecOfferType> pagedResult = new PagedResult<SpecOfferType>(offset, limit, count, entities);
 

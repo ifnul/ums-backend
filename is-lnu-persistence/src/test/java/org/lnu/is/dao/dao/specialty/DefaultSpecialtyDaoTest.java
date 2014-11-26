@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.specialty;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -13,8 +14,8 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.specialty.Specialty;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -40,17 +41,17 @@ public class DefaultSpecialtyDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
-		
-		PagedSearch<Specialty> pagedSearch = new PagedSearch<Specialty>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), Specialty.class);
+		String querySql = "query";
+		Queries<Specialty> query = new Queries<Specialty>(Specialty.class, querySql);
+		PagedQuerySearch<Specialty> pagedSearch = new PagedQuerySearch<Specialty>(query, offset, limit, Collections.<String, Object> emptyMap(), Specialty.class);
 
 		Specialty entity1 = new Specialty();
 		List<Specialty> entities = Arrays.asList(entity1);
 		PagedResult<Specialty> expected = new PagedResult<Specialty>(offset, limit, count, entities);
 		
 		// When
-		when(persistenceManager.search(Matchers.<PagedSearch<Specialty>>any())).thenReturn(expected);
+		when(queryBuilder.build(any(Specialty.class))).thenReturn(querySql);
+		when(persistenceManager.search(Matchers.<PagedQuerySearch<Specialty>>any())).thenReturn(expected);
 		PagedResult<Specialty> actual = unit.getEntities(pagedSearch);
 
 		// Then

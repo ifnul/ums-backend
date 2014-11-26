@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.eduformtype.EduFormType;
-import org.lnu.is.queries.Queries;
 
 public class EduFormTypeQueryBuilderTest {
 
@@ -20,8 +19,7 @@ public class EduFormTypeQueryBuilderTest {
 		String expectedQuery = "SELECT e FROM EduFormType e WHERE e.name LIKE CONCAT('%',:name,'%') ";
 		
 		// When
-		Queries actual = unit.build(context);
-		String actualQuery = actual.getQuery();
+		String actualQuery = unit.build(context);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

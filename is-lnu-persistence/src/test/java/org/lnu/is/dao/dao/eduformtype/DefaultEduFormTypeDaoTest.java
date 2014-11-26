@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.eduformtype;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -13,8 +14,8 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -40,16 +41,17 @@ public class DefaultEduFormTypeDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
+		String querySql = "query";
+		Queries<EduFormType> query = new Queries<EduFormType>(EduFormType.class, querySql);
 		
-		PagedSearch<EduFormType> pagedSearch = new PagedSearch<EduFormType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), EduFormType.class);
+		PagedQuerySearch<EduFormType> pagedSearch = new PagedQuerySearch<EduFormType>(query, offset, limit, Collections.<String, Object> emptyMap(), EduFormType.class);
 		EduFormType entity1 = new EduFormType();
 		List<EduFormType> entities = Arrays.asList(entity1);
 		PagedResult<EduFormType> expected = new PagedResult<EduFormType>(offset, limit, count, entities);
 		
 		// When
-		when(persistenceManager.search(Matchers.<PagedSearch<EduFormType>>any())).thenReturn(expected);
+		when(queryBuilder.build(any(EduFormType.class))).thenReturn(querySql);
+		when(persistenceManager.search(Matchers.<PagedQuerySearch<EduFormType>>any())).thenReturn(expected);
 		PagedResult<EduFormType> actual = unit.getEntities(pagedSearch);
 
 		// Then

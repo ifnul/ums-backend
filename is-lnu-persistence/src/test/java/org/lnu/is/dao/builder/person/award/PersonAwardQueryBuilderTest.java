@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonAward;
-import org.lnu.is.queries.Queries;
 
 public class PersonAwardQueryBuilderTest {
 
@@ -21,8 +20,7 @@ public class PersonAwardQueryBuilderTest {
 		String expectedQuery = "SELECT p FROM PersonAward p WHERE p.person = :person ";
 		
 		// When
-		Queries actual = unit.build(context);
-		String actualQuery = actual.getQuery();
+		String actualQuery = unit.build(context);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

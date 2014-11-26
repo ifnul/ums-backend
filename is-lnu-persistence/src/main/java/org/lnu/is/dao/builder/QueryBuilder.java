@@ -1,6 +1,5 @@
 package org.lnu.is.dao.builder;
 
-import org.lnu.is.queries.Queries;
 
 /**
  * Base interface for all query builders.
@@ -15,5 +14,5 @@ public interface QueryBuilder<C> {
 	 * @param context
 	 * @return Query instance.
 	 */
-	Queries build(C context);
+	String build(C context);
 }

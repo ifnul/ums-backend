@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.person.PersonType;
-import org.lnu.is.queries.Queries;
 
 public class PersonTypeQueryBuilderTest {
 
@@ -22,8 +21,7 @@ public class PersonTypeQueryBuilderTest {
 		String expectedQuery = "SELECT p FROM PersonType p WHERE p.name LIKE CONCAT('%',:name,'%') OR p.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 		
 		// When
-		Queries query = unit.build(context);
-		String actualQuery = query.getQuery();
+		String actualQuery = unit.build(context);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

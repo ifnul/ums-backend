@@ -1,15 +1,35 @@
 package org.lnu.is.web.controller.specoffer.subject;
 
-import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.specoffer.subject.SpecOfferSubjectFacade;
+import org.lnu.is.facade.resource.message.MessageResource;
+import org.lnu.is.facade.resource.message.MessageType;
+import org.lnu.is.facade.resource.search.PagedRequest;
+import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.facade.resource.specoffer.subject.SpecOfferSubjectResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -17,7 +37,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private SpecOfferSubjectFacade specOfferFacade;
+	private SpecOfferSubjectFacade specOfferSubjectFacade;
 	
 	@InjectMocks
 	private SpecOfferSubjectController unit;
@@ -29,13 +49,126 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     	  this.mockMvc = MockMvcBuilders.standaloneSetup(unit).build();
     }
     
+    
     @Test
-	public void test() throws Exception {
+	public void testCreateSpecOfferSubject() throws Exception {
 		// Given
+    	Long personId = 1L;
+    	
+    	SpecOfferSubjectResource specOfferSubjectResource = new SpecOfferSubjectResource();
+		
+		// When
+    	String request = getJson(specOfferSubjectResource, true);
+		String response = getJson(specOfferSubjectResource, false);
+    	
+		when(specOfferSubjectFacade.createSubject(any(SpecOfferSubjectResource.class))).thenReturn(specOfferSubjectResource);
+		
+    	// Then
+		mockMvc.perform(post("/specoffers/{0}/subjects", personId)
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().isCreated())
+				.andExpect(content().string(response));
+		
+		verify(specOfferSubjectFacade).createSubject(specOfferSubjectResource);
+	}
+    
+    @Test
+	public void testUpdateSpecOfferSubject() throws Exception {
+		// Given
+    	Long id = 1L;
+    	Long personId = 1L;
+    	
+    	SpecOfferSubjectResource specOfferSubjectResource = new SpecOfferSubjectResource();
+		
+		MessageResource responseResource = new MessageResource(MessageType.INFO, "Spec Offer Subject Updated");
+		
+		// When
+    	String request = getJson(specOfferSubjectResource, true);
+		String response = getJson(responseResource, false);
+    	
+		
+    	// Then
+		mockMvc.perform(put("/specoffers/{0}/subjects/{id}", personId, id)
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().isOk())
+				.andExpect(content().string(response));
+		
+		verify(specOfferSubjectFacade).updateSubject(id, specOfferSubjectResource);
+	}
+    
+    @Test
+	public void testGetSpecoffer() throws Exception {
+		// Given
+    	Long id = 1L;
+    	Long personId = 1L;
+    	
+    	SpecOfferSubjectResource specOfferSubjectResource = new SpecOfferSubjectResource();
 
+		// When
+		String response = getJson(specOfferSubjectResource, false);
+		
+		when(specOfferSubjectFacade.getSubject(anyLong())).thenReturn(specOfferSubjectResource);
+		
+		// Then
+    	mockMvc.perform(get("/specoffers/{0}/subjects/{id}", personId, id))
+    		.andExpect(status().isOk())
+    		.andExpect(content().string(response));
+    	
+    	verify(specOfferSubjectFacade).getSubject(id);
+	}
+    
+    @Test
+	public void testDeleteSpecOfferSubject() throws Exception {
+		// Given
+    	Long personId = 2L;
+    	Long id = 1L;
+    	
 		// When
 
 		// Then
-    	assertEquals(true, true);
+    	mockMvc.perform(delete("/specoffers/{0}/subjects/{id}", personId, id))
+    		.andExpect(status().is(204));
+    	
+    	verify(specOfferSubjectFacade).removeSubject(id);
+	}
+    
+    @Test
+	public void testGetSpecOfferSubjects() throws Exception {
+		// Given
+    	Long id = 1L;
+    	Long personId = 2L;
+    	
+    	SpecOfferSubjectResource specOfferSubjectResource = new SpecOfferSubjectResource();
+    	specOfferSubjectResource.setId(id);
+
+    	long count = 100;
+    	int limit = 25;
+    	Integer offset = 10;
+    	String uri = MessageFormat.format("/persons/{0}/papers", personId);
+		List<SpecOfferSubjectResource> entities = Arrays.asList(specOfferSubjectResource);
+    	PagedResultResource<SpecOfferSubjectResource> expectedResource = new PagedResultResource<>();
+		expectedResource.setCount(count);
+		expectedResource.setLimit(limit);
+		expectedResource.setOffset(offset);
+		expectedResource.setUri(uri);
+		expectedResource.setResources(entities);
+		
+		SpecOfferSubjectResource resource = new SpecOfferSubjectResource();
+		PagedRequest<SpecOfferSubjectResource> pagedRequest = new PagedRequest<SpecOfferSubjectResource>(resource, offset, limit);
+		
+		// When
+		when(specOfferSubjectFacade.getSubjects(Matchers.<PagedRequest<SpecOfferSubjectResource>>any())).thenReturn(expectedResource);
+    	String response = getJson(expectedResource, false);
+
+		// Then
+    	mockMvc.perform(get("/specoffers/{0}/subjects", personId)
+    			.param("offset", String.valueOf(offset))
+    			.param("limit", String.valueOf(limit)))
+    		.andExpect(status().isOk())
+    		.andExpect(content().string(response));
+    	
+		verify(specOfferSubjectFacade).getSubjects(pagedRequest);
 	}
 }

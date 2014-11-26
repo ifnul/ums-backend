@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.person.paper;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.person.PersonPaper;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Component;
  */
 @Component("personPaperQueryBuilder")
 public class PersonPaperQueryBuilder implements QueryBuilder<PersonPaper> {
-	private static final String QUERY_NAME = "PersonPaperQueryBuilder";
 	private static final String QUERY = "SELECT p FROM PersonPaper p %s";
 
 	private static final String DOCSERIES_CONDITION = "p.docSeries LIKE CONCAT('%',:docSeries,'%') ";
@@ -29,7 +27,7 @@ public class PersonPaperQueryBuilder implements QueryBuilder<PersonPaper> {
 	private static final String ISFOREIGN_CONDITION = "p.isForeign = :isForeign ";
 	
 	@Override
-	public Queries build(final PersonPaper context) {
+	public String build(final PersonPaper context) {
 		
 		String query = BaseQueryBuilder.getInstance(QUERY)
 				.where()
@@ -46,7 +44,7 @@ public class PersonPaperQueryBuilder implements QueryBuilder<PersonPaper> {
 				.addOrCondition(ISFOREIGN_CONDITION, context.getIsForeign())
 				.build();
 		
-		return new Queries(QUERY_NAME, query);
+		return query;
 	}
 
 }

@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.person.address;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.person.PersonAddress;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Component;
  */
 @Component("personAddressQueryBuilder")
 public class PersonAddressQueryBuilder implements QueryBuilder<PersonAddress> {
-	private static final String QUERY_NAME = "PersonAddressQueryBuilder";
 	private static final String QUERY = "SELECT p FROM PersonAddress p %s";
 
 	private static final String PERSON_CONDITION = "p.person = :person ";
@@ -29,7 +27,7 @@ public class PersonAddressQueryBuilder implements QueryBuilder<PersonAddress> {
 	private static final String ENDDATE_CONDITION = "p.endDate >= :endDate";
 	
 	@Override
-	public Queries build(final PersonAddress context) {
+	public String build(final PersonAddress context) {
 		
 		String query = BaseQueryBuilder.getInstance(QUERY)
 				.where()
@@ -46,7 +44,7 @@ public class PersonAddressQueryBuilder implements QueryBuilder<PersonAddress> {
 				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
 				.build();
 		
-		return new Queries(QUERY_NAME, query);
+		return query;
 	}
 
 }

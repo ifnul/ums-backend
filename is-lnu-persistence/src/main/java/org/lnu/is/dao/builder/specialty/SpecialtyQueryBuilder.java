@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.specialty;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.specialty.Specialty;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Component("specialtyQueryBuilder")
 public class SpecialtyQueryBuilder implements QueryBuilder<Specialty> {
 
-	private static final String QUERY_NAME = "SpecialtyQueryBuilder";
 	private static final String QUERY = "SELECT s FROM Specialty s %s";
 
 	private static final String PARENT_CONDITION = "s.parent = :parent ";
@@ -26,7 +24,7 @@ public class SpecialtyQueryBuilder implements QueryBuilder<Specialty> {
 	private static final String CIPHER_CONDITION = "s.cipher LIKE CONCAT('%',:cipher,'%') ";
 	
 	@Override
-	public Queries build(final Specialty context) {
+	public String build(final Specialty context) {
 		
 		String query = BaseQueryBuilder.getInstance(QUERY)
 				.where()
@@ -39,7 +37,7 @@ public class SpecialtyQueryBuilder implements QueryBuilder<Specialty> {
 				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
 				.build();
 		
-		return new Queries(QUERY_NAME, query);
+		return query;
 	}
 
 }

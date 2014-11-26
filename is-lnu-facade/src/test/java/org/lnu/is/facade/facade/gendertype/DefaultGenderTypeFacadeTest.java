@@ -19,7 +19,6 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.lnu.is.service.gendertype.GenderTypeService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -59,11 +58,8 @@ public class DefaultGenderTypeFacadeTest {
 		int limit = 8;
 		int offset = 3;
 		int count = 100;
-
-		String query = "query";
-		String queryName = "queryName";
 		
-		PagedSearch<GenderType> pagedSearch = new PagedSearch<GenderType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(),
+		PagedSearch<GenderType> pagedSearch = new PagedSearch<GenderType>(offset, limit, Collections.<String, Object> emptyMap(),
 				GenderType.class);
 		List<GenderType> entities = Arrays.asList(new GenderType());
 		PagedResult<GenderType> pagedResult = new PagedResult<GenderType>(offset, limit, count, entities);

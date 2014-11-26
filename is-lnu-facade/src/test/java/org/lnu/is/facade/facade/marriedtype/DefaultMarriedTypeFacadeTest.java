@@ -17,7 +17,6 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.lnu.is.service.marriedtype.MarriedTypeService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -52,10 +51,6 @@ public class DefaultMarriedTypeFacadeTest {
 		int limit = 10;
 		int count = 10;
 
-		String queryCommand = "query";
-		String queryName = "queryName";
-		Queries query = new Queries(queryName, queryCommand);
-
 		MarriedTypeResource resource = new MarriedTypeResource();
 		PagedRequest<MarriedTypeResource> pagedRequest = new PagedRequest<MarriedTypeResource>(resource, offset, limit);
 
@@ -63,7 +58,7 @@ public class DefaultMarriedTypeFacadeTest {
 		List<MarriedTypeResource> resources = Collections.singletonList(new MarriedTypeResource());
 		expected.setResources(resources);
 
-		PagedSearch<MarriedType> pagedSearch = new PagedSearch<MarriedType>(offset, limit, query, Collections.<String, Object> emptyMap(), MarriedType.class);
+		PagedSearch<MarriedType> pagedSearch = new PagedSearch<MarriedType>(offset, limit, Collections.<String, Object> emptyMap(), MarriedType.class);
 
 		List<MarriedType> entities = Collections.singletonList(new MarriedType());
 		PagedResult<MarriedType> pagedResult = new PagedResult<MarriedType>(offset, limit, count, entities);

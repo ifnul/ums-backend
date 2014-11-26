@@ -17,7 +17,6 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.lnu.is.service.jobtype.JobTypeService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -52,10 +51,6 @@ public class DefaultJobTypeFacadeTest {
 		int limit = 10;
 		int count = 10;
 
-		String queryCommand = "query";
-		String queryName = "queryName";
-		Queries query = new Queries(queryName, queryCommand);
-
 		JobTypeResource resource = new JobTypeResource();
 		PagedRequest<JobTypeResource> pagedRequest = new PagedRequest<JobTypeResource>(resource, offset, limit);
 
@@ -63,7 +58,7 @@ public class DefaultJobTypeFacadeTest {
 		List<JobTypeResource> resources = Collections.singletonList(new JobTypeResource());
 		expected.setResources(resources);
 
-		PagedSearch<JobType> pagedSearch = new PagedSearch<JobType>(offset, limit, query, Collections.<String, Object> emptyMap(), JobType.class);
+		PagedSearch<JobType> pagedSearch = new PagedSearch<JobType>(offset, limit, Collections.<String, Object> emptyMap(), JobType.class);
 
 		List<JobType> entities = Collections.singletonList(new JobType());
 		PagedResult<JobType> pagedResult = new PagedResult<JobType>(offset, limit, count, entities);

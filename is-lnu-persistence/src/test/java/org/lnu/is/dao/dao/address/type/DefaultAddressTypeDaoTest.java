@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.address.type;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -11,11 +12,10 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
-import org.lnu.is.dao.dao.address.type.DefaultAddressTypeDao;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.addresstype.AddressType;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -42,12 +42,11 @@ public class DefaultAddressTypeDaoTest {
 		int count = 100;
 
 		String queryCommand = "query";
-		String queryName = "queryName";
 
-		Queries query = new Queries(queryName, queryCommand);
+		Queries<AddressType> query = new Queries<AddressType>(AddressType.class, queryCommand);
 
-		PagedSearch<AddressType> pagedSearch = new PagedSearch<AddressType>(
-				offset, limit, query, Collections.<String, Object> emptyMap(),
+		PagedQuerySearch<AddressType> pagedSearch = new PagedQuerySearch<AddressType>(query,
+				offset, limit, Collections.<String, Object> emptyMap(),
 				AddressType.class);
 
 		AddressType entity = new AddressType();
@@ -56,10 +55,8 @@ public class DefaultAddressTypeDaoTest {
 				offset, limit, count, entities);
 
 		// When
-		when(
-				persistenceManager.search(Matchers
-						.<PagedSearch<AddressType>> any()))
-				.thenReturn(expected);
+		when(queryBuilder.build(any(AddressType.class))).thenReturn(queryCommand);
+		when(persistenceManager.search(Matchers.<PagedQuerySearch<AddressType>> any())).thenReturn(expected);
 		PagedResult<AddressType> actual = unit.getEntities(pagedSearch);
 
 		// Then

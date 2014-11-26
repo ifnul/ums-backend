@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.specoffer.type;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -13,8 +14,8 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.specoffer.SpecOfferType;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -40,17 +41,18 @@ public class DefaultSpecOfferTypeDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
+		String querySql = "query";
 		
-		PagedSearch<SpecOfferType> pagedSearch = new PagedSearch<SpecOfferType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), SpecOfferType.class);
+		Queries<SpecOfferType> query = new Queries<SpecOfferType>(SpecOfferType.class, querySql);
+		PagedQuerySearch<SpecOfferType> pagedSearch = new PagedQuerySearch<SpecOfferType>(query, offset, limit, Collections.<String, Object> emptyMap(), SpecOfferType.class);
 
 		SpecOfferType entity1 = new SpecOfferType();
 		List<SpecOfferType> entities = Arrays.asList(entity1);
 		PagedResult<SpecOfferType> expected = new PagedResult<SpecOfferType>(offset, limit, count, entities);
 		
 		// When
-		when(persistenceManager.search(Matchers.<PagedSearch<SpecOfferType>>any())).thenReturn(expected);
+		when(queryBuilder.build(any(SpecOfferType.class))).thenReturn(querySql);
+		when(persistenceManager.search(Matchers.<PagedQuerySearch<SpecOfferType>>any())).thenReturn(expected);
 		PagedResult<SpecOfferType> actual = unit.getEntities(pagedSearch);
 
 		// Then

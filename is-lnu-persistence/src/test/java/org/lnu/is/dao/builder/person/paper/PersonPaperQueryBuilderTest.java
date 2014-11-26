@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.person.PersonPaper;
-import org.lnu.is.queries.Queries;
 
 public class PersonPaperQueryBuilderTest {
 
@@ -17,8 +16,7 @@ public class PersonPaperQueryBuilderTest {
 		String expectedQuery = "SELECT p FROM PersonPaper p ";
 		
 		// When
-		Queries actual = unit.build(context);
-		String actualQuery = actual.getQuery();
+		String actualQuery = unit.build(context);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

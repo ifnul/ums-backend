@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.gendertype.GenderType;
-import org.lnu.is.queries.Queries;
 
 public class GenderTypeQueryBuilderTest {
 
@@ -20,8 +19,7 @@ public class GenderTypeQueryBuilderTest {
 		String expectedQuery = "SELECT g FROM GenderType g WHERE g.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 		// When
-		Queries actual = unit.build(context);
-		String actualQuery = actual.getQuery();
+		String actualQuery = unit.build(context);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);

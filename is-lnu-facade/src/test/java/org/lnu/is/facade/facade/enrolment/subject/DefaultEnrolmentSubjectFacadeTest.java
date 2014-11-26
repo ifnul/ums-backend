@@ -19,7 +19,6 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.lnu.is.service.enrolment.subject.EnrolmentSubjectService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -60,10 +59,7 @@ public class DefaultEnrolmentSubjectFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
-		
-		PagedSearch<EnrolmentSubject> pagedSearch = new PagedSearch<EnrolmentSubject>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), EnrolmentSubject.class);
+		PagedSearch<EnrolmentSubject> pagedSearch = new PagedSearch<EnrolmentSubject>(offset, limit, Collections.<String, Object> emptyMap(), EnrolmentSubject.class);
 		List<EnrolmentSubject> entities = Arrays.asList(new EnrolmentSubject());
 		PagedResult<EnrolmentSubject> pagedResult = new PagedResult<EnrolmentSubject>(offset, limit, count, entities);
 

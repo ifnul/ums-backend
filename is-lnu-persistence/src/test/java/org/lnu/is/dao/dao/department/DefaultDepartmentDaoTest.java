@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.department;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -14,8 +15,8 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.department.Department;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -94,17 +95,18 @@ public class DefaultDepartmentDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
+		String querySql = "query";
+		Queries<Department> query = new Queries<Department>(Department.class, querySql);
 		
-		PagedSearch<Department> pagedSearch = new PagedSearch<Department>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), Department.class);
+		PagedQuerySearch<Department> pagedSearch = new PagedQuerySearch<Department>(query, offset, limit, Collections.<String, Object> emptyMap(), Department.class);
 
 		Department entity1 = new Department();
 		List<Department> entities = Arrays.asList(entity1);
 		PagedResult<Department> expected = new PagedResult<Department>(offset, limit, count, entities);
 		
 		// When
-		when(persistenceManager.search(Matchers.<PagedSearch<Department>>any())).thenReturn(expected);
+		when(queryBuilder.build(any(Department.class))).thenReturn(querySql);
+		when(persistenceManager.search(Matchers.<PagedQuerySearch<Department>>any())).thenReturn(expected);
 		PagedResult<Department> actual = unit.getEntities(pagedSearch);
 
 		// Then

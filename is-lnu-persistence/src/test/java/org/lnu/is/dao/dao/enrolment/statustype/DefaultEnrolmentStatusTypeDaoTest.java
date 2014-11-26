@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.enrolment.statustype;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -13,8 +14,8 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -41,17 +42,18 @@ public class DefaultEnrolmentStatusTypeDaoTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
+		String querySql = "query";
+		Queries<EnrolmentStatusType> query = new Queries<EnrolmentStatusType>(EnrolmentStatusType.class, querySql);
 		
-		PagedSearch<EnrolmentStatusType> pagedSearch = new PagedSearch<EnrolmentStatusType>(offset, limit, new Queries(queryName,query), Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
+		PagedQuerySearch<EnrolmentStatusType> pagedSearch = new PagedQuerySearch<EnrolmentStatusType>(query, offset, limit, Collections.<String, Object> emptyMap(), EnrolmentStatusType.class);
 
 		EnrolmentStatusType entity1 = new EnrolmentStatusType();
 		List<EnrolmentStatusType> entities = Arrays.asList(entity1);
 		PagedResult<EnrolmentStatusType> expected = new PagedResult<EnrolmentStatusType>(offset, limit, count, entities);
 		
 		// When
-		when(persistenceManager.search(Matchers.<PagedSearch<EnrolmentStatusType>>any())).thenReturn(expected);
+		when(queryBuilder.build(any(EnrolmentStatusType.class))).thenReturn(querySql);
+		when(persistenceManager.search(Matchers.<PagedQuerySearch<EnrolmentStatusType>>any())).thenReturn(expected);
 		PagedResult<EnrolmentStatusType> actual = unit.getEntities(pagedSearch);
 
 		// Then

@@ -7,7 +7,6 @@ import java.util.Date;
 import org.junit.Test;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.domain.timeperiod.TimePeriodType;
-import org.lnu.is.queries.Queries;
 
 public class TimePeriodQueryBuilderTest {
 
@@ -27,10 +26,10 @@ public class TimePeriodQueryBuilderTest {
 		String expectedQuery = "SELECT t FROM TimePeriod t WHERE t.timePeriodType = :timePeriodType OR t.numValue = :numValue OR t.begDate <= :begDate OR t.endDate >= :endDate";
 		
 		// When
-		Queries actual = unit.build(context);
+		String actualQuery = unit.build(context);
 
 		
 		// Then
-		assertEquals(expectedQuery, actual.getQuery());
+		assertEquals(expectedQuery, actualQuery);
 	}
 }

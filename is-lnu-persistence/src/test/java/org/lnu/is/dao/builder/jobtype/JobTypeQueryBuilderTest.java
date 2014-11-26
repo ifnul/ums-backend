@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.jobtype.JobType;
-import org.lnu.is.queries.Queries;
 
 public class JobTypeQueryBuilderTest {
 
@@ -21,8 +20,7 @@ public class JobTypeQueryBuilderTest {
 		String expectedQuery = "SELECT g FROM JobType g WHERE g.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 		// When
-		Queries actual = unit.build(context);
-		String actualQuery = actual.getQuery();
+		String actualQuery = unit.build(context);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);

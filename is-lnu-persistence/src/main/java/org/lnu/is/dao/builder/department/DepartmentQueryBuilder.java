@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.department;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Component("departmentQueryBuilder")
 public class DepartmentQueryBuilder implements QueryBuilder<Department> {
 
-	private static final String QUERY_NAME = "DepartmentQueryBuilder";
 	private static final String QUERY = "SELECT d FROM Department d %s";
 
 	private static final String NAME_CONDITION = "d.name LIKE CONCAT('%',:name,'%') ";
@@ -29,7 +27,7 @@ public class DepartmentQueryBuilder implements QueryBuilder<Department> {
 	private static final String ENDDATE_CONDITION = "d.endDate >= :endDate";
 	
 	@Override
-	public Queries build(final Department context) {
+	public String build(final Department context) {
 		
 		String query = BaseQueryBuilder.getInstance(QUERY)
 				.where()
@@ -45,7 +43,7 @@ public class DepartmentQueryBuilder implements QueryBuilder<Department> {
 				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
 				.build();
 		
-		return new Queries(QUERY_NAME, query);
+		return query;
 	}
 
 

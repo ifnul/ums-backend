@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.enrolment.status;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
-import org.lnu.is.queries.Queries;
 import org.springframework.stereotype.Component;
 /**
  * Enrolment Status Type query builder.
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Component;
 @Component("enrolmentStatusTypeQueryBuilder")
 public class EnrolmentStatusTypeQueryBuilder implements QueryBuilder<EnrolmentStatusType> {
 
-	private static final String QUERY_NAME = "EnrolmentStatusTypeQueryBuilder";
 	private static final String QUERY = "SELECT e FROM EnrolmentStatusType e %s";
 
 	private static final String ABBRNAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
@@ -22,7 +20,7 @@ public class EnrolmentStatusTypeQueryBuilder implements QueryBuilder<EnrolmentSt
 	
 	
 	@Override
-	public Queries build(final EnrolmentStatusType context) {
+	public String build(final EnrolmentStatusType context) {
 		
 		String query = BaseQueryBuilder.getInstance(QUERY)
 				.where()
@@ -31,7 +29,7 @@ public class EnrolmentStatusTypeQueryBuilder implements QueryBuilder<EnrolmentSt
 				.addOrCondition(DESCRIPTION_CONDITION, context.getDescription())
 				.build();
 		
-		return new Queries(QUERY_NAME, query);
+		return query;
 	}
 
 }

@@ -6,7 +6,6 @@ import java.util.Date;
 
 import org.junit.Test;
 import org.lnu.is.domain.specialty.Specialty;
-import org.lnu.is.queries.Queries;
 
 public class SpecialtyQueryBuilderTest {
 
@@ -23,8 +22,7 @@ public class SpecialtyQueryBuilderTest {
 		String expectedQuery = "SELECT s FROM Specialty s WHERE s.cipher LIKE CONCAT('%',:cipher,'%') OR s.begDate <= :begDate ";
 		
 		// When
-		Queries actual = unit.build(context);
-		String actualQuery = actual.getQuery();
+		String actualQuery = unit.build(context);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

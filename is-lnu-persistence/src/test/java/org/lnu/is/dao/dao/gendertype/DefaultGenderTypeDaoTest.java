@@ -1,6 +1,7 @@
 package org.lnu.is.dao.dao.gendertype;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -13,8 +14,8 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.gendertype.GenderType;
+import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -40,10 +41,10 @@ public class DefaultGenderTypeDaoTest {
 		int limit = 10;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
+		String querySql = "query";
 
-		PagedSearch<GenderType> pagedSearch = new PagedSearch<GenderType>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(),
+		Queries<GenderType> query = new Queries<GenderType>(GenderType.class, querySql);
+		PagedQuerySearch<GenderType> pagedSearch = new PagedQuerySearch<GenderType>(query, offset, limit, Collections.<String, Object> emptyMap(),
 				GenderType.class);
 
 		GenderType entity = new GenderType();
@@ -51,7 +52,8 @@ public class DefaultGenderTypeDaoTest {
 		PagedResult<GenderType> expected = new PagedResult<GenderType>(offset, limit, count, entities);
 
 		// When
-		when(persistenceManager.search(Matchers.<PagedSearch<GenderType>> any())).thenReturn(expected);
+		when(queryBuilder.build(any(GenderType.class))).thenReturn(querySql);
+		when(persistenceManager.search(Matchers.<PagedQuerySearch<GenderType>> any())).thenReturn(expected);
 		PagedResult<GenderType> actual = unit.getEntities(pagedSearch);
 
 		// Then

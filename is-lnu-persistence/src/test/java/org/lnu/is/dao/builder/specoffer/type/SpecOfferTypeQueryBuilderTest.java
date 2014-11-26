@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.domain.specoffer.SpecOfferType;
-import org.lnu.is.queries.Queries;
 
 public class SpecOfferTypeQueryBuilderTest {
 
@@ -26,10 +25,10 @@ public class SpecOfferTypeQueryBuilderTest {
 		String expectedQuery = "SELECT s FROM SpecOfferType s WHERE s.name LIKE CONCAT('%',:name,'%') OR s.abbrName LIKE CONCAT('%',:abbrName,'%') OR s.specialtyType = :specialtyType";
 		
 		// When
-		Queries actualQuery = unit.build(context);
+		String actualQuery = unit.build(context);
 		
 		// Then
-		assertEquals(expectedQuery, actualQuery.getQuery());
+		assertEquals(expectedQuery, actualQuery);
 	}
 
 	@Test
@@ -45,9 +44,9 @@ public class SpecOfferTypeQueryBuilderTest {
 		String expectedQuery = "SELECT s FROM SpecOfferType s WHERE s.abbrName LIKE CONCAT('%',:abbrName,'%') OR s.specialtyType = :specialtyType";
 		
 		// When
-		Queries actualQuery = unit.build(context);
+		String actualQuery = unit.build(context);
 		
 		// Then
-		assertEquals(expectedQuery, actualQuery.getQuery());
+		assertEquals(expectedQuery, actualQuery);
 	}
 }

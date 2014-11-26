@@ -17,7 +17,6 @@ public class BaseQueryBuilder {
 	
 	private String query;
 	private List<String> conditions;
-	private List<Object> parameters;
 	
 	/**
 	 * Base Constructor.
@@ -25,21 +24,16 @@ public class BaseQueryBuilder {
 	 * @param conditions
 	 * @param parameters
 	 */
-	public BaseQueryBuilder(final String query, final List<String> conditions,
-			final List<Object> parameters) {
+	public BaseQueryBuilder(final String query, final List<String> conditions) {
 		super();
 		this.query = query;
 		this.conditions = conditions;
-		this.parameters = parameters;
 	}
 
 	public List<String> getConditions() {
 		return conditions;
 	}
 
-	public List<Object> getParameters() {
-		return parameters;
-	}
 	
 	/**
 	 * Method for building Base Query Builder.
@@ -47,7 +41,7 @@ public class BaseQueryBuilder {
 	 * @return Base Query Builder instnace.
 	 */
 	public static BaseQueryBuilder getInstance(final String query) {
-		return new BaseQueryBuilder(query, new ArrayList<String>(), new ArrayList<Object>());
+		return new BaseQueryBuilder(query, new ArrayList<String>());
 	}
 	
 	/**
@@ -61,7 +55,6 @@ public class BaseQueryBuilder {
 		if (parameter != null) {
 			or();
 			getConditions().add(condition);
-			getParameters().add(parameter);
 		}
 		
 		return this;

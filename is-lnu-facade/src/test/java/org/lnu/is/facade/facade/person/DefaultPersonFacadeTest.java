@@ -23,7 +23,6 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.lnu.is.service.person.PersonService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -185,10 +184,7 @@ public class DefaultPersonFacadeTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
-		
-		PagedSearch<Person> pagedSearch = new PagedSearch<Person>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), Person.class);
+		PagedSearch<Person> pagedSearch = new PagedSearch<Person>(offset, limit, Collections.<String, Object> emptyMap(), Person.class);
 		List<Person> entities = Arrays.asList(new Person());
 		PagedResult<Person> pagedResult = new PagedResult<Person>(offset, limit, count, entities);
 

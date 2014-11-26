@@ -16,7 +16,6 @@ import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
@@ -97,10 +96,7 @@ public class DefaultSpecOfferServiceTest {
 		int limit = 3;
 		int count = 100;
 		
-		String query = "query";
-		String queryName = "queryName";
-		
-		PagedSearch<SpecOffer> pagedSearch = new PagedSearch<SpecOffer>(offset, limit, new Queries(queryName, query), Collections.<String, Object> emptyMap(), SpecOffer.class);
+		PagedSearch<SpecOffer> pagedSearch = new PagedSearch<SpecOffer>(offset, limit, Collections.<String, Object> emptyMap(), SpecOffer.class);
 
 		SpecOffer entity1 = new SpecOffer();
 		List<SpecOffer> entities = Arrays.asList(entity1);
