@@ -72,7 +72,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     	String request = getJson(departmentResource, true);
 		String response = getJson(departmentResource, false);
     	
-		when(departmentFacade.createDepartment(any(DepartmentResource.class))).thenReturn(departmentResource);
+		when(departmentFacade.createEntity(any(DepartmentResource.class))).thenReturn(departmentResource);
 		
     	// Then
 		mockMvc.perform(post("/departments")
@@ -81,7 +81,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(departmentFacade).createDepartment(departmentResource);
+		verify(departmentFacade).createEntity(departmentResource);
 	}
     
     @Test
@@ -118,7 +118,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(departmentFacade).updateDepartment(id, departmentResource);
+		verify(departmentFacade).updateEntity(id, departmentResource);
 	}
     
     @Test
@@ -144,14 +144,14 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(departmentResource, false);
 		
-		when(departmentFacade.getDepartment(anyLong())).thenReturn(departmentResource);
+		when(departmentFacade.getEntity(anyLong())).thenReturn(departmentResource);
 		
 		// Then
     	mockMvc.perform(get("/departments/{id}", id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(departmentFacade).getDepartment(id);
+    	verify(departmentFacade).getEntity(id);
 	}
     
     @Test
@@ -165,7 +165,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/departments/{id}", id))
     		.andExpect(status().is(204));
     	
-    	verify(departmentFacade).removeDepartment(id);
+    	verify(departmentFacade).removeEntity(id);
 	}
     
     @Test
@@ -203,7 +203,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 		PagedRequest<DepartmentResource> pagedRequest = new PagedRequest<DepartmentResource>(new DepartmentResource(), offset, limit);
 		
 		// When
-		when(departmentFacade.getDepartments(Matchers.<PagedRequest<DepartmentResource>>any())).thenReturn(expectedResource);
+		when(departmentFacade.getEntities(Matchers.<PagedRequest<DepartmentResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -213,6 +213,6 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(departmentFacade).getDepartments(pagedRequest);
+		verify(departmentFacade).getEntities(pagedRequest);
 	}
 }

@@ -38,7 +38,7 @@ public class DefaultSpecialtyFacade extends BaseFacade<SpecialtyResource, Specia
 	private Converter<Specialty, SpecialtyResource> entityConverter;
 	
 	@Override
-	public SpecialtyResource createSpecialty(final SpecialtyResource resource) {
+	public SpecialtyResource createEntity(final SpecialtyResource resource) {
 		LOG.info("Creating new specialty, {}", resource);
 		
 		Specialty specialty = resourceConverter.convert(resource);
@@ -50,7 +50,7 @@ public class DefaultSpecialtyFacade extends BaseFacade<SpecialtyResource, Specia
 	}
 
 	@Override
-	public void updateSpecialty(final Long id, final SpecialtyResource resource) {
+	public void updateEntity(final Long id, final SpecialtyResource resource) {
 		LOG.info("Updating specialty with id:{}, resource", id, resource);
 		
 		Specialty specialty = service.getSpecialty(id);
@@ -62,7 +62,7 @@ public class DefaultSpecialtyFacade extends BaseFacade<SpecialtyResource, Specia
 	}
 
 	@Override
-	public SpecialtyResource getSpecialty(final Long id) {
+	public SpecialtyResource getEntity(final Long id) {
 		LOG.info("Getting specialty with id: {}", id);
 		
 		Specialty specialty = service.getSpecialty(id);
@@ -70,7 +70,7 @@ public class DefaultSpecialtyFacade extends BaseFacade<SpecialtyResource, Specia
 	}
 
 	@Override
-	public void removeSpecialty(final Long id) {
+	public void removeEntity(final Long id) {
 		LOG.info("Removing specialty:{}", id);
 		
 		Specialty specialty = service.getSpecialty(id);
@@ -78,7 +78,7 @@ public class DefaultSpecialtyFacade extends BaseFacade<SpecialtyResource, Specia
 	}
 
 	@Override
-	public PagedResultResource<SpecialtyResource> getSpecialties(final PagedRequest<SpecialtyResource> request) {
+	public PagedResultResource<SpecialtyResource> getEntities(final PagedRequest<SpecialtyResource> request) {
 		LOG.info("Getting specialties by paged request: {}", request);
 
 		PagedSearch<Specialty> pagedSearch = pagedRequestConverter.convert(request);

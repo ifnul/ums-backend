@@ -50,7 +50,7 @@ public class GenderTypeController extends BaseController {
 			final GenderTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Gender Type with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<GenderTypeResource> request = new PagedRequest<GenderTypeResource>(resource, offset, limit);
-		return genderTypeFacade.getGenderTypes(request);
+		return genderTypeFacade.getEntities(request);
 	}
 
 }

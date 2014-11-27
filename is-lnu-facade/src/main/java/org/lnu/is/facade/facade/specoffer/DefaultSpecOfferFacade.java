@@ -40,7 +40,7 @@ public class DefaultSpecOfferFacade extends BaseFacade<SpecOfferResource, SpecOf
 	private Converter<SpecOffer, SpecOfferResource> entityConverter;
 	
 	@Override
-	public SpecOfferResource createSpecOffer(final SpecOfferResource resource) {
+	public SpecOfferResource createEntity(final SpecOfferResource resource) {
 		LOG.info("Creating spec offer: {}", resource);
 		SpecOffer specOffer = resourceConverter.convert(resource);
 		
@@ -51,7 +51,7 @@ public class DefaultSpecOfferFacade extends BaseFacade<SpecOfferResource, SpecOf
 	}
 
 	@Override
-	public void updateSpecOffer(final Long id, final SpecOfferResource resource) {
+	public void updateEntity(final Long id, final SpecOfferResource resource) {
 		LOG.info("Updating spec offer: {}, {}", id, resource);
 		SpecOffer specOffer = service.getSpecOffer(id);
 
@@ -62,7 +62,7 @@ public class DefaultSpecOfferFacade extends BaseFacade<SpecOfferResource, SpecOf
 	}
 
 	@Override
-	public SpecOfferResource getSpecOffer(final Long id) {
+	public SpecOfferResource getEntity(final Long id) {
 		LOG.info("Getting specoffer with id {}", id);
 		
 		SpecOffer specOffer = service.getSpecOffer(id);
@@ -70,7 +70,7 @@ public class DefaultSpecOfferFacade extends BaseFacade<SpecOfferResource, SpecOf
 	}
 
 	@Override
-	public void removeSpecOffer(final Long id) {
+	public void removeEntity(final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
 		
 		SpecOffer specOffer = service.getSpecOffer(id);
@@ -78,7 +78,7 @@ public class DefaultSpecOfferFacade extends BaseFacade<SpecOfferResource, SpecOf
 	}
 
 	@Override
-	public PagedResultResource<SpecOfferResource> getSpecOffers(final PagedRequest<SpecOfferResource> request) {
+	public PagedResultResource<SpecOfferResource> getEntities(final PagedRequest<SpecOfferResource> request) {
 		LOG.info("Get spec offers by paged request: {}", request);
 
 		PagedSearch<SpecOffer> pagedSearch = pagedRequestConverter.convert(request);

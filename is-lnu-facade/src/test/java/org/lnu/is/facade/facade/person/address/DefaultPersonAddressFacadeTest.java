@@ -69,7 +69,7 @@ public class DefaultPersonAddressFacadeTest {
 		// When
 		when(entityConverter.convert(any(PersonAddress.class))).thenReturn(resource);
 		
-		PersonAddressResource actual = unit.createAddress(resource);
+		PersonAddressResource actual = unit.createEntity(resource);
 
 		// Then
 		verify(resourceConverter).convert(resource, address);
@@ -89,7 +89,7 @@ public class DefaultPersonAddressFacadeTest {
 
 		// When
 		when(service.getAddress(anyLong())).thenReturn(address);
-		unit.updateAddress(addressId, resource);
+		unit.updateEntity(addressId, resource);
 
 		// Then
 		verify(service).getAddress(addressId);
@@ -111,7 +111,7 @@ public class DefaultPersonAddressFacadeTest {
 		// When
 		when(service.getAddress(anyLong())).thenReturn(personAddress);
 		when(entityConverter.convert(any(PersonAddress.class))).thenReturn(expected);
-		PersonAddressResource actual = unit.getAddress(id);
+		PersonAddressResource actual = unit.getEntity(id);
 
 		// Then
 		verify(service).getAddress(id);
@@ -143,7 +143,7 @@ public class DefaultPersonAddressFacadeTest {
 		when(service.getAddresses(Matchers.<PagedSearch<PersonAddress>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(PersonAddress.class))).thenReturn(funnyResources);
 
-		PagedResultResource<PersonAddressResource> actualFunnies = unit.getAddresses(pagedRequest);
+		PagedResultResource<PersonAddressResource> actualFunnies = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

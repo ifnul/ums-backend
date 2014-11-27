@@ -49,7 +49,7 @@ public class SpecOfferSubjectController extends BaseController {
 	public SpecOfferSubjectResource createSpecOfferSubject(@RequestBody final SpecOfferSubjectResource resource,
 			@PathVariable("specOfferId") final Long specOfferId) {
 		LOG.info("Creating spec offer subject: {}", resource);
-		return specOfferSubjectFacade.createSubject(resource);
+		return specOfferSubjectFacade.createEntity(resource);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class SpecOfferSubjectController extends BaseController {
  			@RequestBody final SpecOfferSubjectResource resource) {
 		LOG.info("Updating spec offer subject with id: {}, {}", subjectId, resource);
 		
-		specOfferSubjectFacade.updateSubject(subjectId, resource);
+		specOfferSubjectFacade.updateEntity(subjectId, resource);
 		return new MessageResource(MessageType.INFO, "Spec Offer Subject Updated");
 	}
 	
@@ -82,7 +82,7 @@ public class SpecOfferSubjectController extends BaseController {
 			@PathVariable("subjectId") final Long subjectId) {
 		LOG.info("Retrieving Spec Offer Subject with id: {}", subjectId);
 		
-		return specOfferSubjectFacade.getSubject(subjectId);
+		return specOfferSubjectFacade.getEntity(subjectId);
 	}
 	
 	/**
@@ -96,7 +96,7 @@ public class SpecOfferSubjectController extends BaseController {
 	public MessageResource removeSpecOfferSubject(@PathVariable("specOfferId") final Long specOfferId,
 			@PathVariable("subjectId") final Long subjectId) {
 		LOG.info("Removing Spec Offer Subject with id: {}", subjectId);
-		specOfferSubjectFacade.removeSubject(subjectId);
+		specOfferSubjectFacade.removeEntity(subjectId);
 		
 		return new MessageResource(MessageType.INFO, "SpecOfferSubject removed");
 	}
@@ -119,6 +119,6 @@ public class SpecOfferSubjectController extends BaseController {
 		resource.setSpecOfferId(soId);
 		PagedRequest<SpecOfferSubjectResource> pagedRequest = new PagedRequest<SpecOfferSubjectResource>(resource, offset, limit);
 		
-		return specOfferSubjectFacade.getSubjects(pagedRequest);
+		return specOfferSubjectFacade.getEntities(pagedRequest);
 	}
 }

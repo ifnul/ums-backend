@@ -17,5 +17,5 @@ public interface JobTypeFacade {
 	 * @param request
 	 * @return paged result
 	 */
-	PagedResultResource<JobTypeResource> getJobTypes(PagedRequest<JobTypeResource> request);
+	PagedResultResource<JobTypeResource> getEntities(PagedRequest<JobTypeResource> request);
 }

@@ -54,7 +54,7 @@ public class EnrolmentController extends BaseController {
 			final EnrolmentStatusTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Enrolment Status Type with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<EnrolmentStatusTypeResource> request = new PagedRequest<EnrolmentStatusTypeResource>(resource, offset, limit);
-		return enrolmentStatusTypeFacade.getEnrolmentStatusTypes(request);
+		return enrolmentStatusTypeFacade.getEntities(request);
 	}
 	
 	/**
@@ -73,6 +73,6 @@ public class EnrolmentController extends BaseController {
 			final EnrolmentSubjectResource resource) {
 		LOG.info("Getting Paged Result of  enrolment subject with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<EnrolmentSubjectResource> request = new PagedRequest<EnrolmentSubjectResource>(resource, offset, limit);
-		return enrolmentSubjectFacade.getEnrolmentSubjects(request);
+		return enrolmentSubjectFacade.getEntities(request);
 	}
 }

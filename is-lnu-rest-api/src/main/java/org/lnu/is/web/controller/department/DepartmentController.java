@@ -55,7 +55,7 @@ public class DepartmentController extends BaseController {
 	@ApiOperation(value = "Create Specoffer", position = 1)
 	public DepartmentResource createDepartment(@RequestBody final DepartmentResource departmentResource) {
 		LOG.info("Creating department: {}", departmentResource);
-		return departmentFacade.createDepartment(departmentResource);
+		return departmentFacade.createEntity(departmentResource);
 	}
 	
 	/**
@@ -80,7 +80,7 @@ public class DepartmentController extends BaseController {
 	public MessageResource updateDepartment(@PathVariable("id") final Long id,
 			@RequestBody final DepartmentResource departmentResource) {
 		LOG.info("Updated department with id: {}, {}", id, departmentResource);
-		departmentFacade.updateDepartment(id, departmentResource);
+		departmentFacade.updateEntity(id, departmentResource);
 		return new MessageResource(MessageType.INFO, "Department Updated");
 	}
 	
@@ -101,7 +101,7 @@ public class DepartmentController extends BaseController {
 	@ApiOperation(value = "Get Department by id", position = 3)
 	public DepartmentResource getDepartment(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving department with id: {}", id);
-		return departmentFacade.getDepartment(id);
+		return departmentFacade.getEntity(id);
 	}
 	
 	/**
@@ -122,7 +122,7 @@ public class DepartmentController extends BaseController {
 	@ApiOperation(value = "Delete Department by id", position = 4)
 	public MessageResource removeDepartment(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
-		departmentFacade.removeDepartment(id);
+		departmentFacade.removeEntity(id);
 		return new MessageResource(MessageType.INFO, "Department removed");
 	}
 	
@@ -154,6 +154,6 @@ public class DepartmentController extends BaseController {
 			final DepartmentResource resource) {
 		LOG.info("Retrieving PagedResultResource for Department Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<DepartmentResource> pagedRequest = new PagedRequest<DepartmentResource>(resource, offset, limit);
-		return departmentFacade.getDepartments(pagedRequest);
+		return departmentFacade.getEntities(pagedRequest);
 	}	
 }

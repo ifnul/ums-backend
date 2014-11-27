@@ -63,7 +63,7 @@ public class PersonPaperControllerTest extends AbstractControllerTest {
     	String request = getJson(personPaperResource, true);
 		String response = getJson(personPaperResource, false);
     	
-		when(personPaperFacade.createPersonPaper(any(PersonPaperResource.class))).thenReturn(personPaperResource);
+		when(personPaperFacade.createEntity(any(PersonPaperResource.class))).thenReturn(personPaperResource);
 		
     	// Then
 		mockMvc.perform(post("/persons/{0}/papers", personId)
@@ -72,7 +72,7 @@ public class PersonPaperControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(personPaperFacade).createPersonPaper(personPaperResource);
+		verify(personPaperFacade).createEntity(personPaperResource);
 	}
     
     @Test
@@ -99,7 +99,7 @@ public class PersonPaperControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(personPaperFacade).updatePersonPaper(id, personPaperResource);
+		verify(personPaperFacade).updateEntity(id, personPaperResource);
 	}
     
     @Test
@@ -115,14 +115,14 @@ public class PersonPaperControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(personPaperResource, false);
 		
-		when(personPaperFacade.getPersonPaper(anyLong())).thenReturn(personPaperResource);
+		when(personPaperFacade.getEntity(anyLong())).thenReturn(personPaperResource);
 		
 		// Then
     	mockMvc.perform(get("/persons/{personId}/papers/{id}", personId, id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(personPaperFacade).getPersonPaper(id);
+    	verify(personPaperFacade).getEntity(id);
 	}
     
     @Test
@@ -137,7 +137,7 @@ public class PersonPaperControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/persons/{personId}/papers/{id}", personId, id))
     		.andExpect(status().is(204));
     	
-    	verify(personPaperFacade).removePersonPaper(id);
+    	verify(personPaperFacade).removeEntity(id);
 	}
     
     @Test
@@ -168,7 +168,7 @@ public class PersonPaperControllerTest extends AbstractControllerTest {
 		PagedRequest<PersonPaperResource> pagedRequest = new PagedRequest<PersonPaperResource>(resource, offset, limit);
 		
 		// When
-		when(personPaperFacade.getPersonPapers(Matchers.<PagedRequest<PersonPaperResource>>any())).thenReturn(expectedResource);
+		when(personPaperFacade.getEntities(Matchers.<PagedRequest<PersonPaperResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -178,7 +178,7 @@ public class PersonPaperControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(personPaperFacade).getPersonPapers(pagedRequest);
+		verify(personPaperFacade).getEntities(pagedRequest);
 	}
     
 }

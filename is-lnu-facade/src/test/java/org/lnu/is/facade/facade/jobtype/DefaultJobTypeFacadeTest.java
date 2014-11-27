@@ -68,7 +68,7 @@ public class DefaultJobTypeFacadeTest {
 		when(service.getJobTypes(Matchers.<PagedSearch<JobType>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(Matchers.anyListOf(JobType.class))).thenReturn(resources);
 
-		PagedResultResource<JobTypeResource> actual = unit.getJobTypes(pagedRequest);
+		PagedResultResource<JobTypeResource> actual = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

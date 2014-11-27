@@ -67,7 +67,7 @@ public class DefaultTimePeriodFacadeTest {
 		when(service.getTimePeriods(Matchers.<PagedSearch<TimePeriod>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(TimePeriod.class))).thenReturn(funnyResources);
 
-		PagedResultResource<TimePeriodResource> actual = unit.getTimePeriods(pagedRequest);
+		PagedResultResource<TimePeriodResource> actual = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

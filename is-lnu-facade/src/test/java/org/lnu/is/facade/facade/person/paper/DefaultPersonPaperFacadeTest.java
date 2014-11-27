@@ -68,7 +68,7 @@ public class DefaultPersonPaperFacadeTest {
 		when(resourceConverter.convert(any(PersonPaperResource.class))).thenReturn(personPaper);
 		when(entityConverter.convert(any(PersonPaper.class))).thenReturn(expected);
 		
-		PersonPaperResource actual = unit.createPersonPaper(expected);
+		PersonPaperResource actual = unit.createEntity(expected);
 
 		// Then
 		verify(resourceConverter).convert(expected);
@@ -93,7 +93,7 @@ public class DefaultPersonPaperFacadeTest {
 		// When
 		when(service.getPersonPaper(anyLong())).thenReturn(personPaper);
 		
-		unit.updatePersonPaper(id, expected);
+		unit.updateEntity(id, expected);
 
 		// Then
 		verify(service).getPersonPaper(id);
@@ -116,7 +116,7 @@ public class DefaultPersonPaperFacadeTest {
 		// When
 		when(service.getPersonPaper(anyLong())).thenReturn(personPaper);
 		when(entityConverter.convert(any(PersonPaper.class))).thenReturn(expected);
-		PersonPaperResource actual = unit.getPersonPaper(id);
+		PersonPaperResource actual = unit.getEntity(id);
 
 		// Then
 		verify(service).getPersonPaper(id);
@@ -134,7 +134,7 @@ public class DefaultPersonPaperFacadeTest {
 		
 		// When
 		when(service.getPersonPaper(anyLong())).thenReturn(personPaper);
-		unit.removePersonPaper(id);
+		unit.removeEntity(id);
 
 		// Then
 		verify(service).getPersonPaper(id);
@@ -165,7 +165,7 @@ public class DefaultPersonPaperFacadeTest {
 		when(service.getPersonPapers(Matchers.<PagedSearch<PersonPaper>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(PersonPaper.class))).thenReturn(funnyResources);
 
-		PagedResultResource<PersonPaperResource> actualFunnies = unit.getPersonPapers(pagedRequest);
+		PagedResultResource<PersonPaperResource> actualFunnies = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

@@ -75,7 +75,7 @@ public class DefaultPersonTypeFacadeTest {
 		when(service.getPersonTypes(Matchers.<PagedSearch<PersonType>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(PersonType.class))).thenReturn(funnyResources);
 
-		PagedResultResource<PersonTypeResource> actual = unit.getPersonTypes(pagedRequest);
+		PagedResultResource<PersonTypeResource> actual = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

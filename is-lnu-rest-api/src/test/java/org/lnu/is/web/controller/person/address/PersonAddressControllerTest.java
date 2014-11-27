@@ -60,7 +60,7 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
     	String request = getJson(personAddressResource, true);
 		String response = getJson(personAddressResource, false);
     	
-		when(personAddressFacade.createAddress(any(PersonAddressResource.class))).thenReturn(personAddressResource);
+		when(personAddressFacade.createEntity(any(PersonAddressResource.class))).thenReturn(personAddressResource);
 		
     	// Then
 		mockMvc.perform(post("/persons/{personId}/addresses", personId)
@@ -69,7 +69,7 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(personAddressFacade).createAddress(personAddressResource);
+		verify(personAddressFacade).createEntity(personAddressResource);
 	}
     
     @Test
@@ -96,7 +96,7 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(personAddressFacade).updateAddress(id, personAddressResource);
+		verify(personAddressFacade).updateEntity(id, personAddressResource);
 	}
     
     @Test
@@ -112,14 +112,14 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(personAddressResource, false);
 		
-		when(personAddressFacade.getAddress(anyLong())).thenReturn(personAddressResource);
+		when(personAddressFacade.getEntity(anyLong())).thenReturn(personAddressResource);
 		
 		// Then
     	mockMvc.perform(get("/persons/{personId}/addresses/{addressId}", personId, id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(personAddressFacade).getAddress(id);
+    	verify(personAddressFacade).getEntity(id);
 	}
     
     @Test
@@ -149,7 +149,7 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 		PagedRequest<PersonAddressResource> pagedRequest = new PagedRequest<PersonAddressResource>(resource, offset, limit);
 		
 		// When
-		when(personAddressFacade.getAddresses(Matchers.<PagedRequest<PersonAddressResource>>any())).thenReturn(expectedResource);
+		when(personAddressFacade.getEntities(Matchers.<PagedRequest<PersonAddressResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -159,6 +159,6 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(personAddressFacade).getAddresses(pagedRequest);
+		verify(personAddressFacade).getEntities(pagedRequest);
 	}
 }

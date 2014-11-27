@@ -18,5 +18,5 @@ public interface GenderTypeFacade {
 	 * @param request
 	 * @return paged result
 	 */
-	PagedResultResource<GenderTypeResource> getGenderTypes(PagedRequest<GenderTypeResource> request);
+	PagedResultResource<GenderTypeResource> getEntities(PagedRequest<GenderTypeResource> request);
 }

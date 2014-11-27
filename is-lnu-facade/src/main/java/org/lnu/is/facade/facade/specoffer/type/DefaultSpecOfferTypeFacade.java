@@ -38,7 +38,7 @@ public class DefaultSpecOfferTypeFacade extends BaseFacade<SpecOfferTypeResource
 	private SpecOfferTypeService service;
 	
 	@Override
-	public PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(final PagedRequest<SpecOfferTypeResource> request) {
+	public PagedResultResource<SpecOfferTypeResource> getEntities(final PagedRequest<SpecOfferTypeResource> request) {
 		LOG.info("Getting paged result for spec offer type, reuqest: {}", request);
 		
 		PagedSearch<SpecOfferType> pagedSearch = pagedRequestConverter.convert(request);

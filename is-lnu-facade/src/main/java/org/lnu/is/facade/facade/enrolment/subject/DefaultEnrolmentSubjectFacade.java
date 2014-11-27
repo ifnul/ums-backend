@@ -38,7 +38,7 @@ public class DefaultEnrolmentSubjectFacade extends BaseFacade<EnrolmentSubjectRe
 	private EnrolmentSubjectService service;
 	
 	@Override
-	public PagedResultResource<EnrolmentSubjectResource> getEnrolmentSubjects(final PagedRequest<EnrolmentSubjectResource> request) {
+	public PagedResultResource<EnrolmentSubjectResource> getEntities(final PagedRequest<EnrolmentSubjectResource> request) {
 		LOG.info("Getting paged result for enrolment subjects: {}", request);
 		
 		PagedSearch<EnrolmentSubject> pagedSearch = pagedRequestConverter.convert(request);

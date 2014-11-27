@@ -69,7 +69,7 @@ public class DefaultGenderTypeFacadeTest {
 		when(service.getGenderTypes(Matchers.<PagedSearch<GenderType>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(GenderType.class))).thenReturn(myResources);
 
-		PagedResultResource<GenderTypeResource> actualResources = unit.getGenderTypes(pagedRequest);
+		PagedResultResource<GenderTypeResource> actualResources = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

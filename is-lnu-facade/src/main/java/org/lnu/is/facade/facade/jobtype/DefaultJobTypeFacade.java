@@ -37,7 +37,7 @@ public class DefaultJobTypeFacade extends BaseFacade<JobTypeResource, JobType> i
 	private JobTypeService service;
 
 	@Override
-	public PagedResultResource<JobTypeResource> getJobTypes(final PagedRequest<JobTypeResource> request) {
+	public PagedResultResource<JobTypeResource> getEntities(final PagedRequest<JobTypeResource> request) {
 		LOG.info("Getting paged result for job types: {}", request);
 
 		PagedSearch<JobType> pagedSearch = pagedRequestConverter.convert(request);

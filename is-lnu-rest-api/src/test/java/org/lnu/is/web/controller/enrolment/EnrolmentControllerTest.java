@@ -69,7 +69,7 @@ public class EnrolmentControllerTest extends AbstractControllerTest {
 				new PagedRequest<EnrolmentStatusTypeResource>(paramResource, offset, limit);
 
 		// When
-		when(enrolmentStatusTypeFacade.getEnrolmentStatusTypes(Matchers.<PagedRequest<EnrolmentStatusTypeResource>> any()))
+		when(enrolmentStatusTypeFacade.getEntities(Matchers.<PagedRequest<EnrolmentStatusTypeResource>> any()))
 			.thenReturn(expected);
 
 		String response = getJson(expected, false);
@@ -79,7 +79,7 @@ public class EnrolmentControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 
-		verify(enrolmentStatusTypeFacade).getEnrolmentStatusTypes(request);
+		verify(enrolmentStatusTypeFacade).getEntities(request);
 	}
 	
     @Test
@@ -108,7 +108,7 @@ public class EnrolmentControllerTest extends AbstractControllerTest {
 		PagedRequest<EnrolmentSubjectResource> request = new PagedRequest<EnrolmentSubjectResource>(paramResource, offset, limit);
 		
 		// When
-		when(enrolmentSubjectFacade.getEnrolmentSubjects(Matchers.<PagedRequest<EnrolmentSubjectResource>>any())).thenReturn(expected);
+		when(enrolmentSubjectFacade.getEntities(Matchers.<PagedRequest<EnrolmentSubjectResource>>any())).thenReturn(expected);
     	String response = getJson(expected, false);
 
 		// Then
@@ -117,6 +117,6 @@ public class EnrolmentControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(enrolmentSubjectFacade).getEnrolmentSubjects(request);
+		verify(enrolmentSubjectFacade).getEntities(request);
 	}
 }

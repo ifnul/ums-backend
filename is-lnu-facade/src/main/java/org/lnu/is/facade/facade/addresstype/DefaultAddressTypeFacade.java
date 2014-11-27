@@ -39,7 +39,7 @@ public class DefaultAddressTypeFacade extends BaseFacade<AddressTypeResource, Ad
 	private AddressTypeService service;
 
 	@Override
-	public PagedResultResource<AddressTypeResource> getAddressTypes(
+	public PagedResultResource<AddressTypeResource> getEntities(
 			final PagedRequest<AddressTypeResource> request) {
 		LOG.info("Getting PagedResultResources for Address Types :", request);
 

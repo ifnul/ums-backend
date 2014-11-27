@@ -39,7 +39,7 @@ public class DefaultGenderTypeFacade extends BaseFacade<GenderTypeResource, Gend
 	private GenderTypeService service;
 
 	@Override
-	public PagedResultResource<GenderTypeResource> getGenderTypes(final PagedRequest<GenderTypeResource> request) {
+	public PagedResultResource<GenderTypeResource> getEntities(final PagedRequest<GenderTypeResource> request) {
 		LOG.info("Getting paged result for gender types: {}", request);
 		
 		PagedSearch<GenderType> pagedSearch = pagedRequestConverter.convert(request);

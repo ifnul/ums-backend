@@ -17,14 +17,14 @@ public interface PersonPaperFacade {
 	 * @param resource
 	 * @return person paper with generated identifier.
 	 */
-	PersonPaperResource createPersonPaper(PersonPaperResource resource);
+	PersonPaperResource createEntity(PersonPaperResource resource);
 
 	/**
 	 * Method for updating person paper.
 	 * @param id
 	 * @param resource
 	 */
-	void updatePersonPaper(Long id, PersonPaperResource resource);
+	void updateEntity(Long id, PersonPaperResource resource);
 
 	/**
 	 * Method for getting person paper identifier.
@@ -32,14 +32,14 @@ public interface PersonPaperFacade {
 	 * @param id
 	 * @return person paper.
 	 */
-	PersonPaperResource getPersonPaper(Long id);
+	PersonPaperResource getEntity(Long id);
 
 	/**
 	 * Method for removing person paper.
 	 * @param personId
 	 * @param id
 	 */
-	void removePersonPaper(Long id);
+	void removeEntity(Long id);
 
 	/**
 	 * Method for getting paged result for person papers.
@@ -47,6 +47,6 @@ public interface PersonPaperFacade {
 	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<PersonPaperResource> getPersonPapers(PagedRequest<PersonPaperResource> request);
+	PagedResultResource<PersonPaperResource> getEntities(PagedRequest<PersonPaperResource> request);
 
 }

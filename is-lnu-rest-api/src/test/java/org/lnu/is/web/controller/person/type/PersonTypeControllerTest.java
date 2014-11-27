@@ -67,7 +67,7 @@ public class PersonTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<PersonTypeResource> pagedRequest = new PagedRequest<PersonTypeResource>(new PersonTypeResource(), offset, limit);
 
 		// When
-		when(personTypeFacade.getPersonTypes(Matchers.<PagedRequest<PersonTypeResource>> any())).thenReturn(expectedResource);
+		when(personTypeFacade.getEntities(Matchers.<PagedRequest<PersonTypeResource>> any())).thenReturn(expectedResource);
 		String response = getJson(expectedResource, false);
 
 		// Then
@@ -77,6 +77,6 @@ public class PersonTypeControllerTest extends AbstractControllerTest {
 			.andExpect(status().isOk())
 			.andExpect(content().string(response));
 
-		verify(personTypeFacade).getPersonTypes(pagedRequest);
+		verify(personTypeFacade).getEntities(pagedRequest);
 	}
 }

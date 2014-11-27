@@ -65,7 +65,7 @@ public class DefaultSpecOfferSubjectFacadeTest {
 		when(resourceConverter.convert(any(SpecOfferSubjectResource.class))).thenReturn(personPaper);
 		when(entityConverter.convert(any(SpecofferSubject.class))).thenReturn(expected);
 		
-		SpecOfferSubjectResource actual = unit.createSubject(expected);
+		SpecOfferSubjectResource actual = unit.createEntity(expected);
 
 		// Then
 		verify(resourceConverter).convert(expected, personPaper);
@@ -89,7 +89,7 @@ public class DefaultSpecOfferSubjectFacadeTest {
 		// When
 		when(service.getSubject(anyLong())).thenReturn(personPaper);
 		
-		unit.updateSubject(id, expected);
+		unit.updateEntity(id, expected);
 
 		// Then
 		verify(service).getSubject(id);
@@ -112,7 +112,7 @@ public class DefaultSpecOfferSubjectFacadeTest {
 		// When
 		when(service.getSubject(anyLong())).thenReturn(personPaper);
 		when(entityConverter.convert(any(SpecofferSubject.class))).thenReturn(expected);
-		SpecOfferSubjectResource actual = unit.getSubject(id);
+		SpecOfferSubjectResource actual = unit.getEntity(id);
 
 		// Then
 		verify(service).getSubject(id);
@@ -130,7 +130,7 @@ public class DefaultSpecOfferSubjectFacadeTest {
 		
 		// When
 		when(service.getSubject(anyLong())).thenReturn(personPaper);
-		unit.removeSubject(id);
+		unit.removeEntity(id);
 
 		// Then
 		verify(service).getSubject(id);
@@ -161,7 +161,7 @@ public class DefaultSpecOfferSubjectFacadeTest {
 		when(service.getSubjects(Matchers.<PagedSearch<SpecofferSubject>>any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(SpecofferSubject.class))).thenReturn(funnyResources);
 
-		PagedResultResource<SpecOfferSubjectResource> actualFunnies = unit.getSubjects(pagedRequest);
+		PagedResultResource<SpecOfferSubjectResource> actualFunnies = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

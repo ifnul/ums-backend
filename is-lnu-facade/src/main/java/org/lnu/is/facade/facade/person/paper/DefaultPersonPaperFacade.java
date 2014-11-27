@@ -39,7 +39,7 @@ public class DefaultPersonPaperFacade extends BaseFacade<PersonPaperResource, Pe
 	private Converter<PersonPaper, PersonPaperResource> entityConverter;
 
 	@Override
-	public PersonPaperResource createPersonPaper(final PersonPaperResource resource) {
+	public PersonPaperResource createEntity(final PersonPaperResource resource) {
 		LOG.info("Creating person paper: {}", resource);
 		
 		PersonPaper personPaper = resourceConverter.convert(resource);
@@ -49,7 +49,7 @@ public class DefaultPersonPaperFacade extends BaseFacade<PersonPaperResource, Pe
 	}
 
 	@Override
-	public void updatePersonPaper(final Long personPaperId, final PersonPaperResource resource) {
+	public void updateEntity(final Long personPaperId, final PersonPaperResource resource) {
 		LOG.info("Updating person-paper({}): {}", personPaperId, resource);
 		
 		PersonPaper personPaper = service.getPersonPaper(personPaperId);
@@ -61,7 +61,7 @@ public class DefaultPersonPaperFacade extends BaseFacade<PersonPaperResource, Pe
 	}
 
 	@Override
-	public PersonPaperResource getPersonPaper(final Long id) {
+	public PersonPaperResource getEntity(final Long id) {
 		LOG.info("Getting person paper with id: {}", id);
 		
 		PersonPaper personPaper = service.getPersonPaper(id);
@@ -69,14 +69,14 @@ public class DefaultPersonPaperFacade extends BaseFacade<PersonPaperResource, Pe
 	}
 
 	@Override
-	public void removePersonPaper(final Long id) {
+	public void removeEntity(final Long id) {
 		LOG.info("Removing person-paper with id: {}", id);
 		PersonPaper personPaper = service.getPersonPaper(id);
 		service.removePersonPaper(personPaper);
 	}
 
 	@Override
-	public PagedResultResource<PersonPaperResource> getPersonPapers(final PagedRequest<PersonPaperResource> request) {
+	public PagedResultResource<PersonPaperResource> getEntities(final PagedRequest<PersonPaperResource> request) {
 		LOG.info("Get person papers by paged request: {}", request);
 
 		PagedSearch<PersonPaper> pagedSearch = pagedRequestConverter.convert(request);

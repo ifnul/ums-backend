@@ -38,7 +38,7 @@ public class DefaultPersonFacade extends BaseFacade<PersonResource, Person> impl
 	private Converter<Person, PersonResource> entityConverter;
 	
 	@Override
-	public PersonResource createPerson(final PersonResource resource) {
+	public PersonResource createEntity(final PersonResource resource) {
 		LOG.info("Creating person: {}", resource);
 		
 		Person person = resourceConverter.convert(resource);
@@ -50,7 +50,7 @@ public class DefaultPersonFacade extends BaseFacade<PersonResource, Person> impl
 	}
 
 	@Override
-	public void updatePerson(final Long id, final PersonResource resource) {
+	public void updateEntity(final Long id, final PersonResource resource) {
 		LOG.info("Updating person with id: {}, resource: {}", id, resource);
 		
 		Person person = service.getPerson(id);
@@ -62,7 +62,7 @@ public class DefaultPersonFacade extends BaseFacade<PersonResource, Person> impl
 	}
 
 	@Override
-	public PersonResource getPerson(final Long id) {
+	public PersonResource getEntity(final Long id) {
 		LOG.info("Getting person with id: {}", id);
 		
 		Person person = service.getPerson(id);
@@ -70,7 +70,7 @@ public class DefaultPersonFacade extends BaseFacade<PersonResource, Person> impl
 	}
 
 	@Override
-	public void removePerson(final Long id) {
+	public void removeEntity(final Long id) {
 		LOG.info("Removing person with id: {}", id);
 		
 		Person person = service.getPerson(id);
@@ -78,7 +78,7 @@ public class DefaultPersonFacade extends BaseFacade<PersonResource, Person> impl
 	}
 
 	@Override
-	public PagedResultResource<PersonResource> getPersons(final PagedRequest<PersonResource> request) {
+	public PagedResultResource<PersonResource> getEntities(final PagedRequest<PersonResource> request) {
 		LOG.info("Get persons by paged request: {}", request);
 
 		PagedSearch<Person> pagedSearch = pagedRequestConverter.convert(request);

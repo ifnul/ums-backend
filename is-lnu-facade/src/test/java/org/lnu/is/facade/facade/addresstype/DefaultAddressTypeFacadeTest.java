@@ -82,7 +82,7 @@ public class DefaultAddressTypeFacadeTest {
 				.thenReturn(myResources);
 
 		PagedResultResource<AddressTypeResource> actualResources = unit
-				.getAddressTypes(pagedRequest);
+				.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

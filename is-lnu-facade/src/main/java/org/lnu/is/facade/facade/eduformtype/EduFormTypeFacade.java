@@ -17,6 +17,6 @@ public interface EduFormTypeFacade {
 	 * @param request
 	 * @return method for paged result.
 	 */
-	PagedResultResource<EduFormTypeResource> getEduFormTypes(PagedRequest<EduFormTypeResource> request);
+	PagedResultResource<EduFormTypeResource> getEntities(PagedRequest<EduFormTypeResource> request);
 
 }

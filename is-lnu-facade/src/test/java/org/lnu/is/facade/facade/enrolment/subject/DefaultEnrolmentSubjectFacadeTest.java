@@ -68,7 +68,7 @@ public class DefaultEnrolmentSubjectFacadeTest {
 		when(service.getEnrolmentSubjects(Matchers.<PagedSearch<EnrolmentSubject>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(EnrolmentSubject.class))).thenReturn(funnyResources);
 
-		PagedResultResource<EnrolmentSubjectResource> actualFunnies = unit.getEnrolmentSubjects(pagedRequest);
+		PagedResultResource<EnrolmentSubjectResource> actualFunnies = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

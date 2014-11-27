@@ -49,7 +49,7 @@ public class MarriedTypeController extends BaseController {
 			final MarriedTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Married Type with offset: {}, limit: {}", offset, limit);
 		PagedRequest<MarriedTypeResource> request = new PagedRequest<MarriedTypeResource>(resource, offset, limit);
-		return marriedTypeFacade.getMarriedTypes(request);	
+		return marriedTypeFacade.getEntities(request);	
 	}
 
 }

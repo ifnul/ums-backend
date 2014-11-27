@@ -64,7 +64,7 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<EduFormTypeResource> request = new PagedRequest<EduFormTypeResource>(paramResource, offset, limit);
 		
 		// When
-		when(eduFormTypeFacade.getEduFormTypes(Matchers.<PagedRequest<EduFormTypeResource>>any())).thenReturn(expected);
+		when(eduFormTypeFacade.getEntities(Matchers.<PagedRequest<EduFormTypeResource>>any())).thenReturn(expected);
     	String response = getJson(expected, false);
 
 		// Then
@@ -73,6 +73,6 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(eduFormTypeFacade).getEduFormTypes(request);
+		verify(eduFormTypeFacade).getEntities(request);
 	}
 }

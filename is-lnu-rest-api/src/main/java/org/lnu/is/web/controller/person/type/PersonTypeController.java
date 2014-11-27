@@ -49,7 +49,7 @@ public class PersonTypeController extends BaseController {
 			final PersonTypeResource resource) {
 		LOG.info("Retrieving PagedResultResource for Person Types with offset: {}, limit: {}", offset, limit);
 		PagedRequest<PersonTypeResource> pagedRequest = new PagedRequest<PersonTypeResource>(resource, offset, limit);
-		return personTypeFacade.getPersonTypes(pagedRequest);
+		return personTypeFacade.getEntities(pagedRequest);
 	}
 
 }

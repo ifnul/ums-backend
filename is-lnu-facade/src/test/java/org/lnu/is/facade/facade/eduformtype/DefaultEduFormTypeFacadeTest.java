@@ -68,7 +68,7 @@ public class DefaultEduFormTypeFacadeTest {
 		when(service.getEduFormTypes(Matchers.<PagedSearch<EduFormType>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(EduFormType.class))).thenReturn(funnyResources);
 
-		PagedResultResource<EduFormTypeResource> actualFunnies = unit.getEduFormTypes(pagedRequest);
+		PagedResultResource<EduFormTypeResource> actualFunnies = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

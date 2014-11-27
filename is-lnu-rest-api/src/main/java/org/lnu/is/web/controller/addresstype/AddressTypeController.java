@@ -55,6 +55,6 @@ public class AddressTypeController extends BaseController {
 				offset, limit);
 		PagedRequest<AddressTypeResource> request = new PagedRequest<AddressTypeResource>(
 				resource, offset, limit);
-		return addressTypeFacade.getAddressTypes(request);
+		return addressTypeFacade.getEntities(request);
 	}
 }

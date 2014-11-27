@@ -88,7 +88,7 @@ public class DefaultDepartmentFacadeTest {
 		// When
 		when(entityConverter.convert(any(Department.class))).thenReturn(expected);
 		
-		DepartmentResource actual = unit.createDepartment(expected);
+		DepartmentResource actual = unit.createEntity(expected);
 
 		// Then
 		verify(resourceConverter).convert(expected, createdDepartment);
@@ -129,7 +129,7 @@ public class DefaultDepartmentFacadeTest {
 		// When
 		when(service.getDepartment(anyLong())).thenReturn(department);
 		
-		unit.updateDepartment(id, expected);
+		unit.updateEntity(id, expected);
 
 		// Then
 		verify(service).getDepartment(id);
@@ -169,7 +169,7 @@ public class DefaultDepartmentFacadeTest {
 		// When
 		when(service.getDepartment(anyLong())).thenReturn(department);
 		when(entityConverter.convert(any(Department.class))).thenReturn(expected);
-		DepartmentResource actual = unit.getDepartment(id);
+		DepartmentResource actual = unit.getEntity(id);
 
 		// Then
 		verify(service).getDepartment(id);
@@ -187,7 +187,7 @@ public class DefaultDepartmentFacadeTest {
 		
 		// When
 		when(service.getDepartment(anyLong())).thenReturn(department);
-		unit.removeDepartment(id);
+		unit.removeEntity(id);
 
 		// Then
 		verify(service).getDepartment(id);
@@ -217,7 +217,7 @@ public class DefaultDepartmentFacadeTest {
 		when(service.getDepartments(Matchers.<PagedSearch<Department>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(Department.class))).thenReturn(funnyResources);
 
-		PagedResultResource<DepartmentResource> actualFunnies = unit.getDepartments(pagedRequest);
+		PagedResultResource<DepartmentResource> actualFunnies = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

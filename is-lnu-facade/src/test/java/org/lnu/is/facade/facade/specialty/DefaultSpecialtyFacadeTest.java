@@ -86,7 +86,7 @@ public class DefaultSpecialtyFacadeTest {
 		when(resourceConverter.convert(any(SpecialtyResource.class))).thenReturn(specialty);
 		when(entityConverter.convert(any(Specialty.class))).thenReturn(expected);
 		
-		SpecialtyResource actual = unit.createSpecialty(expected);
+		SpecialtyResource actual = unit.createEntity(expected);
 
 		// Then
 		verify(resourceConverter).convert(expected);
@@ -126,7 +126,7 @@ public class DefaultSpecialtyFacadeTest {
 		// When
 		when(service.getSpecialty(anyLong())).thenReturn(specialty);
 		
-		unit.updateSpecialty(id, expected);
+		unit.updateEntity(id, expected);
 
 		// Then
 		verify(service).getSpecialty(id);
@@ -165,7 +165,7 @@ public class DefaultSpecialtyFacadeTest {
 		// When
 		when(service.getSpecialty(anyLong())).thenReturn(specialty);
 		when(entityConverter.convert(any(Specialty.class))).thenReturn(expected);
-		SpecialtyResource actual = unit.getSpecialty(id);
+		SpecialtyResource actual = unit.getEntity(id);
 
 		// Then
 		verify(service).getSpecialty(id);
@@ -183,7 +183,7 @@ public class DefaultSpecialtyFacadeTest {
 		
 		// When
 		when(service.getSpecialty(anyLong())).thenReturn(specialty);
-		unit.removeSpecialty(id);
+		unit.removeEntity(id);
 
 		// Then
 		verify(service).getSpecialty(id);
@@ -211,7 +211,7 @@ public class DefaultSpecialtyFacadeTest {
 		when(service.getSpecialties(Matchers.<PagedSearch<Specialty>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(Specialty.class))).thenReturn(funnyResources);
 
-		PagedResultResource<SpecialtyResource> actual = unit.getSpecialties(pagedRequest);
+		PagedResultResource<SpecialtyResource> actual = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

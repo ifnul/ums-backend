@@ -49,6 +49,6 @@ public class EduFormTypeController extends BaseController {
 			final EduFormTypeResource resource) {
 		LOG.info("Getting Paged Result of  Edu Form Type with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<EduFormTypeResource> request = new PagedRequest<EduFormTypeResource>(resource, offset, limit);
-		return eduFormTypeFacade.getEduFormTypes(request);
+		return eduFormTypeFacade.getEntities(request);
 	}
 }

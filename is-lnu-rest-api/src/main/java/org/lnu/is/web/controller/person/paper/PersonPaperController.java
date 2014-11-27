@@ -49,7 +49,7 @@ public class PersonPaperController extends BaseController {
 	public PersonPaperResource createPersonPaper(@RequestBody final PersonPaperResource personPaperResource,
 			@PathVariable("personId") final Long personId) {
 		LOG.info("Creating personPaper: {}", personPaperResource);
-		return personPaperFacade.createPersonPaper(personPaperResource);
+		return personPaperFacade.createEntity(personPaperResource);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class PersonPaperController extends BaseController {
  			@RequestBody final PersonPaperResource personPaperResource) {
 		LOG.info("Updating personPaper with id: {}, {}", personPaperId, personPaperResource);
 		
-		personPaperFacade.updatePersonPaper(personPaperId, personPaperResource);
+		personPaperFacade.updateEntity(personPaperId, personPaperResource);
 		return new MessageResource(MessageType.INFO, "Person Paper Updated");
 	}
 	
@@ -82,7 +82,7 @@ public class PersonPaperController extends BaseController {
 			@PathVariable("personPaperId") final Long personPaperId) {
 		LOG.info("Retrieving personPaper with id: {}", personPaperId);
 		
-		return personPaperFacade.getPersonPaper(personPaperId);
+		return personPaperFacade.getEntity(personPaperId);
 	}
 	
 	/**
@@ -96,7 +96,7 @@ public class PersonPaperController extends BaseController {
 	public MessageResource removePersonPaper(@PathVariable("personId") final Long personId,
 			@PathVariable("personPaperId") final Long personPaperId) {
 		LOG.info("Removing personPaper with id: {}", personPaperId);
-		personPaperFacade.removePersonPaper(personPaperId);
+		personPaperFacade.removeEntity(personPaperId);
 		
 		return new MessageResource(MessageType.INFO, "PersonPaper removed");
 	}
@@ -119,7 +119,7 @@ public class PersonPaperController extends BaseController {
 		resource.setPersonId(persId);
 		PagedRequest<PersonPaperResource> pagedRequest = new PagedRequest<PersonPaperResource>(resource, offset, limit);
 		
-		return personPaperFacade.getPersonPapers(pagedRequest);
+		return personPaperFacade.getEntities(pagedRequest);
 	}
 	
 }

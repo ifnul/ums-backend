@@ -16,6 +16,6 @@ public interface PersonTypeFacade {
 	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<PersonTypeResource> getPersonTypes(PagedRequest<PersonTypeResource> request);
+	PagedResultResource<PersonTypeResource> getEntities(PagedRequest<PersonTypeResource> request);
 
 }

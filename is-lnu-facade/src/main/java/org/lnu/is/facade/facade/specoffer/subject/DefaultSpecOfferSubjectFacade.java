@@ -37,7 +37,7 @@ public class DefaultSpecOfferSubjectFacade extends BaseFacade<SpecOfferSubjectRe
 	private Converter<SpecofferSubject, SpecOfferSubjectResource> entityConverter;
 	
 	@Override
-	public SpecOfferSubjectResource createSubject(final SpecOfferSubjectResource resource) {
+	public SpecOfferSubjectResource createEntity(final SpecOfferSubjectResource resource) {
 		LOG.info("Creating spec offer subjects: {}", resource);
 		
 		SpecofferSubject subject = new SpecofferSubject();
@@ -50,7 +50,7 @@ public class DefaultSpecOfferSubjectFacade extends BaseFacade<SpecOfferSubjectRe
 	}
 
 	@Override
-	public void updateSubject(final Long subjectId, final SpecOfferSubjectResource resource) {
+	public void updateEntity(final Long subjectId, final SpecOfferSubjectResource resource) {
 		LOG.info("Updating spec offer subject({}): {}", subjectId, resource);
 		
 		SpecofferSubject subject = service.getSubject(subjectId);
@@ -60,7 +60,7 @@ public class DefaultSpecOfferSubjectFacade extends BaseFacade<SpecOfferSubjectRe
 	}
 
 	@Override
-	public SpecOfferSubjectResource getSubject(final Long subjectId) {
+	public SpecOfferSubjectResource getEntity(final Long subjectId) {
 		LOG.info("Getting spec offer subjects: {}", subjectId);
 		
 		SpecofferSubject subject = service.getSubject(subjectId);
@@ -68,7 +68,7 @@ public class DefaultSpecOfferSubjectFacade extends BaseFacade<SpecOfferSubjectRe
 	}
 
 	@Override
-	public void removeSubject(final Long subjectId) {
+	public void removeEntity(final Long subjectId) {
 		LOG.info("Removing spec offer subjects: {}", subjectId);
 		
 		SpecofferSubject subject = service.getSubject(subjectId);
@@ -76,7 +76,7 @@ public class DefaultSpecOfferSubjectFacade extends BaseFacade<SpecOfferSubjectRe
 	}
 
 	@Override
-	public PagedResultResource<SpecOfferSubjectResource> getSubjects(final PagedRequest<SpecOfferSubjectResource> request) {
+	public PagedResultResource<SpecOfferSubjectResource> getEntities(final PagedRequest<SpecOfferSubjectResource> request) {
 		LOG.info("Getting spec offer subjects by paged request: {}", request);
 
 		PagedSearch<SpecofferSubject> pagedSearch = pagedRequestConverter.convert(request);

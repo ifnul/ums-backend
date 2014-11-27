@@ -49,7 +49,7 @@ public class PersonAwardController extends BaseController {
 	public PersonAwardResource createPersonAward(@RequestBody final PersonAwardResource personAwardResource,
 			@PathVariable("personId") final Long personId) {
 		LOG.info("Creating personAward: {}", personAwardResource);
-		return personAwardFacade.createAward(personAwardResource);
+		return personAwardFacade.createEntity(personAwardResource);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class PersonAwardController extends BaseController {
  			@RequestBody final PersonAwardResource personAwardResource) {
 		LOG.info("Updating personAward with id: {}, {}", personAwardId, personAwardResource);
 		
-		personAwardFacade.updateAward(personAwardId, personAwardResource);
+		personAwardFacade.updateEntity(personAwardId, personAwardResource);
 		return new MessageResource(MessageType.INFO, "Person Award Updated");
 	}
 	
@@ -81,7 +81,7 @@ public class PersonAwardController extends BaseController {
 	public PersonAwardResource getPersonAward(@PathVariable("personId") final Long personId,
 			@PathVariable("personAwardId") final Long personAwardId) {
 		LOG.info("Retrieving personAward with id: {}", personAwardId);
-		return personAwardFacade.getAward(personAwardId);
+		return personAwardFacade.getEntity(personAwardId);
 	}
 	
 	/**
@@ -95,7 +95,7 @@ public class PersonAwardController extends BaseController {
 	public MessageResource removePersonAward(@PathVariable("personId") final Long personId,
 			@PathVariable("personAwardId") final Long personAwardId) {
 		LOG.info("Removing personAward with id: {}", personAwardId);
-		personAwardFacade.removeAward(personAwardId);
+		personAwardFacade.removeEntity(personAwardId);
 		return new MessageResource(MessageType.INFO, "PersonAward removed");
 	}
 	
@@ -116,7 +116,7 @@ public class PersonAwardController extends BaseController {
 		LOG.info("Retrieving PagedResultResource for PersonAward:{} Resources with offset: {}, limit: {}", persId, offset, limit);
 		resource.setPersonId(persId);
 		PagedRequest<PersonAwardResource> pagedRequest = new PagedRequest<PersonAwardResource>(resource, offset, limit);
-		return personAwardFacade.getAwards(pagedRequest);
+		return personAwardFacade.getEntities(pagedRequest);
 	}
 	
 }

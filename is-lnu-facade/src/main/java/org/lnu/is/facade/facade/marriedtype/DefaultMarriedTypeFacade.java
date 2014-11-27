@@ -38,7 +38,7 @@ public class DefaultMarriedTypeFacade extends BaseFacade<MarriedTypeResource, Ma
 	private MarriedTypeService service;
 	
 	@Override
-	public PagedResultResource<MarriedTypeResource> getMarriedTypes(final PagedRequest<MarriedTypeResource> request) {
+	public PagedResultResource<MarriedTypeResource> getEntities(final PagedRequest<MarriedTypeResource> request) {
 		LOG.info("Getting paged result for married types: {}", request);
 		
 		PagedSearch<MarriedType> pagedSearch = pagedRequestConverter.convert(request);

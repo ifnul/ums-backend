@@ -16,33 +16,33 @@ public interface SpecOfferSubjectFacade {
 	 * @param resource
 	 * @return subject with generated id.
 	 */
-	SpecOfferSubjectResource createSubject(SpecOfferSubjectResource resource);
+	SpecOfferSubjectResource createEntity(SpecOfferSubjectResource resource);
 
 	/**
 	 * Method for updating subject.
 	 * @param subjectId
 	 * @param resource
 	 */
-	void updateSubject(Long subjectId, SpecOfferSubjectResource resource);
+	void updateEntity(Long subjectId, SpecOfferSubjectResource resource);
 
 	/**
 	 * Method for getting spec offer subject.
 	 * @param subjectId
 	 * @return subject.
 	 */
-	SpecOfferSubjectResource getSubject(Long subjectId);
+	SpecOfferSubjectResource getEntity(Long subjectId);
 
 	/**
 	 * Method for removing spec offer subject.
 	 * @param subjectId
 	 */
-	void removeSubject(Long subjectId);
+	void removeEntity(Long subjectId);
 
 	/**
 	 * Method for getting spec offer subjects.
 	 * @param pagedRequest
 	 * @return paged result.
 	 */
-	PagedResultResource<SpecOfferSubjectResource> getSubjects(PagedRequest<SpecOfferSubjectResource> pagedRequest);
+	PagedResultResource<SpecOfferSubjectResource> getEntities(PagedRequest<SpecOfferSubjectResource> pagedRequest);
 
 }

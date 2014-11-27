@@ -64,7 +64,7 @@ public class JobTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<JobTypeResource> request = new PagedRequest<JobTypeResource>(paramResource, offset, limit);
 
 		// When
-		when(jobTypeFacade.getJobTypes(Matchers.<PagedRequest<JobTypeResource>> any())).thenReturn(expected);
+		when(jobTypeFacade.getEntities(Matchers.<PagedRequest<JobTypeResource>> any())).thenReturn(expected);
 		String response = getJson(expected, false);
 
 		// Then
@@ -73,6 +73,6 @@ public class JobTypeControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 
-		verify(jobTypeFacade).getJobTypes(request);
+		verify(jobTypeFacade).getEntities(request);
 	}
 }

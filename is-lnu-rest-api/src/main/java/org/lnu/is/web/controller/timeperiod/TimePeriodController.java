@@ -49,7 +49,7 @@ public class TimePeriodController extends BaseController {
 			final TimePeriodResource resource) {
 		LOG.info("Getting Paged Result of  enrolment subject with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<TimePeriodResource> request = new PagedRequest<TimePeriodResource>(resource, offset, limit);
-		return timePeriodFacade.getTimePeriods(request);
+		return timePeriodFacade.getEntities(request);
 	}
 	
 }

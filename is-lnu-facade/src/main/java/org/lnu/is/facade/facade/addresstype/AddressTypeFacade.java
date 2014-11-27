@@ -18,6 +18,6 @@ public interface AddressTypeFacade {
 	 * @param request
 	 * @return paged result
 	 */
-	PagedResultResource<AddressTypeResource> getAddressTypes(
+	PagedResultResource<AddressTypeResource> getEntities(
 			PagedRequest<AddressTypeResource> request);
 }

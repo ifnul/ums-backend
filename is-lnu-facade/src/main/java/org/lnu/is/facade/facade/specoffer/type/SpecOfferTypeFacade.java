@@ -16,6 +16,6 @@ public interface SpecOfferTypeFacade {
 	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(PagedRequest<SpecOfferTypeResource> request);
+	PagedResultResource<SpecOfferTypeResource> getEntities(PagedRequest<SpecOfferTypeResource> request);
 
 }

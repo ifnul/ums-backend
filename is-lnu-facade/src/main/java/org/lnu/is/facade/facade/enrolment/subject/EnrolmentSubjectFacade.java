@@ -16,6 +16,6 @@ public interface EnrolmentSubjectFacade {
 	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<EnrolmentSubjectResource> getEnrolmentSubjects(PagedRequest<EnrolmentSubjectResource> request);
+	PagedResultResource<EnrolmentSubjectResource> getEntities(PagedRequest<EnrolmentSubjectResource> request);
 
 }

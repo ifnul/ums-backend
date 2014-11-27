@@ -64,12 +64,12 @@ public class GenderTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<GenderTypeResource> request = new PagedRequest<GenderTypeResource>(paramResource, offset, limit);
 
 		// When
-		when(genderTypeFacade.getGenderTypes(Matchers.<PagedRequest<GenderTypeResource>> any())).thenReturn(expected);
+		when(genderTypeFacade.getEntities(Matchers.<PagedRequest<GenderTypeResource>> any())).thenReturn(expected);
 		String response = getJson(expected, false);
 
 		// Then
 		mockMvc.perform(get("/gendertypes").param("name", name)).andExpect(status().isOk()).andExpect(content().string(response));
 
-		verify(genderTypeFacade).getGenderTypes(request);
+		verify(genderTypeFacade).getEntities(request);
 	}
 }

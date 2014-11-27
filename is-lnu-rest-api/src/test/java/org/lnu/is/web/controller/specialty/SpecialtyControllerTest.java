@@ -70,7 +70,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
     	String request = getJson(specialtyResource, true);
 		String response = getJson(specialtyResource, false);
     	
-		when(specialtyFacade.createSpecialty(any(SpecialtyResource.class))).thenReturn(specialtyResource);
+		when(specialtyFacade.createEntity(any(SpecialtyResource.class))).thenReturn(specialtyResource);
 		
     	// Then
 		mockMvc.perform(post("/specialties")
@@ -79,7 +79,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(specialtyFacade).createSpecialty(specialtyResource);
+		verify(specialtyFacade).createEntity(specialtyResource);
 	}
     
     @Test
@@ -114,7 +114,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(specialtyFacade).updateSpecialty(id, specialtyResource);
+		verify(specialtyFacade).updateEntity(id, specialtyResource);
 	}
     
     @Test
@@ -138,14 +138,14 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(specialtyResource, false);
 		
-		when(specialtyFacade.getSpecialty(anyLong())).thenReturn(specialtyResource);
+		when(specialtyFacade.getEntity(anyLong())).thenReturn(specialtyResource);
 		
 		// Then
     	mockMvc.perform(get("/specialties/{id}", id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(specialtyFacade).getSpecialty(id);
+    	verify(specialtyFacade).getEntity(id);
 	}
     
     @Test
@@ -159,7 +159,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/specialties/{id}", id))
     		.andExpect(status().is(204));
     	
-    	verify(specialtyFacade).removeSpecialty(id);
+    	verify(specialtyFacade).removeEntity(id);
 	}
     
     @Test
@@ -195,7 +195,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(new SpecialtyResource(), offset, limit);
 		
 		// When
-		when(specialtyFacade.getSpecialties(Matchers.<PagedRequest<SpecialtyResource>>any())).thenReturn(expectedResource);
+		when(specialtyFacade.getEntities(Matchers.<PagedRequest<SpecialtyResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -205,6 +205,6 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(specialtyFacade).getSpecialties(pagedRequest);
+		verify(specialtyFacade).getEntities(pagedRequest);
 	}
 }

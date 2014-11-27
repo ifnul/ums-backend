@@ -39,7 +39,7 @@ public class DefaultEnrolmentStatusTypeFacade extends BaseFacade<EnrolmentStatus
 	private EnrolmentStatusTypeService service;
 
 	@Override
-	public PagedResultResource<EnrolmentStatusTypeResource> getEnrolmentStatusTypes(final PagedRequest<EnrolmentStatusTypeResource> request) {
+	public PagedResultResource<EnrolmentStatusTypeResource> getEntities(final PagedRequest<EnrolmentStatusTypeResource> request) {
 		LOG.info("Getting paged result for enrolment status type resources : {}", request);
 		
 		PagedSearch<EnrolmentStatusType> pagedSearch = pagedRequestConverter.convert(request);

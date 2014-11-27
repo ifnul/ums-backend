@@ -38,7 +38,7 @@ public class DefaultDepartmentFacade extends BaseFacade<DepartmentResource, Depa
 	private Converter<Department, DepartmentResource> entityConverter;
 	
 	@Override
-	public DepartmentResource createDepartment(final DepartmentResource resource) {
+	public DepartmentResource createEntity(final DepartmentResource resource) {
 		LOG.info("Creating department: {}", resource);
 		
 		Department department = new Department();
@@ -52,7 +52,7 @@ public class DefaultDepartmentFacade extends BaseFacade<DepartmentResource, Depa
 	}
 
 	@Override
-	public void updateDepartment(final Long id, final DepartmentResource resource) {
+	public void updateEntity(final Long id, final DepartmentResource resource) {
 		LOG.info("Updating department:{}, {}", id, resource);
 		
 		Department department = service.getDepartment(id);
@@ -64,7 +64,7 @@ public class DefaultDepartmentFacade extends BaseFacade<DepartmentResource, Depa
 	}
 
 	@Override
-	public DepartmentResource getDepartment(final Long id) {
+	public DepartmentResource getEntity(final Long id) {
 		LOG.info("Getting department: {}", id);
 		
 		Department department = service.getDepartment(id);
@@ -72,7 +72,7 @@ public class DefaultDepartmentFacade extends BaseFacade<DepartmentResource, Depa
 	}
 
 	@Override
-	public void removeDepartment(final Long id) {
+	public void removeEntity(final Long id) {
 		LOG.info("Removing department: {}", id);
 		
 		Department department = service.getDepartment(id);
@@ -80,7 +80,7 @@ public class DefaultDepartmentFacade extends BaseFacade<DepartmentResource, Depa
 	}
 
 	@Override
-	public PagedResultResource<DepartmentResource> getDepartments(final PagedRequest<DepartmentResource> request) {
+	public PagedResultResource<DepartmentResource> getEntities(final PagedRequest<DepartmentResource> request) {
 		LOG.info("Get departments by paged request: {}", request);
 
 		PagedSearch<Department> pagedSearch = pagedRequestConverter.convert(request);

@@ -16,33 +16,33 @@ public interface PersonFacade {
 	 * @param resource
 	 * @return person resource.
 	 */
-	PersonResource createPerson(PersonResource resource);
+	PersonResource createEntity(PersonResource resource);
 
 	/**
 	 * Method for updating person.
 	 * @param id
 	 * @param resource
 	 */
-	void updatePerson(Long id, PersonResource resource);
+	void updateEntity(Long id, PersonResource resource);
 
 	/**
 	 * Method for getting person by identifier.
 	 * @param id
 	 * @return person resource.
 	 */
-	PersonResource getPerson(Long id);
+	PersonResource getEntity(Long id);
 
 	/**
 	 * Method for removing person.
 	 * @param id
 	 */
-	void removePerson(Long id);
+	void removeEntity(Long id);
 
 	/**
 	 * Method for getting persons.
 	 * @param request
 	 * @return pagedResult.
 	 */
-	PagedResultResource<PersonResource> getPersons(PagedRequest<PersonResource> request);
+	PagedResultResource<PersonResource> getEntities(PagedRequest<PersonResource> request);
 
 }

@@ -18,14 +18,14 @@ public interface SpecOfferFacade {
 	 * @param resource Resource, that needs to be created.
 	 * @return specoffer with generated identifier.
 	 */
-	SpecOfferResource createSpecOffer(SpecOfferResource resource);
+	SpecOfferResource createEntity(SpecOfferResource resource);
 
 	/**
 	 * Method for updating specoffer.
 	 * @param id identifier of specoffer
 	 * @param resource resourcse.
 	 */
-	void updateSpecOffer(Long id, SpecOfferResource resource);
+	void updateEntity(Long id, SpecOfferResource resource);
 
 	/**
 	 * Method for getting spec offer resource by it's identifier.
@@ -33,13 +33,13 @@ public interface SpecOfferFacade {
 	 * @param id identifier.
 	 * @return specoffer.
 	 */
-	SpecOfferResource getSpecOffer(Long id);
+	SpecOfferResource getEntity(Long id);
 
 	/**
 	 * Method for removing specoffer by it's id.
 	 * @param id identifier.
 	 */
-	void removeSpecOffer(Long id);
+	void removeEntity(Long id);
 
 	/**
 	 * Method for getting paged result for spec offers.
@@ -47,6 +47,6 @@ public interface SpecOfferFacade {
 	 * @param request request.
 	 * @return PagedResult resource.
 	 */
-	PagedResultResource<SpecOfferResource> getSpecOffers(PagedRequest<SpecOfferResource> request);
+	PagedResultResource<SpecOfferResource> getEntities(PagedRequest<SpecOfferResource> request);
 
 }

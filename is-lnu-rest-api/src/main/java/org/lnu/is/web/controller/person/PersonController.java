@@ -48,7 +48,7 @@ public class PersonController extends BaseController {
 	@ApiOperation(value = "Create Person", position = 1)
 	public PersonResource createPerson(@RequestBody final PersonResource personResource) {
 		LOG.info("Creating person: {}", personResource);
-		return personFacade.createPerson(personResource);
+		return personFacade.createEntity(personResource);
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class PersonController extends BaseController {
 	public MessageResource updatePerson(@PathVariable("id") final Long id,
 			@RequestBody final PersonResource personResource) {
 		LOG.info("Updating person with id: {}, {}", id, personResource);
-		personFacade.updatePerson(id, personResource);
+		personFacade.updateEntity(id, personResource);
 		return new MessageResource(MessageType.INFO, "Person Updated");
 	}
 
@@ -77,7 +77,7 @@ public class PersonController extends BaseController {
 	@ApiOperation(value = "Get Person by id", position = 3)
 	public PersonResource getPerson(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving person with id: {}", id);
-		return personFacade.getPerson(id);
+		return personFacade.getEntity(id);
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class PersonController extends BaseController {
 	@ApiOperation(value = "Delete Person", position = 4)
 	public MessageResource removePerson(@PathVariable("id") final Long id) {
 		LOG.info("Removing person with id: {}", id);
-		personFacade.removePerson(id);
+		personFacade.removeEntity(id);
 		return new MessageResource(MessageType.INFO, "Person removed");
 	}
 
@@ -111,6 +111,6 @@ public class PersonController extends BaseController {
 			final PersonResource resource) {
 		LOG.info("Retrieving PagedResultResource for Person Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(resource, offset, limit);
-		return personFacade.getPersons(pagedRequest);
+		return personFacade.getEntities(pagedRequest);
 	}
 }

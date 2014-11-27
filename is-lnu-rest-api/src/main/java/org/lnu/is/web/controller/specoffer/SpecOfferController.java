@@ -61,7 +61,7 @@ public class SpecOfferController extends BaseController {
 	@ApiOperation(value = "Create Specoffer", position = 1)
 	public SpecOfferResource createSpecOffer(@Valid @RequestBody final SpecOfferResource specOfferResource) {
 		LOG.info("Creating specoffer: {}", specOfferResource);
-		return specOfferFacade.createSpecOffer(specOfferResource);
+		return specOfferFacade.createEntity(specOfferResource);
 	}
 	
 	/**
@@ -86,7 +86,7 @@ public class SpecOfferController extends BaseController {
 	public MessageResource updateSpecOffer(@PathVariable("id") final Long id,
 			@RequestBody final SpecOfferResource specOfferResource) {
 		LOG.info("Updated specoffer with id: {}, {}", id, specOfferResource);
-		specOfferFacade.updateSpecOffer(id, specOfferResource);
+		specOfferFacade.updateEntity(id, specOfferResource);
 		return new MessageResource(MessageType.INFO, "SpecOffer Updated");
 	}
 	
@@ -107,7 +107,7 @@ public class SpecOfferController extends BaseController {
 	@ApiOperation(value = "Get's SpecOffer", position = 3)
 	public SpecOfferResource getSpecOffer(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving specoffer with id: {}", id);
-		return specOfferFacade.getSpecOffer(id);
+		return specOfferFacade.getEntity(id);
 	}
 	
 	/**
@@ -128,7 +128,7 @@ public class SpecOfferController extends BaseController {
 	@ApiOperation(value = "Remove Specoffer", position = 4)
 	public MessageResource removeSpecOffer(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
-		specOfferFacade.removeSpecOffer(id);
+		specOfferFacade.removeEntity(id);
 		return new MessageResource(MessageType.INFO, "SpecOffer removed");
 	}
 	
@@ -159,7 +159,7 @@ public class SpecOfferController extends BaseController {
 			final SpecOfferResource resource) {
 		LOG.info("Retrieving PagedResultResource for Spec Offer Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<SpecOfferResource> pagedRequest = new PagedRequest<SpecOfferResource>(resource, offset, limit);
-		return specOfferFacade.getSpecOffers(pagedRequest);
+		return specOfferFacade.getEntities(pagedRequest);
 	}
 	
 	/**
@@ -177,6 +177,6 @@ public class SpecOfferController extends BaseController {
 			final SpecOfferTypeResource resource) {
 		LOG.info("Retrieving PagedResultResource for Spec Offer Type Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<SpecOfferTypeResource> pagedRequest = new PagedRequest<SpecOfferTypeResource>(resource, offset, limit);
-		return specOfferTypeFacade.getSpecOfferTypes(pagedRequest);
+		return specOfferTypeFacade.getEntities(pagedRequest);
 	}
 }

@@ -40,7 +40,7 @@ public class DefaultPersonAddressFacade extends BaseFacade<PersonAddressResource
 	private PersonAddressService service;
 	
 	@Override
-	public PersonAddressResource createAddress(final PersonAddressResource resource) {
+	public PersonAddressResource createEntity(final PersonAddressResource resource) {
 		LOG.info("Creating person address, {}", resource);
 		
 		PersonAddress address = new PersonAddress();
@@ -53,7 +53,7 @@ public class DefaultPersonAddressFacade extends BaseFacade<PersonAddressResource
 	}
 
 	@Override
-	public void updateAddress(final Long addressId, final PersonAddressResource resource) {
+	public void updateEntity(final Long addressId, final PersonAddressResource resource) {
 		LOG.info("Updating person address resource({}): {}", addressId, resource);
 		
 		PersonAddress address = service.getAddress(addressId);
@@ -62,7 +62,7 @@ public class DefaultPersonAddressFacade extends BaseFacade<PersonAddressResource
 	}
 
 	@Override
-	public PersonAddressResource getAddress(final Long addressId) {
+	public PersonAddressResource getEntity(final Long addressId) {
 		LOG.info("Getting person address({})", addressId);
 		
 		PersonAddress address = service.getAddress(addressId);
@@ -70,7 +70,7 @@ public class DefaultPersonAddressFacade extends BaseFacade<PersonAddressResource
 	}
 
 	@Override
-	public PagedResultResource<PersonAddressResource> getAddresses(final PagedRequest<PersonAddressResource> request) {
+	public PagedResultResource<PersonAddressResource> getEntities(final PagedRequest<PersonAddressResource> request) {
 		LOG.info("Get person papers by paged request: {}", request);
 
 		PagedSearch<PersonAddress> pagedSearch = pagedRequestConverter.convert(request);
@@ -88,7 +88,7 @@ public class DefaultPersonAddressFacade extends BaseFacade<PersonAddressResource
 	}
 
 	@Override
-	public void deleteAddress(final Long addressId) {
+	public void removeEntity(final Long addressId) {
 		PersonAddress address = service.getAddress(addressId);
 		service.deleteAddress(address);
 	}

@@ -16,6 +16,6 @@ public interface TimePeriodFacade {
 	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<TimePeriodResource> getTimePeriods(PagedRequest<TimePeriodResource> request);
+	PagedResultResource<TimePeriodResource> getEntities(PagedRequest<TimePeriodResource> request);
 
 }

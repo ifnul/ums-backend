@@ -38,7 +38,7 @@ public class DefaultTimePeriodFacade extends BaseFacade<TimePeriodResource, Time
 	private Converter<TimePeriodResource, TimePeriod> resourceConverter;
 	
 	@Override
-	public PagedResultResource<TimePeriodResource> getTimePeriods(final PagedRequest<TimePeriodResource> request) {
+	public PagedResultResource<TimePeriodResource> getEntities(final PagedRequest<TimePeriodResource> request) {
 		LOG.info("Get time periods by paged request: {}", request);
 
 		PagedSearch<TimePeriod> pagedSearch = pagedRequestConverter.convert(request);

@@ -16,33 +16,33 @@ public interface PersonAwardFacade {
 	 * @param personAwardResource
 	 * @return person award with generated id.
 	 */
-	PersonAwardResource createAward(PersonAwardResource personAwardResource);
+	PersonAwardResource createEntity(PersonAwardResource personAwardResource);
 
 	/**
 	 * Updating person award.
 	 * @param personAwardId
 	 * @param personAwardResource
 	 */
-	void updateAward(Long personAwardId, PersonAwardResource personAwardResource);
+	void updateEntity(Long personAwardId, PersonAwardResource personAwardResource);
 
 	/**
 	 * Getting person award by id.
 	 * @param personAwardId
 	 * @return person award.
 	 */
-	PersonAwardResource getAward(Long personAwardId);
+	PersonAwardResource getEntity(Long personAwardId);
 
 	/**
 	 * Method for removing person award.
 	 * @param personAwardId
 	 */
-	void removeAward(Long personAwardId);
+	void removeEntity(Long personAwardId);
 
 	/**
 	 * Method for getting paged result.
 	 * @param pagedRequest
 	 * @return paged results.
 	 */
-	PagedResultResource<PersonAwardResource> getAwards(PagedRequest<PersonAwardResource> pagedRequest);
+	PagedResultResource<PersonAwardResource> getEntities(PagedRequest<PersonAwardResource> pagedRequest);
 
 }

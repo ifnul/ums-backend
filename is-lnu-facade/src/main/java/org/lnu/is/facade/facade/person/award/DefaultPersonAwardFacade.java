@@ -37,7 +37,7 @@ public class DefaultPersonAwardFacade extends BaseFacade<PersonAwardResource, Pe
 	private PersonAwardService service;
 	
 	@Override
-	public PersonAwardResource createAward(final PersonAwardResource resource) {
+	public PersonAwardResource createEntity(final PersonAwardResource resource) {
 		LOG.info("Creating award: {}", resource);
 		PersonAward award = new PersonAward();
 				
@@ -49,7 +49,7 @@ public class DefaultPersonAwardFacade extends BaseFacade<PersonAwardResource, Pe
 	}
 
 	@Override
-	public void updateAward(final Long personAwardId, final PersonAwardResource resource) {
+	public void updateEntity(final Long personAwardId, final PersonAwardResource resource) {
 		LOG.info("Updating award({}): {}", personAwardId, resource);
 		
 		PersonAward award = service.getAward(personAwardId);
@@ -60,19 +60,19 @@ public class DefaultPersonAwardFacade extends BaseFacade<PersonAwardResource, Pe
 	}
 
 	@Override
-	public PersonAwardResource getAward(final Long personAwardId) {
+	public PersonAwardResource getEntity(final Long personAwardId) {
 		PersonAward award = service.getAward(personAwardId);
 		return entityConverter.convert(award);
 	}
 
 	@Override
-	public void removeAward(final Long personAwardId) {
+	public void removeEntity(final Long personAwardId) {
 		PersonAward award = service.getAward(personAwardId);
 		service.removeAward(award);
 	}
 
 	@Override
-	public PagedResultResource<PersonAwardResource> getAwards(final PagedRequest<PersonAwardResource> request) {
+	public PagedResultResource<PersonAwardResource> getEntities(final PagedRequest<PersonAwardResource> request) {
 		LOG.info("Get person awards by paged request: {}", request);
 
 		PagedSearch<PersonAward> pagedSearch = pagedRequestConverter.convert(request);

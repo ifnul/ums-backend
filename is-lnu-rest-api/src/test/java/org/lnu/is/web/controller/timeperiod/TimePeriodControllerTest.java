@@ -65,7 +65,7 @@ public class TimePeriodControllerTest extends AbstractControllerTest {
 		PagedRequest<TimePeriodResource> pagedRequest = new PagedRequest<TimePeriodResource>(new TimePeriodResource(), offset, limit);
 		
 		// When
-		when(timePeriodFacade.getTimePeriods(Matchers.<PagedRequest<TimePeriodResource>>any())).thenReturn(expectedResource);
+		when(timePeriodFacade.getEntities(Matchers.<PagedRequest<TimePeriodResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -75,6 +75,6 @@ public class TimePeriodControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(timePeriodFacade).getTimePeriods(pagedRequest);
+		verify(timePeriodFacade).getEntities(pagedRequest);
 	}
 }

@@ -16,33 +16,33 @@ public interface PersonAddressFacade {
 	 * @param resource
 	 * @return resource with generated id.
 	 */
-	PersonAddressResource createAddress(PersonAddressResource resource);
+	PersonAddressResource createEntity(PersonAddressResource resource);
 
 	/**
 	 * Method for updating person address.
 	 * @param addressId
 	 * @param resource
 	 */
-	void updateAddress(Long addressId, PersonAddressResource resource);
+	void updateEntity(Long addressId, PersonAddressResource resource);
 
 	/**
 	 * Method for getting person address.
 	 * @param addressId
 	 * @return person address.
 	 */
-	PersonAddressResource getAddress(Long addressId);
+	PersonAddressResource getEntity(Long addressId);
 
 	/**
 	 * Method for getting paged result.
 	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<PersonAddressResource> getAddresses(PagedRequest<PersonAddressResource> request);
+	PagedResultResource<PersonAddressResource> getEntities(PagedRequest<PersonAddressResource> request);
 
 	/**
 	 * Method for deleting person adress.
 	 * @param addressId
 	 */
-	void deleteAddress(Long addressId);
+	void removeEntity(Long addressId);
 
 }

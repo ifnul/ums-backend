@@ -67,7 +67,7 @@ public class DefaultEnrolmentStatusTypeFacadeTest {
 		when(service.getEnrolmentStatusTypes(Matchers.<PagedSearch<EnrolmentStatusType>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(EnrolmentStatusType.class))).thenReturn(someResources);
 
-		PagedResultResource<EnrolmentStatusTypeResource> actualResources = unit.getEnrolmentStatusTypes(pagedRequest);
+		PagedResultResource<EnrolmentStatusTypeResource> actualResources = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

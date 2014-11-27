@@ -68,7 +68,7 @@ public class DefaultMarriedTypeFacadeTest {
 		when(service.getMarriedTypes(Matchers.<PagedSearch<MarriedType>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(Matchers.anyListOf(MarriedType.class))).thenReturn(resources);
 
-		PagedResultResource<MarriedTypeResource> actual = unit.getMarriedTypes(pagedRequest);
+		PagedResultResource<MarriedTypeResource> actual = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

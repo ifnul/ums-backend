@@ -67,7 +67,7 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 
 		// When
 		when(
-				addressTypeFacade.getAddressTypes(Matchers
+				addressTypeFacade.getEntities(Matchers
 						.<PagedRequest<AddressTypeResource>> any()))
 				.thenReturn(expected);
 		String response = getJson(expected, false);
@@ -77,7 +77,7 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 
-		verify(addressTypeFacade).getAddressTypes(request);
+		verify(addressTypeFacade).getEntities(request);
 
 	}
 

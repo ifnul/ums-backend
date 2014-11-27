@@ -16,6 +16,6 @@ public interface MarriedTypeFacade {
 	 * @param request
 	 * @return paged result.
 	 */
-	PagedResultResource<MarriedTypeResource> getMarriedTypes(PagedRequest<MarriedTypeResource> request);
+	PagedResultResource<MarriedTypeResource> getEntities(PagedRequest<MarriedTypeResource> request);
 
 }

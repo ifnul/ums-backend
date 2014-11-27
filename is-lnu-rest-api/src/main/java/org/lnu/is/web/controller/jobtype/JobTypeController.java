@@ -49,7 +49,7 @@ public class JobTypeController extends BaseController {
 			final JobTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Job Type with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<JobTypeResource> request = new PagedRequest<JobTypeResource>(resource, offset, limit);
-		return jobTypeFacade.getJobTypes(request);
+		return jobTypeFacade.getEntities(request);
 	}
 
 }

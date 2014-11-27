@@ -68,7 +68,7 @@ public class DefaultSpecOfferTypeFacadeTest {
 		when(service.getSpecOfferTypes(Matchers.<PagedSearch<SpecOfferType>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(SpecOfferType.class))).thenReturn(funnyResources);
 
-		PagedResultResource<SpecOfferTypeResource> actualFunnies = unit.getSpecOfferTypes(pagedRequest);
+		PagedResultResource<SpecOfferTypeResource> actualFunnies = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

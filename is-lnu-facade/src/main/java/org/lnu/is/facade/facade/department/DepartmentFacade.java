@@ -17,32 +17,32 @@ public interface DepartmentFacade {
 	 * @param resource resource
 	 * @return department with generated identifier.
 	 */
-	DepartmentResource createDepartment(DepartmentResource resource);
+	DepartmentResource createEntity(DepartmentResource resource);
 
 	/**
 	 * Method for updating department.
 	 * @param id identifier.
 	 * @param resource department resource.
 	 */
-	void updateDepartment(Long id, DepartmentResource resource);
+	void updateEntity(Long id, DepartmentResource resource);
 
 	/**
 	 * Method for getting ready department.
 	 * @param id identifier.
 	 * @return Department.
 	 */
-	DepartmentResource getDepartment(Long id);
+	DepartmentResource getEntity(Long id);
 
 	/**
 	 * Method for removing department.
 	 * @param id identifier.
 	 */
-	void removeDepartment(Long id);
+	void removeEntity(Long id);
 
 	/**
 	 * Method for getting paged result for departments.
 	 * @param request request.
 	 * @return paged result.
 	 */
-	PagedResultResource<DepartmentResource> getDepartments(PagedRequest<DepartmentResource> request);
+	PagedResultResource<DepartmentResource> getEntities(PagedRequest<DepartmentResource> request);
 }

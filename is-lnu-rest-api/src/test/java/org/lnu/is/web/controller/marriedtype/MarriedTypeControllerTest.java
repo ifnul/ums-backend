@@ -67,7 +67,7 @@ public class MarriedTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<MarriedTypeResource> request = new PagedRequest<MarriedTypeResource>(paramResource, offset, limit);
 		
 		// When
-		when(marriedTypeFacade.getMarriedTypes(Matchers.<PagedRequest<MarriedTypeResource>> any())).thenReturn(expected);
+		when(marriedTypeFacade.getEntities(Matchers.<PagedRequest<MarriedTypeResource>> any())).thenReturn(expected);
 		String response = getJson(expected, false);
 		
 		// Then
@@ -77,7 +77,7 @@ public class MarriedTypeControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(marriedTypeFacade).getMarriedTypes(request);
+		verify(marriedTypeFacade).getEntities(request);
 	}
 
 }

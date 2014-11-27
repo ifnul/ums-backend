@@ -66,7 +66,7 @@ public class DefaultPersonAwardFacadeTest {
 		when(resourceConverter.convert(any(PersonAwardResource.class))).thenReturn(personAward);
 		when(entityConverter.convert(any(PersonAward.class))).thenReturn(expected);
 		
-		PersonAwardResource actual = unit.createAward(expected);
+		PersonAwardResource actual = unit.createEntity(expected);
 
 		// Then
 		verify(resourceConverter).convert(expected, new PersonAward());
@@ -90,7 +90,7 @@ public class DefaultPersonAwardFacadeTest {
 		// When
 		when(service.getAward(anyLong())).thenReturn(personAward);
 		
-		unit.updateAward(id, expected);
+		unit.updateEntity(id, expected);
 
 		// Then
 		verify(service).getAward(id);
@@ -113,7 +113,7 @@ public class DefaultPersonAwardFacadeTest {
 		// When
 		when(service.getAward(anyLong())).thenReturn(personAward);
 		when(entityConverter.convert(any(PersonAward.class))).thenReturn(expected);
-		PersonAwardResource actual = unit.getAward(id);
+		PersonAwardResource actual = unit.getEntity(id);
 
 		// Then
 		verify(service).getAward(id);
@@ -131,7 +131,7 @@ public class DefaultPersonAwardFacadeTest {
 		
 		// When
 		when(service.getAward(anyLong())).thenReturn(personAward);
-		unit.removeAward(id);
+		unit.removeEntity(id);
 
 		// Then
 		verify(service).getAward(id);
@@ -162,7 +162,7 @@ public class DefaultPersonAwardFacadeTest {
 		when(service.getAwards(Matchers.<PagedSearch<PersonAward>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(PersonAward.class))).thenReturn(funnyResources);
 
-		PagedResultResource<PersonAwardResource> actualFunnies = unit.getAwards(pagedRequest);
+		PagedResultResource<PersonAwardResource> actualFunnies = unit.getEntities(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);

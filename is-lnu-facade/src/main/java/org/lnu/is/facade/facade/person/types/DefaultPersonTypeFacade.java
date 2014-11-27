@@ -38,7 +38,7 @@ public class DefaultPersonTypeFacade extends BaseFacade<PersonTypeResource, Pers
 	private Converter<PersonType, PersonTypeResource> entityConverter;
 	
 	@Override
-	public PagedResultResource<PersonTypeResource> getPersonTypes(final PagedRequest<PersonTypeResource> request) {
+	public PagedResultResource<PersonTypeResource> getEntities(final PagedRequest<PersonTypeResource> request) {
 		LOG.info("Getting person types by paged request: {}", request);
 
 		PagedSearch<PersonType> pagedSearch = pagedRequestConverter.convert(request);

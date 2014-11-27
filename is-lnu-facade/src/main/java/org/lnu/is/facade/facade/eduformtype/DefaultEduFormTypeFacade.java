@@ -38,7 +38,7 @@ public class DefaultEduFormTypeFacade extends BaseFacade<EduFormTypeResource, Ed
 	private EduFormTypeService service;
 	
 	@Override
-	public PagedResultResource<EduFormTypeResource> getEduFormTypes(final PagedRequest<EduFormTypeResource> request) {
+	public PagedResultResource<EduFormTypeResource> getEntities(final PagedRequest<EduFormTypeResource> request) {
 		LOG.info("Getting paged result for edu form types: {}", request);
 		
 		PagedSearch<EduFormType> pagedSearch = pagedRequestConverter.convert(request);

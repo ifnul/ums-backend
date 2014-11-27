@@ -56,7 +56,7 @@ public class SpecialtyController extends BaseController {
 	@ApiOperation(value = "Create Specialty", position = 1)
 	public SpecialtyResource createSpecialty(@RequestBody final SpecialtyResource specialtyResource) {
 		LOG.info("Creating specialty: {}", specialtyResource);
-		return specialtyFacade.createSpecialty(specialtyResource);
+		return specialtyFacade.createEntity(specialtyResource);
 	}
 	
 	/**
@@ -81,7 +81,7 @@ public class SpecialtyController extends BaseController {
 	public MessageResource updateSpecialty(@PathVariable("id") final Long id,
 			@RequestBody final SpecialtyResource specialtyResource) {
 		LOG.info("Updated specialty with id: {}, {}", id, specialtyResource);
-		specialtyFacade.updateSpecialty(id, specialtyResource);
+		specialtyFacade.updateEntity(id, specialtyResource);
 		return new MessageResource(MessageType.INFO, "Specialty Updated");
 	}
 	
@@ -102,7 +102,7 @@ public class SpecialtyController extends BaseController {
 	@ApiOperation(value = "Get Specailty by id", position = 3)
 	public SpecialtyResource getSpecialty(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving specialty with id: {}", id);
-		return specialtyFacade.getSpecialty(id);
+		return specialtyFacade.getEntity(id);
 	}
 	
 	/**
@@ -123,7 +123,7 @@ public class SpecialtyController extends BaseController {
 	@ApiOperation(value = "Delete Specialty", position = 4)
 	public MessageResource removeSpecialty(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
-		specialtyFacade.removeSpecialty(id);
+		specialtyFacade.removeEntity(id);
 		return new MessageResource(MessageType.INFO, "Specialty removed");
 	}
 	
@@ -154,6 +154,6 @@ public class SpecialtyController extends BaseController {
 			final SpecialtyResource resource) {
 		LOG.info("Retrieving PagedResultResource for Specialty Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(resource, offset, limit);
-		return specialtyFacade.getSpecialties(pagedRequest);
+		return specialtyFacade.getEntities(pagedRequest);
 	}	
 }

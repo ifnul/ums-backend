@@ -62,7 +62,7 @@ public class PersonControllerTest extends AbstractControllerTest {
     	String request = getJson(personResource, true);
 		String response = getJson(personResource, false);
     	
-		when(personFacade.createPerson(any(PersonResource.class))).thenReturn(personResource);
+		when(personFacade.createEntity(any(PersonResource.class))).thenReturn(personResource);
 		
     	// Then
 		mockMvc.perform(post("/persons")
@@ -71,7 +71,7 @@ public class PersonControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(personFacade).createPerson(personResource);
+		verify(personFacade).createEntity(personResource);
 	}
     
     @Test
@@ -99,7 +99,7 @@ public class PersonControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(personFacade).updatePerson(id, personResource);
+		verify(personFacade).updateEntity(id, personResource);
 	}
     
     @Test
@@ -116,14 +116,14 @@ public class PersonControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(personResource, false);
 		
-		when(personFacade.getPerson(anyLong())).thenReturn(personResource);
+		when(personFacade.getEntity(anyLong())).thenReturn(personResource);
 		
 		// Then
     	mockMvc.perform(get("/persons/{id}", id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(personFacade).getPerson(id);
+    	verify(personFacade).getEntity(id);
 	}
     
     @Test
@@ -137,7 +137,7 @@ public class PersonControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/persons/{id}", id))
     		.andExpect(status().is(204));
     	
-    	verify(personFacade).removePerson(id);
+    	verify(personFacade).removeEntity(id);
 	}
     
     @Test
@@ -166,7 +166,7 @@ public class PersonControllerTest extends AbstractControllerTest {
 		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), offset, limit);
 		
 		// When
-		when(personFacade.getPersons(Matchers.<PagedRequest<PersonResource>>any())).thenReturn(expectedResource);
+		when(personFacade.getEntities(Matchers.<PagedRequest<PersonResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -176,7 +176,7 @@ public class PersonControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(personFacade).getPersons(pagedRequest);
+		verify(personFacade).getEntities(pagedRequest);
 	}
   
 }

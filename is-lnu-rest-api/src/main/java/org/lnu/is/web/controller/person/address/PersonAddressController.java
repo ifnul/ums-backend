@@ -49,7 +49,7 @@ public class PersonAddressController extends BaseController {
 	public PersonAddressResource createPersonAddress(@RequestBody final PersonAddressResource resource,
 			@PathVariable("personId") final Long personId) {
 		LOG.info("Creating person address: {}", resource);
-		return personAddressFacade.createAddress(resource);
+		return personAddressFacade.createEntity(resource);
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class PersonAddressController extends BaseController {
 		LOG.info("Updating person({}) address({}): {}", personId, addressId, resource);
 		
 		resource.setPersonId(personId);
-		personAddressFacade.updateAddress(addressId, resource);
+		personAddressFacade.updateEntity(addressId, resource);
 		
 		return new MessageResource(MessageType.INFO, "Person address updated");
 	}
@@ -84,7 +84,7 @@ public class PersonAddressController extends BaseController {
 	public MessageResource deleteAddress(@PathVariable("addressId") final Long addressId) {
 		LOG.info("Deletin person address({})", addressId);
 		
-		personAddressFacade.deleteAddress(addressId);
+		personAddressFacade.removeEntity(addressId);
 		return new MessageResource(MessageType.INFO, "Person Address deleted");
 	}
 	
@@ -98,7 +98,7 @@ public class PersonAddressController extends BaseController {
 	@ApiOperation(value = "Method for getting person address by id")
 	public PersonAddressResource getAddress(@PathVariable("addressId") final Long addressId) {
 		LOG.info("Getting person address({})", addressId);
-		return personAddressFacade.getAddress(addressId);
+		return personAddressFacade.getEntity(addressId);
 	}
 	
 	/**
@@ -118,6 +118,6 @@ public class PersonAddressController extends BaseController {
 			final PersonAddressResource resource) {
 		LOG.info("Getting paged result for person({}) addresses with parameters: {}", persId, resource);
 		PagedRequest<PersonAddressResource> request = new PagedRequest<PersonAddressResource>(resource, offset, limit);
-		return personAddressFacade.getAddresses(request);
+		return personAddressFacade.getEntities(request);
 	}
 }

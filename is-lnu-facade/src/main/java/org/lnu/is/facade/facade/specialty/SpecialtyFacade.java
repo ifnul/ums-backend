@@ -16,33 +16,33 @@ public interface SpecialtyFacade {
 	 * @param resource resource.
 	 * @return specialty with generated identifier.
 	 */
-	SpecialtyResource createSpecialty(SpecialtyResource resource);
+	SpecialtyResource createEntity(SpecialtyResource resource);
 
 	/**
 	 * UPDATE.
 	 * @param id identifier.
 	 * @param resource resource.
 	 */
-	void updateSpecialty(Long id, SpecialtyResource resource);
+	void updateEntity(Long id, SpecialtyResource resource);
 
 	/**
 	 * READ.
 	 * @param id identifier.
 	 * @return specialty.
 	 */
-	SpecialtyResource getSpecialty(Long id);
+	SpecialtyResource getEntity(Long id);
 
 	/**
 	 * DELETE.
 	 * @param id identifier.
 	 */
-	void removeSpecialty(Long id);
+	void removeEntity(Long id);
 
 	/**
 	 * READ - multiple.
 	 * @param request
 	 * @return paged result with multiple specialties.
 	 */
-	PagedResultResource<SpecialtyResource> getSpecialties(PagedRequest<SpecialtyResource> request);
+	PagedResultResource<SpecialtyResource> getEntities(PagedRequest<SpecialtyResource> request);
 
 }

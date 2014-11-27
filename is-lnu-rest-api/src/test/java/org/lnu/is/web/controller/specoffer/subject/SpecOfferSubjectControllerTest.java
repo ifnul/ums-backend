@@ -61,7 +61,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     	String request = getJson(specOfferSubjectResource, true);
 		String response = getJson(specOfferSubjectResource, false);
     	
-		when(specOfferSubjectFacade.createSubject(any(SpecOfferSubjectResource.class))).thenReturn(specOfferSubjectResource);
+		when(specOfferSubjectFacade.createEntity(any(SpecOfferSubjectResource.class))).thenReturn(specOfferSubjectResource);
 		
     	// Then
 		mockMvc.perform(post("/specoffers/{0}/subjects", personId)
@@ -70,7 +70,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(specOfferSubjectFacade).createSubject(specOfferSubjectResource);
+		verify(specOfferSubjectFacade).createEntity(specOfferSubjectResource);
 	}
     
     @Test
@@ -95,7 +95,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(specOfferSubjectFacade).updateSubject(id, specOfferSubjectResource);
+		verify(specOfferSubjectFacade).updateEntity(id, specOfferSubjectResource);
 	}
     
     @Test
@@ -109,14 +109,14 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(specOfferSubjectResource, false);
 		
-		when(specOfferSubjectFacade.getSubject(anyLong())).thenReturn(specOfferSubjectResource);
+		when(specOfferSubjectFacade.getEntity(anyLong())).thenReturn(specOfferSubjectResource);
 		
 		// Then
     	mockMvc.perform(get("/specoffers/{0}/subjects/{id}", personId, id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(specOfferSubjectFacade).getSubject(id);
+    	verify(specOfferSubjectFacade).getEntity(id);
 	}
     
     @Test
@@ -131,7 +131,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/specoffers/{0}/subjects/{id}", personId, id))
     		.andExpect(status().is(204));
     	
-    	verify(specOfferSubjectFacade).removeSubject(id);
+    	verify(specOfferSubjectFacade).removeEntity(id);
 	}
     
     @Test
@@ -159,7 +159,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 		PagedRequest<SpecOfferSubjectResource> pagedRequest = new PagedRequest<SpecOfferSubjectResource>(resource, offset, limit);
 		
 		// When
-		when(specOfferSubjectFacade.getSubjects(Matchers.<PagedRequest<SpecOfferSubjectResource>>any())).thenReturn(expectedResource);
+		when(specOfferSubjectFacade.getEntities(Matchers.<PagedRequest<SpecOfferSubjectResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -169,6 +169,6 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(specOfferSubjectFacade).getSubjects(pagedRequest);
+		verify(specOfferSubjectFacade).getEntities(pagedRequest);
 	}
 }
