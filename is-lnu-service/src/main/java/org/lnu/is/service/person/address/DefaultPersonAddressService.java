@@ -23,21 +23,21 @@ public class DefaultPersonAddressService implements PersonAddressService {
 	private ParametersExtractor<PersonAddress> parametersExtractor;
 	
 	@Resource(name = "personAddressDao")
-	private PersonAddressDao personAddressDao;
+	private PersonAddressDao defaultDao;
 	
 	@Override
 	public void createAddress(final PersonAddress address) {
-		personAddressDao.save(address);
+		defaultDao.save(address);
 	}
 
 	@Override
 	public PersonAddress getAddress(final Long addressId) {
-		return personAddressDao.findById(addressId);
+		return defaultDao.findById(addressId);
 	}
 
 	@Override
 	public void updateAddress(final PersonAddress address) {
-		personAddressDao.update(address);
+		defaultDao.update(address);
 	}
 
 	@Override
@@ -45,12 +45,12 @@ public class DefaultPersonAddressService implements PersonAddressService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return personAddressDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 	@Override
 	public void deleteAddress(final PersonAddress address) {
-		personAddressDao.delete(address);
+		defaultDao.delete(address);
 	}
 
 }

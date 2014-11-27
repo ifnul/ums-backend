@@ -20,29 +20,29 @@ import org.springframework.stereotype.Service;
 public class DefaultPersonService implements PersonService {
 
 	@Resource(name = "personDao")
-	private PersonDao personDao;
+	private PersonDao defaultDao;
 
 	@Resource(name = "personParametersExtractor")
 	private ParametersExtractor<Person> parametersExtractor;
 	
 	@Override
 	public void createPerson(final Person person) {
-		personDao.save(person);
+		defaultDao.save(person);
 	}
 
 	@Override
 	public Person getPerson(final Long id) {
-		return personDao.findById(id);
+		return defaultDao.findById(id);
 	}
 
 	@Override
 	public void updatePerson(final Person person) {
-		personDao.update(person);
+		defaultDao.update(person);
 	}
 
 	@Override
 	public void removePerson(final Person person) {
-		personDao.delete(person);
+		defaultDao.delete(person);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class DefaultPersonService implements PersonService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return personDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 	
 }

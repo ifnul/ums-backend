@@ -1,11 +1,12 @@
 package org.lnu.is.service;
 
+
 /**
  * Common interface for all services.
  * @author ivanursul
  *
- * @param <E> Entity.
+ * @param <ENTITY> Entity.
  */
-public interface Service<E> {
+public interface Service<ENTITY> {
 
 }

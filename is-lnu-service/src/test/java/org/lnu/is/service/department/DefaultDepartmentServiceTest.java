@@ -24,7 +24,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultDepartmentServiceTest {
 
 	@Mock
-	private DepartmentDao departmentDao;
+	private DepartmentDao defaultDao;
 	
 	@Mock
 	private ParametersExtractor<Department> parametersExtractor;
@@ -42,7 +42,7 @@ public class DefaultDepartmentServiceTest {
 		unit.createDepartment(expected);
 
 		// Then
-		verify(departmentDao).save(expected);
+		verify(defaultDao).save(expected);
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class DefaultDepartmentServiceTest {
 		unit.updateDepartment(department);
 
 		// Then
-		verify(departmentDao).update(department);
+		verify(defaultDao).update(department);
 	}
 	
 	@Test
@@ -65,11 +65,11 @@ public class DefaultDepartmentServiceTest {
 		expected.setId(id);
 
 		// When
-		when(departmentDao.findById(anyLong())).thenReturn(expected);
+		when(defaultDao.findById(anyLong())).thenReturn(expected);
 		Department actual = unit.getDepartment(id);
 
 		// Then
-		verify(departmentDao).findById(id);
+		verify(defaultDao).findById(id);
 		assertEquals(expected, actual);
 	}
 	
@@ -82,7 +82,7 @@ public class DefaultDepartmentServiceTest {
 		unit.removeDepartment(department);
 
 		// Then
-		verify(departmentDao).delete(department);
+		verify(defaultDao).delete(department);
 	}
 	
 	@Test
@@ -98,11 +98,11 @@ public class DefaultDepartmentServiceTest {
 		PagedResult<Department> expected = new PagedResult<Department>(offset, limit, count, entities);
 		
 		// When
-		when(departmentDao.getEntities(Matchers.<PagedSearch<Department>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<Department>>any())).thenReturn(expected);
 		PagedResult<Department> actual = unit.getDepartments(pagedSearch);
 
 		// Then
-		verify(departmentDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

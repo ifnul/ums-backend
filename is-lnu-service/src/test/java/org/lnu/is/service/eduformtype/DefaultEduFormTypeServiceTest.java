@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultEduFormTypeServiceTest {
 
 	@Mock
-	private EduFormTypeDao enrolmentSubjectDao;
+	private EduFormTypeDao defaultDao;
 	
 	@Mock
 	private ParametersExtractor<EduFormType> parametersExtractor;
@@ -43,11 +43,11 @@ public class DefaultEduFormTypeServiceTest {
 		PagedResult<EduFormType> expected = new PagedResult<EduFormType>(offset, limit, count, entities);
 		
 		// When
-		when(enrolmentSubjectDao.getEntities(Matchers.<PagedSearch<EduFormType>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<EduFormType>>any())).thenReturn(expected);
 		PagedResult<EduFormType> actual = unit.getEduFormTypes(pagedSearch);
 
 		// Then
-		verify(enrolmentSubjectDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

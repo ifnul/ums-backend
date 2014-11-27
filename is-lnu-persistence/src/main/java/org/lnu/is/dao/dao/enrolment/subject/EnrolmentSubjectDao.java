@@ -1,6 +1,6 @@
 package org.lnu.is.dao.dao.enrolment.subject;
 
-import org.lnu.is.dao.Dao;
+import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 
 /**

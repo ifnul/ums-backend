@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultSpecOfferTypeServiceTest {
 	
 	@Mock
-	private SpecOfferTypeDao enrolmentSubjectDao;
+	private SpecOfferTypeDao defaultDao;
 	
 	@Mock
 	private ParametersExtractor<SpecOfferType> parametersExtractor;
@@ -43,11 +43,11 @@ public class DefaultSpecOfferTypeServiceTest {
 		PagedResult<SpecOfferType> expected = new PagedResult<SpecOfferType>(offset, limit, count, entities);
 		
 		// When
-		when(enrolmentSubjectDao.getEntities(Matchers.<PagedSearch<SpecOfferType>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<SpecOfferType>>any())).thenReturn(expected);
 		PagedResult<SpecOfferType> actual = unit.getSpecOfferTypes(pagedSearch);
 
 		// Then
-		verify(enrolmentSubjectDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

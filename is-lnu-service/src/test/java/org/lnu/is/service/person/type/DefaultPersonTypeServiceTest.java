@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultPersonTypeServiceTest {
 	
 	@Mock
-	private PersonTypeDao personTypeDao;
+	private PersonTypeDao defaultDao;
 	
 	@Mock
 	private ParametersExtractor<PersonType> parametersExtractor;
@@ -44,11 +44,11 @@ public class DefaultPersonTypeServiceTest {
 		PagedResult<PersonType> expected = new PagedResult<PersonType>(offset, limit, count, entities);
 		
 		// When
-		when(personTypeDao.getEntities(Matchers.<PagedSearch<PersonType>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<PersonType>>any())).thenReturn(expected);
 		PagedResult<PersonType> actual = unit.getPersonTypes(pagedSearch);
 
 		// Then
-		verify(personTypeDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultTimePeriodServiceTest {
 	
 	@Mock
-	private TimePeriodDao timePeriodDao;
+	private TimePeriodDao defaultDao;
 	
 	@Mock
 	private ParametersExtractor<TimePeriod> parametersExtractor;
@@ -44,11 +44,11 @@ public class DefaultTimePeriodServiceTest {
 		PagedResult<TimePeriod> expected = new PagedResult<TimePeriod>(offset, limit, count, entities);
 		
 		// When
-		when(timePeriodDao.getEntities(Matchers.<PagedSearch<TimePeriod>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<TimePeriod>>any())).thenReturn(expected);
 		PagedResult<TimePeriod> actual = unit.getTimePeriods(pagedSearch);
 
 		// Then
-		verify(timePeriodDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}	
 }

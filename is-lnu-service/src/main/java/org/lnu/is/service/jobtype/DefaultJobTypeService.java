@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class DefaultJobTypeService implements JobTypeService {
 
 	@Resource(name = "jobTypeDao")
-	private JobTypeDao jobTypeDao;
+	private JobTypeDao defaultDao;
 
 	@Resource(name = "jobTypeParametersExtractor")
 	private ParametersExtractor<JobType> jobTypeParametersExtractor;
@@ -30,7 +30,7 @@ public class DefaultJobTypeService implements JobTypeService {
 		Map<String, Object> parameters = jobTypeParametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 
-		return jobTypeDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 }

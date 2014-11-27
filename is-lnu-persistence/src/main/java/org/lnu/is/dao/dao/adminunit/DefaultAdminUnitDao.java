@@ -1,6 +1,6 @@
 package org.lnu.is.dao.dao.adminunit;
 
-import org.lnu.is.dao.AbstractDao;
+import org.lnu.is.dao.dao.AbstractDao;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.springframework.stereotype.Repository;
 

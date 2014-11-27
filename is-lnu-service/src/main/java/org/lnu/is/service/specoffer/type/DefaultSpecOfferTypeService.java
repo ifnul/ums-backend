@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class DefaultSpecOfferTypeService implements SpecOfferTypeService {
 
 	@Resource(name = "specOfferTypeDao")
-	private SpecOfferTypeDao specOfferTypeDao;
+	private SpecOfferTypeDao defaultDao;
 	
 	@Resource(name = "specOfferTypeParametersExtractor")
 	private ParametersExtractor<SpecOfferType> parametersExtractor;
@@ -30,7 +30,7 @@ public class DefaultSpecOfferTypeService implements SpecOfferTypeService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return specOfferTypeDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 }

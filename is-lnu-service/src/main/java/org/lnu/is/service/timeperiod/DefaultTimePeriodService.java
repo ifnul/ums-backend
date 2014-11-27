@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class DefaultTimePeriodService implements TimePeriodService {
 
 	@Resource(name = "timePeriodDao")
-	private TimePeriodDao timePeriodDao;
+	private TimePeriodDao defaultDao;
 	
 	@Resource(name = "timePeriodParametersExtractor")
 	private ParametersExtractor<TimePeriod> parametersExtractor;
@@ -30,7 +30,7 @@ public class DefaultTimePeriodService implements TimePeriodService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return timePeriodDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 }

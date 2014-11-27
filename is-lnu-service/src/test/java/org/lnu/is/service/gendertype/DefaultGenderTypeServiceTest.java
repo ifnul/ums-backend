@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultGenderTypeServiceTest {
 
 	@Mock
-	private GenderTypeDao genderTypeDao;
+	private GenderTypeDao defaultDao;
 
 	@Mock
 	private ParametersExtractor<GenderType> parametersExtractor;
@@ -44,11 +44,11 @@ public class DefaultGenderTypeServiceTest {
 		PagedResult<GenderType> expected = new PagedResult<GenderType>(offset, limit, count, entities);
 
 		// When
-		when(genderTypeDao.getEntities(Matchers.<PagedSearch<GenderType>> any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<GenderType>> any())).thenReturn(expected);
 		PagedResult<GenderType> actual = unit.getGenderTypes(pagedSearch);
 
 		// Then
-		verify(genderTypeDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

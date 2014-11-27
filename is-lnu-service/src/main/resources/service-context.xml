@@ -10,4 +10,8 @@
     <context:component-scan base-package="org.lnu.is.service" />
     <context:component-scan base-package="org.lnu.is.extractor" />
 
+<!-- 
+	<import resource="services-context.xml"/>
+-->
+
 </beans>

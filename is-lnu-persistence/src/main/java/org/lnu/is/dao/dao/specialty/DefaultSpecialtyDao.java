@@ -2,8 +2,8 @@ package org.lnu.is.dao.dao.specialty;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.AbstractDao;
 import org.lnu.is.dao.builder.QueryBuilder;
+import org.lnu.is.dao.dao.AbstractDao;
 import org.lnu.is.domain.specialty.Specialty;
 import org.springframework.stereotype.Repository;
 

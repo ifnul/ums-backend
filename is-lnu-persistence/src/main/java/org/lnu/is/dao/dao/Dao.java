@@ -1,4 +1,4 @@
-package org.lnu.is.dao;
+package org.lnu.is.dao.dao;
 
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
@@ -8,41 +8,41 @@ import org.lnu.is.pagination.PagedSearch;
  * to work with entities.
  * @author ivanursul
  *
- * @param <E> Entity class.
- * @param <T> Identifier class.
+ * @param <ENTITY> Entity class.
+ * @param <KEY> Identifier class.
  */
-public interface Dao<E, T> {
+public interface Dao<ENTITY, KEY> {
 
 	/**
 	 * Method for finding Entities by Id.
 	 * @param id identifier.
 	 * @return Entity.
 	 */
-	E findById(T id);
+	ENTITY findById(KEY id);
 	
 	/**
 	 * Method for saving entity.
 	 * @param entity entity.
 	 */
-	void save(E entity);
+	void save(ENTITY entity);
 	
 	/**
 	 * Method for updating entity.
 	 * @param entity entity.
 	 */
-	void update(E entity);
+	void update(ENTITY entity);
 	
 	/**
 	 * Method for deleting entity.
 	 * @param entity entity.
 	 */
-	void delete(E entity);
+	void delete(ENTITY entity);
 	
 	/**
 	 * Method for getting paged Result.
 	 * @param pagedSearch
 	 * @return paged result.
 	 */
-	PagedResult<E> getEntities(PagedSearch<E> pagedSearch);
+	PagedResult<ENTITY> getEntities(PagedSearch<ENTITY> pagedSearch);
 }
 

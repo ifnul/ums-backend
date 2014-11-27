@@ -2,7 +2,7 @@ package org.lnu.is.extractor;
 
 import java.util.Map;
 
-import org.lnu.is.dao.Dao;
+import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.Model;
 
 /**

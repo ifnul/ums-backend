@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class DefaultGenderTypeService implements GenderTypeService {
 
 	@Resource(name = "genderTypeDao")
-	private GenderTypeDao genderTypeDao;
+	private GenderTypeDao defaultDao;
 
 	@Resource(name = "genderTypeParametersExtractor")
 	private ParametersExtractor<GenderType> parametersExtractor;
@@ -30,7 +30,7 @@ public class DefaultGenderTypeService implements GenderTypeService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 
-		return genderTypeDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 }

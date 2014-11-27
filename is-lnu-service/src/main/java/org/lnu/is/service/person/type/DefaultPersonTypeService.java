@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class DefaultPersonTypeService implements PersonTypeService {
 
 	@Resource(name = "personTypeDao")
-	private PersonTypeDao personTypeDao;
+	private PersonTypeDao defaultDao;
 	
 	@Resource(name = "personTypeParametersExtractors")
 	private ParametersExtractor<PersonType> parametersExtractor;
@@ -30,7 +30,7 @@ public class DefaultPersonTypeService implements PersonTypeService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return personTypeDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 }

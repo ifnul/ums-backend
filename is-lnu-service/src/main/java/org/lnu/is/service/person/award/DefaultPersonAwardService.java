@@ -23,26 +23,26 @@ public class DefaultPersonAwardService implements PersonAwardService {
 	private ParametersExtractor<PersonAward> parametersExtractor;
 	
 	@Resource(name = "personAwardDao")
-	private PersonAwardDao personAwardDao;
+	private PersonAwardDao defaultDao;
 	
 	@Override
 	public void createAward(final PersonAward award) {
-		personAwardDao.save(award);
+		defaultDao.save(award);
 	}
 
 	@Override
 	public void updateAward(final PersonAward award) {
-		personAwardDao.update(award);
+		defaultDao.update(award);
 	}
 
 	@Override
 	public PersonAward getAward(final Long personAwardId) {
-		return personAwardDao.findById(personAwardId);
+		return defaultDao.findById(personAwardId);
 	}
 
 	@Override
 	public void removeAward(final PersonAward award) {
-		personAwardDao.delete(award);
+		defaultDao.delete(award);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class DefaultPersonAwardService implements PersonAwardService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return personAwardDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 }

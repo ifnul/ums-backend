@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultEnrolmentSubjectServiceTest {
 
 	@Mock
-	private EnrolmentSubjectDao enrolmentSubjectDao;
+	private EnrolmentSubjectDao defaultDao;
 	
 	@Mock
 	private ParametersExtractor<EnrolmentSubject> parametersExtractor;
@@ -43,11 +43,11 @@ public class DefaultEnrolmentSubjectServiceTest {
 		PagedResult<EnrolmentSubject> expected = new PagedResult<EnrolmentSubject>(offset, limit, count, entities);
 		
 		// When
-		when(enrolmentSubjectDao.getEntities(Matchers.<PagedSearch<EnrolmentSubject>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<EnrolmentSubject>>any())).thenReturn(expected);
 		PagedResult<EnrolmentSubject> actual = unit.getEnrolmentSubjects(pagedSearch);
 
 		// Then
-		verify(enrolmentSubjectDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

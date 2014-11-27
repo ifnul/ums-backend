@@ -2,8 +2,8 @@ package org.lnu.is.dao.dao.timeperiod;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.AbstractDao;
 import org.lnu.is.dao.builder.QueryBuilder;
+import org.lnu.is.dao.dao.AbstractDao;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.springframework.stereotype.Repository;
 

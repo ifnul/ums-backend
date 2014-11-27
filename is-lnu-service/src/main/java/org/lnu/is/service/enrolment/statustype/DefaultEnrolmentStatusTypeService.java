@@ -19,34 +19,34 @@ import org.springframework.stereotype.Service;
 public class DefaultEnrolmentStatusTypeService implements EnrolmentStatusTypeService {
 
 	@Resource(name = "enrolmentStatusTypeDao")
-	private EnrolmentStatusTypeDao enrolmentStatusTypeDao;
+	private EnrolmentStatusTypeDao defaultDao;
 
 	@Resource(name = "enrolmentStatusTypeParametersExtractor")
 	private ParametersExtractor<EnrolmentStatusType> parametersExtractor;
 	
 	@Override
 	public void createEnrolmentStatusType(final EnrolmentStatusType enrolmentStatusType) {
-		enrolmentStatusTypeDao.save(enrolmentStatusType);
+		defaultDao.save(enrolmentStatusType);
 	}
 
 	@Override
 	public EnrolmentStatusType getEnrolmentStatusType(final Long id) {
-		return enrolmentStatusTypeDao.findById(id);
+		return defaultDao.findById(id);
 	}
 
 	@Override
 	public void updateEnrolmentStatusType(final EnrolmentStatusType enrolmentStatusType) {
-		enrolmentStatusTypeDao.update(enrolmentStatusType);
+		defaultDao.update(enrolmentStatusType);
 	}
 
 	@Override
 	public void removeEnrolmentStatusType(final EnrolmentStatusType enrolmentStatusType) {
-		enrolmentStatusTypeDao.delete(enrolmentStatusType);
+		defaultDao.delete(enrolmentStatusType);
 	}
 
 	@Override
 	public PagedResult<EnrolmentStatusType> getEnrolmentStatusTypes(final PagedSearch<EnrolmentStatusType> pagedSearch) {
-		return enrolmentStatusTypeDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 }

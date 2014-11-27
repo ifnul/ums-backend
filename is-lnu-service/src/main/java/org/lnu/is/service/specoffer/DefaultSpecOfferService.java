@@ -21,29 +21,29 @@ import org.springframework.stereotype.Service;
 public class DefaultSpecOfferService implements SpecOfferService {
 
 	@Resource(name = "specOfferDao")
-	private SpecOfferDao specOfferDao;
+	private SpecOfferDao defaultDao;
 
 	@Resource(name = "specOfferParametersExtractor")
 	private ParametersExtractor<SpecOffer> parametersExtractor;
 	
 	@Override
 	public void createSpecOffer(final SpecOffer specOffer) {
-		specOfferDao.save(specOffer);
+		defaultDao.save(specOffer);
 	}
 
 	@Override
 	public SpecOffer getSpecOffer(final Long id) {
-		return specOfferDao.findById(id);
+		return defaultDao.findById(id);
 	}
 
 	@Override
 	public void updateSpecOffer(final SpecOffer specOffer) {
-		specOfferDao.update(specOffer);
+		defaultDao.update(specOffer);
 	}
 
 	@Override
 	public void removeSpecOffer(final SpecOffer specOffer) {
-		specOfferDao.delete(specOffer);
+		defaultDao.delete(specOffer);
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class DefaultSpecOfferService implements SpecOfferService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return specOfferDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 	
 }

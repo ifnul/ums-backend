@@ -9,6 +9,7 @@
        default-autowire="byName">
 
     <context:component-scan base-package="org.lnu.is.dao" />
+	<!-- <import resource="dao-context.xml"/> -->
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
     

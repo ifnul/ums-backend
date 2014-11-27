@@ -1,4 +1,4 @@
-package org.lnu.is.dao;
+package org.lnu.is.dao.dao;
 
 import javax.annotation.Resource;
 
@@ -24,10 +24,6 @@ public abstract class AbstractDao<E, T> implements Dao<E, T> {
 	
 	private QueryBuilder<E> queryBuilder;
 	
-	public void setQueryBuilder(final QueryBuilder<E> queryBuilder) {
-		this.queryBuilder = queryBuilder;
-	}
-
 	/**
 	 * Need to implement for each entity(User, Student, etc..).
 	 * @return Class instance
@@ -57,7 +53,7 @@ public abstract class AbstractDao<E, T> implements Dao<E, T> {
 
 	@Override
 	public PagedResult<E> getEntities(final PagedSearch<E> pagedSearch) {
-
+		
 		String querySql = queryBuilder.build(pagedSearch.getEntity());
 		Queries<E> queries = new Queries<E>(getEntityClass(), querySql);
 		
@@ -67,4 +63,7 @@ public abstract class AbstractDao<E, T> implements Dao<E, T> {
 		return persistenceManager.search(pagedQuerySearch);
 	}
 	
+	public void setQueryBuilder(final QueryBuilder<E> queryBuilder) {
+		this.queryBuilder = queryBuilder;
+	}
 }

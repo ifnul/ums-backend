@@ -1,6 +1,6 @@
 package org.lnu.is.dao.dao.order;
 
-import org.lnu.is.dao.AbstractDao;
+import org.lnu.is.dao.dao.AbstractDao;
 import org.lnu.is.domain.order.Order;
 import org.springframework.stereotype.Repository;
 

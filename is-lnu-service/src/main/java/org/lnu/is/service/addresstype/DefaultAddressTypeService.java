@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 public class DefaultAddressTypeService implements AddressTypeService {
 
 	@Resource(name = "addressTypeDao")
-	private AddressTypeDao addressTypeDao;
+	private AddressTypeDao defaultDao;
 
 	@Resource(name = "addressTypeParametersExtractor")
 	private ParametersExtractor<AddressType> addressTypeParametersExtractor;
@@ -33,6 +33,6 @@ public class DefaultAddressTypeService implements AddressTypeService {
 				.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 
-		return addressTypeDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 }

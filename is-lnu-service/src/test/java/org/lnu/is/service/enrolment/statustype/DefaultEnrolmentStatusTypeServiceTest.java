@@ -24,7 +24,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultEnrolmentStatusTypeServiceTest {
 	
 	@Mock
-	private EnrolmentStatusTypeDao enrolmentStatusTypeDao;
+	private EnrolmentStatusTypeDao defaultDao;
 	
 	@InjectMocks
 	private DefaultEnrolmentStatusTypeService unit;
@@ -39,7 +39,7 @@ public class DefaultEnrolmentStatusTypeServiceTest {
 		unit.createEnrolmentStatusType(enrolmentStatusType);
 		
 		// Then
-		verify(enrolmentStatusTypeDao).save(enrolmentStatusType);
+		verify(defaultDao).save(enrolmentStatusType);
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class DefaultEnrolmentStatusTypeServiceTest {
 		unit.updateEnrolmentStatusType(enrolmentStatusType);
 
 		// Then
-		verify(enrolmentStatusTypeDao).update(enrolmentStatusType);
+		verify(defaultDao).update(enrolmentStatusType);
 	}
 	
 	@Test
@@ -65,12 +65,12 @@ public class DefaultEnrolmentStatusTypeServiceTest {
 		expected.setId(id);
 		
 		// When
-		when(enrolmentStatusTypeDao.findById(anyLong())).thenReturn(expected);
+		when(defaultDao.findById(anyLong())).thenReturn(expected);
 		
 		EnrolmentStatusType actual = unit.getEnrolmentStatusType(id);
 
 		// Then
-		verify(enrolmentStatusTypeDao).findById(id);
+		verify(defaultDao).findById(id);
 		assertEquals(expected, actual);
 	}
 	
@@ -86,7 +86,7 @@ public class DefaultEnrolmentStatusTypeServiceTest {
 		unit.removeEnrolmentStatusType(enrolmentStatusType);
 
 		// Then
-		verify(enrolmentStatusTypeDao).delete(enrolmentStatusType);
+		verify(defaultDao).delete(enrolmentStatusType);
 	}
 	
 	@Test
@@ -104,12 +104,12 @@ public class DefaultEnrolmentStatusTypeServiceTest {
 		PagedResult<EnrolmentStatusType> expected = new PagedResult<EnrolmentStatusType>(offset, limit, count, entities);
 		
 		// When
-		when(enrolmentStatusTypeDao.getEntities(Matchers.<PagedSearch<EnrolmentStatusType>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<EnrolmentStatusType>>any())).thenReturn(expected);
 		
 		PagedResult<EnrolmentStatusType> actual = unit.getEnrolmentStatusTypes(pagedSearch);
 
 		// Then
-		verify(enrolmentStatusTypeDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 

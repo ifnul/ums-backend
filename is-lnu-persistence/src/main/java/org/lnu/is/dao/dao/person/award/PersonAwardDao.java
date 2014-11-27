@@ -1,6 +1,6 @@
 package org.lnu.is.dao.dao.person.award;
 
-import org.lnu.is.dao.Dao;
+import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.person.PersonAward;
 
 /**

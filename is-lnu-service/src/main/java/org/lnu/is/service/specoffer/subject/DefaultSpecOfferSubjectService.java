@@ -23,26 +23,26 @@ public class DefaultSpecOfferSubjectService implements SpecOfferSubjectService {
 	private ParametersExtractor<SpecofferSubject> parametersExtractor;
 	
 	@Resource(name = "specOfferSubjectDao")
-	private SpecOfferSubjectDao entityDao;
+	private SpecOfferSubjectDao defaultDao;
 
 	@Override
 	public void createSubject(final SpecofferSubject subject) {
-		entityDao.save(subject);
+		defaultDao.save(subject);
 	}
 
 	@Override
 	public SpecofferSubject getSubject(final Long id) {
-		return entityDao.findById(id);
+		return defaultDao.findById(id);
 	}
 
 	@Override
 	public void updateSubject(final SpecofferSubject subject) {
-		entityDao.update(subject);
+		defaultDao.update(subject);
 	}
 
 	@Override
 	public void removeSubject(final SpecofferSubject subject) {
-		entityDao.delete(subject);
+		defaultDao.delete(subject);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class DefaultSpecOfferSubjectService implements SpecOfferSubjectService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return entityDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 	
 }

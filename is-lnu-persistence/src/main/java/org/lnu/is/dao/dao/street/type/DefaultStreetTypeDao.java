@@ -1,6 +1,6 @@
 package org.lnu.is.dao.dao.street.type;
 
-import org.lnu.is.dao.AbstractDao;
+import org.lnu.is.dao.dao.AbstractDao;
 import org.lnu.is.domain.streettype.StreetType;
 import org.springframework.stereotype.Repository;
 

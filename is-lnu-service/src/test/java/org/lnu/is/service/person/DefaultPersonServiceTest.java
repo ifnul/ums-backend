@@ -25,7 +25,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultPersonServiceTest {
 
 	@Mock
-	private PersonDao personDao;
+	private PersonDao defaultDao;
 	
 	@Mock
 	private ParametersExtractor<Person> parametersExtractor;
@@ -42,7 +42,7 @@ public class DefaultPersonServiceTest {
 		unit.createPerson(expected);
 
 		// Then
-		verify(personDao).save(expected);
+		verify(defaultDao).save(expected);
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class DefaultPersonServiceTest {
 		unit.updatePerson(person);
 
 		// Then
-		verify(personDao).update(person);
+		verify(defaultDao).update(person);
 	}
 	
 	@Test
@@ -65,11 +65,11 @@ public class DefaultPersonServiceTest {
 		expected.setId(id);
 
 		// When
-		when(personDao.findById(anyLong())).thenReturn(expected);
+		when(defaultDao.findById(anyLong())).thenReturn(expected);
 		Person actual = unit.getPerson(id);
 
 		// Then
-		verify(personDao).findById(id);
+		verify(defaultDao).findById(id);
 		assertEquals(expected, actual);
 	}
 	
@@ -82,7 +82,7 @@ public class DefaultPersonServiceTest {
 		unit.removePerson(person);
 
 		// Then
-		verify(personDao).delete(person);
+		verify(defaultDao).delete(person);
 	}
 	
 	@Test
@@ -98,11 +98,11 @@ public class DefaultPersonServiceTest {
 		PagedResult<Person> expected = new PagedResult<Person>(offset, limit, count, entities);
 		
 		// When
-		when(personDao.getEntities(Matchers.<PagedSearch<Person>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<Person>>any())).thenReturn(expected);
 		PagedResult<Person> actual = unit.getPersons(pagedSearch);
 
 		// Then
-		verify(personDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

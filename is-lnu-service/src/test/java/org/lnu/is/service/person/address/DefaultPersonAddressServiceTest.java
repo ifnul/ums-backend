@@ -27,7 +27,7 @@ public class DefaultPersonAddressServiceTest {
 	private ParametersExtractor<PersonAddress> parametersExtractor;
 	
 	@Mock
-	private PersonAddressDao personAddressDao;
+	private PersonAddressDao defaultDao;
 	
 	@InjectMocks
 	private DefaultPersonAddressService unit;
@@ -41,7 +41,7 @@ public class DefaultPersonAddressServiceTest {
 		unit.createAddress(address);
 
 		// Then
-		verify(personAddressDao).save(address);
+		verify(defaultDao).save(address);
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ public class DefaultPersonAddressServiceTest {
 		unit.updateAddress(address);
 
 		// Then
-		verify(personAddressDao).update(address);
+		verify(defaultDao).update(address);
 	}
 	
 	@Test
@@ -64,11 +64,11 @@ public class DefaultPersonAddressServiceTest {
 		expected.setId(addressId);
 		
 		// When
-		when(personAddressDao.findById(anyLong())).thenReturn(expected);
+		when(defaultDao.findById(anyLong())).thenReturn(expected);
 		PersonAddress actual = unit.getAddress(addressId);
 
 		// Then
-		verify(personAddressDao).findById(addressId);
+		verify(defaultDao).findById(addressId);
 		assertEquals(expected, actual);
 	}
 	
@@ -87,11 +87,11 @@ public class DefaultPersonAddressServiceTest {
 		PagedResult<PersonAddress> expected = new PagedResult<PersonAddress>(offset, limit, count, entities);
 		
 		// When
-		when(personAddressDao.getEntities(Matchers.<PagedSearch<PersonAddress>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<PersonAddress>>any())).thenReturn(expected);
 		PagedResult<PersonAddress> actual = unit.getAddresses(pagedSearch);
 
 		// Then
-		verify(personAddressDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		verify(parametersExtractor).getParameters(pagedSearch.getEntity());
 		assertEquals(expected, actual);
 	}

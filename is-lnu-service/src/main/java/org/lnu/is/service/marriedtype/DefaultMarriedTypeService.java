@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class DefaultMarriedTypeService implements MarriedTypeService {
 
 	@Resource(name = "marriedTypeDao")
-	private MarriedTypeDao marriedTypeDao;
+	private MarriedTypeDao defaultDao;
 	
 	@Resource(name = "marriedTypeParametersExtractor")
 	private ParametersExtractor<MarriedType> marriedTypeParametersExtractor;
@@ -30,7 +30,7 @@ public class DefaultMarriedTypeService implements MarriedTypeService {
 		Map<String, Object> parameters = marriedTypeParametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return marriedTypeDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 }

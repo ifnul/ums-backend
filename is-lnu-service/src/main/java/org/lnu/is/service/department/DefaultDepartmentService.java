@@ -20,29 +20,29 @@ import org.springframework.stereotype.Service;
 public class DefaultDepartmentService implements DepartmentService {
 
 	@Resource(name = "departmentDao")
-	private DepartmentDao departmentDao;
+	private DepartmentDao defaultDao;
 	
 	@Resource(name = "departmentParametersExtractor")
 	private ParametersExtractor<Department> parametersExtractor;
 	
 	@Override
 	public void createDepartment(final Department department) {
-		departmentDao.save(department);
+		defaultDao.save(department);
 	}
 
 	@Override
 	public Department getDepartment(final Long id) {
-		return departmentDao.findById(id);
+		return defaultDao.findById(id);
 	}
 
 	@Override
 	public void updateDepartment(final Department department) {
-		departmentDao.update(department);
+		defaultDao.update(department);
 	}
 
 	@Override
 	public void removeDepartment(final Department department) {
-		departmentDao.delete(department);
+		defaultDao.delete(department);
 	}
 
 	@Override
@@ -50,6 +50,6 @@ public class DefaultDepartmentService implements DepartmentService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return departmentDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 }

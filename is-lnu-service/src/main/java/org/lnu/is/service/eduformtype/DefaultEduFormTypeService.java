@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class DefaultEduFormTypeService implements EduFormTypeService {
 
 	@Resource(name = "eduFormTypeDao")
-	private EduFormTypeDao eduFormTypeDao;
+	private EduFormTypeDao defaultDao;
 	
 	@Resource(name = "eduFormTypeParametersExtractor")
 	private ParametersExtractor<EduFormType> parametersExtractor;
@@ -30,6 +30,6 @@ public class DefaultEduFormTypeService implements EduFormTypeService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 
-		return eduFormTypeDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 }

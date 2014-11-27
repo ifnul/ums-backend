@@ -1,6 +1,6 @@
 package org.lnu.is.dao.dao.paper.type;
 
-import org.lnu.is.dao.AbstractDao;
+import org.lnu.is.dao.dao.AbstractDao;
 import org.lnu.is.domain.papertype.PaperType;
 import org.springframework.stereotype.Repository;
 

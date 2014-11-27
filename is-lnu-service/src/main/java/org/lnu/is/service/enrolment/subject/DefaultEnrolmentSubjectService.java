@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class DefaultEnrolmentSubjectService implements EnrolmentSubjectService {
 
 	@Resource(name = "enrolmentSubjectDao")
-	private EnrolmentSubjectDao enrolmentSubjectDao;
+	private EnrolmentSubjectDao defaultDao;
 	
 	@Resource(name = "enrolmentSubjectParametersExtractor")
 	private ParametersExtractor<EnrolmentSubject> parametersExtractor;
@@ -30,7 +30,7 @@ public class DefaultEnrolmentSubjectService implements EnrolmentSubjectService {
 		Map<String, Object> parameters = parametersExtractor.getParameters(pagedSearch.getEntity());
 		pagedSearch.setParameters(parameters);
 		
-		return enrolmentSubjectDao.getEntities(pagedSearch);
+		return defaultDao.getEntities(pagedSearch);
 	}
 
 }

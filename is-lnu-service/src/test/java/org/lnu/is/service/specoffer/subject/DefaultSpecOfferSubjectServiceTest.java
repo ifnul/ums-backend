@@ -13,7 +13,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultSpecOfferSubjectServiceTest {
 
 	@Mock
-	private SpecOfferSubjectDao specOfferSubjectDao;
+	private SpecOfferSubjectDao defaultDao;
 	
 	@InjectMocks
 	private DefaultSpecOfferSubjectService unit;

@@ -25,7 +25,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultSpecOfferServiceTest {
 
 	@Mock
-	private SpecOfferDao specOfferDao;
+	private SpecOfferDao defaultDao;
 	
 	@Mock
 	private ParametersExtractor<SpecOffer> parametersExtractor;
@@ -42,7 +42,7 @@ public class DefaultSpecOfferServiceTest {
 		unit.createSpecOffer(specOffer);
 		
 		// Then
-		verify(specOfferDao).save(specOffer);
+		verify(defaultDao).save(specOffer);
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class DefaultSpecOfferServiceTest {
 		unit.updateSpecOffer(specOffer);
 
 		// Then
-		verify(specOfferDao).update(specOffer);
+		verify(defaultDao).update(specOffer);
 	}
 	
 	@Test
@@ -66,12 +66,12 @@ public class DefaultSpecOfferServiceTest {
 		expected.setId(id);
 		
 		// When
-		when(specOfferDao.findById(anyLong())).thenReturn(expected);
+		when(defaultDao.findById(anyLong())).thenReturn(expected);
 		
 		SpecOffer actual = unit.getSpecOffer(id);
 
 		// Then
-		verify(specOfferDao).findById(id);
+		verify(defaultDao).findById(id);
 		assertEquals(expected, actual);
 	}
 	
@@ -86,7 +86,7 @@ public class DefaultSpecOfferServiceTest {
 		unit.removeSpecOffer(specOffer);
 
 		// Then
-		verify(specOfferDao).delete(specOffer);
+		verify(defaultDao).delete(specOffer);
 	}
 	
 	@Test
@@ -103,12 +103,12 @@ public class DefaultSpecOfferServiceTest {
 		PagedResult<SpecOffer> expected = new PagedResult<SpecOffer>(offset, limit, count, entities);
 		
 		// When
-		when(specOfferDao.getEntities(Matchers.<PagedSearch<SpecOffer>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<SpecOffer>>any())).thenReturn(expected);
 		
 		PagedResult<SpecOffer> actual = unit.getSpecOffers(pagedSearch);
 
 		// Then
-		verify(specOfferDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }

@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultMarriedTypeServiceTest {
 	
 	@Mock
-	private MarriedTypeDao marriedTypeDao;
+	private MarriedTypeDao defaultDao;
 
 	@Mock
 	private ParametersExtractor<MarriedType> parametersExtractor;
@@ -46,11 +46,11 @@ public class DefaultMarriedTypeServiceTest {
 				offset, limit, count, entities);
 
 		// When
-		when(marriedTypeDao.getEntities(Matchers.<PagedSearch<MarriedType>> any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<PagedSearch<MarriedType>> any())).thenReturn(expected);
 		PagedResult<MarriedType> actual = unit.getMarriedTypes(pagedSearch);
 
 		// Then
-		verify(marriedTypeDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 

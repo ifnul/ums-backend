@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultAddressTypeServiceTest {
 
 	@Mock
-	private AddressTypeDao addressTypeDao;
+	private AddressTypeDao defaultDao;
 
 	@Mock
 	private ParametersExtractor<AddressType> parametersExtractor;
@@ -46,13 +46,13 @@ public class DefaultAddressTypeServiceTest {
 
 		// When
 		when(
-				addressTypeDao.getEntities(Matchers
+				defaultDao.getEntities(Matchers
 						.<PagedSearch<AddressType>> any()))
 				.thenReturn(expected);
 		PagedResult<AddressType> actual = unit.getAddressTypes(pagedSearch);
 
 		// Then
-		verify(addressTypeDao).getEntities(pagedSearch);
+		verify(defaultDao).getEntities(pagedSearch);
 		assertEquals(expected, actual);
 	}
 }
