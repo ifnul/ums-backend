@@ -140,7 +140,6 @@
         <class>org.lnu.is.domain.eduformtype.EduFormType</class>
         <class>org.lnu.is.domain.salarytype.SalaryType</class>
         <class>org.lnu.is.domain.specstagetype.SpecStageType</class>
-        <class>org.lnu.is.domain.statustype.StatusType</class>
         <class>org.lnu.is.domain.streettype.StreetType</class>
         <class>org.lnu.is.domain.timesheettype.TimeSheetType</class>
         <class>org.lnu.is.domain.wavetype.WaveType</class>

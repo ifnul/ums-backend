@@ -1017,44 +1017,7 @@
     	<addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_rf_specoffertype" constraintName="fk_q_rf_specialtytype_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
     	
     </changeSet>
-    
-    <changeSet author="illay" id="Створення таблиці довідник типів статусу заяви">
-        <createTable remarks="Довідник типів статусу заяви" tableName="q_rf_statustype">
-            <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-           <column name="abbrname" type="VARCHAR(50)" remarks="Скорочена назва(абривіатура)"></column>
-            <column name="name" remarks="Тип статусу" type="VARCHAR(200)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-    	
-    	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_statustype_id" tableName="q_rf_statustype"/>
-    
-    </changeSet>
-    
+        
     <changeSet author="illay" id="Створення таблиці довідник типів хвиль">
         <createTable remarks="Довідник типів хвиль" tableName="q_rf_wavetype">
             <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
