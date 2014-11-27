@@ -1448,135 +1448,7 @@
         
     </changeSet>
     
-    <changeSet author="illay" id="Створення таблиці всіх персон">
-        <createTable remarks="Інформація про персону" tableName="q_ob_person">
-            <column name="id" remarks="Ідентифікатор персони" type="BIGINT" autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-            <column name="persontype_id" remarks="Ідентифікатор типу персони" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="name" remarks="Повна назва персони – прізвище, ім’я та по-батькові" type="VARCHAR(200)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="firstname" remarks="Ім’я" type="VARCHAR(200)"/>
-            <column name="fathername" remarks="По-батькові" type="VARCHAR(200)"/>
-            <column name="surname" remarks="Прізвище" type="VARCHAR(200)"/>
-            <column name="photo" remarks="Шлях до файлу, де знаходиться фото" type="VARCHAR(250)"/>
-            <column name="gendertype_id" remarks="Ідентифікатор статі" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="marriedtype_id" remarks="Сімейний стан" type="BIGINT"/>
-            <!-- Нестворенно FK Немає віповідної таблиці(політех)-->
-            <column name="citizencountry_id" remarks="Ідентифікатор громадянства" type="BIGINT"/>
-            <column name="docseries" remarks="Серія особової справи" type="VARCHAR(50)"/>
-            <column name="docnum" remarks="Номер особової справи" type="VARCHAR(50)"/>
-            <column name="identifier" remarks="Індекс матеріально-відповідального" type="VARCHAR(50)"/>
-            <column name="resident" remarks="Резидент" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="birthplace" remarks="Місце народження" type="VARCHAR(200)"/>
-            <column name="begdate" remarks="Дата народження" type="TIMESTAMP"/>
-            <column name="enddate" remarks="Дата смерті" type="TIMESTAMP"/>
-            <column name="ismilitary" remarks="Відмітка, чи є персона військово-зобов&quot;язаною" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="ishostel" remarks="Відмітка про потребу у гуртожитоку" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-		
-    	<addPrimaryKey columnNames="id" constraintName="pk_ob_person_id" tableName="q_ob_person"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="persontype_id" baseTableName="q_ob_person" constraintName="fk_q_rf_persontype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_persontype"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="gendertype_id" baseTableName="q_ob_person" constraintName="fk_q_rf_gendertype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_gendertype"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="marriedtype_id" baseTableName="q_ob_person" constraintName="fk_q_rf_marriedtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_marriedtype"/>
-    	
-    	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_person" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
-    	
-    	<createIndex indexName="fki_q_ob_person_id" tableName="q_ob_person" unique="false">
-            <column name="parent_id"/>
-        </createIndex>
-    </changeSet>
-  
-	<changeSet author="illay" id="Створення таблиці всіх пільг">
-        <createTable remarks="Таблиця ob_benefit містить дані про пільги" tableName="q_ob_benefit">
-            <column name="id" remarks="Ідентифікатор пільги" type="BIGINT" autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-            <column name="benefittype_id" remarks="Тип пільги" type="BIGINT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="abbrname" type="VARCHAR(50)" remarks="Абривіатура(Скорочена назва)"/>
-            <column name="name" remarks="Назва пільги" type="VARCHAR(200)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="begdate" remarks="Дата початку переваги" type="TIMESTAMP"/>
-            <column name="enddate" remarks="Дата закінчення переваги" type="TIMESTAMP"/>
-            <column name="description" type="VARCHAR(255)" remarks="Опис"/>
-            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-   		
-   	    <addPrimaryKey columnNames="id" constraintName="pk_ob_benifit" tableName="q_ob_benefit"/>
-   		 
- 		<addForeignKeyConstraint baseColumnNames="benefittype_id" baseTableName="q_ob_benefit" constraintName="fk_q_rf_benefittype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_benefittype"/>
- 		
- 		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_benefit" constraintName="fk_q_ob_benefit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
- 			
- 		<createIndex indexName="fki_q_rf_benefittype" tableName="q_ob_benefit" unique="false">
-            <column name="benefittype_id"/>
-        </createIndex>
-        
-    </changeSet>
-     
-    <changeSet id="Стврення таблиці aдміністративно-територіальні одиниці(КОАТУУ)" author="illay">
+        <changeSet id="Стврення таблиці aдміністративно-територіальні одиниці(КОАТУУ)" author="illay">
     	<createTable tableName="q_ob_adminunit" remarks="Адміністративно-територіальні одиниці">
     		<column name="id" type="BIGINT" remarks="Ідинтифікатор" autoIncrement="true">
     			<constraints nullable="false"/>
@@ -1638,6 +1510,136 @@
     	
 		<addForeignKeyConstraint baseColumnNames="adminunittype_id" baseTableName="q_ob_adminunit" constraintName="fk_q_ob_adminunittype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_adminunittype"/>
     	
+    </changeSet>
+    
+    
+    <changeSet author="illay" id="Створення таблиці всіх персон">
+        <createTable remarks="Інформація про персону" tableName="q_ob_person">
+            <column name="id" remarks="Ідентифікатор персони" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="persontype_id" remarks="Ідентифікатор типу персони" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" remarks="Повна назва персони – прізвище, ім’я та по-батькові" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" remarks="Ім’я" type="VARCHAR(200)"/>
+            <column name="fathername" remarks="По-батькові" type="VARCHAR(200)"/>
+            <column name="surname" remarks="Прізвище" type="VARCHAR(200)"/>
+            <column name="photo" remarks="Шлях до файлу, де знаходиться фото" type="VARCHAR(250)"/>
+            <column name="gendertype_id" remarks="Ідентифікатор статі" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="marriedtype_id" remarks="Сімейний стан" type="BIGINT"/>
+            <column name="citizencountry_id" remarks="Ідентифікатор громадянства" type="BIGINT"/>
+            <column name="docseries" remarks="Серія особової справи" type="VARCHAR(50)"/>
+            <column name="docnum" remarks="Номер особової справи" type="VARCHAR(50)"/>
+            <column name="identifier" remarks="Індекс матеріально-відповідального" type="VARCHAR(50)"/>
+            <column name="resident" remarks="Резидент" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birthplace" remarks="Місце народження" type="VARCHAR(200)"/>
+            <column name="begdate" remarks="Дата народження" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата смерті" type="TIMESTAMP"/>
+            <column name="ismilitary" remarks="Відмітка, чи є персона військово-зобов&quot;язаною" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ishostel" remarks="Відмітка про потребу у гуртожитоку" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+		
+    	<addPrimaryKey columnNames="id" constraintName="pk_ob_person_id" tableName="q_ob_person"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="persontype_id" baseTableName="q_ob_person" constraintName="fk_q_rf_persontype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_persontype"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="gendertype_id" baseTableName="q_ob_person" constraintName="fk_q_rf_gendertype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_gendertype"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="marriedtype_id" baseTableName="q_ob_person" constraintName="fk_q_rf_marriedtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_marriedtype"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_person" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="citizencountry_id" baseTableName="q_ob_person" constraintName="fk_q_ob_adminunit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_adminunit"/>
+    	
+    	<createIndex indexName="fki_q_ob_person_id" tableName="q_ob_person" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
+    </changeSet>
+  
+	<changeSet author="illay" id="Створення таблиці всіх пільг">
+        <createTable remarks="Таблиця ob_benefit містить дані про пільги" tableName="q_ob_benefit">
+            <column name="id" remarks="Ідентифікатор пільги" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="benefittype_id" remarks="Тип пільги" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)" remarks="Абривіатура(Скорочена назва)"/>
+            <column name="name" remarks="Назва пільги" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="begdate" remarks="Дата початку переваги" type="TIMESTAMP"/>
+            <column name="enddate" remarks="Дата закінчення переваги" type="TIMESTAMP"/>
+            <column name="description" type="VARCHAR(255)" remarks="Опис"/>
+            <column name="parent_id" remarks="Ієрархічний ідентифікатор" type="BIGINT"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+   		
+   	    <addPrimaryKey columnNames="id" constraintName="pk_ob_benifit" tableName="q_ob_benefit"/>
+   		 
+ 		<addForeignKeyConstraint baseColumnNames="benefittype_id" baseTableName="q_ob_benefit" constraintName="fk_q_rf_benefittype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_benefittype"/>
+ 		
+ 		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_benefit" constraintName="fk_q_ob_benefit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_benefit"/>
+ 			
+ 		<createIndex indexName="fki_q_rf_benefittype" tableName="q_ob_benefit" unique="false">
+            <column name="benefittype_id"/>
+        </createIndex>
+        
     </changeSet>
     
 	<changeSet id="Стврення таблиці посади" author="illay">
@@ -1885,9 +1887,6 @@
     		</column>
     		<column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу">
     		</column>
-    		<!-- FK -->
-    		<column name="ranktype_id" type="BIGINT" remarks="Ідентифікатор вченого звання">
-    		</column>
     		<column name="post_id" type="BIGINT" remarks="Ідентифікатор посади">
     		</column>
     		<column name="jobtype_id" type="BIGINT" remarks="Ідентифікатор типу роботи">
@@ -2062,9 +2061,7 @@
 		<addForeignKeyConstraint baseColumnNames="gendertype_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_gendertype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_gendertype"/>
         	
 		<addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_ob_employee" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
-    	<!--  	
-    	<addForeignKeyConstraint baseColumnNames="ranktype_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_ranktype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_ranktype"/>
-    	-->
+    	
     	<addForeignKeyConstraint baseColumnNames="post_id" baseTableName="q_ob_employee" constraintName="fk_q_ob_post_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_post"/>
     	
     	<addForeignKeyConstraint baseColumnNames="jobtype_id" baseTableName="q_ob_employee" constraintName="fk_q_rf_jobtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_jobtype"/>
@@ -2520,7 +2517,7 @@
             <column name="benefit_id"/>
         </createIndex>
     </changeSet>
-	
+
     <changeSet author="illay" id="Створення таблиці зв’язку між придметами ЗНО і заявою">
         <createTable tableName="q_dt_enrolmentenrolsubject" remarks="Предмети ЗНО в заяві">
             <column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">

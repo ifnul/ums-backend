@@ -1,5 +1,6 @@
 package org.lnu.is.facade.converter.person;
 
+import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.person.Person;
@@ -21,7 +22,6 @@ public class PersonResourceConverter extends AbstractConverter<PersonResource, P
 		
 		target.setBegDate(source.getBegDate());
 		target.setBirthPlace(source.getBirthPlace());
-		target.setCitizenCountryId(source.getCitizenCountryId());
 		target.setDocNum(source.getDocNum());
 		target.setDocSeries(source.getDocSeries());
 		target.setEndDate(source.getEndDate());
@@ -62,6 +62,13 @@ public class PersonResourceConverter extends AbstractConverter<PersonResource, P
 			parent.setId(source.getParentId());
 			
 			target.setParent(parent);
+		}
+		
+		if (source.getCitizenCountryId() != null) {
+			AdminUnit citizenCountry = new AdminUnit();
+			citizenCountry.setId(source.getParentId());
+			
+			target.setCitizenCountry(citizenCountry);
 		}
 		
 		return target;

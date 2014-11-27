@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.Model;
+import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
@@ -26,7 +27,7 @@ import org.lnu.is.domain.specoffer.SpecOfferWave;
 @Table(name = "q_ob_person")
 public class Person extends Model {
 	private static final long serialVersionUID = 1L;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "persontype_id")
 	private PersonType personType;
@@ -39,9 +40,10 @@ public class Person extends Model {
 	@JoinColumn(name = "marriedtype_id")
 	private MarriedType marriedType;
 	
-	@Column(name = "citizencountry_id")
-	private Long citizenCountryId;
-	
+	@ManyToOne
+	@JoinColumn(name = "citizencountry_id")
+	private AdminUnit citizenCountry;
+	 
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private Person parent;
@@ -128,7 +130,7 @@ public class Person extends Model {
 	public void setPersonType(final PersonType personType) {
 		this.personType = personType;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -185,12 +187,12 @@ public class Person extends Model {
 		this.marriedType = marriedType;
 	}
 
-	public Long getCitizenCountryId() {
-		return citizenCountryId;
+	public AdminUnit getCitizenCountry() {
+		return citizenCountry;
 	}
 
-	public void setCitizenCountryId(final Long citizenCountryId) {
-		this.citizenCountryId = citizenCountryId;
+	public void setCitizenCountry(final AdminUnit citizenCountry) {
+		this.citizenCountry = citizenCountry;
 	}
 
 	public Person getParent() {

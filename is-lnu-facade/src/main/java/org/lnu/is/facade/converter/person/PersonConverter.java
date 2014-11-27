@@ -18,7 +18,6 @@ public class PersonConverter extends AbstractConverter<Person, PersonResource> {
 		
 		target.setBegDate(source.getBegDate());
 		target.setBirthPlace(source.getBirthPlace());
-		target.setCitizenCountryId(source.getCitizenCountryId());
 		target.setDocNum(source.getDocNum());
 		target.setDocSeries(source.getDocSeries());
 		target.setEndDate(source.getEndDate());
@@ -48,6 +47,10 @@ public class PersonConverter extends AbstractConverter<Person, PersonResource> {
 		if (source.getParent() != null) {
 			target.setParentId(source.getParent().getId());
 		}	
+		if (source.getCitizenCountry() != null) {
+			target.setCitizenCountryId(source.getCitizenCountry().getId());
+		}
+			
 		
 		return target;
 	}

@@ -76,9 +76,6 @@ public class Employee extends Model {
 	@OneToMany(mappedBy = "employee")
 	private List<EmployeeSchedule> schedules;
 	
-	@Column(name = "ranktype_id")
-	private Long rankTypeId;
-	
 	@Column(name = "name")
 	private String name;
 	
@@ -202,14 +199,6 @@ public class Employee extends Model {
 
 	public void setIsPensioner(final Integer isPensioner) {
 		this.isPensioner = isPensioner;
-	}
-
-	public Long getRankTypeId() {
-		return rankTypeId;
-	}
-
-	public void setRankTypeId(final Long rankTypeId) {
-		this.rankTypeId = rankTypeId;
 	}
 
 	public Date getBegDate() {
@@ -371,8 +360,6 @@ public class Employee extends Model {
 				+ ((isPlurality == null) ? 0 : isPlurality.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
-		result = prime * result
-				+ ((rankTypeId == null) ? 0 : rankTypeId.hashCode());
 		result = prime * result + ((rate == null) ? 0 : rate.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		return result;
@@ -481,13 +468,6 @@ public class Employee extends Model {
 		} else if (!phone.equals(other.phone)) {
 			return false;
 		}
-		if (rankTypeId == null) {
-			if (other.rankTypeId != null) {
-				return false;
-			}
-		} else if (!rankTypeId.equals(other.rankTypeId)) {
-			return false;
-		}
 		if (rate == null) {
 			if (other.rate != null) {
 				return false;
@@ -511,7 +491,7 @@ public class Employee extends Model {
 				+ ", fatherName=" + fatherName + ", surname=" + surname
 				+ ", birthDate=" + birthDate + ", invNum=" + invNum + ", rate="
 				+ rate + ", isPlurality=" + isPlurality + ", isPensioner="
-				+ isPensioner + ", rankTypeId=" + rankTypeId + ", begDate="
+				+ isPensioner + ", begDate="
 				+ begDate + ", endDate=" + endDate + ", docSeries=" + docSeries
 				+ ", docNum=" + docNum + ", phone=" + phone + ", email="
 				+ email + "]";
