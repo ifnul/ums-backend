@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @author ivanursul
  *
  */
-@Component("personTypeParametersExtractors")
+@Component("personTypeParametersExtractor")
 public class PersonTypeParametersExtractor extends AbstractParametersExtractor<PersonType> {
 
 	@Override

@@ -3,11 +3,12 @@ package org.lnu.is.facade.facade;
 import java.util.List;
 
 import org.lnu.is.facade.converter.Converter;
+import org.lnu.is.facade.resource.ApiResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.service.ServiceTemp;
+import org.lnu.is.service.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +21,7 @@ import org.slf4j.LoggerFactory;
  * @param <SERVICE> Service.
  * @param <KEY> Key.S
  */
-public class DefaultFacade<ENTITY, RESOURCE, SERVICE extends ServiceTemp<ENTITY, KEY>, KEY> implements FacadeTemp<RESOURCE, KEY> {
+public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends Service<ENTITY, KEY>, KEY> implements Facade<RESOURCE, KEY> {
 
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultFacade.class);
 
@@ -39,7 +40,7 @@ public class DefaultFacade<ENTITY, RESOURCE, SERVICE extends ServiceTemp<ENTITY,
 	private SERVICE defaultService;
 
 	@Override
-	public RESOURCE createEntity(final RESOURCE resource) {
+	public RESOURCE createResource(final RESOURCE resource) {
 		LOG.info("Creating entity: {}", resource);
 
 		ENTITY entity = resourceConverter.convert(resource);
@@ -51,7 +52,7 @@ public class DefaultFacade<ENTITY, RESOURCE, SERVICE extends ServiceTemp<ENTITY,
 	}
 
 	@Override
-	public RESOURCE getEntity(final KEY id) {
+	public RESOURCE getResource(final KEY id) {
 		LOG.info("Getting entity with id: {}", id);
 
 		ENTITY entity = defaultService.getEntity(id);
@@ -59,7 +60,7 @@ public class DefaultFacade<ENTITY, RESOURCE, SERVICE extends ServiceTemp<ENTITY,
 	}
 
 	@Override
-	public void removeEntity(final KEY id) {
+	public void removeResource(final KEY id) {
 		LOG.info("Removing entity with id: {}", id);
 
 		ENTITY entity = defaultService.getEntity(id);
@@ -67,7 +68,7 @@ public class DefaultFacade<ENTITY, RESOURCE, SERVICE extends ServiceTemp<ENTITY,
 	}
 
 	@Override
-	public void updateEntity(final KEY id, final RESOURCE resource) {
+	public void updateResource(final KEY id, final RESOURCE resource) {
 		LOG.info("Updating entity with id: {}, resource: {}", id, resource);
 
 		ENTITY entity = defaultService.getEntity(id);
@@ -80,7 +81,7 @@ public class DefaultFacade<ENTITY, RESOURCE, SERVICE extends ServiceTemp<ENTITY,
 	}
 
 	@Override
-	public PagedResultResource<RESOURCE> getEntities(final PagedRequest<RESOURCE> request) {
+	public PagedResultResource<RESOURCE> getResources(final PagedRequest<RESOURCE> request) {
 		LOG.info("Getting paged result resource for {0}: {1}", request.getResource().getClass().getSimpleName(), request);
 
 		PagedSearch<ENTITY> pagedSearch = pagedRequestConverter.convert(request);
@@ -90,17 +91,11 @@ public class DefaultFacade<ENTITY, RESOURCE, SERVICE extends ServiceTemp<ENTITY,
 
 		List<RESOURCE> resources = entityConverter.convertAll(pagedResult.getEntities());
 
-		String uri = getUriForPagedResult(request);
-		PagedResultResource<RESOURCE> pagedResultResource = new PagedResultResource<>(uri);
+		PagedResultResource<RESOURCE> pagedResultResource = new PagedResultResource<>(request.getResource().getRootUri());
 		pagedResultResource.setResources(resources);
 		pagedResultConverter.convert(pagedResult, pagedResultResource);
 
 		return pagedResultResource;
-	}
-
-	@Override
-	public String getUriForPagedResult(final PagedRequest<RESOURCE> resource) {
-		return null;
 	}
 
 	public SERVICE getDefaultService() {

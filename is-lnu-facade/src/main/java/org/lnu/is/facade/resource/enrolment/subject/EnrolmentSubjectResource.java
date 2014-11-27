@@ -21,7 +21,12 @@ public class EnrolmentSubjectResource extends ApiResource {
 	
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/enrolmentsubjects/{0}", getId());
+		return MessageFormat.format("/enrolments/subjects/{0}", getId());
+	}
+	
+	@Override
+	public String getRootUri() {
+		return "/enrolments/subjects";
 	}
 
 	public Long getParentId() {

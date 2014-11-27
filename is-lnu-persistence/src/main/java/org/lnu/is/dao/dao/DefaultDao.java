@@ -5,7 +5,7 @@ import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
+import org.lnu.is.queries.Query;
 
 /**
  * Abstract implementation, that has
@@ -48,7 +48,7 @@ public class DefaultDao<ENTITY, KEY> implements Dao<ENTITY, KEY> {
 	public PagedResult<ENTITY> getEntities(final PagedSearch<ENTITY> pagedSearch) {
 		
 		String querySql = queryBuilder.build(pagedSearch.getEntity());
-		Queries<ENTITY> queries = new Queries<ENTITY>(getEntityClass(), querySql);
+		Query<ENTITY> queries = new Query<ENTITY>(getEntityClass(), querySql);
 		
 		PagedQuerySearch<ENTITY> pagedQuerySearch = new PagedQuerySearch<ENTITY>(queries, pagedSearch.getOffset(), 
 				pagedSearch.getLimit(), pagedSearch.getParameters(), getEntityClass());

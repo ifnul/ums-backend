@@ -3,8 +3,7 @@ package org.lnu.is.web.controller.specoffer;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
-import org.lnu.is.facade.facade.specoffer.SpecOfferFacade;
-import org.lnu.is.facade.facade.specoffer.type.SpecOfferTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -38,10 +37,10 @@ public class SpecOfferController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOfferController.class);
 	
 	@Resource(name = "specOfferFacade")
-	private SpecOfferFacade specOfferFacade;
+	private Facade<SpecOfferResource, Long> facade;
 
 	@Resource(name = "specOfferTypeFacade")
-	private SpecOfferTypeFacade specOfferTypeFacade;
+	private Facade<SpecOfferTypeResource, Long> typeFacade;
 	
 	/**
 	 * Method for creating new specoffer.
@@ -61,7 +60,7 @@ public class SpecOfferController extends BaseController {
 	@ApiOperation(value = "Create Specoffer", position = 1)
 	public SpecOfferResource createSpecOffer(@Valid @RequestBody final SpecOfferResource specOfferResource) {
 		LOG.info("Creating specoffer: {}", specOfferResource);
-		return specOfferFacade.createEntity(specOfferResource);
+		return facade.createResource(specOfferResource);
 	}
 	
 	/**
@@ -86,7 +85,7 @@ public class SpecOfferController extends BaseController {
 	public MessageResource updateSpecOffer(@PathVariable("id") final Long id,
 			@RequestBody final SpecOfferResource specOfferResource) {
 		LOG.info("Updated specoffer with id: {}, {}", id, specOfferResource);
-		specOfferFacade.updateEntity(id, specOfferResource);
+		facade.updateResource(id, specOfferResource);
 		return new MessageResource(MessageType.INFO, "SpecOffer Updated");
 	}
 	
@@ -107,7 +106,7 @@ public class SpecOfferController extends BaseController {
 	@ApiOperation(value = "Get's SpecOffer", position = 3)
 	public SpecOfferResource getSpecOffer(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving specoffer with id: {}", id);
-		return specOfferFacade.getEntity(id);
+		return facade.getResource(id);
 	}
 	
 	/**
@@ -128,7 +127,7 @@ public class SpecOfferController extends BaseController {
 	@ApiOperation(value = "Remove Specoffer", position = 4)
 	public MessageResource removeSpecOffer(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
-		specOfferFacade.removeEntity(id);
+		facade.removeResource(id);
 		return new MessageResource(MessageType.INFO, "SpecOffer removed");
 	}
 	
@@ -159,7 +158,7 @@ public class SpecOfferController extends BaseController {
 			final SpecOfferResource resource) {
 		LOG.info("Retrieving PagedResultResource for Spec Offer Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<SpecOfferResource> pagedRequest = new PagedRequest<SpecOfferResource>(resource, offset, limit);
-		return specOfferFacade.getEntities(pagedRequest);
+		return facade.getResources(pagedRequest);
 	}
 	
 	/**
@@ -177,6 +176,6 @@ public class SpecOfferController extends BaseController {
 			final SpecOfferTypeResource resource) {
 		LOG.info("Retrieving PagedResultResource for Spec Offer Type Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<SpecOfferTypeResource> pagedRequest = new PagedRequest<SpecOfferTypeResource>(resource, offset, limit);
-		return specOfferTypeFacade.getEntities(pagedRequest);
+		return typeFacade.getResources(pagedRequest);
 	}
 }

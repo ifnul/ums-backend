@@ -12,7 +12,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.eduformtype.EduFormTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -28,7 +28,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class EduFormTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private EduFormTypeFacade eduFormTypeFacade;
+	private Facade<EduFormTypeResource, Long> facade;
 	
 	@InjectMocks
 	private EduFormTypeController unit;
@@ -64,7 +64,7 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<EduFormTypeResource> request = new PagedRequest<EduFormTypeResource>(paramResource, offset, limit);
 		
 		// When
-		when(eduFormTypeFacade.getEntities(Matchers.<PagedRequest<EduFormTypeResource>>any())).thenReturn(expected);
+		when(facade.getResources(Matchers.<PagedRequest<EduFormTypeResource>>any())).thenReturn(expected);
     	String response = getJson(expected, false);
 
 		// Then
@@ -73,6 +73,6 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(eduFormTypeFacade).getEntities(request);
+		verify(facade).getResources(request);
 	}
 }

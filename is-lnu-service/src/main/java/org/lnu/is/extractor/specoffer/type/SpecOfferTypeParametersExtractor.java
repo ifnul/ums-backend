@@ -5,7 +5,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.dao.specialty.type.SpecialtyTypeDao;
+import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Component;
 public class SpecOfferTypeParametersExtractor extends AbstractParametersExtractor<SpecOfferType> {
 
 	@Resource(name = "specialtyTypeDao")
-	private SpecialtyTypeDao specialtyTypeDao;
+	private Dao<Specialty, Long> specialtyTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final SpecOfferType entity) {

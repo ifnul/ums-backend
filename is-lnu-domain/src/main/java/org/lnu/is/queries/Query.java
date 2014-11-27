@@ -1,67 +1,38 @@
 package org.lnu.is.queries;
 
-import java.util.Map;
-
 /**
- * Class, that incapsulates all required fields
- * for retrieving result.
+ * Class, that contains all required queries.
  * @author ivanursul
  *
- * @param <T> Generic object class.
+ * @param <E> Entity.
  */
-public class Query<T> {
-
-    private Class<T> entityClass;
-
-    private String query;
-
-    private Map<String, Object> parameters;
+public final class Query<E> {
+	
+	private Class<E> clazz;
+    private final String query;
 
     /**
-     * Consructor for setting base Query instance.
-     * @param entityClass Class instance of current entity.
-     * @param query JPQL query, that will be executed by entity manager.
-     * @param parameters All required parameters.
+     *  Constructor, which takes two parameters: name and query.
+     * @param clazz
+     * @param query
      */
-    public Query(final Class<T> entityClass, final String query, final Map<String, Object> parameters) {
-        super();
-        this.entityClass = entityClass;
-        this.query = query;
-        this.parameters = parameters;
-    }
-
-    public Class<T> getEntityClass() {
-        return entityClass;
-    }
-
-    public void setEntityClass(final Class<T> entityClass) {
-        this.entityClass = entityClass;
+    public Query(final Class<E> clazz, final String query) {
+        this.clazz = clazz;
+    	this.query = query;
     }
 
     public String getQuery() {
         return query;
     }
 
-    public void setQuery(final String query) {
-        this.query = query;
-    }
+	public Class<E> getClazz() {
+		return clazz;
+	}
 
-    public Map<String, Object> getParameters() {
-        return parameters;
-    }
-
-    public void setParameters(final Map<String, Object> parameters) {
-        this.parameters = parameters;
-    }
-    
-    @Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((entityClass == null) ? 0 : entityClass.hashCode());
-		result = prime * result
-				+ ((parameters == null) ? 0 : parameters.hashCode());
 		result = prime * result + ((query == null) ? 0 : query.hashCode());
 		return result;
 	}
@@ -78,20 +49,6 @@ public class Query<T> {
 			return false;
 		}
 		Query<?> other = (Query<?>) obj;
-		if (entityClass == null) {
-			if (other.entityClass != null) {
-				return false;
-			}
-		} else if (!entityClass.equals(other.entityClass)) {
-			return false;
-		}
-		if (parameters == null) {
-			if (other.parameters != null) {
-				return false;
-			}
-		} else if (!parameters.equals(other.parameters)) {
-			return false;
-		}
 		if (query == null) {
 			if (other.query != null) {
 				return false;
@@ -103,7 +60,9 @@ public class Query<T> {
 	}
 
 	@Override
-    public String toString() {
-        return "Query [entityClass=" + entityClass + ", query=" + query + ", parameters=" + parameters + "]";
-    }
+	public String toString() {
+		return "Queries [clazz=" + clazz + ", query=" + query + "]";
+	}
+    
 }
+

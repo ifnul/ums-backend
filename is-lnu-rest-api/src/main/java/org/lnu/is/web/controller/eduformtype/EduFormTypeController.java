@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.eduformtype;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.eduformtype.EduFormTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -31,7 +31,7 @@ public class EduFormTypeController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(EduFormTypeController.class);
 	
 	@Resource(name = "eduFormTypeFacade")
-	private EduFormTypeFacade eduFormTypeFacade;
+	private Facade<EduFormTypeResource, Long> facade;
 	
 	/**
 	 * Method for getting paged result.
@@ -49,6 +49,6 @@ public class EduFormTypeController extends BaseController {
 			final EduFormTypeResource resource) {
 		LOG.info("Getting Paged Result of  Edu Form Type with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<EduFormTypeResource> request = new PagedRequest<EduFormTypeResource>(resource, offset, limit);
-		return eduFormTypeFacade.getEntities(request);
+		return facade.getResources(request);
 	}
 }

@@ -5,11 +5,11 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.dao.gendertype.GenderTypeDao;
-import org.lnu.is.dao.dao.marriedtype.MarriedTypeDao;
-import org.lnu.is.dao.dao.person.PersonDao;
-import org.lnu.is.dao.dao.person.type.PersonTypeDao;
+import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.gendertype.GenderType;
+import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.person.Person;
+import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
@@ -22,16 +22,16 @@ import org.springframework.stereotype.Component;
 public class PersonParametersExtractor extends AbstractParametersExtractor<Person> {
 
 	@Resource(name = "personTypeDao")
-	private PersonTypeDao personTypeDao;
+	private Dao<PersonType, Long> personTypeDao;
 	
 	@Resource(name = "genderTypeDao")
-	private GenderTypeDao genderTypeDao;
+	private Dao<GenderType, Long> genderTypeDao;
 
 	@Resource(name = "marriedTypeDao")
-	private MarriedTypeDao marrieTypeDao;
+	private Dao<MarriedType, Long> marrieTypeDao;
 
 	@Resource(name = "personDao")
-	private PersonDao personDao;
+	private Dao<Person, Long> personDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final Person entity) {

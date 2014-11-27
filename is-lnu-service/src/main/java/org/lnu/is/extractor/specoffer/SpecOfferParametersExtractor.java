@@ -5,13 +5,13 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.dao.department.DepartmentDao;
-import org.lnu.is.dao.dao.eduformtype.EduFormTypeDao;
-import org.lnu.is.dao.dao.specialty.SpecialtyDao;
-import org.lnu.is.dao.dao.specoffer.SpecOfferDao;
-import org.lnu.is.dao.dao.specoffer.type.SpecOfferTypeDao;
-import org.lnu.is.dao.dao.timeperiod.TimePeriodDao;
+import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.department.Department;
+import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
+import org.lnu.is.domain.specoffer.SpecOfferType;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
@@ -24,22 +24,22 @@ import org.springframework.stereotype.Component;
 public class SpecOfferParametersExtractor extends AbstractParametersExtractor<SpecOffer> {
 
 	@Resource(name = "specOfferDao")
-	private SpecOfferDao specOfferDao;
+	private Dao<SpecOffer, Long> specOfferDao;
 	
 	@Resource(name = "specialtyDao")
-	private SpecialtyDao specialtyDao;
+	private Dao<Specialty, Long> specialtyDao;
 	
 	@Resource(name = "departmentDao")
-	private DepartmentDao departmentDao;
+	private Dao<Department, Long> departmentDao;
 	
 	@Resource(name = "timePeriodDao")
-	private TimePeriodDao timePeriodDao;
+	private Dao<TimePeriod, Long> timePeriodDao;
 	
 	@Resource(name = "eduFormTypeDao")
-	private EduFormTypeDao eduFormTypeDao;
+	private Dao<EduFormType, Long> eduFormTypeDao;
 	
 	@Resource(name = "specOfferTypeDao")
-	private SpecOfferTypeDao specOfferTypeDao;
+	private Dao<SpecOfferType, Long> specOfferTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final SpecOffer entity) {

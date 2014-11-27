@@ -38,6 +38,11 @@ public class PersonPaperResource extends ApiResource {
 	public String getUri() {
 		return MessageFormat.format("/persons/{0}/papers/{1}", personId, getId());
 	}
+	
+	@Override
+	public String getRootUri() {
+		return MessageFormat.format("/persons/{0}/papers", personId);
+	}
 
 	public Long getPersonId() {
 		return personId;

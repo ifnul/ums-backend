@@ -20,7 +20,7 @@ import org.lnu.is.domain.department.Department;
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.queries.Queries;
+import org.lnu.is.queries.Query;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
@@ -137,7 +137,7 @@ public class DefaultDaoTest {
 		PagedResult<Department> expected = new PagedResult<Department>(offset, limit, count, entities);
 		
 		String querySql = "query Sql";
-		Queries<Department> queries = new Queries<Department>(Department.class, querySql);
+		Query<Department> queries = new Query<Department>(Department.class, querySql);
 		PagedQuerySearch<Department> pagedQuerySearch = new PagedQuerySearch<Department>(queries, pagedSearch.getOffset(), 
 				pagedSearch.getLimit(), pagedSearch.getParameters(), Department.class);
 		

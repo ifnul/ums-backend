@@ -21,7 +21,12 @@ public class EnrolmentStatusTypeResource extends ApiResource {
 
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/enrolmentstatustypes/{0}", getId());
+		return MessageFormat.format("/enrolments/statustypes/{0}", getId());
+	}
+	
+	@Override
+	public String getRootUri() {
+		return "/enrolments/statustypes";
 	}
 
 	public String getAbbrName() {

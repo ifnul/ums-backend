@@ -17,6 +17,11 @@ public class SpecOfferSubjectResource extends ApiResource {
 	public String getUri() {
 		return MessageFormat.format("/specoffers/{0}/subjects/{1}", specOfferId, getId());
 	}
+	
+	@Override
+	public String getRootUri() {
+		return MessageFormat.format("/specoffers/{0}/subjects", specOfferId);
+	}
 
 	public Long getSpecOfferId() {
 		return specOfferId;

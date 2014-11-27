@@ -5,12 +5,13 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.dao.address.type.AddressTypeDao;
-import org.lnu.is.dao.dao.adminunit.AdminUnitDao;
-import org.lnu.is.dao.dao.asset.AssetDao;
-import org.lnu.is.dao.dao.person.PersonDao;
-import org.lnu.is.dao.dao.street.type.StreetTypeDao;
+import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.addresstype.AddressType;
+import org.lnu.is.domain.adminunit.AdminUnit;
+import org.lnu.is.domain.asset.Asset;
+import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonAddress;
+import org.lnu.is.domain.streettype.StreetType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
@@ -23,19 +24,19 @@ import org.springframework.stereotype.Component;
 public class PersonAddressParametersExtractor extends AbstractParametersExtractor<PersonAddress> {
 
 	@Resource(name = "personDao")
-	private PersonDao personDao;
+	private Dao<Person, Long> personDao;
 	
 	@Resource(name = "addressTypeDao")
-	private AddressTypeDao addressTypeDao;
+	private Dao<AddressType, Long> addressTypeDao;
 	
 	@Resource(name = "adminUnitDao")
-	private AdminUnitDao adminUnitDao;
+	private Dao<AdminUnit, Long> adminUnitDao;
 	
 	@Resource(name = "streetTypeDao")
-	private StreetTypeDao streetTypeDao;
+	private Dao<StreetType, Long> streetTypeDao;
 	
 	@Resource(name = "assetDao")
-	private AssetDao assetDao;
+	private Dao<Asset, Long> assetDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final PersonAddress entity) {

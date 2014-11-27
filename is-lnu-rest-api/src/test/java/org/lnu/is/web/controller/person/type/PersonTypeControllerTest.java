@@ -12,7 +12,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.person.types.PersonTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.person.type.PersonTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -28,7 +28,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class PersonTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private PersonTypeFacade personTypeFacade;
+	private Facade<PersonTypeResource, Long> facade;
 
 	@InjectMocks
 	private PersonTypeController unit;
@@ -67,7 +67,7 @@ public class PersonTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<PersonTypeResource> pagedRequest = new PagedRequest<PersonTypeResource>(new PersonTypeResource(), offset, limit);
 
 		// When
-		when(personTypeFacade.getEntities(Matchers.<PagedRequest<PersonTypeResource>> any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<PersonTypeResource>> any())).thenReturn(expectedResource);
 		String response = getJson(expectedResource, false);
 
 		// Then
@@ -77,6 +77,6 @@ public class PersonTypeControllerTest extends AbstractControllerTest {
 			.andExpect(status().isOk())
 			.andExpect(content().string(response));
 
-		verify(personTypeFacade).getEntities(pagedRequest);
+		verify(facade).getResources(pagedRequest);
 	}
 }

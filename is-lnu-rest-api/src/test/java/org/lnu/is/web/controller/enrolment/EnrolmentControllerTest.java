@@ -12,8 +12,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.enrolment.statustype.EnrolmentStatusTypeFacade;
-import org.lnu.is.facade.facade.enrolment.subject.EnrolmentSubjectFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.enrolment.statustype.EnrolmentStatusTypeResource;
 import org.lnu.is.facade.resource.enrolment.subject.EnrolmentSubjectResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -30,10 +29,10 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class EnrolmentControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private EnrolmentStatusTypeFacade enrolmentStatusTypeFacade;
+	private Facade<EnrolmentStatusTypeResource, Long> statusTypeFacade;
 	
 	@Mock
-	private EnrolmentSubjectFacade enrolmentSubjectFacade;
+	private Facade<EnrolmentSubjectResource, Long> subjectFacade;
 	
 	@InjectMocks
 	private EnrolmentController unit;
@@ -69,7 +68,7 @@ public class EnrolmentControllerTest extends AbstractControllerTest {
 				new PagedRequest<EnrolmentStatusTypeResource>(paramResource, offset, limit);
 
 		// When
-		when(enrolmentStatusTypeFacade.getEntities(Matchers.<PagedRequest<EnrolmentStatusTypeResource>> any()))
+		when(statusTypeFacade.getResources(Matchers.<PagedRequest<EnrolmentStatusTypeResource>> any()))
 			.thenReturn(expected);
 
 		String response = getJson(expected, false);
@@ -79,7 +78,7 @@ public class EnrolmentControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 
-		verify(enrolmentStatusTypeFacade).getEntities(request);
+		verify(statusTypeFacade).getResources(request);
 	}
 	
     @Test
@@ -108,7 +107,7 @@ public class EnrolmentControllerTest extends AbstractControllerTest {
 		PagedRequest<EnrolmentSubjectResource> request = new PagedRequest<EnrolmentSubjectResource>(paramResource, offset, limit);
 		
 		// When
-		when(enrolmentSubjectFacade.getEntities(Matchers.<PagedRequest<EnrolmentSubjectResource>>any())).thenReturn(expected);
+		when(subjectFacade.getResources(Matchers.<PagedRequest<EnrolmentSubjectResource>>any())).thenReturn(expected);
     	String response = getJson(expected, false);
 
 		// Then
@@ -117,6 +116,6 @@ public class EnrolmentControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(enrolmentSubjectFacade).getEntities(request);
+		verify(subjectFacade).getResources(request);
 	}
 }

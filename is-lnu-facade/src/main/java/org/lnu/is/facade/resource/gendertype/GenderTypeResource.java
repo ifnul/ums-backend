@@ -20,6 +20,11 @@ public class GenderTypeResource extends ApiResource {
 	public String getUri() {
 		return MessageFormat.format("/gendertypes/{0}", getId());
 	}
+	
+	@Override
+	public String getRootUri() {
+		return "/gendertypes";
+	}
 
 	public String getAbbrName() {
 		return abbrName;

@@ -12,7 +12,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.addresstype.AddressTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.addresstype.AddressTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -28,7 +28,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class AddressTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private AddressTypeFacade addressTypeFacade;
+	private Facade<AddressTypeResource, Long> facade;
 
 	@InjectMocks
 	private AddressTypeController unit;
@@ -66,10 +66,7 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 				paramResource, offset, limit);
 
 		// When
-		when(
-				addressTypeFacade.getEntities(Matchers
-						.<PagedRequest<AddressTypeResource>> any()))
-				.thenReturn(expected);
+		when(facade.getResources(Matchers.<PagedRequest<AddressTypeResource>> any())).thenReturn(expected);
 		String response = getJson(expected, false);
 
 		// Then
@@ -77,7 +74,7 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 
-		verify(addressTypeFacade).getEntities(request);
+		verify(facade).getResources(request);
 
 	}
 

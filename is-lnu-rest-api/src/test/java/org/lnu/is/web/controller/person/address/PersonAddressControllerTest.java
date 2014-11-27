@@ -17,7 +17,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.person.address.PersonAddressFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.address.PersonAddressResource;
@@ -36,7 +36,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class PersonAddressControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private PersonAddressFacade personAddressFacade;
+	private Facade<PersonAddressResource, Long> facade;
 	
 	@InjectMocks
 	private PersonAddressController unit;
@@ -60,7 +60,7 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
     	String request = getJson(personAddressResource, true);
 		String response = getJson(personAddressResource, false);
     	
-		when(personAddressFacade.createEntity(any(PersonAddressResource.class))).thenReturn(personAddressResource);
+		when(facade.createResource(any(PersonAddressResource.class))).thenReturn(personAddressResource);
 		
     	// Then
 		mockMvc.perform(post("/persons/{personId}/addresses", personId)
@@ -69,7 +69,7 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(personAddressFacade).createEntity(personAddressResource);
+		verify(facade).createResource(personAddressResource);
 	}
     
     @Test
@@ -96,7 +96,7 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(personAddressFacade).updateEntity(id, personAddressResource);
+		verify(facade).updateResource(id, personAddressResource);
 	}
     
     @Test
@@ -112,14 +112,14 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(personAddressResource, false);
 		
-		when(personAddressFacade.getEntity(anyLong())).thenReturn(personAddressResource);
+		when(facade.getResource(anyLong())).thenReturn(personAddressResource);
 		
 		// Then
     	mockMvc.perform(get("/persons/{personId}/addresses/{addressId}", personId, id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(personAddressFacade).getEntity(id);
+    	verify(facade).getResource(id);
 	}
     
     @Test
@@ -149,7 +149,7 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 		PagedRequest<PersonAddressResource> pagedRequest = new PagedRequest<PersonAddressResource>(resource, offset, limit);
 		
 		// When
-		when(personAddressFacade.getEntities(Matchers.<PagedRequest<PersonAddressResource>>any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<PersonAddressResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -159,6 +159,6 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(personAddressFacade).getEntities(pagedRequest);
+		verify(facade).getResources(pagedRequest);
 	}
 }

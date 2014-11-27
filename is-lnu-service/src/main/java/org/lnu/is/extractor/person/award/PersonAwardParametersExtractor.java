@@ -5,9 +5,10 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.dao.person.PersonDao;
-import org.lnu.is.dao.dao.person.paper.PersonPaperDao;
+import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonAward;
+import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
@@ -20,10 +21,10 @@ import org.springframework.stereotype.Component;
 public class PersonAwardParametersExtractor extends AbstractParametersExtractor<PersonAward> {
 
 	@Resource(name = "personDao")
-	private PersonDao personDao;
+	private Dao<Person, Long> personDao;
 	
 	@Resource(name = "personPaperDao")
-	private PersonPaperDao personPaperDao;
+	private Dao<PersonPaper, Long> personPaperDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final PersonAward entity) {

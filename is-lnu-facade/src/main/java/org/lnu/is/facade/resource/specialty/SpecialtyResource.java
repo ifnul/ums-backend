@@ -1,5 +1,6 @@
 package org.lnu.is.facade.resource.specialty;
 
+import java.text.MessageFormat;
 import java.util.Date;
 
 import org.lnu.is.facade.resource.ApiResource;
@@ -30,7 +31,12 @@ public class SpecialtyResource extends ApiResource {
 	
 	@Override
 	public String getUri() {
-		return null;
+		return MessageFormat.format("/specialties/{0}", getId());
+	}
+
+	@Override
+	public String getRootUri() {
+		return "/specialties";
 	}
 
 	public String getNote() {

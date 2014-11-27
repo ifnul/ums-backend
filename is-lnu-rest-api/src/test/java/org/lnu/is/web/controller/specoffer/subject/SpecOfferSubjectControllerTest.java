@@ -18,7 +18,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.specoffer.subject.SpecOfferSubjectFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -37,7 +37,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private SpecOfferSubjectFacade specOfferSubjectFacade;
+	private Facade<SpecOfferSubjectResource, Long> facade;
 	
 	@InjectMocks
 	private SpecOfferSubjectController unit;
@@ -61,7 +61,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     	String request = getJson(specOfferSubjectResource, true);
 		String response = getJson(specOfferSubjectResource, false);
     	
-		when(specOfferSubjectFacade.createEntity(any(SpecOfferSubjectResource.class))).thenReturn(specOfferSubjectResource);
+		when(facade.createResource(any(SpecOfferSubjectResource.class))).thenReturn(specOfferSubjectResource);
 		
     	// Then
 		mockMvc.perform(post("/specoffers/{0}/subjects", personId)
@@ -70,7 +70,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(specOfferSubjectFacade).createEntity(specOfferSubjectResource);
+		verify(facade).createResource(specOfferSubjectResource);
 	}
     
     @Test
@@ -95,7 +95,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(specOfferSubjectFacade).updateEntity(id, specOfferSubjectResource);
+		verify(facade).updateResource(id, specOfferSubjectResource);
 	}
     
     @Test
@@ -109,14 +109,14 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(specOfferSubjectResource, false);
 		
-		when(specOfferSubjectFacade.getEntity(anyLong())).thenReturn(specOfferSubjectResource);
+		when(facade.getResource(anyLong())).thenReturn(specOfferSubjectResource);
 		
 		// Then
     	mockMvc.perform(get("/specoffers/{0}/subjects/{id}", personId, id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(specOfferSubjectFacade).getEntity(id);
+    	verify(facade).getResource(id);
 	}
     
     @Test
@@ -131,7 +131,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/specoffers/{0}/subjects/{id}", personId, id))
     		.andExpect(status().is(204));
     	
-    	verify(specOfferSubjectFacade).removeEntity(id);
+    	verify(facade).removeResource(id);
 	}
     
     @Test
@@ -159,7 +159,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 		PagedRequest<SpecOfferSubjectResource> pagedRequest = new PagedRequest<SpecOfferSubjectResource>(resource, offset, limit);
 		
 		// When
-		when(specOfferSubjectFacade.getEntities(Matchers.<PagedRequest<SpecOfferSubjectResource>>any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<SpecOfferSubjectResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -169,6 +169,6 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(specOfferSubjectFacade).getEntities(pagedRequest);
+		verify(facade).getResources(pagedRequest);
 	}
 }

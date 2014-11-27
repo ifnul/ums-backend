@@ -2,7 +2,7 @@ package org.lnu.is.pagination;
 
 import java.util.Map;
 
-import org.lnu.is.queries.Queries;
+import org.lnu.is.queries.Query;
 
 /**
  * Paged Query Search.
@@ -12,7 +12,7 @@ import org.lnu.is.queries.Queries;
  */
 public class PagedQuerySearch<E> extends PagedSearch<E> {
 
-	private Queries<E> query;
+	private Query<E> query;
 
 	/**
 	 * Constructor with no parameters.
@@ -29,16 +29,16 @@ public class PagedQuerySearch<E> extends PagedSearch<E> {
 	 * @param parameters
 	 * @param clazz
 	 */
-	public PagedQuerySearch(final Queries<E> query, final Integer offset, final Integer limit, final Map<String, Object> parameters, final Class<E> clazz) {
+	public PagedQuerySearch(final Query<E> query, final Integer offset, final Integer limit, final Map<String, Object> parameters, final Class<E> clazz) {
 		super(offset, limit, parameters, clazz);
 		this.query = query;
 	}
 
-	public Queries<E> getQuery() {
+	public Query<E> getQuery() {
 		return query;
 	}
 
-	public void setQuery(final Queries<E> query) {
+	public void setQuery(final Query<E> query) {
 		this.query = query;
 	}
 

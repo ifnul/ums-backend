@@ -24,6 +24,11 @@ public class PersonAwardResource extends ApiResource {
 		return MessageFormat.format("/persons/{0}/awards/{1}", personId, getId());
 	}
 
+	@Override
+	public String getRootUri() {
+		return MessageFormat.format("/persons/{0}/awards", personId);
+	}
+	
 	public Long getPersonId() {
 		return personId;
 	}

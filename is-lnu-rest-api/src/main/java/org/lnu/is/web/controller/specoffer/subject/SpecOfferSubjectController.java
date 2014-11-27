@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.specoffer.subject;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.specoffer.subject.SpecOfferSubjectFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -35,7 +35,7 @@ public class SpecOfferSubjectController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOfferSubjectController.class);
 	
 	@Resource(name = "specOfferSubjectFacade")
-	private SpecOfferSubjectFacade specOfferSubjectFacade;
+	private Facade<SpecOfferSubjectResource, Long> facade;
 
 	/**
 	 * Method for creating spec offer subject.
@@ -49,7 +49,7 @@ public class SpecOfferSubjectController extends BaseController {
 	public SpecOfferSubjectResource createSpecOfferSubject(@RequestBody final SpecOfferSubjectResource resource,
 			@PathVariable("specOfferId") final Long specOfferId) {
 		LOG.info("Creating spec offer subject: {}", resource);
-		return specOfferSubjectFacade.createEntity(resource);
+		return facade.createResource(resource);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class SpecOfferSubjectController extends BaseController {
  			@RequestBody final SpecOfferSubjectResource resource) {
 		LOG.info("Updating spec offer subject with id: {}, {}", subjectId, resource);
 		
-		specOfferSubjectFacade.updateEntity(subjectId, resource);
+		facade.updateResource(subjectId, resource);
 		return new MessageResource(MessageType.INFO, "Spec Offer Subject Updated");
 	}
 	
@@ -82,7 +82,7 @@ public class SpecOfferSubjectController extends BaseController {
 			@PathVariable("subjectId") final Long subjectId) {
 		LOG.info("Retrieving Spec Offer Subject with id: {}", subjectId);
 		
-		return specOfferSubjectFacade.getEntity(subjectId);
+		return facade.getResource(subjectId);
 	}
 	
 	/**
@@ -96,7 +96,7 @@ public class SpecOfferSubjectController extends BaseController {
 	public MessageResource removeSpecOfferSubject(@PathVariable("specOfferId") final Long specOfferId,
 			@PathVariable("subjectId") final Long subjectId) {
 		LOG.info("Removing Spec Offer Subject with id: {}", subjectId);
-		specOfferSubjectFacade.removeEntity(subjectId);
+		facade.removeResource(subjectId);
 		
 		return new MessageResource(MessageType.INFO, "SpecOfferSubject removed");
 	}
@@ -119,6 +119,6 @@ public class SpecOfferSubjectController extends BaseController {
 		resource.setSpecOfferId(soId);
 		PagedRequest<SpecOfferSubjectResource> pagedRequest = new PagedRequest<SpecOfferSubjectResource>(resource, offset, limit);
 		
-		return specOfferSubjectFacade.getEntities(pagedRequest);
+		return facade.getResources(pagedRequest);
 	}
 }

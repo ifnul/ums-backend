@@ -13,7 +13,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.timeperiod.TimePeriodFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.timeperiod.TimePeriodResource;
@@ -29,7 +29,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class TimePeriodControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private TimePeriodFacade timePeriodFacade;
+	private Facade<TimePeriodResource, Long> facade;
 	
 	@InjectMocks
 	private TimePeriodController unit;
@@ -65,7 +65,7 @@ public class TimePeriodControllerTest extends AbstractControllerTest {
 		PagedRequest<TimePeriodResource> pagedRequest = new PagedRequest<TimePeriodResource>(new TimePeriodResource(), offset, limit);
 		
 		// When
-		when(timePeriodFacade.getEntities(Matchers.<PagedRequest<TimePeriodResource>>any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<TimePeriodResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -75,6 +75,6 @@ public class TimePeriodControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(timePeriodFacade).getEntities(pagedRequest);
+		verify(facade).getResources(pagedRequest);
 	}
 }

@@ -20,22 +20,4 @@
 		<property name="ignoreResourceNotFound" value="false" />
 	</bean>
 	
-
-	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="10000" />
-	</bean> -->
-	
-	<bean id="fileUpload" class="org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload">
-<!-- 		<property name="fileItemFactory" ref="diskFileItemFactory"/> -->
-	</bean>
-	
-<!-- 	<bean id="diskFileItemFactory" class="org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory"> -->
-<!-- 		<property name="sizeThreshold" value="${content.upload.maxSize}" /> -->
-<!-- 		<property name="repository" ref="temporaryFileRepository" /> -->
-<!-- 	</bean> -->
-	
-<!-- 	<bean id="temporaryFileRepository" class="java.io.File"> -->
-<!-- 		<constructor-arg value="${content.temp.repository.path}"/> -->
-<!-- 	</bean> -->
-
 </beans>

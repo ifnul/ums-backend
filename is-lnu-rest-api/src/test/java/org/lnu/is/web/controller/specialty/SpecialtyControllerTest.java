@@ -18,7 +18,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.specialty.SpecialtyFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -37,7 +37,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class SpecialtyControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private SpecialtyFacade specialtyFacade;
+	private Facade<SpecialtyResource, Long> facade;
 	
 	@InjectMocks
 	private SpecialtyController unit;
@@ -70,7 +70,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
     	String request = getJson(specialtyResource, true);
 		String response = getJson(specialtyResource, false);
     	
-		when(specialtyFacade.createEntity(any(SpecialtyResource.class))).thenReturn(specialtyResource);
+		when(facade.createResource(any(SpecialtyResource.class))).thenReturn(specialtyResource);
 		
     	// Then
 		mockMvc.perform(post("/specialties")
@@ -79,7 +79,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(specialtyFacade).createEntity(specialtyResource);
+		verify(facade).createResource(specialtyResource);
 	}
     
     @Test
@@ -114,7 +114,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(specialtyFacade).updateEntity(id, specialtyResource);
+		verify(facade).updateResource(id, specialtyResource);
 	}
     
     @Test
@@ -138,14 +138,14 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(specialtyResource, false);
 		
-		when(specialtyFacade.getEntity(anyLong())).thenReturn(specialtyResource);
+		when(facade.getResource(anyLong())).thenReturn(specialtyResource);
 		
 		// Then
     	mockMvc.perform(get("/specialties/{id}", id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(specialtyFacade).getEntity(id);
+    	verify(facade).getResource(id);
 	}
     
     @Test
@@ -159,7 +159,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/specialties/{id}", id))
     		.andExpect(status().is(204));
     	
-    	verify(specialtyFacade).removeEntity(id);
+    	verify(facade).removeResource(id);
 	}
     
     @Test
@@ -195,7 +195,7 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
 		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(new SpecialtyResource(), offset, limit);
 		
 		// When
-		when(specialtyFacade.getEntities(Matchers.<PagedRequest<SpecialtyResource>>any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<SpecialtyResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -205,6 +205,6 @@ public class SpecialtyControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(specialtyFacade).getEntities(pagedRequest);
+		verify(facade).getResources(pagedRequest);
 	}
 }

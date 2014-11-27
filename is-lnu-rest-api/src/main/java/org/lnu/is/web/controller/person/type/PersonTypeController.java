@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.person.type;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.person.types.PersonTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.person.type.PersonTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -31,7 +31,7 @@ public class PersonTypeController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonTypeController.class);
 
 	@Resource(name = "personTypeFacade")
-	private PersonTypeFacade personTypeFacade;
+	private Facade<PersonTypeResource, Long> facade;
 
 	/**
 	 * Method for getting person types.
@@ -49,7 +49,7 @@ public class PersonTypeController extends BaseController {
 			final PersonTypeResource resource) {
 		LOG.info("Retrieving PagedResultResource for Person Types with offset: {}, limit: {}", offset, limit);
 		PagedRequest<PersonTypeResource> pagedRequest = new PagedRequest<PersonTypeResource>(resource, offset, limit);
-		return personTypeFacade.getEntities(pagedRequest);
+		return facade.getResources(pagedRequest);
 	}
 
 }

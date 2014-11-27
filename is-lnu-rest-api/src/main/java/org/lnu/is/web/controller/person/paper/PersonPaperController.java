@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.person.paper;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.person.paper.PersonPaperFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.paper.PersonPaperResource;
@@ -35,7 +35,7 @@ public class PersonPaperController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonPaperController.class);
 	
 	@Resource(name = "personPaperFacade")
-	private PersonPaperFacade personPaperFacade;
+	private Facade<PersonPaperResource, Long> facade;
 	
 	/**
 	 * Method for creating person paper.
@@ -49,7 +49,7 @@ public class PersonPaperController extends BaseController {
 	public PersonPaperResource createPersonPaper(@RequestBody final PersonPaperResource personPaperResource,
 			@PathVariable("personId") final Long personId) {
 		LOG.info("Creating personPaper: {}", personPaperResource);
-		return personPaperFacade.createEntity(personPaperResource);
+		return facade.createResource(personPaperResource);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class PersonPaperController extends BaseController {
  			@RequestBody final PersonPaperResource personPaperResource) {
 		LOG.info("Updating personPaper with id: {}, {}", personPaperId, personPaperResource);
 		
-		personPaperFacade.updateEntity(personPaperId, personPaperResource);
+		facade.updateResource(personPaperId, personPaperResource);
 		return new MessageResource(MessageType.INFO, "Person Paper Updated");
 	}
 	
@@ -82,7 +82,7 @@ public class PersonPaperController extends BaseController {
 			@PathVariable("personPaperId") final Long personPaperId) {
 		LOG.info("Retrieving personPaper with id: {}", personPaperId);
 		
-		return personPaperFacade.getEntity(personPaperId);
+		return facade.getResource(personPaperId);
 	}
 	
 	/**
@@ -96,7 +96,7 @@ public class PersonPaperController extends BaseController {
 	public MessageResource removePersonPaper(@PathVariable("personId") final Long personId,
 			@PathVariable("personPaperId") final Long personPaperId) {
 		LOG.info("Removing personPaper with id: {}", personPaperId);
-		personPaperFacade.removeEntity(personPaperId);
+		facade.removeResource(personPaperId);
 		
 		return new MessageResource(MessageType.INFO, "PersonPaper removed");
 	}
@@ -119,7 +119,7 @@ public class PersonPaperController extends BaseController {
 		resource.setPersonId(persId);
 		PagedRequest<PersonPaperResource> pagedRequest = new PagedRequest<PersonPaperResource>(resource, offset, limit);
 		
-		return personPaperFacade.getEntities(pagedRequest);
+		return facade.getResources(pagedRequest);
 	}
 	
 }

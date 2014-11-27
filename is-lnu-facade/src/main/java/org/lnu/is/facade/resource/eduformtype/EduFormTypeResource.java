@@ -17,6 +17,11 @@ public class EduFormTypeResource extends ApiResource {
 	public String getUri() {
 		return MessageFormat.format("/eduformtypes/{0}", getId());
 	}
+	
+	@Override
+	public String getRootUri() {
+		return "/eduformtypes";
+	}
 
 	public String getName() {
 		return name;

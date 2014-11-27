@@ -19,6 +19,11 @@ public class MarriedTypeResource extends ApiResource {
 	public String getUri() {
 		return MessageFormat.format("/marriedtypes/{0}", getId());
 	}
+
+	@Override
+	public String getRootUri() {
+		return "/marriedtypes";
+	}
 	
 	public String getName() {
 		return name;

@@ -1,5 +1,6 @@
 package org.lnu.is.facade.resource.department;
 
+import java.text.MessageFormat;
 import java.util.Date;
 
 import org.lnu.is.facade.resource.ApiResource;
@@ -35,9 +36,14 @@ public class DepartmentResource extends ApiResource {
 	
 	@Override
 	public String getUri() {
-		return null;
+		return MessageFormat.format("/departments/{0}", getId());
 	}
-
+	
+	@Override
+	public String getRootUri() {
+		return "/departments";
+	}
+	
 	public Long getParentId() {
 		return parentId;
 	}

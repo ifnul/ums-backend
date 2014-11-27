@@ -18,7 +18,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.person.award.PersonAwardFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.award.PersonAwardResource;
@@ -37,7 +37,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class PersonAwardControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private PersonAwardFacade personAwardFacade;
+	private Facade<PersonAwardResource, Long> facade;
 	
 	@InjectMocks
 	private PersonAwardController unit;
@@ -60,7 +60,7 @@ public class PersonAwardControllerTest extends AbstractControllerTest {
     	String request = getJson(personAwardResource, true);
 		String response = getJson(personAwardResource, false);
     	
-		when(personAwardFacade.createEntity(any(PersonAwardResource.class))).thenReturn(personAwardResource);
+		when(facade.createResource(any(PersonAwardResource.class))).thenReturn(personAwardResource);
 		
     	// Then
 		mockMvc.perform(post("/persons/{0}/awards", personId)
@@ -69,7 +69,7 @@ public class PersonAwardControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(personAwardFacade).createEntity(personAwardResource);
+		verify(facade).createResource(personAwardResource);
 	}
     
     @Test
@@ -94,7 +94,7 @@ public class PersonAwardControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(personAwardFacade).updateEntity(id, personAwardResource);
+		verify(facade).updateResource(id, personAwardResource);
 	}
     
     @Test
@@ -108,14 +108,14 @@ public class PersonAwardControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(personAwardResource, false);
 		
-		when(personAwardFacade.getEntity(anyLong())).thenReturn(personAwardResource);
+		when(facade.getResource(anyLong())).thenReturn(personAwardResource);
 		
 		// Then
     	mockMvc.perform(get("/persons/{personId}/awards/{id}", personId, id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(personAwardFacade).getEntity(id);
+    	verify(facade).getResource(id);
 	}
     
     @Test
@@ -130,7 +130,7 @@ public class PersonAwardControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/persons/{personId}/awards/{id}", personId, id))
     		.andExpect(status().is(204));
     	
-    	verify(personAwardFacade).removeEntity(id);
+    	verify(facade).removeResource(id);
 	}
     
     @Test
@@ -159,7 +159,7 @@ public class PersonAwardControllerTest extends AbstractControllerTest {
 		PagedRequest<PersonAwardResource> pagedRequest = new PagedRequest<PersonAwardResource>(resource, offset, limit);
 		
 		// When
-		when(personAwardFacade.getEntities(Matchers.<PagedRequest<PersonAwardResource>>any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<PersonAwardResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -169,7 +169,7 @@ public class PersonAwardControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(personAwardFacade).getEntities(pagedRequest);
+		verify(facade).getResources(pagedRequest);
 	}
     
 }

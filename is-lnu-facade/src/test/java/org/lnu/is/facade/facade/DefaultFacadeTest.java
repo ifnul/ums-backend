@@ -80,7 +80,7 @@ public class DefaultFacadeTest {
 		when(resourceConverter.convert(any(PersonResource.class))).thenReturn(person);
 		when(entityConverter.convert(any(Person.class))).thenReturn(expected);
 
-		PersonResource actual = unit.createEntity(expected);
+		PersonResource actual = unit.createResource(expected);
 
 		// Then
 		verify(resourceConverter).convert(expected);
@@ -114,7 +114,7 @@ public class DefaultFacadeTest {
 		// When
 		when(service.getEntity(anyLong())).thenReturn(person);
 
-		unit.updateEntity(id, expected);
+		unit.updateResource(id, expected);
 
 		// Then
 		verify(service).getEntity(id);
@@ -147,7 +147,7 @@ public class DefaultFacadeTest {
 		// When
 		when(service.getEntity(anyLong())).thenReturn(person);
 		when(entityConverter.convert(any(Person.class))).thenReturn(expected);
-		PersonResource actual = unit.getEntity(id);
+		PersonResource actual = unit.getResource(id);
 
 		// Then
 		verify(service).getEntity(id);
@@ -165,7 +165,7 @@ public class DefaultFacadeTest {
 
 		// When
 		when(service.getEntity(anyLong())).thenReturn(person);
-		unit.removeEntity(id);
+		unit.removeResource(id);
 
 		// Then
 		verify(service).getEntity(id);
@@ -176,9 +176,9 @@ public class DefaultFacadeTest {
 	public void testGetEntities() throws Exception {
 		// Given
 		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), 10, 10);
-		List<PersonResource> funnyResources = Collections.singletonList(new PersonResource());
-		PagedResultResource<PersonResource> expectedFunnies = new PagedResultResource<>(null);
-		expectedFunnies.setResources(funnyResources);
+		List<PersonResource> resources = Collections.singletonList(new PersonResource());
+		PagedResultResource<PersonResource> expectedPagedResultResource = new PagedResultResource<>(pagedRequest.getResource().getRootUri());
+		expectedPagedResultResource.setResources(resources);
 
 		int offset = 8;
 		int limit = 3;
@@ -191,17 +191,17 @@ public class DefaultFacadeTest {
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<PersonResource>> any())).thenReturn(pagedSearch);
 		when(service.getEntities(Matchers.<PagedSearch<Person>> any())).thenReturn(pagedResult);
-		when(entityConverter.convertAll(anyListOf(Person.class))).thenReturn(funnyResources);
+		when(entityConverter.convertAll(anyListOf(Person.class))).thenReturn(resources);
 
-		PagedResultResource<PersonResource> actualFunnies = unit.getEntities(pagedRequest);
+		PagedResultResource<PersonResource> actualFunnies = unit.getResources(pagedRequest);
 
 		// Then
 		verify(pagedRequestConverter).convert(pagedRequest);
 		verify(service).getEntities(pagedSearch);
 		verify(entityConverter).convertAll(entities);
-		verify(pagedResultConverter).convert(pagedResult, expectedFunnies);
+		verify(pagedResultConverter).convert(pagedResult, expectedPagedResultResource);
 
-		assertEquals(expectedFunnies, actualFunnies);
+		assertEquals(expectedPagedResultResource, actualFunnies);
 	}
 
 }

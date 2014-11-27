@@ -18,7 +18,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.person.PersonFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.PersonResource;
@@ -37,7 +37,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class PersonControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private PersonFacade personFacade;
+	private Facade<PersonResource, Long> facade;
 	
 	@InjectMocks
 	private PersonController unit;
@@ -62,7 +62,7 @@ public class PersonControllerTest extends AbstractControllerTest {
     	String request = getJson(personResource, true);
 		String response = getJson(personResource, false);
     	
-		when(personFacade.createEntity(any(PersonResource.class))).thenReturn(personResource);
+		when(facade.createResource(any(PersonResource.class))).thenReturn(personResource);
 		
     	// Then
 		mockMvc.perform(post("/persons")
@@ -71,7 +71,7 @@ public class PersonControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(personFacade).createEntity(personResource);
+		verify(facade).createResource(personResource);
 	}
     
     @Test
@@ -99,7 +99,7 @@ public class PersonControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(personFacade).updateEntity(id, personResource);
+		verify(facade).updateResource(id, personResource);
 	}
     
     @Test
@@ -116,14 +116,14 @@ public class PersonControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(personResource, false);
 		
-		when(personFacade.getEntity(anyLong())).thenReturn(personResource);
+		when(facade.getResource(anyLong())).thenReturn(personResource);
 		
 		// Then
     	mockMvc.perform(get("/persons/{id}", id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(personFacade).getEntity(id);
+    	verify(facade).getResource(id);
 	}
     
     @Test
@@ -137,7 +137,7 @@ public class PersonControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/persons/{id}", id))
     		.andExpect(status().is(204));
     	
-    	verify(personFacade).removeEntity(id);
+    	verify(facade).removeResource(id);
 	}
     
     @Test
@@ -166,7 +166,7 @@ public class PersonControllerTest extends AbstractControllerTest {
 		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), offset, limit);
 		
 		// When
-		when(personFacade.getEntities(Matchers.<PagedRequest<PersonResource>>any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<PersonResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -176,7 +176,7 @@ public class PersonControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(personFacade).getEntities(pagedRequest);
+		verify(facade).getResources(pagedRequest);
 	}
   
 }

@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.person.award;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.person.award.PersonAwardFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.award.PersonAwardResource;
@@ -35,7 +35,7 @@ public class PersonAwardController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonAwardController.class);
 	
 	@Resource(name = "personAwardFacade")
-	private PersonAwardFacade personAwardFacade;
+	private Facade<PersonAwardResource, Long> facade;
 	
 	/**
 	 * Method for creating person award.
@@ -49,7 +49,7 @@ public class PersonAwardController extends BaseController {
 	public PersonAwardResource createPersonAward(@RequestBody final PersonAwardResource personAwardResource,
 			@PathVariable("personId") final Long personId) {
 		LOG.info("Creating personAward: {}", personAwardResource);
-		return personAwardFacade.createEntity(personAwardResource);
+		return facade.createResource(personAwardResource);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class PersonAwardController extends BaseController {
  			@RequestBody final PersonAwardResource personAwardResource) {
 		LOG.info("Updating personAward with id: {}, {}", personAwardId, personAwardResource);
 		
-		personAwardFacade.updateEntity(personAwardId, personAwardResource);
+		facade.updateResource(personAwardId, personAwardResource);
 		return new MessageResource(MessageType.INFO, "Person Award Updated");
 	}
 	
@@ -81,7 +81,7 @@ public class PersonAwardController extends BaseController {
 	public PersonAwardResource getPersonAward(@PathVariable("personId") final Long personId,
 			@PathVariable("personAwardId") final Long personAwardId) {
 		LOG.info("Retrieving personAward with id: {}", personAwardId);
-		return personAwardFacade.getEntity(personAwardId);
+		return facade.getResource(personAwardId);
 	}
 	
 	/**
@@ -95,7 +95,7 @@ public class PersonAwardController extends BaseController {
 	public MessageResource removePersonAward(@PathVariable("personId") final Long personId,
 			@PathVariable("personAwardId") final Long personAwardId) {
 		LOG.info("Removing personAward with id: {}", personAwardId);
-		personAwardFacade.removeEntity(personAwardId);
+		facade.removeResource(personAwardId);
 		return new MessageResource(MessageType.INFO, "PersonAward removed");
 	}
 	
@@ -116,7 +116,7 @@ public class PersonAwardController extends BaseController {
 		LOG.info("Retrieving PagedResultResource for PersonAward:{} Resources with offset: {}, limit: {}", persId, offset, limit);
 		resource.setPersonId(persId);
 		PagedRequest<PersonAwardResource> pagedRequest = new PagedRequest<PersonAwardResource>(resource, offset, limit);
-		return personAwardFacade.getEntities(pagedRequest);
+		return facade.getResources(pagedRequest);
 	}
 	
 }

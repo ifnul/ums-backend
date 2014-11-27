@@ -28,6 +28,11 @@ public class TimePeriodResource extends ApiResource {
 	public String getUri() {
 		return MessageFormat.format("/timeperiods/{0}", getId());
 	}
+	
+	@Override
+	public String getRootUri() {
+		return "/timeperiods";
+	}
 
 	public Long getParentId() {
 		return parentId;

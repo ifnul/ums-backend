@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.timeperiod;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.timeperiod.TimePeriodFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.timeperiod.TimePeriodResource;
@@ -31,7 +31,7 @@ public class TimePeriodController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(TimePeriodController.class);
 	
 	@Resource(name = "timePeriodFacade")
-	private TimePeriodFacade timePeriodFacade;
+	private Facade<TimePeriodResource, Long> facade;
 	
 	/**
 	 * Method for getting paged result.
@@ -49,7 +49,7 @@ public class TimePeriodController extends BaseController {
 			final TimePeriodResource resource) {
 		LOG.info("Getting Paged Result of  enrolment subject with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<TimePeriodResource> request = new PagedRequest<TimePeriodResource>(resource, offset, limit);
-		return timePeriodFacade.getEntities(request);
+		return facade.getResources(request);
 	}
 	
 }

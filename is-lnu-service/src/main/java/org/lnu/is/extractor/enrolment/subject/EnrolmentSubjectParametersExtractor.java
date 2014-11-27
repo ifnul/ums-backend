@@ -5,7 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.dao.enrolment.subject.EnrolmentSubjectDao;
+import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class EnrolmentSubjectParametersExtractor extends AbstractParametersExtractor<EnrolmentSubject> {
 
 	@Resource(name = "enrolmentSubjectDao")
-	private EnrolmentSubjectDao enrolmentSubjectDao;
+	private Dao<EnrolmentSubject, Long> enrolmentSubjectDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final EnrolmentSubject entity) {

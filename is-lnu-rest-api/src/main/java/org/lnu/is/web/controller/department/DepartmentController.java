@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.department;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.department.DepartmentFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.department.DepartmentResource;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
@@ -35,7 +35,7 @@ public class DepartmentController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(DepartmentController.class);
 	
 	@Resource(name = "departmentFacade")
-	private DepartmentFacade departmentFacade;
+	private Facade<DepartmentResource, Long> facade;
 
 	/**
 	 * Method for creating new department.
@@ -55,7 +55,7 @@ public class DepartmentController extends BaseController {
 	@ApiOperation(value = "Create Specoffer", position = 1)
 	public DepartmentResource createDepartment(@RequestBody final DepartmentResource departmentResource) {
 		LOG.info("Creating department: {}", departmentResource);
-		return departmentFacade.createEntity(departmentResource);
+		return facade.createResource(departmentResource);
 	}
 	
 	/**
@@ -80,7 +80,7 @@ public class DepartmentController extends BaseController {
 	public MessageResource updateDepartment(@PathVariable("id") final Long id,
 			@RequestBody final DepartmentResource departmentResource) {
 		LOG.info("Updated department with id: {}, {}", id, departmentResource);
-		departmentFacade.updateEntity(id, departmentResource);
+		facade.updateResource(id, departmentResource);
 		return new MessageResource(MessageType.INFO, "Department Updated");
 	}
 	
@@ -101,7 +101,7 @@ public class DepartmentController extends BaseController {
 	@ApiOperation(value = "Get Department by id", position = 3)
 	public DepartmentResource getDepartment(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving department with id: {}", id);
-		return departmentFacade.getEntity(id);
+		return facade.getResource(id);
 	}
 	
 	/**
@@ -122,7 +122,7 @@ public class DepartmentController extends BaseController {
 	@ApiOperation(value = "Delete Department by id", position = 4)
 	public MessageResource removeDepartment(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
-		departmentFacade.removeEntity(id);
+		facade.removeResource(id);
 		return new MessageResource(MessageType.INFO, "Department removed");
 	}
 	
@@ -154,6 +154,6 @@ public class DepartmentController extends BaseController {
 			final DepartmentResource resource) {
 		LOG.info("Retrieving PagedResultResource for Department Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<DepartmentResource> pagedRequest = new PagedRequest<DepartmentResource>(resource, offset, limit);
-		return departmentFacade.getEntities(pagedRequest);
+		return facade.getResources(pagedRequest);
 	}	
 }

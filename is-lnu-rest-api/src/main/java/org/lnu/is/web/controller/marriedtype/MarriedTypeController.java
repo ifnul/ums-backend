@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.marriedtype;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.marriedtype.MarriedTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.marriedtype.MarriedTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -31,7 +31,7 @@ public class MarriedTypeController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(MarriedTypeController.class);
 	
 	@Resource(name = "marriedTypeFacade")
-	private MarriedTypeFacade marriedTypeFacade;
+	private Facade<MarriedTypeResource, Long> facade;
 	
 	/**
 	 * Method for getting paged result of married types.
@@ -49,7 +49,7 @@ public class MarriedTypeController extends BaseController {
 			final MarriedTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Married Type with offset: {}, limit: {}", offset, limit);
 		PagedRequest<MarriedTypeResource> request = new PagedRequest<MarriedTypeResource>(resource, offset, limit);
-		return marriedTypeFacade.getEntities(request);	
+		return facade.getResources(request);	
 	}
 
 }

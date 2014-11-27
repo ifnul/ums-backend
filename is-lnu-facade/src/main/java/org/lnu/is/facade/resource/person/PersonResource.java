@@ -54,6 +54,11 @@ public class PersonResource extends ApiResource {
 	public String getUri() {
 		return MessageFormat.format("/persons/{0}", getId());
 	}
+	
+	@Override
+	public String getRootUri() {
+		return "/persons";
+	}
 
 	public Long getPersonTypeId() {
 		return personTypeId;

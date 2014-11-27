@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.addresstype;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.addresstype.AddressTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.addresstype.AddressTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -33,7 +33,7 @@ public class AddressTypeController extends BaseController {
 			.getLogger(AddressTypeController.class);
 
 	@Resource(name = "addressTypeFacade")
-	private AddressTypeFacade addressTypeFacade;
+	private Facade<AddressTypeResource, Long> facade;
 
 	/**
 	 * Method for getting Address Types.
@@ -50,11 +50,9 @@ public class AddressTypeController extends BaseController {
 			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
 			@RequestParam(value = "limit", defaultValue = "38") final Integer limit,
 			final AddressTypeResource resource) {
-		LOG.info(
-				"Getting PagedResultResource for Address Tyoe with offset: {}, limit: {}",
-				offset, limit);
-		PagedRequest<AddressTypeResource> request = new PagedRequest<AddressTypeResource>(
-				resource, offset, limit);
-		return addressTypeFacade.getEntities(request);
+		LOG.info("Getting PagedResultResource for Address Tyoe with offset: {}, limit: {}", offset, limit);
+		PagedRequest<AddressTypeResource> request = new PagedRequest<AddressTypeResource>(resource, offset, limit);
+		
+		return facade.getResources(request);
 	}
 }

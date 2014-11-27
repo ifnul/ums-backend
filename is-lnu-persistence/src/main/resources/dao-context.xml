@@ -23,7 +23,6 @@
 	<bean id="timePeriodTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.timeperiod.TimePeriodType" />
-		<property name="queryBuilder" ref="timePeriodTypeQueryBuilder" />
 	</bean>
 
 	<bean id="streetTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
@@ -58,7 +57,6 @@
 	<bean id="specialtyTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.specialty.SpecialtyType" />
-		<property name="queryBuilder" ref="specialtyTypeQueryBuilder" />
 	</bean>
 
 	<bean id="personDao" class="org.lnu.is.dao.dao.DefaultDao">
@@ -94,7 +92,6 @@
 	<bean id="paperTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.papertype.PaperType" />
-		<property name="queryBuilder" ref="paperTypeQueryBuilder" />
 	</bean>
 
 	<bean id="orderDao" class="org.lnu.is.dao.dao.DefaultDao">

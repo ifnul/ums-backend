@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.specialty;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.specialty.SpecialtyFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -36,7 +36,7 @@ public class SpecialtyController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecialtyController.class);
 	
 	@Resource(name = "specialtyFacade")
-	private SpecialtyFacade specialtyFacade;
+	private Facade<SpecialtyResource, Long> facade;
 
 	/**
 	 * Method for creating new specialty.
@@ -56,7 +56,7 @@ public class SpecialtyController extends BaseController {
 	@ApiOperation(value = "Create Specialty", position = 1)
 	public SpecialtyResource createSpecialty(@RequestBody final SpecialtyResource specialtyResource) {
 		LOG.info("Creating specialty: {}", specialtyResource);
-		return specialtyFacade.createEntity(specialtyResource);
+		return facade.createResource(specialtyResource);
 	}
 	
 	/**
@@ -81,7 +81,7 @@ public class SpecialtyController extends BaseController {
 	public MessageResource updateSpecialty(@PathVariable("id") final Long id,
 			@RequestBody final SpecialtyResource specialtyResource) {
 		LOG.info("Updated specialty with id: {}, {}", id, specialtyResource);
-		specialtyFacade.updateEntity(id, specialtyResource);
+		facade.updateResource(id, specialtyResource);
 		return new MessageResource(MessageType.INFO, "Specialty Updated");
 	}
 	
@@ -102,7 +102,7 @@ public class SpecialtyController extends BaseController {
 	@ApiOperation(value = "Get Specailty by id", position = 3)
 	public SpecialtyResource getSpecialty(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving specialty with id: {}", id);
-		return specialtyFacade.getEntity(id);
+		return facade.getResource(id);
 	}
 	
 	/**
@@ -123,7 +123,7 @@ public class SpecialtyController extends BaseController {
 	@ApiOperation(value = "Delete Specialty", position = 4)
 	public MessageResource removeSpecialty(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);
-		specialtyFacade.removeEntity(id);
+		facade.removeResource(id);
 		return new MessageResource(MessageType.INFO, "Specialty removed");
 	}
 	
@@ -154,6 +154,6 @@ public class SpecialtyController extends BaseController {
 			final SpecialtyResource resource) {
 		LOG.info("Retrieving PagedResultResource for Specialty Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<SpecialtyResource> pagedRequest = new PagedRequest<SpecialtyResource>(resource, offset, limit);
-		return specialtyFacade.getEntities(pagedRequest);
+		return facade.getResources(pagedRequest);
 	}	
 }

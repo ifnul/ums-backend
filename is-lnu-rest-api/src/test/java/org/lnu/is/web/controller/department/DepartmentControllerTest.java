@@ -18,7 +18,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.department.DepartmentFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.department.DepartmentResource;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
@@ -37,7 +37,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class DepartmentControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private DepartmentFacade departmentFacade;
+	private Facade<DepartmentResource, Long> facade;
 	
 	@InjectMocks
 	private DepartmentController unit;
@@ -67,12 +67,11 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 		departmentResource.setManager(manager);
 		departmentResource.setPhone(phone);
 		
-		
 		// When
     	String request = getJson(departmentResource, true);
 		String response = getJson(departmentResource, false);
     	
-		when(departmentFacade.createEntity(any(DepartmentResource.class))).thenReturn(departmentResource);
+		when(facade.createResource(any(DepartmentResource.class))).thenReturn(departmentResource);
 		
     	// Then
 		mockMvc.perform(post("/departments")
@@ -81,7 +80,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(departmentFacade).createEntity(departmentResource);
+		verify(facade).createResource(departmentResource);
 	}
     
     @Test
@@ -118,7 +117,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(departmentFacade).updateEntity(id, departmentResource);
+		verify(facade).updateResource(id, departmentResource);
 	}
     
     @Test
@@ -144,14 +143,14 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(departmentResource, false);
 		
-		when(departmentFacade.getEntity(anyLong())).thenReturn(departmentResource);
+		when(facade.getResource(anyLong())).thenReturn(departmentResource);
 		
 		// Then
     	mockMvc.perform(get("/departments/{id}", id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(departmentFacade).getEntity(id);
+    	verify(facade).getResource(id);
 	}
     
     @Test
@@ -165,7 +164,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/departments/{id}", id))
     		.andExpect(status().is(204));
     	
-    	verify(departmentFacade).removeEntity(id);
+    	verify(facade).removeResource(id);
 	}
     
     @Test
@@ -203,7 +202,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 		PagedRequest<DepartmentResource> pagedRequest = new PagedRequest<DepartmentResource>(new DepartmentResource(), offset, limit);
 		
 		// When
-		when(departmentFacade.getEntities(Matchers.<PagedRequest<DepartmentResource>>any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<DepartmentResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -213,6 +212,6 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(departmentFacade).getEntities(pagedRequest);
+		verify(facade).getResources(pagedRequest);
 	}
 }

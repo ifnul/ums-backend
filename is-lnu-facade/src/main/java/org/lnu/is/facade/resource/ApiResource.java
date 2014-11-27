@@ -1,5 +1,8 @@
 package org.lnu.is.facade.resource;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 /**
  * Abstract class, that all resources need to implement.
  * @author ivanursul
@@ -15,6 +18,13 @@ public abstract class ApiResource {
 	 */
 	public abstract String getUri();
 
+	/**
+	 * Method, that is used for getting uri for list(multiple resources).
+	 * @return root uri.
+	 */
+	@JsonIgnore
+	public abstract String getRootUri();
+	
 	public Long getId() {
 		return id;
 	}

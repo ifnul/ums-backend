@@ -18,8 +18,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.specoffer.SpecOfferFacade;
-import org.lnu.is.facade.facade.specoffer.type.SpecOfferTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -39,10 +38,10 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class SpecOfferControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private SpecOfferFacade specOfferFacade;
+	private Facade<SpecOfferResource, Long> facade;
 	
 	@Mock
-	private SpecOfferTypeFacade specOfferTypeFacade;
+	private Facade<SpecOfferTypeResource, Long> typeFacade;
 	
 	@InjectMocks
 	private SpecOfferController unit;
@@ -77,7 +76,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     	String request = getJson(specOfferResource, true);
 		String response = getJson(specOfferResource, false);
     	
-		when(specOfferFacade.createEntity(any(SpecOfferResource.class))).thenReturn(specOfferResource);
+		when(facade.createResource(any(SpecOfferResource.class))).thenReturn(specOfferResource);
 		
     	// Then
 		mockMvc.perform(post("/specoffers")
@@ -86,7 +85,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(content().string(response));
 		
-		verify(specOfferFacade).createEntity(specOfferResource);
+		verify(facade).createResource(specOfferResource);
 	}
     
     @Test
@@ -123,7 +122,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(specOfferFacade).updateEntity(id, specOfferResource);
+		verify(facade).updateResource(id, specOfferResource);
 	}
     
     @Test
@@ -149,14 +148,14 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
 		// When
 		String response = getJson(specOfferResource, false);
 		
-		when(specOfferFacade.getEntity(anyLong())).thenReturn(specOfferResource);
+		when(facade.getResource(anyLong())).thenReturn(specOfferResource);
 		
 		// Then
     	mockMvc.perform(get("/specoffers/{id}", id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-    	verify(specOfferFacade).getEntity(id);
+    	verify(facade).getResource(id);
 	}
     
     @Test
@@ -170,7 +169,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     	mockMvc.perform(delete("/specoffers/{id}", id))
     		.andExpect(status().is(204));
     	
-    	verify(specOfferFacade).removeEntity(id);
+    	verify(facade).removeResource(id);
 	}
     
     @Test
@@ -208,7 +207,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
 		PagedRequest<SpecOfferResource> pagedRequest = new PagedRequest<SpecOfferResource>(new SpecOfferResource(), offset, limit);
 		
 		// When
-		when(specOfferFacade.getEntities(Matchers.<PagedRequest<SpecOfferResource>>any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<SpecOfferResource>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then
@@ -218,7 +217,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(specOfferFacade).getEntities(pagedRequest);
+		verify(facade).getResources(pagedRequest);
 	}
     
     @Test
@@ -244,7 +243,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
 		PagedRequest<SpecOfferTypeResource> request = new PagedRequest<SpecOfferTypeResource>(paramResource, offset, limit);
 		
 		// When
-		when(specOfferTypeFacade.getEntities(Matchers.<PagedRequest<SpecOfferTypeResource>>any())).thenReturn(expected);
+		when(typeFacade.getResources(Matchers.<PagedRequest<SpecOfferTypeResource>>any())).thenReturn(expected);
     	String response = getJson(expected, false);
 
 		// Then
@@ -253,6 +252,6 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(specOfferTypeFacade).getEntities(request);
+		verify(typeFacade).getResources(request);
 	}
 }

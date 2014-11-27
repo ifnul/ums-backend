@@ -19,7 +19,12 @@ public class SpecOfferTypeResource extends ApiResource {
 
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/specoffertypes/{0}", getId());
+		return MessageFormat.format("/specoffers/types/{0}", getId());
+	}
+	
+	@Override
+	public String getRootUri() {
+		return "/specoffers/types";
 	}
 
 	public Long getSpecialtyTypeId() {

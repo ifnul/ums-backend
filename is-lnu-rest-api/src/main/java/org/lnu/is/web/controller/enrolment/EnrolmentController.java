@@ -2,8 +2,7 @@ package org.lnu.is.web.controller.enrolment;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.enrolment.statustype.EnrolmentStatusTypeFacade;
-import org.lnu.is.facade.facade.enrolment.subject.EnrolmentSubjectFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.enrolment.statustype.EnrolmentStatusTypeResource;
 import org.lnu.is.facade.resource.enrolment.subject.EnrolmentSubjectResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -33,10 +32,10 @@ public class EnrolmentController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(EnrolmentController.class);
 
 	@Resource(name = "enrolmentStatusTypeFacade")
-	private EnrolmentStatusTypeFacade enrolmentStatusTypeFacade;
+	private Facade<EnrolmentStatusTypeResource,	 Long> statusTypeFacade;
 	
 	@Resource(name = "enrolmentSubjectFacade")
-	private EnrolmentSubjectFacade enrolmentSubjectFacade;
+	private Facade<EnrolmentSubjectResource, Long> subjectFacade;
 	
 	/**
 	 * Method for getting enrolment status types.
@@ -54,7 +53,7 @@ public class EnrolmentController extends BaseController {
 			final EnrolmentStatusTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Enrolment Status Type with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<EnrolmentStatusTypeResource> request = new PagedRequest<EnrolmentStatusTypeResource>(resource, offset, limit);
-		return enrolmentStatusTypeFacade.getEntities(request);
+		return statusTypeFacade.getResources(request);
 	}
 	
 	/**
@@ -73,6 +72,6 @@ public class EnrolmentController extends BaseController {
 			final EnrolmentSubjectResource resource) {
 		LOG.info("Getting Paged Result of  enrolment subject with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<EnrolmentSubjectResource> request = new PagedRequest<EnrolmentSubjectResource>(resource, offset, limit);
-		return enrolmentSubjectFacade.getEntities(request);
+		return subjectFacade.getResources(request);
 	}
 }

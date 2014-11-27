@@ -19,6 +19,11 @@ public class PersonTypeResource extends ApiResource {
 	public String getUri() {
 		return MessageFormat.format("/persons/types/{0}", getId());
 	}
+	
+	@Override
+	public String getRootUri() {
+		return "/persons/types";
+	}
 
 	public String getAbbrName() {
 		return abbrName;

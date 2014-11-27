@@ -5,9 +5,9 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.dao.dao.timeperiod.TimePeriodDao;
-import org.lnu.is.dao.dao.timeperiod.type.TimePeriodTypeDao;
+import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.timeperiod.TimePeriod;
+import org.lnu.is.domain.timeperiod.TimePeriodType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 import org.springframework.stereotype.Component;
 
@@ -20,10 +20,10 @@ import org.springframework.stereotype.Component;
 public class TimePeriodParametersExtractor extends AbstractParametersExtractor<TimePeriod> {
 
 	@Resource(name = "timePeriodDao")
-	private TimePeriodDao timePeriodDao;
+	private Dao<TimePeriod, Long> timePeriodDao;
 	
 	@Resource(name = "timePeriodTypeDao")
-	private TimePeriodTypeDao timePeriodTypeDao;
+	private Dao<TimePeriodType, Long> timePeriodTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final TimePeriod entity) {

@@ -18,6 +18,11 @@ public class JobTypeResource extends ApiResource {
 	public String getUri() {
 		return MessageFormat.format("/jobtypes/{0}", getId());
 	}
+	
+	@Override
+	public String getRootUri() {
+		return "/jobtypes";
+	}
 
 	public String getName() {
 		return name;

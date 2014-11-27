@@ -12,7 +12,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.marriedtype.MarriedTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.marriedtype.MarriedTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -28,7 +28,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class MarriedTypeControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private MarriedTypeFacade marriedTypeFacade;
+	private Facade<MarriedTypeResource, Long> facade;
 	
 	@InjectMocks
 	private MarriedTypeController unit;
@@ -67,7 +67,7 @@ public class MarriedTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<MarriedTypeResource> request = new PagedRequest<MarriedTypeResource>(paramResource, offset, limit);
 		
 		// When
-		when(marriedTypeFacade.getEntities(Matchers.<PagedRequest<MarriedTypeResource>> any())).thenReturn(expected);
+		when(facade.getResources(Matchers.<PagedRequest<MarriedTypeResource>> any())).thenReturn(expected);
 		String response = getJson(expected, false);
 		
 		// Then
@@ -77,7 +77,7 @@ public class MarriedTypeControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 		
-		verify(marriedTypeFacade).getEntities(request);
+		verify(facade).getResources(request);
 	}
 
 }

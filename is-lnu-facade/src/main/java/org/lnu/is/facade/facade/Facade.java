@@ -1,14 +1,51 @@
 package org.lnu.is.facade.facade;
 
+import org.lnu.is.facade.resource.search.PagedRequest;
+import org.lnu.is.facade.resource.search.PagedResultResource;
 
 /**
- * Facade interface.
- * @author ivanursul
+ * Common interface for all facades.
+ * @author kushnir
  *
- * @param <RESOURCE> resource.
- * @param <ENTITIY> entity.
+ * @param <RESOURCE> Resource.
+ * @param <KEY> Key.
  */
-public interface Facade<RESOURCE, ENTITIY> {
-	
-	//PagedResultResource<RESOURCE> getResources(final PagedRequest<RESOURCE> request);
+public interface Facade<RESOURCE, KEY> {
+	/**
+	 * Method for creating entity.
+	 * @param resource
+	 * @return Entity resource.
+	 */
+	RESOURCE createResource(RESOURCE resource);
+
+	/**
+	 * Method for getting entity.
+	 * 
+	 * @param id
+	 * @return Entity resource.
+	 */
+	RESOURCE getResource(final KEY id);
+
+	/**
+	 * Method for removing entity.
+	 * 
+	 * @param id
+	 */
+	void removeResource(final KEY id);
+
+	/**
+	 * Method for updating entity.
+	 * 
+	 * @param id
+	 * @param resource
+	 */
+	void updateResource(final KEY id, RESOURCE resource);
+
+	/**
+	 * Method for getting paged result for entities.
+	 * 
+	 * @param request
+	 * @return Paged Result.
+	 */
+	PagedResultResource<RESOURCE> getResources(PagedRequest<RESOURCE> request);
 }

@@ -1,6 +1,5 @@
 package org.lnu.is.dao.persistence;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -12,7 +11,6 @@ import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.queries.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -55,38 +53,22 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     @Override
     public void remove(final T entity) {
     	LOG.info("Removing entity for class:{}", entity.getClass());
-        entity.setActual(0);
+        
+    	entity.setActual(0);
         entity.setStatus(RowStatus.DELETED);
+
         update(entity);
     }
 
     @Override
-    public T executeSingleResultQuery(final Query<T> query) {
-        Query<T> finalQuery = query;
-        TypedQuery<T> typedQuery = createQuery(finalQuery.getQuery(), finalQuery.getParameters(), finalQuery.getEntityClass());
+    public PagedResult<T> search(final PagedQuerySearch<T> request) {
+        TypedQuery<T> typedQuery = createQuery(request.getQuery().getQuery(), request.getParameters(), request.getClazz());
+        typedQuery.setFirstResult(request.getOffset());
+        typedQuery.setMaxResults(request.getLimit());
 
-        return typedQuery.getSingleResult();
-    }
+        Long count = getQueryCount(request.getQuery().getQuery(), request.getParameters(), request.getClazz());
 
-    @Override
-    public List<T> executeMultipleResultQuery(final Query<T> query) {
-        Query<T> finalQuery = query;
-        TypedQuery<T> typedQuery = createQuery(finalQuery.getQuery(), finalQuery.getParameters(), finalQuery.getEntityClass());
-
-        return typedQuery.getResultList();
-    }
-
-    @Override
-    public PagedResult<T> search(final PagedQuerySearch<T> searchRequest) {
-        Query<T> finalQuery =  new Query<T>(searchRequest.getClazz(), searchRequest.getQuery().getQuery(), searchRequest.getParameters());
-        
-        TypedQuery<T> typedQuery = createQuery(searchRequest.getQuery().getQuery(), searchRequest.getParameters(), searchRequest.getClazz());
-        typedQuery.setFirstResult(searchRequest.getOffset());
-        typedQuery.setMaxResults(searchRequest.getLimit());
-
-        Long count = getQueryCount(finalQuery.getQuery(), finalQuery.getParameters(), finalQuery.getEntityClass());
-
-        PagedResult<T> result = new PagedResult<T>(searchRequest.getOffset(), searchRequest.getLimit(), count, typedQuery.getResultList());
+        PagedResult<T> result = new PagedResult<T>(request.getOffset(), request.getLimit(), count, typedQuery.getResultList());
 
         return result;
     }

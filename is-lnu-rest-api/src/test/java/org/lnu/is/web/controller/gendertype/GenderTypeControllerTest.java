@@ -12,7 +12,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.gendertype.GenderTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.gendertype.GenderTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -28,7 +28,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class GenderTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private GenderTypeFacade genderTypeFacade;
+	private Facade<GenderTypeResource, Long> facade;
 
 	@InjectMocks
 	private GenderTypeController unit;
@@ -64,12 +64,12 @@ public class GenderTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<GenderTypeResource> request = new PagedRequest<GenderTypeResource>(paramResource, offset, limit);
 
 		// When
-		when(genderTypeFacade.getEntities(Matchers.<PagedRequest<GenderTypeResource>> any())).thenReturn(expected);
+		when(facade.getResources(Matchers.<PagedRequest<GenderTypeResource>> any())).thenReturn(expected);
 		String response = getJson(expected, false);
 
 		// Then
 		mockMvc.perform(get("/gendertypes").param("name", name)).andExpect(status().isOk()).andExpect(content().string(response));
 
-		verify(genderTypeFacade).getEntities(request);
+		verify(facade).getResources(request);
 	}
 }

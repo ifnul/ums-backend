@@ -21,7 +21,7 @@ import org.springframework.beans.factory.annotation.Required;
  * @param <KEY> Key of corresponding 
  * @param <DAO>
  */
-public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implements ServiceTemp<ENTITY, KEY> {
+public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implements Service<ENTITY, KEY> {
 
 	private DAO defaultDao;
 	

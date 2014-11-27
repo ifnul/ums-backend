@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.jobtype;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.jobtype.JobTypeFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.jobtype.JobTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
@@ -31,7 +31,7 @@ public class JobTypeController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(JobTypeController.class);
 
 	@Resource(name = "jobTypeFacade")
-	private JobTypeFacade jobTypeFacade;
+	private Facade<JobTypeResource, Long> facade;
 
 	/**
 	 * Method for getting Job Types.
@@ -49,7 +49,7 @@ public class JobTypeController extends BaseController {
 			final JobTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Job Type with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<JobTypeResource> request = new PagedRequest<JobTypeResource>(resource, offset, limit);
-		return jobTypeFacade.getEntities(request);
+		return facade.getResources(request);
 	}
 
 }

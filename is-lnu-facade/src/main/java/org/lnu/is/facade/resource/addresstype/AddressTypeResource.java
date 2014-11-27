@@ -21,6 +21,11 @@ public class AddressTypeResource extends ApiResource {
 		return MessageFormat.format("/addresstypes/{0}", getId());
 	}
 
+	@Override
+	public String getRootUri() {
+		return "/addresstypes";
+	}
+
 	public String getName() {
 		return name;
 	}

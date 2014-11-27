@@ -2,7 +2,7 @@ package org.lnu.is.web.controller.person.address;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.facade.person.address.PersonAddressFacade;
+import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.address.PersonAddressResource;
@@ -35,7 +35,7 @@ public class PersonAddressController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonAddressController.class);
 	
 	@Resource(name = "personAddressFacade")
-	private PersonAddressFacade personAddressFacade;
+	private Facade<PersonAddressResource, Long> facade;
 	
 	/**
 	 * Method for creating person address.
@@ -49,7 +49,7 @@ public class PersonAddressController extends BaseController {
 	public PersonAddressResource createPersonAddress(@RequestBody final PersonAddressResource resource,
 			@PathVariable("personId") final Long personId) {
 		LOG.info("Creating person address: {}", resource);
-		return personAddressFacade.createEntity(resource);
+		return facade.createResource(resource);
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class PersonAddressController extends BaseController {
 		LOG.info("Updating person({}) address({}): {}", personId, addressId, resource);
 		
 		resource.setPersonId(personId);
-		personAddressFacade.updateEntity(addressId, resource);
+		facade.updateResource(addressId, resource);
 		
 		return new MessageResource(MessageType.INFO, "Person address updated");
 	}
@@ -84,7 +84,7 @@ public class PersonAddressController extends BaseController {
 	public MessageResource deleteAddress(@PathVariable("addressId") final Long addressId) {
 		LOG.info("Deletin person address({})", addressId);
 		
-		personAddressFacade.removeEntity(addressId);
+		facade.removeResource(addressId);
 		return new MessageResource(MessageType.INFO, "Person Address deleted");
 	}
 	
@@ -98,7 +98,7 @@ public class PersonAddressController extends BaseController {
 	@ApiOperation(value = "Method for getting person address by id")
 	public PersonAddressResource getAddress(@PathVariable("addressId") final Long addressId) {
 		LOG.info("Getting person address({})", addressId);
-		return personAddressFacade.getEntity(addressId);
+		return facade.getResource(addressId);
 	}
 	
 	/**
@@ -118,6 +118,6 @@ public class PersonAddressController extends BaseController {
 			final PersonAddressResource resource) {
 		LOG.info("Getting paged result for person({}) addresses with parameters: {}", persId, resource);
 		PagedRequest<PersonAddressResource> request = new PagedRequest<PersonAddressResource>(resource, offset, limit);
-		return personAddressFacade.getEntities(request);
+		return facade.getResources(request);
 	}
 }
