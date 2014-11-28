@@ -32,6 +32,7 @@
 		<slf4j.version>1.7.7</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 		<fasterxml.version>2.4.2</fasterxml.version>
+		<surefire.version>2.12</surefire.version>
 
 		<migrations.location>src/main/resources/migrations/db.changelog.xml</migrations.location>
 
@@ -183,7 +184,17 @@
 						<source>${java-version}</source>
 						<target>${java-version}</target>
 					</configuration>
-				</plugin>			
+				</plugin>
+
+				<plugin>
+				    <groupId>org.apache.maven.plugins</groupId>
+				    <artifactId>maven-surefire-plugin</artifactId>
+				    <version>${surefire.version}</version>
+				    <configuration>
+				        <argLine>-XX:-UseSplitVerifier</argLine>
+				    </configuration>
+				</plugin>				
+							
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-checkstyle-plugin</artifactId>
@@ -242,13 +253,12 @@
 						<check>
 							<haltOnFailure>true</haltOnFailure>
 							<!-- Per-class thresholds -->
-							<!-- 
-							<lineRate>80</lineRate> 
-							<branchRate>80</branchRate> 
-							-->
+							<lineRate>70</lineRate>
+							<branchRate>70</branchRate>
+
 							<!-- Project-wide thresholds -->
-							<totalLineRate>30</totalLineRate>
-							<!-- <totalBranchRate>90</totalBranchRate> -->
+							<totalLineRate>83</totalLineRate>
+							<totalBranchRate>95</totalBranchRate>
 						</check>
 						<formats>
 							<format>html</format>
