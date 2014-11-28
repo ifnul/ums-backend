@@ -96,5 +96,10 @@
 		<property name="parametersExtractor" ref="timePeriodParametersExtractor" />
 		<property name="defaultDao" ref="timePeriodDao"/>
 	</bean>
+	
+	<bean id="specOfferBenefitService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="specOfferBenefitParametersExtractor" />
+		<property name="defaultDao" ref="specOfferBenefitDao"/>		
+	</bean>
 
 </beans>

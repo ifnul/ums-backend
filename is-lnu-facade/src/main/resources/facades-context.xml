@@ -185,5 +185,15 @@
 		<property name="updateConverter" ref="updateConverter" />
 		<property name="defaultService" ref="timePeriodService" />
 	</bean>
+	
+	<bean id="specOfferBenefitFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="specOfferBenefitResourceConverter" />
+		<property name="entityConverter" ref="specOfferBenefitConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="specOfferBenefitService" />
+	</bean>
 
 </beans>
