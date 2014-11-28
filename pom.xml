@@ -309,13 +309,12 @@
 						<check>
 							<haltOnFailure>true</haltOnFailure>
 							<!-- Per-class thresholds -->
-							<!-- 
-							<lineRate>80</lineRate> 
-							<branchRate>80</branchRate> 
-							-->
+							<lineRate>70</lineRate>
+							<branchRate>70</branchRate>
+
 							<!-- Project-wide thresholds -->
-							<totalLineRate>30</totalLineRate>
-							<!-- <totalBranchRate>90</totalBranchRate> -->
+							<totalLineRate>83</totalLineRate>
+							<totalBranchRate>95</totalBranchRate>
 						</check>
 						<formats>
 							<format>html</format>
