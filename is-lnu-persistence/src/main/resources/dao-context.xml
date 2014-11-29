@@ -82,6 +82,12 @@
 		<property name="queryBuilder" ref="personPaperQueryBuilder" />
 	</bean>
 
+	<bean id="personNameDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.person.PersonName" />
+		<property name="queryBuilder" ref="personNameQueryBuilder" />
+	</bean>
+
 	<bean id="personTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.person.PersonType" />
@@ -170,6 +176,11 @@
 	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.adminunit.AdminUnit" />
+	</bean>
+
+	<bean id="languageDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.language.Language" />
 	</bean>
 
 </beans>

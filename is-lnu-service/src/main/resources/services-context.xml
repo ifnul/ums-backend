@@ -62,6 +62,11 @@
 		<property name="defaultDao" ref="personPaperDao"/>
 	</bean>
 
+	<bean id="personNameService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="personNameParametersExtractor" />
+		<property name="defaultDao" ref="personNameDao"/>
+	</bean>
+
 	<bean id="personTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="personTypeParametersExtractor" />
 		<property name="defaultDao" ref="personTypeDao"/>

@@ -126,6 +126,16 @@
 		<property name="defaultService" ref="personPaperService" />
 	</bean>
 
+	<bean id="personNameFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="personNameResourceConverter" />
+		<property name="entityConverter" ref="personNameConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="personNameService" />
+	</bean>
+
 	<bean id="personTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="personTypeResourceConverter" />
 		<property name="entityConverter" ref="personTypeConverter" />
