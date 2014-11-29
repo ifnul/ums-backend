@@ -19,7 +19,7 @@ public class EnrolmentQueryBuilder implements QueryBuilder<Enrolment> {
 	private static final String PERSON_CONDITION = "e.person = :person ";
 	private static final String SPECOFFER_CONDITION = "e.specOffer LIKE CONCAT('%',:specOffer,'%') ";
 	private static final String DEPARTMENT_CONDITION = "e.department = :department ";
-	private static final String PERSONPAPPER_CONDITION = "e.personPapper = :personPapper ";
+	private static final String PERSONPAPER_CONDITION = "e.personPaper = :personPaper ";
 	private static final String ENROLMENTTYPE_CONDITION = "e.enrolmentType = :enrolmentType ";
 	private static final String PARENT_CONDITION = "e.parent = :parent ";
 
@@ -45,7 +45,7 @@ public class EnrolmentQueryBuilder implements QueryBuilder<Enrolment> {
 				.addOrCondition(PERSON_CONDITION, context.getPerson())
 				.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
 				.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
-				.addOrCondition(PERSONPAPPER_CONDITION, context.getPersonPaper())
+				.addOrCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
 				.addOrCondition(ENROLMENTTYPE_CONDITION, context.getEnrolmentType())
 				.addOrCondition(PARENT_CONDITION, context.getParent())
 				.addOrCondition(MARK_CONDITION, context.getMark())
