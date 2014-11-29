@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
-       default-autowire="byName">
+	default-autowire="byName">
+
+	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.EnrolmentType" />
+		<property name="queryBuilder" ref="enrolmentTypeQueryBuilder" />
+	</bean>
+
+	<bean id="enrolmentDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.Enrolment" />
+		<property name="queryBuilder" ref="enrolmentQueryBuilder" />
+	</bean>
 
 	<bean id="addressTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
@@ -52,7 +63,7 @@
 		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecofferSubject" />
 		<property name="queryBuilder" ref="specOfferSubjectQueryBuilder" />
 	</bean>
-	
+
 	<bean id="specOfferBenefitDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecofferBenefit" />
@@ -141,7 +152,8 @@
 
 	<bean id="enrolmentStatusTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
-		<property name="entityClass" value="org.lnu.is.domain.enrolment.EnrolmentStatusType" />
+		<property name="entityClass"
+			value="org.lnu.is.domain.enrolment.EnrolmentStatusType" />
 		<property name="queryBuilder" ref="enrolmentStatusTypeQueryBuilder" />
 	</bean>
 

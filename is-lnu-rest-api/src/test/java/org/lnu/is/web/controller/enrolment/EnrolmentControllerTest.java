@@ -1,20 +1,27 @@
 package org.lnu.is.web.controller.enrolment;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.facade.resource.enrolment.statustype.EnrolmentStatusTypeResource;
-import org.lnu.is.facade.resource.enrolment.subject.EnrolmentSubjectResource;
+import org.lnu.is.facade.resource.enrolment.EnrolmentResource;
+import org.lnu.is.facade.resource.message.MessageResource;
+import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.AbstractControllerTest;
@@ -22,6 +29,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -29,93 +37,148 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class EnrolmentControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<EnrolmentStatusTypeResource, Long> statusTypeFacade;
-	
-	@Mock
-	private Facade<EnrolmentSubjectResource, Long> subjectFacade;
+	private Facade<EnrolmentResource, Long> facade;
 	
 	@InjectMocks
 	private EnrolmentController unit;
+	
+    private MockMvc mockMvc;
 
-	private MockMvc mockMvc;
-
-	@Before
-	public void setup() {
-		this.mockMvc = MockMvcBuilders.standaloneSetup(unit).build();
-	}
-
-	@Test
-	public void testGetEnrolmentStatusTypes() throws Exception {
+    @Before
+    public void setup() {
+    	  this.mockMvc = MockMvcBuilders.standaloneSetup(unit).build();
+    }
+    
+    @Test
+	public void testCreateEnrolment() throws Exception {
 		// Given
-		String name = "name";
-		EnrolmentStatusTypeResource resource = new EnrolmentStatusTypeResource();
-		resource.setName(name);
-
-		List<EnrolmentStatusTypeResource> entities = Arrays.asList(resource);
-
-		Integer offset = 0;
-		long count = 1;
-		Integer limit = 38;
-		PagedResultResource<EnrolmentStatusTypeResource> expected = new PagedResultResource<>("/enrolmentstatustypes");
-		expected.setResources(entities);
-		expected.setCount(count);
-		expected.setOffset(offset);
-		expected.setLimit(limit);
-
-		EnrolmentStatusTypeResource paramResource = new EnrolmentStatusTypeResource();
-		paramResource.setName(name);
-		PagedRequest<EnrolmentStatusTypeResource> request = 
-				new PagedRequest<EnrolmentStatusTypeResource>(paramResource, offset, limit);
-
+    	Long id  = 1L;
+    	String docNum = "docNum";
+    	
+    	EnrolmentResource enrolmentResource = new EnrolmentResource();
+    	enrolmentResource.setId(id);
+    	enrolmentResource.setBegDate(new Date());
+    	enrolmentResource.setDocNum(docNum);
+		
 		// When
-		when(statusTypeFacade.getResources(Matchers.<PagedRequest<EnrolmentStatusTypeResource>> any()))
-			.thenReturn(expected);
-
-		String response = getJson(expected, false);
-
-		// Then
-		mockMvc.perform(get("/enrolments/statustypes").param("name", name))
+    	String request = getJson(enrolmentResource, true);
+		String response = getJson(enrolmentResource, false);
+    	
+		when(facade.createResource(any(EnrolmentResource.class))).thenReturn(enrolmentResource);
+		
+    	// Then
+		mockMvc.perform(post("/enrolments")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().isCreated())
+				.andExpect(content().string(response));
+		
+		verify(facade).createResource(enrolmentResource);
+	}
+    
+    @Test
+	public void testUpdateEnrolment() throws Exception {
+		// Given
+    	Long id = 1L;
+    	String docNum = "docNum";
+    	
+    	EnrolmentResource enrolmentResource = new EnrolmentResource();
+    	enrolmentResource.setId(id);
+    	enrolmentResource.setBegDate(new Date());
+    	enrolmentResource.setDocNum(docNum);
+		
+		MessageResource responseResource = new MessageResource(MessageType.INFO, "Enrolment Updated");
+		
+		// When
+    	String request = getJson(enrolmentResource, true);
+		String response = getJson(responseResource, false);
+    	
+		
+    	// Then
+		mockMvc.perform(put("/enrolments/{id}", id)
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
-
-		verify(statusTypeFacade).getResources(request);
+		
+		verify(facade).updateResource(id, enrolmentResource);
 	}
-	
+    
     @Test
-	public void testGetEnrolmentSubjects() throws Exception {
+	public void testGetEnrolment() throws Exception {
 		// Given
-    	String name = "Ua lan";
-    	String abbrName = "ua";
-		EnrolmentSubjectResource resource = new EnrolmentSubjectResource();
-		resource.setAbbrName(abbrName);
-		resource.setName(name);
-		
-		List<EnrolmentSubjectResource> entities = Arrays.asList(resource);
+    	Long id = 1L;
+    	String docNum = "docNum";
+    	
+    	EnrolmentResource enrolmentResource = new EnrolmentResource();
+    	enrolmentResource.setId(id);
+    	enrolmentResource.setBegDate(new Date());
+    	enrolmentResource.setDocNum(docNum);
 
-
-		Integer offset = 0;
-		long count = 1;
-		Integer limit = 38;
-		PagedResultResource<EnrolmentSubjectResource> expected = new PagedResultResource<>("/enrolments/subjects");
-		expected.setResources(entities);
-		expected.setCount(count);
-		expected.setLimit(limit);
-		expected.setOffset(offset);
-
-		EnrolmentSubjectResource paramResource = new EnrolmentSubjectResource();
-		paramResource.setName(name);
-		PagedRequest<EnrolmentSubjectResource> request = new PagedRequest<EnrolmentSubjectResource>(paramResource, offset, limit);
-		
 		// When
-		when(subjectFacade.getResources(Matchers.<PagedRequest<EnrolmentSubjectResource>>any())).thenReturn(expected);
-    	String response = getJson(expected, false);
-
+		String response = getJson(enrolmentResource, false);
+		
+		when(facade.getResource(anyLong())).thenReturn(enrolmentResource);
+		
 		// Then
-    	mockMvc.perform(get("/enrolments/subjects")
-    			.param("name", name))
+    	mockMvc.perform(get("/enrolments/{id}", id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(subjectFacade).getResources(request);
+    	verify(facade).getResource(id);
 	}
+    
+    @Test
+	public void testRemoveEnrolment() throws Exception {
+		// Given
+    	Long id = 1L;
+    	
+		// When
+
+		// Then
+    	mockMvc.perform(delete("/enrolments/{id}", id))
+    		.andExpect(status().is(204));
+    	
+    	verify(facade).removeResource(id);
+	}
+    
+    @Test
+	public void testGetEnrolments() throws Exception {
+		// Given
+    	Long id = 1L;
+    	String docNum = "docNum";
+    	
+    	EnrolmentResource enrolmentResource = new EnrolmentResource();
+    	enrolmentResource.setId(id);
+    	enrolmentResource.setBegDate(new Date());
+    	enrolmentResource.setDocNum(docNum);
+
+    	long count = 100;
+    	int limit = 25;
+    	Integer offset = 10;
+    	String uri = "/enrolments";
+		List<EnrolmentResource> entities = Arrays.asList(enrolmentResource);
+    	PagedResultResource<EnrolmentResource> expectedResource = new PagedResultResource<>();
+		expectedResource.setCount(count);
+		expectedResource.setLimit(limit);
+		expectedResource.setOffset(offset);
+		expectedResource.setUri(uri);
+		expectedResource.setResources(entities);
+		
+		PagedRequest<EnrolmentResource> pagedRequest = new PagedRequest<EnrolmentResource>(new EnrolmentResource(), offset, limit);
+		
+		// When
+		when(facade.getResources(Matchers.<PagedRequest<EnrolmentResource>>any())).thenReturn(expectedResource);
+    	String response = getJson(expectedResource, false);
+
+		// Then
+    	mockMvc.perform(get("/enrolments")
+    			.param("offset", String.valueOf(offset))
+    			.param("limit", String.valueOf(limit)))
+    		.andExpect(status().isOk())
+    		.andExpect(content().string(response));
+    	
+		verify(facade).getResources(pagedRequest);
+	}
+  
 }

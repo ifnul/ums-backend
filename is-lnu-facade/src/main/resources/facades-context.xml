@@ -6,6 +6,27 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	default-autowire="byName">
 
+	<bean id="enrolmentTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="enrolmentTypeResourceConverter" />
+		<property name="entityConverter" ref="enrolmentTypeConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="enrolmentTypeService" />
+	</bean>
+	
+
+	<bean id="enrolmentFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="enrolmentResourceConverter" />
+		<property name="entityConverter" ref="enrolmentConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="enrolmentService" />
+	</bean>
+
 	<bean id="addressTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="addressTypeResourceConverter" />
 		<property name="entityConverter" ref="addressTypeConverter" />
@@ -195,7 +216,7 @@
 		<property name="updateConverter" ref="updateConverter" />
 		<property name="defaultService" ref="timePeriodService" />
 	</bean>
-	
+
 	<bean id="specOfferBenefitFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="specOfferBenefitResourceConverter" />
 		<property name="entityConverter" ref="specOfferBenefitConverter" />

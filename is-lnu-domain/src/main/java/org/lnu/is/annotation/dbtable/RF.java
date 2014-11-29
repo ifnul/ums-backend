@@ -1,7 +1,7 @@
 package org.lnu.is.annotation.dbtable;
 
 /**
- * Annotation, that is used to describe an exact type of the database table.
+ * Annotation, that is used to describe tables-catalogs.
  * 
  * @author kushnir
  *

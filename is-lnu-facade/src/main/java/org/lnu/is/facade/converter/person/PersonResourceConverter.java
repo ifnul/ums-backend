@@ -27,7 +27,6 @@ public class PersonResourceConverter extends AbstractConverter<PersonResource, P
 		target.setEndDate(source.getEndDate());
 		target.setFatherName(source.getFatherName());
 		target.setFirstName(source.getFirstName());
-		target.setId(source.getId());
 		target.setIdentifier(source.getIdentifier());
 		target.setIsHostel(source.getIsHostel());
 		target.setIsMilitary(source.getIsMilitary());
