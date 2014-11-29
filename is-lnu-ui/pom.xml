@@ -16,6 +16,11 @@
   <name>is-lnu-ui Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+  <properties>
+    <checkstyleDir>${basedir}/../checks</checkstyleDir>
+    <findBugsDir>${basedir}/../findbugs</findBugsDir>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
