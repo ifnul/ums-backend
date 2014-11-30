@@ -19,6 +19,7 @@
 		<module>is-lnu-migrations</module>
 		<module>is-lnu-security</module>
     	<module>is-lnu-ui</module>
+    	<module>is-lnu-egde</module>
   </modules>
 
 	<properties>

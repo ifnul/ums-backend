@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>is-lnu</groupId>
+    <artifactId>is-lnu</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+<!-- 
+  TODO: List
+  
+  1) Add Spring context.
+  2) Add camel dependency.
+  3) Add properties, that are required to abillity of integation toggling.
+  4) Add interface -> abstract implementation with template method -> default 
+  	implementation with implemented template method
+  5) Find the solution of describing multiple camel contexes.
+-->
+  
+  <artifactId>is-lnu-egde</artifactId>
+  <name>is-lnu-egde</name>
+  <description>
+  	Module for e-government database for education system.
+  </description>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+  </dependencies>
+</project>
