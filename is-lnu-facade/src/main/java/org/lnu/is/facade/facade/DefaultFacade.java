@@ -11,6 +11,7 @@ import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -21,6 +22,7 @@ import org.slf4j.LoggerFactory;
  * @param <SERVICE> Service.
  * @param <KEY> Key.S
  */
+@Transactional
 public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends Service<ENTITY, KEY>, KEY> implements Facade<RESOURCE, KEY> {
 
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultFacade.class);
