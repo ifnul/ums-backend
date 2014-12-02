@@ -3,15 +3,30 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    <changeSet id="add q_rf_coursetype" author="illay">
-        <insert tableName="q_rf_coursetype">
+    <changeSet id="add q_rf_paperusage" author="illay">
+        <insert tableName="q_rf_paperusage">
+            <column name="id">0</column>
+            <column name="abbrname">різне</column>
+            <column name="name">різне</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">DELETED</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_paperusage">
             <column name="id">1</column>
-            <column name="abbrname">1</column>
-            <column name="name">1 курс</column>
+            <column name="abbrname">атестати</column>
+            <column name="name">документи про освіту- підстави для вступу</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
-            <column name="status">ACTIVE</column>
+            <column name="status">DELETED</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -19,14 +34,14 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_coursetype">
+        <insert tableName="q_rf_paperusage">
             <column name="id">2</column>
-            <column name="abbrname">2</column>
-            <column name="name">2 курс</column>
+            <column name="abbrname">посвідчення</column>
+            <column name="name">посвідчення особи- підстави для вступу</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
-            <column name="status">ACTIVE</column>
+            <column name="status">DELETED</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -34,14 +49,14 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_coursetype">
+        <insert tableName="q_rf_paperusage">
             <column name="id">3</column>
-            <column name="abbrname">3</column>
-            <column name="name">3 курс</column>
+            <column name="abbrname">заохочення</column>
+            <column name="name">документи про заохочення та нагороди</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
-            <column name="status">ACTIVE</column>
+            <column name="status">DELETED</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -49,14 +64,14 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_coursetype">
+        <insert tableName="q_rf_paperusage">
             <column name="id">4</column>
-            <column name="abbrname">4</column>
-            <column name="name">4 курс</column>
+            <column name="abbrname">пільги</column>
+            <column name="name">документи про пільги</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
-            <column name="status">ACTIVE</column>
+            <column name="status">DELETED</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -64,14 +79,14 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_coursetype">
+        <insert tableName="q_rf_paperusage">
             <column name="id">5</column>
-            <column name="abbrname">5</column>
-            <column name="name">5 курс</column>
+            <column name="abbrname">оцінки</column>
+            <column name="name">документи з оцінками для вступу</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
-            <column name="status">ACTIVE</column>
+            <column name="status">DELETED</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>

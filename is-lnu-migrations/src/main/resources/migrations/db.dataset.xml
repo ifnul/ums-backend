@@ -5,10 +5,30 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     
     <include file="data/rf_contacttype/db.rf_contacttype.xml" relativeToChangelogFile="true"/>
- 	<include file="data/rf_coursetype/db.rf_coursetype.xml" relativeToChangelogFile="true"/>
- 	<include file="data/rf_enrolmentstatustype/db.rf_enrolmentstatustype.xml" relativeToChangelogFile="true"/>
- 	<include file="data/rf_enrolsubject/db.rf_enrolsubject.xml" relativeToChangelogFile="true"/>
- 	<include file="data/rf_gendertype/db.rf_gendertype.xml" relativeToChangelogFile="true"/>
- 	<include file="data/rf_streettype/db.rf_streettype.xml" relativeToChangelogFile="true"/>
- 	
+    <include file="data/rf_enrolmentstatustype/db.rf_enrolmentstatustype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_enrolsubject/db.rf_enrolsubject.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_gendertype/db.rf_gendertype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_streettype/db.rf_streettype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_addresstype/db.rf_addresstype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_adminunittype/db.rf_adminunittype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_honorstype/db.rf_honorstype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_language/db.rf_language.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_languagelevel/db.rf_languagelevel.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_paperusage/db.rf_paperusage.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_papertype/db.rf_papertype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_assetstate/db.rf_assetstate.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_assetstatus/db.rf_assetstatus.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_assettype/db.rf_assettype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_persontype/db.rf_persontype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_propertytype/db.rf_propertytype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_posttype/db.rf_posttype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_coursetype/db.rf_coursetype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_educationtype/db.rf_educationtype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_publicactivitytype/db.rf_publicactivitytype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_eduformtype/db.rf_eduformtype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_ordertype/db.rf_ordertype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_wavetype/db.rf_wavetype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_enrolmenttype/db.rf_enrolmenttype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_timeperiodtype/db.rf_timeperiodtype.xml" relativeToChangelogFile="true"/>
+    
 </databaseChangeLog>

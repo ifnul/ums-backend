@@ -3,44 +3,41 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    <changeSet id="add q_rf_gendertype" author="illay">
-        <insert tableName="q_rf_gendertype">
+    <changeSet id="add q_rf_assetstate" author="illay">
+        <insert tableName="q_rf_assetstate">
+            <column name="id">-1</column>
+            <column name="name">Несправний</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_assetstate">
+            <column name="id">0</column>
+            <column name="name">Задовільний</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_assetstate">
             <column name="id">1</column>
-            <column name="abbrname">чол.</column>
-            <column name="name">Чоловіча</column>
-            <column name="uid">1</column>
+            <column name="name">Cправний</column>
+            <column name="uid"></column>
             <column name="utid"></column>
-            <column name="uapp">edbo</column>
-            <column name="status">ACTIVE</column>
-            <column name="actual">1</column>
-            <column name="note"></column>
-            <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
-            <column name="create_date">now()</column>
-            <column name="update_date">now()</column>
-        </insert>
-        <insert tableName="q_rf_gendertype">
-            <column name="id">2</column>
-            <column name="abbrname">жін.</column>
-            <column name="name">Жіноча</column>
-            <column name="uid">2</column>
-            <column name="utid"></column>
-            <column name="uapp">edbo</column>
-            <column name="status">ACTIVE</column>
-            <column name="actual">1</column>
-            <column name="note"></column>
-            <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
-            <column name="create_date">now()</column>
-            <column name="update_date">now()</column>
-        </insert>
-        <insert tableName="q_rf_gendertype">
-            <column name="id">3</column>
-            <column name="abbrname">не визн.</column>
-            <column name="name">Не визначено</column>
-            <column name="uid">0</column>
-            <column name="utid"></column>
-            <column name="uapp">edbo</column>
+            <column name="uapp"></column>
             <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>

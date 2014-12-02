@@ -238,7 +238,7 @@
     </changeSet>
 	
 	<changeSet id="Створення таблиці довідник рівнів знання іноземної мови" author="illay">
-    	<createTable tableName="q_rf_lanquagelevel" remarks="Довідник рівнів знання іноземної мови">
+    	<createTable tableName="q_rf_languagelevel" remarks="Довідник рівнів знання іноземної мови">
     		<column name="id" remarks="Ідентифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
@@ -271,11 +271,11 @@
         	</column>        	
     	</createTable>
     	
-    	<addPrimaryKey tableName="q_rf_lanquagelevel" columnNames="id" constraintName="pk_q_rf_lanquagelevel_id"/>
+    	<addPrimaryKey tableName="q_rf_languagelevel" columnNames="id" constraintName="pk_q_rf_languagelevel_id"/>
     </changeSet>
 	
 	<changeSet id="Створення таблиці довідник іноземних мов" author="illay">
-    	<createTable tableName="q_rf_lanquage" remarks="Довідник іноземних мов">
+    	<createTable tableName="q_rf_language" remarks="Довідник іноземних мов">
     		<column name="id" remarks="Ідетифікатор" type="BIGINT" autoIncrement="true">
     			<constraints nullable="false"/>
     		</column>
@@ -307,7 +307,7 @@
         	</column>        	
     	</createTable>
     	
-    	<addPrimaryKey tableName="q_rf_lanquage" columnNames="id" constraintName="pk_q_rf_lanquage_id"/>
+    	<addPrimaryKey tableName="q_rf_language" columnNames="id" constraintName="pk_q_rf_language_id"/>
     </changeSet>
 	
 	<changeSet id="Створення таблиці довідник типів контактів" author="illay">
@@ -651,9 +651,7 @@
     			<constraints nullable="false"/>
     		</column>
     		<column name="istesting" type="int" remarks="Відмітка про те, що предмет є в списку предметів ЗНО"></column>
-    		<column name="parent_id" type="bigint" remarks="Ієрхічний ідентифікатор Ієрархія предмктів (іноземна мова: англ.,нім.,франц....)">
-    			<constraints nullable="false"/>
-    		</column>
+    		<column name="parent_id" type="bigint" remarks="Ієрхічний ідентифікатор Ієрархія предмктів (іноземна мова: англ.,нім.,франц....)"></column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -913,6 +911,7 @@
             <column name="name" remarks="Назва поступлення" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
+            <column name="parent_id" type="BIGINT" remarks="Iєрархічний оператор"></column>
             <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -939,6 +938,8 @@
     	
     	<addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolmenttype" tableName="q_rf_enrolmenttype"/>
     	
+		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_enrolmenttype" constraintName="fk_q_od_employeesalary_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolmenttype"/>
+    	    	
     </changeSet>
     
     <changeSet author="illay" id="Створення таблиці довідник типів спеціальностей">
@@ -1136,6 +1137,7 @@
     		<column name="name" type="VARCHAR(200)" remarks="Тип наказу">
     			<constraints nullable="false"/>
     		</column>
+    		<column name="parent_id" type="BIGINT" remarks="Ієрархічний ідентифікатор"></column>
     	    <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
             <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
             <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
@@ -1161,6 +1163,9 @@
     	</createTable>
     	
     	<addPrimaryKey tableName="q_rf_ordertype" columnNames="id" constraintName="pk_q_rf_ordertype_id"/>
+    	
+    	<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_ordertype" constraintName="fk_q_rf_ordertype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_ordertype"/>
+    	
     </changeSet>
   	
 	<changeSet id="Створення таблиці довідник типів працівиків" author="illay">
@@ -3026,9 +3031,9 @@
         
         <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_personlanquage" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_personlanquage" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
+    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_personlanquage" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="languagelevel_id" baseTableName="q_od_personlanquage" constraintName="fk_q_rf_languagelevel_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquagelevel"/>
+    	<addForeignKeyConstraint baseColumnNames="languagelevel_id" baseTableName="q_od_personlanquage" constraintName="fk_q_rf_languagelevel_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_languagelevel"/>
     	
     </changeSet>
     
@@ -3075,7 +3080,7 @@
         
         <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_personname" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_personname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
+    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_personname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
     	
     </changeSet>
     
@@ -3120,7 +3125,7 @@
         
         <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_od_departmentname" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_departmentname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
+    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_departmentname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
     	
     </changeSet>
     
@@ -4575,7 +4580,7 @@
         
         <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="q_od_postname" constraintName="fk_q_ob_post_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_post"/>
     	
-    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_postname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_lanquage"/>
+    	<addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_postname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
     	
     </changeSet>
     

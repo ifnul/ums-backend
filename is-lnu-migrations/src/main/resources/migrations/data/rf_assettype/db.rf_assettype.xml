@@ -3,11 +3,11 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    <changeSet id="add q_rf_coursetype" author="illay">
-        <insert tableName="q_rf_coursetype">
+    <changeSet id="add q_rf_assettype" author="illay">
+        <insert tableName="q_rf_assettype">
             <column name="id">1</column>
-            <column name="abbrname">1</column>
-            <column name="name">1 курс</column>
+            <column name="abbrname">building</column>
+            <column name="name">Будівля</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -19,10 +19,10 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_coursetype">
+        <insert tableName="q_rf_assettype">
             <column name="id">2</column>
-            <column name="abbrname">2</column>
-            <column name="name">2 курс</column>
+            <column name="abbrname">room</column>
+            <column name="name">Приміщення</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -34,10 +34,10 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_coursetype">
+        <insert tableName="q_rf_assettype">
             <column name="id">3</column>
-            <column name="abbrname">3</column>
-            <column name="name">3 курс</column>
+            <column name="abbrname">computer</column>
+            <column name="name">Комп'ютер</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -49,10 +49,10 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_coursetype">
+        <insert tableName="q_rf_assettype">
             <column name="id">4</column>
-            <column name="abbrname">4</column>
-            <column name="name">4 курс</column>
+            <column name="abbrname">software</column>
+            <column name="name">Програмне забезпечення</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -64,10 +64,40 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_coursetype">
+        <insert tableName="q_rf_assettype">
             <column name="id">5</column>
-            <column name="abbrname">5</column>
-            <column name="name">5 курс</column>
+            <column name="abbrname">periphery</column>
+            <column name="name">Периферія комп'ютерна</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_assettype">
+            <column name="id">6</column>
+            <column name="abbrname">netequip</column>
+            <column name="name">Мережне обладнання</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_assettype">
+            <column name="id">7</column>
+            <column name="abbrname">network</column>
+            <column name="name">Мережа комп'ютерна</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>

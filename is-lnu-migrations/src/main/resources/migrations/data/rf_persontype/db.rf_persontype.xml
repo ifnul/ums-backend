@@ -3,14 +3,14 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    <changeSet id="add q_rf_contacttype" author="illay">
-        <insert tableName="q_rf_contacttype">
+    <changeSet id="add q_rf_persontype" author="illay">
+        <insert tableName="q_rf_persontype">
             <column name="id">1</column>
-            <column name="abbrname">тел.</column>
-            <column name="name">Телефон</column>
+            <column name="abbrname">A</column>
+            <column name="name">абітурієнт</column>
             <column name="uid">1</column>
             <column name="utid"></column>
-            <column name="uapp">edbo/PersonContactTypesGet</column>
+            <column name="uapp">edbo</column>
             <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
@@ -19,13 +19,13 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_contacttype">
+        <insert tableName="q_rf_persontype">
             <column name="id">2</column>
-            <column name="abbrname">моб.тел.</column>
-            <column name="name">Мобільний</column>
+            <column name="abbrname">S</column>
+            <column name="name">студент</column>
             <column name="uid">2</column>
             <column name="utid"></column>
-            <column name="uapp">edbo/PersonContactTypesGet</column>
+            <column name="uapp">edbo</column>
             <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
@@ -34,13 +34,13 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_contacttype">
+        <insert tableName="q_rf_persontype">
             <column name="id">3</column>
-            <column name="abbrname">e-mail</column>
-            <column name="name">e-mail</column>
+            <column name="abbrname">R</column>
+            <column name="name">науковець</column>
             <column name="uid">3</column>
             <column name="utid"></column>
-            <column name="uapp">edbo/PersonContactTypesGet</column>
+            <column name="uapp">edbo</column>
             <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
@@ -49,13 +49,13 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_contacttype">
+        <insert tableName="q_rf_persontype">
             <column name="id">4</column>
-            <column name="abbrname">ISQ</column>
-            <column name="name">ICQ</column>
-            <column name="uid">4</column>
+            <column name="abbrname">E</column>
+            <column name="name">працівник</column>
+            <column name="uid"></column>
             <column name="utid"></column>
-            <column name="uapp">edbo/PersonContactTypesGet</column>
+            <column name="uapp"></column>
             <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
@@ -64,13 +64,13 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_contacttype">
+        <insert tableName="q_rf_persontype">
             <column name="id">5</column>
-            <column name="abbrname">Skype</column>
-            <column name="name">Skype</column>
-            <column name="uid">5</column>
+            <column name="abbrname">G</column>
+            <column name="name">випускник</column>
+            <column name="uid"></column>
             <column name="utid"></column>
-            <column name="uapp">edbo/PersonContactTypesGet</column>
+            <column name="uapp"></column>
             <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
@@ -79,10 +79,10 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_contacttype">
+        <insert tableName="q_rf_persontype">
             <column name="id">6</column>
-            <column name="abbrname">дом.тел.</column>
-            <column name="name">Домашній телефон</column>
+            <column name="abbrname">SA</column>
+            <column name="name">студент/абітурієнт</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -94,10 +94,10 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_contacttype">
+        <insert tableName="q_rf_persontype">
             <column name="id">7</column>
-            <column name="abbrname">роб.тел.</column>
-            <column name="name">Робочий телефон</column>
+            <column name="abbrname">EA</column>
+            <column name="name">працівник/абітурієнт</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -109,10 +109,10 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_contacttype">
+        <insert tableName="q_rf_persontype">
             <column name="id">8</column>
-            <column name="abbrname">веб-сайт</column>
-            <column name="name">Веб-сайт</column>
+            <column name="abbrname">ES</column>
+            <column name="name">працівник/студент</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -124,10 +124,10 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_contacttype">
+        <insert tableName="q_rf_persontype">
             <column name="id">9</column>
-            <column name="abbrname">вікі</column>
-            <column name="name">Вікі-сторінка</column>
+            <column name="abbrname">P</column>
+            <column name="name">аспірант</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -139,10 +139,10 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
-        <insert tableName="q_rf_contacttype">
+        <insert tableName="q_rf_persontype">
             <column name="id">10</column>
-            <column name="abbrname">LDAP</column>
-            <column name="name">Каталог облікових записів</column>
+            <column name="abbrname">O</column>
+            <column name="name">сторонній</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
