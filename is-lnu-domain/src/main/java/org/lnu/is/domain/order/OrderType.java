@@ -2,6 +2,8 @@ package org.lnu.is.domain.order;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DT;
@@ -24,6 +26,19 @@ public class OrderType extends Model {
 	@Column(name = "name")
 	private String name;
 	
+	@ManyToOne
+	@JoinColumn(name = "parent_id")
+	private OrderType orderType;
+	
+	
+	public OrderType getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(OrderType orderType) {
+		this.orderType = orderType;
+	}
+
 	public String getAbbrName() {
 		return abbrName;
 	}

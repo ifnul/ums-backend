@@ -14,7 +14,7 @@ import org.lnu.is.domain.Model;
  */
 @RF
 @Entity
-@Table(name = "q_rf_lanquage")
+@Table(name = "q_rf_language")
 public class Language extends Model {
 	private static final long serialVersionUID = 1L;
 
