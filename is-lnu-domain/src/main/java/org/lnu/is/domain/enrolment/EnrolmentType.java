@@ -34,7 +34,7 @@ public class EnrolmentType extends Model {
 		return abbrname;
 	}
 
-	public void setAbbrname(String abbrname) {
+	public void setAbbrname(final String abbrname) {
 		this.abbrname = abbrname;
 	}
 
@@ -42,7 +42,7 @@ public class EnrolmentType extends Model {
 		return enrolmentType;
 	}
 
-	public void setEnrolmentType(EnrolmentType enrolmentType) {
+	public void setEnrolmentType(final EnrolmentType enrolmentType) {
 		this.enrolmentType = enrolmentType;
 	}
 
@@ -65,24 +65,31 @@ public class EnrolmentType extends Model {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
-		if (!super.equals(obj))
+		}
+		if (!super.equals(obj)) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		EnrolmentType other = (EnrolmentType) obj;
 		if (abbrname == null) {
-			if (other.abbrname != null)
+			if (other.abbrname != null) {
 				return false;
-		} else if (!abbrname.equals(other.abbrname))
+			}
+		} else if (!abbrname.equals(other.abbrname)) {
 			return false;
+		}
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null) {
 				return false;
-		} else if (!name.equals(other.name))
+			}
+		} else if (!name.equals(other.name)) {
 			return false;
+		}
 		return true;
 	}
 

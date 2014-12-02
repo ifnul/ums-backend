@@ -35,7 +35,7 @@ public class OrderType extends Model {
 		return orderType;
 	}
 
-	public void setOrderType(OrderType orderType) {
+	public void setOrderType(final OrderType orderType) {
 		this.orderType = orderType;
 	}
 
