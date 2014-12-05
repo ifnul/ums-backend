@@ -31,5 +31,6 @@
     <include file="data/rf_enrolmenttype/db.rf_enrolmenttype.xml" relativeToChangelogFile="true"/>
     <include file="data/rf_timeperiodtype/db.rf_timeperiodtype.xml" relativeToChangelogFile="true"/>
     <include file="data/rf_marriedtype/db.rf_marriedtype.xml" relativeToChangelogFile="true"/>
-    
+    <include file="data/ob_adminunit/db.ob_adminunit.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>

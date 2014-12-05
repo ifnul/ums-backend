@@ -1423,10 +1423,8 @@
     		</column>
     		
     		<column name="adminunittype_id" type="BIGINT" remarks="Ідентифікатор типу адміністративно-територіальної одиниці">
-    			<constraints nullable="false"/>
     		</column>
     		<column name="identifier" type="VARCHAR(10)" remarks="Ідентифікатор КОАТУУ адміністративно-територіальної одиниці">
-    			<constraints nullable="false"/>
     		</column>
     		<column name="name" type="VARCHAR(200)" remarks="Назва адміністративно-територіальної одиниці">
 				<constraints nullable="false"/>    			
@@ -1434,13 +1432,10 @@
     		<column name="fullname" type="VARCHAR(200)" remarks="Повна назва адміністративно-територіальної одиниці">
     		</column>
     		<column name="identifier1" type="VARCHAR(10)" remarks="Обласний ідентифікатор КОАТУУ адміністративно-територіальних одиниць">
-    			<constraints nullable="false"/>
     		</column>
     		<column name="identifier2" type="VARCHAR(10)" remarks="Районний ідентифікатор КОАТУУ адміністративно-територіальних одиниць">
-    			<constraints nullable="false"/>
     		</column>
     		<column name="identifier3" type="VARCHAR(10)" remarks="Місцевий ідентифікатор КОАТУУ адміністративно-територіальних одиниць">
-    			<constraints nullable="false"/>
     		</column>
     		<column name="begdate" type="TIMESTAMP" remarks="Дата початку">
     		</column>
