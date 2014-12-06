@@ -10,7 +10,7 @@ object PersonIntegrationTest {
     .exec(http("Post Person")
       .post("/persons")
       .header("Content-Type", "application/json")
-      .body(ELFileBody("data/person-post.json"))
+      .body(ELFileBody("data/person/person-post.json"))
       .asJSON
       .check(status.is(201))
       .check(jsonPath("$.id").find.saveAs("identifier")))
@@ -23,7 +23,7 @@ object PersonIntegrationTest {
       http("Update Person")
         .put("/persons/${identifier}")
         .header("Content-Type", "application/json")
-        .body(ELFileBody("data/person-put.json"))
+        .body(ELFileBody("data/person/person-put.json"))
         .asJSON
         .check(status.is(200)))
     .exec(

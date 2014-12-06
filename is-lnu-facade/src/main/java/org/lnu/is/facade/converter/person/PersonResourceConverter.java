@@ -65,7 +65,7 @@ public class PersonResourceConverter extends AbstractConverter<PersonResource, P
 		
 		if (source.getCitizenCountryId() != null) {
 			AdminUnit citizenCountry = new AdminUnit();
-			citizenCountry.setId(source.getParentId());
+			citizenCountry.setId(source.getCitizenCountryId());
 			
 			target.setCitizenCountry(citizenCountry);
 		}
