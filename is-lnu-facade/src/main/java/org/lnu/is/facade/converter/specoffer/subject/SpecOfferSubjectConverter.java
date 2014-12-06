@@ -16,6 +16,18 @@ public class SpecOfferSubjectConverter extends AbstractConverter<SpecofferSubjec
 	@Override
 	public SpecOfferSubjectResource convert(final SpecofferSubject source, final SpecOfferSubjectResource target) {
 		
+		target.setAlternative(source.getAlternative());
+		target.setId(source.getId());
+		target.setIsMajor(source.getIsMajor());
+		target.setMark(source.getMark());
+		
+		if (source.getSpecOffer() != null) {
+			target.setSpecOfferId(source.getSpecOffer().getId());
+		}
+		
+		if (source.getEnrolmentSubject() != null) {
+			target.setEnrolmentSubjectId(source.getEnrolmentSubject().getId());
+		}
 		
 		return target;
 	}

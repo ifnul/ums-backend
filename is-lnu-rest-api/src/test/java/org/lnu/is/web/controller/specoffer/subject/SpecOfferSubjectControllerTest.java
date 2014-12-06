@@ -138,7 +138,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 	public void testGetSpecOfferSubjects() throws Exception {
 		// Given
     	Long id = 1L;
-    	Long personId = 2L;
+    	Long specOfferId = 2L;
     	
     	SpecOfferSubjectResource specOfferSubjectResource = new SpecOfferSubjectResource();
     	specOfferSubjectResource.setId(id);
@@ -146,7 +146,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     	long count = 100;
     	int limit = 25;
     	Integer offset = 10;
-    	String uri = MessageFormat.format("/persons/{0}/benefits", personId);
+    	String uri = MessageFormat.format("/persons/{0}/benefits", specOfferId);
 		List<SpecOfferSubjectResource> entities = Arrays.asList(specOfferSubjectResource);
     	PagedResultResource<SpecOfferSubjectResource> expectedResource = new PagedResultResource<>();
 		expectedResource.setCount(count);
@@ -156,6 +156,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 		expectedResource.setResources(entities);
 		
 		SpecOfferSubjectResource resource = new SpecOfferSubjectResource();
+		resource.setSpecOfferId(specOfferId);
 		PagedRequest<SpecOfferSubjectResource> pagedRequest = new PagedRequest<SpecOfferSubjectResource>(resource, offset, limit);
 		
 		// When
@@ -163,7 +164,7 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     	String response = getJson(expectedResource, false);
 
 		// Then
-    	mockMvc.perform(get("/specoffers/{0}/subjects", personId)
+    	mockMvc.perform(get("/specoffers/{0}/subjects", specOfferId)
     			.param("offset", String.valueOf(offset))
     			.param("limit", String.valueOf(limit)))
     		.andExpect(status().isOk())

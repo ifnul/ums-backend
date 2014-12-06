@@ -60,14 +60,14 @@ public class SpecOfferBenefitController extends BaseController {
 	 * @return message resource.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{specOfferId}/benefits/{subjectId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{specOfferId}/benefits/{specOfferBenefitId}", method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Spec Offer Benefit", position = 2)
 	public MessageResource updateSpecOfferSubject(@PathVariable("specOfferId") final Long specOfferId,
-			@PathVariable("subjectId") final Long subjectId,
+			@PathVariable("specOfferBenefitId") final Long specOfferBenefitId,
  			@RequestBody final SpecOfferBenefitResource resource) {
-		LOG.info("Updating spec offer subject with id: {}, {}", subjectId, resource);
+		LOG.info("Updating spec offer subject with id: {}, {}", specOfferBenefitId, resource);
 		
-		facade.updateResource(subjectId, resource);
+		facade.updateResource(specOfferBenefitId, resource);
 		return new MessageResource(MessageType.INFO, "Spec Offer Benefit Updated");
 	}
 	
@@ -77,13 +77,13 @@ public class SpecOfferBenefitController extends BaseController {
 	 * @return personBenefit.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{specOfferId}/benefits/{subjectId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{specOfferId}/benefits/{specOfferBenefitId}", method = RequestMethod.GET)
 	@ApiOperation(value = "Get Spec Offer Benefits by spec offer id", position = 3)
 	public SpecOfferBenefitResource getSubject(@PathVariable("specOfferId") final Long specOfferId,
-			@PathVariable("subjectId") final Long subjectId) {
-		LOG.info("Retrieving Spec Offer Subject with id: {}", subjectId);
+			@PathVariable("specOfferBenefitId") final Long specOfferBenefitId) {
+		LOG.info("Retrieving Spec Offer Subject with id: {}", specOfferBenefitId);
 		
-		return facade.getResource(subjectId);
+		return facade.getResource(specOfferBenefitId);
 	}
 	
 	/**
@@ -92,12 +92,12 @@ public class SpecOfferBenefitController extends BaseController {
 	 * @return message resource.
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@RequestMapping(value = "/{specOfferId}/benefits/{subjectId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{specOfferId}/benefits/{specOfferBenefitId}", method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete Spec Offer Benefit", position = 4)
 	public MessageResource removeSpecOfferSubject(@PathVariable("specOfferId") final Long specOfferId,
-			@PathVariable("subjectId") final Long subjectId) {
-		LOG.info("Removing Spec Offer Subject with id: {}", subjectId);
-		facade.removeResource(subjectId);
+			@PathVariable("specOfferBenefitId") final Long specOfferBenefitId) {
+		LOG.info("Removing Spec Offer Subject with id: {}", specOfferBenefitId);
+		facade.removeResource(specOfferBenefitId);
 		
 		return new MessageResource(MessageType.INFO, "SpecOfferBenefit removed");
 	}
@@ -110,14 +110,13 @@ public class SpecOfferBenefitController extends BaseController {
 	 * @return paged result.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{specOffer}/benefits", method = RequestMethod.GET)
+	@RequestMapping(value = "/{specOfferId}/benefits", method = RequestMethod.GET)
 	@ApiOperation(value = "Get Spec Offer Benefits", position = 5)
 	public PagedResultResource<SpecOfferBenefitResource> getSpecOfferBenefits(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
 			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
-			@PathVariable("specOffer") final Long soId,
+			@PathVariable("specOfferId") final Long specOfferId,
 			final SpecOfferBenefitResource resource) {
-		LOG.info("Retrieving PagedResultResource for Spec Offer Subject:{} Resources with offset: {}, limit: {}", soId, offset, limit);
-		resource.setSpecOfferId(soId);
+		LOG.info("Retrieving PagedResultResource for Spec Offer Subject:{} Resources with offset: {}, limit: {}", specOfferId, offset, limit);
 		PagedRequest<SpecOfferBenefitResource> pagedRequest = new PagedRequest<SpecOfferBenefitResource>(resource, offset, limit);
 		
 		return facade.getResources(pagedRequest);
