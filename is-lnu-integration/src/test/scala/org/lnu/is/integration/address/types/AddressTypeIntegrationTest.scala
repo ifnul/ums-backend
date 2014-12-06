@@ -5,13 +5,13 @@ import io.gatling.http.Predef._
 import scala.concurrent.duration._
 import io.gatling.core.json.Jackson
 
-object EduFormTypeIntegrationTest {
+object AddressTypeIntegrationTest {
 
-  val myFeed = jsonFile("data/eduformtypes/json_data.json").circular
+  val myFeed = jsonFile("data/address/types/json_data.json").circular
 
-  val scn = scenario("Edu Form Type Scenario")
+  val scn = scenario("Address type get scenario")
     .feed(myFeed)
-    .exec(http("Edu Form Types Get Paged Result")
+    .exec(http("Address Types Get Paged Result")
       .get("${targetUrl}")
       .check(bodyString.transform(Jackson.parse).is("${expectedResponse}"))
     )

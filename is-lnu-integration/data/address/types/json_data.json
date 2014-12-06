@@ -1,0 +1,26 @@
+[
+  {
+    "targetUrl":"/addresstypes",
+    "expectedResponse":
+		{
+		    "offset": 0,
+		    "limit": 38,
+		    "count": 2,
+		    "resources": [
+		        {
+		            "id": 1,
+		            "name": "Реєстрації",
+		            "abbrName": "реєстр.",
+		            "uri": "/addresstypes/1"
+		        },
+		        {
+		            "id": 2,
+		            "name": "Поштова",
+		            "abbrName": "пошт.",
+		            "uri": "/addresstypes/2"
+		        }
+		    ],
+		    "uri": "/addresstypes"
+		}
+}
+]

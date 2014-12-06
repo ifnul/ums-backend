@@ -47,7 +47,7 @@ public class EnrolmentStatusTypeController extends BaseController {
 	@ApiOperation(value = "Get All Enrolment Status Types")
 	public PagedResultResource<EnrolmentStatusTypeResource> getEnrolmentStatusTypes(
 			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "38") final Integer limit, 
+			@RequestParam(value = "limit", defaultValue = "20") final Integer limit, 
 			final EnrolmentStatusTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Enrolment Status Type with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<EnrolmentStatusTypeResource> request = new PagedRequest<EnrolmentStatusTypeResource>(resource, offset, limit);
