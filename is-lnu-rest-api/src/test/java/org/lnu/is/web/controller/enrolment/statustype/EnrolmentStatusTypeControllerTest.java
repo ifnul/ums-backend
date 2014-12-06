@@ -51,7 +51,7 @@ public class EnrolmentStatusTypeControllerTest extends AbstractControllerTest {
 
 		Integer offset = 0;
 		long count = 1;
-		Integer limit = 38;
+		Integer limit = 20;
 		PagedResultResource<EnrolmentStatusTypeResource> expected = new PagedResultResource<>("/enrolmentstatustypes");
 		expected.setResources(entities);
 		expected.setCount(count);
