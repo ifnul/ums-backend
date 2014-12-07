@@ -46,7 +46,7 @@ public class EnrolmentSubjectController extends BaseController {
 	@ApiOperation(value = "Get Enrolment Subjects")
 	public PagedResultResource<EnrolmentSubjectResource> getEnrolmentSubjects(
 			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "38") final Integer limit, 
+			@RequestParam(value = "limit", defaultValue = "43") final Integer limit, 
 			final EnrolmentSubjectResource resource) {
 		LOG.info("Getting Paged Result of  enrolment subject with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<EnrolmentSubjectResource> request = new PagedRequest<EnrolmentSubjectResource>(resource, offset, limit);

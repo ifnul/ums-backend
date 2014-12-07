@@ -6,6 +6,8 @@ import io.gatling.http.Predef._
 import scala.concurrent.duration._
 import org.lnu.is.integration._
 import org.lnu.is.integration.enrolment.statustype.EnrolmentStatusTypeIntegrationTest
+import org.lnu.is.integration.enrolment.enrolmenttype.EnrolmentTypeIntegrationTest
+import org.lnu.is.integration.enrolment.subject.EnrolmentSubjectIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -18,6 +20,8 @@ class IntegrationTest extends Simulation {
     PersonIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     EduFormTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     AddressTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
-    EnrolmentStatusTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
+    EnrolmentStatusTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
+    EnrolmentTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
+    EnrolmentSubjectIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
     )
 }

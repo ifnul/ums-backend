@@ -3,14 +3,19 @@ package org.lnu.is.integration
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
+import java.util.UUID
 
 object PersonIntegrationTest {
 
   val scn = scenario("Manage Persons")
+    .exec(session => {
+      println("printing session", session)
+      session.set("idnum", UUID.randomUUID())
+    })
     .exec(http("Post Person")
       .post("/persons")
       .header("Content-Type", "application/json")
-      .body(ELFileBody("data/person/person-post.json"))
+      .body(ELFileBody("data/person/post.json"))
       .asJSON
       .check(status.is(201))
       .check(jsonPath("$.id").find.saveAs("identifier")))
@@ -23,7 +28,7 @@ object PersonIntegrationTest {
       http("Update Person")
         .put("/persons/${identifier}")
         .header("Content-Type", "application/json")
-        .body(ELFileBody("data/person/person-put.json"))
+        .body(ELFileBody("data/person/put.json"))
         .asJSON
         .check(status.is(200)))
     .exec(
@@ -34,5 +39,5 @@ object PersonIntegrationTest {
     .exec(http("Delete Person")
       .delete("/persons/${identifier}")
       .check(status.is(204)))
-      
+
 }

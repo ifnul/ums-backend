@@ -50,7 +50,7 @@ public class EnrolmentTypeControllerTest extends AbstractControllerTest {
 		enrolmentResource.setName(name);
 
 		long count = 100;
-		int limit = 25;
+		int limit = 32;
 		Integer offset = 10;
 		String uri = "/enrolments/types";
 		List<EnrolmentTypeResource> entities = Arrays.asList(enrolmentResource);

@@ -54,7 +54,7 @@ public class EnrolmentSubjectControllerTest extends AbstractControllerTest {
 
 		Integer offset = 0;
 		long count = 1;
-		Integer limit = 38;
+		Integer limit = 43;
 		PagedResultResource<EnrolmentSubjectResource> expected = new PagedResultResource<>("/enrolments/subjects");
 		expected.setResources(entities);
 		expected.setCount(count);

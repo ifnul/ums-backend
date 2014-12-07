@@ -1,0 +1,358 @@
+[
+  {
+    "targetUrl":"/enrolments/subjects",
+    "expectedResponse":
+		{
+		    "offset": 0,
+		    "limit": 43,
+		    "count": 43,
+		    "resources": [
+		        {
+		            "id": 1,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Українська мова",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/1"
+		        },
+		        {
+		            "id": 2,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Українська література",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/2"
+		        },
+		        {
+		            "id": 3,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Іноземна мова",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/3"
+		        },
+		        {
+		            "id": 4,
+		            "parentId": 3,
+		            "abbrName": null,
+		            "name": "Іноземна мова",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/4"
+		        },
+		        {
+		            "id": 5,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Світова література",
+		            "isTesting": 17,
+		            "uri": "/enrolments/subjects/5"
+		        },
+		        {
+		            "id": 6,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Історія України",
+		            "isTesting": 2,
+		            "uri": "/enrolments/subjects/6"
+		        },
+		        {
+		            "id": 7,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Всесвітня історія",
+		            "isTesting": 4,
+		            "uri": "/enrolments/subjects/7"
+		        },
+		        {
+		            "id": 8,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Правознавство",
+		            "isTesting": 11,
+		            "uri": "/enrolments/subjects/8"
+		        },
+		        {
+		            "id": 9,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Економіка",
+		            "isTesting": 10,
+		            "uri": "/enrolments/subjects/9"
+		        },
+		        {
+		            "id": 10,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Людина і світ",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/10"
+		        },
+		        {
+		            "id": 11,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Філософія",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/11"
+		        },
+		        {
+		            "id": 12,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Художня культура",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/12"
+		        },
+		        {
+		            "id": 13,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Естетика",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/13"
+		        },
+		        {
+		            "id": 14,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Математика",
+		            "isTesting": 3,
+		            "uri": "/enrolments/subjects/14"
+		        },
+		        {
+		            "id": 15,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Алгебра",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/15"
+		        },
+		        {
+		            "id": 16,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Геометрія",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/16"
+		        },
+		        {
+		            "id": 17,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Астрономія",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/17"
+		        },
+		        {
+		            "id": 18,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Біологія",
+		            "isTesting": 7,
+		            "uri": "/enrolments/subjects/18"
+		        },
+		        {
+		            "id": 19,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Географія",
+		            "isTesting": 8,
+		            "uri": "/enrolments/subjects/19"
+		        },
+		        {
+		            "id": 20,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Психологія",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/20"
+		        },
+		        {
+		            "id": 21,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Фізика",
+		            "isTesting": 5,
+		            "uri": "/enrolments/subjects/21"
+		        },
+		        {
+		            "id": 22,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Хімія",
+		            "isTesting": 6,
+		            "uri": "/enrolments/subjects/22"
+		        },
+		        {
+		            "id": 23,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Екологія",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/23"
+		        },
+		        {
+		            "id": 24,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Технології",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/24"
+		        },
+		        {
+		            "id": 25,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Інформатика",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/25"
+		        },
+		        {
+		            "id": 27,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Фізична культура",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/27"
+		        },
+		        {
+		            "id": 28,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Захист вітчизни",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/28"
+		        },
+		        {
+		            "id": 29,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Українська мова та література",
+		            "isTesting": 1,
+		            "uri": "/enrolments/subjects/29"
+		        },
+		        {
+		            "id": 30,
+		            "parentId": 3,
+		            "abbrName": null,
+		            "name": "Англійська мова",
+		            "isTesting": 12,
+		            "uri": "/enrolments/subjects/30"
+		        },
+		        {
+		            "id": 31,
+		            "parentId": 3,
+		            "abbrName": null,
+		            "name": "Французька мова",
+		            "isTesting": 13,
+		            "uri": "/enrolments/subjects/31"
+		        },
+		        {
+		            "id": 32,
+		            "parentId": 3,
+		            "abbrName": null,
+		            "name": "Німецька мова",
+		            "isTesting": 14,
+		            "uri": "/enrolments/subjects/32"
+		        },
+		        {
+		            "id": 33,
+		            "parentId": 3,
+		            "abbrName": null,
+		            "name": "Іспанська мова",
+		            "isTesting": 15,
+		            "uri": "/enrolments/subjects/33"
+		        },
+		        {
+		            "id": 34,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Творчий конкурс",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/34"
+		        },
+		        {
+		            "id": 35,
+		            "parentId": 3,
+		            "abbrName": null,
+		            "name": "Російська мова",
+		            "isTesting": 16,
+		            "uri": "/enrolments/subjects/35"
+		        },
+		        {
+		            "id": 36,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Фаховий іспит",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/36"
+		        },
+		        {
+		            "id": 37,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Зарубіжна література",
+		            "isTesting": 9,
+		            "uri": "/enrolments/subjects/37"
+		        },
+		        {
+		            "id": 38,
+		            "parentId": 34,
+		            "abbrName": null,
+		            "name": "Рисунок",
+		            "isTesting": 100,
+		            "uri": "/enrolments/subjects/38"
+		        },
+		        {
+		            "id": 39,
+		            "parentId": 34,
+		            "abbrName": null,
+		            "name": "Живопис",
+		            "isTesting": 100,
+		            "uri": "/enrolments/subjects/39"
+		        },
+		        {
+		            "id": 40,
+		            "parentId": 34,
+		            "abbrName": null,
+		            "name": "Композиція",
+		            "isTesting": 100,
+		            "uri": "/enrolments/subjects/40"
+		        },
+		        {
+		            "id": 41,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Трудове навчання",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/41"
+		        },
+		        {
+		            "id": 42,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Педагогіка та психологія",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/42"
+		        },
+		        {
+		            "id": 43,
+		            "parentId": null,
+		            "abbrName": null,
+		            "name": "Китайська мова",
+		            "isTesting": 0,
+		            "uri": "/enrolments/subjects/43"
+		        },
+		        {
+		            "id": 26,
+		            "parentId": 34,
+		            "abbrName": null,
+		            "name": "Креслення",
+		            "isTesting": 100,
+		            "uri": "/enrolments/subjects/26"
+		        }
+		    ],
+		    "uri": "/enrolments/subjects"
+		}
+  }
+]

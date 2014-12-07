@@ -9,7 +9,7 @@
   "surname": "surname",
   "fatherName": "father name",
   "name": "name",
-  "identifier": "1413432",
+  "identifier": "${idnum}",
   "isHostel": 1,
   "isMilitary": 1,
   "photo": "photo",
