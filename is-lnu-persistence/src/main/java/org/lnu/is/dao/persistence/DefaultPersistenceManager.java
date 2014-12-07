@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.pagination.PagedQuerySearch;
@@ -41,6 +42,11 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     @Override
     public T findById(final Class<T> clazz, final I id) {
         T entity = entityManager.find(clazz, id);
+        
+        if (entity == null || RowStatus.DELETED.equals(entity.getStatus())) {
+        	throw new EntityNotFoundException("Entity does'nt exist");
+        }
+        
         return entity;
     }
 

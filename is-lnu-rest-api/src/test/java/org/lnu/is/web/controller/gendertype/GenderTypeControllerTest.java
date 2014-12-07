@@ -51,7 +51,7 @@ public class GenderTypeControllerTest extends AbstractControllerTest {
 
 		Integer offset = 0;
 		long count = 1;
-		Integer limit = 38;
+		Integer limit = 3;
 
 		PagedResultResource<GenderTypeResource> expected = new PagedResultResource<>("/gendertypes");
 		expected.setResources(entities);
@@ -68,7 +68,10 @@ public class GenderTypeControllerTest extends AbstractControllerTest {
 		String response = getJson(expected, false);
 
 		// Then
-		mockMvc.perform(get("/gendertypes").param("name", name)).andExpect(status().isOk()).andExpect(content().string(response));
+		mockMvc.perform(get("/gendertypes")
+				.param("name", name))
+				.andExpect(status().isOk())
+				.andExpect(content().string(response));
 
 		verify(facade).getResources(request);
 	}

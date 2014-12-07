@@ -46,7 +46,7 @@ public class GenderTypeController extends BaseController {
 	@ApiOperation(value = "Get All Gender Types")
 	public PagedResultResource<GenderTypeResource> getGenderTypes(
 			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "38") final Integer limit, 
+			@RequestParam(value = "limit", defaultValue = "3") final Integer limit, 
 			final GenderTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Gender Type with  offset: {}, limit: {}", offset, limit);
 		PagedRequest<GenderTypeResource> request = new PagedRequest<GenderTypeResource>(resource, offset, limit);

@@ -1,5 +1,6 @@
 package org.lnu.is.web.controller;
 
+import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.slf4j.Logger;
@@ -23,9 +24,9 @@ public abstract class BaseController {
 	 * @param e exception instance
 	 * @return message resource.
 	 */
+	@ResponseBody
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = { Exception.class })
-    @ResponseBody
     public MessageResource handleException(final Exception e) {
     	LOG.error("Handling general exception", e);
     	
@@ -34,5 +35,23 @@ public abstract class BaseController {
         message.setMessage(e.getMessage());
 
         return message;
+    }
+    
+	/**
+	 * Method, that handles not found status.
+	 * @param e
+	 * @return message resource.
+	 */
+    @ResponseBody
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    @ExceptionHandler(value = { EntityNotFoundException.class })
+    public MessageResource handleNotFoundException(final Exception e) {
+    	LOG.error("Handling not found exception", e);
+
+    	MessageResource message = new MessageResource();
+    	message.setMessageType(MessageType.WARN);
+    	message.setMessage(e.getMessage());
+    	
+		return message;
     }
 }

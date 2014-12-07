@@ -1,13 +1,15 @@
 package org.lnu.is.integration
 
-
-import io.gatling.core.Predef._
-import io.gatling.http.Predef._
-import scala.concurrent.duration._
-import org.lnu.is.integration._
-import org.lnu.is.integration.enrolment.statustype.EnrolmentStatusTypeIntegrationTest
 import org.lnu.is.integration.enrolment.enrolmenttype.EnrolmentTypeIntegrationTest
+import org.lnu.is.integration.enrolment.statustype.EnrolmentStatusTypeIntegrationTest
 import org.lnu.is.integration.enrolment.subject.EnrolmentSubjectIntegrationTest
+import org.lnu.is.integration.gendertype.GenderTypeIntegrationTest
+
+import io.gatling.core.Predef.Simulation
+import io.gatling.core.Predef.atOnceUsers
+import io.gatling.core.Predef.stringToExpression
+import io.gatling.http.Predef.http
+import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
 
 class IntegrationTest extends Simulation {
 
@@ -22,6 +24,7 @@ class IntegrationTest extends Simulation {
     AddressTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     EnrolmentStatusTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     EnrolmentTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
-    EnrolmentSubjectIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
+    EnrolmentSubjectIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
+    GenderTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
     )
 }

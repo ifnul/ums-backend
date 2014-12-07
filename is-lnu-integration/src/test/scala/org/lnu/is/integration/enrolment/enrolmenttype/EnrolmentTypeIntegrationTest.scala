@@ -1,9 +1,14 @@
 package org.lnu.is.integration.enrolment.enrolmenttype
 
-import io.gatling.core.Predef._
-import io.gatling.http.Predef._
-import scala.concurrent.duration._
+import io.gatling.core.Predef.checkBuilder2Check
+import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
+import io.gatling.core.Predef.jsonFile
+import io.gatling.core.Predef.scenario
+import io.gatling.core.Predef.stringToExpression
 import io.gatling.core.json.Jackson
+import io.gatling.http.Predef.bodyString
+import io.gatling.http.Predef.http
+import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
 
 object EnrolmentTypeIntegrationTest {
 

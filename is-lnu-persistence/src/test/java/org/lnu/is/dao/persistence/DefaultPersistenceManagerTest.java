@@ -19,6 +19,7 @@ import javax.persistence.TypedQuery;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.pagination.PagedQuerySearch;
@@ -82,6 +83,36 @@ public class DefaultPersistenceManagerTest {
 		// Then
 		verify(entityManager).find(clazz, id);
 		assertEquals(expected, actual);
+	}
+
+	@Test(expected = EntityNotFoundException.class)
+	public void testFindByIdWithDeletedStatus() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "name";
+		String abbrName = "abbrName";
+		
+		Class<Department> clazz = Department.class;
+		Department expected = new Department();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		expected.setStatus(RowStatus.DELETED);
+		
+		// When
+		when(entityManager.find(Matchers.<Class<Department>>any(), anyLong())).thenReturn(expected);
+		unit.findById(clazz, id);
+	}
+
+	@Test(expected = EntityNotFoundException.class)
+	public void testFindByIdWithEmptyEntity() throws Exception {
+		// Given
+		Long id = 1L;
+		Class<Department> clazz = Department.class;
+
+		// When
+		when(entityManager.find(Matchers.<Class<Department>>any(), anyLong())).thenReturn(null);
+		unit.findById(clazz, id);
 	}
 	
 	@Test
