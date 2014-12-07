@@ -16,11 +16,16 @@ IntegrationTest відповідно до вашої конфігурації(є
 	mvn clean install
 	
 FAQ:
-1.Як добавити динамічні значення?
+1.Документація. Там ви можете знайти для себе абсолютно все, що потрібно для роботи з gatling-тулзою.
+	http://gatling.io/docs/2.0.3/
+
+2.Як добавити динамічні значення?
 	Щоб добавити динамічні значення(унікальний код, серійний номер, ще щось) можна використати ось такий приклад
     .exec(session => {
       println("printing session", session)
-      session.set("idnum", UUID.randomUUID())
+      session
+      	.set("idnum", UUID.randomUUID())
+      	.set("other_value_example", "value")
     })
     
     клас UUID - клас джави, але ви можете використати любий інший клас, навіть свій, самописний
