@@ -45,7 +45,7 @@ public class MarriedTypeController extends BaseController {
 	@ApiOperation(value = "Get All Married Types")
 	public PagedResultResource<MarriedTypeResource> getMarriedTypes(
 			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "38") final Integer limit,
+			@RequestParam(value = "limit", defaultValue = "6") final Integer limit,
 			final MarriedTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Married Type with offset: {}, limit: {}", offset, limit);
 		PagedRequest<MarriedTypeResource> request = new PagedRequest<MarriedTypeResource>(resource, offset, limit);

@@ -1,0 +1,50 @@
+[
+  {
+    "targetUrl":"/marriedtypes",
+    "expectedResponse":
+		{
+		    "offset": 0,
+		    "limit": 6,
+		    "count": 6,
+		    "resources": [
+		        {
+		            "id": 1,
+		            "name": "одружений",
+		            "abbrName": null,
+		            "uri": "/marriedtypes/1"
+		        },
+		        {
+		            "id": 2,
+		            "name": "не одружений",
+		            "abbrName": null,
+		            "uri": "/marriedtypes/2"
+		        },
+		        {
+		            "id": 3,
+		            "name": "заміжня",
+		            "abbrName": null,
+		            "uri": "/marriedtypes/3"
+		        },
+		        {
+		            "id": 4,
+		            "name": "не заміжня",
+		            "abbrName": null,
+		            "uri": "/marriedtypes/4"
+		        },
+		        {
+		            "id": 5,
+		            "name": "розлучена",
+		            "abbrName": null,
+		            "uri": "/marriedtypes/5"
+		        },
+		        {
+		            "id": 6,
+		            "name": "розлучений",
+		            "abbrName": null,
+		            "uri": "/marriedtypes/6"
+		        }
+		    ],
+		    "uri": "/marriedtypes"
+		}
+}
+]
