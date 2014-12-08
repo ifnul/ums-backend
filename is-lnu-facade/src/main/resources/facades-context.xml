@@ -6,6 +6,16 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	default-autowire="byName">
 
+	<bean id="assetFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="assetResourceConverter" />
+		<property name="entityConverter" ref="assetConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="assetService" />
+	</bean>
+
 	<bean id="enrolmentTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="enrolmentTypeResourceConverter" />
 		<property name="entityConverter" ref="enrolmentTypeConverter" />

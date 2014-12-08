@@ -6,7 +6,38 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	default-autowire="byName">
+	
+	<bean id="assetDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.asset.Asset" />
+		<property name="queryBuilder" ref="assetQueryBuilder" />		
+	</bean>
 
+	<bean id="assetTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.asset.AssetType" />
+	</bean>
+
+	<bean id="assetStateDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.asset.AssetState" />
+	</bean>
+
+	<bean id="assetStatusDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.asset.AssetStatus" />
+	</bean>
+
+	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.partner.Partner" />
+	</bean>
+	
+	<bean id="employeeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.employee.Employee" />
+	</bean>
+	
 	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.enrolment.EnrolmentType" />
@@ -178,11 +209,6 @@
 	<bean id="departmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.department.DepartmentType" />
-	</bean>
-
-	<bean id="assetDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
-		<property name="entityClass" value="org.lnu.is.domain.asset.Asset" />
 	</bean>
 
 	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao">

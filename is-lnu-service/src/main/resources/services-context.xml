@@ -6,6 +6,11 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	default-autowire="byName">
 	
+	<bean id="assetService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="assetParametersExtractor"/>
+		<property name="defaultDao" ref="assetDao"/>
+	</bean>
+	
 	<bean id="enrolmentTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="enrolmentTypeParametersExtractor" />
 		<property name="defaultDao" ref="enrolmentTypeDao" />
