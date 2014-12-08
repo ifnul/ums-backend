@@ -1,0 +1,13 @@
+{
+  "assetId": 0,
+  "personId": ${personId},
+  "streetTypeId": 1,
+  "adminUnitId": 678,
+  "addressTypeId": 1,
+  "begDate": "${begDate}",
+  "endDate": "${endDate}",
+  "house": "54",
+  "zipCode": "79090",
+  "street": "Університетська",
+  "apartment": "1"
+}

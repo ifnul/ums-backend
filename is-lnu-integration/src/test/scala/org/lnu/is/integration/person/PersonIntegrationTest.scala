@@ -21,7 +21,6 @@ object PersonIntegrationTest {
 
   val scn = scenario("Manage Persons")
     .exec(session => {
-      println("printing session", session)
       session
       	.set("idnum", UUID.randomUUID())
       	.set("other_value_example", "value")
