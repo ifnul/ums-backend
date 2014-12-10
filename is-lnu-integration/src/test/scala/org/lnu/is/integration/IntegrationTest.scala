@@ -10,6 +10,7 @@ import io.gatling.core.Predef.stringToExpression
 import io.gatling.http.Predef.http
 import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
 import org.lnu.is.integration.language.LanguageIntegrationTest
+import org.lnu.is.integration.person.name.PersonNameIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -20,6 +21,7 @@ class IntegrationTest extends Simulation {
   //http://stackoverflow.com/questions/25765457/gatling-compare-web-service-json-response-using-jsonfilefeeder
   setUp(
     PersonIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
+    PersonNameIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     EduFormTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     AddressTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     EnrolmentStatusTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),

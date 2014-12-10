@@ -28,6 +28,7 @@ public class PersonNameConverter extends AbstractConverter<PersonName, PersonNam
 		target.setFirstName(source.getFirstName());
 		target.setFatherName(source.getFatherName());
 		target.setSurname(source.getSurname());
+		target.setId(source.getId());
 		
 		return target;
 	}
