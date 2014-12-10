@@ -51,6 +51,11 @@
 		<property name="defaultDao" ref="jobTypeDao" />
 	</bean>
 
+	<bean id="languageService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="languageParametersExtractor" />
+		<property name="defaultDao" ref="languageDao" />
+	</bean>
+
 	<bean id="marriedTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="marriedTypeParametersExtractor" />
 		<property name="defaultDao" ref="marriedTypeDao" />

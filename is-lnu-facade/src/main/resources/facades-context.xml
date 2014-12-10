@@ -15,7 +15,6 @@
 		<property name="updateConverter" ref="updateConverter" />
 		<property name="defaultService" ref="enrolmentTypeService" />
 	</bean>
-	
 
 	<bean id="enrolmentFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="enrolmentResourceConverter" />
@@ -95,6 +94,16 @@
 		<property name="insertConverter" ref="insertConverter" />
 		<property name="updateConverter" ref="updateConverter" />
 		<property name="defaultService" ref="jobTypeService" />
+	</bean>
+
+	<bean id="languageFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="languageResourceConverter" />
+		<property name="entityConverter" ref="languageConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="languageService" />
 	</bean>
 
 	<bean id="marriedTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
