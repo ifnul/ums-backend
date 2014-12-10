@@ -15,7 +15,7 @@ import org.lnu.is.domain.Model;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
-import org.lnu.is.domain.optype.OpType;
+import org.lnu.is.domain.optype.OperationType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
 
@@ -48,7 +48,7 @@ public class Order extends Model {
 	
 	@ManyToOne
 	@JoinColumn(name = "optype_id")
-	private OpType opType;
+	private OperationType opType;
 
 	@ManyToOne
 	@JoinColumn(name = "department_id")
@@ -133,11 +133,11 @@ public class Order extends Model {
 		this.partner = partner;
 	}
 
-	public OpType getOpType() {
+	public OperationType getOpType() {
 		return opType;
 	}
 
-	public void setOpType(final OpType opType) {
+	public void setOpType(final OperationType opType) {
 		this.opType = opType;
 	}
 

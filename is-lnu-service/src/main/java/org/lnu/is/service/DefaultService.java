@@ -23,28 +23,28 @@ import org.springframework.beans.factory.annotation.Required;
  */
 public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implements Service<ENTITY, KEY> {
 
-	private DAO defaultDao;
+	private DAO dao;
 	
 	private ParametersExtractor<ENTITY> parametersExtractor;
 	
 	@Override
 	public void createEntity(final ENTITY entity) {
-		defaultDao.save(entity);
+		dao.save(entity);
 	}
 
 	@Override
 	public ENTITY getEntity(final KEY id) {
-		return defaultDao.findById(id);
+		return dao.findById(id);
 	}
 
 	@Override
 	public void updateEntity(final ENTITY entity) {
-		defaultDao.update(entity);
+		dao.update(entity);
 	}
 
 	@Override
 	public void removeEntity(final ENTITY entity) {
-		defaultDao.delete(entity);
+		dao.delete(entity);
 	}
 
 	@Override
@@ -52,12 +52,12 @@ public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implement
 		Map<String, Object> parameters = parametersExtractor.getParameters(search.getEntity());
 		search.setParameters(parameters);
 		
-		return defaultDao.getEntities(search);
+		return dao.getEntities(search);
 	}
 
 	@Required
-	public void setDefaultDao(final DAO defaultDao) {
-		this.defaultDao = defaultDao;
+	public void setDao(final DAO defaultDao) {
+		this.dao = defaultDao;
 	}
 
 	@Required
@@ -65,8 +65,8 @@ public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implement
 		this.parametersExtractor = parametersExtractor;
 	}
 
-	public DAO getDefaultDao() {
-		return defaultDao;
+	public DAO getDao() {
+		return dao;
 	}
 
 	public ParametersExtractor<ENTITY> getParametersExtractor() {

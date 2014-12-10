@@ -1,0 +1,74 @@
+[
+  {
+    "targetUrl":"/persons/types",
+    "expectedResponse":
+		{
+		    "offset": 0,
+		    "limit": 20,
+		    "count": 10,
+		    "resources": [
+		        {
+		            "id": 1,
+		            "abbrName": "A",
+		            "name": "абітурієнт",
+		            "uri": "/persons/types/1"
+		        },
+		        {
+		            "id": 2,
+		            "abbrName": "S",
+		            "name": "студент",
+		            "uri": "/persons/types/2"
+		        },
+		        {
+		            "id": 3,
+		            "abbrName": "R",
+		            "name": "науковець",
+		            "uri": "/persons/types/3"
+		        },
+		        {
+		            "id": 4,
+		            "abbrName": "E",
+		            "name": "працівник",
+		            "uri": "/persons/types/4"
+		        },
+		        {
+		            "id": 5,
+		            "abbrName": "G",
+		            "name": "випускник",
+		            "uri": "/persons/types/5"
+		        },
+		        {
+		            "id": 6,
+		            "abbrName": "SA",
+		            "name": "студент/абітурієнт",
+		            "uri": "/persons/types/6"
+		        },
+		        {
+		            "id": 7,
+		            "abbrName": "EA",
+		            "name": "працівник/абітурієнт",
+		            "uri": "/persons/types/7"
+		        },
+		        {
+		            "id": 8,
+		            "abbrName": "ES",
+		            "name": "працівник/студент",
+		            "uri": "/persons/types/8"
+		        },
+		        {
+		            "id": 9,
+		            "abbrName": "P",
+		            "name": "аспірант",
+		            "uri": "/persons/types/9"
+		        },
+		        {
+		            "id": 10,
+		            "abbrName": "O",
+		            "name": "сторонній",
+		            "uri": "/persons/types/10"
+		        }
+		    ],
+		    "uri": "/persons/types"
+		}
+}
+]

@@ -29,11 +29,16 @@
   <properties>
     <checkstyleDir>${basedir}/../checks</checkstyleDir>
     <findBugsDir>${basedir}/../findbugs</findBugsDir>
-    <camel-version>2.12.0</camel-version>
+    <camel-version>2.14.0</camel-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
   <dependencies>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+	</dependency>
 
     <dependency>
         <groupId>org.apache.camel</groupId>

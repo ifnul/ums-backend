@@ -18,7 +18,6 @@ import java.util.Date
 
 object PersonAddressIntegrationTest {
 
-  
   val scn = scenario("Manage Person Addresses")
     .exec(session => {
       session
@@ -67,5 +66,4 @@ object PersonAddressIntegrationTest {
 		.delete("/persons/${personId}")
 		.check(status.is(204))
     )
-  
 }

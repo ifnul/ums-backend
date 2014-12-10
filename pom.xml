@@ -28,6 +28,7 @@
 
 		<version>0.0.1-SNAPSHOT</version>
 		<spring.version>4.1.0.RELEASE</spring.version>
+		<spring.test.version>4.0.0.RELEASE</spring.test.version>
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
 		<hibernate.version>4.2.0.Final</hibernate.version>
 		<slf4j.version>1.7.7</slf4j.version>
@@ -101,6 +102,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
 				<artifactId>spring-tx</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
@@ -123,7 +129,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
-				<version>${spring.version}</version>
+				<version>${spring.test.version}</version>
 			</dependency>
 	
 			<!-- LOGGING -->

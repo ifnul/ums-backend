@@ -26,7 +26,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/eduformtypes")
-@Api(value = "Education Form Types", description = "Edu Form Type")
+@Api("Education Form Types")
 public class EduFormTypeController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(EduFormTypeController.class);
 	
