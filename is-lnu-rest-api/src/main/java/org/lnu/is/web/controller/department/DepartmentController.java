@@ -52,7 +52,7 @@ public class DepartmentController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
-	@ApiOperation(value = "Create Specoffer", position = 1)
+	@ApiOperation(value = "Create Department", position = 1)
 	public DepartmentResource createDepartment(@RequestBody final DepartmentResource departmentResource) {
 		LOG.info("Creating department: {}", departmentResource);
 		return facade.createResource(departmentResource);

@@ -13,7 +13,7 @@ import org.lnu.is.facade.resource.department.DepartmentResource;
  *
  */
 @Converter("departmentResourceConverter")
-public class DepartmentResourceConverter extends AbstractConverter<DepartmentResource	, Department> {
+public class DepartmentResourceConverter extends AbstractConverter<DepartmentResource, Department> {
 
 	@Override
 	public Department convert(final DepartmentResource source, final Department target) {
