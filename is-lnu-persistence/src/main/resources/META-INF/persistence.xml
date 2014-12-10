@@ -132,7 +132,7 @@
         <class>org.lnu.is.domain.jobtype.JobType</class> 
         <class>org.lnu.is.domain.posttype.PostType</class> 
         <class>org.lnu.is.domain.pensiontype.PensionType</class>
-        <class>org.lnu.is.domain.optype.OpType</class> 
+        <class>org.lnu.is.domain.optype.OperationType</class> 
         <class>org.lnu.is.domain.papertype.PaperType</class>
         <class>org.lnu.is.domain.coursetype.CourseType</class>
         <class>org.lnu.is.domain.dutytype.DutyType</class>

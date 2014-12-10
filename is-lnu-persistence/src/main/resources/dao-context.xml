@@ -156,6 +156,17 @@
 	<bean id="orderDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.order.Order" />
+		<property name="queryBuilder" ref="orderQueryBuilder"/>
+	</bean>
+
+	<bean id="orderTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.order.OrderType" />
+	</bean>
+
+	<bean id="operationTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.optype.OperationType" />
 	</bean>
 
 	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
@@ -200,6 +211,11 @@
 		<property name="queryBuilder" ref="eduFormTypeQueryBuilder" />
 	</bean>
 
+	<bean id="reasonDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.reason.Reason" />
+	</bean>
+
 	<bean id="departmentDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.department.Department" />
@@ -209,6 +225,7 @@
 	<bean id="departmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.department.DepartmentType" />
+		<property name="queryBuilder" ref="departmentTypeQueryBuilder" />
 	</bean>
 
 	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao">

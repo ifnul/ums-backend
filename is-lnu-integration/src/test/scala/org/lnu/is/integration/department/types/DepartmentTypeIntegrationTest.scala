@@ -1,4 +1,4 @@
-package org.lnu.is.integration.enrolment.enrolmenttype
+package org.lnu.is.integration.department.types
 
 import io.gatling.core.Predef.checkBuilder2Check
 import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
@@ -10,13 +10,13 @@ import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
 import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
 
-object EnrolmentTypeIntegrationTest {
+object DepartmentTypeIntegrationTest {
 
-  val feed = jsonFile("data/enrolment/type/json_data.json").circular
-
-  val scn = scenario("Enrolment Type Simple GET Scenario")
+  val feed = jsonFile("data/department/type/json_data.json").circular
+  
+  val scn = scenario("Department Type Simple GET Scenario")
     .feed(feed)
-    .exec(http("Enrolment Types Get Paged Result")
+    .exec(http("Department Type Get Paged Result")
       .get("${targetUrl}")
       .check(bodyString.transform(Jackson.parse).is("${expectedResponse}"))
     )

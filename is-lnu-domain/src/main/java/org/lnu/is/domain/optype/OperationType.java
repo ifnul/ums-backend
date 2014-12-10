@@ -15,7 +15,7 @@ import org.lnu.is.domain.Model;
 @RF
 @Entity
 @Table(name = "q_rf_optype")
-public class OpType extends Model {
+public class OperationType extends Model {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")
@@ -61,7 +61,7 @@ public class OpType extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		OpType other = (OpType) obj;
+		OperationType other = (OperationType) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;

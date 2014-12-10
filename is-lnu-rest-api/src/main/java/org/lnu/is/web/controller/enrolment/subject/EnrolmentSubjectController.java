@@ -27,7 +27,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/enrolments")
-@Api(value = "Enrolment Subjects", description = "Controller for getting enrolment subjects")
+@Api("Enrolment Subjects")
 public class EnrolmentSubjectController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(EnrolmentSubjectController.class);
 

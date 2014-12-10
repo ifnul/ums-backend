@@ -12,7 +12,7 @@ import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.employee.EmployeeStatus;
-import org.lnu.is.domain.optype.OpType;
+import org.lnu.is.domain.optype.OperationType;
 
 /**
  * Order Employee entity.
@@ -40,7 +40,7 @@ public class OrderEmployee extends Model {
 
 	@ManyToOne
 	@JoinColumn(name = "optype_id")
-	private OpType opType;
+	private OperationType opType;
 
 	@Column(name = "rate")
 	private long rate;
@@ -75,11 +75,11 @@ public class OrderEmployee extends Model {
 		this.employeeStatus = employeeStatus;
 	}
 
-	public OpType getOpType() {
+	public OperationType getOpType() {
 		return opType;
 	}
 
-	public void setOpType(final OpType opType) {
+	public void setOpType(final OperationType opType) {
 		this.opType = opType;
 	}
 

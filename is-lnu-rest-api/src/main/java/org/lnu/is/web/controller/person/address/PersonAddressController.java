@@ -30,7 +30,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/persons")
-@Api(value = "Person Address Controller", description = "Api's for person addresses.")
+@Api("Person Address Controller")
 public class PersonAddressController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonAddressController.class);
 	

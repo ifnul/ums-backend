@@ -1,9 +1,9 @@
-package org.lnu.is.web.controller.eduformtype;
+package org.lnu.is.web.controller.department.type;
 
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
+import org.lnu.is.facade.resource.department.type.DepartmentTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.BaseController;
@@ -20,35 +20,37 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
 /**
- * Edu Form Type Controller.
+ * Controller for department types.
  * @author ivanursul
  *
  */
 @RestController
-@RequestMapping("/eduformtypes")
-@Api("Education Form Types")
-public class EduFormTypeController extends BaseController {
-	private static final Logger LOG = LoggerFactory.getLogger(EduFormTypeController.class);
-	
-	@Resource(name = "eduFormTypeFacade")
-	private Facade<EduFormTypeResource, Long> facade;
-	
+@RequestMapping("/departments/types")
+@Api("Department Type Controller")
+public class DepartmentTypeController extends BaseController {
+	private static final Logger LOG = LoggerFactory.getLogger(DepartmentTypeController.class);
+
+	@Resource(name = "departmentTypeFacade")
+	private Facade<DepartmentTypeResource, Long> facade;
+
 	/**
-	 * Method for getting paged result.
+	 * Method for getting gender types.
+	 * 
 	 * @param offset
 	 * @param limit
 	 * @param resource
-	 * @return paged result.
+	 * @return paged result
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation(value = "Get Education Form Types")
-	public PagedResultResource<EduFormTypeResource> getEduFormTypes(
+	@ApiOperation(value = "Get All Gender Types")
+	public PagedResultResource<DepartmentTypeResource> getGenderTypes(
 			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "38") final Integer limit,
-			final EduFormTypeResource resource) {
-		LOG.info("Getting Paged Result of  Edu Form Type with  offset: {}, limit: {}", offset, limit);
-		PagedRequest<EduFormTypeResource> request = new PagedRequest<EduFormTypeResource>(resource, offset, limit);
+			@RequestParam(value = "limit", defaultValue = "20") final Integer limit, 
+			final DepartmentTypeResource resource) {
+		LOG.info("Getting PagedResultResource for Department Type with  offset: {}, limit: {}", offset, limit);
+		PagedRequest<DepartmentTypeResource> request = new PagedRequest<DepartmentTypeResource>(resource, offset, limit);
 		return facade.getResources(request);
 	}
+
 }

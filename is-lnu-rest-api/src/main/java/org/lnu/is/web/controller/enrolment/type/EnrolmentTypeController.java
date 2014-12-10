@@ -27,7 +27,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/enrolments")
-@ApiModel(value = "Enrolment Types", description = "Enrolment Types")
+@ApiModel("Enrolment Types")
 public class EnrolmentTypeController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(EnrolmentTypeController.class);
 
