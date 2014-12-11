@@ -3,16 +3,16 @@ package org.lnu.is.extractor.language;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Language parameters extractor.
  * @author ivanursul
  *
  */
-@Component("languageParametersExtractor")
+@ParametersExtractor("languageParametersExtractor")
 public class LanguageParametersExtractor extends AbstractParametersExtractor<Language> {
 
 	@Override

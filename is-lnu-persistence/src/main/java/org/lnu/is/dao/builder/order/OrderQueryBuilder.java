@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.order;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.order.Order;
-import org.springframework.stereotype.Component;
 
 /**
  * Order Query Builder.
  * @author ivanursul
  *
  */
-@Component("orderQueryBuilder")
+@QBuilder("orderQueryBuilder")
 public class OrderQueryBuilder implements QueryBuilder<Order> {
 
 	private static final String QUERY = "SELECT o FROM Order o %s";

@@ -1,15 +1,15 @@
 package org.lnu.is.dao.builder.person.award;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.person.PersonAward;
-import org.springframework.stereotype.Component;
 /**
  * Person Award QUery Builder.
  * @author ivanursul
  *
  */
-@Component("personAwardQueryBuilder")
+@QBuilder("personAwardQueryBuilder")
 public class PersonAwardQueryBuilder implements QueryBuilder<PersonAward> {
 	private static final String QUERY = "SELECT p FROM PersonAward p %s";
 

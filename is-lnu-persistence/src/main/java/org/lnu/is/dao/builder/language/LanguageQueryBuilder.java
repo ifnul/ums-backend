@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.language;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.language.Language;
-import org.springframework.stereotype.Component;
 
 /**
  * Language query builder.
  * @author ivanursul
  *
  */
-@Component("languageQueryBuilder")
+@QBuilder("languageQueryBuilder")
 public class LanguageQueryBuilder implements QueryBuilder<Language> {
 
 	private static final String QUERY = "SELECT l FROM Language l %s";

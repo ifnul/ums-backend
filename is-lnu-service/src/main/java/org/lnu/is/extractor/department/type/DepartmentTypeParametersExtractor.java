@@ -3,16 +3,16 @@ package org.lnu.is.extractor.department.type;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.domain.department.DepartmentType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Department Type Parameters Extractor.
  * @author ivanursul
  *
  */
-@Component("departmentTypeParametersExtractor")
+@ParametersExtractor("departmentTypeParametersExtractor")
 public class DepartmentTypeParametersExtractor extends AbstractParametersExtractor<DepartmentType> {
 
 	@Override

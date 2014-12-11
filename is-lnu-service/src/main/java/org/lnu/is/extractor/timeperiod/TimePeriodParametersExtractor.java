@@ -5,18 +5,18 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.domain.timeperiod.TimePeriodType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Time Period Parameters Extractor.
  * @author ivanursul
  *
  */
-@Component("timePeriodParametersExtractor")
+@ParametersExtractor("timePeriodParametersExtractor")
 public class TimePeriodParametersExtractor extends AbstractParametersExtractor<TimePeriod> {
 
 	@Resource(name = "timePeriodDao")

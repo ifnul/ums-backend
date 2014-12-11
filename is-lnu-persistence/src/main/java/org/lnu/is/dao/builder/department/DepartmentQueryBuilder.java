@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.department;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.department.Department;
-import org.springframework.stereotype.Component;
 
 /**
  * Department Query Builder.
  * @author ivanursul
  *
  */
-@Component("departmentQueryBuilder")
+@QBuilder("departmentQueryBuilder")
 public class DepartmentQueryBuilder implements QueryBuilder<Department> {
 
 	private static final String QUERY = "SELECT d FROM Department d %s";

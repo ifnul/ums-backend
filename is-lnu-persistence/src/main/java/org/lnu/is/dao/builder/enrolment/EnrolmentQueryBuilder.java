@@ -1,9 +1,9 @@
 package org.lnu.is.dao.builder.enrolment;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.enrolment.Enrolment;
-import org.springframework.stereotype.Component;
 
 /**
  * Enrolment Query Builder.
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  *
  */
 
-@Component("enrolmentQueryBuilder")
+@QBuilder("enrolmentQueryBuilder")
 public class EnrolmentQueryBuilder implements QueryBuilder<Enrolment> {
 
 	private static final String QUERY = "SELECT e FROM Enrolment e %s";

@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.marriedtype;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.marriedtype.MarriedType;
-import org.springframework.stereotype.Component;
 
 /**
  * Query builder for Married Type.
  * @author Bohdan
  *
  */
-@Component("marriedTypeQueryBuilder")
+@QBuilder("marriedTypeQueryBuilder")
 public class MarriedTypeQueryBuilder implements QueryBuilder<MarriedType> {
 
 	private static final String QUERY = "SELECT m FROM MarriedType m %s";

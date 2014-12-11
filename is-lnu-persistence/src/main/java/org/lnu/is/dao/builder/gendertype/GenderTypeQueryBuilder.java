@@ -1,9 +1,9 @@
 package org.lnu.is.dao.builder.gendertype;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.gendertype.GenderType;
-import org.springframework.stereotype.Component;
 
 /**
  * Query builder for Gender Type.
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @author kushnir
  *
  */
-@Component("genderTypeQueryBuilder")
+@QBuilder("genderTypeQueryBuilder")
 public class GenderTypeQueryBuilder implements QueryBuilder<GenderType> {
 
 	private static final String QUERY = "SELECT g FROM GenderType g %s";

@@ -3,9 +3,9 @@ package org.lnu.is.extractor.enrolment.type;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.domain.enrolment.EnrolmentType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Enrolment Type Parameters Extractor.
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @author kushnir
  *
  */
-@Component("enrolmentTypeParametersExtractor")
+@ParametersExtractor("enrolmentTypeParametersExtractor")
 public class EnrolmentTypeParametersExtractor extends AbstractParametersExtractor<EnrolmentType> {
 
 	@Override

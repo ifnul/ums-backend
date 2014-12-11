@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.person;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.person.Person;
-import org.springframework.stereotype.Component;
 
 /**
  * Person Query Builder.
  * @author ivanursul
  *
  */
-@Component("personQueryBuilder")
+@QBuilder("personQueryBuilder")
 public class PersonQueryBuilder implements QueryBuilder<Person> {
 
 	private static final String QUERY = "SELECT p FROM Person p %s";

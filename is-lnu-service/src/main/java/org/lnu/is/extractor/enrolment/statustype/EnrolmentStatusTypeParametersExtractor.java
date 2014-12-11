@@ -3,16 +3,16 @@ package org.lnu.is.extractor.enrolment.statustype;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Enrolment Status Type ParametersExtractor.
  * @author ivanursul
  *
  */
-@Component("enrolmentStatusTypeParametersExtractor")
+@ParametersExtractor("enrolmentStatusTypeParametersExtractor")
 public class EnrolmentStatusTypeParametersExtractor extends AbstractParametersExtractor<EnrolmentStatusType> {
 
 	@Override

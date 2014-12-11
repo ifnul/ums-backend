@@ -246,6 +246,16 @@
 		<property name="defaultService" ref="orderService" />
 	</bean>
 
+	<bean id="orderTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="orderTypeResourceConverter" />
+		<property name="entityConverter" ref="orderTypeConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="orderTypeService" />
+	</bean>
+
 	<bean id="timePeriodFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="timePeriodResourceConverter" />
 		<property name="entityConverter" ref="timePeriodConverter" />

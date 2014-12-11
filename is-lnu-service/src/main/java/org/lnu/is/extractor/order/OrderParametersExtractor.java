@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.employee.Employee;
@@ -14,14 +15,13 @@ import org.lnu.is.domain.order.OrderType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Order Parameters extractor.
  * @author ivanursul
  *
  */
-@Component("orderParametersExtractor")
+@ParametersExtractor("orderParametersExtractor")
 public class OrderParametersExtractor extends AbstractParametersExtractor<Order> {
 
 	@Resource(name = "orderTypeDao")

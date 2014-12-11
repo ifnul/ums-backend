@@ -1,9 +1,9 @@
 package org.lnu.is.dao.builder.jobtype;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.jobtype.JobType;
-import org.springframework.stereotype.Component;
 
 /**
  * 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  *
  */
 
-@Component("jobTypeQueryBuilder")
+@QBuilder("jobTypeQueryBuilder")
 public class JobTypeQueryBuilder implements QueryBuilder<JobType> {
 
 	private static final String QUERY = "SELECT g FROM JobType g %s";

@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.asset;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.asset.Asset;
-import org.springframework.stereotype.Component;
 
 /**
  * Asset Query Builder.
  * @author ivanursul
  *
  */
-@Component("assetQueryBuilder")
+@QBuilder("assetQueryBuilder")
 public class AssetQueryBuilder implements QueryBuilder<Asset> {
 
 	private static final String QUERY = "SELECT a FROM Asset a %s";

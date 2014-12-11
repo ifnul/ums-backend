@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.specoffer;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.springframework.stereotype.Component;
 
 /**
  * Spec Offer Query Builder.
  * @author ivanursul
  *
  */
-@Component("specOfferQueryBuilder")
+@QBuilder("specOfferQueryBuilder")
 public class SpecOfferQueryBuilder implements QueryBuilder<SpecOffer> {
 
 	private static final String QUERY = "SELECT s FROM SpecOffer s %s";

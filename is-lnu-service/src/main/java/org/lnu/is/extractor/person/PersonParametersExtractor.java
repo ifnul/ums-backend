@@ -5,20 +5,20 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Person Parameters extractor.
  * @author ivanursul
  *
  */
-@Component("personParametersExtractor")
+@ParametersExtractor("personParametersExtractor")
 public class PersonParametersExtractor extends AbstractParametersExtractor<Person> {
 
 	@Resource(name = "personTypeDao")

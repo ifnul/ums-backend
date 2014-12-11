@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.eduformtype;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.eduformtype.EduFormType;
-import org.springframework.stereotype.Component;
 
 /**
  * Edu Form Type Query Builder.
  * @author ivanursul
  *
  */
-@Component("eduFormTypeQueryBuilder")
+@QBuilder("eduFormTypeQueryBuilder")
 public class EduFormTypeQueryBuilder implements QueryBuilder<EduFormType> {
 
 	private static final String QUERY = "SELECT e FROM EduFormType e %s";

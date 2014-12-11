@@ -5,19 +5,19 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.DepartmentType;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Department Paramters extractor.
  * @author ivanursul
  *
  */
-@Component("departmentParametersExtractor")
+@ParametersExtractor("departmentParametersExtractor")
 public class DepartmentParametersExtractor extends AbstractParametersExtractor<Department> {
 
 	@Resource(name = "departmentDao")

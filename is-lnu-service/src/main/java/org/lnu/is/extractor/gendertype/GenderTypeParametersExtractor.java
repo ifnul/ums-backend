@@ -3,9 +3,9 @@ package org.lnu.is.extractor.gendertype;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Gender Type Parameters Extractor.
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  *
  */
 
-@Component("genderTypeParametersExtractor")
+@ParametersExtractor("genderTypeParametersExtractor")
 public class GenderTypeParametersExtractor extends AbstractParametersExtractor<GenderType> {
 
 	@Override

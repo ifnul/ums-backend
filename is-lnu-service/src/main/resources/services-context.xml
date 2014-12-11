@@ -135,4 +135,9 @@
 		<property name="parametersExtractor" ref="orderParametersExtractor"/>
 		<property name="dao" ref="orderDao"/>
 	</bean>
+
+	<bean id="orderTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="orderTypeParametersExtractor"/>
+		<property name="dao" ref="orderTypeDao"/>
+	</bean>
 </beans>

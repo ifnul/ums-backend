@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
@@ -13,7 +14,6 @@ import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Enrolment parameters extractor.
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
  * @author kushnir
  *
  */
-@Component("enrolmentParametersExtractor")
+@ParametersExtractor("enrolmentParametersExtractor")
 public class EnrolmentParametersExtractor extends AbstractParametersExtractor<Enrolment> {
 
 	@Resource(name = "personDao")

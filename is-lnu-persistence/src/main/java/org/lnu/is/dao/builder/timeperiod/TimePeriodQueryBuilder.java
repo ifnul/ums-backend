@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.timeperiod;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.timeperiod.TimePeriod;
-import org.springframework.stereotype.Component;
 
 /**
  * Query Builder for Time Period.
  * @author ivanursul
  *
  */
-@Component("timePeriodQueryBuilder")
+@QBuilder("timePeriodQueryBuilder")
 public class TimePeriodQueryBuilder implements QueryBuilder<TimePeriod> {
 	private static final String QUERY = "SELECT t FROM TimePeriod t %s";
 

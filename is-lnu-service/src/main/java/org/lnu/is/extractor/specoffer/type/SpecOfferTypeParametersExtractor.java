@@ -5,18 +5,18 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Spec Offer Type Parameter extractor.
  * @author ivanursul
  *
  */
-@Component("specOfferTypeParametersExtractor")
+@ParametersExtractor("specOfferTypeParametersExtractor")
 public class SpecOfferTypeParametersExtractor extends AbstractParametersExtractor<SpecOfferType> {
 
 	@Resource(name = "specialtyTypeDao")

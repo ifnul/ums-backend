@@ -28,15 +28,14 @@ public class OrderType extends Model {
 	
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
-	private OrderType orderType;
+	private OrderType parent;
 	
-	
-	public OrderType getOrderType() {
-		return orderType;
+	public OrderType getParent() {
+		return parent;
 	}
 
-	public void setOrderType(final OrderType orderType) {
-		this.orderType = orderType;
+	public void setParent(final OrderType parent) {
+		this.parent = parent;
 	}
 
 	public String getAbbrName() {

@@ -5,18 +5,18 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Specialty Parameters Extractor.
  * @author ivanursul
  *
  */
-@Component("specialtyParametersExtractor")
+@ParametersExtractor("specialtyParametersExtractor")
 public class SpecialtyParametersExtractor extends AbstractParametersExtractor<Specialty> {
 
 	@Resource(name = "specialtyTypeDao")

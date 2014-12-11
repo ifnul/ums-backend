@@ -1,16 +1,16 @@
 package org.lnu.is.dao.builder.specialty;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.specialty.Specialty;
-import org.springframework.stereotype.Component;
 
 /**
  * Specialty query builder. 
  * @author ivanursul
  *
  */
-@Component("specialtyQueryBuilder")
+@QBuilder("specialtyQueryBuilder")
 public class SpecialtyQueryBuilder implements QueryBuilder<Specialty> {
 
 	private static final String QUERY = "SELECT s FROM Specialty s %s";

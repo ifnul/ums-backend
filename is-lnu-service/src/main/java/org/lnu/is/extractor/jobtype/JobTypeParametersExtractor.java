@@ -3,16 +3,16 @@ package org.lnu.is.extractor.jobtype;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.domain.jobtype.JobType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * 
  * @author kushnir
  *
  */
-@Component("jobTypeParametersExtractor")
+@ParametersExtractor("jobTypeParametersExtractor")
 public class JobTypeParametersExtractor extends AbstractParametersExtractor<JobType> {
 
 	@Override

@@ -5,19 +5,19 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonName;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Person Name parameters extractor.
  * @author ivanursul
  *
  */
-@Component("personNameParametersExtractor")
+@ParametersExtractor("personNameParametersExtractor")
 public class PersonNameParametersExtractor extends AbstractParametersExtractor<PersonName> {
 
 	@Resource(name = "languageDao")

@@ -5,13 +5,13 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.honorstype.HonorsType;
 import org.lnu.is.domain.papertype.PaperType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * TODO: IU - Write tests for all parameter extractors.
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  * @author ivanursul
  *
  */
-@Component("personPaperParametersExtractor")
+@ParametersExtractor("personPaperParametersExtractor")
 public class PersonPaperParametersExtractor extends AbstractParametersExtractor<PersonPaper> {
 
 	@Resource(name = "personDao")

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.eduformtype.EduFormType;
@@ -13,14 +14,13 @@ import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Parameters extractor for Spec Offer.
  * @author ivanursul
  *
  */
-@Component("specOfferParametersExtractor")
+@ParametersExtractor("specOfferParametersExtractor")
 public class SpecOfferParametersExtractor extends AbstractParametersExtractor<SpecOffer> {
 
 	@Resource(name = "specOfferDao")

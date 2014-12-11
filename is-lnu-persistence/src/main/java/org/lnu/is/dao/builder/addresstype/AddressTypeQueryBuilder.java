@@ -1,9 +1,9 @@
 package org.lnu.is.dao.builder.addresstype;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.addresstype.AddressType;
-import org.springframework.stereotype.Component;
 
 /**
  * Query builder for Address Type.
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  *
  */
 
-@Component("addressTypeQueryBuilder")
+@QBuilder("addressTypeQueryBuilder")
 public class AddressTypeQueryBuilder implements QueryBuilder<AddressType> {
 	private static final String QUERY = "SELECT a FROM AddressType a %s";
 

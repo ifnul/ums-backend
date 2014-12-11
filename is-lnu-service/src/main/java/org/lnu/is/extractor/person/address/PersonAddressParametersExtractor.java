@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.domain.adminunit.AdminUnit;
@@ -13,14 +14,13 @@ import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonAddress;
 import org.lnu.is.domain.streettype.StreetType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Person Address parameters extractor. 
  * @author ivanursul
  *
  */
-@Component("personAddressParametersExtractor")
+@ParametersExtractor("personAddressParametersExtractor")
 public class PersonAddressParametersExtractor extends AbstractParametersExtractor<PersonAddress> {
 
 	@Resource(name = "personDao")

@@ -3,16 +3,16 @@ package org.lnu.is.extractor.person.type;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Person Type parameters extractor.
  * @author ivanursul
  *
  */
-@Component("personTypeParametersExtractor")
+@ParametersExtractor("personTypeParametersExtractor")
 public class PersonTypeParametersExtractor extends AbstractParametersExtractor<PersonType> {
 
 	@Override

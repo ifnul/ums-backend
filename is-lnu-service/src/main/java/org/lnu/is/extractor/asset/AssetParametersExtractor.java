@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.asset.AssetState;
@@ -15,14 +16,13 @@ import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Asset Parameters Extractor.
  * @author ivanursul
  *
  */
-@Component("assetParametersExtractor")
+@ParametersExtractor("assetParametersExtractor")
 public class AssetParametersExtractor extends AbstractParametersExtractor<Asset> {
 
 	@Resource(name = "assetDao")

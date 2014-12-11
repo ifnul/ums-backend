@@ -3,16 +3,16 @@ package org.lnu.is.extractor.marriedtype;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
-import org.springframework.stereotype.Component;
 
 /**
  * Married Type parameters extractor.
  * @author Bohdan
  *
  */
-@Component("marriedTypeParametersExtractor")
+@ParametersExtractor("marriedTypeParametersExtractor")
 public class MarriedTypeParametersExtractor extends AbstractParametersExtractor<MarriedType> {
 
 	@Override

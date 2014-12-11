@@ -1,15 +1,15 @@
 package org.lnu.is.dao.builder.enrolment.status;
 
+import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
-import org.springframework.stereotype.Component;
 /**
  * Enrolment Status Type query builder.
  * @author OlehZanevych
  *
  */
-@Component("enrolmentStatusTypeQueryBuilder")
+@QBuilder("enrolmentStatusTypeQueryBuilder")
 public class EnrolmentStatusTypeQueryBuilder implements QueryBuilder<EnrolmentStatusType> {
 
 	private static final String QUERY = "SELECT e FROM EnrolmentStatusType e %s";
