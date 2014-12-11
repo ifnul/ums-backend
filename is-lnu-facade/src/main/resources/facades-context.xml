@@ -276,6 +276,16 @@
 		<property name="defaultService" ref="timePeriodService" />
 	</bean>
 
+	<bean id="timePeriodTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="timePeriodTypeResourceConverter" />
+		<property name="entityConverter" ref="timePeriodTypeConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="timePeriodTypeService" />
+	</bean>
+
 	<bean id="specOfferBenefitFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="specOfferBenefitResourceConverter" />
 		<property name="entityConverter" ref="specOfferBenefitConverter" />
