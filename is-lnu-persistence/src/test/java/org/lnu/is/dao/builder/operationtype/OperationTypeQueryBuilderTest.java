@@ -17,7 +17,7 @@ public class OperationTypeQueryBuilderTest {
 		OperationType context = new OperationType();
 		context.setAbbrName(abbrName);
 
-		String expectedQuery = "SELECT m FROM OperationType m WHERE m.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT o FROM OperationType o WHERE o.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 		// When
 		String actualQuery = unit.build(context);

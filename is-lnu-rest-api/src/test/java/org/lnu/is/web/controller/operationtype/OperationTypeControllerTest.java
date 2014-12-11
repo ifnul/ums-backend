@@ -52,7 +52,7 @@ public class OperationTypeControllerTest extends AbstractControllerTest {
 		resource.setName(name);
 
 		List<OperationTypeResource> entities = Arrays.asList(resource);
-		PagedResultResource<OperationTypeResource> expected = new PagedResultResource<>("/operationtyes");
+		PagedResultResource<OperationTypeResource> expected = new PagedResultResource<>("/operationtypes");
 		expected.setResources(entities);
 		expected.setCount(count);
 		expected.setLimit(limit);

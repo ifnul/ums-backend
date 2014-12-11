@@ -173,11 +173,6 @@
 		<property name="queryBuilder" ref="orderTypeQueryBuilder" />
 	</bean>
 
-	<bean id="operationTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
-		<property name="entityClass" value="org.lnu.is.domain.optype.OperationType" />
-	</bean>
-
 	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.marriedtype.MarriedType" />

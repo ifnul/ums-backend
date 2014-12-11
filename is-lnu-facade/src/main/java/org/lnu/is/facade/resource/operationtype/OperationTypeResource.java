@@ -18,7 +18,7 @@ public class OperationTypeResource extends ApiResource {
 
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/operationtypes/{id}", getId());
+		return MessageFormat.format("/operationtypes/{0}", getId());
 	}
 
 	@Override
