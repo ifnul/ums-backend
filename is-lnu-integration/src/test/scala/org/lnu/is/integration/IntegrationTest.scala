@@ -13,6 +13,7 @@ import io.gatling.http.Predef.http
 import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
 import org.lnu.is.integration.enrolment.statustype.EnrolmentStatusTypeIntegrationTest
 import org.lnu.is.integration.enrolment.types.EnrolmentTypeIntegrationTest
+import org.lnu.is.integration.order.types.OrderTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -31,6 +32,7 @@ class IntegrationTest extends Simulation {
     EnrolmentSubjectIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     DepartmentTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     GenderTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
-    LanguageIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
+    LanguageIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
+    OrderTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
     )
 }
