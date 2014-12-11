@@ -1,0 +1,56 @@
+[
+  {
+    "targetUrl":"/assets/types",
+    "expectedResponse":
+		{
+		    "offset": 0,
+		    "limit": 20,
+		    "count": 7,
+		    "resources": [
+		        {
+		            "id": 1,
+		            "abbrName": "building",
+		            "name": "Будівля",
+		            "uri": "/assets/types/1"
+		        },
+		        {
+		            "id": 2,
+		            "abbrName": "room",
+		            "name": "Приміщення",
+		            "uri": "/assets/types/2"
+		        },
+		        {
+		            "id": 3,
+		            "abbrName": "computer",
+		            "name": "Комп'ютер",
+		            "uri": "/assets/types/3"
+		        },
+		        {
+		            "id": 4,
+		            "abbrName": "software",
+		            "name": "Програмне забезпечення",
+		            "uri": "/assets/types/4"
+		        },
+		        {
+		            "id": 5,
+		            "abbrName": "periphery",
+		            "name": "Периферія комп'ютерна",
+		            "uri": "/assets/types/5"
+		        },
+		        {
+		            "id": 6,
+		            "abbrName": "netequip",
+		            "name": "Мережне обладнання",
+		            "uri": "/assets/types/6"
+		        },
+		        {
+		            "id": 7,
+		            "abbrName": "network",
+		            "name": "Мережа комп'ютерна",
+		            "uri": "/assets/types/7"
+		        }
+		    ],
+		    "uri": "/assets"
+		}
+}
+]

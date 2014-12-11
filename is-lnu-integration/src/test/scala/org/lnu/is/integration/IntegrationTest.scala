@@ -14,6 +14,7 @@ import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
 import org.lnu.is.integration.enrolment.statustype.EnrolmentStatusTypeIntegrationTest
 import org.lnu.is.integration.enrolment.types.EnrolmentTypeIntegrationTest
 import org.lnu.is.integration.order.types.OrderTypeIntegrationTest
+import org.lnu.is.integration.asset.types.AssetTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -22,6 +23,7 @@ class IntegrationTest extends Simulation {
     .acceptHeader("application/json")
 
   setUp(
+    AssetTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     PersonIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     PersonNameIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     PersonTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),

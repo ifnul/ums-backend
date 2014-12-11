@@ -1,9 +1,9 @@
-package org.lnu.is.web.controller.addresstype;
+package org.lnu.is.web.controller.asset.type;
 
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.facade.resource.addresstype.AddressTypeResource;
+import org.lnu.is.facade.resource.asset.type.AssetTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.BaseController;
@@ -16,26 +16,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
 /**
- * Address types controller.
- * 
- * @author ROMA
+ * Asset type controller.
+ * @author ivanursul
  *
  */
 @RestController
-@RequestMapping("/addresstypes")
-@ApiModel(value = "Address Types", description = "Address Types")
-public class AddressTypeController extends BaseController {
-	private static final Logger LOG = LoggerFactory.getLogger(AddressTypeController.class);
+@RequestMapping("/assets/types")
+@Api("Asset Type Controller")
+public class AssetTypeController extends BaseController {
+	private static final Logger LOG = LoggerFactory.getLogger(AssetTypeController.class);
 
-	@Resource(name = "addressTypeFacade")
-	private Facade<AddressTypeResource, Long> facade;
+	@Resource(name = "assetTypeFacade")
+	private Facade<AssetTypeResource, Long> facade;
 
 	/**
-	 * Method for getting Address Types.
+	 * Method for getting Asset Types.
 	 * 
 	 * @param offset
 	 * @param limit
@@ -44,13 +43,13 @@ public class AddressTypeController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation(value = "Get All Address Types")
-	public PagedResultResource<AddressTypeResource> getAddressTypes(
+	@ApiOperation(value = "Get All Asset Types")
+	public PagedResultResource<AssetTypeResource> getAssetTypes(
 			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "38") final Integer limit,
-			final AddressTypeResource resource) {
-		LOG.info("Getting PagedResultResource for Address Tyoe with offset: {}, limit: {}", offset, limit);
-		PagedRequest<AddressTypeResource> request = new PagedRequest<AddressTypeResource>(resource, offset, limit);
+			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
+			final AssetTypeResource resource) {
+		LOG.info("Getting PagedResultResource for Asset Tyoe with offset: {}, limit: {}", offset, limit);
+		PagedRequest<AssetTypeResource> request = new PagedRequest<AssetTypeResource>(resource, offset, limit);
 		
 		return facade.getResources(request);
 	}

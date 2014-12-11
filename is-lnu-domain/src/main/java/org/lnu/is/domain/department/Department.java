@@ -41,6 +41,10 @@ public class Department extends Model {
 	@OneToMany(mappedBy = "department")
 	private List<DepartmentContact> contacts;
 	
+	@ManyToOne
+	@JoinColumn(name = "order_id")
+	private Order order;
+
 	@OneToMany(mappedBy = "department")
 	private List<DepartmentName> names;
 	
@@ -49,10 +53,6 @@ public class Department extends Model {
 		joinColumns = { @JoinColumn(name = "department_id") },
 		inverseJoinColumns = { @JoinColumn(name = "specialty_id") })
 	private List<Specialty> specialties;
-	
-	@ManyToOne
-	@JoinColumn(name = "order_id")
-	private Order order;
 	
 	@Column(name = "abbrname")
 	private String abbrName;
