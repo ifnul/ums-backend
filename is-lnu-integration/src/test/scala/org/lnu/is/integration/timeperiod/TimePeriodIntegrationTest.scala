@@ -1,4 +1,4 @@
-package org.lnu.is.integration.specialty
+package org.lnu.is.integration.timeperiod
 
 import java.util.UUID
 import scala.concurrent.duration.DurationInt
@@ -15,45 +15,39 @@ import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
 import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
 
+object TimePeriodIntegrationTest {
 
-object SpecialtyIntegrationTest {
-
-  val scn = scenario("Manage Specialties")
-    .exec(session => {
-      session
-      	.set("idnum", UUID.randomUUID())
-    })
-    .exec(http("Post Specialty")
-		.post("/specialties")
+  val scn = scenario("Manage Time Period")
+    .exec(http("Post TimePeriod")
+		.post("/timeperiods")
 		.header("Content-Type", "application/json")
-		.body(ELFileBody("data/specialty/post.json"))
+		.body(ELFileBody("data/timeperiod/post.json"))
 		.asJSON
 		.check(status.is(201))
-		.check(jsonPath("$.id").find.saveAs("${specialtyId}")))
+		.check(jsonPath("$.id").find.saveAs("timePeriodId")))
     .pause(500 milliseconds, 2 seconds)
     .exec(
-      http("Get Specialty")
-        .get("/specialties/${specialtyId}")
+      http("Get TimePeriod")
+        .get("/timeperiods/${timePeriodId}")
         .check(status.is(200)))
     .exec(
-      http("Update Specialty")
-        .put("/specialties/${specialtyId}")
+      http("Update TimePeriod")
+        .put("/timeperiods/${timePeriodId}")
         .header("Content-Type", "application/json")
-        .body(ELFileBody("data/specialty/put.json"))
+        .body(ELFileBody("data/timeperiod/put.json"))
         .asJSON
         .check(status.is(200)))
     .exec(
-      http("Get Specialty")
-        .get("/specialties/${specialtyId}")
+      http("Get TimePeriod")
+        .get("/timeperiods/${timePeriodId}")
         .check(status.is(200))
-        .check(jsonPath("$.name").find.is("Теоретичні основи інформатики та кібернетики")))
-    .exec(http("Delete Specialty")
-		.delete("/specialties/${specialtyId}")
+        .check(jsonPath("$.name").find.is("Вступна компанія на 2015 рік")))
+    .exec(http("Delete TimePeriod")
+		.delete("/timeperiods/${timePeriodId}")
 		.check(status.is(204))
     )
-    .exec(http("Get Specialty")
-		.get("/persons/${identifier}")
+    .exec(http("Get TimePeriod")
+		.get("/timeperiods/${timePeriodId}")
     	.check(status.is(404))
     )
-      
 }

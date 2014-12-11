@@ -13,8 +13,8 @@ import org.lnu.is.domain.Model;
  *
  */
 @RF
-@Table
-@Entity(name = "q_rf_timeperiodtype")
+@Entity
+@Table(name = "q_rf_timeperiodtype")
 public class TimePeriodType extends Model {
 	private static final long serialVersionUID = 1L;
 

@@ -1,0 +1,62 @@
+[
+  {
+    "targetUrl":"/timeperiods/types",
+    "expectedResponse":
+		{
+		    "offset": 0,
+		    "limit": 20,
+		    "count": 8,
+		    "resources": [
+		        {
+		            "id": 1,
+		            "abbrName": "Вст. к.",
+		            "name": "Вступна кампанія",
+		            "uri": "/timeperiods/types/1"
+		        },
+		        {
+		            "id": 2,
+		            "abbrName": "eduyear",
+		            "name": "навчальний рік",
+		            "uri": "/timeperiods/types/2"
+		        },
+		        {
+		            "id": 3,
+		            "abbrName": "calendaryear",
+		            "name": "календарний рік",
+		            "uri": "/timeperiods/types/3"
+		        },
+		        {
+		            "id": 4,
+		            "abbrName": "course",
+		            "name": "курс",
+		            "uri": "/timeperiods/types/4"
+		        },
+		        {
+		            "id": 5,
+		            "abbrName": "semestr",
+		            "name": "семестр",
+		            "uri": "/timeperiods/types/5"
+		        },
+		        {
+		            "id": 6,
+		            "abbrName": "month",
+		            "name": "місяць",
+		            "uri": "/timeperiods/types/6"
+		        },
+		        {
+		            "id": 7,
+		            "abbrName": "week",
+		            "name": "тиждень",
+		            "uri": "/timeperiods/types/7"
+		        },
+		        {
+		            "id": 8,
+		            "abbrName": "weekday",
+		            "name": "день тижня",
+		            "uri": "/timeperiods/types/8"
+		        }
+		    ],
+		    "uri": "/timeperiods/types"
+		}
+}
+]
