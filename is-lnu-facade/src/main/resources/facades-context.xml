@@ -236,6 +236,16 @@
 		<property name="defaultService" ref="specialtyService" />
 	</bean>
 
+	<bean id="specialtyTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="specialtyTypeResourceConverter" />
+		<property name="entityConverter" ref="specialtyTypeConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="specialtyTypeService" />
+	</bean>
+
 	<bean id="specOfferFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="specOfferResourceConverter" />
 		<property name="entityConverter" ref="specOfferConverter" />

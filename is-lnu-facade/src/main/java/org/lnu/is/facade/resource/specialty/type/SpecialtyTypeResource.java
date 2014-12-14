@@ -1,28 +1,29 @@
-package org.lnu.is.domain.specialty;
+package org.lnu.is.facade.resource.specialty.type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.text.MessageFormat;
 
-import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.facade.resource.ApiResource;
 
 /**
- * Entity, that describes type of specialty.
+ * Specialty Type resource.
  * @author ivanursul
  *
  */
-@RF
-@Entity
-@Table(name = "q_rf_specialtytype")
-public class SpecialtyType extends Model {
-	private static final long serialVersionUID = 1L;
+public class SpecialtyTypeResource extends ApiResource {
 
-	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "abbrname")
 	private String abbrName;
+	
+	@Override
+	public String getUri() {
+		return MessageFormat.format("/specialties/types/{0}", getId());
+	}
+
+	@Override
+	public String getRootUri() {
+		return "/specialties/types";
+	}
 
 	public String getName() {
 		return name;
@@ -61,7 +62,7 @@ public class SpecialtyType extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		SpecialtyType other = (SpecialtyType) obj;
+		SpecialtyTypeResource other = (SpecialtyTypeResource) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -81,7 +82,8 @@ public class SpecialtyType extends Model {
 
 	@Override
 	public String toString() {
-		return "SpecialtyType [name=" + name + ", abbrName=" + abbrName + "]";
+		return "SpecialtyTypeResource [name=" + name + ", abbrName=" + abbrName
+				+ "]";
 	}
 
 }
