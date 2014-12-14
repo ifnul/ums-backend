@@ -8,6 +8,7 @@ import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specialty.SpecialtyResource;
+import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,7 +77,7 @@ public class SpecialtyController extends BaseController {
 	 * additional info.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Specialty", position = 2)
 	public MessageResource updateSpecialty(@PathVariable("id") final Long id,
 			@RequestBody final SpecialtyResource specialtyResource) {
@@ -98,7 +99,7 @@ public class SpecialtyController extends BaseController {
 	 * @return specialty resource.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get Specailty by id", position = 3)
 	public SpecialtyResource getSpecialty(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving specialty with id: {}", id);
@@ -119,7 +120,7 @@ public class SpecialtyController extends BaseController {
 	 * additional info.
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = Request.ID, method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete Specialty", position = 4)
 	public MessageResource removeSpecialty(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);

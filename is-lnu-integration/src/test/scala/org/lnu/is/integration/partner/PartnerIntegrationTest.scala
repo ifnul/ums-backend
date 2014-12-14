@@ -1,4 +1,4 @@
-package org.lnu.is.integration.specialty
+package org.lnu.is.integration.partner
 
 import java.util.UUID
 import scala.concurrent.duration.DurationInt
@@ -15,43 +15,47 @@ import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
 import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
 
+object PartnerIntegrationTest {
 
-object SpecialtyIntegrationTest {
-
-  val scn = scenario("Manage Specialties")
+  val scn = scenario("Manage Partners")
     .exec(session => {
       session
-      	.set("idnum", UUID.randomUUID())
+      	.set("partnerName", UUID.randomUUID())
+      	.set("partnerManager", UUID.randomUUID())
+      	.set("newPartnerManager", UUID.randomUUID())
+      	.set("partnerPhone", UUID.randomUUID())
+      	.set("partnerEmail", UUID.randomUUID())
+      	.set("partnerAbbr", UUID.randomUUID())
     })
-    .exec(http("Post Specialty")
-		.post("/specialties")
+    .exec(http("Post Partner")
+		.post("/partners")
 		.header("Content-Type", "application/json")
-		.body(ELFileBody("data/specialty/post.json"))
+		.body(ELFileBody("data/partner/post.json"))
 		.asJSON
 		.check(status.is(201))
-		.check(jsonPath("$.id").find.saveAs("specialtyId")))
+		.check(jsonPath("$.id").find.saveAs("partnerId")))
     .exec(
-      http("Get Specialty")
-        .get("/specialties/${specialtyId}")
+      http("Get Partner")
+        .get("/partners/${partnerId}")
         .check(status.is(200)))
     .exec(
-      http("Update Specialty")
-        .put("/specialties/${specialtyId}")
+      http("Update Partner")
+        .put("/partners/${partnerId}")
         .header("Content-Type", "application/json")
-        .body(ELFileBody("data/specialty/put.json"))
+        .body(ELFileBody("data/partner/put.json"))
         .asJSON
         .check(status.is(200)))
     .exec(
-      http("Get Specialty")
-        .get("/specialties/${specialtyId}")
+      http("Get Partner")
+        .get("/partners/${partnerId}")
         .check(status.is(200))
-        .check(jsonPath("$.name").find.is("Теоретичні основи інформатики та кібернетики")))
-    .exec(http("Delete Specialty")
-		.delete("/specialties/${specialtyId}")
+        .check(jsonPath("$.manager").find.is("${newPartnerManager}")))
+    .exec(http("Delete Partner")
+		.delete("/partners/${partnerId}")
 		.check(status.is(204))
     )
-    .exec(http("Get Specialty")
-		.get("/specialties/${specialtyId}")
+    .exec(http("Get Partner")
+		.get("/partners/${partnerId}")
     	.check(status.is(404))
     )
       

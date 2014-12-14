@@ -38,6 +38,7 @@
 	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.partner.Partner" />
+		<property name="queryBuilder" ref="partnerQueryBuilder"/>
 	</bean>
 	
 	<bean id="employeeDao" class="org.lnu.is.dao.dao.DefaultDao">

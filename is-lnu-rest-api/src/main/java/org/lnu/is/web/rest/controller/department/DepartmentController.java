@@ -8,6 +8,7 @@ import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,7 +76,7 @@ public class DepartmentController extends BaseController {
 	 * additional info.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Department", position = 2)
 	public MessageResource updateDepartment(@PathVariable("id") final Long id,
 			@RequestBody final DepartmentResource departmentResource) {
@@ -97,7 +98,7 @@ public class DepartmentController extends BaseController {
 	 * @return department resource.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get Department by id", position = 3)
 	public DepartmentResource getDepartment(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving department with id: {}", id);
@@ -118,7 +119,7 @@ public class DepartmentController extends BaseController {
 	 * additional info.
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = Request.ID, method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete Department by id", position = 4)
 	public MessageResource removeDepartment(@PathVariable("id") final Long id) {
 		LOG.info("Removing specoffer with id: {}", id);

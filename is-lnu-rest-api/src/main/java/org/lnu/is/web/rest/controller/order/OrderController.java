@@ -8,6 +8,7 @@ import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.order.OrderResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,7 +58,7 @@ public class OrderController extends BaseController {
 	 * @return message resource.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Order", position = 2)
 	public MessageResource updateOrder(@PathVariable("id") final Long id,
 			@RequestBody final OrderResource orderResource) {
@@ -72,7 +73,7 @@ public class OrderController extends BaseController {
 	 * @return order.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get Order by id", position = 3)
 	public OrderResource getOrder(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving order with id: {}", id);
@@ -85,7 +86,7 @@ public class OrderController extends BaseController {
 	 * @return message resource.
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = Request.ID, method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete Order", position = 4)
 	public MessageResource removeOrder(@PathVariable("id") final Long id) {
 		LOG.info("Removing order with id: {}", id);

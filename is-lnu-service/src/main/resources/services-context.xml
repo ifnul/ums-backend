@@ -81,6 +81,11 @@
 		<property name="dao" ref="marriedTypeDao" />
 	</bean>
 
+	<bean id="partnerService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="partnerParametersExtractor" />
+		<property name="dao" ref="partnerDao" />
+	</bean>
+
 	<bean id="personAddressService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="personAddressParametersExtractor" />
 		<property name="dao" ref="personAddressDao" />

@@ -36,6 +36,7 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     public T create(final T entity) {
 		LOG.info("Saving entity for class:{}", entity.getClass());
 		entityManager.persist(entity);
+		LOG.info("Generated id {} for entitu: {}", entity.getId(), entity);
 		return entity;
     }
 
@@ -44,6 +45,7 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
         T entity = entityManager.find(clazz, id);
         
         if (entity == null || RowStatus.DELETED.equals(entity.getStatus())) {
+        	LOG.error("Entity is deleted, {}, {}", clazz.getSimpleName(), id);
         	throw new EntityNotFoundException("Entity does'nt exist");
         }
         

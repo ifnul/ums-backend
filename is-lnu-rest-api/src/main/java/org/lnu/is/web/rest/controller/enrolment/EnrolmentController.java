@@ -8,6 +8,7 @@ import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,7 +59,7 @@ public class EnrolmentController extends BaseController {
 	 * @return Message resource
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Enrolment", position = 2)
 	public MessageResource updateEnrolment(@PathVariable("id") final Long id, 
 			@RequestBody final EnrolmentResource enrolmentResource) {
@@ -73,7 +74,7 @@ public class EnrolmentController extends BaseController {
 	 * @return Enrolment resource
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get Enrolment", position = 3)
 	public EnrolmentResource getEnrolment(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving enrolment with id : {} ", id);
@@ -85,7 +86,7 @@ public class EnrolmentController extends BaseController {
 	 * @return Message resource
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = Request.ID, method = RequestMethod.DELETE)
 	@ApiOperation(value = "Remove Enrolment", position = 4)
 	public MessageResource removeEnrolment(@PathVariable("id") final Long id) {
 		LOG.info("Removing enrolment with id : {} ", id);

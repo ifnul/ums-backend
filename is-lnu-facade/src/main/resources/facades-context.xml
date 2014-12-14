@@ -156,6 +156,16 @@
 		<property name="defaultService" ref="marriedTypeService" />
 	</bean>
 
+	<bean id="partnerFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="partnerResourceConverter" />
+		<property name="entityConverter" ref="partnerConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="partnerService" />
+	</bean>
+
 	<bean id="personFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="personResourceConverter" />
 		<property name="entityConverter" ref="personConverter" />

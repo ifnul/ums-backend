@@ -8,6 +8,7 @@ import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.person.PersonResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,7 +59,7 @@ public class PersonController extends BaseController {
 	 * @return message resource.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Person", position = 2)
 	public MessageResource updatePerson(@PathVariable("id") final Long id,
 			@RequestBody final PersonResource personResource) {
@@ -73,7 +74,7 @@ public class PersonController extends BaseController {
 	 * @return person.
 	 */
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get Person by id", position = 3)
 	public PersonResource getPerson(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving person with id: {}", id);
@@ -86,7 +87,7 @@ public class PersonController extends BaseController {
 	 * @return message resource.
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = Request.ID, method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete Person", position = 4)
 	public MessageResource removePerson(@PathVariable("id") final Long id) {
 		LOG.info("Removing person with id: {}", id);

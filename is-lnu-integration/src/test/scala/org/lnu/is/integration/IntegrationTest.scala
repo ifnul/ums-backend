@@ -18,6 +18,7 @@ import org.lnu.is.integration.asset.types.AssetTypeIntegrationTest
 import org.lnu.is.integration.specialty.SpecialtyIntegrationTest
 import org.lnu.is.integration.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.timeperiod.types.TimePeriodTypeIntegrationTest
+import org.lnu.is.integration.partner.PartnerIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -40,7 +41,8 @@ class IntegrationTest extends Simulation {
     LanguageIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     OrderTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     TimePeriodIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
-    TimePeriodTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
+    TimePeriodTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
+    PartnerIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
     //SpecialtyIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
     )
 }
