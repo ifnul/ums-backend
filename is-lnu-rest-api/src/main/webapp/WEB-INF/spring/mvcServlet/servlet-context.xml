@@ -13,7 +13,9 @@
 
 	<mvc:annotation-driven/>
 	
-	<context:component-scan base-package="org.lnu.is.web.controller" />
+	<context:component-scan base-package="org.lnu.is.web.rest.controller" />
+	<context:component-scan base-package="org.lnu.is.web.rest.handler" />
+	
 	<context:property-placeholder location="classpath:application.properties" />
 
 	<!-- TODO: IU - Make a separate config file -->
