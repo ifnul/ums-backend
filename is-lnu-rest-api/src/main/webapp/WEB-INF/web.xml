@@ -16,7 +16,21 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
+	
+	<filter>
+		<filter-name>ModifiableMethodsLoggingFilter</filter-name>
+		<filter-class>org.lnu.configuration.filter.logging.DefaultModifiableMethodsLoggingFilter</filter-class>
+		<init-param>
+			<param-name>httpMethods</param-name>
+			<param-value>post,put</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>ModifiableMethodsLoggingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 	<filter>
 	    <filter-name>UrlRewriteFilter</filter-name>
 	    <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>

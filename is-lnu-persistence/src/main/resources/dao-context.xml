@@ -38,11 +38,23 @@
 	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.partner.Partner" />
+		<property name="queryBuilder" ref="partnerQueryBuilder"/>
 	</bean>
 	
 	<bean id="employeeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.employee.Employee" />
+		<property name="queryBuilder" ref="employeeQueryBuilder"/>
+	</bean>
+
+	<bean id="employeeTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeType" />
+	</bean>
+
+	<bean id="employeeStatusDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeStatus" />
 	</bean>
 	
 	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
@@ -118,6 +130,7 @@
 	<bean id="specialtyTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.specialty.SpecialtyType" />
+		<property name="queryBuilder" ref="specialtyTypeQueryBuilder" />
 	</bean>
 
 	<bean id="personDao" class="org.lnu.is.dao.dao.DefaultDao">
@@ -159,6 +172,11 @@
 	<bean id="paperTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.papertype.PaperType" />
+	</bean>
+
+	<bean id="postDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.post.Post" />
 	</bean>
 
 	<bean id="orderDao" class="org.lnu.is.dao.dao.DefaultDao">

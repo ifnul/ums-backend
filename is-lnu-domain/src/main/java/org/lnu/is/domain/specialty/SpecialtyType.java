@@ -20,6 +20,9 @@ public class SpecialtyType extends Model {
 
 	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "abbrname")
+	private String abbrName;
 
 	public String getName() {
 		return name;
@@ -29,10 +32,20 @@ public class SpecialtyType extends Model {
 		this.name = name;
 	}
 
+	public String getAbbrName() {
+		return abbrName;
+	}
+
+	public void setAbbrName(final String abbrName) {
+		this.abbrName = abbrName;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result
+				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -49,6 +62,13 @@ public class SpecialtyType extends Model {
 			return false;
 		}
 		SpecialtyType other = (SpecialtyType) obj;
+		if (abbrName == null) {
+			if (other.abbrName != null) {
+				return false;
+			}
+		} else if (!abbrName.equals(other.abbrName)) {
+			return false;
+		}
 		if (name == null) {
 			if (other.name != null) {
 				return false;
@@ -61,7 +81,7 @@ public class SpecialtyType extends Model {
 
 	@Override
 	public String toString() {
-		return "SpecialType [name=" + name + "]";
+		return "SpecialtyType [name=" + name + ", abbrName=" + abbrName + "]";
 	}
-	
+
 }

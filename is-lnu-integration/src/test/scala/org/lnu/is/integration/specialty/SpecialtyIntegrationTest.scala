@@ -29,8 +29,7 @@ object SpecialtyIntegrationTest {
 		.body(ELFileBody("data/specialty/post.json"))
 		.asJSON
 		.check(status.is(201))
-		.check(jsonPath("$.id").find.saveAs("${specialtyId}")))
-    .pause(500 milliseconds, 2 seconds)
+		.check(jsonPath("$.id").find.saveAs("specialtyId")))
     .exec(
       http("Get Specialty")
         .get("/specialties/${specialtyId}")
@@ -52,7 +51,7 @@ object SpecialtyIntegrationTest {
 		.check(status.is(204))
     )
     .exec(http("Get Specialty")
-		.get("/persons/${identifier}")
+		.get("/specialties/${specialtyId}")
     	.check(status.is(404))
     )
       

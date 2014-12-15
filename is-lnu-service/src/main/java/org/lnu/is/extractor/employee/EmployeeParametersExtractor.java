@@ -26,8 +26,6 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 @ParametersExtractor("employeeParametersExtractor")
 public class EmployeeParametersExtractor extends AbstractParametersExtractor<Employee>  {
 
-	@Resource(name = "employeeTypeDao")
-	private Dao<EmployeeType, Long> employeeTypeDao;
 	
 	@Resource(name = "personDao")
 	private Dao<Person, Long> personDao;
@@ -43,9 +41,12 @@ public class EmployeeParametersExtractor extends AbstractParametersExtractor<Emp
 	
 	@Resource(name = "jobTypeDao")
 	private Dao<JobType, Long> jobTypeDao;
+
+	@Resource(name = "employeeTypeDao")
+	private Dao<EmployeeType, Long> employeeTypeDao;
 	
-	@Resource(name = "employeeStatus")
-	private Dao<EmployeeStatus, Long> employeeStatus;
+	@Resource(name = "employeeStatusDao")
+	private Dao<EmployeeStatus, Long> employeeStatusDao;
 	
 	@Resource(name = "orderDao")
 	private Dao<Order, Long> orderDao;
@@ -58,49 +59,33 @@ public class EmployeeParametersExtractor extends AbstractParametersExtractor<Emp
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
 		addParameter(entity.getEmployeeType(), employeeTypeDao, "employeeType", parameters);
+		addParameter(entity.getEmployeeStatus(), employeeStatusDao, "employeeStatus", parameters);
+
 		addParameter(entity.getPerson(), personDao, "person", parameters);
 		addParameter(entity.getGenderType(), genderTypeDao, "genderType", parameters);
 		addParameter(entity.getDepartment(), departmentDao, "department", parameters);
 		addParameter(entity.getPost(), postDao, "post", parameters);
 		addParameter(entity.getJobType(), jobTypeDao, "jobType", parameters);
-		addParameter(entity.getEmployeeStatus(), employeeStatus, "employeeStatus", parameters);
 		addParameter(entity.getOrder(), orderDao, "order", parameters);
-		addParameter(entity.getParent(), employeeDao, "employee", parameters);
+		addParameter(entity.getParent(), employeeDao, "parent", parameters);
+
+		addParameter(entity.getName(), "name", parameters);
+		addParameter(entity.getFirstName(), "firstName", parameters);
+		addParameter(entity.getFatherName(), "fatherName", parameters);
+		addParameter(entity.getSurname(), "surname", parameters);
+		addParameter(entity.getBirthDate(), "birthDate", parameters);
+		addParameter(entity.getInvNum(), "invNum", parameters);
+		addParameter(entity.getRate(), "rate", parameters);
+		addParameter(entity.getIsPlurality(), "isPlurality", parameters);
+		addParameter(entity.getIsPensioner(), "isPensioner", parameters);
+		addParameter(entity.getBegDate(), "begDate", parameters);
+		addParameter(entity.getEndDate(), "endDate", parameters);
+		addParameter(entity.getDocSeries(), "docSeries", parameters);
+		addParameter(entity.getDocNum(), "docNum", parameters);
+		addParameter(entity.getPhone(), "phone", parameters);
+		addParameter(entity.getEmail(), "email", parameters);
 		
 		return parameters;
 	}
 
 }
-
-/**
-
-private String name;
-
-private String firstName;
-
-private String fatherName;
-
-private String surname;
-
-private Date birthDate;
-
-private String invNum;
-
-private Double rate;
-
-private Integer isPlurality;
-
-private Integer isPensioner;
-
-private Date begDate;
-
-private Date endDate;
-
-private String docSeries;
-
-private String docNum;
-
-private String phone;
-
-private String email;
-**/
