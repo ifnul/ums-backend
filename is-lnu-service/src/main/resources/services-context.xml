@@ -21,6 +21,11 @@
 		<property name="dao" ref="assetTypeDao"/>
 	</bean>
 	
+	<bean id="employeeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="employeeParametersExtractor"/>
+		<property name="dao" ref="employeeDao"/>
+	</bean>
+	
 	<bean id="enrolmentTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="enrolmentTypeParametersExtractor" />
 		<property name="dao" ref="enrolmentTypeDao" />
@@ -81,6 +86,11 @@
 		<property name="dao" ref="marriedTypeDao" />
 	</bean>
 
+	<bean id="partnerService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="partnerParametersExtractor" />
+		<property name="dao" ref="partnerDao" />
+	</bean>
+
 	<bean id="personAddressService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="personAddressParametersExtractor" />
 		<property name="dao" ref="personAddressDao" />
@@ -114,6 +124,11 @@
 	<bean id="specialtyService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specialtyParametersExtractor" />
 		<property name="dao" ref="specialtyDao" />
+	</bean>
+
+	<bean id="specialtyTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="specialtyTypeParametersExtractor" />
+		<property name="dao" ref="specialtyTypeDao" />
 	</bean>
 
 	<bean id="specOfferSubjectService" class="org.lnu.is.service.DefaultService">

@@ -1,11 +1,11 @@
-package org.lnu.is.web.controller.person;
+package org.lnu.is.web.controller.employee;
 
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
+import org.lnu.is.facade.resource.employee.EmployeeResource;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
-import org.lnu.is.facade.resource.person.PersonResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.controller.BaseController;
@@ -24,78 +24,77 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
 /**
- * Persons controller.
- * 
+ * Employee Controller.
  * @author ivanursul
  *
  */
 @RestController
-@RequestMapping("/persons")
-@Api("persons")
-public class PersonController extends BaseController {
-	private static final Logger LOG = LoggerFactory.getLogger(PersonController.class);
+@RequestMapping("/employees")
+@Api("Employee")
+public class EmployeeController extends BaseController {
+	private static final Logger LOG = LoggerFactory.getLogger(EmployeeController.class);
 
-	@Resource(name = "personFacade")
-	private Facade<PersonResource, Long> facade;
+	@Resource(name = "employeeFacade")
+	private Facade<EmployeeResource, Long> facade;
 
 	/**
-	 * Method for creating new person.
+	 * Method for creating new employee.
 	 * @param resource
-	 * @return person with generated identifier.
+	 * @return employee with generated identifier.
 	 */
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
-	@ApiOperation(value = "Create Person", position = 1)
-	public PersonResource createPerson(@RequestBody final PersonResource resource) {
-		LOG.info("Creating person: {}", resource);
+	@ApiOperation(value = "Create Employee", position = 1)
+	public EmployeeResource createEmployee(@RequestBody final EmployeeResource resource) {
+		LOG.info("Creating employee: {}", resource);
 		return facade.createResource(resource);
 	}
 
 	/**
-	 * Method for updating person.
+	 * Method for updating employee.
 	 * @param id
 	 * @param resource
 	 * @return message resource.
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	@ApiOperation(value = "Update Person", position = 2)
-	public MessageResource updatePerson(@PathVariable("id") final Long id,
-			@RequestBody final PersonResource resource) {
-		LOG.info("Updating person with id: {}, {}", id, resource);
+	@ApiOperation(value = "Update Employee", position = 2)
+	public MessageResource updateEmployee(@PathVariable("id") final Long id,
+			@RequestBody final EmployeeResource resource) {
+		LOG.info("Updating employee with id: {}, {}", id, resource);
 		facade.updateResource(id, resource);
-		return new MessageResource(MessageType.INFO, "Person Updated");
+		return new MessageResource(MessageType.INFO, "Employee Updated");
 	}
 
 	/**
-	 * Method for getting person by identifier.
+	 * Method for getting employee by identifier.
 	 * @param id
-	 * @return person.
+	 * @return employee.
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	@ApiOperation(value = "Get Person by id", position = 3)
-	public PersonResource getPerson(@PathVariable("id") final Long id) {
-		LOG.info("Retrieving person with id: {}", id);
+	@ApiOperation(value = "Get Employee by id", position = 3)
+	public EmployeeResource getEmployee(@PathVariable("id") final Long id) {
+		LOG.info("Retrieving employee with id: {}", id);
 		return facade.getResource(id);
 	}
 
 	/**
-	 * Method for removing person.
+	 * Method for removing employee.
 	 * @param id
 	 * @return message resource.
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	@ApiOperation(value = "Delete Person", position = 4)
-	public MessageResource removePerson(@PathVariable("id") final Long id) {
-		LOG.info("Removing person with id: {}", id);
+	@ApiOperation(value = "Delete Employee", position = 4)
+	public MessageResource removeEmployee(@PathVariable("id") final Long id) {
+		LOG.info("Removing employee with id: {}", id);
 		facade.removeResource(id);
-		return new MessageResource(MessageType.INFO, "Person removed");
+		return new MessageResource(MessageType.INFO, "Employee removed");
 	}
 
 	/**
-	 * Method for geting paged result of persons.
+	 * Method for geting paged result of employees.
 	 * 
 	 * @param offset
 	 * @param limit
@@ -104,13 +103,13 @@ public class PersonController extends BaseController {
 	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation(value = "Get Persons", position = 5)
-	public PagedResultResource<PersonResource> getPersons(
+	@ApiOperation(value = "Get Employees", position = 5)
+	public PagedResultResource<EmployeeResource> getEmployees(
 			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
 			@RequestParam(value = "limit", defaultValue = "20") final Integer limit, 
-			final PersonResource resource) {
-		LOG.info("Retrieving PagedResultResource for Person Resources with offset: {}, limit: {}", offset, limit);
-		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(resource, offset, limit);
+			final EmployeeResource resource) {
+		LOG.info("Retrieving PagedResultResource for Employee Resources with offset: {}, limit: {}", offset, limit);
+		PagedRequest<EmployeeResource> pagedRequest = new PagedRequest<EmployeeResource>(resource, offset, limit);
 		return facade.getResources(pagedRequest);
 	}
 }
