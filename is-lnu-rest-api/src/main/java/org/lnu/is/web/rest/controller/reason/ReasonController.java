@@ -1,5 +1,7 @@
 package org.lnu.is.web.rest.controller.reason;
 
+import javax.annotation.Resource;
+
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.reason.ReasonResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
@@ -28,7 +30,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 public class ReasonController extends BaseController {
 	private static final Logger LOG = LoggerFactory.getLogger(ReasonController.class);
 	
-	//@Resource(name = "reasonFacade")
+	@Resource(name = "reasonFacade")
 	private Facade<ReasonResource, Long> facade;
 	
 	/**

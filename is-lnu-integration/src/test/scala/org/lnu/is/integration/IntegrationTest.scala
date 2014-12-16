@@ -20,6 +20,7 @@ import org.lnu.is.integration.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.timeperiod.types.TimePeriodTypeIntegrationTest
 import org.lnu.is.integration.partner.PartnerIntegrationTest
 import org.lnu.is.integration.specialty.types.SpecialtyTypeIntegrationTest
+import org.lnu.is.integration.reasons.ReasonIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -44,7 +45,8 @@ class IntegrationTest extends Simulation {
     TimePeriodIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     TimePeriodTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
     PartnerIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
-    SpecialtyTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
+    SpecialtyTypeIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf),
+    ReasonIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
     //SpecialtyIntegrationTest.scn.inject(atOnceUsers(1)).protocols(httpConf)
     )
 }
