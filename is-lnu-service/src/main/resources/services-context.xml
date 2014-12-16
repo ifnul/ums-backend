@@ -121,6 +121,11 @@
 		<property name="parametersExtractor" ref="personParametersExtractor" />
 	</bean>
 
+	<bean id="reasonService" class="org.lnu.is.service.DefaultService">
+		<property name="dao" ref="reasonDao" />
+		<property name="parametersExtractor" ref="reasonParametersExtractor" />
+	</bean>
+
 	<bean id="specialtyService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specialtyParametersExtractor" />
 		<property name="dao" ref="specialtyDao" />

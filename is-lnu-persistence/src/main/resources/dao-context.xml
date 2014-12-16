@@ -236,6 +236,7 @@
 	<bean id="reasonDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.reason.Reason" />
+		<property name="queryBuilder" ref="reasonQueryBuilder"/>
 	</bean>
 
 	<bean id="departmentDao" class="org.lnu.is.dao.dao.DefaultDao">

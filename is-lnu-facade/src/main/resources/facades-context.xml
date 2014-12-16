@@ -236,6 +236,16 @@
 		<property name="defaultService" ref="personTypeService" />
 	</bean>
 
+	<bean id="reasonFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="reasonResourceConverter" />
+		<property name="entityConverter" ref="reasonConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="reasonService" />
+	</bean>
+
 	<bean id="specialtyFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="specialtyResourceConverter" />
 		<property name="entityConverter" ref="specialtyConverter" />
