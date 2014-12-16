@@ -9,23 +9,14 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+
 	<import resource="message-converters.xml"/>
 	<import resource="exception-handlers.xml"/>
-
-	<context:component-scan base-package="org.lnu.is.web.rest.controller" />
 	
 	<mvc:annotation-driven validator="validator"/>
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
-	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-		<property name="messageConverters">
-			<list>
-				<ref bean="jsonMessageConverter" />
-			</list>
-		</property>
-	</bean>	
-	
+	<context:component-scan base-package="org.lnu.is.web.rest" />
 	<context:property-placeholder location="classpath:application.properties" />
 
 	<bean id="springSwaggerConig" class = "com.mangofactory.swagger.configuration.SpringSwaggerConfig"/>
