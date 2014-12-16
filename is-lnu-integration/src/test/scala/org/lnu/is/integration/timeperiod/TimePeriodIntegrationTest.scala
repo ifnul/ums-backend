@@ -41,7 +41,7 @@ object TimePeriodIntegrationTest {
       http("Get TimePeriod")
         .get("/timeperiods/${timePeriodId}")
         .check(status.is(200))
-        .check(jsonPath("$.name").find.is("Вступна компанія на 2015 рік")))
+        .check(jsonPath("$.name").find.is("Enrolment company 2015")))
     .exec(http("Delete TimePeriod")
 		.delete("/timeperiods/${timePeriodId}")
 		.check(status.is(204))

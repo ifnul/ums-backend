@@ -50,7 +50,7 @@ object PersonNameIntegrationTest {
     .exec(http("Get Person Name")
         .get("/persons/${personId}/names/${personNameId}")
         .check(status.is(200))
-        .check(jsonPath("$.firstName").find.is("Северинко")))
+        .check(jsonPath("$.firstName").find.is("Severinko")))
     .exec(http("Delete Person Name")
 		.delete("/persons/${personId}/names/${personNameId}")
 		.check(status.is(204)))

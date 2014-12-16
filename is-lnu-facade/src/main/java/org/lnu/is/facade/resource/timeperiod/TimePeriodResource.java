@@ -3,6 +3,8 @@ package org.lnu.is.facade.resource.timeperiod;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.facade.resource.ApiResource;
 
 /**
@@ -14,8 +16,10 @@ public class TimePeriodResource extends ApiResource {
 
 	private Long parentId;
 
+	@NotNull
 	private Long timePeriodTypeId;
 	
+	@NotNull
 	private String name;
 	
 	private Integer numValue;

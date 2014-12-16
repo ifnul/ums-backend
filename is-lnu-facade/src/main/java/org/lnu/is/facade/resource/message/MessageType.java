@@ -6,5 +6,5 @@ package org.lnu.is.facade.resource.message;
  *
  */
 public enum MessageType {
-	WARN, INFO;
+	ERROR, INFO;
 }

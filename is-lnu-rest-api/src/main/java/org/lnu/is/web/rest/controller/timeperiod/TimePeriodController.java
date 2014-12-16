@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.timeperiod;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
@@ -47,7 +48,7 @@ public class TimePeriodController extends BaseController {
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Person")
-	public TimePeriodResource createTimePeriod(@RequestBody final TimePeriodResource resource) {
+	public TimePeriodResource createTimePeriod(@Valid @RequestBody final TimePeriodResource resource) {
 		LOG.info("Creating timePeriod: {}", resource);
 		return facade.createResource(resource);
 	}
