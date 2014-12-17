@@ -1,4 +1,4 @@
-package org.lnu.is.web.rest.processor;
+package org.lnu.is.web.rest.processor.api;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
