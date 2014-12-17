@@ -3,5 +3,10 @@
 	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    	
+	
+	<include file="dumpset/ob_employee/db.ob_employee.xml" relativeToChangelogFile="true"/>
+	<include file="dumpset/ob_employee/db.ob_employee.xml" relativeToChangelogFile="true"/>
+	<include file="dumpset/dc_order/db.dc_order.xml" relativeToChangelogFile="true"/>
+	<include file="dumpset/ob_department/db.ob_department.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>

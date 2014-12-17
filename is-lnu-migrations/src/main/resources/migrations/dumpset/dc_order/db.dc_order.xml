@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="add test orders" author="ivanursul">
+        <insert tableName="q_dc_order">
+        	<column name="id">1</column>
+        	<column name="ordertype_id">1</column>
+        	<column name="docseries">DC</column>
+        	<column name="docnum">34</column>
+        	<column name="docdate">now()</column>
+        	<column name="docissued">Шубовим Миколою Григоровичем</column>
+        	<column name="employee_id">1</column>
+        	<column name="asset_id">1</column>
+        	<column name="partner_id">1</column>
+        	<column name="optype_id">1</column>
+        	<column name="evdate">now()</column>
+        	<column name="evdate">now()</column>
+			<column name="begdate">now()</column>        	
+			<column name="enddate">now()</column>  
+			<!-- 
+			<column name="department_id">1</column>  
+			TODO: Update this row, when department will be created.
+			--> 
+			<column name="reason_id">1</column>  
+			<column name="reasontext">Про створення кафедри інформаційного куховарства</column>  
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">create</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>			
+        </insert>
+        
+    </changeSet>
+</databaseChangeLog>

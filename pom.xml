@@ -35,13 +35,20 @@
 		<log4j.version>1.2.17</log4j.version>
 		<fasterxml.version>2.4.2</fasterxml.version>
 		<surefire.version>2.12</surefire.version>
-
-		<migrations.location>src/main/resources/migrations/db.changelog.xml</migrations.location>
+		
+		<migration.changelog.name>db.changelog.xml</migration.changelog.name>
+		<migrations.location>src/main/resources/migrations/${migration.changelog.name}</migrations.location>
 
 		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-		<jdbc.databaseurl>jdbc:postgresql://localhost:5432/lnu</jdbc.databaseurl>
+		
+		<jdbc.host>localhost</jdbc.host>
+		<jdbc.port>5432</jdbc.port>
+		<jdbc.databasename>lnu</jdbc.databasename>
+		<jdbc.databaseurl>jdbc:postgresql://${jdbc.host}:${jdbc.port}/${jdbc.databasename}</jdbc.databaseurl>
 		<jdbc.username>postgres</jdbc.username>
 		<jdbc.password>postgres</jdbc.password>
+		
+		
 		<jpa.database>POSTGRESQL</jpa.database>
 		<jpa.showSql>true</jpa.showSql>
 		<content.repository.path>~/tmp/is-lnu</content.repository.path>
@@ -416,17 +423,11 @@
 		</profile>
 
 		<profile>
-			<id>dump</id>
+			<id>test</id>
 			<properties>
-				<migrations.location>src/main/resources/migrations/db.changelog-initial-dataset.xml</migrations.location>
+				<migration.changelog.name>db.changelog-init-dataset.xml</migration.changelog.name>
+				<jdbc.databasename>lnu-test</jdbc.databasename>
 			</properties>
-			<modules>
-				<module>is-lnu-migrations</module>
-			</modules>
-		</profile>
-
-		<profile>
-			<id>integration</id>
 			<modules>
 				<module>is-lnu-integration</module>
 			</modules>
