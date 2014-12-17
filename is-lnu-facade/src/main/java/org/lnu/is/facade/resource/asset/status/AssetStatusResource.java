@@ -20,7 +20,7 @@ public class AssetStatusResource extends ApiResource {
 
 	@Override
 	public String getRootUri() {
-		return "/assets";
+		return "/assets/statuses";
 	}
 
 	public String getName() {

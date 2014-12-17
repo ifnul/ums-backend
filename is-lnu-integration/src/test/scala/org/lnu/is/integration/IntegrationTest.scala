@@ -1,6 +1,5 @@
 package org.lnu.is.integration
 
-import org.lnu.is.integration.asset.state.AssetStateIntegrationTest
 import org.lnu.is.integration.asset.types.AssetTypeIntegrationTest
 import org.lnu.is.integration.department.types.DepartmentTypeIntegrationTest
 import org.lnu.is.integration.enrolment.statustype.EnrolmentStatusTypeIntegrationTest
@@ -17,12 +16,13 @@ import org.lnu.is.integration.reasons.ReasonIntegrationTest
 import org.lnu.is.integration.specialty.types.SpecialtyTypeIntegrationTest
 import org.lnu.is.integration.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.timeperiod.types.TimePeriodTypeIntegrationTest
-
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef.atOnceUsers
 import io.gatling.core.Predef.stringToExpression
 import io.gatling.http.Predef.http
 import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
+import org.lnu.is.integration.asset.state.AssetStateIntegrationTest
+import org.lnu.is.integration.asset.status.AssetStatusIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -34,6 +34,7 @@ class IntegrationTest extends Simulation {
 	
 	setUp(
 		AssetTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
+		AssetStatusIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		AssetStateIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		PersonIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		PersonNameIntegrationTest.scn.inject(injectStep).protocols(httpConf),

@@ -26,6 +26,11 @@
 		<property name="dao" ref="assetStateDao"/>
 	</bean>
 	
+	<bean id="assetStatusService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="assetStatusParametersExtractor"/>
+		<property name="dao" ref="assetStatusDao"/>
+	</bean>
+	
 	<bean id="employeeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="employeeParametersExtractor"/>
 		<property name="dao" ref="employeeDao"/>
