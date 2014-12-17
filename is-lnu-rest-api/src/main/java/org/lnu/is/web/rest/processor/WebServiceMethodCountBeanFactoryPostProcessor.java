@@ -11,9 +11,9 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Bean Factory Post Processor, that counts http methods.
@@ -28,16 +28,20 @@ public class WebServiceMethodCountBeanFactoryPostProcessor implements BeanFactor
 	
 	@Override
 	public void postProcessBeanFactory(final ConfigurableListableBeanFactory beanFactory) throws BeansException {
+		
 		Map<RequestMethod, Integer> methodsCount = new HashMap<RequestMethod, Integer>();
-		Map<String, Object> controllers = beanFactory.getBeansWithAnnotation(Controller.class);
+		String[] beanDefinitionNames = beanFactory.getBeanDefinitionNames();
 		
-		for (Entry<String, Object> entry : controllers.entrySet()) {
-			Object controller = entry.getValue();
-			Method[] methods = controller.getClass().getMethods();
+		for (String beanDefinitionName : beanDefinitionNames) {
+			Class<?> type = beanFactory.getType(beanDefinitionName);
+			RestController annotation = type.getAnnotation(RestController.class);
 			
-			processControllerMethods(methods, methodsCount);
+			if (annotation != null) {
+				Method[] methods = type.getMethods();
+				processControllerMethods(methods, methodsCount);
+			}
+			
 		}
-		
 		
 		Integer allMethodCount = 0;
 		for (Entry<RequestMethod, Integer> methodCount : methodsCount.entrySet()) {
