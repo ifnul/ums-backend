@@ -1,15 +1,15 @@
-package org.lnu.is.facade.resource.asset.state;
+package org.lnu.is.facade.resource.asset.status;
 
 import java.text.MessageFormat;
 
 import org.lnu.is.facade.resource.ApiResource;
 
 /**
- * Asset status resource.
+ * Asset state resource.
  * @author ivanursul
  *
  */
-public class AssetStateResource extends ApiResource {
+public class AssetStatusResource extends ApiResource {
 
 	private String name;
 	
@@ -50,7 +50,7 @@ public class AssetStateResource extends ApiResource {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		AssetStateResource other = (AssetStateResource) obj;
+		AssetStatusResource other = (AssetStatusResource) obj;
 		if (name == null) {
 			if (other.name != null) {
 				return false;
