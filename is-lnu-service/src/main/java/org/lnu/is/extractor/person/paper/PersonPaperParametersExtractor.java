@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.person.paper;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -32,8 +31,7 @@ public class PersonPaperParametersExtractor extends AbstractParametersExtractor<
 	private Dao<HonorsType, Long> honortTypeDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final PersonPaper entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final PersonPaper entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getPerson(), personDao, "person", parameters);
 		addParameter(entity.getPaperType(), paperTypeDao, "paperType", parameters);

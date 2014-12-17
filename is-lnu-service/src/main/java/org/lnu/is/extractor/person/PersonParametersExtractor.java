@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.person;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -34,8 +33,7 @@ public class PersonParametersExtractor extends AbstractParametersExtractor<Perso
 	private Dao<Person, Long> personDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final Person entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final Person entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getPersonType(), personTypeDao, "personType", parameters);
 		addParameter(entity.getGenderType(), genderTypeDao, "genderType", parameters);

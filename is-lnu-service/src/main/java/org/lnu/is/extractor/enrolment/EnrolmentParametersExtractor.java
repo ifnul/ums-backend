@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.enrolment;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -43,8 +42,7 @@ public class EnrolmentParametersExtractor extends AbstractParametersExtractor<En
 	private Dao<Enrolment, Long> enrolmentDao;
 
 	@Override
-	public Map<String, Object> getParameters(final Enrolment entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final Enrolment entity, final Map<String, Object> parameters) {
 
 		addParameter(entity.getPerson(), personDao, "person", parameters);
 		addParameter(entity.getSpecOffer(), specOfferDao, "specOffer", parameters);

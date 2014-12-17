@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.department;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -30,8 +29,7 @@ public class DepartmentParametersExtractor extends AbstractParametersExtractor<D
 	private Dao<Order, Long> orderDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final Department entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final Department entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getParent(), departmentDao, "parent", parameters);
 		addParameter(entity.getDepartmentType(), departmentTypeDao, "departmentType", parameters);

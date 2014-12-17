@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.person.address;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -39,8 +38,7 @@ public class PersonAddressParametersExtractor extends AbstractParametersExtracto
 	private Dao<Asset, Long> assetDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final PersonAddress entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final PersonAddress entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getPerson(), personDao, "person", parameters);
 		addParameter(entity.getAddressType(), addressTypeDao, "addressType", parameters);

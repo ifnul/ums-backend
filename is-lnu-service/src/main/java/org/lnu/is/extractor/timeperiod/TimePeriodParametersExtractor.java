@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.timeperiod;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -26,8 +25,7 @@ public class TimePeriodParametersExtractor extends AbstractParametersExtractor<T
 	private Dao<TimePeriodType, Long> timePeriodTypeDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final TimePeriod entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final TimePeriod entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getBegDate(), "begDate", parameters);
 		addParameter(entity.getEndDate(), "endDate", parameters);

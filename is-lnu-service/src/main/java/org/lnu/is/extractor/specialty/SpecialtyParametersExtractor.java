@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.specialty;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -26,8 +25,7 @@ public class SpecialtyParametersExtractor extends AbstractParametersExtractor<Sp
 	private Dao<Specialty, Long> specialtyDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final Specialty entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final Specialty entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getSpecialtyType(), specialtyTypeDao, "specialtyType", parameters);
 		addParameter(entity.getParent(), specialtyDao, "parent", parameters);

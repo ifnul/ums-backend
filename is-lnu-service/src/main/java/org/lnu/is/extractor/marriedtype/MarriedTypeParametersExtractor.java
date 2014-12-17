@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.marriedtype;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
@@ -16,8 +15,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class MarriedTypeParametersExtractor extends AbstractParametersExtractor<MarriedType> {
 
 	@Override
-	public Map<String, Object> getParameters(final MarriedType entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final MarriedType entity, final Map<String, Object> parameters) {
 
 		addParameter(entity.getName(), "name", parameters);
 		addParameter(entity.getAbbrName(), "abbrName", parameters);

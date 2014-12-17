@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.specoffer;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -42,8 +41,7 @@ public class SpecOfferParametersExtractor extends AbstractParametersExtractor<Sp
 	private Dao<SpecOfferType, Long> specOfferTypeDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final SpecOffer entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final SpecOffer entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getParent(), specOfferDao, "parent", parameters);
 		addParameter(entity.getSpecialty(), specialtyDao, "specialty", parameters);

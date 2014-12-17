@@ -26,6 +26,16 @@
 		<property name="defaultService" ref="assetService" />
 	</bean>
 
+	<bean id="assetStateFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="assetStateResourceConverter" />
+		<property name="entityConverter" ref="assetStateConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="assetStateService" />
+	</bean>
+
 	<bean id="assetTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="assetTypeResourceConverter" />
 		<property name="entityConverter" ref="assetTypeConverter" />

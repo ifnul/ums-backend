@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.department.type;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
@@ -16,8 +15,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class DepartmentTypeParametersExtractor extends AbstractParametersExtractor<DepartmentType> {
 
 	@Override
-	public Map<String, Object> getParameters(final DepartmentType entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final DepartmentType entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getAbbrName(), "abbrName", parameters);
 		addParameter(entity.getName(), "name", parameters);

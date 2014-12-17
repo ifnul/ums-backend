@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.timeperiod.type;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
@@ -16,8 +15,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class TimePeriodTypeParametersExtractor extends AbstractParametersExtractor<TimePeriodType> {
 
 	@Override
-	public Map<String, Object> getParameters(final TimePeriodType entity) {
-		Map<String, Object> parameters = new HashMap<>();
+	public Map<String, Object> getParameters(final TimePeriodType entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getAbbrName(), "abbrName", parameters);
 		addParameter(entity.getName(), "name", parameters);

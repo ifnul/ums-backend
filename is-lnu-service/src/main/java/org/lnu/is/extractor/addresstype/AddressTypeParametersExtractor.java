@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.addresstype;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
@@ -18,8 +17,7 @@ public class AddressTypeParametersExtractor extends
 		AbstractParametersExtractor<AddressType> {
 
 	@Override
-	public Map<String, Object> getParameters(final AddressType entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final AddressType entity, final Map<String, Object> parameters) {
 
 		addParameter(entity.getName(), "name", parameters);
 		addParameter(entity.getAbbrName(), "abbrName", parameters);

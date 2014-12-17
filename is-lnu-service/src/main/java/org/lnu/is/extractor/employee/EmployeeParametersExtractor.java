@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.employee;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -55,8 +54,7 @@ public class EmployeeParametersExtractor extends AbstractParametersExtractor<Emp
 	private Dao<Employee, Long> employeeDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final Employee entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final Employee entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getEmployeeType(), employeeTypeDao, "employeeType", parameters);
 		addParameter(entity.getEmployeeStatus(), employeeStatusDao, "employeeStatus", parameters);

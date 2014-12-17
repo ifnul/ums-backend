@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.order.type;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -22,8 +21,7 @@ public class OrderTypeParametersExtractor extends AbstractParametersExtractor<Or
 	private Dao<OrderType, Long> orderTypeDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final OrderType entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final OrderType entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getAbbrName(), "abbrName", parameters);
 		addParameter(entity.getName(), "name", parameters);

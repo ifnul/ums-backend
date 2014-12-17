@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.specoffer.subject;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -27,8 +26,7 @@ public class SpecOfferSubjectParametersExtractor extends AbstractParametersExtra
 	private Dao<EnrolmentSubject, Long> enrolmenntSubjectDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final SpecofferSubject entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final SpecofferSubject entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getSpecOffer(), specOfferDao, "specOffer", parameters);
 		addParameter(entity.getEnrolmentSubject(), enrolmenntSubjectDao, "enrolmentSubject", parameters);

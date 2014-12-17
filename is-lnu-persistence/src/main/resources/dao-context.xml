@@ -24,10 +24,11 @@
 		<property name="entityClass" value="org.lnu.is.domain.asset.AssetType" />
 		<property name="queryBuilder" ref="assetTypeQueryBuilder" />
 	</bean>
-
+	
 	<bean id="assetStateDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.asset.AssetState" />
+		<property name="queryBuilder" ref="assetStateQueryBuilder" />
 	</bean>
 
 	<bean id="assetStatusDao" class="org.lnu.is.dao.dao.DefaultDao">

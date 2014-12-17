@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.asset;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -50,8 +49,7 @@ public class AssetParametersExtractor extends AbstractParametersExtractor<Asset>
 	private Dao<AssetStatus, Long> assetStatusDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final Asset entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final Asset entity, final Map<String, Object> parameters) {
 
 		addParameter(entity.getDescription(), "description", parameters);
 		addParameter(entity.getEndDate(), "endDate", parameters);

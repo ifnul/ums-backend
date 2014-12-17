@@ -1,5 +1,6 @@
 package org.lnu.is.extractor;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.lnu.is.dao.dao.Dao;
@@ -12,6 +13,22 @@ import org.lnu.is.domain.Model;
  * @param <T> Entity.
  */
 public abstract class AbstractParametersExtractor<T> implements ParametersExtractor<T> {
+
+	
+	
+	@Override
+	public Map<String, Object> getParameters(final T entity) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		return getParameters(entity, parameters);
+	}
+
+	/**
+	 * Template method for method above(getParameters(entity).
+	 * @param entity
+	 * @param parameters
+	 * @return map.
+	 */
+	protected abstract Map<String, Object> getParameters(T entity, Map<String, Object> parameters);
 
 	/**
 	 * 

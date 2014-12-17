@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.enrolment.type;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
@@ -17,8 +16,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class EnrolmentTypeParametersExtractor extends AbstractParametersExtractor<EnrolmentType> {
 
 	@Override
-	public Map<String, Object> getParameters(final EnrolmentType entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final EnrolmentType entity, final Map<String, Object> parameters) {
 
 		addParameter(entity.getName(), "name", parameters);
 

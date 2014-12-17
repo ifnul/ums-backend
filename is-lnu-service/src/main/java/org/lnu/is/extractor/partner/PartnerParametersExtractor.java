@@ -1,6 +1,5 @@
 package org.lnu.is.extractor.partner;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -22,8 +21,7 @@ public class PartnerParametersExtractor extends AbstractParametersExtractor<Part
 	private Dao<Partner, Long> partnerDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final Partner entity) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+	public Map<String, Object> getParameters(final Partner entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getParent(), partnerDao, "parent", parameters);
 		
