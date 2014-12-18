@@ -16,6 +16,16 @@
 		<property name="defaultService" ref="operationTypeService" />
 	</bean>
 	
+	<bean id="adminUnitFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+		<property name="resourceConverter" ref="adminUnitResourceConverter" />
+		<property name="entityConverter" ref="adminUnitConverter" />
+		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
+		<property name="pagedResultConverter" ref="pagedSearchConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+		<property name="updateConverter" ref="updateConverter" />
+		<property name="defaultService" ref="adminUnitService" />
+	</bean>
+
 	<bean id="assetFacade" class="org.lnu.is.facade.facade.DefaultFacade">
 		<property name="resourceConverter" ref="assetResourceConverter" />
 		<property name="entityConverter" ref="assetConverter" />

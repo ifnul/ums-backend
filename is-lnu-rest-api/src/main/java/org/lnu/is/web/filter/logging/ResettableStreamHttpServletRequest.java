@@ -1,4 +1,4 @@
-package org.lnu.configuration.filter.logging;
+package org.lnu.is.web.filter.logging;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;

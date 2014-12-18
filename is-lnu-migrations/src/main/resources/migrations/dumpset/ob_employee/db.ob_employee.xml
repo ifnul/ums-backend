@@ -6,7 +6,10 @@
     <changeSet id="add test employees" author="ivanursul">
         <insert tableName="q_ob_employee">
         	<column name="id">1</column>
+        	<!-- 
         	<column name="employeetype_id">1</column>
+        	TODO: Uncomment, when q_rf_employeetype will have data.
+        	 -->
         	<column name="person_id">1</column>
         	<column name="name">доцент. Абрикосович Андрій Олегович</column>
         	<column name="firstname">Андрій</column>
@@ -40,7 +43,10 @@
         </insert>
         <insert tableName="q_ob_employee">
         	<column name="id">2</column>
+        	<!-- 
         	<column name="employeetype_id">1</column>
+        	TODO: Uncomment, when q_rf_employeetype will have data.
+        	 -->
         	<column name="person_id">1</column>
         	<column name="name">доцент. Чорнослив Петро Олегович</column>
         	<column name="firstname">Петро</column>

@@ -24,6 +24,7 @@ import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
 import org.lnu.is.integration.asset.state.AssetStateIntegrationTest
 import org.lnu.is.integration.asset.status.AssetStatusIntegrationTest
 import org.lnu.is.integration.specialty.SpecialtyIntegrationTest
+import org.lnu.is.integration.adminunit.AdminUnitIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -55,6 +56,7 @@ class IntegrationTest extends Simulation {
 		SpecialtyTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		ReasonIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		OperationTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		SpecialtyIntegrationTest.scn.inject(injectStep).protocols(httpConf)
+		SpecialtyIntegrationTest.scn.inject(injectStep).protocols(httpConf),
+		AdminUnitIntegrationTest.scn.inject(injectStep).protocols(httpConf)
 	)
 }

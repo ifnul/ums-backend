@@ -12,5 +12,5 @@
 	<bean id="entityNotFoundExceptionHandler" class="org.lnu.is.web.rest.handler.entity.EntityNotFoundExceptionHandler" />
 	<bean id="messageNotReadableExceptionHandler" class="org.lnu.is.web.rest.handler.request.MessageNotReadableExceptionHandler" />
 	<bean id="messageArgumentNotValidException" class="org.lnu.is.web.rest.handler.request.MethodArgumentNotValidExceptionHandler" />
-
+	
 </beans>

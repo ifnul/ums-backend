@@ -56,6 +56,8 @@
 
 		<checkstyleDir>${basedir}/checks</checkstyleDir>
 		<findBugsDir>${basedir}/findbugs</findBugsDir>
+		
+		<max.pagination.count>500</max.pagination.count>
 	</properties>
 
 	<dependencyManagement>
