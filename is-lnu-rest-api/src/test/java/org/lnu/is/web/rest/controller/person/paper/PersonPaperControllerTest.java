@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
@@ -26,14 +25,12 @@ import org.lnu.is.facade.resource.person.paper.PersonPaperResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
-import org.lnu.is.web.rest.controller.person.paper.PersonPaperController;
+import org.lnu.is.web.rest.controller.BaseController;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PersonPaperControllerTest extends AbstractControllerTest {
@@ -44,13 +41,11 @@ public class PersonPaperControllerTest extends AbstractControllerTest {
 	@InjectMocks
 	private PersonPaperController unit;
 	
-    private MockMvc mockMvc;
+	@Override
+	protected BaseController getUnit() {
+		return unit;
+	}
 
-    @Before
-    public void setup() {
-    	  this.mockMvc = MockMvcBuilders.standaloneSetup(unit).build();
-    }
-    
     @Test
 	public void testCreatePersonPaper() throws Exception {
 		// Given

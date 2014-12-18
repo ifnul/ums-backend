@@ -8,6 +8,8 @@ import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.benefit.SpecOfferBenefitResource;
+import org.lnu.is.web.rest.annotation.Limit;
+import org.lnu.is.web.rest.annotation.Offset;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.lnu.is.web.rest.controller.specoffer.subject.SpecOfferSubjectController;
 import org.slf4j.Logger;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -112,11 +113,9 @@ public class SpecOfferBenefitController extends BaseController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{specOfferId}/benefits", method = RequestMethod.GET)
 	@ApiOperation(value = "Get Spec Offer Benefits", position = 5)
-	public PagedResultResource<SpecOfferBenefitResource> getSpecOfferBenefits(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
-			@PathVariable("specOfferId") final Long specOfferId,
+	public PagedResultResource<SpecOfferBenefitResource> getSpecOfferBenefits(@Offset final Integer offset, @Limit(value = "limit", defaultValue = "20") final Integer limit,
 			final SpecOfferBenefitResource resource) {
-		LOG.info("Retrieving PagedResultResource for Spec Offer Subject:{} Resources with offset: {}, limit: {}", specOfferId, offset, limit);
+		LOG.info("Retrieving PagedResultResource for Spec Offer Subject:{} Resources with offset: {}, limit: {}", resource.getSpecOfferId(), offset, limit);
 		PagedRequest<SpecOfferBenefitResource> pagedRequest = new PagedRequest<SpecOfferBenefitResource>(resource, offset, limit);
 		
 		return facade.getResources(pagedRequest);

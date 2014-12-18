@@ -10,10 +10,15 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
+	<mvc:annotation-driven validator="validator">
+		<mvc:argument-resolvers>
+			<bean class="org.lnu.is.web.rest.processor.resolver.PaginationArgumentResolver" />
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
+
 	<import resource="message-converters.xml"/>
 	<import resource="exception-handlers.xml"/>
 	
-	<mvc:annotation-driven validator="validator"/>
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
 	<context:component-scan base-package="org.lnu.is.web.rest" />

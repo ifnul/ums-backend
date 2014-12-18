@@ -1,12 +1,26 @@
 package org.lnu.is.web.rest.controller;
 
+import org.junit.Before;
+import org.lnu.is.web.rest.processor.resolver.PaginationArgumentResolver;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class AbstractControllerTest {
+public abstract class AbstractControllerTest {
+	
+	protected MockMvc mockMvc;
+
+	@Before
+	public void setup() {
+		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit()).setCustomArgumentResolvers(new PaginationArgumentResolver()).build();
+	}
+	
+	protected abstract BaseController getUnit();
 
 	private ObjectMapper objectMapper = new ObjectMapper();
 

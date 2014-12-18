@@ -10,6 +10,8 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
 import org.lnu.is.facade.resource.specoffer.type.SpecOfferTypeResource;
+import org.lnu.is.web.rest.annotation.Limit;
+import org.lnu.is.web.rest.annotation.Offset;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
@@ -172,8 +174,7 @@ public class SpecOfferController extends BaseController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/types", method = RequestMethod.GET)
 	@ApiOperation(value = "Get's All SpecOfferTypes", position = 5)
-	public PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "20") final Integer limit,
+	public PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(@Offset final Integer offset, @Limit final Integer limit,
 			final SpecOfferTypeResource resource) {
 		LOG.info("Retrieving PagedResultResource for Spec Offer Type Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<SpecOfferTypeResource> pagedRequest = new PagedRequest<SpecOfferTypeResource>(resource, offset, limit);

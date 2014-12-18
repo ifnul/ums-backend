@@ -14,7 +14,6 @@ import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
@@ -24,14 +23,12 @@ import org.lnu.is.facade.resource.person.address.PersonAddressResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
-import org.lnu.is.web.rest.controller.person.address.PersonAddressController;
+import org.lnu.is.web.rest.controller.BaseController;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PersonAddressControllerTest extends AbstractControllerTest {
@@ -42,13 +39,11 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 	@InjectMocks
 	private PersonAddressController unit;
 	
-    private MockMvc mockMvc;
+	@Override
+	protected BaseController getUnit() {
+		return unit;
+	}
 
-    @Before
-    public void setup() {
-    	  this.mockMvc = MockMvcBuilders.standaloneSetup(unit).build();
-    }
-    
     @Test
 	public void testCreatePersonAddress() throws Exception {
 		// Given

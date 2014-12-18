@@ -9,7 +9,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
@@ -17,13 +16,11 @@ import org.lnu.is.facade.resource.enrolment.type.EnrolmentTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
-import org.lnu.is.web.rest.controller.enrolment.type.EnrolmentTypeController;
+import org.lnu.is.web.rest.controller.BaseController;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EnrolmentTypeControllerTest extends AbstractControllerTest {
@@ -32,13 +29,12 @@ public class EnrolmentTypeControllerTest extends AbstractControllerTest {
 
 	@InjectMocks
 	private EnrolmentTypeController unit;
-
-	private MockMvc mockMvc;
-
-	@Before
-	public void setup() {
-		this.mockMvc = MockMvcBuilders.standaloneSetup(unit).build();
+	
+	@Override
+	protected BaseController getUnit() {
+		return unit;
 	}
+
 
 	@Test
 	public void testGetEnrolmentTypes() throws Exception {
