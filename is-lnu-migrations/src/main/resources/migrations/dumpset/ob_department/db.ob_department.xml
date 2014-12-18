@@ -14,7 +14,6 @@
 			<column name="email">mihotuem@gmail.com</column>
 			<column name="begdate">now()</column>        	
 			<column name="enddate">now()</column>        	
-			<column name="order_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>

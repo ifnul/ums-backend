@@ -5,7 +5,7 @@ import java.text.MessageFormat;
 import org.lnu.is.facade.resource.ApiResource;
 
 /**
- * Asset status resource.
+ * Asset state resource.
  * @author ivanursul
  *
  */
@@ -20,7 +20,7 @@ public class AssetStateResource extends ApiResource {
 
 	@Override
 	public String getRootUri() {
-		return "/assets/states";
+		return "/assets";
 	}
 
 	public String getName() {
