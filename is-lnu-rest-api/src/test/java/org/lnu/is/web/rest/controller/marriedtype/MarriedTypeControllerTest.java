@@ -48,7 +48,7 @@ public class MarriedTypeControllerTest extends AbstractControllerTest {
 		List<MarriedTypeResource> entities = Arrays.asList(resource);
 		
 		int offset = 0;
-		int limit = 6;
+		int limit = 20;
 		long count = 1;
 		PagedResultResource<MarriedTypeResource> expected = new PagedResultResource<>("/marriedtypes");
 		expected.setResources(entities);

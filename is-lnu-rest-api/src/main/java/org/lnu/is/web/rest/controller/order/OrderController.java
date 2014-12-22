@@ -8,6 +8,8 @@ import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.order.OrderResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.web.rest.annotation.Limit;
+import org.lnu.is.web.rest.annotation.Offset;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -105,10 +106,8 @@ public class OrderController extends BaseController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get Orders", position = 5)
-	public PagedResultResource<OrderResource> getOrders(
-			@RequestParam(value = "offset", defaultValue = "0") final Integer offset,
-			@RequestParam(value = "limit", defaultValue = "20") final Integer limit, 
-			final OrderResource resource) {
+	public PagedResultResource<OrderResource> getOrders(@Offset final Integer offset,
+			@Limit final Integer limit,  final OrderResource resource) {
 		LOG.info("Retrieving PagedResultResource for Order Resources with offset: {}, limit: {}", offset, limit);
 		PagedRequest<OrderResource> pagedRequest = new PagedRequest<OrderResource>(resource, offset, limit);
 		return facade.getResources(pagedRequest);

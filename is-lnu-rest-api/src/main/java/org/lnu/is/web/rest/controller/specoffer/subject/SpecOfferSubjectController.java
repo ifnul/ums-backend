@@ -112,7 +112,9 @@ public class SpecOfferSubjectController extends BaseController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{specOfferId}/subjects", method = RequestMethod.GET)
 	@ApiOperation(value = "Get Spec Offer Subjects", position = 5)
-	public PagedResultResource<SpecOfferSubjectResource> getSpecOfferSubjects(@Offset final Integer offset, @Limit final Integer limit, final SpecOfferSubjectResource resource) {
+	public PagedResultResource<SpecOfferSubjectResource> getSpecOfferSubjects(@Offset final Integer offset,
+			@Limit final Integer limit,
+			final SpecOfferSubjectResource resource) {
 		LOG.info("Retrieving PagedResultResource for Spec Offer Subject:{} Resources with offset: {}, limit: {}", resource.getSpecOfferId(), offset, limit);
 		PagedRequest<SpecOfferSubjectResource> pagedRequest = new PagedRequest<SpecOfferSubjectResource>(resource, offset, limit);
 		

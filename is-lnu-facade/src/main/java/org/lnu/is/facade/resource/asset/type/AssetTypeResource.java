@@ -22,7 +22,7 @@ public class AssetTypeResource extends ApiResource {
 
 	@Override
 	public String getRootUri() {
-		return "/assets";
+		return "/assets/types";
 	}
 
 	public String getAbbrName() {

@@ -47,7 +47,7 @@ public class GenderTypeControllerTest extends AbstractControllerTest {
 
 		Integer offset = 0;
 		long count = 1;
-		Integer limit = 3;
+		Integer limit = 20;
 
 		PagedResultResource<GenderTypeResource> expected = new PagedResultResource<>("/gendertypes");
 		expected.setResources(entities);
