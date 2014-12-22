@@ -1,5 +1,6 @@
 package org.lnu.is.facade.resource.search;
 
+
 /**
 /**
  * Paged Request, that comes from controller.
@@ -11,18 +12,14 @@ public class PagedRequest<R> {
 
     private Integer offset;
     private Integer limit;
-    private R resource;
+	private R resource;
 
-    /**
-     * Constructor with parameters.
-     * @param offset start position.
-     * @param limit limit position.
-     */
-    @Deprecated
-	public PagedRequest(final Integer offset, final Integer limit) {
+	/**
+	 * Default constructor.
+	 * @author ivanursul
+	 */
+    public PagedRequest() {
 		super();
-		this.offset = offset;
-		this.limit = limit;
 	}
 
 	/**

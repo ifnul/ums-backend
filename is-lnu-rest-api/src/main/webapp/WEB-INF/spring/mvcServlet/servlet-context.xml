@@ -9,19 +9,33 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+	<context:component-scan base-package="org.lnu.is.web.rest" />
+	<context:property-placeholder properties-ref="applicationConfiguration" />
+
 	<import resource="message-converters.xml"/>
+	<import resource="argument-resolvers.xml"/>
 	<import resource="exception-handlers.xml"/>
-	
+	<import resource="documentation-config.xml"/>
+	<import resource="validators.xml"/>
+
 	<mvc:annotation-driven validator="validator">
 		<mvc:argument-resolvers>
-			<bean class="org.lnu.is.web.rest.processor.resolver.PaginationArgumentResolver" />
+			<ref bean="paginationArgumentResolver"/>
 		</mvc:argument-resolvers>
+		<mvc:message-converters>
+			<ref bean="jsonMessageConverter" />
+			<ref bean="xmlMessageConverter" />
+		</mvc:message-converters>
 	</mvc:annotation-driven>
-	
-	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
-	
-	<context:component-scan base-package="org.lnu.is.web.rest" />
-	<context:property-placeholder location="classpath:application.properties" />
 
-	<bean id="springSwaggerConig" class = "com.mangofactory.swagger.configuration.SpringSwaggerConfig"/>
+	<bean id="applicationConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="false" />
+	</bean>	
+	
+
 </beans>

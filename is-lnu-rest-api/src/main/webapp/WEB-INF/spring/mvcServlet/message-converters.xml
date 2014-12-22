@@ -12,14 +12,4 @@
 		<property name="objectMapper" ref="objectMapper"/>
 	</bean>
 
-	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-		<property name="messageConverters">
-			<list>
-				<ref bean="jsonMessageConverter" />
-				<ref bean="xmlMessageConverter" />
-			</list>
-		</property>
-	</bean>
-
 </beans>

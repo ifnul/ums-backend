@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * @author ivanursul
  *
  */
-@Target(ElementType.PARAMETER)
+@Target({ ElementType.PARAMETER, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Offset {
