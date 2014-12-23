@@ -1,6 +1,6 @@
 [
 	{
-		"targetUrl":"/operations/types",
+		"targetUrl":"/operationtypes",
 		"expectedResponse": {
 		    "TODO": "Add data"
 		}

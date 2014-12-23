@@ -3,6 +3,8 @@ package org.lnu.is.web.rest.controller.specoffer;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
+import org.lnu.is.facade.annotations.Limit;
+import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
@@ -10,8 +12,6 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
 import org.lnu.is.facade.resource.specoffer.type.SpecOfferTypeResource;
-import org.lnu.is.web.rest.annotation.Limit;
-import org.lnu.is.web.rest.annotation.Offset;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;

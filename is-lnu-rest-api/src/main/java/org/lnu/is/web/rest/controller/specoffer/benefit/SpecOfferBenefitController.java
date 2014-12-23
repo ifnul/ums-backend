@@ -2,14 +2,14 @@ package org.lnu.is.web.rest.controller.specoffer.benefit;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.facade.annotations.Limit;
+import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.benefit.SpecOfferBenefitResource;
-import org.lnu.is.web.rest.annotation.Limit;
-import org.lnu.is.web.rest.annotation.Offset;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.lnu.is.web.rest.controller.specoffer.subject.SpecOfferSubjectController;
 import org.slf4j.Logger;

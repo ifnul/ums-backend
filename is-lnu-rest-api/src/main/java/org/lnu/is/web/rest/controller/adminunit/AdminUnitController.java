@@ -2,12 +2,12 @@ package org.lnu.is.web.rest.controller.adminunit;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.facade.annotations.Limit;
+import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.adminunit.AdminUnitResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
-import org.lnu.is.web.rest.annotation.Limit;
-import org.lnu.is.web.rest.annotation.Offset;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,14 +39,15 @@ public class AdminUnitController extends BaseController {
 	 * @param resource
 	 * @return paged result.
 	 */
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation(value = "Get All Married Types")
-	public PagedResultResource<AdminUnitResource> getAdminUnits(@Offset final Integer offset,
-			@Limit final Integer limit, final AdminUnitResource resource) {
-		LOG.info("Getting PagedResultResource for Admin Unit Type with offset: {}, limit: {}", offset, limit);
-		PagedRequest<AdminUnitResource> request = new PagedRequest<AdminUnitResource>(resource, offset, limit);
-		return facade.getResources(request);	
-	}
+ 	@ResponseStatus(HttpStatus.OK)
+ 	@RequestMapping(method = RequestMethod.GET)
+ 	@ApiOperation(value = "Get All Married Types")
+ 	public PagedResultResource<AdminUnitResource> getAdminUnits(@Offset final Integer offset,
+ 			@Limit final Integer limit, final AdminUnitResource resource) {
+ 		LOG.info("Getting PagedResultResource for Admin Unit Type with offset: {}, limit: {}", offset, limit);
+ 		PagedRequest<AdminUnitResource> request = new PagedRequest<AdminUnitResource>(resource, offset, limit);
+ 		return facade.getResources(request);	
+ 	}
+
 
 }

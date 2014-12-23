@@ -1,5 +1,8 @@
 package org.lnu.is.facade.resource.search;
 
+import org.lnu.is.facade.annotations.Limit;
+import org.lnu.is.facade.annotations.Offset;
+
 
 /**
 /**
@@ -10,8 +13,12 @@ package org.lnu.is.facade.resource.search;
  */
 public class PagedRequest<R> {
 
+	@Offset
     private Integer offset;
-    private Integer limit;
+    
+	@Limit
+	private Integer limit;
+	
 	private R resource;
 
 	/**

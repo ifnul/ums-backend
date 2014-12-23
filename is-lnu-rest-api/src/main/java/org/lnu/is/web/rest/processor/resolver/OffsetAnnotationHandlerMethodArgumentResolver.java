@@ -2,7 +2,7 @@ package org.lnu.is.web.rest.processor.resolver;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.lnu.is.web.rest.annotation.Offset;
+import org.lnu.is.facade.annotations.Offset;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebArgumentResolver;

@@ -2,12 +2,12 @@ package org.lnu.is.web.rest.controller.language;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.facade.annotations.Limit;
+import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.language.LanguageResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
-import org.lnu.is.web.rest.annotation.Limit;
-import org.lnu.is.web.rest.annotation.Offset;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

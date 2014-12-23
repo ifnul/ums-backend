@@ -1,4 +1,4 @@
-package org.lnu.is.web.rest.annotation;
+package org.lnu.is.facade.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
