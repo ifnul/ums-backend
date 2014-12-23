@@ -24,7 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends Service<ENTITY, KEY>, KEY> implements Facade<RESOURCE, KEY> {
-
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultFacade.class);
 
 	private Converter<RESOURCE, ENTITY> resourceConverter;
@@ -39,46 +38,46 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 
 	private Converter<RESOURCE, ENTITY> updateConverter;
 
-	private SERVICE defaultService;
+	private SERVICE service;
 
 	@Override
 	public RESOURCE createResource(final RESOURCE resource) {
-		LOG.info("Creating entity: {}", resource);
+		LOG.info("Creating resource: {}", resource);
 
 		ENTITY entity = resourceConverter.convert(resource);
 
 		insertConverter.convert(resource, entity);
-		defaultService.createEntity(entity);
+		service.createEntity(entity);
 
 		return entityConverter.convert(entity);
 	}
 
 	@Override
 	public RESOURCE getResource(final KEY id) {
-		LOG.info("Getting entity with id: {}", id);
+		LOG.info("Getting resource with id: {}", id);
 
-		ENTITY entity = defaultService.getEntity(id);
+		ENTITY entity = service.getEntity(id);
 		return entityConverter.convert(entity);
 	}
 
 	@Override
 	public void removeResource(final KEY id) {
-		LOG.info("Removing entity with id: {}", id);
+		LOG.info("Removing resource with id: {}", id);
 
-		ENTITY entity = defaultService.getEntity(id);
-		defaultService.removeEntity(entity);
+		ENTITY entity = service.getEntity(id);
+		service.removeEntity(entity);
 	}
 
 	@Override
 	public void updateResource(final KEY id, final RESOURCE resource) {
-		LOG.info("Updating entity with id: {}, resource: {}", id, resource);
+		LOG.info("Updating resource with id: {}, resource: {}", id, resource);
 
-		ENTITY entity = defaultService.getEntity(id);
+		ENTITY entity = service.getEntity(id);
 
 		resourceConverter.convert(resource, entity);
 		updateConverter.convert(resource, entity);
 
-		defaultService.updateEntity(entity);
+		service.updateEntity(entity);
 
 	}
 
@@ -89,7 +88,7 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 		PagedSearch<ENTITY> pagedSearch = pagedRequestConverter.convert(request);
 		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
-		PagedResult<ENTITY> pagedResult = defaultService.getEntities(pagedSearch);
+		PagedResult<ENTITY> pagedResult = service.getEntities(pagedSearch);
 
 		List<RESOURCE> resources = entityConverter.convertAll(pagedResult.getEntities());
 
@@ -100,12 +99,12 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 		return pagedResultResource;
 	}
 
-	public SERVICE getDefaultService() {
-		return defaultService;
+	public SERVICE getService() {
+		return service;
 	}
 
-	public void setDefaultService(final SERVICE defaultService) {
-		this.defaultService = defaultService;
+	public void setService(final SERVICE service) {
+		this.service = service;
 	}
 
 	public Converter<RESOURCE, ENTITY> getResourceConverter() {
