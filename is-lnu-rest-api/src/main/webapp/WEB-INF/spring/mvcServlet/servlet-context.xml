@@ -12,15 +12,15 @@
 	<context:component-scan base-package="org.lnu.is.web.rest" />
 	<context:property-placeholder properties-ref="applicationConfiguration" />
 
-	<import resource="message-converters.xml"/>
-	<import resource="argument-resolvers.xml"/>
-	<import resource="exception-handlers.xml"/>
-	<import resource="documentation-config.xml"/>
-	<import resource="validators.xml"/>
+	<import resource="config/message-converters.xml"/>
+	<import resource="config/exception-handlers.xml"/>
+	<import resource="config/documentation-config.xml"/>
+	<import resource="config/validators.xml"/>
 
 	<mvc:annotation-driven validator="validator">
 		<mvc:argument-resolvers>
-			<ref bean="paginationArgumentResolver"/>
+			<ref bean="offsetAnnotationHandlerMethodArgumentResolver" />
+			<ref bean="limitAnnotationHandlerMethodArgumentResolver" />
 		</mvc:argument-resolvers>
 		<mvc:message-converters>
 			<ref bean="jsonMessageConverter" />
@@ -36,6 +36,5 @@
 		</property>
 		<property name="ignoreResourceNotFound" value="false" />
 	</bean>	
-	
 
 </beans>

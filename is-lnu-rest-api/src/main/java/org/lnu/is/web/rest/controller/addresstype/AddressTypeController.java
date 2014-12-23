@@ -46,7 +46,7 @@ public class AddressTypeController extends BaseController {
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get All Address Types")
 	public PagedResultResource<AddressTypeResource> getAddressTypes(
-			@Offset final Integer offset, @Limit(defaultValue = "38") final Integer limit,
+			@Offset final Integer offset, @Limit final Integer limit,
 			final AddressTypeResource resource) {
 		LOG.info("Getting PagedResultResource for Address Tyoe with offset: {}, limit: {}", offset, limit);
 		PagedRequest<AddressTypeResource> request = new PagedRequest<AddressTypeResource>(resource, offset, limit);

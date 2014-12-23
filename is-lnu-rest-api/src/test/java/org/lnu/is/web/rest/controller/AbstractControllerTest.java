@@ -1,7 +1,8 @@
 package org.lnu.is.web.rest.controller;
 
 import org.junit.Before;
-import org.lnu.is.web.rest.processor.resolver.PaginationArgumentResolver;
+import org.lnu.is.web.rest.processor.resolver.LimitAnnotationHandlerMethodArgumentResolver;
+import org.lnu.is.web.rest.processor.resolver.OffsetAnnotationHandlerMethodArgumentResolver;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -17,7 +18,11 @@ public abstract class AbstractControllerTest {
 
 	@Before
 	public void setup() {
-		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit()).setCustomArgumentResolvers(new PaginationArgumentResolver()).build();
+		OffsetAnnotationHandlerMethodArgumentResolver offsetAnnotationHandlerMethodArgumentResolver = new OffsetAnnotationHandlerMethodArgumentResolver();
+		LimitAnnotationHandlerMethodArgumentResolver limitAnnotationHandlerMethodArgumentResolver = new LimitAnnotationHandlerMethodArgumentResolver();
+		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
+				.setCustomArgumentResolvers(offsetAnnotationHandlerMethodArgumentResolver, limitAnnotationHandlerMethodArgumentResolver)
+				.build();
 	}
 	
 	protected abstract BaseController getUnit();

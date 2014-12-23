@@ -36,7 +36,7 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 		// Given
 		String name = "AddressN";
 		Integer offset = 0;
-		Integer limit = 38;
+		Integer limit = 20;
 		long count = 1;
 
 		AddressTypeResource resource = new AddressTypeResource();
