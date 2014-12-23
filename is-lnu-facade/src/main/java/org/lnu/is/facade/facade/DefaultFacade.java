@@ -11,6 +11,7 @@ import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.service.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -99,60 +100,67 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 		return pagedResultResource;
 	}
 
+	@Required
+	public void setService(final SERVICE service) {
+		this.service = service;
+	}
+	
+	@Required
+	public void setResourceConverter(final Converter<RESOURCE, ENTITY> resourceConverter) {
+		this.resourceConverter = resourceConverter;
+	}
+	
+	@Required
+	public void setEntityConverter(final Converter<ENTITY, RESOURCE> entityConverter) {
+		this.entityConverter = entityConverter;
+	}
+	
+	@Required
+	public void setPagedRequestConverter(final Converter<PagedRequest<RESOURCE>, PagedSearch<ENTITY>> pagedRequestConverter) {
+		this.pagedRequestConverter = pagedRequestConverter;
+	}
+	
+	@Required
+	public void setPagedResultConverter(final Converter<PagedResult<ENTITY>, PagedResultResource<RESOURCE>> pagedResultConverter) {
+		this.pagedResultConverter = pagedResultConverter;
+	}
+	
+	@Required
+	public void setInsertConverter(final Converter<RESOURCE, ENTITY> insertConverter) {
+		this.insertConverter = insertConverter;
+	}
+	
+	@Required
 	public SERVICE getService() {
 		return service;
 	}
 
-	public void setService(final SERVICE service) {
-		this.service = service;
+	public void setUpdateConverter(final Converter<RESOURCE, ENTITY> updateConverter) {
+		this.updateConverter = updateConverter;
 	}
-
+	
 	public Converter<RESOURCE, ENTITY> getResourceConverter() {
 		return resourceConverter;
-	}
-
-	public void setResourceConverter(final Converter<RESOURCE, ENTITY> resourceConverter) {
-		this.resourceConverter = resourceConverter;
 	}
 
 	public Converter<ENTITY, RESOURCE> getEntityConverter() {
 		return entityConverter;
 	}
 
-	public void setEntityConverter(final Converter<ENTITY, RESOURCE> entityConverter) {
-		this.entityConverter = entityConverter;
-	}
-
 	public Converter<PagedRequest<RESOURCE>, PagedSearch<ENTITY>> getPagedRequestConverter() {
 		return pagedRequestConverter;
-	}
-
-	public void setPagedRequestConverter(final Converter<PagedRequest<RESOURCE>, PagedSearch<ENTITY>> pagedRequestConverter) {
-		this.pagedRequestConverter = pagedRequestConverter;
 	}
 
 	public Converter<PagedResult<ENTITY>, PagedResultResource<RESOURCE>> getPagedResultConverter() {
 		return pagedResultConverter;
 	}
 
-	public void setPagedResultConverter(final Converter<PagedResult<ENTITY>, PagedResultResource<RESOURCE>> pagedResultConverter) {
-		this.pagedResultConverter = pagedResultConverter;
-	}
-
 	public Converter<RESOURCE, ENTITY> getInsertConverter() {
 		return insertConverter;
 	}
 
-	public void setInsertConverter(final Converter<RESOURCE, ENTITY> insertConverter) {
-		this.insertConverter = insertConverter;
-	}
-
 	public Converter<RESOURCE, ENTITY> getUpdateConverter() {
 		return updateConverter;
-	}
-
-	public void setUpdateConverter(final Converter<RESOURCE, ENTITY> updateConverter) {
-		this.updateConverter = updateConverter;
 	}
 
 }

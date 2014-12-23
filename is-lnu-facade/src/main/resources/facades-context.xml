@@ -6,373 +6,233 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	default-autowire="byName">
 
-	<bean id="operationTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
-		<property name="resourceConverter" ref="operationTypeResourceConverter" />
-		<property name="entityConverter" ref="operationTypeConverter" />
+	<!-- Abstract bean, where all common fields are stored -->
+	<bean id="defaultFacade" abstract="true">
 		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
 		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
 		<property name="updateConverter" ref="updateConverter" />
+		<property name="insertConverter" ref="insertConverter" />
+	</bean>
+
+	<bean id="operationTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="operationTypeResourceConverter" />
+		<property name="entityConverter" ref="operationTypeConverter" />
 		<property name="service" ref="operationTypeService" />
 	</bean>
 	
-	<bean id="adminUnitFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="adminUnitFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="adminUnitResourceConverter" />
 		<property name="entityConverter" ref="adminUnitConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="adminUnitService" />
 	</bean>
 
-	<bean id="assetFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="assetFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="assetResourceConverter" />
 		<property name="entityConverter" ref="assetConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="assetService" />
 	</bean>
 
-	<bean id="assetStateFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="assetStateFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="assetStateResourceConverter" />
 		<property name="entityConverter" ref="assetStateConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="assetStateService" />
 	</bean>
 
-	<bean id="assetStatusFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="assetStatusFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="assetStatusResourceConverter" />
 		<property name="entityConverter" ref="assetStatusConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="assetStatusService" />
 	</bean>
 
-	<bean id="assetTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="assetTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="assetTypeResourceConverter" />
 		<property name="entityConverter" ref="assetTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="assetTypeService" />
 	</bean>
 
-	<bean id="employeeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="employeeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="employeeResourceConverter" />
 		<property name="entityConverter" ref="employeeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="employeeService" />
 	</bean>
 
-	<bean id="enrolmentTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="enrolmentTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="enrolmentTypeResourceConverter" />
 		<property name="entityConverter" ref="enrolmentTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="enrolmentTypeService" />
 	</bean>
 
-	<bean id="enrolmentFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="enrolmentFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="enrolmentResourceConverter" />
 		<property name="entityConverter" ref="enrolmentConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="enrolmentService" />
 	</bean>
 
-	<bean id="addressTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="addressTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="addressTypeResourceConverter" />
 		<property name="entityConverter" ref="addressTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="addressTypeService" />
 	</bean>
 
-	<bean id="departmentFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="departmentFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="departmentResourceConverter" />
 		<property name="entityConverter" ref="departmentConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="departmentService" />
 	</bean>
 
-	<bean id="departmentTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="departmentTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="departmentTypeResourceConverter" />
 		<property name="entityConverter" ref="departmentTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="departmentTypeService" />
 	</bean>
 
-	<bean id="eduFormTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="eduFormTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="eduFormTypeResourceConverter" />
 		<property name="entityConverter" ref="eduFormTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="eduFormTypeService" />
 	</bean>
 
-	<bean id="enrolmentStatusTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="enrolmentStatusTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="enrolmentStatusTypeResourceConverter" />
 		<property name="entityConverter" ref="enrolmentStatusTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="enrolmentStatusTypeService" />
 	</bean>
 
-	<bean id="enrolmentSubjectFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="enrolmentSubjectFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="enrolmentSubjectResourceConverter" />
 		<property name="entityConverter" ref="enrolmentSubjectConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="enrolmentSubjectService" />
 	</bean>
 
-	<bean id="genderTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="genderTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="genderTypeResourceConverter" />
 		<property name="entityConverter" ref="genderTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="genderTypeService" />
 	</bean>
 
-	<bean id="jobTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="jobTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="jobTypeResourceConverter" />
 		<property name="entityConverter" ref="jobTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="jobTypeService" />
 	</bean>
 
-	<bean id="languageFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="languageFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="languageResourceConverter" />
 		<property name="entityConverter" ref="languageConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="languageService" />
 	</bean>
 
-	<bean id="marriedTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="marriedTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="marriedTypeResourceConverter" />
 		<property name="entityConverter" ref="marriedTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="marriedTypeService" />
 	</bean>
 
-	<bean id="partnerFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="partnerFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="partnerResourceConverter" />
 		<property name="entityConverter" ref="partnerConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="partnerService" />
 	</bean>
 
-	<bean id="personFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="personFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="personResourceConverter" />
 		<property name="entityConverter" ref="personConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="personService" />
 	</bean>
 
-	<bean id="personAddressFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="personAddressFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="personAddressResourceConverter" />
 		<property name="entityConverter" ref="personAddressConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="personAddressService" />
 	</bean>
 
-	<bean id="personAwardFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="personAwardFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="personAwardResourceConverter" />
 		<property name="entityConverter" ref="personAwardConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="personAwardService" />
 	</bean>
 
-	<bean id="personPaperFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="personPaperFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="personPaperResourceConverter" />
 		<property name="entityConverter" ref="personPaperConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="personPaperService" />
 	</bean>
 
-	<bean id="personNameFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="personNameFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="personNameResourceConverter" />
 		<property name="entityConverter" ref="personNameConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="personNameService" />
 	</bean>
 
-	<bean id="personTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="personTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="personTypeResourceConverter" />
 		<property name="entityConverter" ref="personTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="personTypeService" />
 	</bean>
 
-	<bean id="reasonFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="reasonFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="reasonResourceConverter" />
 		<property name="entityConverter" ref="reasonConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="reasonService" />
 	</bean>
 
-	<bean id="specialtyFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="specialtyFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="specialtyResourceConverter" />
 		<property name="entityConverter" ref="specialtyConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="specialtyService" />
 	</bean>
 
-	<bean id="specialtyTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="specialtyTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="specialtyTypeResourceConverter" />
 		<property name="entityConverter" ref="specialtyTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="specialtyTypeService" />
 	</bean>
 
-	<bean id="specOfferFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="specOfferFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="specOfferResourceConverter" />
 		<property name="entityConverter" ref="specOfferConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="specOfferService" />
 	</bean>
 
-	<bean id="specOfferSubjectFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="specOfferSubjectFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="specOfferSubjectResourceConverter" />
 		<property name="entityConverter" ref="specOfferSubjectConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="specOfferSubjectService" />
 	</bean>
 
-	<bean id="specOfferTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="specOfferTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="specOfferTypeResourceConverter" />
 		<property name="entityConverter" ref="specOfferTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="specOfferTypeService" />
 	</bean>
 	
-	<bean id="orderFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="orderFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="orderResourceConverter" />
 		<property name="entityConverter" ref="orderConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="orderService" />
 	</bean>
 
-	<bean id="orderTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="orderTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="orderTypeResourceConverter" />
 		<property name="entityConverter" ref="orderTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="orderTypeService" />
 	</bean>
 
-	<bean id="timePeriodFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="timePeriodFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="timePeriodResourceConverter" />
 		<property name="entityConverter" ref="timePeriodConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="timePeriodService" />
 	</bean>
 
-	<bean id="timePeriodTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="timePeriodTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="timePeriodTypeResourceConverter" />
 		<property name="entityConverter" ref="timePeriodTypeConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="timePeriodTypeService" />
 	</bean>
 
-	<bean id="specOfferBenefitFacade" class="org.lnu.is.facade.facade.DefaultFacade">
+	<bean id="specOfferBenefitFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="specOfferBenefitResourceConverter" />
 		<property name="entityConverter" ref="specOfferBenefitConverter" />
-		<property name="pagedRequestConverter" ref="pagedRequestConverter" />
-		<property name="pagedResultConverter" ref="pagedSearchConverter" />
-		<property name="insertConverter" ref="insertConverter" />
-		<property name="updateConverter" ref="updateConverter" />
 		<property name="service" ref="specOfferBenefitService" />
 	</bean>
 
