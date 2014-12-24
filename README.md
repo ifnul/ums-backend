@@ -213,6 +213,7 @@
 
 >*git push - записує зміни у репозиторій*
 
+>*git rev-list HEAD --count - Дістати кількість комітів за весь час*
 
 [посиланням]:http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
 [Eclipse]:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Fint_eclipse.htm

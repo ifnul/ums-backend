@@ -4,6 +4,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +23,10 @@ import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
+import org.springframework.web.servlet.HandlerMapping;
 
 
 /**
@@ -42,7 +47,6 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		ConvertUtils.register(dtConverter, Date.class);		
 	}
 	
-	
 	@Override
 	public boolean supportsParameter(final MethodParameter parameter) {
 		return PagedRequest.class.isAssignableFrom(parameter.getParameterType());
@@ -53,15 +57,52 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 			final ModelAndViewContainer mavContainer, final NativeWebRequest webRequest,
 			final WebDataBinderFactory binderFactory) throws Exception {
 		
-		HttpServletRequest httprequest = (HttpServletRequest) webRequest.getNativeRequest();
 		
-        Object resource = getResource(param, httprequest);
+		HttpServletRequest httprequest = (HttpServletRequest) webRequest.getNativeRequest();
+		Map<String, String> parameters = getRequestParameters(webRequest);
+        Object resource = getResource(param, parameters);
         Integer limit = getLimit(param, httprequest);
         Integer offset = getOffset(param, httprequest);
 		
         PagedRequest<Object> pagedRequest = new PagedRequest<Object>(resource, offset, limit);
 		return pagedRequest;
 	}
+
+	/**
+	 * Method for getting request parameters.
+	 * Parameters include path variables + request parameters.
+	 * Biggest priority is given to path variables.
+	 * @param webRequest
+	 * @return request parameters.
+	 */
+	private Map<String, String> getRequestParameters(final NativeWebRequest webRequest) {
+		Map<String, String> resultMap = new HashMap<String, String>();
+		
+		@SuppressWarnings("unchecked")
+		Map<String, String> pathVariables = (Map<String, String>) webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST);
+		Map<String, String[]> requestParams = webRequest.getParameterMap();
+		
+		for (Map.Entry<String, String[]> entry : requestParams.entrySet()) {
+			String value = getSingleValue(entry);
+			resultMap.put(entry.getKey(), value);
+		}
+		
+		resultMap.putAll(pathVariables);
+		
+		return resultMap;
+	}
+
+
+	/**
+	 * Return single value.
+	 * @param entry
+	 * @return single value.
+	 */
+	private String getSingleValue(final Entry<String, String[]> entry) {
+		String[] values = entry.getValue();
+		return values.length == 1 ? values[0] : null;
+	}
+
 
 	/**
 	 * Method for getting limit value.
@@ -126,14 +167,25 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 	 * @return resource.
 	 * @throws Exception exception.
 	 */
-	private Object getResource(final MethodParameter parameter, final HttpServletRequest httprequest) throws Exception {
+	private Object getResource(final MethodParameter parameter, final Map<String, String> parameters) throws Exception {
+		Object resource = getResourceInstance(parameter);
+		BeanUtils.populate(resource, parameters);
+
+		return resource;
+	}
+
+	/**
+	 * Method for getting resource instance.
+	 * @param parameter
+	 * @return resource instance.
+	 * @throws Exception exception
+	 */
+	private Object getResourceInstance(final MethodParameter parameter) throws Exception {
 		Type genericParameterType = parameter.getGenericParameterType();
         ParameterizedType parameterizedType = (ParameterizedType) genericParameterType;
         Class<?> clz = (Class<?>) parameterizedType.getActualTypeArguments()[0];
 		Object resource = clz.newInstance();
-
-		BeanUtils.populate(resource, httprequest.getParameterMap());
-
+		
 		return resource;
 	}
 

@@ -21,7 +21,7 @@ public class LimitAnnotationHandlerMethodArgumentResolver implements HandlerMeth
 
 	@Override
 	public boolean supportsParameter(final MethodParameter parameter) {
-		return parameter.getParameterAnnotation(Limit.class) != null;
+		return parameter.getParameterAnnotation(Limit.class) != null && Integer.class.isAssignableFrom(parameter.getParameterType());
 	}
 
 	@Override

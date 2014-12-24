@@ -21,7 +21,7 @@
 		<mvc:argument-resolvers>
 			<ref bean="offsetAnnotationHandlerMethodArgumentResolver" />
 			<ref bean="limitAnnotationHandlerMethodArgumentResolver" /> 
-			<!-- <ref bean="pagedRequestHandlerMethodArgumentResolver" /> -->
+			<ref bean="pagedRequestHandlerMethodArgumentResolver" />
 		</mvc:argument-resolvers>
 		<mvc:message-converters>
 			<ref bean="jsonMessageConverter" />

@@ -21,7 +21,7 @@ public class OffsetAnnotationHandlerMethodArgumentResolver implements HandlerMet
 
 	@Override
 	public boolean supportsParameter(final MethodParameter parameter) {
-		return parameter.getParameterAnnotation(Offset.class) != null;
+		return parameter.getParameterAnnotation(Offset.class) != null && Integer.class.isAssignableFrom(parameter.getParameterType());
 	}
 
 	@Override
