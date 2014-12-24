@@ -46,17 +46,17 @@ class IntegrationTest extends Simulation {
 		EnrolmentStatusTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		EnrolmentTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		EnrolmentSubjectIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		DepartmentTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
+		//DepartmentTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		GenderTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		LanguageIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		OrderTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		TimePeriodIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		TimePeriodTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		PartnerIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		SpecialtyTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		ReasonIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		OperationTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		SpecialtyIntegrationTest.scn.inject(injectStep).protocols(httpConf),
+		//SpecialtyTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
+		//ReasonIntegrationTest.scn.inject(injectStep).protocols(httpConf),
+		//OperationTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
+		//SpecialtyIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		AdminUnitIntegrationTest.scn.inject(injectStep).protocols(httpConf)
 	)
 }

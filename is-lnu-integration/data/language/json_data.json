@@ -9,19 +9,16 @@
 		    "resources": [
 		        {
 		            "id": 1,
-		            "abbrName": null,
 		            "name": "українська",
 		            "uri": "/languages/1"
 		        },
 		        {
 		            "id": 2,
-		            "abbrName": null,
 		            "name": "англійська",
 		            "uri": "/languages/2"
 		        },
 		        {
 		            "id": 3,
-		            "abbrName": null,
 		            "name": "російська",
 		            "uri": "/languages/3"
 		        }

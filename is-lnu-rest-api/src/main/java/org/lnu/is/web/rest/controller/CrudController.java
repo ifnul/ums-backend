@@ -26,13 +26,6 @@ public interface CrudController<RESOURCE> extends PagedController<RESOURCE> {
 	MessageResource updateResource(final Long id, RESOURCE resource);
 
 	/**
-	 * Method for getting resource.
-	 * @param id
-	 * @return resource.
-	 */
-	RESOURCE getResource(Long id);
-	
-	/**
 	 * Method for removing resource.
 	 * @param id
 	 * @return message about opearation.

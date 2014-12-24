@@ -85,19 +85,19 @@ public abstract class Model implements Serializable {
     }
 
     public Date getCreateDate() {
-        return new Date(createDate.getTime());
+        return createDate;
     }
 
     public void setCreateDate(final Date createDate) {
-        this.createDate = new Date(createDate.getTime());
+        this.createDate = createDate;
     }
 
     public Date getUpdateDate() {
-        return new Date(updateDate.getTime());
+        return updateDate;
     }
 
     public void setUpdateDate(final Date updateDate) {
-        this.updateDate = new Date(updateDate.getTime());
+        this.updateDate = updateDate;
     }
 
 	public RowStatus getStatus() {

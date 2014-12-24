@@ -12,6 +12,7 @@
 		<property name="pagedResultConverter" ref="pagedSearchConverter" />
 		<property name="updateConverter" ref="updateConverter" />
 		<property name="insertConverter" ref="insertConverter" />
+		<property name="entityDetailsConverter" ref="entityDetailsConverter"/>
 	</bean>
 
 	<bean id="operationTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">

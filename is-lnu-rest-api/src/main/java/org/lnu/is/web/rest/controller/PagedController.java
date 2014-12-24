@@ -17,4 +17,10 @@ public interface PagedController<RESOURCE> {
 	 */
 	PagedResultResource<RESOURCE> getPagedResource(PagedRequest<RESOURCE> request);
 	
+	/**
+	 * Method for getting resource.
+	 * @param id
+	 * @return resource.
+	 */
+	RESOURCE getResource(Long id);
 }

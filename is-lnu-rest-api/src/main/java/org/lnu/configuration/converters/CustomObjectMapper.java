@@ -1,5 +1,6 @@
 package org.lnu.configuration.converters;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
@@ -20,6 +21,8 @@ public class CustomObjectMapper extends ObjectMapper {
 	 */
 	public CustomObjectMapper() {
 		super();
+		setSerializationInclusion(Include.NON_NULL);
+
 		SimpleModule module = new SimpleModule("JSONModule", new Version(2, 1, 5, null, null, null));
 		module.addSerializer(ApiListing.class, new SwaggerApiListingJsonSerializer());
 		module.addSerializer(ResourceListing.class, new SwaggerResourceListingJsonSerializer());

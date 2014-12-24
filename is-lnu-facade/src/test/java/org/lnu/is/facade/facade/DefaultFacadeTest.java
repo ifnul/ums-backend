@@ -51,6 +51,9 @@ public class DefaultFacadeTest {
 	protected Converter<PagedRequest<PersonResource>, PagedSearch<Person>> pagedRequestConverter;
 
 	@Mock
+	private Converter<Person, PersonResource> entityDetailsConverter;
+	
+	@Mock
 	protected Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 
 	@InjectMocks
@@ -152,6 +155,7 @@ public class DefaultFacadeTest {
 		// Then
 		verify(service).getEntity(id);
 		verify(entityConverter).convert(person);
+		verify(entityDetailsConverter).convert(person, expected);
 		assertEquals(expected, actual);
 	}
 

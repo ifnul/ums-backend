@@ -11,61 +11,52 @@
 		            "id": 9,
 		            "abbrName": "ABITUR",
 		            "name": "Протоколи та накази на зарахування",
-		            "parentId": null,
 		            "uri": "/orders/types/9"
 		        },
 		        {
 		            "id": 1,
-		            "abbrName": null,
 		            "name": "Протокол основний",
 		            "parentId": 9,
 		            "uri": "/orders/types/1"
 		        },
 		        {
 		            "id": 2,
-		            "abbrName": null,
 		            "name": "Протокол додатковий",
 		            "parentId": 9,
 		            "uri": "/orders/types/2"
 		        },
 		        {
 		            "id": 3,
-		            "abbrName": null,
 		            "name": "Протокол на поновлення",
 		            "parentId": 9,
 		            "uri": "/orders/types/3"
 		        },
 		        {
 		            "id": 4,
-		            "abbrName": null,
 		            "name": "Протокол - іноземці",
 		            "parentId": 9,
 		            "uri": "/orders/types/4"
 		        },
 		        {
 		            "id": 5,
-		            "abbrName": null,
 		            "name": "Наказ основний",
 		            "parentId": 9,
 		            "uri": "/orders/types/5"
 		        },
 		        {
 		            "id": 6,
-		            "abbrName": null,
 		            "name": "Наказ додатковий",
 		            "parentId": 9,
 		            "uri": "/orders/types/6"
 		        },
 		        {
 		            "id": 7,
-		            "abbrName": null,
 		            "name": "Наказ на поновлення",
 		            "parentId": 9,
 		            "uri": "/orders/types/7"
 		        },
 		        {
 		            "id": 8,
-		            "abbrName": null,
 		            "name": "Наказ  іноземці",
 		            "parentId": 9,
 		            "uri": "/orders/types/8"

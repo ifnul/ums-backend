@@ -34,7 +34,9 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 	private Converter<PagedRequest<RESOURCE>, PagedSearch<ENTITY>> pagedRequestConverter;
 
 	private Converter<PagedResult<ENTITY>, PagedResultResource<RESOURCE>> pagedResultConverter;
-
+	
+	private Converter<ENTITY, RESOURCE> entityDetailsConverter;
+	
 	private Converter<RESOURCE, ENTITY> insertConverter;
 
 	private Converter<RESOURCE, ENTITY> updateConverter;
@@ -56,9 +58,13 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 	@Override
 	public RESOURCE getResource(final KEY id) {
 		LOG.info("Getting resource with id: {}", id);
-
+		
 		ENTITY entity = service.getEntity(id);
-		return entityConverter.convert(entity);
+		
+		RESOURCE resource = entityConverter.convert(entity);
+		entityDetailsConverter.convert(entity, resource);
+		
+		return resource;
 	}
 
 	@Override
@@ -131,9 +137,17 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 	}
 	
 	@Required
+	public void setEntityDetailsConverter(final Converter<ENTITY, RESOURCE> entityDetailsConverter) {
+		this.entityDetailsConverter = entityDetailsConverter;
+	}
 	public SERVICE getService() {
 		return service;
 	}
+
+	public Converter<ENTITY, RESOURCE> getEntityDetailsConverter() {
+		return entityDetailsConverter;
+	}
+
 
 	public void setUpdateConverter(final Converter<RESOURCE, ENTITY> updateConverter) {
 		this.updateConverter = updateConverter;
