@@ -38,11 +38,6 @@ public class AssetController extends BaseController implements CrudController<As
 	@Resource(name = "assetFacade")
 	private Facade<AssetResource, Long> facade;
 
-	/**
-	 * Method for creating new asset.
-	 * @param resource
-	 * @return asset with generated identifier.
-	 */
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
