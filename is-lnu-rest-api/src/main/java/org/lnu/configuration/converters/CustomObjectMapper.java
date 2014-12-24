@@ -1,5 +1,7 @@
 package org.lnu.configuration.converters;
 
+import org.lnu.is.web.rest.constant.Constants;
+
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,5 +30,7 @@ public class CustomObjectMapper extends ObjectMapper {
 		module.addSerializer(ResourceListing.class, new SwaggerResourceListingJsonSerializer());
 		
 		registerModule(module);
+		
+		setDateFormat(Constants.DATE_FORMAT);
 	}
 }
