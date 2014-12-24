@@ -2,13 +2,12 @@ package org.lnu.is.web.rest.controller.reason;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.reason.ReasonResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -28,26 +27,18 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/reasons")
 @Api("Reason Controller")
-public class ReasonController extends BaseController {
+public class ReasonController extends BaseController implements PagedController<ReasonResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(ReasonController.class);
 	
 	@Resource(name = "reasonFacade")
 	private Facade<ReasonResource, Long> facade;
 	
-	/**
-	 * Method for getting paged result of married types.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get All Reasons")
-	public PagedResultResource<ReasonResource> getReasons(@Offset final Integer offset,
-			@Limit final Integer limit, final ReasonResource resource) {
-		LOG.info("Getting PagedResultResource for Reasons with offset: {}, limit: {}", offset, limit);
-		PagedRequest<ReasonResource> request = new PagedRequest<ReasonResource>(resource, offset, limit);
+	public PagedResultResource<ReasonResource> getPagedResource(final PagedRequest<ReasonResource> request) {
+		LOG.info("Getting PagedResultResource for Reasons with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);	
 	}
 

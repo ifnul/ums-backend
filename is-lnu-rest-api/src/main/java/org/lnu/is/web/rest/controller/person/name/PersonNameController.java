@@ -2,8 +2,6 @@ package org.lnu.is.web.rest.controller.person.name;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
@@ -11,6 +9,7 @@ import org.lnu.is.facade.resource.person.name.PersonNameResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.CrudController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -30,91 +29,60 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/persons")
-public class PersonNameController extends BaseController {
+public class PersonNameController extends BaseController implements CrudController<PersonNameResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonNameController.class);
 	
 	@Resource(name = "personNameFacade")
 	private Facade<PersonNameResource, Long> facade;
 	
-	/**
-	 * Method for creating person name.
-	 * @param resource
-	 * @param personId
-	 * @return generated person name.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/{personId}/names", method = RequestMethod.POST)
 	@ApiOperation(value = "Create PersonName", position = 1)
-	public PersonNameResource createPersonName(@RequestBody final PersonNameResource resource,
-			@PathVariable("personId") final Long personId) {
+	public PersonNameResource createResource(@RequestBody final PersonNameResource resource) {
 		LOG.info("Creating personName: {}", resource);
 		return facade.createResource(resource);
 	}
 	
-	/**
-	 * Method for updating personName.
-	 * @param id
-	 * @param resource
-	 * @return message resource.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{personId}/names/{personNameId}", method = RequestMethod.PUT)
 	@ApiOperation(value = "Update PersonName", position = 2)
-	public MessageResource updatePersonName(@PathVariable("personId") final Long personId,
-			@PathVariable("personNameId") final Long personNameId,
+	public MessageResource updateResource(@PathVariable("personNameId") final Long personNameId,
  			@RequestBody final PersonNameResource resource) {
 		LOG.info("Updating personName with id: {}, {}", personNameId, resource);
-		
 		facade.updateResource(personNameId, resource);
 		return new MessageResource(MessageType.INFO, "Person Name Updated");
 	}
 	
-	/**
-	 * Method for getting personName by identifier.
-	 * @param id
-	 * @return personName.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{personId}/names/{personNameId}", method = RequestMethod.GET)
 	@ApiOperation(value = "Get PersonName by id", position = 3)
-	public PersonNameResource getPersonName(@PathVariable("personId") final Long personId,
-			@PathVariable("personNameId") final Long personNameId) {
+	public PersonNameResource getResource(@PathVariable("personNameId") final Long personNameId) {
 		LOG.info("Retrieving personName with id: {}", personNameId);
 		
 		return facade.getResource(personNameId);
 	}
 	
-	/**
-	 * Method for removing personName.
-	 * @param id
-	 * @return message resource.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/{personId}/names/{personNameId}", method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete PersonName")
-	public MessageResource removePersonName(@PathVariable("personId") final Long personId,
-			@PathVariable("personNameId") final Long personNameId) {
+	public MessageResource removeResource(@PathVariable("personNameId") final Long personNameId) {
 		LOG.info("Removing personName with id: {}", personNameId);
 		facade.removeResource(personNameId);
 		
 		return new MessageResource(MessageType.INFO, "PersonName removed");
 	}
 	
-	/**
-	 * Method for geting paged result of person names.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{personId}/names", method = RequestMethod.GET)
 	@ApiOperation(value = "Get PersonNames")
-	public PagedResultResource<PersonNameResource> getPersonNames(@Offset final Integer offset,
-			@Limit final Integer limit, final PersonNameResource resource) {
-		LOG.info("Retrieving PagedResultResource for PersonName:{} Resources with offset: {}, limit: {}", resource.getPersonId(), offset, limit);
-		PagedRequest<PersonNameResource> pagedRequest = new PagedRequest<PersonNameResource>(resource, offset, limit);
-		return facade.getResources(pagedRequest);
+	public PagedResultResource<PersonNameResource> getPagedResource(final PagedRequest<PersonNameResource> request) {
+		LOG.info("Retrieving PagedResultResource for PersonName:{} Resources with offset: {}, limit: {}", request.getResource().getPersonId(), request.getOffset(), request.getLimit());
+		return facade.getResources(request);
 	}
 	
 }

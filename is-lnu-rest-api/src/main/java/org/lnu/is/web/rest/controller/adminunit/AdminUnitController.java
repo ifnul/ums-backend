@@ -2,13 +2,12 @@ package org.lnu.is.web.rest.controller.adminunit;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.adminunit.AdminUnitResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -26,26 +25,18 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/adminunits")
-public class AdminUnitController extends BaseController {
+public class AdminUnitController extends BaseController implements PagedController<AdminUnitResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(AdminUnitController.class);
 	
 	@Resource(name = "adminUnitFacade")
 	private Facade<AdminUnitResource, Long> facade;
 	
-	/**
-	 * Method for getting paged result of married types.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
- 	@ResponseStatus(HttpStatus.OK)
+ 	@Override
+	@ResponseStatus(HttpStatus.OK)
  	@RequestMapping(method = RequestMethod.GET)
  	@ApiOperation(value = "Get All Married Types")
- 	public PagedResultResource<AdminUnitResource> getAdminUnits(@Offset final Integer offset,
- 			@Limit final Integer limit, final AdminUnitResource resource) {
- 		LOG.info("Getting PagedResultResource for Admin Unit Type with offset: {}, limit: {}", offset, limit);
- 		PagedRequest<AdminUnitResource> request = new PagedRequest<AdminUnitResource>(resource, offset, limit);
+ 	public PagedResultResource<AdminUnitResource> getPagedResource(final PagedRequest<AdminUnitResource> request) {
+ 		LOG.info("Getting PagedResultResource for Admin Unit Type with offset: {}, limit: {}", request.getOffset(), request.getLimit());
  		return facade.getResources(request);	
  	}
 

@@ -2,8 +2,6 @@ package org.lnu.is.web.rest.controller.specoffer.benefit;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
@@ -11,6 +9,7 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.benefit.SpecOfferBenefitResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.CrudController;
 import org.lnu.is.web.rest.controller.specoffer.subject.SpecOfferSubjectController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,38 +32,26 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/specoffers")
 @Api(value = "SpecOffer Benefits", description = "SpecOffer Benefits")
-public class SpecOfferBenefitController extends BaseController {
+public class SpecOfferBenefitController extends BaseController implements CrudController<SpecOfferBenefitResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOfferSubjectController.class);
 	
 	@Resource(name = "specOfferBenefitFacade")
 	private Facade<SpecOfferBenefitResource, Long> facade;
 
-	/**
-	 * Method for creating spec offer subject.
-	 * @param resource
-	 * @param specOfferId
-	 * @return generated person paper.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/{specOfferId}/benefits", method = RequestMethod.POST)
 	@ApiOperation(value = "Method for creating Spec Offer Benefit")
-	public SpecOfferBenefitResource createSpecOfferSubject(@RequestBody final SpecOfferBenefitResource resource,
-			@PathVariable("specOfferId") final Long specOfferId) {
+	public SpecOfferBenefitResource createResource(@RequestBody final SpecOfferBenefitResource resource) {
 		LOG.info("Creating spec offer subject: {}", resource);
 		return facade.createResource(resource);
 	}
 	
-	/**
-	 * Method for updating personBenefit.
-	 * @param id
-	 * @param resource
-	 * @return message resource.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{specOfferId}/benefits/{specOfferBenefitId}", method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Spec Offer Benefit", position = 2)
-	public MessageResource updateSpecOfferSubject(@PathVariable("specOfferId") final Long specOfferId,
-			@PathVariable("specOfferBenefitId") final Long specOfferBenefitId,
+	public MessageResource updateResource(@PathVariable("specOfferBenefitId") final Long specOfferBenefitId,
  			@RequestBody final SpecOfferBenefitResource resource) {
 		LOG.info("Updating spec offer subject with id: {}, {}", specOfferBenefitId, resource);
 		
@@ -72,53 +59,34 @@ public class SpecOfferBenefitController extends BaseController {
 		return new MessageResource(MessageType.INFO, "Spec Offer Benefit Updated");
 	}
 	
-	/**
-	 * Method for getting personBenefit by identifier.
-	 * @param id
-	 * @return personBenefit.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{specOfferId}/benefits/{specOfferBenefitId}", method = RequestMethod.GET)
 	@ApiOperation(value = "Get Spec Offer Benefits by spec offer id", position = 3)
-	public SpecOfferBenefitResource getSubject(@PathVariable("specOfferId") final Long specOfferId,
-			@PathVariable("specOfferBenefitId") final Long specOfferBenefitId) {
+	public SpecOfferBenefitResource getResource(@PathVariable("specOfferBenefitId") final Long specOfferBenefitId) {
 		LOG.info("Retrieving Spec Offer Subject with id: {}", specOfferBenefitId);
 		
 		return facade.getResource(specOfferBenefitId);
 	}
 	
-	/**
-	 * Method for removing personBenefit.
-	 * @param id
-	 * @return message resource.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/{specOfferId}/benefits/{specOfferBenefitId}", method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete Spec Offer Benefit", position = 4)
-	public MessageResource removeSpecOfferSubject(@PathVariable("specOfferId") final Long specOfferId,
-			@PathVariable("specOfferBenefitId") final Long specOfferBenefitId) {
+	public MessageResource removeResource(@PathVariable("specOfferBenefitId") final Long specOfferBenefitId) {
 		LOG.info("Removing Spec Offer Subject with id: {}", specOfferBenefitId);
 		facade.removeResource(specOfferBenefitId);
 		
 		return new MessageResource(MessageType.INFO, "SpecOfferBenefit removed");
 	}
 	
-	/**
-	 * Method for geting paged result of person papers.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{specOfferId}/benefits", method = RequestMethod.GET)
 	@ApiOperation(value = "Get Spec Offer Benefits", position = 5)
-	public PagedResultResource<SpecOfferBenefitResource> getSpecOfferBenefits(@Offset final Integer offset,
-			@Limit(value = "limit", defaultValue = "20") final Integer limit,
-			final SpecOfferBenefitResource resource) {
-		LOG.info("Retrieving PagedResultResource for Spec Offer Subject:{} Resources with offset: {}, limit: {}", resource.getSpecOfferId(), offset, limit);
-		PagedRequest<SpecOfferBenefitResource> pagedRequest = new PagedRequest<SpecOfferBenefitResource>(resource, offset, limit);
-		
-		return facade.getResources(pagedRequest);
+	public PagedResultResource<SpecOfferBenefitResource> getPagedResource(final PagedRequest<SpecOfferBenefitResource> request) {
+		LOG.info("Retrieving PagedResultResource for Spec Offer Subject:{} Resources with offset: {}, limit: {}", 
+				request.getResource().getSpecOfferId(), request.getOffset(), request.getLimit());
+		return facade.getResources(request);
 	}
 }

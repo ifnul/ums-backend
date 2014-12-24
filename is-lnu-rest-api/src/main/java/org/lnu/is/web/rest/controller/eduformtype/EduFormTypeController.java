@@ -3,12 +3,12 @@ package org.lnu.is.web.rest.controller.eduformtype;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -28,27 +28,18 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/eduformtypes")
 @Api("Education Form Types")
-public class EduFormTypeController extends BaseController {
+public class EduFormTypeController extends BaseController implements PagedController<EduFormTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(EduFormTypeController.class);
 	
 	@Resource(name = "eduFormTypeFacade")
 	private Facade<EduFormTypeResource, Long> facade;
-	
-	/**
-	 * Method for getting paged result.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
+
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get Education Form Types")
-	public PagedResultResource<EduFormTypeResource> getEduFormTypes(
-			@Offset final Integer offset,
-			@Limit(defaultValue = "38") final Integer limit, final EduFormTypeResource resource) {
-		LOG.info("Getting Paged Result of  Edu Form Type with  offset: {}, limit: {}", offset, limit);
-		PagedRequest<EduFormTypeResource> request = new PagedRequest<EduFormTypeResource>(resource, offset, limit);
+	public PagedResultResource<EduFormTypeResource> getPagedResource(@Limit(defaultValue = "38") final PagedRequest<EduFormTypeResource> request) {
+		LOG.info("Getting Paged Result of  Edu Form Type with  offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
 	}
 }

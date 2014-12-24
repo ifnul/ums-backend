@@ -2,8 +2,6 @@ package org.lnu.is.web.rest.controller.enrolment;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.enrolment.EnrolmentResource;
 import org.lnu.is.facade.resource.message.MessageResource;
@@ -12,6 +10,7 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.CrudController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -34,81 +33,58 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/enrolments")
 @Api(value = "Enrolments", description = "Enrolments", position = 2)
-public class EnrolmentController extends BaseController {
+public class EnrolmentController extends BaseController implements CrudController<EnrolmentResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(EnrolmentController.class);
 
 	@Resource(name = "enrolmentFacade")
 	private Facade<EnrolmentResource, Long> facade;
 
-	/**
-	 * Method for creating Enrolment.
-	 * 
-	 * @param enrolmentResource
-	 * @return enrolment resource
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Enrolment", position = 1)
-	public EnrolmentResource createEnrolment(@RequestBody final EnrolmentResource enrolmentResource) {
+	public EnrolmentResource createResource(@RequestBody final EnrolmentResource enrolmentResource) {
 		LOG.info("Creating enrolment : {} ", enrolmentResource);
 		return facade.createResource(enrolmentResource);
 	}
-	/**
-	 * Method for updating Enrolment.
-	 * @param id
-	 * @param enrolmentResource
-	 * @return Message resource
-	 */
+
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Enrolment", position = 2)
-	public MessageResource updateEnrolment(@PathVariable("id") final Long id, 
-			@RequestBody final EnrolmentResource enrolmentResource) {
-		LOG.info("Updating enrolment with id : {} , {} ", id, enrolmentResource);
-		facade.updateResource(id, enrolmentResource);
+	public MessageResource updateResource(@PathVariable("id") final Long id, 
+			@RequestBody final EnrolmentResource resource) {
+		LOG.info("Updating enrolment with id : {} , {} ", id, resource);
+		facade.updateResource(id, resource);
 		return new MessageResource(MessageType.INFO, "Enrolment Updated");
 	}
 
-	/**
-	 * Method for retrieving Enrolment.
-	 * @param id
-	 * @return Enrolment resource
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get Enrolment", position = 3)
-	public EnrolmentResource getEnrolment(@PathVariable("id") final Long id) {
+	public EnrolmentResource getResource(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving enrolment with id : {} ", id);
 		return facade.getResource(id);
 	}
-	/**
-	 * Method for removing Enrolment.
-	 * @param id
-	 * @return Message resource
-	 */
+	
+	@Override
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = Request.ID, method = RequestMethod.DELETE)
 	@ApiOperation(value = "Remove Enrolment", position = 4)
-	public MessageResource removeEnrolment(@PathVariable("id") final Long id) {
+	public MessageResource removeResource(@PathVariable("id") final Long id) {
 		LOG.info("Removing enrolment with id : {} ", id);
 		facade.removeResource(id);
 		return new MessageResource(MessageType.INFO, "Enrolment Removed");
 	}
-	/**
-	 * Method for retrieving all Enrolments.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return Paged Result Resource
-	 */
+
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation(value = "Get Enrolments", position = 5)
-	public PagedResultResource<EnrolmentResource> getEnrolments(@Offset final Integer offset,
-			@Limit final Integer limit, final EnrolmentResource resource) {
-		LOG.info("Retrieving enrolments with offset {}, limit {} ", offset, limit);
-		PagedRequest<EnrolmentResource> pagedRequest = new PagedRequest<EnrolmentResource>(resource, offset, limit);
-		return facade.getResources(pagedRequest);
+	@ApiOperation(value = "Get Enrolments")
+	public PagedResultResource<EnrolmentResource> getPagedResource(final PagedRequest<EnrolmentResource> request) {
+		LOG.info("Retrieving enrolments with offset {}, limit {} ", request.getOffset(), request.getLimit());
+		return facade.getResources(request);
 	}
 
 }

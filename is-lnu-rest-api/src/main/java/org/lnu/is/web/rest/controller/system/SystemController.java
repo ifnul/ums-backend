@@ -1,4 +1,4 @@
-package org.lnu.is.web.rest.controller;
+package org.lnu.is.web.rest.controller.system;
 
 import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_EXCEPTION;
 import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_MESSAGE;

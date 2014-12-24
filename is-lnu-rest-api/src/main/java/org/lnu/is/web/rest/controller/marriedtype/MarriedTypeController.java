@@ -2,13 +2,12 @@ package org.lnu.is.web.rest.controller.marriedtype;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.marriedtype.MarriedTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -28,27 +27,19 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/marriedtypes")
 @Api(value = "Married Types", description = "Married Types")
-public class MarriedTypeController extends BaseController {
+public class MarriedTypeController extends BaseController implements PagedController<MarriedTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(MarriedTypeController.class);
 	
 	@Resource(name = "marriedTypeFacade")
 	private Facade<MarriedTypeResource, Long> facade;
 	
-	/**
-	 * Method for getting paged result of married types.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get All Married Types")
-	public PagedResultResource<MarriedTypeResource> getMarriedTypes(@Offset final Integer offset,
-			@Limit final Integer limit, final MarriedTypeResource resource) {
-		LOG.info("Getting PagedResultResource for Married Type with offset: {}, limit: {}", offset, limit);
-		PagedRequest<MarriedTypeResource> request = new PagedRequest<MarriedTypeResource>(resource, offset, limit);
-		return facade.getResources(request);	
+	public PagedResultResource<MarriedTypeResource> getPagedResource(final PagedRequest<MarriedTypeResource> request) {
+		LOG.info("Getting PagedResultResource for Married Type with offset: {}, limit: {}", request.getOffset(), request.getLimit());
+		return facade.getResources(request);
 	}
 
 }

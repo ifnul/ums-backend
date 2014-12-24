@@ -2,13 +2,12 @@ package org.lnu.is.web.rest.controller.department.type;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.department.type.DepartmentTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -28,27 +27,18 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/departments/types")
 @Api("Department Type Controller")
-public class DepartmentTypeController extends BaseController {
+public class DepartmentTypeController extends BaseController implements PagedController<DepartmentTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(DepartmentTypeController.class);
 
 	@Resource(name = "departmentTypeFacade")
 	private Facade<DepartmentTypeResource, Long> facade;
 
-	/**
-	 * Method for getting gender types.
-	 * 
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get All Gender Types")
-	public PagedResultResource<DepartmentTypeResource> getGenderTypes(@Offset final Integer offset,
-			@Limit final Integer limit, final DepartmentTypeResource resource) {
-		LOG.info("Getting PagedResultResource for Department Type with  offset: {}, limit: {}", offset, limit);
-		PagedRequest<DepartmentTypeResource> request = new PagedRequest<DepartmentTypeResource>(resource, offset, limit);
+	public PagedResultResource<DepartmentTypeResource> getPagedResource(final PagedRequest<DepartmentTypeResource> request) {
+		LOG.info("Getting PagedResultResource for Department Type with  offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
 	}
 

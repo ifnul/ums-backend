@@ -2,8 +2,6 @@ package org.lnu.is.web.rest.controller.specoffer.subject;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.message.MessageResource;
 import org.lnu.is.facade.resource.message.MessageType;
@@ -11,6 +9,7 @@ import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.subject.SpecOfferSubjectResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.CrudController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -32,38 +31,26 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/specoffers")
 @Api(value = "SpecOffer Subjects", description = "SpecOffer Subjects")
-public class SpecOfferSubjectController extends BaseController {
+public class SpecOfferSubjectController extends BaseController implements CrudController<SpecOfferSubjectResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOfferSubjectController.class);
 	
 	@Resource(name = "specOfferSubjectFacade")
 	private Facade<SpecOfferSubjectResource, Long> facade;
 
-	/**
-	 * Method for creating spec offer subject.
-	 * @param resource
-	 * @param specOfferId
-	 * @return generated person paper.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/{specOfferId}/subjects", method = RequestMethod.POST)
 	@ApiOperation(value = "Method for creating Spec Offer Subject")
-	public SpecOfferSubjectResource createSpecOfferSubject(@RequestBody final SpecOfferSubjectResource resource,
-			@PathVariable("specOfferId") final Long specOfferId) {
+	public SpecOfferSubjectResource createResource(@RequestBody final SpecOfferSubjectResource resource) {
 		LOG.info("Creating spec offer subject: {}", resource);
 		return facade.createResource(resource);
 	}
 	
-	/**
-	 * Method for updating personPaper.
-	 * @param id
-	 * @param resource
-	 * @return message resource.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{specOfferId}/subjects/{specOfferSubjectId}", method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Spec Offer Subject", position = 2)
-	public MessageResource updateSpecOfferSubject(@PathVariable("specOfferId") final Long specOfferId,
-			@PathVariable("specOfferSubjectId") final Long specOfferSubjectId,
+	public MessageResource updateResource(@PathVariable("specOfferSubjectId") final Long specOfferSubjectId,
  			@RequestBody final SpecOfferSubjectResource resource) {
 		LOG.info("Updating spec offer subject with id: {}, {}", specOfferSubjectId, resource);
 		
@@ -71,53 +58,34 @@ public class SpecOfferSubjectController extends BaseController {
 		return new MessageResource(MessageType.INFO, "Spec Offer Subject Updated");
 	}
 	
-	/**
-	 * Method for getting personPaper by identifier.
-	 * @param id
-	 * @return personPaper.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{specOfferId}/subjects/{specOfferSubjectId}", method = RequestMethod.GET)
 	@ApiOperation(value = "Get Spec Offer Subjects by spec offer id", position = 3)
-	public SpecOfferSubjectResource getSubject(@PathVariable("specOfferId") final Long specOfferId,
-			@PathVariable("specOfferSubjectId") final Long specOfferSubjectId) {
+	public SpecOfferSubjectResource getResource(@PathVariable("specOfferSubjectId") final Long specOfferSubjectId) {
 		LOG.info("Retrieving Spec Offer Subject with id: {}", specOfferSubjectId);
 		
 		return facade.getResource(specOfferSubjectId);
 	}
 	
-	/**
-	 * Method for removing personPaper.
-	 * @param id
-	 * @return message resource.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/{specOfferId}/subjects/{specOfferSubjectId}", method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete Spec Offer Subject", position = 4)
-	public MessageResource removeSpecOfferSubject(@PathVariable("specOfferId") final Long specOfferId,
-			@PathVariable("specOfferSubjectId") final Long specOfferSubjectId) {
+	public MessageResource removeResource(@PathVariable("specOfferSubjectId") final Long specOfferSubjectId) {
 		LOG.info("Removing Spec Offer Subject with id: {}", specOfferSubjectId);
 		facade.removeResource(specOfferSubjectId);
 		
 		return new MessageResource(MessageType.INFO, "SpecOfferSubject removed");
 	}
 	
-	/**
-	 * Method for geting paged result of person papers.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{specOfferId}/subjects", method = RequestMethod.GET)
-	@ApiOperation(value = "Get Spec Offer Subjects", position = 5)
-	public PagedResultResource<SpecOfferSubjectResource> getSpecOfferSubjects(@Offset final Integer offset,
-			@Limit final Integer limit,
-			final SpecOfferSubjectResource resource) {
-		LOG.info("Retrieving PagedResultResource for Spec Offer Subject:{} Resources with offset: {}, limit: {}", resource.getSpecOfferId(), offset, limit);
-		PagedRequest<SpecOfferSubjectResource> pagedRequest = new PagedRequest<SpecOfferSubjectResource>(resource, offset, limit);
-		
-		return facade.getResources(pagedRequest);
+	@ApiOperation(value = "Get Spec Offer Subjects")
+	public PagedResultResource<SpecOfferSubjectResource> getPagedResource(final PagedRequest<SpecOfferSubjectResource> request) {
+		LOG.info("Retrieving PagedResultResource for Spec Offer Subject:{} Resources with offset: {}, limit: {}", 
+				request.getResource().getSpecOfferId(), request.getOffset(), request.getLimit());
+		return facade.getResources(request);
 	}
 }

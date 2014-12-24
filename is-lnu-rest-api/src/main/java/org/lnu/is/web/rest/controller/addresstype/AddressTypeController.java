@@ -2,13 +2,12 @@ package org.lnu.is.web.rest.controller.addresstype;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.addresstype.AddressTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -29,28 +28,18 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/addresstypes")
 @ApiModel(value = "Address Types", description = "Address Types")
-public class AddressTypeController extends BaseController {
+public class AddressTypeController extends BaseController implements PagedController<AddressTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(AddressTypeController.class);
 
 	@Resource(name = "addressTypeFacade")
 	private Facade<AddressTypeResource, Long> facade;
 
-	/**
-	 * Method for getting Address Types.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result 
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get All Address Types")
-	public PagedResultResource<AddressTypeResource> getAddressTypes(
-			@Offset final Integer offset, @Limit final Integer limit,
-			final AddressTypeResource resource) {
-		LOG.info("Getting PagedResultResource for Address Tyoe with offset: {}, limit: {}", offset, limit);
-		PagedRequest<AddressTypeResource> request = new PagedRequest<AddressTypeResource>(resource, offset, limit);
-		
+	public PagedResultResource<AddressTypeResource> getPagedResource(final PagedRequest<AddressTypeResource> request) {
+		LOG.info("Getting PagedResultResource for Address Tyoe with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
 	}
 }

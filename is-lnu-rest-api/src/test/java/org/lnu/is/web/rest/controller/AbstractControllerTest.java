@@ -3,6 +3,7 @@ package org.lnu.is.web.rest.controller;
 import org.junit.Before;
 import org.lnu.is.web.rest.processor.resolver.LimitAnnotationHandlerMethodArgumentResolver;
 import org.lnu.is.web.rest.processor.resolver.OffsetAnnotationHandlerMethodArgumentResolver;
+import org.lnu.is.web.rest.processor.resolver.PagedRequestHandlerMethodArgumentResolver;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -20,8 +21,9 @@ public abstract class AbstractControllerTest {
 	public void setup() {
 		OffsetAnnotationHandlerMethodArgumentResolver offsetAnnotationHandlerMethodArgumentResolver = new OffsetAnnotationHandlerMethodArgumentResolver();
 		LimitAnnotationHandlerMethodArgumentResolver limitAnnotationHandlerMethodArgumentResolver = new LimitAnnotationHandlerMethodArgumentResolver();
+		PagedRequestHandlerMethodArgumentResolver pagedRequestHandlerMethodArgumentResolver = new PagedRequestHandlerMethodArgumentResolver();
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
-				.setCustomArgumentResolvers(offsetAnnotationHandlerMethodArgumentResolver, limitAnnotationHandlerMethodArgumentResolver)
+				.setCustomArgumentResolvers(offsetAnnotationHandlerMethodArgumentResolver, limitAnnotationHandlerMethodArgumentResolver, pagedRequestHandlerMethodArgumentResolver)
 				.build();
 	}
 	

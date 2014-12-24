@@ -2,13 +2,12 @@ package org.lnu.is.web.rest.controller.order.type;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.order.type.OrderTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -26,26 +25,18 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/orders/types")
-public class OrderTypeController extends BaseController {
+public class OrderTypeController extends BaseController implements PagedController<OrderTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(OrderTypeController.class);
 	
 	@Resource(name = "orderTypeFacade")
 	private Facade<OrderTypeResource, Long> facade;
 	
-	/**
-	 * Method for getting paged result of order types.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get All Order Types")
-	public PagedResultResource<OrderTypeResource> getOrderTypes(@Offset final Integer offset,
-			@Limit final Integer limit, final OrderTypeResource resource) {
-		LOG.info("Getting PagedResultResource for Order Type with offset: {}, limit: {}", offset, limit);
-		PagedRequest<OrderTypeResource> request = new PagedRequest<OrderTypeResource>(resource, offset, limit);
+	public PagedResultResource<OrderTypeResource> getPagedResource(final PagedRequest<OrderTypeResource> request) {
+		LOG.info("Getting PagedResultResource for Order Type with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);	
 	}
 

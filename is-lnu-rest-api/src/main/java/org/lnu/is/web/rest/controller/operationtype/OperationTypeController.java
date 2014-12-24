@@ -2,13 +2,12 @@ package org.lnu.is.web.rest.controller.operationtype;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.operationtype.OperationTypeResource;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -30,28 +29,19 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/operationtypes")
 @Api(value = "Operation Types", description = "Operation Types")
-public class OperationTypeController extends BaseController {
+public class OperationTypeController extends BaseController implements PagedController<OperationTypeResource> {
 
 	private static final Logger LOG = LoggerFactory.getLogger(OperationTypeController.class);
 
 	@Resource(name = "operationTypeFacade")
 	private Facade<OperationTypeResource, Long> facade;
 
-	/**
-	 * Method for getting paged result of operation types.
-	 * 
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get All Operation Types")
-	public PagedResultResource<OperationTypeResource> getOperationTypes(@Offset final Integer offset,
-			@Limit final Integer limit, final OperationTypeResource resource) {
-		LOG.info("Getting PagedResultResource for Operation Type with offset: {}, limit: {}", offset, limit);
-		PagedRequest<OperationTypeResource> request = new PagedRequest<OperationTypeResource>(resource, offset, limit);
+	public PagedResultResource<OperationTypeResource> getPagedResource(final PagedRequest<OperationTypeResource> request) {
+		LOG.info("Getting PagedResultResource for Operation Type with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
 	}
 

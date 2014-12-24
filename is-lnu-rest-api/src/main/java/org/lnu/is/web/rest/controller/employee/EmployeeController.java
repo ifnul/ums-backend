@@ -2,8 +2,6 @@ package org.lnu.is.web.rest.controller.employee;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.facade.annotations.Limit;
-import org.lnu.is.facade.annotations.Offset;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.facade.resource.employee.EmployeeResource;
 import org.lnu.is.facade.resource.message.MessageResource;
@@ -11,6 +9,7 @@ import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.CrudController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -32,84 +31,57 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/employees")
 @Api("Employee")
-public class EmployeeController extends BaseController {
+public class EmployeeController extends BaseController implements CrudController<EmployeeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(EmployeeController.class);
 
 	@Resource(name = "employeeFacade")
 	private Facade<EmployeeResource, Long> facade;
 
-	/**
-	 * Method for creating new employee.
-	 * @param resource
-	 * @return employee with generated identifier.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Employee", position = 1)
-	public EmployeeResource createEmployee(@RequestBody final EmployeeResource resource) {
+	public EmployeeResource createResource(@RequestBody final EmployeeResource resource) {
 		LOG.info("Creating employee: {}", resource);
 		return facade.createResource(resource);
 	}
 
-	/**
-	 * Method for updating employee.
-	 * @param id
-	 * @param resource
-	 * @return message resource.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Employee", position = 2)
-	public MessageResource updateEmployee(@PathVariable("id") final Long id,
+	public MessageResource updateResource(@PathVariable("id") final Long id,
 			@RequestBody final EmployeeResource resource) {
 		LOG.info("Updating employee with id: {}, {}", id, resource);
 		facade.updateResource(id, resource);
 		return new MessageResource(MessageType.INFO, "Employee Updated");
 	}
 
-	/**
-	 * Method for getting employee by identifier.
-	 * @param id
-	 * @return employee.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ApiOperation(value = "Get Employee by id", position = 3)
-	public EmployeeResource getEmployee(@PathVariable("id") final Long id) {
+	public EmployeeResource getResource(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving employee with id: {}", id);
 		return facade.getResource(id);
 	}
 
-	/**
-	 * Method for removing employee.
-	 * @param id
-	 * @return message resource.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete Employee", position = 4)
-	public MessageResource removeEmployee(@PathVariable("id") final Long id) {
+	public MessageResource removeResource(@PathVariable("id") final Long id) {
 		LOG.info("Removing employee with id: {}", id);
 		facade.removeResource(id);
 		return new MessageResource(MessageType.INFO, "Employee removed");
 	}
 
-	/**
-	 * Method for geting paged result of employees.
-	 * 
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
+	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get Employees", position = 5)
-	public PagedResultResource<EmployeeResource> getEmployees(
-			@Offset final Integer offset,
-			@Limit final Integer limit, final EmployeeResource resource) {
-		LOG.info("Retrieving PagedResultResource for Employee Resources with offset: {}, limit: {}", offset, limit);
-		PagedRequest<EmployeeResource> pagedRequest = new PagedRequest<EmployeeResource>(resource, offset, limit);
-		return facade.getResources(pagedRequest);
+	public PagedResultResource<EmployeeResource> getPagedResource(final PagedRequest<EmployeeResource> request) {
+		LOG.info("Retrieving PagedResultResource for Employee Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
+		return facade.getResources(request);
 	}
 }
