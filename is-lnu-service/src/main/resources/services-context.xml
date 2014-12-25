@@ -16,6 +16,11 @@
 		<property name="dao" ref="adminUnitDao"/>
 	</bean>
 
+	<bean id="adminUnitTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="adminUnitTypeParametersExtractor"/>
+		<property name="dao" ref="adminUnitTypeDao"/>
+	</bean>
+
 	<bean id="assetService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="assetParametersExtractor"/>
 		<property name="dao" ref="assetDao"/>

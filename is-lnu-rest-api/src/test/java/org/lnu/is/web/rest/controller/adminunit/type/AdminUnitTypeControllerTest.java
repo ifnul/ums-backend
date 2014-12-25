@@ -1,0 +1,77 @@
+package org.lnu.is.web.rest.controller.adminunit.type;
+
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.lnu.is.facade.facade.Facade;
+import org.lnu.is.facade.resource.adminunit.type.AdminUnitTypeResource;
+import org.lnu.is.facade.resource.search.PagedRequest;
+import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.web.rest.controller.AbstractControllerTest;
+import org.lnu.is.web.rest.controller.BaseController;
+import org.mockito.InjectMocks;
+import org.mockito.Matchers;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AdminUnitTypeControllerTest extends AbstractControllerTest {
+
+	@Mock
+	private Facade<AdminUnitTypeResource, Long> facade;
+
+	@InjectMocks
+	private AdminUnitTypeController unit;
+
+	@Override
+	protected BaseController getUnit() {
+		return unit;
+	}
+	
+	@Test
+	public void testGetAdminUnitTypes() throws Exception {
+		// Given
+		String name = "AddressN";
+		Integer offset = 0;
+		Integer limit = 20;
+		long count = 1;
+
+		AdminUnitTypeResource resource = new AdminUnitTypeResource();
+		resource.setName(name);
+
+		List<AdminUnitTypeResource> entities = Arrays.asList(resource);
+		PagedResultResource<AdminUnitTypeResource> expected = new PagedResultResource<>("/adminunits/types");
+		expected.setResources(entities);
+		expected.setCount(count);
+		expected.setLimit(limit);
+		expected.setOffset(offset);
+
+		AdminUnitTypeResource paramResource = new AdminUnitTypeResource();
+		paramResource.setName(name);
+
+		PagedRequest<AdminUnitTypeResource> request = new PagedRequest<AdminUnitTypeResource>(
+				paramResource, offset, limit);
+
+		// When
+		when(facade.getResources(Matchers.<PagedRequest<AdminUnitTypeResource>> any())).thenReturn(expected);
+		String response = getJson(expected, false);
+
+		// Then
+		mockMvc.perform(get("/adminunits/types")
+				.param("name", name))
+				.andExpect(status().isOk())
+				.andExpect(content().string(response));
+
+		verify(facade).getResources(request);
+
+	}
+
+}

@@ -94,7 +94,7 @@
 		
 		<!-- Admin Unit related entities -->        
         <class>org.lnu.is.domain.adminunit.AdminUnit</class>
-        <class>org.lnu.is.domain.adminunittype.AdminUnitType</class>
+        <class>org.lnu.is.domain.adminunit.type.AdminUnitType</class>
 		
 		<!-- Post related entities -->
         <class>org.lnu.is.domain.post.Post</class> 

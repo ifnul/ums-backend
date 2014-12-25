@@ -1,7 +1,7 @@
 package org.lnu.is.facade.converter.adminunit;
 
 import org.lnu.is.domain.adminunit.AdminUnit;
-import org.lnu.is.domain.adminunittype.AdminUnitType;
+import org.lnu.is.domain.adminunit.type.AdminUnitType;
 import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
 import org.lnu.is.facade.resource.adminunit.AdminUnitResource;

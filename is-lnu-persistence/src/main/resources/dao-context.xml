@@ -268,7 +268,8 @@
 
 	<bean id="adminUnitTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
-		<property name="entityClass" value="org.lnu.is.domain.adminunittype.AdminUnitType" />
+		<property name="entityClass" value="org.lnu.is.domain.adminunit.type.AdminUnitType" />
+		<property name="queryBuilder" ref="adminUnitTypeQueryBuilder" />
 	</bean>
 
 	<bean id="languageDao" class="org.lnu.is.dao.dao.DefaultDao">

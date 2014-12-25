@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.adminunit.AdminUnit;
-import org.lnu.is.domain.adminunittype.AdminUnitType;
+import org.lnu.is.domain.adminunit.type.AdminUnitType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**
