@@ -31,7 +31,7 @@ public class BenefitQueryBuilder implements QueryBuilder<Benefit>  {
 				.addOrCondition(BENEFITTYPE_CONDITION, context.getBenefitType())
 				.addOrCondition(PARENT_CONDITION, context.getParent())
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBRNAME_CONDITION, context.getName())
+				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
 				.addOrCondition(DESCRIPTION_CONDITION, context.getDescription())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
 				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
