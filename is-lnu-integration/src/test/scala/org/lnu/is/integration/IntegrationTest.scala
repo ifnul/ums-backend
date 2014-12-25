@@ -25,6 +25,7 @@ import org.lnu.is.integration.asset.state.AssetStateIntegrationTest
 import org.lnu.is.integration.asset.status.AssetStatusIntegrationTest
 import org.lnu.is.integration.specialty.SpecialtyIntegrationTest
 import org.lnu.is.integration.adminunit.AdminUnitIntegrationTest
+import org.lnu.is.integration.benefit.BenefitIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -35,28 +36,29 @@ class IntegrationTest extends Simulation {
 	val injectStep = atOnceUsers(1);
 	
 	setUp(
-		AssetTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		AssetStatusIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		AssetStateIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		PersonIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		PersonNameIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		PersonTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		EduFormTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		AddressTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		EnrolmentStatusTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		EnrolmentTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		EnrolmentSubjectIntegrationTest.scn.inject(injectStep).protocols(httpConf),
+		AssetTypeIntegrationTest.scn.inject(injectStep),
+		AssetStatusIntegrationTest.scn.inject(injectStep),
+		AssetStateIntegrationTest.scn.inject(injectStep),
+		PersonIntegrationTest.scn.inject(injectStep),
+		PersonNameIntegrationTest.scn.inject(injectStep),
+		PersonTypeIntegrationTest.scn.inject(injectStep),
+		EduFormTypeIntegrationTest.scn.inject(injectStep),
+		AddressTypeIntegrationTest.scn.inject(injectStep),
+		EnrolmentStatusTypeIntegrationTest.scn.inject(injectStep),
+		EnrolmentTypeIntegrationTest.scn.inject(injectStep),
+		EnrolmentSubjectIntegrationTest.scn.inject(injectStep),
+		GenderTypeIntegrationTest.scn.inject(injectStep),
+		LanguageIntegrationTest.scn.inject(injectStep),
+		OrderTypeIntegrationTest.scn.inject(injectStep),
+		TimePeriodIntegrationTest.scn.inject(injectStep),
+		TimePeriodTypeIntegrationTest.scn.inject(injectStep),
+		PartnerIntegrationTest.scn.inject(injectStep),
+		AdminUnitIntegrationTest.scn.inject(injectStep).protocols(httpConf)
+		//BenefitIntegrationTest.scn.inject(injectStep),
 		//DepartmentTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		GenderTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		LanguageIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		OrderTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		TimePeriodIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		TimePeriodTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		PartnerIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		//SpecialtyTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		//ReasonIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		//OperationTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		//SpecialtyIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		AdminUnitIntegrationTest.scn.inject(injectStep).protocols(httpConf)
-	)
+	).protocols(httpConf)
 }

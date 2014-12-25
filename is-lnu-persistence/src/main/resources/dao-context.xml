@@ -37,6 +37,17 @@
 		<property name="queryBuilder" ref="assetStatusQueryBuilder" />
 	</bean>
 
+	<bean id="benefitDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.benefit.Benefit" />
+		<property name="queryBuilder" ref="benefitQueryBuilder" />
+	</bean>
+
+	<bean id="benefitTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.benefit.BenefitType" />
+	</bean>
+
 	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.partner.Partner" />
@@ -75,11 +86,6 @@
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.addresstype.AddressType" />
 		<property name="queryBuilder" ref="addressTypeQueryBuilder" />
-	</bean>
-
-	<bean id="benefitDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
-		<property name="entityClass" value="org.lnu.is.domain.benefit.Benefit" />
 	</bean>
 
 	<bean id="timePeriodDao" class="org.lnu.is.dao.dao.DefaultDao">
