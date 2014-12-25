@@ -36,7 +36,7 @@ public class AdminUnitController extends BaseController implements PagedControll
  	@Override
 	@ResponseStatus(HttpStatus.OK)
  	@RequestMapping(method = RequestMethod.GET)
- 	@ApiOperation(value = "Get All Married Types")
+ 	@ApiOperation(value = "Get Admin Unit Types")
  	public PagedResultResource<AdminUnitResource> getPagedResource(final PagedRequest<AdminUnitResource> request) {
  		LOG.info("Getting PagedResultResource for Admin Unit Type with offset: {}, limit: {}", request.getOffset(), request.getLimit());
  		return facade.getResources(request);	

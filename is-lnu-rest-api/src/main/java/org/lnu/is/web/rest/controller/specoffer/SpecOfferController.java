@@ -9,7 +9,6 @@ import org.lnu.is.facade.resource.message.MessageType;
 import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
-import org.lnu.is.facade.resource.specoffer.type.SpecOfferTypeResource;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.lnu.is.web.rest.controller.CrudController;
@@ -40,9 +39,6 @@ public class SpecOfferController extends BaseController implements CrudControlle
 	@Resource(name = "specOfferFacade")
 	private Facade<SpecOfferResource, Long> facade;
 
-	@Resource(name = "specOfferTypeFacade")
-	private Facade<SpecOfferTypeResource, Long> typeFacade;
-	
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
@@ -91,19 +87,4 @@ public class SpecOfferController extends BaseController implements CrudControlle
 		return facade.getResources(request);
 	}
 	
-	/**
-	 * TODO: Move to separate controller.
-	 * Method for getting paged result.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @return paged result.
-	 */
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/types", method = RequestMethod.GET)
-	@ApiOperation(value = "Get's All SpecOfferTypes", position = 5)
-	public PagedResultResource<SpecOfferTypeResource> getSpecOfferTypes(final PagedRequest<SpecOfferTypeResource> request) {
-		LOG.info("Retrieving PagedResultResource for Spec Offer Type Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
-		return typeFacade.getResources(request);
-	}
 }
