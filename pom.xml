@@ -14,16 +14,15 @@
     	<module>is-lnu-common</module>
 		<module>is-lnu-rest-api</module>
 		<module>is-lnu-facade</module>
+   		<module>is-lnu-resource</module>
+    	<module>is-lnu-converter</module>
 		<module>is-lnu-service</module>
 		<module>is-lnu-persistence</module>
 		<module>is-lnu-domain</module>
 		<module>is-lnu-migrations</module>
 		<module>is-lnu-security</module>
-    	<module>is-lnu-ui</module>
     	<module>is-lnu-edebo</module>
-   		<module>is-lnu-resource</module>
-    	<module>is-lnu-converter</module>
-    <module>is-lnu-edebo-domain</module>
+   		<module>is-lnu-edebo-domain</module>
   </modules>
 
 	<properties>
