@@ -1,4 +1,4 @@
-package org.lnu.is.integration
+package org.lnu.is.integration.address.types
 
 import io.gatling.core.Predef.checkBuilder2Check
 import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder

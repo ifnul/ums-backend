@@ -26,6 +26,10 @@ import org.lnu.is.integration.asset.status.AssetStatusIntegrationTest
 import org.lnu.is.integration.specialty.SpecialtyIntegrationTest
 import org.lnu.is.integration.adminunit.AdminUnitIntegrationTest
 import org.lnu.is.integration.benefit.BenefitIntegrationTest
+import org.lnu.is.integration.person.PersonIntegrationTest
+import org.lnu.is.integration.eduformtypes.EduFormTypeIntegrationTest
+import org.lnu.is.integration.address.types.AddressTypeIntegrationTest
+import org.lnu.is.integration.contact.types.ContactTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -42,6 +46,7 @@ class IntegrationTest extends Simulation {
 		PersonIntegrationTest.scn.inject(injectStep),
 		PersonNameIntegrationTest.scn.inject(injectStep),
 		PersonTypeIntegrationTest.scn.inject(injectStep),
+		ContactTypeIntegrationTest.scn.inject(injectStep),
 		EduFormTypeIntegrationTest.scn.inject(injectStep),
 		AddressTypeIntegrationTest.scn.inject(injectStep),
 		EnrolmentStatusTypeIntegrationTest.scn.inject(injectStep),

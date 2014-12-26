@@ -50,6 +50,11 @@
 		<property name="parametersExtractor" ref="benefitTypeParametersExtractor"/>
 		<property name="dao" ref="benefitTypeDao"/>
 	</bean>
+
+	<bean id="contactTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="contactTypeParametersExtractor"/>
+		<property name="dao" ref="contactTypeDao"/>
+	</bean>
 	
 	<bean id="employeeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="employeeParametersExtractor"/>

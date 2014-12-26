@@ -1,4 +1,4 @@
-package org.lnu.is.integration
+package org.lnu.is.integration.person
 
 import java.util.UUID
 

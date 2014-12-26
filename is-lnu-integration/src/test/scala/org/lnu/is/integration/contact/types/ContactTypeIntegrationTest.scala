@@ -1,4 +1,4 @@
-package org.lnu.is.integration.eduformtypes
+package org.lnu.is.integration.contact.types
 
 import io.gatling.core.Predef.checkBuilder2Check
 import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
@@ -10,13 +10,14 @@ import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
 import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
 
-object EduFormTypeIntegrationTest {
 
-  val feed = jsonFile("data/eduformtypes/json_data.json").circular
+object ContactTypeIntegrationTest {
+  
+  val feed = jsonFile("data/contact/type/json_data.json").circular
 
-  val scn = scenario("Edu Form Type Scenario")
+  val scn = scenario("Contact Type Scenario")
     .feed(feed)
-    .exec(http("Edu Form Types Get Paged Result")
+    .exec(http("Contact Types Get Paged Result")
       .get("${targetUrl}")
       .check(bodyString.transform(Jackson.parse).is("${expectedResponse}"))
     )

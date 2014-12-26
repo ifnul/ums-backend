@@ -48,7 +48,13 @@
 		<property name="entityClass" value="org.lnu.is.domain.benefit.BenefitType" />
 		<property name="queryBuilder" ref="benefitTypeQueryBuilder"/>
 	</bean>
-
+	
+	<bean id="contactTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.contacttype.ContactType" />
+		<property name="queryBuilder" ref="contactTypeQueryBuilder"/>
+	</bean>
+	
 	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.partner.Partner" />
