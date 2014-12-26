@@ -2,7 +2,7 @@ package org.lnu.is.facade.facade;
 
 import java.util.List;
 
-import org.lnu.is.facade.converter.Converter;
+import org.lnu.is.converter.Converter;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.resource.ApiResource;

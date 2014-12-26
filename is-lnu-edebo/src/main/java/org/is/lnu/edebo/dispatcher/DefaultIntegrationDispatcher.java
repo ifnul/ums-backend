@@ -11,9 +11,8 @@ import org.slf4j.LoggerFactory;
  * @author ivanursul
  *
  * @param <RESOURCE> resource.
- * @param <ENTITY> entity.
  */
-public class DefaultIntegrationDispatcher<RESOURCE, ENTITY> implements IntegrationDispatcher<RESOURCE> {
+public class DefaultIntegrationDispatcher<RESOURCE> implements IntegrationDispatcher<RESOURCE> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DefaultIntegrationDispatcher.class);
 	
 	private CamelContext camelContext;

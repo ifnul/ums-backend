@@ -14,10 +14,10 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.converter.Converter;
 import org.lnu.is.dao.dao.DefaultDao;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonType;
-import org.lnu.is.facade.converter.Converter;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.resource.ApiResource;
@@ -33,28 +33,28 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultFacadeTest {
 	@Mock
-	protected Converter<PersonResource, Person> insertConverter;
+	private Converter<PersonResource, Person> insertConverter;
 
 	@Mock
-	protected Converter<PersonResource, Person> updateConverter;
+	private Converter<PersonResource, Person> updateConverter;
 
 	@Mock
-	protected Converter<PersonResource, Person> resourceConverter;
+	private Converter<PersonResource, Person> resourceConverter;
 
 	@Mock
-	protected Converter<Person, PersonResource> entityConverter;
+	private Converter<Person, PersonResource> entityConverter;
 
 	@Mock
-	protected DefaultService<Person, Long, DefaultDao<Person, Long>> service;
+	private DefaultService<Person, Long, DefaultDao<Person, Long>> service;
 
 	@Mock
-	protected Converter<PagedRequest<PersonResource>, PagedSearch<Person>> pagedRequestConverter;
+	private Converter<PagedRequest<PersonResource>, PagedSearch<Person>> pagedRequestConverter;
 
 	@Mock
 	private Converter<Person, PersonResource> entityDetailsConverter;
 	
 	@Mock
-	protected Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
+	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
 
 	@InjectMocks
 	private DefaultFacade<Person, PersonResource, DefaultService<Person, Long, DefaultDao<Person, Long>>, Long> unit;

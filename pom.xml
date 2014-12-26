@@ -21,7 +21,9 @@
 		<module>is-lnu-security</module>
     	<module>is-lnu-ui</module>
     	<module>is-lnu-edebo</module>
-    <module>is-lnu-resource</module>
+   		<module>is-lnu-resource</module>
+    	<module>is-lnu-converter</module>
+    <module>is-lnu-edebo-domain</module>
   </modules>
 
 	<properties>
@@ -32,6 +34,7 @@
 		<spring.version>4.1.0.RELEASE</spring.version>
 		<spring.test.version>4.0.0.RELEASE</spring.test.version>
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
+        <spring.ws.version>2.1.2.RELEASE</spring.ws.version>
 		<hibernate.version>4.2.0.Final</hibernate.version>
 		<slf4j.version>1.7.7</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
@@ -82,6 +85,11 @@
 			</dependency>
 			<dependency>
 				<groupId>is-lnu</groupId>
+				<artifactId>is-lnu-converter</artifactId>
+				<version>${version}</version>
+			</dependency>
+			<dependency>
+				<groupId>is-lnu</groupId>
 				<artifactId>is-lnu-service</artifactId>
 				<version>${version}</version>
 			</dependency>
@@ -103,6 +111,11 @@
 			<dependency>
 				<groupId>is-lnu</groupId>
 				<artifactId>is-lnu-edebo</artifactId>
+				<version>${version}</version>
+			</dependency>
+			<dependency>
+				<groupId>is-lnu</groupId>
+				<artifactId>is-lnu-edebo-domain</artifactId>
 				<version>${version}</version>
 			</dependency>
 			<dependency>
@@ -157,7 +170,12 @@
 				<artifactId>spring-test</artifactId>
 				<version>${spring.test.version}</version>
 			</dependency>
-	
+			<dependency>
+			    <groupId>org.springframework.ws</groupId>
+			    <artifactId>spring-ws-core</artifactId>
+			    <version>${spring.ws.version}</version>
+			</dependency>
+						
 			<!-- LOGGING -->
 			<dependency>
 				<groupId>org.slf4j</groupId>

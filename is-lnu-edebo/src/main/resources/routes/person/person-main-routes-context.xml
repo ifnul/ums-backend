@@ -8,7 +8,13 @@
     <routeContext id="personRoutes" xmlns="http://camel.apache.org/schema/spring">
         <route id="person-create-route">
             <from uri="direct:person-create"/>
-            <bean ref="personEdebConverter"/>
+            <log message="Starting integration process for person-post" />
+            <bean ref="personResourceCreateEdeboConverter" method="convert"/>
+            <bean ref="edeboService" method="execute"/>
+            <log message="Creating new person: ${body}" />
+            <bean ref="personEdeboCreateConverter" method="convert" />
+            <bean ref="personResourceConverter" method="convert" />
+            <bean ref="personService" method="updateEntity" />
         </route>
     </routeContext>
  
