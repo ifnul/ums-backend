@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.order.OrderType;
-import org.lnu.is.facade.resource.order.type.OrderTypeResource;
+import org.lnu.is.resource.order.type.OrderTypeResource;
 
 public class OrderTypeConverterTest {
 

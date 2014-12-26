@@ -1,6 +1,6 @@
 package org.lnu.is.web.rest.controller;
 
-import org.lnu.is.facade.resource.message.MessageResource;
+import org.lnu.is.resource.message.MessageResource;
 
 /**
  * Interface, that declares crud operations.

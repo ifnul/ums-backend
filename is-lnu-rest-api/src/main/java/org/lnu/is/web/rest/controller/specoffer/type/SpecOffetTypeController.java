@@ -3,9 +3,9 @@ package org.lnu.is.web.rest.controller.specoffer.type;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.facade.resource.search.PagedRequest;
-import org.lnu.is.facade.resource.search.PagedResultResource;
-import org.lnu.is.facade.resource.specoffer.type.SpecOfferTypeResource;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
+import org.lnu.is.resource.specoffer.type.SpecOfferTypeResource;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.lnu.is.web.rest.controller.PagedController;

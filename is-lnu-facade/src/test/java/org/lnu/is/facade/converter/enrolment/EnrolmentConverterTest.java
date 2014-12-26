@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.enrolment.Enrolment;
-import org.lnu.is.facade.resource.enrolment.EnrolmentResource;
+import org.lnu.is.resource.enrolment.EnrolmentResource;
 
 public class EnrolmentConverterTest {
 

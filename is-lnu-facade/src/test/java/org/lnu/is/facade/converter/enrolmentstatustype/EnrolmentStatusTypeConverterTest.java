@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 import org.lnu.is.facade.converter.enrolment.statustype.EnrolmentStatusTypeConverter;
-import org.lnu.is.facade.resource.enrolment.statustype.EnrolmentStatusTypeResource;
+import org.lnu.is.resource.enrolment.statustype.EnrolmentStatusTypeResource;
 
 public class EnrolmentStatusTypeConverterTest {
 

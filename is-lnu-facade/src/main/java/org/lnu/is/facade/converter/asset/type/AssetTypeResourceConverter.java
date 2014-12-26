@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.asset.type;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.asset.AssetType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.asset.type.AssetTypeResource;
+import org.lnu.is.resource.asset.type.AssetTypeResource;
 
 /**
  * Asset Type resource converter.

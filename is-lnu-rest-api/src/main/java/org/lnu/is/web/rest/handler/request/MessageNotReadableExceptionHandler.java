@@ -1,7 +1,7 @@
 package org.lnu.is.web.rest.handler.request;
 
-import org.lnu.is.facade.resource.message.MessageResource;
-import org.lnu.is.facade.resource.message.MessageType;
+import org.lnu.is.resource.message.MessageResource;
+import org.lnu.is.resource.message.MessageType;
 import org.lnu.is.web.rest.handler.BaseExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

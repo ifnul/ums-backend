@@ -13,7 +13,7 @@ import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.partner.Partner;
-import org.lnu.is.facade.resource.asset.AssetResource;
+import org.lnu.is.resource.asset.AssetResource;
 
 public class AssetConverterTest {
 

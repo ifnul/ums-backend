@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.asset.status;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.asset.AssetStatus;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.asset.status.AssetStatusResource;
+import org.lnu.is.resource.asset.status.AssetStatusResource;
 
 /**
  * Asset state resource converter.

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.language.Language;
-import org.lnu.is.facade.resource.language.LanguageResource;
+import org.lnu.is.resource.language.LanguageResource;
 
 public class LanguageConverterTest {
 

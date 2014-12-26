@@ -7,7 +7,7 @@ import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecofferBenefit;
 import org.lnu.is.facade.converter.specoffer.benefit.SpecOfferBenefitResourceConverter;
-import org.lnu.is.facade.resource.specoffer.benefit.SpecOfferBenefitResource;
+import org.lnu.is.resource.specoffer.benefit.SpecOfferBenefitResource;
 
 public class SpecOfferBenefitResourceConverterTest {
 

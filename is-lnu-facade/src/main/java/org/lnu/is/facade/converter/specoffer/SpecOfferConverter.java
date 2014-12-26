@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.specoffer;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
+import org.lnu.is.resource.specoffer.SpecOfferResource;
 
 /**
  * Converter, that converts from Entity to Resource.

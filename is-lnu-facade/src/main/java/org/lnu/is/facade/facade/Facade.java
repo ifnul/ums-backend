@@ -1,7 +1,7 @@
 package org.lnu.is.facade.facade;
 
-import org.lnu.is.facade.resource.search.PagedRequest;
-import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
 
 /**
  * Common interface for all facades.

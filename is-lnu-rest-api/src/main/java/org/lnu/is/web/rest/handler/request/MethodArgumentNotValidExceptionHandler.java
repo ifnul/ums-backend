@@ -3,10 +3,10 @@ package org.lnu.is.web.rest.handler.request;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.lnu.is.facade.resource.message.MessageResource;
-import org.lnu.is.facade.resource.message.MessageType;
-import org.lnu.is.facade.resource.message.Pair;
-import org.lnu.is.facade.resource.message.validation.ValidationMessageResource;
+import org.lnu.is.resource.message.MessageResource;
+import org.lnu.is.resource.message.MessageType;
+import org.lnu.is.resource.message.Pair;
+import org.lnu.is.resource.message.validation.ValidationMessageResource;
 import org.lnu.is.web.rest.handler.BaseExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

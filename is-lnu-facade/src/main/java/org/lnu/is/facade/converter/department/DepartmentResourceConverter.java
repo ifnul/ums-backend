@@ -1,11 +1,11 @@
 package org.lnu.is.facade.converter.department;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.DepartmentType;
 import org.lnu.is.domain.order.Order;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.department.DepartmentResource;
+import org.lnu.is.resource.department.DepartmentResource;
 
 /**
  * Converter, that converts from DepartmentResource to Department.

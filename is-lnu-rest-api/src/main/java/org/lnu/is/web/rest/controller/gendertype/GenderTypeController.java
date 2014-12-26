@@ -3,9 +3,9 @@ package org.lnu.is.web.rest.controller.gendertype;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.facade.resource.gendertype.GenderTypeResource;
-import org.lnu.is.facade.resource.search.PagedRequest;
-import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.resource.gendertype.GenderTypeResource;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.lnu.is.web.rest.controller.PagedController;

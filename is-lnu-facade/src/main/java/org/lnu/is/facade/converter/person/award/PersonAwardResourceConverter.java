@@ -1,12 +1,12 @@
 package org.lnu.is.facade.converter.person.award;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonAward;
 import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.domain.publicactivity.PublicActivityAward;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.person.award.PersonAwardResource;
+import org.lnu.is.resource.person.award.PersonAwardResource;
 
 /**
  * Person Award Resource Converter.

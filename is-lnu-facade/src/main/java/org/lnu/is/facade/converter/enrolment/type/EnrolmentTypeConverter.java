@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.enrolment.type;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.enrolment.EnrolmentType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.enrolment.type.EnrolmentTypeResource;
+import org.lnu.is.resource.enrolment.type.EnrolmentTypeResource;
 
 /**
  * Enrolment Type Converter.

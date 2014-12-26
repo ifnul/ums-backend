@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.employee;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.employee.Employee;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.employee.EmployeeResource;
+import org.lnu.is.resource.employee.EmployeeResource;
 
 /**
  * Employee Converter.

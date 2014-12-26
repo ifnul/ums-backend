@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.department.type;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.department.DepartmentType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.department.type.DepartmentTypeResource;
+import org.lnu.is.resource.department.type.DepartmentTypeResource;
 
 
 /**

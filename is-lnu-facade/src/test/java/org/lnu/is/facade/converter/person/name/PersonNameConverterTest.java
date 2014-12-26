@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonName;
-import org.lnu.is.facade.resource.person.name.PersonNameResource;
+import org.lnu.is.resource.person.name.PersonNameResource;
 
 public class PersonNameConverterTest {
 

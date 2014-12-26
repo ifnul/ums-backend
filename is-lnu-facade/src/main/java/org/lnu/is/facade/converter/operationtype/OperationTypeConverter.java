@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.operationtype;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.optype.OperationType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.operationtype.OperationTypeResource;
+import org.lnu.is.resource.operationtype.OperationTypeResource;
 
 /**
  * Converter from operation type to operation type resource.

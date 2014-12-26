@@ -3,9 +3,9 @@ package org.lnu.is.web.rest.controller.enrolment.statustype;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.facade.resource.enrolment.statustype.EnrolmentStatusTypeResource;
-import org.lnu.is.facade.resource.search.PagedRequest;
-import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.resource.enrolment.statustype.EnrolmentStatusTypeResource;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.lnu.is.web.rest.controller.PagedController;

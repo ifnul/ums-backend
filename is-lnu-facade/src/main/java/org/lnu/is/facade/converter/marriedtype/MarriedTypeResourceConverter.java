@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.marriedtype;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.marriedtype.MarriedType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.marriedtype.MarriedTypeResource;
+import org.lnu.is.resource.marriedtype.MarriedTypeResource;
 
 /**
  * Converter from MarriedTypeResource to MarriedType.

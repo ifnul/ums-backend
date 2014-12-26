@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.timeperiod.TimePeriodType;
-import org.lnu.is.facade.resource.timeperiod.type.TimePeriodTypeResource;
+import org.lnu.is.resource.timeperiod.type.TimePeriodTypeResource;
 
 public class TimePeriodTypeResourceConverterTest {
 

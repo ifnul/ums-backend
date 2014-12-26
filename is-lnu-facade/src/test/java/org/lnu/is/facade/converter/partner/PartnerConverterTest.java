@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.junit.Test;
 import org.lnu.is.domain.partner.Partner;
-import org.lnu.is.facade.resource.partner.PartnerResource;
+import org.lnu.is.resource.partner.PartnerResource;
 
 public class PartnerConverterTest {
 

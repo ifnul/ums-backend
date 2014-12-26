@@ -1,5 +1,6 @@
 package org.lnu.is.facade.converter.employee;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.employee.EmployeeStatus;
@@ -9,9 +10,8 @@ import org.lnu.is.domain.jobtype.JobType;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.post.Post;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.employee.EmployeeResource;
+import org.lnu.is.resource.employee.EmployeeResource;
 
 /**
  * Employee Resource Converter.

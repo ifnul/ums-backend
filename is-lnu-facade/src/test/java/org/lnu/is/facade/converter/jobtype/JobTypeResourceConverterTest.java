@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.jobtype.JobType;
-import org.lnu.is.facade.resource.jobtype.JobTypeResource;
+import org.lnu.is.resource.jobtype.JobTypeResource;
 
 public class JobTypeResourceConverterTest {
 

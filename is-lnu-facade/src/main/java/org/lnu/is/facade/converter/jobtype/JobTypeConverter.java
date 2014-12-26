@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.jobtype;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.jobtype.JobType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.jobtype.JobTypeResource;
+import org.lnu.is.resource.jobtype.JobTypeResource;
 /**
  * 
  * @author kushnir

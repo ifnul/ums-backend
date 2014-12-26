@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.person.paper;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.person.PersonPaper;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.person.paper.PersonPaperResource;
+import org.lnu.is.resource.person.paper.PersonPaperResource;
 
 /**
  * Person Paper converter.

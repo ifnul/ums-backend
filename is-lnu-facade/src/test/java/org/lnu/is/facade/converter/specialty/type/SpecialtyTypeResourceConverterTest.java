@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.specialty.SpecialtyType;
-import org.lnu.is.facade.resource.specialty.type.SpecialtyTypeResource;
+import org.lnu.is.resource.specialty.type.SpecialtyTypeResource;
 
 public class SpecialtyTypeResourceConverterTest {
 

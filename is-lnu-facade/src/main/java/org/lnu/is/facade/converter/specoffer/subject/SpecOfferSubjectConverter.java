@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.specoffer.subject;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.specoffer.SpecofferSubject;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.specoffer.subject.SpecOfferSubjectResource;
+import org.lnu.is.resource.specoffer.subject.SpecOfferSubjectResource;
 
 /**
  * SpecOfferSubjectConverter.

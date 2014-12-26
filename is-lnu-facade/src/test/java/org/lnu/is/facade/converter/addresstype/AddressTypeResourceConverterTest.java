@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.addresstype.AddressType;
-import org.lnu.is.facade.resource.addresstype.AddressTypeResource;
+import org.lnu.is.resource.addresstype.AddressTypeResource;
 
 public class AddressTypeResourceConverterTest {
 

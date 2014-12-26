@@ -6,8 +6,8 @@ import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_STATUS_
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.lnu.is.facade.resource.message.MessageResource;
-import org.lnu.is.facade.resource.message.MessageType;
+import org.lnu.is.resource.message.MessageResource;
+import org.lnu.is.resource.message.MessageType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

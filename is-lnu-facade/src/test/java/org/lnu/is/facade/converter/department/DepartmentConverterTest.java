@@ -7,7 +7,7 @@ import java.util.Date;
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.DepartmentType;
-import org.lnu.is.facade.resource.department.DepartmentResource;
+import org.lnu.is.resource.department.DepartmentResource;
 
 public class DepartmentConverterTest {
 

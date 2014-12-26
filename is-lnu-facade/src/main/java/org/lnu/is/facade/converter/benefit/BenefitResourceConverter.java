@@ -1,10 +1,10 @@
 package org.lnu.is.facade.converter.benefit;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.benefit.BenefitType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.benefit.BenefitResource;
+import org.lnu.is.resource.benefit.BenefitResource;
 
 /**
  * Benefit resource converter.

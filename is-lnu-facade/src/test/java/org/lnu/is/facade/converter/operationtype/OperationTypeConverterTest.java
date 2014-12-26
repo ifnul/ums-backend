@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.optype.OperationType;
-import org.lnu.is.facade.resource.operationtype.OperationTypeResource;
+import org.lnu.is.resource.operationtype.OperationTypeResource;
 
 public class OperationTypeConverterTest {
 

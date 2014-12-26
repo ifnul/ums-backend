@@ -2,7 +2,7 @@ package org.lnu.is.facade.converter.order;
 
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.order.OrderResource;
+import org.lnu.is.resource.order.OrderResource;
 import org.springframework.stereotype.Component;
 
 /**

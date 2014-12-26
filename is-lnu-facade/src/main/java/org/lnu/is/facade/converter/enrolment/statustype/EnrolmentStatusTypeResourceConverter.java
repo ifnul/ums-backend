@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.enrolment.statustype;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.enrolment.statustype.EnrolmentStatusTypeResource;
+import org.lnu.is.resource.enrolment.statustype.EnrolmentStatusTypeResource;
 
 /**
  * Enrolment Status Type Resource Converter.

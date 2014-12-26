@@ -22,11 +22,19 @@
 	<dependencies>
 		<dependency>
 			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-service</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-resource</artifactId>
 		</dependency>
 
 		<dependency>

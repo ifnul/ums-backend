@@ -1,5 +1,6 @@
 package org.lnu.is.facade.converter.asset;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.asset.AssetState;
 import org.lnu.is.domain.asset.AssetStatus;
@@ -8,9 +9,8 @@ import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.partner.Partner;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.asset.AssetResource;
+import org.lnu.is.resource.asset.AssetResource;
 
 /**
  * Converter AssetResource -> Asset.

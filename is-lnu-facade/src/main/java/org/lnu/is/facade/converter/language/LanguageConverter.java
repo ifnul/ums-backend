@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.language;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.language.Language;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.language.LanguageResource;
+import org.lnu.is.resource.language.LanguageResource;
 
 /**
  * Language Converter Language -> Language Resource.

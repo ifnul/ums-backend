@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.department.DepartmentType;
-import org.lnu.is.facade.resource.department.type.DepartmentTypeResource;
+import org.lnu.is.resource.department.type.DepartmentTypeResource;
 
 public class DepartmentTypeResourceConverterTest {
 

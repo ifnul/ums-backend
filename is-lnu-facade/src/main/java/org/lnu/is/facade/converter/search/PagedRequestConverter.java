@@ -1,8 +1,8 @@
 package org.lnu.is.facade.converter.search;
 
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.search.PagedRequest;
 import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.resource.search.PagedRequest;
 import org.springframework.stereotype.Component;
 
 /**

@@ -7,7 +7,7 @@ import java.util.Date;
 import org.junit.Test;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.benefit.BenefitType;
-import org.lnu.is.facade.resource.benefit.BenefitResource;
+import org.lnu.is.resource.benefit.BenefitResource;
 
 public class BenefitResourceConverterTest {
 

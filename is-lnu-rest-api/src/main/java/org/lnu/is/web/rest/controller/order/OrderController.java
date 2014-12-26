@@ -3,11 +3,11 @@ package org.lnu.is.web.rest.controller.order;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.facade.resource.message.MessageResource;
-import org.lnu.is.facade.resource.message.MessageType;
-import org.lnu.is.facade.resource.order.OrderResource;
-import org.lnu.is.facade.resource.search.PagedRequest;
-import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.resource.message.MessageResource;
+import org.lnu.is.resource.message.MessageType;
+import org.lnu.is.resource.order.OrderResource;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.lnu.is.web.rest.controller.CrudController;

@@ -1,14 +1,14 @@
 package org.lnu.is.facade.converter.enrolment;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.EnrolmentType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.enrolment.EnrolmentResource;
+import org.lnu.is.resource.enrolment.EnrolmentResource;
 
 /**
  * Enrolment Resource Converter.

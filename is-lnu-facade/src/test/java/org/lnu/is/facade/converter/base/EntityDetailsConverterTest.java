@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.facade.resource.person.PersonResource;
+import org.lnu.is.resource.person.PersonResource;
 
 public class EntityDetailsConverterTest {
 

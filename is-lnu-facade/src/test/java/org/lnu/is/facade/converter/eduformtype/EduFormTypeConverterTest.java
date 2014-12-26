@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.eduformtype.EduFormType;
-import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
+import org.lnu.is.resource.eduformtype.EduFormTypeResource;
 
 public class EduFormTypeConverterTest {
 

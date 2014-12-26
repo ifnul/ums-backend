@@ -1,11 +1,11 @@
 package org.lnu.is.facade.converter.specoffer.benefit;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecofferBenefit;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.specoffer.benefit.SpecOfferBenefitResource;
+import org.lnu.is.resource.specoffer.benefit.SpecOfferBenefitResource;
 
 /**
  * Spec Offer Resource Converter.

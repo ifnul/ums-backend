@@ -3,11 +3,11 @@ package org.lnu.is.facade.facade;
 import java.util.List;
 
 import org.lnu.is.facade.converter.Converter;
-import org.lnu.is.facade.resource.ApiResource;
-import org.lnu.is.facade.resource.search.PagedRequest;
-import org.lnu.is.facade.resource.search.PagedResultResource;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.resource.ApiResource;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.service.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

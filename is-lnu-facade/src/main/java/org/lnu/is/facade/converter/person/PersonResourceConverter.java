@@ -1,13 +1,13 @@
 package org.lnu.is.facade.converter.person;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.person.PersonResource;
+import org.lnu.is.resource.person.PersonResource;
 
 /**
  * Person resource converter.

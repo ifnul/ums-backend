@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.person.name;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.person.PersonName;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.person.name.PersonNameResource;
+import org.lnu.is.resource.person.name.PersonNameResource;
 
 /**
  * Person Name Converter.

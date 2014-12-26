@@ -1,6 +1,6 @@
 package org.lnu.is.web.rest.handler;
 
-import org.lnu.is.facade.resource.message.MessageResource;
+import org.lnu.is.resource.message.MessageResource;
 
 /**
  * Base interface, that declares basic signature for all exception handlers.

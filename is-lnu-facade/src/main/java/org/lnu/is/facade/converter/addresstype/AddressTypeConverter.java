@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.addresstype;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.addresstype.AddressType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.addresstype.AddressTypeResource;
+import org.lnu.is.resource.addresstype.AddressTypeResource;
 
 /**
  * Address Type Converter.

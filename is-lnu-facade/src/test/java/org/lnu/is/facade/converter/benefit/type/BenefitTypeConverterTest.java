@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.benefit.BenefitType;
-import org.lnu.is.facade.resource.benefit.type.BenefitTypeResource;
+import org.lnu.is.resource.benefit.type.BenefitTypeResource;
 
 public class BenefitTypeConverterTest {
 

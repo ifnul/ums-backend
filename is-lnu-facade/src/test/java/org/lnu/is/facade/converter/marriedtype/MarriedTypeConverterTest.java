@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.marriedtype.MarriedType;
-import org.lnu.is.facade.resource.marriedtype.MarriedTypeResource;
+import org.lnu.is.resource.marriedtype.MarriedTypeResource;
 
 public class MarriedTypeConverterTest {
 	

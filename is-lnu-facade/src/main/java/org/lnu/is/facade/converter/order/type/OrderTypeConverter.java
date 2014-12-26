@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.order.type;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.order.OrderType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.order.type.OrderTypeResource;
+import org.lnu.is.resource.order.type.OrderTypeResource;
 
 /**
  * Order type converter.

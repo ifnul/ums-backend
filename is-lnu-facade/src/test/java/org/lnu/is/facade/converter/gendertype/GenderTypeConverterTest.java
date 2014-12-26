@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.gendertype.GenderType;
-import org.lnu.is.facade.resource.gendertype.GenderTypeResource;
+import org.lnu.is.resource.gendertype.GenderTypeResource;
 
 public class GenderTypeConverterTest {
 

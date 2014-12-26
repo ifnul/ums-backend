@@ -4,11 +4,11 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.facade.resource.message.MessageResource;
-import org.lnu.is.facade.resource.message.MessageType;
-import org.lnu.is.facade.resource.search.PagedRequest;
-import org.lnu.is.facade.resource.search.PagedResultResource;
-import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
+import org.lnu.is.resource.message.MessageResource;
+import org.lnu.is.resource.message.MessageType;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
+import org.lnu.is.resource.specoffer.SpecOfferResource;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.lnu.is.web.rest.controller.CrudController;

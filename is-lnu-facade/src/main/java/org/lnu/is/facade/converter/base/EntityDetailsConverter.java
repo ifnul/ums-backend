@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.base;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.Model;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.ApiResource;
+import org.lnu.is.resource.ApiResource;
 
 /**
  * Entity details converter.

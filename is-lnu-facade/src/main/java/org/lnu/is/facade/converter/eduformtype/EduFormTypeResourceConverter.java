@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.eduformtype;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.eduformtype.EduFormType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.eduformtype.EduFormTypeResource;
+import org.lnu.is.resource.eduformtype.EduFormTypeResource;
 
 /**
  * Edu Form Type Resorce Converter.

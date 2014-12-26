@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.junit.Test;
 import org.lnu.is.domain.employee.Employee;
-import org.lnu.is.facade.resource.employee.EmployeeResource;
+import org.lnu.is.resource.employee.EmployeeResource;
 
 
 public class EmployeeResourceConverterTest {

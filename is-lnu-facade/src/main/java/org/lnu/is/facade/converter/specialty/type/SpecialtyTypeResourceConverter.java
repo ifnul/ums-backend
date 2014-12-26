@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.specialty.type;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.specialty.SpecialtyType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.specialty.type.SpecialtyTypeResource;
+import org.lnu.is.resource.specialty.type.SpecialtyTypeResource;
 
 /**
  * Specialty Type resource converter.

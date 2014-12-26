@@ -9,7 +9,7 @@ import org.lnu.is.domain.order.OrderType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.order.OrderResource;
+import org.lnu.is.resource.order.OrderResource;
 import org.springframework.stereotype.Component;
 
 /**

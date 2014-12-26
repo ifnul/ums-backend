@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.specialty.Specialty;
-import org.lnu.is.facade.resource.specialty.SpecialtyResource;
+import org.lnu.is.resource.specialty.SpecialtyResource;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 

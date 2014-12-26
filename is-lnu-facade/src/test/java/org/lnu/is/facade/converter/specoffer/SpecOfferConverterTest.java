@@ -12,7 +12,7 @@ import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.domain.timeperiod.TimePeriod;
-import org.lnu.is.facade.resource.specoffer.SpecOfferResource;
+import org.lnu.is.resource.specoffer.SpecOfferResource;
 
 public class SpecOfferConverterTest {
 

@@ -2,7 +2,7 @@ package org.lnu.is.web.rest.processor.resolver;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.lnu.is.facade.annotations.Limit;
+import org.lnu.is.annotations.Limit;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebArgumentResolver;

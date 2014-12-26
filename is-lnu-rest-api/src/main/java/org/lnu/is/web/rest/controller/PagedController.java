@@ -1,7 +1,7 @@
 package org.lnu.is.web.rest.controller;
 
-import org.lnu.is.facade.resource.search.PagedRequest;
-import org.lnu.is.facade.resource.search.PagedResultResource;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
 
 /**
  * Inteface, that declares paged request method.

@@ -1,9 +1,9 @@
 package org.lnu.is.facade.converter.adminunit.type;
 
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.domain.adminunit.type.AdminUnitType;
-import org.lnu.is.facade.annotations.Converter;
 import org.lnu.is.facade.converter.AbstractConverter;
-import org.lnu.is.facade.resource.adminunit.type.AdminUnitTypeResource;
+import org.lnu.is.resource.adminunit.type.AdminUnitTypeResource;
 
 /**
  * Admin Unit type converter.
