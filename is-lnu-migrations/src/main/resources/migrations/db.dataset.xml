@@ -32,5 +32,7 @@
     <include file="data/rf_timeperiodtype/db.rf_timeperiodtype.xml" relativeToChangelogFile="true"/>
     <include file="data/rf_marriedtype/db.rf_marriedtype.xml" relativeToChangelogFile="true"/>
     <include file="data/ob_adminunit/db.ob_adminunit.xml" relativeToChangelogFile="true"/>
+    <include file="data/ob_department/db.ob_department.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_departmenttype/db.rf_departmenttype.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

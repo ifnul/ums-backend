@@ -11,5 +11,5 @@ target
 .metadata
 .idea
 /target
-is-lnu-edbo
+*/bin/*
 
