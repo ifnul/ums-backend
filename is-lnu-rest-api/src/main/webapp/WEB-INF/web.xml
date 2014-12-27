@@ -9,6 +9,7 @@
 			classpath*:service-context.xml
 			classpath*:content-context.xml
 			classpath*:facade-context.xml
+			classpath*:converters-context.xml
 		</param-value>
 	</context-param>
 

@@ -54,6 +54,12 @@
 		<property name="entityClass" value="org.lnu.is.domain.contacttype.ContactType" />
 		<property name="queryBuilder" ref="contactTypeQueryBuilder"/>
 	</bean>
+
+	<bean id="courseTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.coursetype.CourseType" />
+		<property name="queryBuilder" ref="courseTypeQueryBuilder"/>
+	</bean>
 	
 	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
