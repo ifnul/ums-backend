@@ -78,6 +78,12 @@
 		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeType" />
 	</bean>
 
+	<bean id="degreeTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.degree.DegreeType"/>
+		<property name="queryBuilder" ref="degreeTypeQueryBuilder"/>
+	</bean>
+
 	<bean id="employeeStatusDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeStatus" />
