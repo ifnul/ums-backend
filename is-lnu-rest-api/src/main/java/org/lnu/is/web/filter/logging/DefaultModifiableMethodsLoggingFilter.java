@@ -22,7 +22,6 @@ import org.slf4j.LoggerFactory;
 public class DefaultModifiableMethodsLoggingFilter implements Filter {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DefaultModifiableMethodsLoggingFilter.class);
 	
-	
 	private String httpMethods;
 	
 	@Override
