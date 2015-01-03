@@ -301,4 +301,5 @@
 		<property name="entityClass" value="org.lnu.is.domain.language.Language" />
 		<property name="queryBuilder" ref="languageQueryBuilder"/>
 	</bean>
+	
 </beans>
