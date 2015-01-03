@@ -21,6 +21,8 @@ public class DefaultIntegrationDispatcher<RESOURCE> implements IntegrationDispat
 	
 	private String endpointUri;
 	
+	private String httpMethod;
+	
 	@Override
 	public void dispatch(final RESOURCE resource) {
 		
@@ -37,7 +39,12 @@ public class DefaultIntegrationDispatcher<RESOURCE> implements IntegrationDispat
 			LOGGER.warn("Exception occurs while trying to send resource to integration service", e);
 		}
 	}
-
+	
+	@Override
+	public String getMethod() {
+		return httpMethod;
+	}
+	
 	/**
 	 * Method, that sends.
 	 * @param resource
@@ -57,6 +64,10 @@ public class DefaultIntegrationDispatcher<RESOURCE> implements IntegrationDispat
 
 	public void setEndpointUri(final String endpointUri) {
 		this.endpointUri = endpointUri;
+	}
+
+	public void setHttpMethod(final String httpMethod) {
+		this.httpMethod = httpMethod;
 	}
 
 }

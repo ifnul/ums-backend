@@ -39,6 +39,11 @@
 		<dependency>
 			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-converter</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-edebo</artifactId>
 		</dependency>
 
 		<dependency>

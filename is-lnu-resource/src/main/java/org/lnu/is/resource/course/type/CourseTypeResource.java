@@ -5,7 +5,7 @@ import java.text.MessageFormat;
 import org.lnu.is.resource.ApiResource;
 
 /**
- * Contact type resource.
+ * Course type resource.
  * @author ivanursul
  *
  */

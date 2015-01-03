@@ -13,5 +13,10 @@ public interface IntegrationDispatcher<RESOURCE> {
 	 * @param resource
 	 */
 	void dispatch(RESOURCE resource);
-	
+
+	/**
+	 * Method for getting information http method.
+	 * @return http method
+	 */
+	String getMethod();
 }
