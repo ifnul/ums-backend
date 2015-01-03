@@ -16,7 +16,7 @@ public class DegreeTypeResource extends ApiResource {
 	
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/degrees/types{0}", getId());
+		return MessageFormat.format("/degrees/types/{0}", getId());
 	}
 	
 	@Override

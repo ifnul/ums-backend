@@ -57,6 +57,7 @@ class IntegrationTest extends Simulation {
 		TimePeriodTypeIntegrationTest.scn.inject(injectStep),
 		PartnerIntegrationTest.scn.inject(injectStep)
 		//DegreeTypeIntegrationTest.scn.inject(injectStep),
+		//DutyTypeIntegrationTest.scn.inject(injectStep),
 		//BenefitIntegrationTest.scn.inject(injectStep),
 		//DepartmentTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		//SpecialtyTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),

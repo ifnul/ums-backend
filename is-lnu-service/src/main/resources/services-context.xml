@@ -96,6 +96,11 @@
 		<property name="dao" ref="degreeTypeDao" />
 	</bean>
 
+	<bean id="dutyTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="dutyTypeParametersExtractor" />
+		<property name="dao" ref="dutyTypeDao" />
+	</bean>
+
 	<bean id="eduFormTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="eduFormTypeParametersExtractor" />
 		<property name="dao" ref="eduFormTypeDao" />

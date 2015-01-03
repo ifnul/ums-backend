@@ -1,68 +1,64 @@
-package org.lnu.is.domain.dutytype;
+package org.lnu.is.resource.duty.type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.text.MessageFormat;
 
-import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.resource.ApiResource;
 
 /**
- * Duty Type entity.
- * @author illay
+ * Duty Type Resource.
+ * @author ivanursul
  *
  */
-@RF
-@Entity
-@Table(name = "q_rf_dutytype")
-public class DutyType extends Model {
+public class DutyTypeResource extends ApiResource {
 
-	private static final long serialVersionUID = 1L;
-	
-	@Column(name = "abbrname")
 	private String abbrName;
-	
-	@Column(name = "name")
 	private String name;
-
+	
+	@Override
+	public String getUri() {
+		return MessageFormat.format("/duties/types/{0}", getId());
+	}
+	
+	@Override
+	public String getRootUri() {
+		return "/duties/types";
+	}
+	
 	public String getAbbrName() {
 		return abbrName;
 	}
-
-	public void setAbbrName(final String abbrname) {
-		this.abbrName = abbrname;
+	public void setAbbrName(final String abbrName) {
+		this.abbrName = abbrName;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(final String name) {
 		this.name = name;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
+		int result = 1;
 		result = prime * result
 				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(final Object obj) {
 		if (this == obj) {
 			return true;
 		}
-		if (!super.equals(obj)) {
+		if (obj == null) {
 			return false;
 		}
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		DutyType other = (DutyType) obj;
+		DutyTypeResource other = (DutyTypeResource) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -82,8 +78,8 @@ public class DutyType extends Model {
 
 	@Override
 	public String toString() {
-		return "DutyType [abbrName=" + abbrName + ", name=" + name + "]";
+		return "DutyTypeResource [abbrName=" + abbrName + ", name=" + name
+				+ "]";
 	}
-	
 	
 }

@@ -1,9 +1,9 @@
-package org.lnu.is.web.rest.controller.degree.type;
+package org.lnu.is.web.rest.controller.duty.type;
 
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.resource.degree.type.DegreeTypeResource;
+import org.lnu.is.resource.duty.type.DutyTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;
@@ -20,33 +20,33 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wordnik.swagger.annotations.ApiOperation;
 
 /**
- * Degree type controller.
+ * Duty type controller.
  * @author ivanursul
  *
  */
 @RestController
-@RequestMapping("/degrees/types")
-public class DegreeTypeController extends BaseController implements PagedController<DegreeTypeResource> {
-	private static final Logger LOG = LoggerFactory.getLogger(DegreeTypeController.class);
+@RequestMapping("/duties/types")
+public class DutyTypeController extends BaseController implements PagedController<DutyTypeResource> {
+	private static final Logger LOG = LoggerFactory.getLogger(DutyTypeController.class);
 
-	@Resource(name = "degreeTypeFacade")
-	private Facade<DegreeTypeResource, Long> facade;
+	@Resource(name = "dutyTypeFacade")
+	private Facade<DutyTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation(value = "Get All Degree Types")
-	public PagedResultResource<DegreeTypeResource> getPagedResource(final PagedRequest<DegreeTypeResource> request) {
-		LOG.info("Getting PagedResultResource for Degree Type with offset: {}, limit: {}", request.getOffset(), request.getLimit());
+	@ApiOperation(value = "Get All Duty Types")
+	public PagedResultResource<DutyTypeResource> getPagedResource(final PagedRequest<DutyTypeResource> request) {
+		LOG.info("Getting PagedResultResource for Duty Type with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
 	}
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
-	@ApiOperation(value = "Get Degree Types by id")
-	public DegreeTypeResource getResource(final Long id) {
-		LOG.info("Getting degree type resource:{}", id);
+	@ApiOperation(value = "Get Duty Types by id")
+	public DutyTypeResource getResource(final Long id) {
+		LOG.info("Getting duty type resource:{}", id);
 		return facade.getResource(id);
 	}
 
