@@ -129,6 +129,12 @@
 		<property name="service" ref="dutyTypeService" />
 	</bean>
 
+	<bean id="educationTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="educationTypeResourceConverter" />
+		<property name="entityConverter" ref="educationTypeConverter" />
+		<property name="service" ref="educationTypeService" />
+	</bean>
+
 	<bean id="eduFormTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="eduFormTypeResourceConverter" />
 		<property name="entityConverter" ref="eduFormTypeConverter" />

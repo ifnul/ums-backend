@@ -260,6 +260,12 @@
 		<property name="queryBuilder" ref="enrolmentSubjectQueryBuilder" />
 	</bean>
 
+	<bean id="educationTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.educationtype.EducationType" />
+		<property name="queryBuilder" ref="educationTypeQueryBuilder" />
+	</bean>
+
 	<bean id="eduFormTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.eduformtype.EduFormType" />

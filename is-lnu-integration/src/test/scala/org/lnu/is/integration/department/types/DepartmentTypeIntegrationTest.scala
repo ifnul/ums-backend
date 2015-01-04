@@ -8,7 +8,6 @@ import io.gatling.core.Predef.stringToExpression
 import io.gatling.core.json.Jackson
 import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
-import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
 
 object DepartmentTypeIntegrationTest {
 
@@ -18,6 +17,6 @@ object DepartmentTypeIntegrationTest {
     .feed(feed)
     .exec(http("Department Type Get Paged Result")
       .get("${targetUrl}")
-      .check(bodyString.transform(Jackson.parse).is("${expectedResponse}"))
+      .check(bodyString.transform(string => string).is("${expectedResponse}"))
     )
 }

@@ -1,68 +1,64 @@
-package org.lnu.is.domain.educationtype;
+package org.lnu.is.resource.education.type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.text.MessageFormat;
 
-import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.resource.ApiResource;
 
 /**
- * Education Type entity.
- * @author illay
+ * Education Type Resource.
+ * @author ivanursul
  *
  */
-@RF
-@Entity
-@Table(name = "q_rf_educationtype")
-public class EducationType extends Model {
+public class EducationTypeResource extends ApiResource {
 
-	private static final long serialVersionUID = 1L;
-
-	@Column(name = "abbrname")
 	private String abbrName;
-	
-	@Column(name = "name")
 	private String name;
-
+	
+	@Override
+	public String getUri() {
+		return MessageFormat.format("/educations/types/{0}", getId());
+	}
+	
+	@Override
+	public String getRootUri() {
+		return "/educations/types";
+	}
+	
 	public String getAbbrName() {
 		return abbrName;
 	}
-
-	public void setAbbrName(final String abbrname) {
-		this.abbrName = abbrname;
+	public void setAbbrName(final String abbrName) {
+		this.abbrName = abbrName;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(final String name) {
 		this.name = name;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
+		int result = 1;
 		result = prime * result
 				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(final Object obj) {
 		if (this == obj) {
 			return true;
 		}
-		if (!super.equals(obj)) {
+		if (obj == null) {
 			return false;
 		}
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		EducationType other = (EducationType) obj;
+		EducationTypeResource other = (EducationTypeResource) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -82,8 +78,8 @@ public class EducationType extends Model {
 
 	@Override
 	public String toString() {
-		return "EducationType [abbrname=" + abbrName + ", name=" + name + "]";
+		return "EducationResource [abbrName=" + abbrName + ", name=" + name
+				+ "]";
 	}
-	
 	
 }

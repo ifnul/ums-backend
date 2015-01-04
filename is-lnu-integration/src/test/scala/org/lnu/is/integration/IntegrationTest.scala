@@ -20,12 +20,12 @@ import org.lnu.is.integration.person.name.PersonNameIntegrationTest
 import org.lnu.is.integration.person.types.PersonTypeIntegrationTest
 import org.lnu.is.integration.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.timeperiod.types.TimePeriodTypeIntegrationTest
-
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef.atOnceUsers
 import io.gatling.core.Predef.stringToExpression
 import io.gatling.http.Predef.http
 import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
+import org.lnu.is.integration.education.types.EducationTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -46,6 +46,7 @@ class IntegrationTest extends Simulation {
 		ContactTypeIntegrationTest.scn.inject(injectStep),
 		CourseTypeIntegrationTest.scn.inject(injectStep),
 		EduFormTypeIntegrationTest.scn.inject(injectStep),
+		EducationTypeIntegrationTest.scn.inject(injectStep),
 		AddressTypeIntegrationTest.scn.inject(injectStep),
 		EnrolmentStatusTypeIntegrationTest.scn.inject(injectStep),
 		EnrolmentTypeIntegrationTest.scn.inject(injectStep),
