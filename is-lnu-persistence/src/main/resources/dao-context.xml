@@ -76,6 +76,7 @@
 	<bean id="employeeTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeType" />
+		<property name="queryBuilder" ref="employeeTypeQueryBuilder"/>
 	</bean>
 
 	<bean id="degreeTypeDao" class="org.lnu.is.dao.dao.DefaultDao">

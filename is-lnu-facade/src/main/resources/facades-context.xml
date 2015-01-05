@@ -87,6 +87,12 @@
 		<property name="service" ref="employeeService" />
 	</bean>
 
+	<bean id="employeeTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="employeeTypeResourceConverter" />
+		<property name="entityConverter" ref="employeeTypeConverter" />
+		<property name="service" ref="employeeTypeService" />
+	</bean>
+
 	<bean id="enrolmentTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="enrolmentTypeResourceConverter" />
 		<property name="entityConverter" ref="enrolmentTypeConverter" />

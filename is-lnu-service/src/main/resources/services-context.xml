@@ -65,6 +65,11 @@
 		<property name="parametersExtractor" ref="employeeParametersExtractor"/>
 		<property name="dao" ref="employeeDao"/>
 	</bean>
+
+	<bean id="employeeTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="employeeTypeParametersExtractor"/>
+		<property name="dao" ref="employeeTypeDao"/>
+	</bean>
 	
 	<bean id="enrolmentTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="enrolmentTypeParametersExtractor" />
