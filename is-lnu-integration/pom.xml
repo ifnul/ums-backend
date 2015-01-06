@@ -55,6 +55,9 @@
 							<requestBodiesFolder>src/test/resources/request-bodies</requestBodiesFolder>
 							<simulationClass>org.lnu.is.integration.IntegrationTest</simulationClass>
 							<failOnError>true</failOnError>
+						    <jvmArgs> 
+						        <jvmArg>-Dintegration.host=${integration.url}</jvmArg>
+						    </jvmArgs> 
 						</configuration>
 					</execution>
 				</executions>

@@ -29,8 +29,10 @@ import org.lnu.is.integration.education.types.EducationTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
+	val host = System.getProperty("integration.host")
+  
 	val httpConf = http
-			.baseURL("http://localhost:8080/is-lnu-rest-api/api")
+			.baseURL(host)
 			.acceptHeader("application/json")
 	
 	val injectStep = atOnceUsers(1);

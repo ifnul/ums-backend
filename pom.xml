@@ -62,6 +62,7 @@
 		<findBugsDir>${basedir}/findbugs</findBugsDir>
 		
 		<max.pagination.count>500</max.pagination.count>
+		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
 	</properties>
 
 	<dependencyManagement>
