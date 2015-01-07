@@ -21,15 +21,20 @@ import org.lnu.is.integration.person.name.PersonNameIntegrationTest
 import org.lnu.is.integration.person.types.PersonTypeIntegrationTest
 import org.lnu.is.integration.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.timeperiod.types.TimePeriodTypeIntegrationTest
+
+import io.gatling.core.Predef._
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef.atOnceUsers
 import io.gatling.core.Predef.stringToExpression
+import io.gatling.http.Predef._
 import io.gatling.http.Predef.http
 import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
+import io.gatling.jdbc.Predef._
 
 class IntegrationTest extends Simulation {
 
 	val host = System.getProperty("integration.host")
+	val successPercent = Integer.getInteger("integration.successtests.percent", 95)
   
 	val httpConf = http
 			.baseURL(host)
@@ -71,5 +76,6 @@ class IntegrationTest extends Simulation {
 		//SpecialtyIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 	)
 	.protocols(httpConf)
+	.assertions(global.successfulRequests.percent.greaterThan(successPercent))
 	
 }
