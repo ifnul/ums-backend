@@ -8,15 +8,15 @@ import io.gatling.core.Predef.stringToExpression
 import io.gatling.core.json.Jackson
 import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
+import io.gatling.http.request.RawFileBody
 
 object DepartmentTypeIntegrationTest {
 
-  val feed = jsonFile("data/department/type/json_data.json").circular
+  val response = RawFileBody("data/department/type/response.json")
   
   val scn = scenario("Department Type Simple GET Scenario")
-    .feed(feed)
     .exec(http("Department Type Get Paged Result")
-      .get("${targetUrl}")
-      .check(bodyString.transform(string => string).is("${expectedResponse}"))
+      .get("/departments/types")
+      .check(bodyString.is(response))
     )
 }

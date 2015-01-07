@@ -1,6 +1,9 @@
 package org.lnu.is.integration.person.name
 
+import java.util.UUID
+
 import scala.concurrent.duration.DurationInt
+
 import io.gatling.core.Predef.checkBuilder2Check
 import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
 import io.gatling.core.Predef.scenario
@@ -12,8 +15,6 @@ import io.gatling.http.Predef.ELFileBody
 import io.gatling.http.Predef.http
 import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
-import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
-import java.util.UUID
 
 
 object PersonNameIntegrationTest {

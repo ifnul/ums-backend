@@ -7,6 +7,7 @@ import org.lnu.is.integration.asset.status.AssetStatusIntegrationTest
 import org.lnu.is.integration.asset.types.AssetTypeIntegrationTest
 import org.lnu.is.integration.contact.types.ContactTypeIntegrationTest
 import org.lnu.is.integration.course.types.CourseTypeIntegrationTest
+import org.lnu.is.integration.education.types.EducationTypeIntegrationTest
 import org.lnu.is.integration.eduformtypes.EduFormTypeIntegrationTest
 import org.lnu.is.integration.enrolment.statustype.EnrolmentStatusTypeIntegrationTest
 import org.lnu.is.integration.enrolment.subject.EnrolmentSubjectIntegrationTest
@@ -25,7 +26,6 @@ import io.gatling.core.Predef.atOnceUsers
 import io.gatling.core.Predef.stringToExpression
 import io.gatling.http.Predef.http
 import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
-import org.lnu.is.integration.education.types.EducationTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -59,6 +59,7 @@ class IntegrationTest extends Simulation {
 		TimePeriodIntegrationTest.scn.inject(injectStep),
 		TimePeriodTypeIntegrationTest.scn.inject(injectStep),
 		PartnerIntegrationTest.scn.inject(injectStep)
+		
 		//DegreeTypeIntegrationTest.scn.inject(injectStep),
 		//EmployeeTypeIntegrationTest.scn.inject(injectStep),
 		//DutyTypeIntegrationTest.scn.inject(injectStep),
@@ -68,5 +69,7 @@ class IntegrationTest extends Simulation {
 		//ReasonIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		//OperationTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
 		//SpecialtyIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-	).protocols(httpConf)
+	)
+	.protocols(httpConf)
+	
 }

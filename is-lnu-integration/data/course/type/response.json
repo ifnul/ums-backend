@@ -1,0 +1,32 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 5,
+  "resources" : [ {
+    "id" : 1,
+    "name" : "1 курс",
+    "abbrName" : "1",
+    "uri" : "/courses/types/1"
+  }, {
+    "id" : 2,
+    "name" : "2 курс",
+    "abbrName" : "2",
+    "uri" : "/courses/types/2"
+  }, {
+    "id" : 3,
+    "name" : "3 курс",
+    "abbrName" : "3",
+    "uri" : "/courses/types/3"
+  }, {
+    "id" : 4,
+    "name" : "4 курс",
+    "abbrName" : "4",
+    "uri" : "/courses/types/4"
+  }, {
+    "id" : 5,
+    "name" : "5 курс",
+    "abbrName" : "5",
+    "uri" : "/courses/types/5"
+  } ],
+  "uri" : "/courses/types"
+}

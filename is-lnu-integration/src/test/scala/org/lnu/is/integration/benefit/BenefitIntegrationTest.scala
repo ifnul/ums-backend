@@ -15,7 +15,6 @@ import io.gatling.http.Predef.ELFileBody
 import io.gatling.http.Predef.http
 import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
-import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
 
 object BenefitIntegrationTest {
 

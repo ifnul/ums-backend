@@ -5,19 +5,17 @@ import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
 import io.gatling.core.Predef.jsonFile
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef.stringToExpression
-import io.gatling.core.json.Jackson
 import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
-import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
+import io.gatling.http.request.RawFileBody
 
 object TimePeriodTypeIntegrationTest {
 
-  val feed = jsonFile("data/timeperiod/type/json_data.json").circular
+  val response = RawFileBody("data/timeperiod/type/response.json")
   
   val scn = scenario("Time Period Type Simple GET Scenario")
-    .feed(feed)
     .exec(http("Time Period Type Get Paged Result")
-      .get("${targetUrl}")
-      .check(bodyString.transform(Jackson.parse).is("${expectedResponse}"))
+      .get("/timeperiods/types")
+      .check(bodyString.is(response))
     )
 }

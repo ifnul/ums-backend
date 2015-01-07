@@ -5,19 +5,17 @@ import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
 import io.gatling.core.Predef.jsonFile
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef.stringToExpression
-import io.gatling.core.json.Jackson
 import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
-import io.gatling.http.request.builder.AbstractHttpRequestBuilder.toActionBuilder
+import io.gatling.http.request.RawFileBody
 
 object EnrolmentSubjectIntegrationTest {
 
-  val feed = jsonFile("data/enrolment/subject/json_data.json").circular
+  val response = RawFileBody("data/enrolment/subject/response.json")
   
   val scn = scenario("Enrolment subject Type Simple GET Scenario")
-    .feed(feed)
     .exec(http("Enrolment subject Types Get Paged Result")
-      .get("${targetUrl}")
-      .check(bodyString.transform(Jackson.parse).is("${expectedResponse}"))
+      .get("/enrolments/subjects")
+      .check(bodyString.is(response))
     )
 }
