@@ -235,7 +235,8 @@
 
 	<bean id="honorsTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
-		<property name="entityClass" value="org.lnu.is.domain.honorstype.HonorsType" />
+		<property name="entityClass" value="org.lnu.is.domain.honorstype.HonorType" />
+		<property name="queryBuilder" ref="honorTypeQueryBuilder" />
 	</bean>
 
 	<bean id="jobTypeDao" class="org.lnu.is.dao.dao.DefaultDao">

@@ -2,7 +2,7 @@ package org.lnu.is.converter.person.paper;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.honorstype.HonorsType;
+import org.lnu.is.domain.honorstype.HonorType;
 import org.lnu.is.domain.papertype.PaperType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonPaper;
@@ -33,7 +33,7 @@ public class PersonPaperResourceConverter extends AbstractConverter<PersonPaperR
 		}
 		
 		if (source.getHonorsTypeId() != null) {
-			HonorsType honorsType = new HonorsType();
+			HonorType honorsType = new HonorType();
 			honorsType.setId(source.getHonorsTypeId());
 			
 			target.setHonorsType(honorsType);

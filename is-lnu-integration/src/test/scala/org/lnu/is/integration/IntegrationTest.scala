@@ -21,7 +21,6 @@ import org.lnu.is.integration.person.name.PersonNameIntegrationTest
 import org.lnu.is.integration.person.types.PersonTypeIntegrationTest
 import org.lnu.is.integration.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.timeperiod.types.TimePeriodTypeIntegrationTest
-
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef.atOnceUsers
@@ -30,6 +29,7 @@ import io.gatling.http.Predef._
 import io.gatling.http.Predef.http
 import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
 import io.gatling.jdbc.Predef._
+import org.lnu.is.integration.honor.types.HonorTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -63,7 +63,8 @@ class IntegrationTest extends Simulation {
 		OrderTypeIntegrationTest.scn.inject(injectStep),
 		TimePeriodIntegrationTest.scn.inject(injectStep),
 		TimePeriodTypeIntegrationTest.scn.inject(injectStep),
-		PartnerIntegrationTest.scn.inject(injectStep)
+		PartnerIntegrationTest.scn.inject(injectStep),
+    HonorTypeIntegrationTest.scn.inject(injectStep)
 
 		//FamilyTypeIntegrationTest.scn.inject(injectStep),
 		//DegreeTypeIntegrationTest.scn.inject(injectStep),

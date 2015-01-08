@@ -1,0 +1,26 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 4,
+  "resources" : [ {
+    "id" : 0,
+    "name" : "без відзнаки",
+    "uri" : "/honors/types/0"
+  }, {
+    "id" : 1,
+    "abbrName" : "З",
+    "name" : "Золота медаль",
+    "uri" : "/honors/types/1"
+  }, {
+    "id" : 2,
+    "abbrName" : "С",
+    "name" : "Срібна медаль",
+    "uri" : "/honors/types/2"
+  }, {
+    "id" : 3,
+    "abbrName" : "В",
+    "name" : "З відзнакою",
+    "uri" : "/honors/types/3"
+  } ],
+  "uri" : "/honors/types"
+}

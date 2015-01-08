@@ -125,7 +125,7 @@
         <!-- Types - references -->
         <class>org.lnu.is.domain.familytype.FamilyType</class>
         <class>org.lnu.is.domain.gendertype.GenderType</class> 
-        <class>org.lnu.is.domain.honorstype.HonorsType</class>
+        <class>org.lnu.is.domain.honorstype.HonorType</class>
         <class>org.lnu.is.domain.addresstype.AddressType</class>
         <class>org.lnu.is.domain.contacttype.ContactType</class>
         <class>org.lnu.is.domain.marriedtype.MarriedType</class> 

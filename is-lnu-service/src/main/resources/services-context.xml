@@ -86,6 +86,11 @@
 		<property name="dao" ref="enrolmentDao" />
 	</bean>
 
+	<bean id="honorTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="honorTypeParametersExtractor" />
+		<property name="dao" ref="honorsTypeDao" />
+	</bean>
+
 	<bean id="addressTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="addressTypeParametersExtractor" />
 		<property name="dao" ref="addressTypeDao" />

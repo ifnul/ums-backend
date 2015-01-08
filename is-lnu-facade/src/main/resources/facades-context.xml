@@ -111,6 +111,12 @@
 		<property name="service" ref="enrolmentService" />
 	</bean>
 
+	<bean id="honorTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="honorTypeResourceConverter" />
+		<property name="entityConverter" ref="honorTypeConverter" />
+		<property name="service" ref="honorTypeService" />
+	</bean>
+
 	<bean id="addressTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="addressTypeResourceConverter" />
 		<property name="entityConverter" ref="addressTypeConverter" />

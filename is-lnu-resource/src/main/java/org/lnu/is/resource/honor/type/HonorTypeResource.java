@@ -1,29 +1,30 @@
-package org.lnu.is.domain.honorstype;
+package org.lnu.is.resource.honor.type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.text.MessageFormat;
 
-import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.resource.ApiResource;
 
 /**
- * Model, that describes honors type.
+ * Honor Type Resource.
  * @author ivanursul
  *
  */
-@RF
-@Entity
-@Table(name = "q_rf_honorstype")
-public class HonorsType extends Model {
-	private static final long serialVersionUID = 1L;
+public class HonorTypeResource extends ApiResource {
 
-	@Column(name = "abbrname")
 	private String abbrName;
 
-	@Column(name = "name")
 	private String name;
+
+	@Override
+	public String getUri() {
+		return MessageFormat.format("/honors/types/{0}", getId());
+	}
 	
+	@Override
+	public String getRootUri() {
+		return "/honors/types";
+	}
+
 	public String getAbbrName() {
 		return abbrName;
 	}
@@ -44,8 +45,7 @@ public class HonorsType extends Model {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result
-				+ ((abbrName == null) ? 0 : abbrName.hashCode());
+		result = prime * result + ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -61,7 +61,7 @@ public class HonorsType extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		HonorsType other = (HonorsType) obj;
+		HonorTypeResource other = (HonorTypeResource) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -81,7 +81,7 @@ public class HonorsType extends Model {
 
 	@Override
 	public String toString() {
-		return "HonorsType [abbrName=" + abbrName + ", name=" + name + "]";
+		return "HonorTypeResource [abbrName=" + abbrName + ", name=" + name + "]";
 	}
-	
+
 }
