@@ -279,6 +279,12 @@
 		<property name="service" ref="orderTypeService" />
 	</bean>
 
+	<bean id="familyTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="familyTypeResourceConverter" />
+		<property name="entityConverter" ref="familyTypeConverter" />
+		<property name="service" ref="familyTypeService" />
+	</bean>
+
 	<bean id="timePeriodFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="timePeriodResourceConverter" />
 		<property name="entityConverter" ref="timePeriodConverter" />

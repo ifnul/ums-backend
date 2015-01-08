@@ -67,6 +67,7 @@ class IntegrationTest extends Simulation {
 		
 		//DegreeTypeIntegrationTest.scn.inject(injectStep),
 		//EmployeeTypeIntegrationTest.scn.inject(injectStep),
+		//EmployeeStatusIntegrationTest.scn.inject(injectStep),
 		//DutyTypeIntegrationTest.scn.inject(injectStep),
 		//BenefitIntegrationTest.scn.inject(injectStep),
 		//DepartmentTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),

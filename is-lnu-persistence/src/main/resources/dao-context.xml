@@ -311,4 +311,10 @@
 		<property name="queryBuilder" ref="languageQueryBuilder"/>
 	</bean>
 	
+	<bean id="familyTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.familytype.FamilyType" />
+		<property name="queryBuilder" ref="familyTypeQueryBuilder"/>
+	</bean>
+	
 </beans>

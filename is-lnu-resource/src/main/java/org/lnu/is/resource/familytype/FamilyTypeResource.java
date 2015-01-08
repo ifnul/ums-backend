@@ -1,67 +1,65 @@
-package org.lnu.is.domain.familytype;
+package org.lnu.is.resource.familytype;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.text.MessageFormat;
 
-import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.resource.ApiResource;
+
+
 /**
- * Family Type entity.
- * @author illay
+ * Family Type Resource.
+ * @author ivanursul
  *
  */
-@RF
-@Entity
-@Table(name = "q_rf_familytype")
-public class FamilyType extends Model {
+public class FamilyTypeResource extends ApiResource {
 
-	private static final long serialVersionUID = 1L;
-	
-	@Column(name = "abbrname")
 	private String abbrName;
-	
-	@Column(name = "name")
 	private String name;
-
+	
+	@Override
+	public String getUri() {
+		return MessageFormat.format("/families/types/{0}", getId());
+	}
+	
+	@Override
+	public String getRootUri() {
+		return "/families/types";
+	}
+	
 	public String getAbbrName() {
 		return abbrName;
 	}
-
-	public void setAbbrName(final String abbrname) {
-		this.abbrName = abbrname;
+	public void setAbbrName(final String abbrName) {
+		this.abbrName = abbrName;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(final String name) {
 		this.name = name;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
+		int result = 1;
 		result = prime * result
 				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(final Object obj) {
 		if (this == obj) {
 			return true;
 		}
-		if (!super.equals(obj)) {
+		if (obj == null) {
 			return false;
 		}
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		FamilyType other = (FamilyType) obj;
+		FamilyTypeResource other = (FamilyTypeResource) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -81,8 +79,8 @@ public class FamilyType extends Model {
 
 	@Override
 	public String toString() {
-		return "FamilyType [abbrname=" + abbrName + ", name=" + name + "]";
+		return "FamilyTypeResource [abbrName=" + abbrName + ", name=" + name
+				+ "]";
 	}
-	
 	
 }
