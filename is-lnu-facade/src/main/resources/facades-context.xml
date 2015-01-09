@@ -195,6 +195,12 @@
 		<property name="service" ref="marriedTypeService" />
 	</bean>
 
+	<bean id="paperTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="paperTypeResourceConverter" />
+		<property name="entityConverter" ref="paperTypeConverter" />
+		<property name="service" ref="paperTypeService" />
+	</bean>
+
 	<bean id="partnerFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="partnerResourceConverter" />
 		<property name="entityConverter" ref="partnerConverter" />

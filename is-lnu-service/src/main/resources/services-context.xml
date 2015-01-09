@@ -156,6 +156,11 @@
 		<property name="dao" ref="marriedTypeDao" />
 	</bean>
 
+	<bean id="paperTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="paperTypeParametersExtractor" />
+		<property name="dao" ref="paperTypeDao" />
+	</bean>
+
 	<bean id="partnerService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="partnerParametersExtractor" />
 		<property name="dao" ref="partnerDao" />

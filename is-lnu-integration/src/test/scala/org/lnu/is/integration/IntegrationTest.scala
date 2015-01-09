@@ -30,6 +30,7 @@ import io.gatling.http.Predef.http
 import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
 import io.gatling.jdbc.Predef._
 import org.lnu.is.integration.honor.types.HonorTypeIntegrationTest
+import org.lnu.is.integration.paper.types.PaperTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -64,7 +65,8 @@ class IntegrationTest extends Simulation {
 		TimePeriodIntegrationTest.scn.inject(injectStep),
 		TimePeriodTypeIntegrationTest.scn.inject(injectStep),
 		PartnerIntegrationTest.scn.inject(injectStep),
-    HonorTypeIntegrationTest.scn.inject(injectStep)
+    HonorTypeIntegrationTest.scn.inject(injectStep),
+    PaperTypeIntegrationTest.scn.inject(injectStep)
 
 		//FamilyTypeIntegrationTest.scn.inject(injectStep),
 		//DegreeTypeIntegrationTest.scn.inject(injectStep),

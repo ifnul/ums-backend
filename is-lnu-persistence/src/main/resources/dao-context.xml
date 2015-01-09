@@ -208,6 +208,12 @@
 	<bean id="paperTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.papertype.PaperType" />
+		<property name="queryBuilder" ref="paperTypeQueryBuilder"/>
+	</bean>
+	
+	<bean id="paperUsageDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.paperusage.PaperUsage" />
 	</bean>
 
 	<bean id="postDao" class="org.lnu.is.dao.dao.DefaultDao">
