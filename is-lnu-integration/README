@@ -52,3 +52,17 @@ FAQ:
 	створення персони, витягуємо новостворену айдішку, а вже після цього починаєте створювати
 	запити на перевірку person_name. І, звичайно, ви не забуваєте після перевірки всіх операцій
 	відправити запит на видалення персони.
+	
+TODO:
+
+FamilyTypeIntegrationTest
+DegreeTypeIntegrationTest
+EmployeeTypeIntegrationTest
+EmployeeStatusIntegrationTest
+DutyTypeIntegrationTest
+BenefitIntegrationTest
+DepartmentTypeIntegrationTest
+SpecialtyTypeIntegrationTest
+ReasonIntegrationTest
+OperationTypeIntegrationTest
+SpecialtyIntegrationTest

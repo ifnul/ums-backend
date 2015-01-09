@@ -3,7 +3,7 @@ package org.lnu.is.integration.asset.types
 import io.gatling.core.Predef.checkBuilder2Check
 import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
 import io.gatling.core.Predef.jsonFile
-import io.gatling.core.Predef.scenario
+import io.gatling.core.Predef.exec
 import io.gatling.core.Predef.stringToExpression
 import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
@@ -13,8 +13,7 @@ object AssetTypeIntegrationTest {
 
   val response = RawFileBody("data/asset/type/response.json")
 
-  val scn = scenario("Asset type get scenario")
-    .exec(http("Asset Type Get Paged Result")
+  val testCase = exec(http("Asset Type Get Paged Result")
       .get("/assets/types")
       .check(bodyString.is(response))
     )
