@@ -1,0 +1,1972 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="illay" id="add q_dc_diplomasupplement">
+        <createTable tableName="q_dc_diplomasupplement" >
+            <column name="id" type="BIGINT" autoIncrement="true" remarks="Ідентифікатор">
+                <constraints nullable="false"/>
+            </column>
+           	<!--TODO: FK--> 
+            <column name="department_id" type="BIGINT" remarks="Ідентифікатор підрозділу (інституту) до якого відноситься додаток">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="studyplan_id" type="BIGINT" >
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isprinted" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hourstotal" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qualificationwork" type="VARCHAR(400)"/>
+            <column name="secdecision" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="secdecisiondate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="adminunit_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="regnumber" type="VARCHAR(50)"/>
+            <column name="eduinstitutiontype" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entranceconditions" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="programrequirement" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="workload" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="testsystem" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ratingscale" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="docseries" type="VARCHAR(50)"/>
+            <column name="docnum" type="VARCHAR(50)"/>
+            <column name="docdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="docissued" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="diplomaname" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="programtype" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="studyperiod" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="studyform" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="specoffer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="specialty_id" type="BIGINT"/>
+            <column name="practiceperiod" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="academicrights" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="professionalrights" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="begdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enddate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="parent_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_diplomasupplement" tableName="q_dc_diplomasupplement"/>
+    </changeSet>
+    
+    <changeSet author="illay" id="add q_dc_diplomasupplementname">
+        <createTable tableName="q_dc_diplomasupplementname">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="department_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="studyplan_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="parent_id" type="BIGINT"/>
+            <column name="printed" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hourstotal" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qualificationwork" type="VARCHAR(400)"/>
+            <column name="secdecision" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="secdecisiondate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="regnumber" type="VARCHAR(50)"/>
+            <column name="eduinstitutiontype" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entranceconditions" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="programrequirement" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="workload" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="testsystem" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ratingscale" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="series" type="VARCHAR(20)"/>
+            <column name="number" type="VARCHAR(20)"/>
+            <column name="eduinstitutionfullname" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="diplomaname" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="programtype" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="studyperiod" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="studyform" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specoffer_id_specialty" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specoffer_id_specialization" type="BIGINT"/>
+            <column name="practiceperiod" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="academicrights" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="professionalrights" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entrancedate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="issuedate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_diplomasupplementname" tableName="q_dc_diplomasupplementname"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dc_markroll">
+        <createTable tableName="q_dc_markroll">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="markrolltype_id" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studygroup_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studyplan_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="docseries" type="VARCHAR(50)"/>
+            <column name="docnum" type="VARCHAR(50)"/>
+            <!-- FK -->
+	    <column name="timeperiod_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="department_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rangework1" type="double"/>
+            <column name="rangework2" type="double"/>
+            <column name="rangeexam1" type="double"/>
+            <column name="rangeexam2" type="double"/>
+            <column name="rangeexam" type="double"/>
+            <column name="range" type="double"/>
+            <column name="evdate1" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="evdate2" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="evdate3" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="begdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="enddate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_markroll" tableName="q_dc_markroll"/>
+    </changeSet>
+    <changeSet author="illay " id="add q_dc_studentestimate">
+        <createTable tableName="q_dc_studentestimate">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studyplan_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="timeperiod_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studygroup_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="printnum" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="price_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="suma" type="DECIMAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_studentestimate" tableName="q_dc_studentestimate"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dc_studyplan">
+        <createTable tableName="q_dc_studyplan">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="specialitytype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="specoffer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studyplantype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(200)"/>
+            <!-- FK -->
+	    <column name="timeperiod_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="eduformtype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="docseries" type="VARCHAR(50)"/>
+            <column name="docnum" type="VARCHAR(50)"/>
+            <column name="docdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="docissued" type="VARCHAR(200)"/>
+            <!-- FK -->
+	    <column name="department_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="parent_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="processing" type="INTEGER"/>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_studyplan" tableName="q_dc_studyplan"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_diplomasupplementitem">
+        <createTable tableName="q_dt_diplomasupplementitem">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="diplomasupplement_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="diplomasupplementitemtype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mark" type="INTEGER"/>
+            <!-- FK -->
+	    <column name="calcrule_id" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="positionnum" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fontsize" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rowsize" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hours" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_diplomasupplementitem" tableName="q_dt_diplomasupplementitem"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_diplomasupplementname">
+        <createTable tableName="q_dt_diplomasupplementname">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="diplomasupplement_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="languages_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="parent_id" type="BIGINT"/>
+            <column name="printed" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hourstotal" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qualificationwork" type="VARCHAR(400)"/>
+            <column name="secdecision" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="secdecisiondate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="regnumber" type="VARCHAR(50)"/>
+            <column name="eduinstitutiontype" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entranceconditions" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="programrequirement" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="workload" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="testsystem" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ratingscale" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="series" type="VARCHAR(20)"/>
+            <column name="number" type="VARCHAR(20)"/>
+            <column name="eduinstitutionfullname" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="diplomaname" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="programtype" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="studyperiod" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="studyform" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specoffer_id_specialty" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specoffer_id_specialization" type="BIGINT"/>
+            <column name="practiceperiod" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="academicrights" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="professionalrights" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entrancedate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="issuedate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_diplomasupplementname" tableName="q_dt_diplomasupplementname"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_markrollduty">
+        <createTable tableName="q_dt_markrollduty">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="markroll_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="dutytype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="employee_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="post_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actul" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_markrollduty" tableName="q_dt_markrollduty"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_markrollitem">
+        <createTable tableName="q_dt_markrollitem">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="markroll_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studyplanitem_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attestationnum" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="markwork1" type="double"/>
+            <column name="markwork2" type="double"/>
+            <column name="markexam1" type="double"/>
+            <column name="markexam2" type="double"/>
+            <column name="markexam" type="double"/>
+            <column name="markpart1" type="double"/>
+            <column name="markpart2" type="double"/>
+            <column name="markpart" type="double"/>
+            <column name="mark_p1_p2_k3" type="double"/>
+            <column name="mark" type="double"/>
+            <!-- FK -->
+	    <column name="markscale_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="markstate" type="double"/>
+            <!-- FK -->
+	    <column name="markscalestate_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="markects" type="double"/>
+            <!-- FK -->
+	    <column name="markscaleects_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="absentreason_id" type="BIGINT"/>
+            <column name="markcontrol" type="double"/>
+            <!-- FK -->
+	    <column name="markscalecontrol_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="parent_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)"/>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_markrollitem" tableName="q_dt_markrollitem"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_orderfinancial">
+        <createTable tableName="q_dt_orderfinancial">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="order_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="employee_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="asset_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="studygroup_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="studyplanitem_id" type="BIGINT"/>
+            <column name="hours" type="INTEGER"/>
+            <column name="timenorma" type="INTEGER"/>
+            <column name="price" type="DECIMAL"/>
+            <column name="amount" type="INTEGER"/>
+            <column name="rate" type="DOUBLE"/>
+            <column name="suma" type="DECIMAL"/>
+            <!-- FK -->
+	    <column name="parent_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderfinancial" tableName="q_dt_orderfinancial"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_ordernewdepartment">
+        <createTable tableName="q_dt_ordernewdepartment">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="order_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="departmenttype_id" type="BIGINT"/>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)"/>
+            <column name="manager" type="VARCHAR(200)"/>
+            <!-- FK -->
+	    <column name="department_id" type="BIGINT"/>
+            <column name="begdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="enddate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_ordernewdepartment" tableName="q_dt_ordernewdepartment"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_ordernewstudentitem">
+        <createTable tableName="q_dt_ordernewstudentitem">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="order_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="enrolment_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="person_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="docseries" type="VARCHAR(50)"/>
+            <column name="docnum" type="VARCHAR(50)"/>
+            <column name="isstate" type="INTEGER"/>
+            <column name="iscontract" type="INTEGER"/>
+            <!-- FK -->
+	    <column name="coursetype_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="specoffer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="eduformtype_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_odernewstudentitem" tableName="q_dt_ordernewstudentitem"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_orderstudenttransfer">
+        <createTable tableName="q_dt_orderstudenttransfer">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="order_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studygroup_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="studentstatus_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="specialtytype_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="specoffer_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="eduformtype_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="timeperiod_id" type="BIGINT"/>
+            <column name="isstate" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="iscontract" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="renamingname" type="VARCHAR(200)"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(400)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderstudenttransfer" tableName="q_dt_orderstudenttransfer"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_studentestimateitem">
+        <createTable tableName="q_dt_studentestimateitem">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studentestimate_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studyplanitem_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hours" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timenorma" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pricekoef" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="parent_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studentestimateitem" tableName="q_dt_studentestimateitem"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_studyplanduty">
+        <createTable tableName="q_dt_studyplanduty">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studdyplan_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="dutytype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="employee_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studyplanduty" tableName="q_dt_studyplanduty"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_dt_studyplanitem">
+        <createTable tableName="q_dt_studyplanitem">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studyplan_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studyplanpart_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="studyplanvariant_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="studyplancycle_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="markrollitem_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="department_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mark" type="double"/>
+            <!-- FK -->
+	    <column name="markscale_id" type="BIGINT"/>
+            <column name="markstate" type="double"/>
+            <!-- FK -->
+	    <column name="markscalestate_id" type="BIGINT"/>
+            <column name="markects" type="VARCHAR(50)"/>
+            <!-- FK -->
+	    <column name="markscaleects_id" type="BIGINT"/>
+            <column name="attestationnum" type="INTEGER"/>
+            <!-- FK -->
+	    <column name="destsemestrtimeperiod_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="semestrtimeperiod_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="diplomasupplementitem_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="subject_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="semestr" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studycontroltype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hoursall" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="credits" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hourslection" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hourslabs" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hourspratical" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hourshome" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hourscontrol" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="kkr" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="krr" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qualificationworkthema" type="VARCHAR(400)"/>
+            <!-- FK -->
+	    <column name="parent_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studyplanitem" tableName="q_dt_studyplanitem"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_ob_calcrule">
+        <createTable tableName="q_ob_calcrule">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_calcrule" tableName="q_ob_calcrule"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_ob_markscale">
+        <createTable tableName="q_ob_markscale">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="markscaletype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="markmin" type="double"/>
+            <column name="markmax" type="double"/>
+            <column name="uid" type="INTEGER"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+         <addPrimaryKey columnNames="id" constraintName="pk_q_ob_markscale" tableName="q_ob_markscale"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_ob_student">
+        <createTable tableName="q_ob_student">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studenttype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="person_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" type="VARCHAR(200)"/>
+            <column name="fathername" type="VARCHAR(200)"/>
+            <column name="surname" type="VARCHAR(200)"/>
+            <!-- FK -->
+	    <column name="eduformtype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studygroup_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="specialtytype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="specoffer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="timeperiod_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isstate" type="INTEGER"/>
+            <column name="iscontract" type="INTEGER"/>
+            <column name="invnum" type="VARCHAR(50)"/>
+            <!-- FK -->
+	    <column name="gendertype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="begdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="enddate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <!-- FK -->
+	    <column name="order_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studentstatus_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="parent_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_student" tableName="q_ob_student"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_ob_studentrating">
+        <createTable tableName="q_ob_studentrating">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studyplan_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studentratingtype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating" type="DOUBLE"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_studentrating" tableName="q_ob_studentrating"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_ob_studygroup">
+        <createTable tableName="q_ob_studygroup">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="department_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="studydepartment_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="employee_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="timeperiod_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_studygroup" tableName="q_ob_studygroup"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_od_markscaleexchange">
+        <createTable tableName="q_od_markscaleexchange">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="markscale_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="markmin" type="double"/>
+            <column name="markmax" type="double"/>
+            <!-- FK -->
+	    <column name="markscalevalue_id" type="BIGINT"/>
+            <!-- FK -->
+	    <column name="markscaleexchange_id" type="BIGINT"/>
+            <column name="markexchange" type="double"/>
+            <!-- FK -->
+	    <column name="markscaleexchangevalue_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_markscaleexchange" tableName="q_od_markscaleexchange"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_od_markscalevalue">
+        <createTable tableName="q_od_markscalevalue">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="markscale_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="strvalue" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_markscalevalue" tableName="q_od_markscalevalue"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_od_personlanguage">
+    	<renameTable newTableName="q_od_personlanguage" oldTableName="q_od_personlanquage"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_od_studentcontact">
+        <createTable tableName="q_od_studentcontact">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="contacttype_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="strvalue" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_studentcontact" tableName="q_od_studentcontact"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_od_subjectname">
+        <createTable tableName="q_od_subjectname">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="subject_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="languages_id" type="BIGINT"/>
+            <column name="name" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_subjectname" tableName="q_od_subjectname"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_op_markscale">
+        <createTable tableName="q_op_markscale">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="databasevalue" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="scale" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_op_markscale" tableName="q_op_markscale"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_diplomasupplementitemtype">
+        <createTable tableName="q_rf_diplomasupplementitemtype">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_diplomasupplementitemtype" tableName="q_rf_diplomasupplementitemtype"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_enrolmentforeigntype">
+        <createTable tableName="q_rf_enrolmentforeigntype">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolmentforeigntype" tableName="q_rf_enrolmentforeigntype"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_markrolltype">
+        <createTable tableName="q_rf_markrolltype">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+			<column name="parent_id" type="INTEGER"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_markrolltype" tableName="q_rf_markrolltype"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_markscaletype">
+        <createTable tableName="q_rf_markscaletype">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="INTEGER"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(255)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_markscaletype" tableName="q_rf_markscaletype"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studentratingtype">
+        <createTable tableName="q_rf_studentratingtype">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studentratingtype" tableName="q_rf_studentratingtype"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studentstatus">
+        <createTable tableName="q_rf_studentstatus">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(200)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studentstatus" tableName="q_rf_studentstatus"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studenttype">
+        <createTable tableName="q_rf_studenttype">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(255)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studenttype" tableName="q_rf_studenttype"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studycontroltype">
+        <createTable tableName="q_rf_studycontroltype">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studycontroltype" tableName="q_rf_studycontroltype"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studygroupnamerules">
+        <createTable tableName="q_rf_studygroupnamerules">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="specoffer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+	    <column name="language_id" type="BIGINT"/>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studygroupnamerules" tableName="q_rf_studygroupnamerules"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studyplancycle">
+        <createTable tableName="q_rf_studyplancycle">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(255)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplancycle" tableName="q_rf_studyplancycle"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studyplanpart">
+        <createTable tableName="q_rf_studyplanpart">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" type="BIGINT"/>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplanpart" tableName="q_rf_studyplanpart"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studyplantype">
+        <createTable tableName="q_rf_studyplantype">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(250)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplantype" tableName="q_rf_studyplantype"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studyplanvariant">
+        <createTable tableName="q_rf_studyplanvariant">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(255)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplanvariant" tableName="q_rf_studyplanvariant"/>
+    </changeSet>
+    <changeSet author="illay" id="add q_rf_studytype">
+        <createTable tableName="q_rf_studytype">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" type="BIGINT"/>
+            <column name="utid" type="VARCHAR(50)"/>
+            <column name="uapp" type="VARCHAR(50)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(255)"/>
+            <column name="crtuser" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtdate" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studytype" tableName="q_rf_studytype"/>
+        
+    </changeSet>
+</databaseChangeLog>
