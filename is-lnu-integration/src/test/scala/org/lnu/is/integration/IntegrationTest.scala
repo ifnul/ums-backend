@@ -21,7 +21,6 @@ import org.lnu.is.integration.person.name.PersonNameIntegrationTest
 import org.lnu.is.integration.person.types.PersonTypeIntegrationTest
 import org.lnu.is.integration.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.timeperiod.types.TimePeriodTypeIntegrationTest
-
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef.atOnceUsers
@@ -30,6 +29,8 @@ import io.gatling.http.Predef._
 import io.gatling.http.Predef.http
 import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
 import io.gatling.jdbc.Predef._
+import org.lnu.is.integration.honor.types.HonorTypeIntegrationTest
+import org.lnu.is.integration.paper.types.PaperTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -42,40 +43,33 @@ class IntegrationTest extends Simulation {
 	
 	val injectStep = atOnceUsers(1);
 	
-	setUp(
-		AdminUnitIntegrationTest.scn.inject(injectStep),
-		AssetTypeIntegrationTest.scn.inject(injectStep),
-		AssetStatusIntegrationTest.scn.inject(injectStep),
-		AssetStateIntegrationTest.scn.inject(injectStep),
-		PersonIntegrationTest.scn.inject(injectStep),
-		PersonNameIntegrationTest.scn.inject(injectStep),
-		PersonTypeIntegrationTest.scn.inject(injectStep),
-		ContactTypeIntegrationTest.scn.inject(injectStep),
-		CourseTypeIntegrationTest.scn.inject(injectStep),
-		EduFormTypeIntegrationTest.scn.inject(injectStep),
-		EducationTypeIntegrationTest.scn.inject(injectStep),
-		AddressTypeIntegrationTest.scn.inject(injectStep),
-		EnrolmentStatusTypeIntegrationTest.scn.inject(injectStep),
-		EnrolmentTypeIntegrationTest.scn.inject(injectStep),
-		EnrolmentSubjectIntegrationTest.scn.inject(injectStep),
-		GenderTypeIntegrationTest.scn.inject(injectStep),
-		LanguageIntegrationTest.scn.inject(injectStep),
-		OrderTypeIntegrationTest.scn.inject(injectStep),
-		TimePeriodIntegrationTest.scn.inject(injectStep),
-		TimePeriodTypeIntegrationTest.scn.inject(injectStep),
-		PartnerIntegrationTest.scn.inject(injectStep)
-		
-		//DegreeTypeIntegrationTest.scn.inject(injectStep),
-		//EmployeeTypeIntegrationTest.scn.inject(injectStep),
-		//DutyTypeIntegrationTest.scn.inject(injectStep),
-		//BenefitIntegrationTest.scn.inject(injectStep),
-		//DepartmentTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		//SpecialtyTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		//ReasonIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		//OperationTypeIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-		//SpecialtyIntegrationTest.scn.inject(injectStep).protocols(httpConf),
-	)
-	.protocols(httpConf)
-	.assertions(global.successfulRequests.percent.greaterThan(successPercent))
+  val scn = scenario("Integration test scenario")
+              .exec(AdminUnitIntegrationTest.testCase,
+                    AssetTypeIntegrationTest.testCase,
+                    AssetStatusIntegrationTest.testCase,
+                    AssetStateIntegrationTest.testCase,
+                    PersonIntegrationTest.testCase,
+                    PersonNameIntegrationTest.testCase,
+                    PersonTypeIntegrationTest.testCase,
+                    ContactTypeIntegrationTest.testCase,
+                    CourseTypeIntegrationTest.testCase,
+                    EduFormTypeIntegrationTest.testCase,
+                    EducationTypeIntegrationTest.testCase,
+                    AddressTypeIntegrationTest.testCase,
+                    EnrolmentStatusTypeIntegrationTest.testCase,
+                    EnrolmentTypeIntegrationTest.testCase,
+                    EnrolmentSubjectIntegrationTest.testCase,
+                    GenderTypeIntegrationTest.testCase,
+                    LanguageIntegrationTest.testCase,
+                    OrderTypeIntegrationTest.testCase,
+                    TimePeriodIntegrationTest.testCase,
+                    TimePeriodTypeIntegrationTest.testCase,
+                    PartnerIntegrationTest.testCase,
+                    HonorTypeIntegrationTest.testCase,
+                    PaperTypeIntegrationTest.testCase)
+  
+	setUp(scn.inject(injectStep))
+	  .protocols(httpConf)
+	  .assertions(global.successfulRequests.percent.greaterThan(successPercent))
 	
 }

@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.honorstype.HonorsType;
+import org.lnu.is.domain.honorstype.HonorType;
 import org.lnu.is.domain.papertype.PaperType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonPaper;
@@ -28,7 +28,7 @@ public class PersonPaperParametersExtractor extends AbstractParametersExtractor<
 	private Dao<PaperType, Long> paperTypeDao;
 	
 	@Resource(name = "honorsTypeDao")
-	private Dao<HonorsType, Long> honortTypeDao;
+	private Dao<HonorType, Long> honortTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final PersonPaper entity, final Map<String, Object> parameters) {

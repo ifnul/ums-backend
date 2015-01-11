@@ -1916,7 +1916,6 @@
    				<constraints nullable="false"/>
    			</column>
   			<column name="partner_id" type="BIGINT" remarks="Ідентифікатор партнера">
-   				<constraints nullable="false"/>
    			</column>
    			<column name="optype_id" type="BIGINT" remarks="Ідентифікатор типу операцій над основними засобами">
    				<constraints nullable="false"/>

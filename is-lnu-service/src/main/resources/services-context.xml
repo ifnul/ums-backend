@@ -70,6 +70,11 @@
 		<property name="parametersExtractor" ref="employeeTypeParametersExtractor"/>
 		<property name="dao" ref="employeeTypeDao"/>
 	</bean>
+
+	<bean id="employeeStatusService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="employeeStatusParametersExtractor"/>
+		<property name="dao" ref="employeeStatusDao"/>
+	</bean>
 	
 	<bean id="enrolmentTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="enrolmentTypeParametersExtractor" />
@@ -79,6 +84,11 @@
 	<bean id="enrolmentService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="enrolmentParametersExtractor" />
 		<property name="dao" ref="enrolmentDao" />
+	</bean>
+
+	<bean id="honorTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="honorTypeParametersExtractor" />
+		<property name="dao" ref="honorsTypeDao" />
 	</bean>
 
 	<bean id="addressTypeService" class="org.lnu.is.service.DefaultService">
@@ -146,6 +156,11 @@
 		<property name="dao" ref="marriedTypeDao" />
 	</bean>
 
+	<bean id="paperTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="paperTypeParametersExtractor" />
+		<property name="dao" ref="paperTypeDao" />
+	</bean>
+
 	<bean id="partnerService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="partnerParametersExtractor" />
 		<property name="dao" ref="partnerDao" />
@@ -209,6 +224,11 @@
 	<bean id="specOfferService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specOfferParametersExtractor" />
 		<property name="dao" ref="specOfferDao" />
+	</bean>
+
+	<bean id="familyTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="familyTypeParametersExtractor" />
+		<property name="dao" ref="familyTypeDao" />
 	</bean>
 
 	<bean id="timePeriodService" class="org.lnu.is.service.DefaultService">

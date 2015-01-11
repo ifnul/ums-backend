@@ -6,7 +6,7 @@ import scala.concurrent.duration.DurationInt
 
 import io.gatling.core.Predef.checkBuilder2Check
 import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
-import io.gatling.core.Predef.scenario
+import io.gatling.core.Predef.exec
 import io.gatling.core.Predef.stringToExpression
 import io.gatling.core.Predef.validatorCheckBuilder2CheckBuilder
 import io.gatling.core.Predef.value2Expression
@@ -18,8 +18,7 @@ import io.gatling.http.Predef.status
 
 object BenefitIntegrationTest {
 
-  val scn = scenario("Manage Benefit")
-    .exec(session => {
+  val testCase = exec(session => {
       session
       	.set("idnum", UUID.randomUUID())
       	.set("other_value_example", "value")

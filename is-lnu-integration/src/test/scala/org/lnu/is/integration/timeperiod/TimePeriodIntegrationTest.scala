@@ -4,7 +4,7 @@ import scala.concurrent.duration.DurationInt
 
 import io.gatling.core.Predef.checkBuilder2Check
 import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
-import io.gatling.core.Predef.scenario
+import io.gatling.core.Predef.exec
 import io.gatling.core.Predef.stringToExpression
 import io.gatling.core.Predef.validatorCheckBuilder2CheckBuilder
 import io.gatling.core.Predef.value2Expression
@@ -15,8 +15,7 @@ import io.gatling.http.Predef.status
 
 object TimePeriodIntegrationTest {
 
-  val scn = scenario("Manage Time Period")
-    .exec(http("Post TimePeriod")
+  val testCase = exec(http("Post TimePeriod")
 		.post("/timeperiods")
 		.header("Content-Type", "application/json")
 		.body(ELFileBody("data/timeperiod/post.json"))

@@ -79,6 +79,12 @@
 		<property name="queryBuilder" ref="employeeTypeQueryBuilder"/>
 	</bean>
 
+	<bean id="employeeStatusDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeStatus" />
+		<property name="queryBuilder" ref="employeeStatusQueryBuilder" />
+	</bean>
+
 	<bean id="degreeTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.degree.DegreeType"/>
@@ -91,10 +97,6 @@
 		<property name="queryBuilder" ref="dutyTypeQueryBuilder"/>
 	</bean>
 
-	<bean id="employeeStatusDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
-		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeStatus" />
-	</bean>
 	
 	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
@@ -206,6 +208,12 @@
 	<bean id="paperTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.papertype.PaperType" />
+		<property name="queryBuilder" ref="paperTypeQueryBuilder"/>
+	</bean>
+	
+	<bean id="paperUsageDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.paperusage.PaperUsage" />
 	</bean>
 
 	<bean id="postDao" class="org.lnu.is.dao.dao.DefaultDao">
@@ -233,7 +241,8 @@
 
 	<bean id="honorsTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
-		<property name="entityClass" value="org.lnu.is.domain.honorstype.HonorsType" />
+		<property name="entityClass" value="org.lnu.is.domain.honorstype.HonorType" />
+		<property name="queryBuilder" ref="honorTypeQueryBuilder" />
 	</bean>
 
 	<bean id="jobTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
@@ -307,6 +316,12 @@
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.language.Language" />
 		<property name="queryBuilder" ref="languageQueryBuilder"/>
+	</bean>
+	
+	<bean id="familyTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.familytype.FamilyType" />
+		<property name="queryBuilder" ref="familyTypeQueryBuilder"/>
 	</bean>
 	
 </beans>

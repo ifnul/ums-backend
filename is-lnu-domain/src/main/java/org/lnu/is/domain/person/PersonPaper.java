@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.honorstype.HonorsType;
+import org.lnu.is.domain.honorstype.HonorType;
 import org.lnu.is.domain.papertype.PaperType;
 
 /**
@@ -34,7 +34,7 @@ public class PersonPaper extends Model {
 	
 	@ManyToOne
 	@JoinColumn(name = "honorstype_id")
-	private HonorsType honorsType;
+	private HonorType honorsType;
 	
 	@Column(name = "docseries")
 	private String docSeries;
@@ -76,11 +76,11 @@ public class PersonPaper extends Model {
 		this.paperType = paperType;
 	}
 
-	public HonorsType getHonorsType() {
+	public HonorType getHonorsType() {
 		return honorsType;
 	}
 
-	public void setHonorsType(final HonorsType honorsType) {
+	public void setHonorsType(final HonorType honorsType) {
 		this.honorsType = honorsType;
 	}
 

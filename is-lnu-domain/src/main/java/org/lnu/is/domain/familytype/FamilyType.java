@@ -19,17 +19,17 @@ public class FamilyType extends Model {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "abbrname")
-	private String abbrname;
+	private String abbrName;
 	
 	@Column(name = "name")
 	private String name;
 
-	public String getAbbrname() {
-		return abbrname;
+	public String getAbbrName() {
+		return abbrName;
 	}
 
-	public void setAbbrname(final String abbrname) {
-		this.abbrname = abbrname;
+	public void setAbbrName(final String abbrname) {
+		this.abbrName = abbrname;
 	}
 
 	public String getName() {
@@ -45,7 +45,7 @@ public class FamilyType extends Model {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result
-				+ ((abbrname == null) ? 0 : abbrname.hashCode());
+				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -62,11 +62,11 @@ public class FamilyType extends Model {
 			return false;
 		}
 		FamilyType other = (FamilyType) obj;
-		if (abbrname == null) {
-			if (other.abbrname != null) {
+		if (abbrName == null) {
+			if (other.abbrName != null) {
 				return false;
 			}
-		} else if (!abbrname.equals(other.abbrname)) {
+		} else if (!abbrName.equals(other.abbrName)) {
 			return false;
 		}
 		if (name == null) {
@@ -81,7 +81,7 @@ public class FamilyType extends Model {
 
 	@Override
 	public String toString() {
-		return "FamilyType [abbrname=" + abbrname + ", name=" + name + "]";
+		return "FamilyType [abbrname=" + abbrName + ", name=" + name + "]";
 	}
 	
 	
