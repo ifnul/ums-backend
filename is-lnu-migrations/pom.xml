@@ -47,6 +47,7 @@
 					<url>${jdbc.databaseurl}</url>
 					<username>${jdbc.username}</username>
 					<password>${jdbc.password}</password>
+					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
 				</configuration>
 				<dependencies>
 					<dependency>

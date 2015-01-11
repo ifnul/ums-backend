@@ -464,7 +464,6 @@
 		</plugins>
 	</reporting>
 	<profiles>
-
 		<profile>
 			<id>development</id>
 			<properties>
@@ -474,7 +473,6 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 		</profile>
-
 	</profiles>
 
 </project>
