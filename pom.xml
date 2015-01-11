@@ -19,10 +19,10 @@
 		<module>is-lnu-service</module>
 		<module>is-lnu-persistence</module>
 		<module>is-lnu-domain</module>
-		<module>is-lnu-migrations</module>
 		<module>is-lnu-security</module>
     	<module>is-lnu-edebo</module>
    		<module>is-lnu-edebo-domain</module>
+   		<module>is-lnu-migrations</module>
   </modules>
 
 	<properties>
@@ -64,6 +64,10 @@
 		<max.pagination.count>500</max.pagination.count>
 		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
 		<integration.successtests.percent>96</integration.successtests.percent>
+		
+		<tomcat.deploy.url>http://104.236.29.16:8080/manager/text</tomcat.deploy.url>
+		<tomcat.server.name>TomcatServer</tomcat.server.name>
+		<tomcat.contextPath>/is-lnu-rest-api</tomcat.contextPath>
 	</properties>
 
 	<dependencyManagement>
@@ -398,7 +402,17 @@
 		                    <format>xml</format>
 		                </formats>
 		            </configuration>					
-				</plugin>				
+				</plugin>
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>2.2</version>
+					<configuration>
+						<url>${tomcat.deploy.url}</url>
+						<server>${tomcat.server.name}</server>
+						<path>${tomcat.contextPath}</path>
+					</configuration>
+				</plugin>												
 			</plugins>
 		</pluginManagement>
 		<resources>
@@ -446,7 +460,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
 				<version>2.5.2</version>
-			</plugin>			
+			</plugin>
 		</plugins>
 	</reporting>
 	<profiles>
@@ -459,17 +473,6 @@
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
-		</profile>
-
-		<profile>
-			<id>test</id>
-			<properties>
-				<migration.changelog.name>db.changelog-init-dataset.xml</migration.changelog.name>
-				<jdbc.databasename>lnu-test</jdbc.databasename>
-			</properties>
-			<modules>
-				<module>is-lnu-integration</module>
-			</modules>
 		</profile>
 
 	</profiles>
