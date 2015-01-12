@@ -1,0 +1,87 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 16,
+  "resources" : [ {
+    "id" : 1,
+    "name" : "вулиця",
+    "abbrName" : "вул.",
+    "uri" : "/streets/types/1"
+  }, {
+    "id" : 2,
+    "name" : "бульвар",
+    "abbrName" : "бульв.",
+    "uri" : "/streets/types/2"
+  }, {
+    "id" : 3,
+    "name" : "площа",
+    "abbrName" : "пл.",
+    "uri" : "/streets/types/3"
+  }, {
+    "id" : 4,
+    "name" : "провулок",
+    "abbrName" : "пров.",
+    "uri" : "/streets/types/4"
+  }, {
+    "id" : 5,
+    "name" : "проспект",
+    "abbrName" : "просп.",
+    "uri" : "/streets/types/5"
+  }, {
+    "id" : 6,
+    "name" : "квартал",
+    "abbrName" : "кв-л",
+    "uri" : "/streets/types/6"
+  }, {
+    "id" : 7,
+    "name" : "майдан",
+    "abbrName" : "майд.",
+    "uri" : "/streets/types/7"
+  }, {
+    "id" : 8,
+    "name" : "мікрорайон",
+    "abbrName" : "м-р",
+    "uri" : "/streets/types/8"
+  }, {
+    "id" : 9,
+    "name" : "тупик",
+    "abbrName" : "тупик",
+    "uri" : "/streets/types/9"
+  }, {
+    "id" : 10,
+    "name" : "дільниця",
+    "abbrName" : "дільниця",
+    "uri" : "/streets/types/10"
+  }, {
+    "id" : 11,
+    "name" : "проїзд",
+    "abbrName" : "проїзд",
+    "uri" : "/streets/types/11"
+  }, {
+    "id" : 12,
+    "name" : "узвіз",
+    "abbrName" : "узвіз",
+    "uri" : "/streets/types/12"
+  }, {
+    "id" : 13,
+    "name" : "шосе",
+    "abbrName" : "шосе",
+    "uri" : "/streets/types/13"
+  }, {
+    "id" : 14,
+    "name" : "набережна",
+    "abbrName" : "набережна",
+    "uri" : "/streets/types/14"
+  }, {
+    "id" : 15,
+    "name" : "алея",
+    "abbrName" : "алея",
+    "uri" : "/streets/types/15"
+  }, {
+    "id" : 16,
+    "name" : "лінія",
+    "abbrName" : "лінія",
+    "uri" : "/streets/types/16"
+  } ],
+  "uri" : "/streets/types"
+}

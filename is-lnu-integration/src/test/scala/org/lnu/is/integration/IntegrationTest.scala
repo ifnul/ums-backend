@@ -31,6 +31,7 @@ import io.gatling.http.config.HttpProtocolBuilder.toHttpProtocol
 import io.gatling.jdbc.Predef._
 import org.lnu.is.integration.honor.types.HonorTypeIntegrationTest
 import org.lnu.is.integration.paper.types.PaperTypeIntegrationTest
+import org.lnu.is.integration.street.types.StreetTypeIntegrationTest
 
 class IntegrationTest extends Simulation {
 
@@ -56,6 +57,7 @@ class IntegrationTest extends Simulation {
                     EduFormTypeIntegrationTest.testCase,
                     EducationTypeIntegrationTest.testCase,
                     AddressTypeIntegrationTest.testCase,
+                    StreetTypeIntegrationTest.testCase,
                     EnrolmentStatusTypeIntegrationTest.testCase,
                     EnrolmentTypeIntegrationTest.testCase,
                     EnrolmentSubjectIntegrationTest.testCase,

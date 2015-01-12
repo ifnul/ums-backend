@@ -137,6 +137,7 @@
 	<bean id="streetTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.streettype.StreetType" />
+		<property name="queryBuilder" ref="streetTypeQueryBuilder" />
 	</bean>
 
 	<bean id="specOfferDao" class="org.lnu.is.dao.dao.DefaultDao">

@@ -206,6 +206,11 @@
 		<property name="dao" ref="sallaryTypeDao" />
 	</bean>
 
+	<bean id="streetTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="streetTypeParametersExtractor" />
+		<property name="dao" ref="streetTypeDao" />
+	</bean>
+
 	<bean id="specialtyService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specialtyParametersExtractor" />
 		<property name="dao" ref="specialtyDao" />

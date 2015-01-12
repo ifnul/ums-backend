@@ -1,4 +1,4 @@
-package org.lnu.is.converter.sallary.Type;
+package org.lnu.is.converter.sallary.type;
 
 import static org.junit.Assert.assertEquals;
 
