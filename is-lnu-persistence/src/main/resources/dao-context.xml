@@ -128,6 +128,12 @@
 		<property name="queryBuilder" ref="timePeriodTypeQueryBuilder" />
 	</bean>
 
+	<bean id="sallaryTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.salarytype.SallaryType" />
+		<property name="queryBuilder" ref="sallaryTypeQueryBuilder" />
+	</bean>
+
 	<bean id="streetTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
 		<property name="persistenceManager" ref="persistenceManager" />
 		<property name="entityClass" value="org.lnu.is.domain.streettype.StreetType" />

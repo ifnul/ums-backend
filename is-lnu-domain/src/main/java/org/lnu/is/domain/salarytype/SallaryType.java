@@ -15,7 +15,7 @@ import org.lnu.is.domain.Model;
 @RF
 @Entity
 @Table(name = "q_rf_salarytype")
-public class SalaryType extends Model {
+public class SallaryType extends Model {
 
 	private static final long serialVersionUID = 1L;
 	@Column(name = "abbrname")
@@ -24,11 +24,11 @@ public class SalaryType extends Model {
 	@Column(name  = "name")
 	private String name;
 
-	public String getAbbrname() {
+	public String getAbbrName() {
 		return abbrname;
 	}
 
-	public void setAbbrname(final String abbrname) {
+	public void setAbbrName(final String abbrname) {
 		this.abbrname = abbrname;
 	}
 
@@ -61,7 +61,7 @@ public class SalaryType extends Model {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		SalaryType other = (SalaryType) obj;
+		SallaryType other = (SallaryType) obj;
 		if (abbrname == null) {
 			if (other.abbrname != null) {
 				return false;

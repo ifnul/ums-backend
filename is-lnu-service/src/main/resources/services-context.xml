@@ -201,6 +201,11 @@
 		<property name="parametersExtractor" ref="reasonParametersExtractor" />
 	</bean>
 
+	<bean id="sallaryTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="sallaryTypeParametersExtractor" />
+		<property name="dao" ref="sallaryTypeDao" />
+	</bean>
+
 	<bean id="specialtyService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specialtyParametersExtractor" />
 		<property name="dao" ref="specialtyDao" />

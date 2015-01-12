@@ -138,7 +138,7 @@
         <class>org.lnu.is.domain.dutytype.DutyType</class>
         <class>org.lnu.is.domain.educationtype.EducationType</class>
         <class>org.lnu.is.domain.eduformtype.EduFormType</class>
-        <class>org.lnu.is.domain.salarytype.SalaryType</class>
+        <class>org.lnu.is.domain.salarytype.SallaryType</class>
         <class>org.lnu.is.domain.specstagetype.SpecStageType</class>
         <class>org.lnu.is.domain.streettype.StreetType</class>
         <class>org.lnu.is.domain.timesheettype.TimeSheetType</class>

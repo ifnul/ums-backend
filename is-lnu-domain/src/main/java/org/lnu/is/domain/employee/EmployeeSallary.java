@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.salarytype.SalaryType;
+import org.lnu.is.domain.salarytype.SallaryType;
 /**
  * Empoyee Salary entity. 
  * @author illay
@@ -27,7 +27,7 @@ public class EmployeeSallary extends Model {
 	
 	@ManyToOne
 	@JoinColumn(name = "salarytype_id")
-	private SalaryType salaryType;
+	private SallaryType salaryType;
 	
 	@Column(name = "suma")
 	private Double suma;
@@ -44,11 +44,11 @@ public class EmployeeSallary extends Model {
 		this.employee = employee;
 	}
 
-	public SalaryType getSalaryType() {
+	public SallaryType getSalaryType() {
 		return salaryType;
 	}
 
-	public void setSalaryType(final SalaryType salaryType) {
+	public void setSalaryType(final SallaryType salaryType) {
 		this.salaryType = salaryType;
 	}
 

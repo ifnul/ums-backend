@@ -54,15 +54,15 @@ FAQ:
 	відправити запит на видалення персони.
 	
 TODO:
-
-FamilyTypeIntegrationTest
-DegreeTypeIntegrationTest
-EmployeeTypeIntegrationTest
-EmployeeStatusIntegrationTest
-DutyTypeIntegrationTest
-BenefitIntegrationTest
-DepartmentTypeIntegrationTest
-SpecialtyTypeIntegrationTest
-ReasonIntegrationTest
-OperationTypeIntegrationTest
-SpecialtyIntegrationTest
+FamilyType
+DegreeType
+EmployeeType
+EmployeeStatus
+DutyType
+Benefit
+DepartmentType
+SpecialtyType
+Reason
+OperationType
+Specialty
+SallaryType
