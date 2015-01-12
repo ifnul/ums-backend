@@ -331,4 +331,10 @@
 		<property name="queryBuilder" ref="familyTypeQueryBuilder"/>
 	</bean>
 	
+	<bean id="timesheetTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+		<property name="persistenceManager" ref="persistenceManager" />
+		<property name="entityClass" value="org.lnu.is.domain.timesheettype.TimeSheetType" />
+		<property name="queryBuilder" ref="timesheetTypeQueryBuilder" />
+	</bean>
+	
 </beans>

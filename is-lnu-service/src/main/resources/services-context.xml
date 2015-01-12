@@ -250,6 +250,11 @@
 		<property name="parametersExtractor" ref="timePeriodTypeParametersExtractor" />
 		<property name="dao" ref="timePeriodTypeDao" />
 	</bean>
+	
+	<bean id="timesheetTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="timesheetTypeParametersExtractor" />
+		<property name="dao" ref="timesheetTypeDao" />
+	</bean>
 
 	<bean id="specOfferBenefitService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specOfferBenefitParametersExtractor" />
