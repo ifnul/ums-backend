@@ -40,6 +40,7 @@ class IntegrationTest extends Simulation {
   
 	val httpConf = http
 			.baseURL(host)
+      .basicAuth("admin", "nimda")
 			.acceptHeader("application/json")
 	
 	val injectStep = atOnceUsers(1);
