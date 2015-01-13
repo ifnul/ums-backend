@@ -7,332 +7,280 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	default-autowire="byName">
 	
-	<bean id="operationTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
+	<bean id="abstractDao" class="org.lnu.is.dao.dao.DefaultDao" abstract="true">
 		<property name="persistenceManager" ref="persistenceManager" />
+	</bean>
+	
+	<bean id="operationTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.optype.OperationType" />
 		<property name="queryBuilder" ref="operationTypeQueryBuilder" />		
 	</bean>
 	
-	<bean id="assetDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="assetDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.asset.Asset" />
 		<property name="queryBuilder" ref="assetQueryBuilder" />		
 	</bean>
 
-	<bean id="assetTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="assetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.asset.AssetType" />
 		<property name="queryBuilder" ref="assetTypeQueryBuilder" />
 	</bean>
 	
-	<bean id="assetStateDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="assetStateDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.asset.AssetState" />
 		<property name="queryBuilder" ref="assetStateQueryBuilder" />
 	</bean>
 
-	<bean id="assetStatusDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="assetStatusDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.asset.AssetStatus" />
 		<property name="queryBuilder" ref="assetStatusQueryBuilder" />
 	</bean>
 
-	<bean id="benefitDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="benefitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.benefit.Benefit" />
 		<property name="queryBuilder" ref="benefitQueryBuilder" />
 	</bean>
 
-	<bean id="benefitTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="benefitTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.benefit.BenefitType" />
 		<property name="queryBuilder" ref="benefitTypeQueryBuilder"/>
 	</bean>
 	
-	<bean id="contactTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="contactTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.contacttype.ContactType" />
 		<property name="queryBuilder" ref="contactTypeQueryBuilder"/>
 	</bean>
 
-	<bean id="courseTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="courseTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.coursetype.CourseType" />
 		<property name="queryBuilder" ref="courseTypeQueryBuilder"/>
 	</bean>
 	
-	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.partner.Partner" />
 		<property name="queryBuilder" ref="partnerQueryBuilder"/>
 	</bean>
 	
-	<bean id="employeeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="employeeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.employee.Employee" />
 		<property name="queryBuilder" ref="employeeQueryBuilder"/>
 	</bean>
 
-	<bean id="employeeTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="employeeTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeType" />
 		<property name="queryBuilder" ref="employeeTypeQueryBuilder"/>
 	</bean>
 
-	<bean id="employeeStatusDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="employeeStatusDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeStatus" />
 		<property name="queryBuilder" ref="employeeStatusQueryBuilder" />
 	</bean>
 
-	<bean id="degreeTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="degreeTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.degree.DegreeType"/>
 		<property name="queryBuilder" ref="degreeTypeQueryBuilder"/>
 	</bean>
 
-	<bean id="dutyTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="dutyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.dutytype.DutyType"/>
 		<property name="queryBuilder" ref="dutyTypeQueryBuilder"/>
 	</bean>
 
 	
-	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.enrolment.EnrolmentType" />
 		<property name="queryBuilder" ref="enrolmentTypeQueryBuilder" />
 	</bean>
 
-	<bean id="enrolmentDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="enrolmentDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.enrolment.Enrolment" />
 		<property name="queryBuilder" ref="enrolmentQueryBuilder" />
 	</bean>
 
-	<bean id="addressTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="addressTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.addresstype.AddressType" />
 		<property name="queryBuilder" ref="addressTypeQueryBuilder" />
 	</bean>
 
-	<bean id="timePeriodDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="timePeriodDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.timeperiod.TimePeriod" />
 		<property name="queryBuilder" ref="timePeriodQueryBuilder" />
 	</bean>
 
-	<bean id="timePeriodTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="timePeriodTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.timeperiod.TimePeriodType" />
 		<property name="queryBuilder" ref="timePeriodTypeQueryBuilder" />
 	</bean>
 
-	<bean id="sallaryTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="sallaryTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.salarytype.SallaryType" />
 		<property name="queryBuilder" ref="sallaryTypeQueryBuilder" />
 	</bean>
 
-	<bean id="streetTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="streetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.streettype.StreetType" />
 		<property name="queryBuilder" ref="streetTypeQueryBuilder" />
 	</bean>
 
-	<bean id="specOfferDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="specOfferDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOffer" />
 		<property name="queryBuilder" ref="specOfferQueryBuilder" />
 	</bean>
 
-	<bean id="specOfferTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="specOfferTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOfferType" />
 		<property name="queryBuilder" ref="specOfferTypeQueryBuilder" />
 	</bean>
 
-	<bean id="specOfferSubjectDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="specOfferSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecofferSubject" />
 		<property name="queryBuilder" ref="specOfferSubjectQueryBuilder" />
 	</bean>
 
-	<bean id="specOfferBenefitDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="specOfferBenefitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecofferBenefit" />
 		<property name="queryBuilder" ref="specOfferBenefitQueryBuilder" />
 	</bean>
 
-	<bean id="specialtyDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="specialtyDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.specialty.Specialty" />
 		<property name="queryBuilder" ref="specialtyQueryBuilder" />
 	</bean>
 
-	<bean id="specialtyTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="specialtyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.specialty.SpecialtyType" />
 		<property name="queryBuilder" ref="specialtyTypeQueryBuilder" />
 	</bean>
 
-	<bean id="personDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="personDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.Person" />
 		<property name="queryBuilder" ref="personQueryBuilder" />
 	</bean>
 
-	<bean id="personPaperDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="personPaperDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.PersonPaper" />
 		<property name="queryBuilder" ref="personPaperQueryBuilder" />
 	</bean>
 
-	<bean id="personNameDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="personNameDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.PersonName" />
 		<property name="queryBuilder" ref="personNameQueryBuilder" />
 	</bean>
 
-	<bean id="personTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="personTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.PersonType" />
 		<property name="queryBuilder" ref="personTypeQueryBuilder" />
 	</bean>
 
-	<bean id="personAwardDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="personAwardDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.PersonAward" />
 		<property name="queryBuilder" ref="personAwardQueryBuilder" />
 	</bean>
 
-	<bean id="personAddressDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="personAddressDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.PersonAddress" />
 		<property name="queryBuilder" ref="personAddressQueryBuilder" />
 	</bean>
 
-	<bean id="paperTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="paperTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.papertype.PaperType" />
 		<property name="queryBuilder" ref="paperTypeQueryBuilder"/>
 	</bean>
 	
-	<bean id="paperUsageDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="paperUsageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.paperusage.PaperUsage" />
 	</bean>
 
-	<bean id="postDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="postDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.post.Post" />
 	</bean>
 
-	<bean id="orderDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="orderDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.order.Order" />
 		<property name="queryBuilder" ref="orderQueryBuilder"/>
 	</bean>
 
-	<bean id="orderTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="orderTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.order.OrderType" />
 		<property name="queryBuilder" ref="orderTypeQueryBuilder" />
 	</bean>
 
-	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.marriedtype.MarriedType" />
 		<property name="queryBuilder" ref="marriedTypeQueryBuilder" />
 	</bean>
 
-	<bean id="honorsTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="honorsTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.honorstype.HonorType" />
 		<property name="queryBuilder" ref="honorTypeQueryBuilder" />
 	</bean>
 
-	<bean id="jobTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="jobTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.jobtype.JobType" />
 		<property name="queryBuilder" ref="jobTypeQueryBuilder" />
 	</bean>
 
-	<bean id="genderTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="genderTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.gendertype.GenderType" />
 		<property name="queryBuilder" ref="genderTypeQueryBuilder" />
 	</bean>
 
-	<bean id="enrolmentStatusTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
-		<property name="entityClass"
-			value="org.lnu.is.domain.enrolment.EnrolmentStatusType" />
+	<bean id="enrolmentStatusTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.EnrolmentStatusType" />
 		<property name="queryBuilder" ref="enrolmentStatusTypeQueryBuilder" />
 	</bean>
 
-	<bean id="enrolmentSubjectDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="enrolmentSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.enrolment.EnrolmentSubject" />
 		<property name="queryBuilder" ref="enrolmentSubjectQueryBuilder" />
 	</bean>
 
-	<bean id="educationTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="educationTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.educationtype.EducationType" />
 		<property name="queryBuilder" ref="educationTypeQueryBuilder" />
 	</bean>
 
-	<bean id="eduFormTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="eduFormTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.eduformtype.EduFormType" />
 		<property name="queryBuilder" ref="eduFormTypeQueryBuilder" />
 	</bean>
 
-	<bean id="reasonDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="reasonDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.reason.Reason" />
 		<property name="queryBuilder" ref="reasonQueryBuilder"/>
 	</bean>
 
-	<bean id="departmentDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="departmentDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.department.Department" />
 		<property name="queryBuilder" ref="departmentQueryBuilder" />
 	</bean>
 
-	<bean id="departmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="departmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.department.DepartmentType" />
 		<property name="queryBuilder" ref="departmentTypeQueryBuilder" />
 	</bean>
 
-	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.adminunit.AdminUnit" />
 		<property name="queryBuilder" ref="adminUnitQueryBuilder" />		
 	</bean>
 
-	<bean id="adminUnitTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="adminUnitTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.adminunit.type.AdminUnitType" />
 		<property name="queryBuilder" ref="adminUnitTypeQueryBuilder" />
 	</bean>
 
-	<bean id="languageDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="languageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.language.Language" />
 		<property name="queryBuilder" ref="languageQueryBuilder"/>
 	</bean>
 	
-	<bean id="familyTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="familyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.familytype.FamilyType" />
 		<property name="queryBuilder" ref="familyTypeQueryBuilder"/>
 	</bean>
 	
-	<bean id="timesheetTypeDao" class="org.lnu.is.dao.dao.DefaultDao">
-		<property name="persistenceManager" ref="persistenceManager" />
+	<bean id="timesheetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.timesheettype.TimeSheetType" />
 		<property name="queryBuilder" ref="timesheetTypeQueryBuilder" />
 	</bean>
