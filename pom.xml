@@ -68,6 +68,8 @@
 		<tomcat.deploy.url>http://104.236.29.16:8080/manager/text</tomcat.deploy.url>
 		<tomcat.server.name>TomcatServer</tomcat.server.name>
 		<tomcat.contextPath>/is-lnu-rest-api</tomcat.contextPath>
+		
+		<environment.active>dev</environment.active>
 	</properties>
 
 	<dependencyManagement>
