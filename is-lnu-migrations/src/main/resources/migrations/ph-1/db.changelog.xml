@@ -5271,5 +5271,6 @@
         <addForeignKeyConstraint baseColumnNames="specstagetype_id" baseTableName="q_od_personwork" constraintName="fk_q_rf_specstagetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specstagetype"/>
     	
     </changeSet>
-     
+
+
 </databaseChangeLog>

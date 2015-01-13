@@ -10,7 +10,6 @@ public class EntityNotFoundException extends RuntimeException {
 
 	/**
 	 * Basic constructor.
-	 * @author ivanursul
 	 */
 	public EntityNotFoundException() {
 		super();
@@ -18,7 +17,6 @@ public class EntityNotFoundException extends RuntimeException {
 
 	/**
 	 * Common constuctor.
-	 * @author ivanursul
 	 * @param message
 	 * @param cause
 	 * @param enableSuppression
@@ -31,7 +29,6 @@ public class EntityNotFoundException extends RuntimeException {
 
 	/**
 	 * Common constuctor.
-	 * @author ivanursul
 	 * @param message
 	 * @param cause
 	 */
@@ -41,7 +38,6 @@ public class EntityNotFoundException extends RuntimeException {
 
 	/**
 	 * Common constuctor.
-	 * @author ivanursul
 	 * @param message
 	 */
 	public EntityNotFoundException(final String message) {
@@ -50,7 +46,6 @@ public class EntityNotFoundException extends RuntimeException {
 
 	/**
 	 * Common constuctor.
-	 * @author ivanursul
 	 * @param cause
 	 */
 	public EntityNotFoundException(final Throwable cause) {

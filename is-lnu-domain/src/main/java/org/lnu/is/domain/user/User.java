@@ -1,13 +1,12 @@
 package org.lnu.is.domain.user;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -23,11 +22,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long id;
-
-    @Column(name = "login", unique = true)
+    @Column(name = "username")
     private String login;
 
     @Column(name = "password")
@@ -36,22 +31,30 @@ public class User implements Serializable {
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private UserRole role;
+    
+    @Column(name = "begdate")
+    private Date begDate;
+    
+    @Column(name = "enddate")
+    private Date endDate;
 
-    @Column(name = "email")
-    private String email;
+    public Date getBegDate() {
+		return begDate;
+	}
 
-    @Column(name = "full_name")
-    private String fullName;
+	public void setBegDate(final Date begDate) {
+		this.begDate = begDate;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Date getEndDate() {
+		return endDate;
+	}
 
-    public void setId(final Long id) {
-        this.id = id;
-    }
+	public void setEndDate(final Date endDate) {
+		this.endDate = endDate;
+	}
 
-    public String getLogin() {
+	public String getLogin() {
         return login;
     }
 
@@ -75,30 +78,12 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(final String email) {
-        this.email = email;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(final String fullName) {
-        this.fullName = fullName;
-    }
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result
-				+ ((fullName == null) ? 0 : fullName.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
+		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result
 				+ ((password == null) ? 0 : password.hashCode());
@@ -118,25 +103,18 @@ public class User implements Serializable {
 			return false;
 		}
 		User other = (User) obj;
-		if (email == null) {
-			if (other.email != null) {
+		if (begDate == null) {
+			if (other.begDate != null) {
 				return false;
 			}
-		} else if (!email.equals(other.email)) {
+		} else if (!begDate.equals(other.begDate)) {
 			return false;
 		}
-		if (fullName == null) {
-			if (other.fullName != null) {
+		if (endDate == null) {
+			if (other.endDate != null) {
 				return false;
 			}
-		} else if (!fullName.equals(other.fullName)) {
-			return false;
-		}
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!id.equals(other.id)) {
+		} else if (!endDate.equals(other.endDate)) {
 			return false;
 		}
 		if (login == null) {
@@ -161,9 +139,8 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", login=" + login + ", password=" + password
-				+ ", role=" + role + ", email=" + email + ", fullName="
-				+ fullName + "]";
+		return "User [login=" + login + ", password=" + password + ", role="
+				+ role + ", begDate=" + begDate + ", endDate=" + endDate + "]";
 	}
 
 }

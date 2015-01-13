@@ -15,24 +15,6 @@ import org.lnu.is.domain.common.RowStatus;
 
 /**
  * Common model for all entities.
- * I want to emphasize about getters and setters
- * for date- related fields.A standart approach 
- * of writing getters and setters is that you do
- * something like this:
- *  
- *  public Date getCreateDate() {
- *       return createDate;
- *  }
- *	
- *  public void setCreateDate(final Date createDate) {
- *      this.createDate = createDate;
- *  }
- *  
- *  But in this case we do it with instantiating a new
- *  object, because of mutable object Date.
- *  More information about this approach you can find
- *  by googling findbug error "EI_EXPOSE_REP".
- *  
  * @author ivanursul
  *
  */
