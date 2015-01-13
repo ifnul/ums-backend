@@ -53,7 +53,7 @@ FAQ:
 	запити на перевірку person_name. І, звичайно, ви не забуваєте після перевірки всіх операцій
 	відправити запит на видалення персони.
 	
-TODO:
+TODO Integration tests:
 FamilyType
 DegreeType
 EmployeeType
@@ -66,3 +66,4 @@ Reason
 OperationType
 Specialty
 SallaryType
+SubjectType

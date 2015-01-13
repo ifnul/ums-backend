@@ -290,6 +290,12 @@
 		<property name="entityConverter" ref="specOfferTypeConverter" />
 		<property name="service" ref="specOfferTypeService" />
 	</bean>
+
+	<bean id="subjectTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="subjectTypeResourceConverter" />
+		<property name="entityConverter" ref="subjectTypeConverter" />
+		<property name="service" ref="subjectTypeService" />
+	</bean>
 	
 	<bean id="orderFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="orderResourceConverter" />

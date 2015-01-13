@@ -152,6 +152,11 @@
 		<property name="queryBuilder" ref="specialtyTypeQueryBuilder" />
 	</bean>
 
+	<bean id="subjectTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.subject.SubjectType" />
+		<property name="queryBuilder" ref="subjectTypeQueryBuilder" />
+	</bean>
+
 	<bean id="personDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.Person" />
 		<property name="queryBuilder" ref="personQueryBuilder" />
