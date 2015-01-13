@@ -236,6 +236,11 @@
 		<property name="dao" ref="specOfferDao" />
 	</bean>
 
+	<bean id="subjectService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="subjectParametersExtractor" />
+		<property name="dao" ref="subjectDao" />
+	</bean>
+
 	<bean id="subjectTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="subjectTypeParametersExtractor" />
 		<property name="dao" ref="subjectTypeDao" />
