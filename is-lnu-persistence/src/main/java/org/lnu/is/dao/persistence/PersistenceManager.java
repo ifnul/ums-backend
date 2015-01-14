@@ -2,6 +2,7 @@ package org.lnu.is.dao.persistence;
 
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
+import org.lnu.is.queries.Query;
 
 /**
  * Interface, that is used to incapsulate all work
@@ -50,4 +51,11 @@ public interface PersistenceManager<T, I> {
      * @return PagedResult with "part" result.
      */
     PagedResult<T> search(PagedQuerySearch<T> searchRequest);
+
+    /**
+     * Method for getting single result.
+     * @param query
+     * @return single result.
+     */
+	T getSingleResult(Query<T> query);
 }

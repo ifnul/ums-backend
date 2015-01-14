@@ -12,6 +12,7 @@ import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
+import org.lnu.is.queries.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -80,6 +81,15 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
 
         return result;
     }
+    
+	@Override
+	public T getSingleResult(final Query<T> query) {
+		Query<T> finalQuery = query;
+		TypedQuery<T> typedQuery = createQuery(finalQuery.getQuery(), finalQuery.getParameters(), finalQuery.getClazz());
+
+		return typedQuery.getSingleResult();
+	}    
+    
 
     /**
      * Gets query count for every.

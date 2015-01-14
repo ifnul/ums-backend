@@ -60,7 +60,6 @@ public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implement
 		this.dao = defaultDao;
 	}
 
-	@Required
 	public void setParametersExtractor(final ParametersExtractor<ENTITY> parametersExtractor) {
 		this.parametersExtractor = parametersExtractor;
 	}

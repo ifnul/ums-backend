@@ -40,6 +40,11 @@
 			<artifactId>is-lnu-converter</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-security</artifactId>
+		</dependency>
+
 		<!-- LOGGING -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

@@ -294,5 +294,9 @@
 		<property name="entityClass" value="org.lnu.is.domain.timesheettype.TimeSheetType" />
 		<property name="queryBuilder" ref="timesheetTypeQueryBuilder" />
 	</bean>
+
+	<bean id="userDao" class="org.lnu.is.dao.dao.user.DefaultUserDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.user.User" />
+	</bean>
 	
 </beans>

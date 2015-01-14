@@ -3,7 +3,10 @@ package org.lnu.is.security;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.annotation.Resource;
+
 import org.lnu.is.domain.user.User;
+import org.lnu.is.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -13,6 +16,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.util.Assert;
 
 /**
  * Default Authentication Provider.
@@ -22,6 +26,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 public class DefaultAuthenticationProvider implements AuthenticationProvider {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultAuthenticationProvider.class);
 
+    @Resource(name = "userService")
+    private UserService userService;
+    
     @Override
     public boolean supports(final Class<?> clazz) {
     	return clazz.equals(UsernamePasswordAuthenticationToken.class);
@@ -61,7 +68,8 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
         User user = null;
 
         try {
-            user =  null; //userService.getUserByLoginAndPassword(login, password);
+            user =  userService.getUserByLogin(login);
+            Assert.isTrue(user.getPassword().equals(password));
         } catch (Exception e) {
             LOG.error("Can't find user for login: " + login, e);
             throw new BadCredentialsException("Bad creditials for user: " + login);

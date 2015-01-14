@@ -1,5 +1,7 @@
 package org.lnu.is.queries;
 
+import java.util.Map;
+
 /**
  * Class, that contains all required queries.
  * @author ivanursul
@@ -10,6 +12,7 @@ public final class Query<E> {
 	
 	private Class<E> clazz;
     private final String query;
+    private Map<String, Object> parameters;
 
     /**
      *  Constructor, which takes two parameters: name and query.
@@ -21,7 +24,32 @@ public final class Query<E> {
     	this.query = query;
     }
 
-    public String getQuery() {
+    /**
+     * Constructor for three arguments.
+     * @param clazz
+     * @param query
+     * @param parameters
+     */
+    public Query(final Class<E> clazz, final String query, final Map<String, Object> parameters) {
+		super();
+		this.clazz = clazz;
+		this.query = query;
+		this.parameters = parameters;
+	}
+
+	public Map<String, Object> getParameters() {
+		return parameters;
+	}
+
+	public void setParameters(final Map<String, Object> parameters) {
+		this.parameters = parameters;
+	}
+
+	public void setClazz(final Class<E> clazz) {
+		this.clazz = clazz;
+	}
+
+	public String getQuery() {
         return query;
     }
 

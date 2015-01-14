@@ -10,13 +10,12 @@
 	<security:http use-expressions="true">
 		<security:http-basic/>
         <security:intercept-url pattern="/**" access="isAuthenticated()" />
-		<security:remember-me key="is-lnu" user-service-ref="userDetailsService" />
 	</security:http>
 	
     <security:authentication-manager >
             <security:authentication-provider ref="defaultAuthenticationProvider"/>
     </security:authentication-manager>
 
-    <bean id="defaultAuthenticationProvider" class="org.optigra.ads.security.DefaultAuthenticationProvider" />
+    <bean id="defaultAuthenticationProvider" class="org.lnu.is.security.DefaultAuthenticationProvider" />
 
 </beans>
