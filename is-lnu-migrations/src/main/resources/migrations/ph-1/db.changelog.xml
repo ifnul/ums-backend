@@ -5272,5 +5272,61 @@
     	
     </changeSet>
 
+	<changeSet id="add new q_op_user table" author="ivanursul">
+	
+		<dropTable tableName="q_op_param" />
+		<dropTable tableName="q_op_userref" />
+		<dropTable tableName="q_opr_usergrouprole" />
+		<dropTable tableName="q_op_usergrouprole"/>
+		<dropTable tableName="q_op_usergroupinterface"/>
+		<dropTable tableName="q_op_usergroup"/>
+		<dropTable tableName="q_op_user" />
+		<dropTable tableName="q_opr_usergroupinterface" />
+	
+    	<createTable tableName="q_op_user" remarks="Логіни користувачів SQL сервера">
+    		<!-- Common fields -> Model -->
+    		<column name="id" type="bigint">
+    			<constraints primaryKey="true"/>
+    		</column>
+    		<column name="status" type="varchar(50)">
+    			<constraints nullable="false"/>
+    		</column>
+            <column name="actual" remarks="Status of row" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="varchar(255)" />
+            <column name="crtuser" type="varchar(50)" remarks="User, that made changes">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="varchar(50)" remarks="User group(user, that made changes)" >
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" type="timestamp" remarks="Update date" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="timestamp" remarks="Date of row creation" >
+            	<constraints nullable="false"/>
+        	</column>            
+			
+           	<!-- Table related fields -> User -->
+    		<column name="login" type="varchar(50)" remarks="User login" >
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="password" type="varchar(50)" remarks="User password">
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="title" type="varchar(200)" remarks="Initials(Fist name, Surname)" >
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="role" type="varchar(200)" remarks="Contant role of the user" >
+    			<constraints nullable="false"/>
+    		</column>
+    		
+    		<column name="begdate" type="timestamp" remarks="Start access date" />
+    		<column name="enddate" type="timestamp" remarks="End of access date" />
+    	</createTable>
+	
+	</changeSet>
+
 
 </databaseChangeLog>

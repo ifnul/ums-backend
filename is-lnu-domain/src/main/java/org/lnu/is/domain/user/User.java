@@ -10,6 +10,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.lnu.is.domain.Model;
+
 /**
  * User entity.
  *
@@ -17,13 +19,16 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "q_op_user")
-public class User implements Serializable {
+public class User extends Model implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "username")
+    @Column(name = "login")
     private String login;
+    
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "password")
     private String password;
