@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="add q_op_user data" author="ivanursul">
+    	<delete tableName="q_op_user"></delete>
+        <insert tableName="q_op_user">
+            <column name="id">1</column>
+            <column name="login">admin</column>
+            <column name="password">nimda</column>
+            <column name="title">Adminenko Admin Adminovich</column>
+            <column name="role">ADMIN</column>
+            <column name="begdate">2013-01-01</column>
+            <column name="enddate">2017-01-01</column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note">Demo admin</column>
+            <column name="crtuser">ivanursul</column>
+            <column name="crtusergroup">developers</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

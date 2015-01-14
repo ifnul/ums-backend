@@ -34,5 +34,6 @@
     <include file="data/ob_adminunit/db.ob_adminunit.xml" relativeToChangelogFile="true"/>
     <include file="data/rf_departmenttype/db.rf_departmenttype.xml" relativeToChangelogFile="true"/>
     <include file="data/ob_department/db.ob_department.xml" relativeToChangelogFile="true"/>
+    <include file="data/op_user/db.op_user.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
