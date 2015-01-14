@@ -57,7 +57,6 @@
 		<jpa.showSql>true</jpa.showSql>
 		<content.repository.path>~/tmp/is-lnu</content.repository.path>
 		<api.output.json.pretty>true</api.output.json.pretty>
-
 		<checkstyleDir>${basedir}/checks</checkstyleDir>
 		<findBugsDir>${basedir}/findbugs</findBugsDir>
 		
