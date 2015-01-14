@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DT;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 
 /**
  * Order Type entity.
@@ -17,7 +17,7 @@ import org.lnu.is.domain.Model;
 @DT
 @Entity
 @Table(name = "q_rf_ordertype")
-public class OrderType extends Model {
+public class OrderType extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")

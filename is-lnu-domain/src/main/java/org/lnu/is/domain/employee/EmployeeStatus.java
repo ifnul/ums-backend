@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 
 /**
  * Employee Status entity.
@@ -15,7 +15,7 @@ import org.lnu.is.domain.Model;
 @RF
 @Entity
 @Table(name = "q_rf_employeestatus")
-public class EmployeeStatus extends Model {
+public class EmployeeStatus extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")

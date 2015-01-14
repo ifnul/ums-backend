@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.LG;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 
 /**
  * Import Export entity.
@@ -15,7 +15,7 @@ import org.lnu.is.domain.Model;
 @LG
 @Entity
 @Table(name = "q_lg_importexport")
-public class ImportExport extends Model {
+public class ImportExport extends InformationModel {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "name")

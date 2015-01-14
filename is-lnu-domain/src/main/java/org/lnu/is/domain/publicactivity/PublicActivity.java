@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 
 /**
@@ -22,7 +22,7 @@ import org.lnu.is.domain.timeperiod.TimePeriod;
 @OB
 @Entity
 @Table(name = "q_ob_publicactivity")
-public class PublicActivity extends Model {
+public class PublicActivity extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 

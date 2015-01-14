@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 
 /**
  * Education Type entity.
@@ -15,7 +15,7 @@ import org.lnu.is.domain.Model;
 @RF
 @Entity
 @Table(name = "q_rf_educationtype")
-public class EducationType extends Model {
+public class EducationType extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 

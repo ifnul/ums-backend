@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.salarytype.SallaryType;
 /**
  * Empoyee Salary entity. 
@@ -17,7 +17,7 @@ import org.lnu.is.domain.salarytype.SallaryType;
 @OD
 @Entity
 @Table(name = "q_od_employeesalary")
-public class EmployeeSallary extends Model {
+public class EmployeeSallary extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	

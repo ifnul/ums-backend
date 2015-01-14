@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 /**
  * Absence Type entity.
  * @author illay
@@ -14,7 +14,7 @@ import org.lnu.is.domain.Model;
 @RF
 @Entity
 @Table(name = "q_rf_absencetype")
-public class AbsenceType extends Model {
+public class AbsenceType extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	

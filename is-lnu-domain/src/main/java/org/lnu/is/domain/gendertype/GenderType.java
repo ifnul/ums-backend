@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 
 /**
  * Gender Type entity.
@@ -15,7 +15,7 @@ import org.lnu.is.domain.Model;
 @RF
 @Entity
 @Table(name = "q_rf_gendertype")
-public class GenderType extends Model {
+public class GenderType extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")

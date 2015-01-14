@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.Mapped;
 import org.lnu.is.annotation.dbtable.LG;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 
 /**
  * Error entity.
@@ -17,7 +17,7 @@ import org.lnu.is.domain.Model;
 @Mapped
 @Entity
 @Table(name = "q_lg_error")
-public class Error extends Model {
+public class Error extends InformationModel {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "name")

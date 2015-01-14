@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 
 /**
  * Benefit  entity.
@@ -19,7 +19,7 @@ import org.lnu.is.domain.Model;
 @OB
 @Entity
 @Table(name = "q_ob_benefit")
-public class Benefit extends Model {
+public class Benefit extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

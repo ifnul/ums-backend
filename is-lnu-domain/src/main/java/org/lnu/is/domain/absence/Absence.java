@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.person.Person;
 /**
  * Absence entity.
@@ -17,7 +17,7 @@ import org.lnu.is.domain.person.Person;
  */
 @Entity
 @Table(name = "q_od_absence")
-public class Absence extends Model {
+public class Absence extends InformationModel {
 	
 	private static final long serialVersionUID = 1L;
 	

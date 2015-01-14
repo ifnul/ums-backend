@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 /**
  * Property Value entity.
  * @author illay
@@ -18,7 +18,7 @@ import org.lnu.is.domain.Model;
 @OD
 @Entity
 @Table(name = "q_od_propertyvalue")
-public class PropertyValue extends Model {
+public class PropertyValue extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	

@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 
 /**
  * Enrolment Type entity.
@@ -17,7 +17,7 @@ import org.lnu.is.domain.Model;
 @RF
 @Entity
 @Table(name = "q_rf_enrolmenttype")
-public class EnrolmentType extends Model {
+public class EnrolmentType extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")

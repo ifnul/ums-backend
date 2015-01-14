@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 
 /**
  * Property entity.
@@ -20,7 +20,7 @@ import org.lnu.is.domain.Model;
 @OB
 @Entity
 @Table(name = "q_ob_property")
-public class Property extends Model {
+public class Property extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	

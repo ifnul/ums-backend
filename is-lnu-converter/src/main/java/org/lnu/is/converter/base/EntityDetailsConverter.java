@@ -2,7 +2,7 @@ package org.lnu.is.converter.base;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -13,7 +13,7 @@ import org.lnu.is.resource.ApiResource;
  * @param <RESOURCE> resource.
  */
 @Converter("entityDetailsConverter")
-public class EntityDetailsConverter<ENTITY extends Model, RESOURCE extends ApiResource> extends AbstractConverter<ENTITY, RESOURCE> {
+public class EntityDetailsConverter<ENTITY extends InformationModel, RESOURCE extends ApiResource> extends AbstractConverter<ENTITY, RESOURCE> {
 
 	@Override
 	public RESOURCE convert(final ENTITY source, final RESOURCE target) {

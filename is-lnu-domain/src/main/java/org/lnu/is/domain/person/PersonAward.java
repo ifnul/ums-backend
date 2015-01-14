@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.publicactivity.PublicActivityAward;
 /**
  * Person Award entity.
@@ -17,7 +17,7 @@ import org.lnu.is.domain.publicactivity.PublicActivityAward;
 @OD
 @Entity
 @Table(name = "q_od_personaward")
-public class PersonAward extends Model {
+public class PersonAward extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 

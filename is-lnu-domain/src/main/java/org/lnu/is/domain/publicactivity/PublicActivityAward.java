@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 /**
  * Public Activity Award entity.
@@ -19,7 +19,7 @@ import org.lnu.is.domain.enrolment.EnrolmentSubject;
 @OD
 @Entity
 @Table(name = "q_od_publicactivityaward")
-public class PublicActivityAward extends Model {
+public class PublicActivityAward extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	

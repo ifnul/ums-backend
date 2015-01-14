@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
@@ -25,7 +25,7 @@ import org.lnu.is.domain.partner.Partner;
 @OB
 @Entity
 @Table(name = "q_ob_asset")
-public class Asset extends Model {
+public class Asset extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

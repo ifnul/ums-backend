@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.streettype.StreetType;
@@ -20,7 +20,7 @@ import org.lnu.is.domain.streettype.StreetType;
 @OD
 @Entity
 @Table(name = "q_od_departmentaddress")
-public class DepartmentAddress extends Model {
+public class DepartmentAddress extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

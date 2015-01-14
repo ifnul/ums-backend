@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DT;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.benefit.Benefit;
 
 /**
@@ -17,7 +17,7 @@ import org.lnu.is.domain.benefit.Benefit;
 @DT
 @Entity
 @Table(name = "q_dt_enrolmentbenefit")
-public class EnrolmentBenefit extends Model {
+public class EnrolmentBenefit extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

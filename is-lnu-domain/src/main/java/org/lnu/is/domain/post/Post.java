@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.posttype.PostType;
 
 /**
@@ -21,7 +21,7 @@ import org.lnu.is.domain.posttype.PostType;
 @OB
 @Entity
 @Table(name = "q_ob_post")
-public class Post extends Model {
+public class Post extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")

@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.language.LanguageLevel;
 
@@ -18,7 +18,7 @@ import org.lnu.is.domain.language.LanguageLevel;
 @OD
 @Entity
 @Table(name = "q_od_personlanguage")
-public class PersonLanguage extends Model {
+public class PersonLanguage extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

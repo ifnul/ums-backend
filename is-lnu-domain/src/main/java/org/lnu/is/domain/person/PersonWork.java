@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.jobtype.JobType;
 import org.lnu.is.domain.specstagetype.SpecStageType;
 /**
@@ -20,7 +20,7 @@ import org.lnu.is.domain.specstagetype.SpecStageType;
 @OD
 @Entity
 @Table(name = "q_od_personwork")
-public class PersonWork extends Model {
+public class PersonWork extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 

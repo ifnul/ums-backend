@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DT;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.property.Property;
 
@@ -21,7 +21,7 @@ import org.lnu.is.domain.property.Property;
 @DT
 @Entity
 @Table(name = "q_dt_orderassetpassport")
-public class OrderAssetPassport extends Model {
+public class OrderAssetPassport extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	

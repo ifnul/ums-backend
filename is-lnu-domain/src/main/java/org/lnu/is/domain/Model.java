@@ -14,73 +14,48 @@ import javax.persistence.MappedSuperclass;
 import org.lnu.is.domain.common.RowStatus;
 
 /**
- * Common model for all entities.
+ * Base model.
  * @author ivanursul
  *
  */
 @MappedSuperclass
 public abstract class Model implements Serializable {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-    
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
+
 	@Column(name = "status")
 	@Enumerated(EnumType.STRING)
 	private RowStatus status;
-	
+
 	@Column(name = "actual")
 	private Integer actual;
-	
+
 	@Column(name = "note")
 	private String note;
-	
+
 	@Column(name = "crtuser")
 	private String crtUser;
-	
+
 	@Column(name = "crtusergroup")
 	private String crtUserGroup;
-    
+
 	@Column(name = "create_date")
-    private Date createDate;
+	private Date createDate;
 
-    @Column(name = "update_date")
-    private Date updateDate;
-    	
-	@Column(name = "uid")
-	private Long uid;
-	
-	@Column(name = "utid")
-	private String utid;
-	
-	@Column(name = "uapp")
-	private String uapp;
-    
-    public Long getId() {
-        return id;
-    }
+	@Column(name = "update_date")
+	private Date updateDate;
 
-    public void setId(final Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(final Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(final Date updateDate) {
-        this.updateDate = updateDate;
-    }
+	public void setId(final Long id) {
+		this.id = id;
+	}
 
 	public RowStatus getStatus() {
 		return status;
@@ -122,28 +97,20 @@ public abstract class Model implements Serializable {
 		this.crtUserGroup = crtUserGroup;
 	}
 
-	public Long getUid() {
-		return uid;
+	public Date getCreateDate() {
+		return createDate;
 	}
 
-	public void setUid(final Long uid) {
-		this.uid = uid;
+	public void setCreateDate(final Date createDate) {
+		this.createDate = createDate;
 	}
 
-	public String getUtid() {
-		return utid;
+	public Date getUpdateDate() {
+		return updateDate;
 	}
 
-	public void setUtid(final String utid) {
-		this.utid = utid;
-	}
-
-	public String getUapp() {
-		return uapp;
-	}
-
-	public void setUapp(final String uapp) {
-		this.uapp = uapp;
+	public void setUpdateDate(final Date updateDate) {
+		this.updateDate = updateDate;
 	}
 
 	@Override
@@ -151,15 +118,16 @@ public abstract class Model implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((actual == null) ? 0 : actual.hashCode());
+		result = prime * result
+				+ ((createDate == null) ? 0 : createDate.hashCode());
 		result = prime * result + ((crtUser == null) ? 0 : crtUser.hashCode());
 		result = prime * result
 				+ ((crtUserGroup == null) ? 0 : crtUserGroup.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((note == null) ? 0 : note.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result + ((uapp == null) ? 0 : uapp.hashCode());
-		result = prime * result + ((uid == null) ? 0 : uid.hashCode());
-		result = prime * result + ((utid == null) ? 0 : utid.hashCode());
+		result = prime * result
+				+ ((updateDate == null) ? 0 : updateDate.hashCode());
 		return result;
 	}
 
@@ -180,6 +148,13 @@ public abstract class Model implements Serializable {
 				return false;
 			}
 		} else if (!actual.equals(other.actual)) {
+			return false;
+		}
+		if (createDate == null) {
+			if (other.createDate != null) {
+				return false;
+			}
+		} else if (!createDate.equals(other.createDate)) {
 			return false;
 		}
 		if (crtUser == null) {
@@ -213,25 +188,11 @@ public abstract class Model implements Serializable {
 		if (status != other.status) {
 			return false;
 		}
-		if (uapp == null) {
-			if (other.uapp != null) {
+		if (updateDate == null) {
+			if (other.updateDate != null) {
 				return false;
 			}
-		} else if (!uapp.equals(other.uapp)) {
-			return false;
-		}
-		if (uid == null) {
-			if (other.uid != null) {
-				return false;
-			}
-		} else if (!uid.equals(other.uid)) {
-			return false;
-		}
-		if (utid == null) {
-			if (other.utid != null) {
-				return false;
-			}
-		} else if (!utid.equals(other.utid)) {
+		} else if (!updateDate.equals(other.updateDate)) {
 			return false;
 		}
 		return true;
@@ -242,8 +203,7 @@ public abstract class Model implements Serializable {
 		return "Model [id=" + id + ", status=" + status + ", actual=" + actual
 				+ ", note=" + note + ", crtUser=" + crtUser + ", crtUserGroup="
 				+ crtUserGroup + ", createDate=" + createDate + ", updateDate="
-				+ updateDate + ", uid=" + uid + ", utid=" + utid + ", uapp="
-				+ uapp + "]";
+				+ updateDate + "]";
 	}
 
 }

@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.adminunit.type.AdminUnitType;
 
 /**
@@ -20,7 +20,7 @@ import org.lnu.is.domain.adminunit.type.AdminUnitType;
 @OB
 @Entity
 @Table(name = "q_ob_adminunit")
-public class AdminUnit extends Model {
+public class AdminUnit extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

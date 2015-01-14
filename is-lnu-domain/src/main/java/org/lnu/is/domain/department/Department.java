@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.specialty.Specialty;
 
@@ -24,7 +24,7 @@ import org.lnu.is.domain.specialty.Specialty;
 @OB
 @Entity
 @Table(name = "q_ob_department")
-public class Department extends Model {
+public class Department extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

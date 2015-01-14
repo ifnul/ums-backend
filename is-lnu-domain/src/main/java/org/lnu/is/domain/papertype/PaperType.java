@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.paperusage.PaperUsage;
 
 /**
@@ -18,7 +18,7 @@ import org.lnu.is.domain.paperusage.PaperUsage;
 @RF
 @Entity
 @Table(name = "q_rf_papertype")
-public class PaperType extends Model {
+public class PaperType extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

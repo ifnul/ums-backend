@@ -15,7 +15,6 @@ import org.lnu.is.domain.Model;
 public abstract class AbstractParametersExtractor<T> implements ParametersExtractor<T> {
 
 	
-	
 	@Override
 	public Map<String, Object> getParameters(final T entity) {
 		Map<String, Object> parameters = new HashMap<String, Object>();

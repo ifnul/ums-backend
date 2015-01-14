@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.jobtype.JobType;
@@ -28,7 +28,7 @@ import org.lnu.is.domain.post.Post;
 @OB
 @Entity
 @Table(name = "q_ob_employee")
-public class Employee extends Model {
+public class Employee extends InformationModel {
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne

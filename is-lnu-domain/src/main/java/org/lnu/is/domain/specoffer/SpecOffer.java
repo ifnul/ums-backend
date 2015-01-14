@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.domain.specialty.Specialty;
@@ -26,7 +26,7 @@ import org.lnu.is.domain.timeperiod.TimePeriod;
 @OB
 @Entity
 @Table(name = "q_ob_specoffer")
-public class SpecOffer extends Model {
+public class SpecOffer extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

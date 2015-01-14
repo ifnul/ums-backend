@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.wavetype.WaveType;
 
@@ -19,7 +19,7 @@ import org.lnu.is.domain.wavetype.WaveType;
 @OD
 @Entity
 @Table(name = "q_od_specofferwave")
-public class SpecOfferWave extends Model {
+public class SpecOfferWave extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.person.Person;
 
 /**
@@ -18,7 +18,7 @@ import org.lnu.is.domain.person.Person;
 @OB
 @Entity
 @Table(name = "q_ob_degree")
-public class Degree extends Model {
+public class Degree extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

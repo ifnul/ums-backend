@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.language.Language;
 /**
  * Post Name entity.
@@ -17,7 +17,7 @@ import org.lnu.is.domain.language.Language;
 @OD
 @Entity
 @Table(name = "q_od_postname")
-public class PostName extends Model {
+public class PostName extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	

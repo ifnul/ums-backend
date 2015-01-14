@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.educationtype.EducationType;
 /**
  * Persoon Education entity.
@@ -19,7 +19,7 @@ import org.lnu.is.domain.educationtype.EducationType;
 @OD
 @Entity
 @Table(name = "q_od_personeducation")
-public class PersonEducation extends Model {
+public class PersonEducation extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	

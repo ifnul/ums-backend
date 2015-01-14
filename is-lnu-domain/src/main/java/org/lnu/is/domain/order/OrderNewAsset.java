@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DT;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.asset.AssetState;
 import org.lnu.is.domain.asset.AssetStatus;
@@ -24,7 +24,7 @@ import org.lnu.is.domain.asset.AssetType;
 @DT
 @Entity
 @Table(name = "q_dt_ordernewasset")
-public class OrderNewAsset extends Model {
+public class OrderNewAsset extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

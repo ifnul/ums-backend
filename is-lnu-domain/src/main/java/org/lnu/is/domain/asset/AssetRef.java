@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.InformationModel;
 /***
  * AssetRef entity.
  * @author illay
@@ -16,7 +16,7 @@ import org.lnu.is.domain.Model;
 @OD
 @Entity
 @Table(name = "q_od_assetref")
-public class AssetRef extends Model {
+public class AssetRef extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	
