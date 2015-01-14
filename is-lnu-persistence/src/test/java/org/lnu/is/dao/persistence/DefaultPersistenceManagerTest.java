@@ -231,4 +231,26 @@ public class DefaultPersistenceManagerTest {
 		verify(typedQuery).setMaxResults(limit);
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testGetSingleResult() throws Exception {
+		String querySql = "SELECT d FROM Department d WHERE d.abbrName = :abbrName";
+		String abbrName = "abbr name";
+		Map<String, Object> parameters = Collections.<String, Object>singletonMap("abbrName", abbrName);
+		// Given
+		Query<Department> query = new Query<Department>(Department.class, querySql, parameters);
+
+		Department expected = new Department();
+		
+		// When
+		when(entityManager.createQuery(anyString(), Matchers.<Class<Department>>any())).thenReturn(typedQuery);
+		when(typedQuery.getSingleResult()).thenReturn(expected);
+		Department actual = unit.getSingleResult(query);
+
+		// Then
+		verify(entityManager).createQuery(querySql, query.getClazz());
+		verify(typedQuery).getSingleResult();
+		verify(typedQuery).setParameter("abbrName", abbrName);
+		assertEquals(expected, actual);
+	}
 }
