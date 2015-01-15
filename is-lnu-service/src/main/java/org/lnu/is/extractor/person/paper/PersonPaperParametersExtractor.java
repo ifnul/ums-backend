@@ -13,7 +13,6 @@ import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**
- * TODO: IU - Write tests for all parameter extractors.
  * Person paper parameters extractor.
  * @author ivanursul
  *

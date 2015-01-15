@@ -1,4 +1,4 @@
-package org.lnu.is.extractor.benefit;
+package org.lnu.is.extractor.person.type;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,36 +7,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.benefit.Benefit;
-import org.lnu.is.domain.benefit.BenefitType;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.lnu.is.domain.person.PersonType;
 
-@RunWith(MockitoJUnitRunner.class)
-public class BenefitParametersExtractorTest {
-
-	@Mock
-	private Dao<BenefitType, Long> benefitTypeDao;
+public class PersonTypeParametersExtractorTest {
 	
-	@Mock
-	private Dao<Benefit, Long> benefitDao;
-	
-	@InjectMocks
-	private BenefitParametersExtractor unit;
+	private PersonTypeParametersExtractor unit = new PersonTypeParametersExtractor();
 	
 	@Test
 	public void testGetParameters() throws Exception {
 		// Given
-		String abbrName = "abbrName";
-		Benefit entity = new Benefit();
+		String name = "Extract Me All";
+		String abbrName = "EML";
+
+		PersonType entity = new PersonType();
+		entity.setName(name);
 		entity.setAbbrName(abbrName);
-		
+
 		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
 		expected.put("abbrName", abbrName);
-		
+
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
@@ -47,7 +37,7 @@ public class BenefitParametersExtractorTest {
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		Benefit entity = new Benefit();
+		PersonType entity = new PersonType();
 		
 		Map<String, Object> expected = Collections.emptyMap();
 		// When

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.when;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +46,19 @@ public class PaperTypeParametersExtractorTest {
 		// When
 		when(paperUsageDao.getEntityById(anyLong())).thenReturn(paperUsage);
 		
+		Map<String, Object> actual = unit.getParameters(entity);
+
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntity() throws Exception {
+		// Given
+		PaperType entity = new PaperType();
+		
+		Map<String, Object> expected = Collections.emptyMap();
+		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then

@@ -5,6 +5,7 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -67,6 +68,19 @@ public class PartnerParametersExtractorTest {
 
 		// Then
 		verify(partnerDao).getEntityById(parentId);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntity() throws Exception {
+		// Given
+		Partner entity = new Partner();
+		
+		Map<String, Object> expected = Collections.emptyMap();
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+
+		// Then
 		assertEquals(expected, actual);
 	}
 }
