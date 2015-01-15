@@ -12,7 +12,7 @@ import org.lnu.is.domain.benefit.BenefitType;
  */
 @QBuilder("benefitTypeQueryBuilder")
 public class BenefitTypeQueryBuilder implements QueryBuilder<BenefitType> {
-	private static final String QUERY = "SELECT b FROM Benefit b %s";
+	private static final String QUERY = "SELECT b FROM BenefitType b %s";
 
 	private static final String NAME_CONDITION = "b.name LIKE CONCAT('%',:name,'%') ";
 	private static final String PRIORITY_CONDITION = "b.priority =:priority ";
