@@ -12,6 +12,7 @@ import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -45,7 +46,7 @@ public class DutyTypeController extends BaseController implements PagedControlle
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get Duty Types by id")
-	public DutyTypeResource getResource(final Long id) {
+	public DutyTypeResource getResource(@PathVariable("id") final Long id) {
 		LOG.info("Getting duty type resource:{}", id);
 		return facade.getResource(id);
 	}

@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.controller.department.type;
 
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -37,7 +38,7 @@ public class DepartmentTypeControllerTest extends AbstractControllerTest {
 	}
 
 	@Test
-	public void testGetEduFormTypes() throws Exception {
+	public void testGetResources() throws Exception {
 		// Given
 		String name = "Gender Type One";
 		DepartmentTypeResource resource = new DepartmentTypeResource();
@@ -70,5 +71,28 @@ public class DepartmentTypeControllerTest extends AbstractControllerTest {
 				.andExpect(content().string(response));
 
 		verify(facade).getResources(request);
+	}
+	
+	@Test
+	public void testGetResource() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "all difficult";
+		String abbrName = "ad";
+		DepartmentTypeResource expected = new DepartmentTypeResource();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+		expected.setId(id);
+		
+		// When
+		when(facade.getResource(anyLong())).thenReturn(expected);
+		String response = getJson(expected, false);
+
+		// Then
+		mockMvc.perform(get("/departments/types/{id}", id))
+			.andExpect(status().isOk())
+			.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
 	}
 }

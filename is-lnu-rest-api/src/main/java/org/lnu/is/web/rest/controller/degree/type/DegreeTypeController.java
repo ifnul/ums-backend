@@ -12,6 +12,7 @@ import org.lnu.is.web.rest.controller.PagedController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -45,7 +46,7 @@ public class DegreeTypeController extends BaseController implements PagedControl
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get Degree Types by id")
-	public DegreeTypeResource getResource(final Long id) {
+	public DegreeTypeResource getResource(@PathVariable("id") final Long id) {
 		LOG.info("Getting degree type resource:{}", id);
 		return facade.getResource(id);
 	}

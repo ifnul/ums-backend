@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.controller.person.type;
 
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -74,5 +75,28 @@ public class PersonTypeControllerTest extends AbstractControllerTest {
 			.andExpect(content().string(response));
 
 		verify(facade).getResources(pagedRequest);
+	}
+	
+	@Test
+	public void testGetResource() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "all difficult";
+		String abbrName = "ad";
+		PersonTypeResource expected = new PersonTypeResource();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+		expected.setId(id);
+		
+		// When
+		when(facade.getResource(anyLong())).thenReturn(expected);
+		String response = getJson(expected, false);
+
+		// Then
+		mockMvc.perform(get("/persons/types/{id}", id))
+			.andExpect(status().isOk())
+			.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
 	}
 }

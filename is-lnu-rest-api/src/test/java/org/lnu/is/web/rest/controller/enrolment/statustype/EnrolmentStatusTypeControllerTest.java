@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.controller.enrolment.statustype;
 
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -26,7 +27,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class EnrolmentStatusTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<EnrolmentStatusTypeResource, Long> statusTypeFacade;
+	private Facade<EnrolmentStatusTypeResource, Long> facade;
 
 	@InjectMocks
 	private EnrolmentStatusTypeController unit;
@@ -59,7 +60,7 @@ public class EnrolmentStatusTypeControllerTest extends AbstractControllerTest {
 		PagedRequest<EnrolmentStatusTypeResource> request = new PagedRequest<EnrolmentStatusTypeResource>(paramResource, offset, limit);
 
 		// When
-		when(statusTypeFacade.getResources(Matchers.<PagedRequest<EnrolmentStatusTypeResource>> any())).thenReturn(expected);
+		when(facade.getResources(Matchers.<PagedRequest<EnrolmentStatusTypeResource>> any())).thenReturn(expected);
 
 		String response = getJson(expected, false);
 
@@ -69,6 +70,29 @@ public class EnrolmentStatusTypeControllerTest extends AbstractControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 
-		verify(statusTypeFacade).getResources(request);
+		verify(facade).getResources(request);
+	}
+	
+	@Test
+	public void testGetResource() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "all difficult";
+		String abbrName = "ad";
+		EnrolmentStatusTypeResource expected = new EnrolmentStatusTypeResource();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+		expected.setId(id);
+		
+		// When
+		when(facade.getResource(anyLong())).thenReturn(expected);
+		String response = getJson(expected, false);
+
+		// Then
+		mockMvc.perform(get("/enrolments/statustypes/{id}", id))
+			.andExpect(status().isOk())
+			.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
 	}
 }

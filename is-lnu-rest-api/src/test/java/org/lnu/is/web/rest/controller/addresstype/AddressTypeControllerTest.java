@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.controller.addresstype;
 
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -30,6 +31,11 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 
 	@InjectMocks
 	private AddressTypeController unit;
+
+	@Override
+	protected BaseController getUnit() {
+		return unit;
+	}
 
 	@Test
 	public void testGetAddressTypes() throws Exception {
@@ -66,12 +72,29 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 				.andExpect(content().string(response));
 
 		verify(facade).getResources(request);
-
 	}
 
-	@Override
-	protected BaseController getUnit() {
-		return unit;
+	@Test
+	public void testGetResource() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "all difficult";
+		String abbrName = "ad";
+		AddressTypeResource expected = new AddressTypeResource();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+		expected.setId(id);
+		
+		// When
+		when(facade.getResource(anyLong())).thenReturn(expected);
+		String response = getJson(expected, false);
+
+		// Then
+		mockMvc.perform(get("/addresstypes/{id}", id))
+			.andExpect(status().isOk())
+			.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
 	}
 
 }

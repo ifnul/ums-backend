@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.controller.asset.type;
 
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -71,7 +72,28 @@ public class AssetTypeControllerTest extends AbstractControllerTest {
 				.andExpect(content().string(response));
 
 		verify(facade).getResources(request);
-
 	}
 
+	@Test
+	public void testGetResource() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "all difficult";
+		String abbrName = "ad";
+		AssetTypeResource expected = new AssetTypeResource();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+		expected.setId(id);
+		
+		// When
+		when(facade.getResource(anyLong())).thenReturn(expected);
+		String response = getJson(expected, false);
+
+		// Then
+		mockMvc.perform(get("/assets/types/{id}", id))
+			.andExpect(status().isOk())
+			.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
+	}
 }

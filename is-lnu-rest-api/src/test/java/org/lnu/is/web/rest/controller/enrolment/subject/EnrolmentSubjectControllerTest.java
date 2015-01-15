@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.controller.enrolment.subject;
 
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -26,7 +27,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class EnrolmentSubjectControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<EnrolmentSubjectResource, Long> subjectFacade;
+	private Facade<EnrolmentSubjectResource, Long> facade;
 	
 	@InjectMocks
 	private EnrolmentSubjectController unit;
@@ -62,7 +63,7 @@ public class EnrolmentSubjectControllerTest extends AbstractControllerTest {
 		PagedRequest<EnrolmentSubjectResource> request = new PagedRequest<EnrolmentSubjectResource>(paramResource, offset, limit);
 		
 		// When
-		when(subjectFacade.getResources(Matchers.<PagedRequest<EnrolmentSubjectResource>>any())).thenReturn(expected);
+		when(facade.getResources(Matchers.<PagedRequest<EnrolmentSubjectResource>>any())).thenReturn(expected);
     	String response = getJson(expected, false);
 
 		// Then
@@ -71,6 +72,29 @@ public class EnrolmentSubjectControllerTest extends AbstractControllerTest {
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	
-		verify(subjectFacade).getResources(request);
+		verify(facade).getResources(request);
+	}
+    
+	@Test
+	public void testGetResource() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "all difficult";
+		String abbrName = "ad";
+		EnrolmentSubjectResource expected = new EnrolmentSubjectResource();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+		expected.setId(id);
+		
+		// When
+		when(facade.getResource(anyLong())).thenReturn(expected);
+		String response = getJson(expected, false);
+
+		// Then
+		mockMvc.perform(get("/enrolments/subjects/{id}", id))
+			.andExpect(status().isOk())
+			.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
 	}
 }
