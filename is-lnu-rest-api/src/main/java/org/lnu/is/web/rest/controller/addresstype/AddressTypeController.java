@@ -35,7 +35,7 @@ public class AddressTypeController extends BaseController implements PagedContro
 
 	@Resource(name = "addressTypeFacade")
 	private Facade<AddressTypeResource, Long> facade;
-
+	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)

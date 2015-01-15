@@ -7,23 +7,12 @@
                            http://www.springframework.org/schema/security
                            http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-	<security:http use-expressions="true" entry-point-ref="restAuthenticationEntryPoint">
-		<security:http-basic />
-		<security:intercept-url pattern="/**"
-			access="isAuthenticated()" />
-		<security:form-login 
-			authentication-success-handler-ref="customSuccessHandler"
-			authentication-failure-handler-ref="customFailureHandler" />
-	</security:http>
-
-	<bean id="customSuccessHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler" />
-	<bean id="customFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" />
-
+	<bean id="defaultAuthenticationProvider" class="org.lnu.is.security.DefaultAuthenticationProvider" />
+	
 	<security:authentication-manager>
-		<security:authentication-provider
-			ref="defaultAuthenticationProvider" />
+		<security:authentication-provider ref="defaultAuthenticationProvider" />
 	</security:authentication-manager>
 
-	<bean id="defaultAuthenticationProvider" class="org.lnu.is.security.DefaultAuthenticationProvider" />
+	<bean id="sessionService" class="org.lnu.is.security.service.DefaultSessionService" />
 
 </beans>

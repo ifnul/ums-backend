@@ -141,10 +141,10 @@ public class User extends Model implements Serializable {
 		}
 		return true;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "User [login=" + login + ", password=" + password + ", role="
+		return "User [login=" + login + ", role="
 				+ role + ", begDate=" + begDate + ", endDate=" + endDate + "]";
 	}
 
