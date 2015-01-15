@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.specialty.Specialty;
+import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
@@ -19,7 +19,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class SpecOfferTypeParametersExtractor extends AbstractParametersExtractor<SpecOfferType> {
 
 	@Resource(name = "specialtyTypeDao")
-	private Dao<Specialty, Long> specialtyTypeDao;
+	private Dao<SpecialtyType, Long> specialtyTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final SpecOfferType entity, final Map<String, Object> parameters) {

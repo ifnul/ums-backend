@@ -158,15 +158,15 @@ public class EmployeeParametersExtractorTest {
 		expected.put("email", email);
 		
 		// When
-		when(departmentDao.findById(anyLong())).thenReturn(department);
-		when(employeeStatusDao.findById(anyLong())).thenReturn(employeeStatus);
-		when(employeeTypeDao.findById(anyLong())).thenReturn(employeeType);
-		when(postDao.findById(anyLong())).thenReturn(post);
-		when(personDao.findById(anyLong())).thenReturn(person);
-		when(employeeDao.findById(anyLong())).thenReturn(parent);
-		when(orderDao.findById(anyLong())).thenReturn(order);
-		when(jobTypeDao.findById(anyLong())).thenReturn(jobType);
-		when(genderTypeDao.findById(anyLong())).thenReturn(genderType);
+		when(departmentDao.getEntityById(anyLong())).thenReturn(department);
+		when(employeeStatusDao.getEntityById(anyLong())).thenReturn(employeeStatus);
+		when(employeeTypeDao.getEntityById(anyLong())).thenReturn(employeeType);
+		when(postDao.getEntityById(anyLong())).thenReturn(post);
+		when(personDao.getEntityById(anyLong())).thenReturn(person);
+		when(employeeDao.getEntityById(anyLong())).thenReturn(parent);
+		when(orderDao.getEntityById(anyLong())).thenReturn(order);
+		when(jobTypeDao.getEntityById(anyLong())).thenReturn(jobType);
+		when(genderTypeDao.getEntityById(anyLong())).thenReturn(genderType);
 		
 		Map<String, Object> actual = unit.getParameters(entity);
 

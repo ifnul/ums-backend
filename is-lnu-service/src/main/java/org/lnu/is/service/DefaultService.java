@@ -34,7 +34,7 @@ public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implement
 
 	@Override
 	public ENTITY getEntity(final KEY id) {
-		return dao.findById(id);
+		return dao.getEntityById(id);
 	}
 
 	@Override

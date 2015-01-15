@@ -2,6 +2,7 @@ package org.lnu.is.extractor.duty.type;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,4 +34,16 @@ public class DutyTypeParametersExtractorTest {
 		assertEquals(expected, actual);
 	}
 
+	@Test
+	public void testGetParametersWithDefaultEntity() throws Exception {
+		// Given
+		DutyType entity = new DutyType();
+		
+		Map<String, Object> expected = Collections.emptyMap();
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+
+		// Then
+		assertEquals(expected, actual);
+	}
 }

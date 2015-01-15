@@ -45,12 +45,12 @@ public class OrderTypeParametersExtractorTest {
 		expected.put("parent", parent);
 		
 		// When
-		when(orderTypeDao.findById(anyLong())).thenReturn(parent);
+		when(orderTypeDao.getEntityById(anyLong())).thenReturn(parent);
 		
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then
-		verify(orderTypeDao).findById(parentId);
+		verify(orderTypeDao).getEntityById(parentId);
 		assertEquals(expected, actual);
 	}
 }

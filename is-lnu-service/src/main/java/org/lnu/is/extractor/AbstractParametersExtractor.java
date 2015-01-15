@@ -38,10 +38,10 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	 * @param parameterName
 	 * @param parameters
 	 */
-	protected <E> void addParameter(final Model entity, final Dao<E, Long> dao, final String parameterName, final Map<String, Object> parameters) {
+	protected <E extends Model> void addParameter(final E entity, final Dao<E, Long> dao, final String parameterName, final Map<String, Object> parameters) {
 		
 		if (entity != null) {
-			E dbEntity = dao.findById(entity.getId());
+			E dbEntity = dao.getEntityById(entity.getId());
 			parameters.put(parameterName, dbEntity);
 		}
 	}

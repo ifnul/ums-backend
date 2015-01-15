@@ -43,7 +43,7 @@ public class PaperTypeParametersExtractorTest {
 		expected.put("paperUsage", paperUsage);
 		
 		// When
-		when(paperUsageDao.findById(anyLong())).thenReturn(paperUsage);
+		when(paperUsageDao.getEntityById(anyLong())).thenReturn(paperUsage);
 		
 		Map<String, Object> actual = unit.getParameters(entity);
 

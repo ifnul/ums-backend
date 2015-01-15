@@ -1,4 +1,4 @@
-package org.lnu.is.extractor.specoffer.benefit;
+package org.lnu.is.extractor.specoffer.subject;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyLong;
@@ -12,24 +12,24 @@ import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.benefit.Benefit;
+import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferBenefit;
+import org.lnu.is.domain.specoffer.SpecofferSubject;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class SpecOfferBenefitParametersExtractorTest {
+public class SpecOfferSubjectParametersExtractorTest {
 
 	@Mock
 	private Dao<SpecOffer, Long> specOfferDao;
-
+	
 	@Mock
-	private Dao<Benefit, Long> benefitDao;
+	private Dao<EnrolmentSubject, Long> enrolmenntSubjectDao;
 	
 	@InjectMocks
-	private SpecOfferBenefitParametersExtractor unit;
+	private SpecOfferSubjectParametersExtractor unit;
 	
 	@Test
 	public void testGetParameters() throws Exception {
@@ -38,34 +38,40 @@ public class SpecOfferBenefitParametersExtractorTest {
 		SpecOffer specOffer = new SpecOffer();
 		specOffer.setId(specOfferId);
 		
-		Long benefitId = 2L;
-		Benefit benefit = new Benefit();
-		benefit.setId(benefitId);
-		
-		SpecofferBenefit entity = new SpecofferBenefit();
-		entity.setSpecOffer(specOffer);
-		entity.setBenefit(benefit);
+		Long enrolmentSubjectId = 2L;
+		EnrolmentSubject enrolmentSubject = new EnrolmentSubject();
+		enrolmentSubject.setId(enrolmentSubjectId);
 
+		Boolean isMajor = false;
+		Boolean alternative = true;
+		
+		SpecofferSubject entity = new SpecofferSubject();
+		entity.setSpecOffer(specOffer);
+		entity.setEnrolmentSubject(enrolmentSubject);
+		entity.setIsMajor(isMajor);
+		entity.setAlternative(alternative);
+		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("specOffer", specOffer);
-		expected.put("benefit", benefit);
+		expected.put("enrolmentSubject", enrolmentSubject);
+		expected.put("isMajor", isMajor);
+		expected.put("alternative", alternative);
 		
 		// When
 		when(specOfferDao.getEntityById(anyLong())).thenReturn(specOffer);
-		when(benefitDao.getEntityById(anyLong())).thenReturn(benefit);
-		
+		when(enrolmenntSubjectDao.getEntityById(anyLong())).thenReturn(enrolmentSubject);
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then
 		verify(specOfferDao).getEntityById(specOfferId);
-		verify(benefitDao).getEntityById(benefitId);
+		verify(enrolmenntSubjectDao).getEntityById(enrolmentSubjectId);
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		SpecofferBenefit entity = new SpecofferBenefit();
+		SpecofferSubject entity = new SpecofferSubject();
 		
 		Map<String, Object> expected = Collections.emptyMap();
 		// When

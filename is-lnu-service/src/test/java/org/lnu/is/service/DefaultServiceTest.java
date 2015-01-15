@@ -97,12 +97,12 @@ public class DefaultServiceTest {
 		
 		
 		// When
-		when(defaultDao.findById(anyLong())).thenReturn(expected);
+		when(defaultDao.getEntityById(anyLong())).thenReturn(expected);
 		
 		Department actual = unit.getEntity(id);
 		
 		// Then
-		verify(defaultDao).findById(id);
+		verify(defaultDao).getEntityById(id);
 		assertEquals(expected, actual);
 	}
 	

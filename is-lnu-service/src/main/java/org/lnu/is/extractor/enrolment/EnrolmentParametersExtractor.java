@@ -48,7 +48,7 @@ public class EnrolmentParametersExtractor extends AbstractParametersExtractor<En
 		addParameter(entity.getSpecOffer(), specOfferDao, "specOffer", parameters);
 		addParameter(entity.getDepartment(), departmentDao, "department", parameters);
 		addParameter(entity.getPersonPaper(), personPaperDao, "personPaper", parameters);
-		addParameter(entity.getEnrolmentType(), enrolmentDao, "enrolmentDao", parameters);
+		addParameter(entity.getEnrolmentType(), enrolmentTypeDao, "enrolmentType", parameters);
 		addParameter(entity.getParent(), enrolmentDao, "parent", parameters);
 
 		addParameter(entity.getMark(), "mark", parameters);

@@ -5,6 +5,7 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,14 +57,27 @@ public class PersonNameParametersExtractorTest {
 		expected.put("fatherName", fatherName);
 		
 		// When
-		when(languageDao.findById(anyLong())).thenReturn(language);
-		when(personDao.findById(anyLong())).thenReturn(person);
+		when(languageDao.getEntityById(anyLong())).thenReturn(language);
+		when(personDao.getEntityById(anyLong())).thenReturn(person);
 		
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then
-		verify(languageDao).findById(languageId);
-		verify(personDao).findById(personId);
+		verify(languageDao).getEntityById(languageId);
+		verify(personDao).getEntityById(personId);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntity() throws Exception {
+		// Given
+		PersonName entity = new PersonName();
+		
+		Map<String, Object> expected = Collections.emptyMap();
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+
+		// Then
 		assertEquals(expected, actual);
 	}
 }

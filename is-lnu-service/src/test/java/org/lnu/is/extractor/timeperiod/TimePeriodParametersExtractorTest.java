@@ -1,4 +1,4 @@
-package org.lnu.is.extractor.subject.type;
+package org.lnu.is.extractor.timeperiod;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,26 +7,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
-import org.lnu.is.domain.subject.SubjectType;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 
+public class TimePeriodParametersExtractorTest {
 
-public class SubjectTypeParametersExtractorTest {
-
-	private SubjectTypeParametersExtractor unit = new SubjectTypeParametersExtractor();
+	private TimePeriodParametersExtractor unit = new TimePeriodParametersExtractor();
 	
 	@Test
 	public void testGetParameters() throws Exception {
 		// Given
 		String name = "Extract Me All";
-		String abbrName = "EML";
 
-		SubjectType entity = new SubjectType();
+		TimePeriod entity = new TimePeriod();
 		entity.setName(name);
-		entity.setAbbrName(abbrName);
 
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
-		expected.put("abbrName", abbrName);
 
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
@@ -38,7 +34,7 @@ public class SubjectTypeParametersExtractorTest {
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		SubjectType entity = new SubjectType();
+		TimePeriod entity = new TimePeriod();
 		
 		Map<String, Object> expected = Collections.emptyMap();
 		// When

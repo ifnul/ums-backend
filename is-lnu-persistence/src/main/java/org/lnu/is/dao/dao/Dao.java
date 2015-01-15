@@ -18,7 +18,7 @@ public interface Dao<ENTITY, KEY> {
 	 * @param id identifier.
 	 * @return Entity.
 	 */
-	ENTITY findById(KEY id);
+	ENTITY getEntityById(KEY id);
 	
 	/**
 	 * Method for saving entity.

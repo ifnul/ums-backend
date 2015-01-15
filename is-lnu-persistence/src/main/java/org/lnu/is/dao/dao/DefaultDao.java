@@ -29,7 +29,7 @@ public class DefaultDao<ENTITY extends Model, KEY> implements Dao<ENTITY, KEY> {
 	private Class<ENTITY> entityClass;
 	
 	@Override
-	public ENTITY findById(final KEY id) {
+	public ENTITY getEntityById(final KEY id) {
 		LOG.info("Getting {}.entity wit id", getEntityClass().getSimpleName(), id);
 		return persistenceManager.findById(getEntityClass(), id);
 	}

@@ -1,4 +1,4 @@
-package org.lnu.is.extractor.subject.type;
+package org.lnu.is.extractor.adminunit.type;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,20 +7,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
-import org.lnu.is.domain.subject.SubjectType;
+import org.lnu.is.domain.adminunit.type.AdminUnitType;
 
-
-public class SubjectTypeParametersExtractorTest {
-
-	private SubjectTypeParametersExtractor unit = new SubjectTypeParametersExtractor();
+public class AdminUnitTypeParametersExtractorTest {
 	
+	private AdminUnitTypeParametersExtractor unit = new AdminUnitTypeParametersExtractor();
+
 	@Test
 	public void testGetParameters() throws Exception {
 		// Given
-		String name = "Extract Me All";
-		String abbrName = "EML";
+		String name = "AdminUnitN";
+		String abbrName = "AN";
 
-		SubjectType entity = new SubjectType();
+		AdminUnitType entity = new AdminUnitType();
 		entity.setName(name);
 		entity.setAbbrName(abbrName);
 
@@ -34,11 +33,11 @@ public class SubjectTypeParametersExtractorTest {
 		// Then
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		SubjectType entity = new SubjectType();
+		AdminUnitType entity = new AdminUnitType();
 		
 		Map<String, Object> expected = Collections.emptyMap();
 		// When

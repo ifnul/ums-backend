@@ -57,7 +57,7 @@ public class DefaultDaoTest {
 		
 		// When
 		when(persistenceManager.findById(Matchers.<Class<Department>>any(), anyLong())).thenReturn(expected);
-		Department actual = unit.findById(id);
+		Department actual = unit.getEntityById(id);
 
 		// Then
 		verify(persistenceManager).findById(Department.class, id);

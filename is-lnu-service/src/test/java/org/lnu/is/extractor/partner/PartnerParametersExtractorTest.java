@@ -62,11 +62,11 @@ public class PartnerParametersExtractorTest {
 		expected.put("parent", parent);
 		
 		// When
-		when(partnerDao.findById(anyLong())).thenReturn(parent);
+		when(partnerDao.getEntityById(anyLong())).thenReturn(parent);
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then
-		verify(partnerDao).findById(parentId);
+		verify(partnerDao).getEntityById(parentId);
 		assertEquals(expected, actual);
 	}
 }
