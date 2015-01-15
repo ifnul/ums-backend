@@ -24,7 +24,6 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
  */
 @ParametersExtractor("employeeParametersExtractor")
 public class EmployeeParametersExtractor extends AbstractParametersExtractor<Employee>  {
-
 	
 	@Resource(name = "personDao")
 	private Dao<Person, Long> personDao;

@@ -13,8 +13,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
  *
  */
 @ParametersExtractor("addressTypeParametersExtractor")
-public class AddressTypeParametersExtractor extends
-		AbstractParametersExtractor<AddressType> {
+public class AddressTypeParametersExtractor extends AbstractParametersExtractor<AddressType> {
 
 	@Override
 	public Map<String, Object> getParameters(final AddressType entity, final Map<String, Object> parameters) {
