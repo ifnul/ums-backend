@@ -18,6 +18,7 @@
 		<gatling.version>2.1.2</gatling.version>
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>
+		<simulation.class>org.lnu.is.integration.IntegrationTest</simulation.class>
 	</properties>
 
 	<dependencies>
@@ -45,7 +46,7 @@
 							<dataFolder>src/test/resources/data</dataFolder>
 							<resultsFolder>target/gatling/results</resultsFolder>
 							<requestBodiesFolder>src/test/resources/request-bodies</requestBodiesFolder>
-							<simulationClass>org.lnu.is.integration.IntegrationTest</simulationClass>
+							<simulationClass>${simulation.class}</simulationClass>
 							<failOnError>true</failOnError>
 						    <jvmArgs> 
 						        <jvmArg>-Dintegration.host=${integration.url}</jvmArg>

@@ -32,27 +32,28 @@ import io.gatling.jdbc.Predef._
 import org.lnu.is.integration.honor.types.HonorTypeIntegrationTest
 import org.lnu.is.integration.paper.types.PaperTypeIntegrationTest
 import org.lnu.is.integration.street.types.StreetTypeIntegrationTest
+import scala.concurrent.duration._
 
 /**
- * Class, that runs integration testing.
+ * Class, that runs load testing.
  * @author ivanursul
  */
-class IntegrationTest extends Simulation {
+class LoadTest extends Simulation {
 
-	val host = System.getProperty("integration.host")
-	val successPercent = Integer.getInteger("integration.successtests.percent", 95)
+  val host = System.getProperty("integration.host")
+  val successPercent = Integer.getInteger("integration.successtests.percent", 95)
   
-	val httpConf = http
-			.baseURL(host)
+  val httpConf = http
+      .baseURL(host)
       .basicAuth("admin", "nimda")
-			.acceptHeader("application/json")
-	
-	val injectStep = atOnceUsers(1);
-	
+      .acceptHeader("application/json")
+  
+  val injectStep = rampUsers(20) over (20 seconds)
+  
   val scn = TestCases.scn;
  
-	setUp(scn.inject(injectStep))
-	  .protocols(httpConf)
-	  .assertions(global.successfulRequests.percent.greaterThan(successPercent))
-	
+  setUp(scn.inject(injectStep))
+    .protocols(httpConf)
+    .assertions(global.successfulRequests.percent.greaterThan(successPercent))
+  
 }
