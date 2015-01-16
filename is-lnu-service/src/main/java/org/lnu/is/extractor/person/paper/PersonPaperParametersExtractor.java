@@ -27,14 +27,14 @@ public class PersonPaperParametersExtractor extends AbstractParametersExtractor<
 	private Dao<PaperType, Long> paperTypeDao;
 	
 	@Resource(name = "honorsTypeDao")
-	private Dao<HonorType, Long> honortTypeDao;
+	private Dao<HonorType, Long> honorTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final PersonPaper entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getPerson(), personDao, "person", parameters);
 		addParameter(entity.getPaperType(), paperTypeDao, "paperType", parameters);
-		addParameter(entity.getHonorsType(), honortTypeDao, "honorsType", parameters);
+		addParameter(entity.getHonorsType(), honorTypeDao, "honorsType", parameters);
 		
 		addParameter(entity.getDocSeries(), "docSeries", parameters);
 		addParameter(entity.getDocNum(), "docNum", parameters);

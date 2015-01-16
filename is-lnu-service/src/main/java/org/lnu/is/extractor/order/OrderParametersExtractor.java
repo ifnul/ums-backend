@@ -36,7 +36,7 @@ public class OrderParametersExtractor extends AbstractParametersExtractor<Order>
 	private Dao<Partner, Long> partnerDao;
 	
 	@Resource(name = "operationTypeDao")
-	private Dao<OperationType, Long> operationType;
+	private Dao<OperationType, Long> operationTypeDao;
 	
 	@Resource(name = "reasonDao")
 	private Dao<Reason, Long> reasonDao;
@@ -51,7 +51,7 @@ public class OrderParametersExtractor extends AbstractParametersExtractor<Order>
 		addParameter(entity.getEmployee(), employeeDao, "employee", parameters);
 		addParameter(entity.getAsset(), assetDao, "asset", parameters);
 		addParameter(entity.getPartner(), partnerDao, "partner", parameters);
-		addParameter(entity.getOpType(), operationType, "opType", parameters);
+		addParameter(entity.getOpType(), operationTypeDao, "opType", parameters);
 		addParameter(entity.getReason(), reasonDao, "reason", parameters);
 		addParameter(entity.getParent(), orderDao, "parent", parameters);
 		
