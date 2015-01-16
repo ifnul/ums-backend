@@ -9,6 +9,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.lnu.is.domain.enrolment.Enrolment;
 
+//TODO : ADD Mockito - there should be dao fields.
 public class EnrolmentParametersExtractorTest {
 
 

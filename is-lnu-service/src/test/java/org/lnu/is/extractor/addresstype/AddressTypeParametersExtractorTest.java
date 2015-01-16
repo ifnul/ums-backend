@@ -2,6 +2,7 @@ package org.lnu.is.extractor.addresstype;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,4 +33,16 @@ public class AddressTypeParametersExtractorTest {
 		assertEquals(expected, actual);
 	}
 
+	@Test
+	public void testGetParametersWithDefaultEntity() throws Exception {
+		// Given
+		AddressType entity = new AddressType();
+		
+		Map<String, Object> expected = Collections.emptyMap();
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+
+		// Then
+		assertEquals(expected, actual);
+	}
 }

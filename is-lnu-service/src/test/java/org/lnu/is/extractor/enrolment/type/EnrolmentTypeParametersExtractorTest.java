@@ -8,6 +8,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.lnu.is.domain.enrolment.EnrolmentType;
 
+//TODO : Add empty entity test case
 public class EnrolmentTypeParametersExtractorTest {
 
 	private EnrolmentTypeParametersExtractor unit = new EnrolmentTypeParametersExtractor();
