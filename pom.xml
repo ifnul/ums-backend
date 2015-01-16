@@ -471,7 +471,9 @@
 						</include>
 						<ignores>
 							<ignore>org.apache.log4j.*</ignore>
-							<ignore>org.lnu.is.annotations.*</ignore>
+							<ignore>org.lnu.is.annotations.Converter</ignore>
+							<ignore>org.lnu.is.annotations.Limit</ignore>
+							<ignore>org.lnu.is.annotations.Offset</ignore>
 						</ignores>
 					</instrumentation>
 				</configuration>
