@@ -471,6 +471,9 @@
 						</include>
 						<ignoreTrivial>true</ignoreTrivial> 
 					</instrumentation>
+					<excludes>
+                    	<exclude>org/lnu/is/domain/*.class</exclude>
+                	</excludes>					
 				</configuration>
 			</plugin>
 		</plugins>
