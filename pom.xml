@@ -464,6 +464,12 @@
 						<format>html</format>
 						<format>xml</format>
 					</formats>
+					<instrumentation>
+						<include>
+							<include>org.lnu.**.class</include>
+							<include>org.is.**.class</include>
+						</include>
+					</instrumentation>
 				</configuration>
 			</plugin>
 		</plugins>
