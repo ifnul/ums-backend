@@ -469,12 +469,7 @@
 							<include>org.lnu.**.class</include>
 							<include>org.is.**.class</include>
 						</include>
-						<ignores>
-							<ignore>org.apache.log4j.*</ignore>
-							<ignore>org.lnu.is.annotations.Converter</ignore>
-							<ignore>org.lnu.is.annotations.Limit</ignore>
-							<ignore>org.lnu.is.annotations.Offset</ignore>
-						</ignores>
+						<ignoreTrivial>true</ignoreTrivial> 
 					</instrumentation>
 				</configuration>
 			</plugin>
