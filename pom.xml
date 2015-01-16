@@ -380,7 +380,7 @@
 							<format>html</format>
 							<format>xml</format>
 						</formats>
-						</configuration>
+					</configuration>
 					<executions>
 						<execution>
 							<phase>verify</phase>
@@ -469,6 +469,10 @@
 							<include>org.lnu.**.class</include>
 							<include>org.is.**.class</include>
 						</include>
+						<ignores>
+							<ignore>org.apache.log4j.*</ignore>
+							<ignore>org.lnu.is.annotations.*</ignore>
+						</ignores>
 					</instrumentation>
 				</configuration>
 			</plugin>
