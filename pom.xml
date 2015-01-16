@@ -376,6 +376,23 @@
 							<totalLineRate>83</totalLineRate>
 							<totalBranchRate>95</totalBranchRate>
 						</check>
+						<instrumentation>
+							<include>
+								<include>org.lnu.*class</include>
+								<include>org.is.**.class</include>
+							</include>
+							<ignore>
+								<ignore>org.lnu.is.domain.*</ignore>
+								<ignore>org.lnu.is.resource.*</ignore>
+							</ignore>
+							<ignoreTrivial>true</ignoreTrivial>
+					        <excludes>
+					            <exclude>org/lnu/is/domain/**.class</exclude>
+					            <exclude>org/lnu/is/resource/**.class</exclude>
+					            <exclude>org/lnu/is/domain/**/*.class</exclude>
+					            <exclude>org/lnu/is/resource/**/*.class</exclude>
+					        </excludes>
+						</instrumentation>						
 						<formats>
 							<format>html</format>
 							<format>xml</format>
