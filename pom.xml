@@ -473,7 +473,11 @@
 							<ignore>org.lnu.is.domain.*</ignore>
 							<ignore>org.lnu.is.resource.*</ignore>
 						</ignore>
-						<ignoreTrivial>true</ignoreTrivial> 
+						<ignoreTrivial>true</ignoreTrivial>
+				        <excludes>
+				            <exclude>org/lnu/is/domain/**</exclude>
+				            <exclude>org/lnu/is/resource/**</exclude>
+				        </excludes>						 
 					</instrumentation>
 				</configuration>
 			</plugin>
