@@ -1,5 +1,6 @@
 package org.is.lnu.edebo.dispatcher;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -27,6 +28,8 @@ public class DefaultIntegrationDispatcherTest {
 	
 	private String endpointUri = "endpoint uri";
 	
+	private String httpMethod = "POST";
+
 	@InjectMocks
 	private DefaultIntegrationDispatcher<PersonResource> unit;
 
@@ -34,6 +37,7 @@ public class DefaultIntegrationDispatcherTest {
 	public void init() {
 		unit.setEnabled(enabled);
 		unit.setEndpointUri(endpointUri);
+		unit.setHttpMethod(httpMethod);
 	}
 	
 	@Test
@@ -49,5 +53,34 @@ public class DefaultIntegrationDispatcherTest {
 		verify(camelContext).createProducerTemplate();
 		verify(producerTemplate).stop();
 		verify(producerTemplate).sendBody(endpointUri, ExchangePattern.InOut, resource);
+	}
+
+	@Test
+	public void testGetHttpMethod() throws Exception {
+		String method = unit.getMethod();
+		assertEquals(httpMethod, method);
+	}
+
+	@Test(expected = Exception.class)
+	public void testDispatchWithException() throws Exception {
+		// Given
+		PersonResource resource = new PersonResource();
+		
+		// When
+		when(camelContext.createProducerTemplate()).thenThrow(new Exception());
+		unit.dispatch(resource);
+		
+		// Then
+		verify(camelContext).createProducerTemplate();
+	}
+
+	@Test
+	public void testDispatchWithDisableDispatcher() throws Exception {
+		// Given
+		unit.setEnabled(false);
+		PersonResource resource = new PersonResource();
+		
+		// When
+		unit.dispatch(resource);
 	}
 }
