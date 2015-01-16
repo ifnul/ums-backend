@@ -473,6 +473,7 @@
 					</instrumentation>
 					<excludes>
                     	<exclude>org/lnu/is/domain/*.class</exclude>
+                    	<exclude>org/lnu/is/resource/*.class</exclude>
                 	</excludes>					
 				</configuration>
 			</plugin>
