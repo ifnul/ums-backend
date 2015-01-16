@@ -378,10 +378,10 @@
 						</check>
 						<instrumentation>
 					        <excludes>
-					            <exclude>org/lnu/is/domain/**.class</exclude>
-					            <exclude>org/lnu/is/resource/**.class</exclude>
 					            <exclude>org/lnu/is/domain/**/*.class</exclude>
 					            <exclude>org/lnu/is/resource/**/*.class</exclude>
+					            <exclude>org/lnu/is/pagination/**/*.class</exclude>
+					            <exclude>org/lnu/is/queries/**/*.class</exclude>
 					        </excludes>
 						</instrumentation>						
 						<formats>
@@ -483,10 +483,10 @@
 						</ignore>
 						<ignoreTrivial>true</ignoreTrivial>
 				        <excludes>
-				            <exclude>org/lnu/is/domain/**.class</exclude>
-				            <exclude>org/lnu/is/resource/**.class</exclude>
 				            <exclude>org/lnu/is/domain/**/*.class</exclude>
 				            <exclude>org/lnu/is/resource/**/*.class</exclude>
+				            <exclude>org/lnu/is/pagination/**/*.class</exclude>
+				            <exclude>org/lnu/is/queries/**/*.class</exclude>
 				        </excludes>
 					</instrumentation>
 				</configuration>
