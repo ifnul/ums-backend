@@ -6,28 +6,28 @@ import org.junit.Test;
 import org.lnu.is.domain.educationtype.EducationType;
 import org.lnu.is.resource.education.type.EducationTypeResource;
 
-public class EducationTypeConverterTest {
+public class EducationTypeResourceConverterTest {
 
-	private EducationTypeConverter unit = new EducationTypeConverter();
+	private EducationTypeResourceConverter unit = new EducationTypeResourceConverter();
 
 	@Test
 	public void testConvert() throws Exception {
 		// Given
-		String name = "name";
-		String abbrName = "abbr name";
-		EducationType source = new EducationType();
+		String name = "EducationN";
+		String abbrName = "AN";
+
+		EducationType expected = new EducationType();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+
+		EducationTypeResource source = new EducationTypeResource();
 		source.setName(name);
 		source.setAbbrName(abbrName);
 
-		EducationTypeResource expected = new EducationTypeResource();
-		expected.setName(name);
-		expected.setAbbrName(abbrName);
-		
 		// When
-		EducationTypeResource actual = unit.convert(source);
+		EducationType actual = unit.convert(source);
 
 		// Then
 		assertEquals(expected, actual);
 	}
 }
-

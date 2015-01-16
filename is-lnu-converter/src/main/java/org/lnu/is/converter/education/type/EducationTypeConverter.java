@@ -18,6 +18,7 @@ public class EducationTypeConverter extends AbstractConverter<EducationType, Edu
 		
 		target.setId(source.getId());
 		target.setName(source.getName());
+		target.setAbbrName(source.getAbbrName());
 		
 		return target;
 	}

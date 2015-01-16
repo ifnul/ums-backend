@@ -17,6 +17,7 @@ public class EducationTypeResourceConverter extends AbstractConverter<EducationT
 	public EducationType convert(final EducationTypeResource source, final EducationType target) {
 		
 		target.setName(source.getName());
+		target.setAbbrName(source.getAbbrName());
 		
 		return target;
 	}
