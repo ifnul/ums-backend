@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
+import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-public class SystemController {
+public class SystemController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(SystemController.class);
 
     /**
@@ -41,10 +42,11 @@ public class SystemController {
         LOGGER.error("Handle exception from Servlet container: status code - " + statusCode, exception);
 
         int responseCode = (errorCode == null) ? statusCode : errorCode;
+        String msg = exceptionMessage == null ? "Exception occured" : exceptionMessage;
+        
+        MessageResource message = new MessageResource(MessageType.ERROR, msg, responseCode);
 
-        MessageResource message = new MessageResource(MessageType.ERROR, exceptionMessage, responseCode);
-
-        return new ResponseEntity<MessageResource>(message, HttpStatus.valueOf(statusCode));
+        return new ResponseEntity<MessageResource>(message, HttpStatus.valueOf(responseCode));
     }
 
 }
