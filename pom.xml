@@ -383,7 +383,6 @@
 					            <exclude>org/lnu/is/pagination/**/*.class</exclude>
 					            <exclude>org/lnu/is/queries/**/*.class</exclude>
 					        </excludes>
-					        <ignoreTrivial>true</ignoreTrivial>
 						</instrumentation>						
 						<formats>
 							<format>html</format>
