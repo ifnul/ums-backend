@@ -1,9 +1,6 @@
 package org.lnu.is.security.service;
 
-import java.util.Collection;
-
 import org.lnu.is.domain.user.User;
-import org.springframework.security.core.GrantedAuthority;
 
 /**
  * Interface for declaring all operations with session user.
@@ -18,10 +15,4 @@ public interface SessionService {
 	 */
 	User getUser();
 
-	/**
-	 * Method for getting authorities.
-	 * @return collection of authorities.
-	 */
-	Collection<? extends GrantedAuthority> getAuthorities();
-	
 }
