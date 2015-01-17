@@ -99,8 +99,6 @@ public class TimePeriod extends InformationModel {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result
 				+ ((numValue == null) ? 0 : numValue.hashCode());
-		result = prime * result
-				+ ((timePeriodType == null) ? 0 : timePeriodType.hashCode());
 		return result;
 	}
 
@@ -144,17 +142,13 @@ public class TimePeriod extends InformationModel {
 		} else if (!numValue.equals(other.numValue)) {
 			return false;
 		}
-		if (timePeriodType != other.timePeriodType) {
-			return false;
-		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "TimePeriod [timePeriodType=" + timePeriodType + ", name="
-				+ name + ", numValue=" + numValue + ", begDate=" + begDate
-				+ ", endDate=" + endDate + "]";
+		return "TimePeriod [name=" + name + ", numValue=" + numValue
+				+ ", begDate=" + begDate + ", endDate=" + endDate + "]";
 	}
 	
 }
