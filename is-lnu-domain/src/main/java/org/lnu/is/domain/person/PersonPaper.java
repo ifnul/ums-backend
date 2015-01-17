@@ -237,5 +237,13 @@ public class PersonPaper extends InformationModel {
 		}
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "PersonPaper [docSeries=" + docSeries + ", docNum=" + docNum
+				+ ", docDate=" + docDate + ", docIssued=" + docIssued
+				+ ", docPin=" + docPin + ", mark=" + mark + ", isChecked="
+				+ isChecked + ", isForeign=" + isForeign + "]";
+	}
 	
 }

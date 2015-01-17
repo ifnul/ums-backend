@@ -41,6 +41,7 @@ public class PersonPaperResourceConverter extends AbstractConverter<PersonPaperR
 		
 		target.setDocSeries(source.getDocSeries());
 		target.setDocNum(source.getDocNum());
+		target.setDocDate(source.getDocDate());
 		target.setDocIssued(source.getDocIssued());
 		target.setDocPin(source.getDocPin());
 		target.setMark(source.getMark());
