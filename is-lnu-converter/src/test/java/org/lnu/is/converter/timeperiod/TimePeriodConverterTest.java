@@ -55,4 +55,34 @@ public class TimePeriodConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		Date begDate = new Date();
+		Date endDate = new Date();
+		Long id = 1L;
+		String name = "name";
+		Integer numValue = 1;
+		
+		TimePeriod source = new TimePeriod();
+		source.setBegDate(begDate);
+		source.setEndDate(endDate);
+		source.setId(id);
+		source.setName(name);
+		source.setNumValue(numValue);
+		
+		TimePeriodResource expected = new TimePeriodResource();
+		expected.setBegDate(begDate);
+		expected.setEndDate(endDate);
+		expected.setId(id);
+		expected.setName(name);
+		expected.setNumValue(numValue);
+		
+		// When
+		TimePeriodResource actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

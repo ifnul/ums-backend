@@ -50,4 +50,31 @@ public class SpecOfferSubjectConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		Boolean alternative = false;
+		Long id = 1L;
+		Boolean isMajor = false;
+		Double mark = 1.5;
+		
+		SpecofferSubject source = new SpecofferSubject();
+		source.setAlternative(alternative);
+		source.setId(id);
+		source.setIsMajor(isMajor);
+		source.setMark(mark);
+		
+		SpecOfferSubjectResource expected = new SpecOfferSubjectResource();
+		expected.setAlternative(alternative);
+		expected.setId(id);
+		expected.setIsMajor(isMajor);
+		expected.setMark(mark);
+		
+		// When
+		SpecOfferSubjectResource actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.Date;
 
 import org.junit.Test;
-import org.lnu.is.converter.specialty.SpecialtyConverter;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.resource.specialty.SpecialtyResource;
@@ -49,6 +48,36 @@ public class SpecialtyConverterTest {
 		// When
 		SpecialtyResource actual = unit.convert(specialty);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String name = "name";
+		String abbrName = "abbr name";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		String cipher = "cipher";
+		
+		Specialty specialty = new Specialty();
+		specialty.setAbbrName(abbrName);
+		specialty.setBegDate(begDate);
+		specialty.setCipher(cipher);
+		specialty.setEndDate(endDate);
+		specialty.setName(name);
+		
+		SpecialtyResource expected = new SpecialtyResource();
+		expected.setAbbrName(abbrName);
+		expected.setBegDate(begDate);
+		expected.setCipher(cipher);
+		expected.setEndDate(endDate);
+		expected.setName(name);
+		
+		// When
+		SpecialtyResource actual = unit.convert(specialty);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

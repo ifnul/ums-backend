@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.Date;
 
 import org.junit.Test;
-import org.lnu.is.converter.specoffer.SpecOfferConverter;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.eduformtype.EduFormType;
@@ -109,6 +108,63 @@ public class SpecOfferConverterTest {
 		// When
 		SpecOfferResource actual = unit.convert(source);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		Integer actualRow = 1;
+		Date createDate = new Date();
+		Date begDate = new Date();
+		String crtUser = "user";
+		String crtUserGroup = "user group";
+		String docNum = "doc num";
+		String docSeries = "doc series";
+		Date endDate = new Date();
+		Long id = 1L;
+		Integer licCount = 223;
+		String note = "soem notes";
+		Integer stateCount = 34;
+		RowStatus status = RowStatus.ACTIVE;
+		String uapp = "uap";
+		Long uid = 124L;
+		Date updateDate = new Date();
+		String utid = "utid";
+		
+		SpecOffer source = new SpecOffer();
+		source.setActual(actualRow);
+		source.setBegDate(begDate);
+		source.setCreateDate(createDate);
+		source.setCrtUser(crtUser);
+		source.setCrtUserGroup(crtUserGroup);
+		source.setDocNum(docNum);
+		source.setDocSeries(docSeries);
+		source.setEndDate(endDate);
+		source.setId(id);
+		source.setLicCount(licCount);
+		source.setNote(note);
+		source.setStateCount(stateCount);
+		source.setStatus(status);
+		source.setUapp(uapp);
+		source.setUid(uid);
+		source.setUpdateDate(updateDate);
+		source.setUtid(utid);
+		
+		SpecOfferResource expected = new SpecOfferResource();
+		expected.setBegDate(begDate);
+		expected.setDocNum(docNum);
+		expected.setDocSeries(docSeries);
+		expected.setEndDate(endDate);
+		expected.setId(id);
+		expected.setLicCount(licCount);
+		expected.setNote(note);
+		expected.setStateCount(stateCount);
+		
+		// When
+		SpecOfferResource actual = unit.convert(source);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

@@ -40,4 +40,28 @@ public class SpecOfferTypeConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String name = "first blood";
+		String abbrName = "fb";
+		
+		Long id = 1L;
+		SpecOfferType source = new SpecOfferType();
+		source.setName(name);
+		source.setAbbrName(abbrName);
+		source.setId(id);
+		
+		SpecOfferTypeResource expected = new SpecOfferTypeResource();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+		expected.setId(id);
+		
+		// When
+		SpecOfferTypeResource actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

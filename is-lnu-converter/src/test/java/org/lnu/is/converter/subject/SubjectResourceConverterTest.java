@@ -35,4 +35,22 @@ public class SubjectResourceConverterTest {
 		assertEquals(expected, actual);
 	}
 
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String name = "first blood";
+		
+		Subject expected = new Subject();
+		expected.setName(name);
+		
+		SubjectResource source = new SubjectResource();
+		source.setName(name);
+		
+		// When
+		Subject actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+
 }

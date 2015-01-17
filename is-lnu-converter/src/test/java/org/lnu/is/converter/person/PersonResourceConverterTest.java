@@ -105,4 +105,64 @@ public class PersonResourceConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		Date begDate = new Date();
+		String birthPlace = "fsd";
+		String docNum = "gfdsf";
+		String docSeries = "fdafdsfs";
+		Date endDate = new Date();
+		String fatherName = " fdsfsdfsd";
+		String firstName = " gfdsgsd";
+		Long id = 1L;
+		String identifier = "fdsfds";
+		Integer isHostel = 1;
+		Integer isMilitary = 0;
+		String name = "fdsfds";
+		String photo = "fdsdfsdfsd";
+		Integer resident = 1;
+		String surname = "fdfds";
+		
+		Person expected = new Person();
+		expected.setBegDate(begDate);
+		expected.setBirthPlace(birthPlace);
+		expected.setDocNum(docNum);
+		expected.setDocSeries(docSeries);
+		expected.setEndDate(endDate);
+		expected.setFatherName(fatherName);
+		expected.setFirstName(firstName);
+		expected.setId(id);
+		expected.setIdentifier(identifier);
+		expected.setIsHostel(isHostel);
+		expected.setIsMilitary(isMilitary);
+		expected.setName(name);
+		expected.setPhoto(photo);
+		expected.setResident(resident);
+		expected.setSurname(surname);
+		
+		PersonResource source = new PersonResource();
+		source.setBegDate(begDate);
+		source.setBirthPlace(birthPlace);
+		source.setDocNum(docNum);
+		source.setDocSeries(docSeries);
+		source.setEndDate(endDate);
+		source.setFatherName(fatherName);
+		source.setFirstName(firstName);
+		source.setId(id);
+		source.setIdentifier(identifier);
+		source.setIsHostel(isHostel);
+		source.setIsMilitary(isMilitary);
+		source.setName(name);
+		source.setPhoto(photo);
+		source.setResident(resident);
+		source.setSurname(surname);
+		
+		// When
+		Person actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

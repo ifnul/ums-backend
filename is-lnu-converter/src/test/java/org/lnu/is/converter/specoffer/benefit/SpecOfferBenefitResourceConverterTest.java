@@ -3,7 +3,6 @@ package org.lnu.is.converter.specoffer.benefit;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.converter.specoffer.benefit.SpecOfferBenefitResourceConverter;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecofferBenefit;
@@ -35,6 +34,21 @@ public class SpecOfferBenefitResourceConverterTest {
 		// When
 		SpecofferBenefit actual = unit.convert(source);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		SpecOfferBenefitResource source = new SpecOfferBenefitResource();
+		
+		
+		SpecofferBenefit expected = new SpecofferBenefit();
+		
+		// When
+		SpecofferBenefit actual = unit.convert(source);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

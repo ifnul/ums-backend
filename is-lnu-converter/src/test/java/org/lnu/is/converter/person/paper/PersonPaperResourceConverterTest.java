@@ -73,4 +73,45 @@ public class PersonPaperResourceConverterTest {
 		// Then
 		assertEquals(expected.toString(), actual.toString());
 	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		Long id = 4L;
+		Date docDate = new Date();
+		String docIssued = "doc issued";
+		String docNum = "doc num";
+		String docPin = "doc pint";
+		String docSeries = "doc series";
+		Integer isChecked = 1;
+		Integer isForeign = 0;
+		Double mark = 2.0;
+		
+		PersonPaper expected = new PersonPaper();
+		expected.setDocDate(docDate);
+		expected.setDocIssued(docIssued);
+		expected.setDocNum(docNum);
+		expected.setDocPin(docPin);
+		expected.setDocSeries(docSeries);
+		expected.setIsChecked(isChecked);
+		expected.setIsForeign(isForeign);
+		expected.setMark(mark);
+		
+		PersonPaperResource source = new PersonPaperResource();
+		source.setId(id);
+		source.setDocDate(docDate);
+		source.setDocIssued(docIssued);
+		source.setDocNum(docNum);
+		source.setDocPin(docPin);
+		source.setDocSeries(docSeries);
+		source.setIsChecked(isChecked);
+		source.setIsForeign(isForeign);
+		source.setMark(mark);
+		
+		// When
+		PersonPaper actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected.toString(), actual.toString());
+	}
 }

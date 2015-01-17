@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.Date;
 
 import org.junit.Test;
-import org.lnu.is.converter.specoffer.SpecOfferResourceConverter;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.domain.specialty.Specialty;
@@ -81,6 +80,50 @@ public class SpecOfferResourceConverterTest {
 		source.setNote(note);
 		source.setSpecialtyId(specialtyId);
 		source.setSpecofferTypeId(specOfferTypeId);
+		source.setStateCount(stateCount);
+		source.setTimePeriodId(timePeriodId);
+		
+		// When
+		SpecOffer actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		Date begDate = new Date();
+		String docNum = "doc num";
+		String docSeries = "doc series";
+		Date endDate = new Date();
+		Long id = 1L;
+		Integer licCount = 223;
+		String note = "soem notes";
+		Integer stateCount = 34;
+		Long timePeriodId = 5L;
+		TimePeriod timePeriod = new TimePeriod();
+		timePeriod.setId(timePeriodId);
+		
+		SpecOffer expected = new SpecOffer();
+		expected.setBegDate(begDate);
+		expected.setDocNum(docNum);
+		expected.setDocSeries(docSeries);
+		expected.setEndDate(endDate);
+		expected.setId(id);
+		expected.setLicCount(licCount);
+		expected.setNote(note);
+		expected.setStateCount(stateCount);
+		expected.setTimePeriod(timePeriod);
+		
+		SpecOfferResource source = new SpecOfferResource();
+		source.setBegDate(begDate);
+		source.setDocNum(docNum);
+		source.setDocSeries(docSeries);
+		source.setEndDate(endDate);
+		source.setId(id);
+		source.setLicCount(licCount);
+		source.setNote(note);
 		source.setStateCount(stateCount);
 		source.setTimePeriodId(timePeriodId);
 		

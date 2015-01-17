@@ -3,7 +3,6 @@ package org.lnu.is.converter.person.name;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.converter.person.name.PersonNameResourceConverter;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonName;
@@ -49,6 +48,33 @@ public class PersonNameResourceConverterTest {
 		// When
 		PersonName actual = unit.convert(source);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String name = "name";
+		String firstName = "first name";
+		String fatherName = "father name";
+		String surname = "surname";
+		
+		PersonNameResource source = new PersonNameResource();
+		source.setFatherName(fatherName);
+		source.setFirstName(firstName);
+		source.setName(name);
+		source.setSurname(surname);
+		
+		PersonName expected = new PersonName();
+		expected.setFirstName(firstName);
+		expected.setFatherName(fatherName);
+		expected.setSurname(surname);
+		expected.setName(name);
+		
+		// When
+		PersonName actual = unit.convert(source);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
