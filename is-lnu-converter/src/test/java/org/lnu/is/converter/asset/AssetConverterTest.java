@@ -114,9 +114,9 @@ public class AssetConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
-	public void testConvertWithourFK() throws Exception {
+	public void testConvertWithNoRelations() throws Exception {
 		// Given
 		Long id = 11L;
 		Date begDate = new Date();
@@ -162,4 +162,5 @@ public class AssetConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
 }

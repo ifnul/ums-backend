@@ -82,4 +82,40 @@ public class PersonAddressResourceConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String zipCode = "zip cide";
+		String street = "street";
+		String apartment = "apartment";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		Long id = 2L;
+		String house = "house";
+		
+		PersonAddress expected = new PersonAddress();
+		expected.setZipCode(zipCode);
+		expected.setStreet(street);
+		expected.setApartment(apartment);
+		expected.setBegDate(begDate);
+		expected.setEndDate(endDate);
+		expected.setHouse(house);
+		expected.setId(id);
+		
+		PersonAddressResource source = new PersonAddressResource();
+		source.setZipCode(zipCode);
+		source.setStreet(street);
+		source.setApartment(apartment);
+		source.setBegDate(begDate);
+		source.setEndDate(endDate);
+		source.setHouse(house);
+		source.setId(id);
+		
+		// When
+		PersonAddress actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

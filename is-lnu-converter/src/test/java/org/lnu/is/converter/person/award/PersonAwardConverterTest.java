@@ -51,4 +51,25 @@ public class PersonAwardConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		Long id = 1L;
+		Double bonus = 2.0;
+		PersonAward source = new PersonAward();
+		
+		source.setBonus(bonus);
+		source.setId(id);
+		
+		PersonAwardResource expected = new PersonAwardResource();
+		expected.setId(id);
+		expected.setBonus(bonus);
+		
+		// When
+		PersonAwardResource actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

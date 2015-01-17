@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.Date;
 
 import org.junit.Test;
-import org.lnu.is.converter.benefit.BenefitResourceConverter;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.benefit.BenefitType;
 import org.lnu.is.resource.benefit.BenefitResource;
@@ -52,6 +51,36 @@ public class BenefitResourceConverterTest {
 		// When
 		Benefit actual = unit.convert(source);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String abbrName = "fdsf";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		String description = "descriptipp";
+		String name = "name";
+		
+		Benefit expected = new Benefit();
+		expected.setAbbrName(abbrName);
+		expected.setBegDate(begDate);
+		expected.setDescription(description);
+		expected.setEndDate(endDate);
+		expected.setName(name);
+		
+		BenefitResource source = new BenefitResource();
+		source.setAbbrName(abbrName);
+		source.setBegDate(begDate);
+		source.setDescription(description);
+		source.setEndDate(endDate);
+		source.setName(name);
+		
+		// When
+		Benefit actual = unit.convert(source);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

@@ -37,4 +37,25 @@ public class PaperTypeConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String name = "first blood";
+		String abbrName = "fb";
+		
+		PaperType source = new PaperType();
+		source.setName(name);
+		source.setAbbrName(abbrName);
+		
+		PaperTypeResource expected = new PaperTypeResource();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+		
+		// When
+		PaperTypeResource actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

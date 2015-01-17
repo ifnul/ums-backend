@@ -82,4 +82,45 @@ public class PersonAddressConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		Long streetTypeId = 5L;
+		StreetType streetType = new StreetType();
+		streetType.setId(streetTypeId);
+		String zipCode = "zip cide";
+		String street = "street";
+		String apartment = "apartment";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		Long id = 2L;
+		String house = "house";
+		
+		PersonAddress source = new PersonAddress();
+		source.setStreetType(streetType);
+		source.setZipCode(zipCode);
+		source.setStreet(street);
+		source.setApartment(apartment);
+		source.setBegDate(begDate);
+		source.setEndDate(endDate);
+		source.setHouse(house);
+		source.setId(id);
+		
+		PersonAddressResource expected = new PersonAddressResource();
+		expected.setStreetTypeId(streetTypeId);
+		expected.setZipCode(zipCode);
+		expected.setStreet(street);
+		expected.setApartment(apartment);
+		expected.setBegDate(begDate);
+		expected.setEndDate(endDate);
+		expected.setHouse(house);
+		expected.setId(id);
+		
+		// When
+		PersonAddressResource actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

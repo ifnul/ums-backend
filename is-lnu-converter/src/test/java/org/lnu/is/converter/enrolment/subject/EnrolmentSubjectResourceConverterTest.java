@@ -38,4 +38,27 @@ public class EnrolmentSubjectResourceConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String abbrName = "abbr name";
+		String name = "name";
+		Integer isTesting = 1;
+		EnrolmentSubjectResource source = new EnrolmentSubjectResource();
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		source.setIsTesting(isTesting);
+		
+		EnrolmentSubject expected = new EnrolmentSubject();
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		expected.setIsTesting(isTesting);
+		
+		// When
+		EnrolmentSubject actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

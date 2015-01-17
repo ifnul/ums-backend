@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.Date;
 
 import org.junit.Test;
-import org.lnu.is.converter.department.DepartmentResourceConverter;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.DepartmentType;
 import org.lnu.is.resource.department.DepartmentResource;
@@ -47,6 +46,33 @@ public class DepartmentResourceConverterTest {
 		// When
 		Department actual = unit.convert(departmentResource);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String name = "name";
+		String abbrName = "abbr name";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		
+		Department expected = new Department();
+		expected.setAbbrName(abbrName);
+		expected.setBegDate(begDate);
+		expected.setEndDate(endDate);
+		expected.setName(name);
+		
+		DepartmentResource departmentResource = new DepartmentResource();
+		departmentResource.setAbbrName(abbrName);
+		departmentResource.setBegDate(begDate);
+		departmentResource.setEndDate(endDate);
+		departmentResource.setName(name);
+		
+		// When
+		Department actual = unit.convert(departmentResource);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

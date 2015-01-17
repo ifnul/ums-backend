@@ -99,4 +99,37 @@ public class OrderResourceConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String reasonText = "reasonText";
+		String docSeries = "docSeries";
+		String docNum = "docnum";
+		Date docDate = new Date();
+		String docIssued = "docIssued";
+		Date evDate = new Date();
+		
+		Order expected = new Order();
+		expected.setReasonText(reasonText);
+		expected.setDocSeries(docSeries);
+		expected.setDocNum(docNum);
+		expected.setDocDate(docDate);
+		expected.setDocIssued(docIssued);
+		expected.setEvDate(evDate);
+		
+		OrderResource source = new OrderResource();
+		source.setReasonText(reasonText);
+		source.setDocSeries(docSeries);
+		source.setDocNum(docNum);
+		source.setDocDate(docDate);
+		source.setDocIssued(docIssued);
+		source.setEvDate(evDate);
+		
+		// When
+		Order actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

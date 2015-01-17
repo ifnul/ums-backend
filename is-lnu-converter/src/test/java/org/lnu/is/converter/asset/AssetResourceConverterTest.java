@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.Date;
 
 import org.junit.Test;
-import org.lnu.is.converter.asset.AssetResourceConverter;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.asset.AssetState;
 import org.lnu.is.domain.asset.AssetStatus;
@@ -112,6 +111,54 @@ public class AssetResourceConverterTest {
 		// When
 		Asset actual = unit.convert(source);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		Long id = 11L;
+		Date begDate = new Date();
+		Date endDate = new Date();
+		Date prodDate = new Date();
+		Double amount = 2.0;
+		Double price = 1241.0;
+		Double suma = 242.0;
+		String description = "description";
+		String invNum = "invNum";
+		String name = "name";
+		String serialNum = "serial num";
+		
+		Asset expected = new Asset();
+		expected.setAmount(amount);
+		expected.setBegDate(begDate);
+		expected.setDescription(description);
+		expected.setEndDate(endDate);
+		expected.setId(id);
+		expected.setInvNum(invNum);
+		expected.setName(name);
+		expected.setPrice(price);
+		expected.setProdDate(prodDate);
+		expected.setSerialNum(serialNum);
+		expected.setSuma(suma);
+		
+		AssetResource source = new AssetResource();
+		source.setAmount(amount);
+		source.setBegDate(begDate);
+		source.setDescription(description);
+		source.setEndDate(endDate);
+		source.setId(id);
+		source.setInvNum(invNum);
+		source.setName(name);
+		source.setPrice(price);
+		source.setProdDate(prodDate);
+		source.setSerialNum(serialNum);
+		source.setSuma(suma);
+		
+		// When
+		Asset actual = unit.convert(source);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
