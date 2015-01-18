@@ -4,6 +4,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,6 +54,21 @@ public class PagedRequestServletFilterTest {
 		unit.doFilter(req, response, chain);
 
 		// Then
+		verify(chain).doFilter(req, response);
+	}
+
+	@Test
+	public void testDoFilterWithEmptyParametersMap() throws Exception {
+		// Given
+		Map<String, String[]> parameterMap = Collections.emptyMap();
+		
+		// When
+		when(req.getMethod()).thenReturn("GET");
+		when(req.getParameterMap()).thenReturn(parameterMap);
+		unit.doFilter(req, response, chain);
+		
+		// Then
+		verify(req, times(0)).getParameter("limit");
 		verify(chain).doFilter(req, response);
 	}
 
