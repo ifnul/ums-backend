@@ -6,6 +6,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.Arrays;
 import java.util.Collection;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -49,6 +51,7 @@ public class SystemControllerTest extends AbstractControllerTest {
 		MockHttpSession session = new MockHttpSession();
 		session.setAttribute(Constants.JAVAX_SERVLET_ERROR_MESSAGE, message);
 		session.setAttribute(Constants.JAVAX_SERVLET_ERROR_STATUS_CODE, notFoundStatus);
+		session.setAttribute(Constants.JAVAX_SERVLET_ERROR_EXCEPTION, new EntityNotFoundException());
 		
 		mockMvc.perform(get("/error/{status}", notFoundStatus)
 				.session(session))

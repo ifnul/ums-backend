@@ -41,8 +41,16 @@ public class SystemController extends BaseController {
 
         LOGGER.error("Handle exception from Servlet container: status code - " + statusCode, exception);
 
-        int responseCode = (errorCode == null) ? statusCode : errorCode;
-        String msg = exceptionMessage == null ? "Exception occured" : exceptionMessage;
+        Integer responseCode = statusCode;
+        String msg = "Exception occured";
+
+        if (errorCode != null) {
+        	responseCode = errorCode;
+        }
+        
+        if (exceptionMessage != null) {
+        	msg = exceptionMessage;
+        }
         
         MessageResource message = new MessageResource(MessageType.ERROR, msg, responseCode);
 
