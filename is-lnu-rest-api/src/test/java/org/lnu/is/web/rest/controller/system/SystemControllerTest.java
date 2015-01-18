@@ -10,8 +10,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+import org.lnu.is.web.rest.constant.Constants;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.springframework.mock.web.MockHttpSession;
 
 @RunWith(Parameterized.class)
 public class SystemControllerTest extends AbstractControllerTest {
@@ -38,5 +40,18 @@ public class SystemControllerTest extends AbstractControllerTest {
 	public void testError() throws Exception {
 		mockMvc.perform(get("/error/{status}", status))
 			.andExpect(status().is(status));
+	}
+	
+	@Test
+	public void testErrorWithOtherParameters() throws Exception {
+		Integer notFoundStatus = 404;
+		String message = "message";
+		MockHttpSession session = new MockHttpSession();
+		session.setAttribute(Constants.JAVAX_SERVLET_ERROR_MESSAGE, message);
+		session.setAttribute(Constants.JAVAX_SERVLET_ERROR_STATUS_CODE, notFoundStatus);
+		
+		mockMvc.perform(get("/error/{status}", notFoundStatus)
+				.session(session))
+			.andExpect(status().is(notFoundStatus));
 	}
 }

@@ -5,6 +5,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyListOf;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -13,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.is.lnu.edebo.dispatcher.IntegrationDispatcher;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.converter.Converter;
@@ -66,6 +68,11 @@ public class IntegrationFacadeTest {
 	@InjectMocks
 	private IntegrationFacade<Person, PersonResource, DefaultService<Person, Long, DefaultDao<Person, Long>>, Long> unit;
 
+	@Before
+	public void setup() {
+		unit.setCreateDispatcher(createDispatcher);
+	}
+	
 	@Test
 	public void testCreateEntity() throws Exception {
 		// Given
@@ -98,6 +105,41 @@ public class IntegrationFacadeTest {
 		verify(insertConverter).convert(expected, person);
 		verify(createDispatcher).dispatch(expected);
 		verify(createDispatcher).getMethod();
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testCreateEntityWithEmptyDispatcher() throws Exception {
+		unit.setCreateDispatcher(null);
+		// Given
+		String name = "LightMan";
+		Long personTypeId = 25L;
+		
+		PersonResource expected = new PersonResource();
+		expected.setBegDate(new Date());
+		expected.setEndDate(new Date());
+		expected.setName(name);
+		expected.setPersonTypeId(personTypeId);
+		
+		PersonType personType = new PersonType();
+		
+		Person person = new Person();
+		person.setBegDate(new Date());
+		person.setEndDate(new Date());
+		person.setName(name);
+		person.setPersonType(personType);
+		
+		// When
+		when(resourceConverter.convert(any(PersonResource.class))).thenReturn(person);
+		when(entityConverter.convert(any(Person.class))).thenReturn(expected);
+		
+		PersonResource actual = unit.createResource(expected);
+		
+		// Then
+		verify(resourceConverter).convert(expected);
+		verify(service).createEntity(person);
+		verify(insertConverter).convert(expected, person);
+		verifyZeroInteractions(createDispatcher);
 		assertEquals(expected, actual);
 	}
 

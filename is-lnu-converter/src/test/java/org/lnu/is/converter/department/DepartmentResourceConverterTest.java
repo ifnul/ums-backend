@@ -7,6 +7,7 @@ import java.util.Date;
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.DepartmentType;
+import org.lnu.is.domain.order.Order;
 import org.lnu.is.resource.department.DepartmentResource;
 
 public class DepartmentResourceConverterTest {
@@ -26,6 +27,10 @@ public class DepartmentResourceConverterTest {
 		
 		DepartmentType departmentType = new DepartmentType();
 		departmentType.setId(2L);
+		
+		Long orderId = 4L;
+		Order order = new Order();
+		order.setId(orderId);
 
 		Department expected = new Department();
 		expected.setAbbrName(abbrName);
@@ -34,6 +39,7 @@ public class DepartmentResourceConverterTest {
 		expected.setName(name);
 		expected.setParent(parent);
 		expected.setDepartmentType(departmentType);
+		expected.setId(orderId);
 
 		DepartmentResource departmentResource = new DepartmentResource();
 		departmentResource.setAbbrName(abbrName);
@@ -42,6 +48,7 @@ public class DepartmentResourceConverterTest {
 		departmentResource.setName(name);
 		departmentResource.setDepartmentTypeId(departmentType.getId());
 		departmentResource.setParentId(parent.getId());
+		departmentResource.setOrderId(orderId);
 		
 		// When
 		Department actual = unit.convert(departmentResource);

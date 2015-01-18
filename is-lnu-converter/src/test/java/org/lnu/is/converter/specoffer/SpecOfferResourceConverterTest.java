@@ -82,6 +82,7 @@ public class SpecOfferResourceConverterTest {
 		source.setSpecofferTypeId(specOfferTypeId);
 		source.setStateCount(stateCount);
 		source.setTimePeriodId(timePeriodId);
+		source.setEduFormTypeId(eduFormTypeId);
 		
 		// When
 		SpecOffer actual = unit.convert(source);
@@ -101,9 +102,6 @@ public class SpecOfferResourceConverterTest {
 		Integer licCount = 223;
 		String note = "soem notes";
 		Integer stateCount = 34;
-		Long timePeriodId = 5L;
-		TimePeriod timePeriod = new TimePeriod();
-		timePeriod.setId(timePeriodId);
 		
 		SpecOffer expected = new SpecOffer();
 		expected.setBegDate(begDate);
@@ -114,7 +112,6 @@ public class SpecOfferResourceConverterTest {
 		expected.setLicCount(licCount);
 		expected.setNote(note);
 		expected.setStateCount(stateCount);
-		expected.setTimePeriod(timePeriod);
 		
 		SpecOfferResource source = new SpecOfferResource();
 		source.setBegDate(begDate);
@@ -125,7 +122,6 @@ public class SpecOfferResourceConverterTest {
 		source.setLicCount(licCount);
 		source.setNote(note);
 		source.setStateCount(stateCount);
-		source.setTimePeriodId(timePeriodId);
 		
 		// When
 		SpecOffer actual = unit.convert(source);
