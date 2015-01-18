@@ -16,6 +16,7 @@ import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.addresstype.AddressTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
+import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.mockito.InjectMocks;
@@ -90,7 +91,7 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 		String response = getJson(expected, false);
 
 		// Then
-		mockMvc.perform(get("/addresstypes/{id}", id))
+		mockMvc.perform(get("/addresstypes" + Request.ID, id))
 			.andExpect(status().isOk())
 			.andExpect(content().string(response));
 		
