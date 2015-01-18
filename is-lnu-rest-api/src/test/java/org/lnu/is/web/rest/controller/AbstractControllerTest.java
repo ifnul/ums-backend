@@ -16,20 +16,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public abstract class AbstractControllerTest {
 	
 	protected MockMvc mockMvc;
+	
+	private ObjectMapper objectMapper = new ObjectMapper();
+	private OffsetAnnotationHandlerMethodArgumentResolver offsetArgumentResolver;
+	private LimitAnnotationHandlerMethodArgumentResolver limitArgumentResolver;
+	private PagedRequestHandlerMethodArgumentResolver pagedRequestArgumentResolver;
+
 
 	@Before
 	public void setup() {
-		OffsetAnnotationHandlerMethodArgumentResolver offsetAnnotationHandlerMethodArgumentResolver = new OffsetAnnotationHandlerMethodArgumentResolver();
-		LimitAnnotationHandlerMethodArgumentResolver limitAnnotationHandlerMethodArgumentResolver = new LimitAnnotationHandlerMethodArgumentResolver();
-		PagedRequestHandlerMethodArgumentResolver pagedRequestHandlerMethodArgumentResolver = new PagedRequestHandlerMethodArgumentResolver();
+		offsetArgumentResolver = new OffsetAnnotationHandlerMethodArgumentResolver();
+		limitArgumentResolver = new LimitAnnotationHandlerMethodArgumentResolver();
+		pagedRequestArgumentResolver = new PagedRequestHandlerMethodArgumentResolver();
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
-				.setCustomArgumentResolvers(offsetAnnotationHandlerMethodArgumentResolver, limitAnnotationHandlerMethodArgumentResolver, pagedRequestHandlerMethodArgumentResolver)
+				.setCustomArgumentResolvers(offsetArgumentResolver, limitArgumentResolver, pagedRequestArgumentResolver)
 				.build();
 	}
-	
-	protected abstract BaseController getUnit();
 
-	private ObjectMapper objectMapper = new ObjectMapper();
+	protected abstract BaseController getUnit();
 
 	/**
 	 * Method for configuring object mapper to write from fields
