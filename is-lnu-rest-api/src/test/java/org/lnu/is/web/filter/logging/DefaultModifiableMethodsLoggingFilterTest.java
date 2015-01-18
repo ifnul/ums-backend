@@ -4,6 +4,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import java.io.BufferedReader;
@@ -43,7 +44,9 @@ public class DefaultModifiableMethodsLoggingFilterTest {
 
 	@Before
 	public void setup() throws Exception {
-		when(config.getInitParameter("httpMethods")).thenReturn("post, put");
+		String httpMethods = "post, put";
+		unit.setHttpMethods(httpMethods);
+		when(config.getInitParameter("httpMethods")).thenReturn(httpMethods);
 		unit.init(config);
 	}
 	
@@ -75,5 +78,12 @@ public class DefaultModifiableMethodsLoggingFilterTest {
 		// Then
 		verify(request, times(0)).getReader();
 		verify(chain).doFilter(request, response);
+	}
+	
+	@Test
+	public void testDestroy() throws Exception {
+		verifyZeroInteractions(request);
+		verifyZeroInteractions(response);
+		verifyZeroInteractions(chain);
 	}
 }
