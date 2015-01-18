@@ -19,8 +19,6 @@
 
 	<mvc:annotation-driven validator="validator">
 		<mvc:argument-resolvers>
-			<ref bean="offsetAnnotationHandlerMethodArgumentResolver" />
-			<ref bean="limitAnnotationHandlerMethodArgumentResolver" /> 
 			<ref bean="pagedRequestHandlerMethodArgumentResolver" />
 		</mvc:argument-resolvers>
 		<mvc:message-converters>
