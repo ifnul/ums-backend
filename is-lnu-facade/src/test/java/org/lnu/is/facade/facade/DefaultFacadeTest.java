@@ -1,6 +1,7 @@
 package org.lnu.is.facade.facade;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyListOf;
 import static org.mockito.Matchers.anyLong;
@@ -12,6 +13,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.converter.Converter;
@@ -20,12 +22,10 @@ import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
-import org.lnu.is.resource.ApiResource;
 import org.lnu.is.resource.person.PersonResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.service.DefaultService;
-import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -54,11 +54,23 @@ public class DefaultFacadeTest {
 	private Converter<Person, PersonResource> entityDetailsConverter;
 	
 	@Mock
-	private Converter<PagedResult<?>, PagedResultResource<? extends ApiResource>> pagedResultConverter;
+	private Converter<PagedResult<Person>, PagedResultResource<PersonResource>> pagedResultConverter;
 
-	@InjectMocks
-	private DefaultFacade<Person, PersonResource, DefaultService<Person, Long, DefaultDao<Person, Long>>, Long> unit;
+	private DefaultFacade<Person, PersonResource, DefaultService<Person, Long, DefaultDao<Person, Long>>, Long> unit = new DefaultFacade<Person, PersonResource, DefaultService<Person,Long,DefaultDao<Person,Long>>, Long>();
 
+	
+	@Before
+	public void setup() {
+		unit.setEntityConverter(entityConverter);
+		unit.setEntityDetailsConverter(entityDetailsConverter);
+		unit.setInsertConverter(insertConverter);
+		unit.setPagedRequestConverter(pagedRequestConverter);
+		unit.setPagedResultConverter(pagedResultConverter);
+		unit.setResourceConverter(resourceConverter);
+		unit.setService(service);
+		unit.setUpdateConverter(updateConverter);
+	}
+	
 	@Test
 	public void testCreateEntity() throws Exception {
 		// Given
@@ -206,6 +218,46 @@ public class DefaultFacadeTest {
 		verify(pagedResultConverter).convert(pagedResult, expectedPagedResultResource);
 
 		assertEquals(expectedPagedResultResource, actualFunnies);
+	}
+	
+	@Test
+	public void testEntityConverter() throws Exception {
+		assertNotNull(unit.getEntityConverter());
+	}
+	
+	@Test
+	public void testEntityDetailsConverter() throws Exception {
+		assertNotNull(unit.getEntityDetailsConverter());
+	}
+	
+	@Test
+	public void testInsertConverter() throws Exception {
+		assertNotNull(unit.getInsertConverter());
+	}
+	
+	@Test
+	public void testPagedResultConverter() throws Exception {
+		assertNotNull(unit.getPagedResultConverter());
+	}
+	
+	@Test
+	public void testResourceConverter() throws Exception {
+		assertNotNull(unit.getResourceConverter());
+	}
+	
+	@Test
+	public void testService() throws Exception {
+		assertNotNull(unit.getService());
+	}
+	
+	@Test
+	public void testPagedRequestConverter() throws Exception {
+		assertNotNull(unit.getPagedRequestConverter());
+	}
+
+	@Test
+	public void testPagedUpdateConverter() throws Exception {
+		assertNotNull(unit.getUpdateConverter());
 	}
 
 }

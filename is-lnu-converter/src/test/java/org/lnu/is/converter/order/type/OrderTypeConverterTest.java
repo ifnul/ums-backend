@@ -3,7 +3,6 @@ package org.lnu.is.converter.order.type;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.converter.order.type.OrderTypeConverter;
 import org.lnu.is.domain.order.OrderType;
 import org.lnu.is.resource.order.type.OrderTypeResource;
 
@@ -16,13 +15,20 @@ public class OrderTypeConverterTest {
 		// Given
 		String abbrName = "abbrName";
 		String name = "name";
+
+		Long parentId = 2L;
+		OrderType parent = new OrderType();
+		parent.setId(parentId);
+
 		OrderType source = new OrderType();
 		source.setAbbrName(abbrName);
 		source.setName(name);
+		source.setParent(parent);
 
 		OrderTypeResource expected = new OrderTypeResource();
 		expected.setAbbrName(abbrName);
 		expected.setName(name);
+		expected.setParentId(parentId);
 		
 		// When
 		OrderTypeResource actual = unit.convert(source);
