@@ -36,10 +36,12 @@ public class PersonAddressConverterTest {
 		Long personId = 4L;
 		Person person = new Person();
 		person.setId(personId);
-
+		
+		
 		Long streetTypeId = 5L;
 		StreetType streetType = new StreetType();
 		streetType.setId(streetTypeId);
+
 		String zipCode = "zip cide";
 		String street = "street";
 		String apartment = "apartment";
@@ -86,9 +88,6 @@ public class PersonAddressConverterTest {
 	@Test
 	public void testConvertWithNoRelations() throws Exception {
 		// Given
-		Long streetTypeId = 5L;
-		StreetType streetType = new StreetType();
-		streetType.setId(streetTypeId);
 		String zipCode = "zip cide";
 		String street = "street";
 		String apartment = "apartment";
@@ -98,7 +97,6 @@ public class PersonAddressConverterTest {
 		String house = "house";
 		
 		PersonAddress source = new PersonAddress();
-		source.setStreetType(streetType);
 		source.setZipCode(zipCode);
 		source.setStreet(street);
 		source.setApartment(apartment);
@@ -108,7 +106,6 @@ public class PersonAddressConverterTest {
 		source.setId(id);
 		
 		PersonAddressResource expected = new PersonAddressResource();
-		expected.setStreetTypeId(streetTypeId);
 		expected.setZipCode(zipCode);
 		expected.setStreet(street);
 		expected.setApartment(apartment);
