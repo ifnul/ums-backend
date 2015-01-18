@@ -3,7 +3,6 @@ package org.lnu.is.converter.base;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.converter.base.EntityDetailsConverter;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.resource.person.PersonResource;
 
@@ -32,5 +31,10 @@ public class EntityDetailsConverterTest {
 
 		// Then
 		assertEquals(expected, target);
+	}
+	
+	@Test(expected = UnsupportedOperationException.class)
+	public void testConvertWithOneArgument() throws Exception {
+		unit.convert(null);
 	}
 }

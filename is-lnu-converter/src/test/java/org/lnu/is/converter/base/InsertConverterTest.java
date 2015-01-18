@@ -4,7 +4,6 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.converter.base.InsertConverter;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.resource.specialty.SpecialtyResource;
@@ -32,5 +31,10 @@ public class InsertConverterTest {
 		verify(target).setCrtUser("default user");
 		verify(target).setCrtUserGroup("default user group");
 		verify(target).setStatus(RowStatus.ACTIVE);
+	}
+	
+	@Test(expected = UnsupportedOperationException.class)
+	public void testConvertWithOneArgument() throws Exception {
+		unit.convert(null);
 	}
 }

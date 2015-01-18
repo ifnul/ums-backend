@@ -32,7 +32,7 @@ public class EntityDetailsConverter<ENTITY extends InformationModel, RESOURCE ex
 
 	@Override
 	public RESOURCE convert(final ENTITY source) {
-		throw new IllegalArgumentException("Method noy used.");
+		throw new UnsupportedOperationException("Method not allowed");
 	}
 
 }
