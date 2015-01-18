@@ -59,6 +59,10 @@ public class ResettableStreamHttpServletRequest extends HttpServletRequestWrappe
 		return new BufferedReader(new InputStreamReader(servletStream));
 	}
 
+	public void setRawData(final byte[] rawData) {
+		this.rawData = rawData;
+	}
+
 	/**
 	 * Servlet input stream.
 	 * @author ivanursul
