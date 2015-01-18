@@ -66,5 +66,9 @@ public class PagedRequestServletFilter implements Filter {
 	    Environment environment = ctx.getEnvironment();
 	    this.maxPaginationCount = environment.getProperty(MAX_PAGINATION_COUNT, Integer.class, DEFAULT_PAGINATION_COUNT);
 	}
+
+	public void setMaxPaginationCount(final Integer maxPaginationCount) {
+		this.maxPaginationCount = maxPaginationCount;
+	}
  
 }
