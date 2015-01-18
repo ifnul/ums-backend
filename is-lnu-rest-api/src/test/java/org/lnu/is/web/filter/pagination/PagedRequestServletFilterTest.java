@@ -1,5 +1,6 @@
 package org.lnu.is.web.filter.pagination;
 
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -52,6 +53,25 @@ public class PagedRequestServletFilterTest {
 		unit.doFilter(req, response, chain);
 
 		// Then
+		verify(chain).doFilter(req, response);
+	}
+
+	@Test
+	public void testDoFilterWithPostMethod() throws Exception {
+		// Given
+		Map<String, String[]> parameterMap = new HashMap<String, String[]>();
+		String[] limits = { "100" };
+		parameterMap.put("limit", limits);
+		
+		// When
+		when(req.getMethod()).thenReturn("POST");
+		when(req.getParameter("limit")).thenReturn(limits[0]);
+		when(req.getParameterMap()).thenReturn(parameterMap);
+		unit.doFilter(req, response, chain);
+		
+		// Then
+		verify(req, times(0)).getParameter("limit");
+		verify(req, times(0)).getParameterMap();
 		verify(chain).doFilter(req, response);
 	}
 
