@@ -36,4 +36,25 @@ public class OrderTypeConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testConvertWithNoRelations() throws Exception {
+		// Given
+		String abbrName = "abbrName";
+		String name = "name";
+		
+		OrderType source = new OrderType();
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		OrderTypeResource expected = new OrderTypeResource();
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+
+		// When
+		OrderTypeResource actual = unit.convert(source);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }
