@@ -8,13 +8,5 @@ package org.lnu.is.web.rest.constant;
 public class Request {
 
 	public static final String ID = "/{id}";
-
-	/**
-	 * Default constructor.
-	 * @author ivanursul
-	 */
-	private Request() {
-		super();
-	}
 	
 }

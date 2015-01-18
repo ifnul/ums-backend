@@ -22,12 +22,4 @@ public class Constants {
     	DATE_FORMAT.setLenient(false);
     }
     
-    /**
-	 * Default constructor.
-	 * @author ivanursul
-	 */
-	private Constants() {
-		super();
-	}
-	
 }
