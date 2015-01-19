@@ -23,11 +23,13 @@
     	<module>is-lnu-edebo</module>
    		<module>is-lnu-edebo-domain</module>
    		<module>is-lnu-migrations</module>
-   		<module>is-lnu-mailing</module>
+   		<module>is-lnu-mail</module>
 	</modules>
 
 	<properties>
-		<!-- Version properties -->
+		<java-version>1.7</java-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 		<version>0.0.1-SNAPSHOT</version>
 		<spring.version>4.1.0.RELEASE</spring.version>
 		<spring.test.version>4.0.0.RELEASE</spring.test.version>
@@ -39,18 +41,9 @@
 		<fasterxml.version>2.4.2</fasterxml.version>
 		<surefire.version>2.12</surefire.version>
 		
-		<!-- Project specific properties -->
-		<java-version>1.7</java-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<api.output.json.pretty>true</api.output.json.pretty>
-		<max.pagination.count>500</max.pagination.count>
-		<environment.active>dev</environment.active>
-
-		<!-- Migrations properties -->
 		<migration.changelog.name>db.changelog.xml</migration.changelog.name>
 		<migrations.location>src/main/resources/migrations/${migration.changelog.name}</migrations.location>
 
-		<!-- Database properties -->
 		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
 		<jdbc.host>localhost</jdbc.host>
 		<jdbc.port>5432</jdbc.port>
@@ -59,33 +52,22 @@
 		<jdbc.username>postgres</jdbc.username>
 		<jdbc.password>postgres</jdbc.password>
 		
-		<!-- JPA Properties -->
 		<jpa.database>POSTGRESQL</jpa.database>
 		<jpa.showSql>true</jpa.showSql>
-		
-		<!-- Code quality properties -->
+		<content.repository.path>~/tmp/is-lnu</content.repository.path>
+		<api.output.json.pretty>true</api.output.json.pretty>
 		<checkstyleDir>${basedir}/checks</checkstyleDir>
 		<findBugsDir>${basedir}/findbugs</findBugsDir>
 		
-		<!-- Gatling properties -->
+		<max.pagination.count>500</max.pagination.count>
 		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
 		<integration.successtests.percent>96</integration.successtests.percent>
 		
-		<!-- Tomcat manager properties -->		
 		<tomcat.deploy.url>http://104.236.29.16:8080/manager/text</tomcat.deploy.url>
 		<tomcat.server.name>TomcatServer</tomcat.server.name>
 		<tomcat.contextPath>/is-lnu-rest-api</tomcat.contextPath>
 		
-		<!-- Mail related properties -->
-        <mail.from>infosystem.lnu@gmail.com</mail.from>
-        <mail.host>smtp.gmail.com</mail.host>
-        <mail.port>fake_password</mail.port>
-        <mail.username>simplesavellc@gmail.com</mail.username>
-        <mail.password>fake mail</mail.password>
-		<mail.smtp.auth>true</mail.smtp.auth>
-		<mail.smtp.starttls.enable>true</mail.smtp.starttls.enable>
-		<mail.smtp.ssl.trust>smtp.gmail.com</mail.smtp.ssl.trust>
-		<batch.limit>20</batch.limit>		
+		<environment.active>dev</environment.active>
 	</properties>
 
 	<dependencyManagement>
@@ -143,11 +125,6 @@
 			</dependency>
 			<dependency>
 				<groupId>is-lnu</groupId>
-				<artifactId>is-lnu-mailing</artifactId>
-				<version>${version}</version>
-			</dependency>
-			<dependency>
-				<groupId>is-lnu</groupId>
 				<artifactId>is-lnu-common</artifactId>
 				<version>${version}</version>
 			</dependency>
@@ -182,11 +159,6 @@
 				<artifactId>spring-beans</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-	        <dependency>
-	            <groupId>org.springframework</groupId>
-	            <artifactId>spring-context-support</artifactId>
-	            <version>${spring.version}</version>
-	        </dependency>			
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>
@@ -413,7 +385,6 @@
 					            <exclude>org/lnu/is/queries/**/*.class</exclude>
 					            <exclude>org/lnu/is/web/rest/constant/Constants.class</exclude>
 					            <exclude>org/lnu/is/web/rest/constant/Request.class</exclude>
-					            <exclude>**/model/*.class</exclude>
 					        </excludes>
 						</instrumentation>						
 						<formats>
@@ -520,7 +491,6 @@
 				            <exclude>org/lnu/is/pagination/**/*.class</exclude>
 				            <exclude>org/lnu/is/queries/**/*.class</exclude>
 				            <exclude>org/lnu/is/queries/**/*.class</exclude>
-				            <exclude>**/model/*.class</exclude>
 				            <exclude>org/lnu/is/web/rest/constant/Constants.class</exclude>
 				            <exclude>org/lnu/is/web/rest/constant/Request.class</exclude>				            
 				        </excludes>

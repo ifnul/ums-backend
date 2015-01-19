@@ -11,6 +11,7 @@
 			classpath*:facade-context.xml
 			classpath*:converters-context.xml
 			classpath*:security-context.xml
+			classpath*:mail-context.xml
 		</param-value>
 	</context-param>
 	
