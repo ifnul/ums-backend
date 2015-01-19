@@ -2,11 +2,11 @@ package org.lnu.is.extractor.employee.status;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.employee.EmployeeStatus;
 
 public class EmployeeStatusParametersExtractorTest {
@@ -26,7 +26,7 @@ public class EmployeeStatusParametersExtractorTest {
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
 		expected.put("abbrName", abbrName);
-
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
@@ -38,8 +38,8 @@ public class EmployeeStatusParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		EmployeeStatus entity = new EmployeeStatus();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

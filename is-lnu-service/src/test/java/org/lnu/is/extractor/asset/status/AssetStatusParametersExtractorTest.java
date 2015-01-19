@@ -2,11 +2,12 @@ package org.lnu.is.extractor.asset.status;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
 import org.lnu.is.domain.asset.AssetStatus;
+import org.lnu.is.domain.common.RowStatus;
 
 public class AssetStatusParametersExtractorTest {
 
@@ -18,8 +19,9 @@ public class AssetStatusParametersExtractorTest {
 		String name = "name1";
 		AssetStatus entity = new AssetStatus();
 		entity.setName(name);
-		
-		Map<String, Object> expected = Collections.<String, Object>singletonMap("name", name);
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		expected.put("name", name);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
@@ -31,8 +33,8 @@ public class AssetStatusParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		AssetStatus entity = new AssetStatus();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

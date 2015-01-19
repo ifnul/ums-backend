@@ -14,7 +14,7 @@ public class AssetStateQueryBuilderTest {
 		// Given
 		AssetState context = new AssetState();
 		
-		String expected = "SELECT e FROM AssetState e ";
+		String expected = "SELECT e FROM AssetState e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 
@@ -29,7 +29,7 @@ public class AssetStateQueryBuilderTest {
 		AssetState context = new AssetState();
 		context.setName(name);
 		
-		String expected = "SELECT e FROM AssetState e WHERE a.name LIKE CONCAT('%',:name,'%') ";
+		String expected = "SELECT e FROM AssetState e WHERE ( a.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		

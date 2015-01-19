@@ -5,13 +5,13 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.order.OrderType;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -44,7 +44,7 @@ public class OrderTypeParametersExtractorTest {
 		expected.put("abbrName", abbrName);
 		expected.put("name", name);
 		expected.put("parent", parent);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(orderTypeDao.getEntityById(anyLong())).thenReturn(parent);
 		
@@ -59,8 +59,8 @@ public class OrderTypeParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		OrderType entity = new OrderType();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

@@ -5,7 +5,6 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +16,7 @@ import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.asset.AssetState;
 import org.lnu.is.domain.asset.AssetStatus;
 import org.lnu.is.domain.asset.AssetType;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
@@ -132,7 +132,7 @@ public class AssetParametersExtractorTest {
 		expected.put("assetType", assetType);
 		expected.put("assetState", assetState);
 		expected.put("assetStatus", assetStatus);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(assetDao.getEntityById(anyLong())).thenReturn(parent);
 		when(orderDao.getEntityById(anyLong())).thenReturn(order);
@@ -162,8 +162,8 @@ public class AssetParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		Asset entity = new Asset();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

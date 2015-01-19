@@ -14,7 +14,7 @@ public class FamilyTypeQueryBuilderTest {
 		// Given
 		FamilyType context = new FamilyType();
 		
-		String expectedQuery = "SELECT e FROM FamilyType e ";
+		String expectedQuery = "SELECT e FROM FamilyType e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -33,7 +33,7 @@ public class FamilyTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
-		String expectedQuery = "SELECT e FROM FamilyType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM FamilyType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 
 		// When
 		String actualQuery = unit.build(context);

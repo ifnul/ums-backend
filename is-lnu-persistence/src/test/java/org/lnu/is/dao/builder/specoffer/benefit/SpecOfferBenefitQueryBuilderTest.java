@@ -14,13 +14,27 @@ public class SpecOfferBenefitQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		SpecofferBenefit context = new SpecofferBenefit();
+		
+		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithAllParameters() throws Exception {
+		// Given
 		Benefit benefit = new Benefit();
 		SpecOffer specOffer = new SpecOffer();
 		SpecofferBenefit context = new SpecofferBenefit();
 		context.setSpecOffer(specOffer);
 		context.setBenefit(benefit);
 
-		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE s.specOffer = :specOffer OR s.benefit = :benefit ";
+		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE ( e.specOffer = :specOffer OR e.benefit = :benefit ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

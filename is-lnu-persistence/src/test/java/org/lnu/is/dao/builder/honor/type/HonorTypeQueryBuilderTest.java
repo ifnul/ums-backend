@@ -14,7 +14,7 @@ public class HonorTypeQueryBuilderTest {
 		// Given
 		HonorType context = new HonorType();
 
-		String expectedQuery = "SELECT e FROM HonorType e ";
+		String expectedQuery = "SELECT e FROM HonorType e WHERE e.status=:status ";
 
 		// When
 		String actualQuery = unit.build(context);
@@ -32,7 +32,7 @@ public class HonorTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM HonorType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM HonorType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

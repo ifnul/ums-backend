@@ -10,11 +10,11 @@ public class CourseTypeQueryBuilderTest {
 	private CourseTypeQueryBuilder unit = new CourseTypeQueryBuilder();
 	
 	@Test
-	public void testname() throws Exception {
+	public void testBuild() throws Exception {
 		// Given
 		CourseType context = new CourseType();
 		
-		String expected = "SELECT e FROM CourseType e ";
+		String expected = "SELECT e FROM CourseType e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		
@@ -31,7 +31,7 @@ public class CourseTypeQueryBuilderTest {
 		context.setName(name);
 		context.setAbbrName(abbrName);
 
-		String expected = "SELECT e FROM CourseType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 		// When
 		String actual = unit.build(context);
 

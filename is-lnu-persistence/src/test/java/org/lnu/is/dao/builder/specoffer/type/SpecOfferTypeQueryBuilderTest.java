@@ -13,16 +13,9 @@ public class SpecOfferTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
-		SpecialtyType specialType = new SpecialtyType();
-		String abbrName = "abbrName";
-		String name = "name";
-		
 		SpecOfferType context = new SpecOfferType();
-		context.setAbbrName(abbrName);
-		context.setName(name);
-		context.setSpecialtyType(specialType);
 
-		String expectedQuery = "SELECT s FROM SpecOfferType s WHERE s.name LIKE CONCAT('%',:name,'%') OR s.abbrName LIKE CONCAT('%',:abbrName,'%') OR s.specialtyType = :specialtyType";
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -31,6 +24,23 @@ public class SpecOfferTypeQueryBuilderTest {
 		assertEquals(expectedQuery, actualQuery);
 	}
 
+	@Test
+	public void testBuildWithOneParameter() throws Exception {
+		// Given
+		String abbrName = "abbrName";
+		
+		SpecOfferType context = new SpecOfferType();
+		context.setAbbrName(abbrName);
+		
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
 	@Test
 	public void testBuildEmptyParameters() throws Exception {
 		// Given
@@ -41,7 +51,7 @@ public class SpecOfferTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setSpecialtyType(specialType);
 		
-		String expectedQuery = "SELECT s FROM SpecOfferType s WHERE s.abbrName LIKE CONCAT('%',:abbrName,'%') OR s.specialtyType = :specialtyType";
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.specialtyType = :specialtyType) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

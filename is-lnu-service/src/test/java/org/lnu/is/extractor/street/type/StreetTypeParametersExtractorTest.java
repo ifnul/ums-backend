@@ -2,11 +2,11 @@ package org.lnu.is.extractor.street.type;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.streettype.StreetType;
 
 
@@ -27,7 +27,7 @@ public class StreetTypeParametersExtractorTest {
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
 		expected.put("abbrName", abbrName);
-
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
@@ -39,8 +39,9 @@ public class StreetTypeParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		StreetType entity = new StreetType();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

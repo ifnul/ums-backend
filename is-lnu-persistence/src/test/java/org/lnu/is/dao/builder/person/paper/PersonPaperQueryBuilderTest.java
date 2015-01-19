@@ -18,7 +18,7 @@ public class PersonPaperQueryBuilderTest {
 	public void testBuild() throws Exception {
 		// Given
 		PersonPaper context = new PersonPaper();
-		String expectedQuery = "SELECT e FROM PersonPaper e ";
+		String expectedQuery = "SELECT e FROM PersonPaper e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -55,7 +55,7 @@ public class PersonPaperQueryBuilderTest {
 		context.setIsChecked(isChecked);
 		context.setIsForeign(isForeign);
 		
-		String expectedQuery = "SELECT e FROM PersonPaper e WHERE e.person = :person OR e.paperType = :paperType OR e.honorsType = :honorsType OR e.docDate = :docDate OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docIssued = :docIssued OR e.docPin = :docPin OR e.mark = :mark OR e.isChecked = :isChecked OR e.isForeign = :isForeign ";
+		String expectedQuery = "SELECT e FROM PersonPaper e WHERE ( e.person = :person OR e.paperType = :paperType OR e.honorsType = :honorsType OR e.docDate = :docDate OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docIssued = :docIssued OR e.docPin = :docPin OR e.mark = :mark OR e.isChecked = :isChecked OR e.isForeign = :isForeign ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

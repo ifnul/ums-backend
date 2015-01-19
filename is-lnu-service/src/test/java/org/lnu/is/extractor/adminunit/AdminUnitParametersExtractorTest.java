@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.adminunit.type.AdminUnitType;
+import org.lnu.is.domain.common.RowStatus;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -64,7 +64,7 @@ public class AdminUnitParametersExtractorTest {
 		expected.put("name", name);
 		expected.put("begDate", begDate);
 		expected.put("endDate", endDate);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(adminUnitTypeDao.getEntityById(anyLong())).thenReturn(adminUnitType);
 		
@@ -78,8 +78,8 @@ public class AdminUnitParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		AdminUnit entity = new AdminUnit();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

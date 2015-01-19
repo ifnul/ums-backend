@@ -30,6 +30,7 @@ public class PartnerQueryBuilder extends AbstractQueryBuilder<Partner> {
 	protected BaseQueryBuilder build(final Partner context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(PARENT_CONDITION, context.getParent())
 				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
 				.addOrCondition(NAME_CONDITION, context.getName())
@@ -37,7 +38,8 @@ public class PartnerQueryBuilder extends AbstractQueryBuilder<Partner> {
 				.addOrCondition(PHONE_CONDITION, context.getPhone())
 				.addOrCondition(EMAIL_CONDITION, context.getEmail())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate());
+				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+				.closeBracket();
 	}
 
 }

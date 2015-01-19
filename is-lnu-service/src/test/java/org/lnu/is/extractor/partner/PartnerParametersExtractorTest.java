@@ -5,7 +5,6 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +12,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.partner.Partner;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -61,7 +61,7 @@ public class PartnerParametersExtractorTest {
 		expected.put("name", name);
 		expected.put("phone", phone);
 		expected.put("parent", parent);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(partnerDao.getEntityById(anyLong())).thenReturn(parent);
 		Map<String, Object> actual = unit.getParameters(entity);
@@ -75,8 +75,8 @@ public class PartnerParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		Partner entity = new Partner();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

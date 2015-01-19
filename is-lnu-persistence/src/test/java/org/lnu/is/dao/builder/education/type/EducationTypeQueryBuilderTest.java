@@ -14,7 +14,7 @@ public class EducationTypeQueryBuilderTest {
 		// Given
 		EducationType context = new EducationType();
 		
-		String expected = "SELECT e FROM EducationType e ";
+		String expected = "SELECT e FROM EducationType e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		
@@ -31,7 +31,7 @@ public class EducationTypeQueryBuilderTest {
 		context.setName(name);
 		context.setAbbrName(abbrName);
 
-		String expected = "SELECT e FROM EducationType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM EducationType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 		// When
 		String actual = unit.build(context);
 

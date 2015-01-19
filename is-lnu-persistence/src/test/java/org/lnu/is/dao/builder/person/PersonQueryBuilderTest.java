@@ -16,7 +16,7 @@ public class PersonQueryBuilderTest {
 		// Given
 		Person context = new Person();
 		
-		String expectedQuery = "SELECT e FROM Person e ";
+		String expectedQuery = "SELECT e FROM Person e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -41,7 +41,7 @@ public class PersonQueryBuilderTest {
 		context.setSurname(surname);
 		context.setDocNum(docNum);
 
-		String expectedQuery = "SELECT e FROM Person e WHERE e.personType = :personType OR e.marriedType = :marriedType OR e.name LIKE CONCAT('%',:name,'%') OR e.surname LIKE CONCAT('%',:surname,'%') eOR e.docNum LIKE CONCAT('%',:docNum,'%') ";
+		String expectedQuery = "SELECT e FROM Person e WHERE ( e.personType = :personType OR e.marriedType = :marriedType OR e.name LIKE CONCAT('%',:name,'%') OR e.surname LIKE CONCAT('%',:surname,'%') eOR e.docNum LIKE CONCAT('%',:docNum,'%') ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

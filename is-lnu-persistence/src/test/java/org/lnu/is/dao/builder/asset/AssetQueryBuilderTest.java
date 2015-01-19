@@ -21,7 +21,7 @@ public class AssetQueryBuilderTest {
 		// Given
 		Asset context = new Asset();
 
-		String expectedSql = "SELECT e FROM Asset e ";
+		String expectedSql = "SELECT e FROM Asset e WHERE e.status=:status ";
 		
 		// When
 		String actualSql = unit.build(context);
@@ -50,7 +50,7 @@ public class AssetQueryBuilderTest {
 		context.setPartner(partner);
 		context.setOrder(order);
 		
-		String expectedSql = "SELECT e FROM Asset e WHERE e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ";
+		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) AND e.status=:status ";
 		
 		// When
 		String actualSql = unit.build(context);

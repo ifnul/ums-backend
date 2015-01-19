@@ -23,7 +23,9 @@ public class EduFormTypeQueryBuilder extends AbstractQueryBuilder<EduFormType> {
 	protected BaseQueryBuilder build(final EduFormType context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
-				.addOrCondition(NAME_CONDITION, context.getName());
+				.openBracket()
+				.addOrCondition(NAME_CONDITION, context.getName())
+				.closeBracket();
 	}
 
 }

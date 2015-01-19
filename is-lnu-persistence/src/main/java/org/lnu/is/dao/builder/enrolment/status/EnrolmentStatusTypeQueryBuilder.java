@@ -25,9 +25,11 @@ public class EnrolmentStatusTypeQueryBuilder extends AbstractQueryBuilder<Enrolm
 	protected BaseQueryBuilder build(final EnrolmentStatusType context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(DESCRIPTION_CONDITION, context.getDescription());
+				.addOrCondition(DESCRIPTION_CONDITION, context.getDescription())
+				.closeBracket();
 	}
 
 }

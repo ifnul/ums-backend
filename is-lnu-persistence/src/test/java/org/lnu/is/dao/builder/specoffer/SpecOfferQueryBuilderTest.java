@@ -44,7 +44,24 @@ public class SpecOfferQueryBuilderTest {
 		context.setStateCount(stateCount);
 		context.setTimePeriod(timePeriod);
 		
-		String expectedQuery = "SELECT s FROM SpecOffer s WHERE s.parent = :parent OR s.specialty = :specialty OR s.department = :department OR s.timePeriod = :timePeriod OR s.eduFormType = :eduFormType OR s.specOfferType :specOfferType OR s.docSeries LIKE CONCAT('%',:docSeries,'%') OR s.docNum LIKE CONCAT('%',:docNum,'%') OR s.licCount = :licCount OR s.stateCount = :stateCount OR t.begDate <= :begDate OR t.endDate >= :endDate";
+		String expectedQuery = "SELECT e FROM SpecOffer e WHERE ( e.parent = :parent OR e.specialty = :specialty OR e.department = :department OR e.timePeriod = :timePeriod OR e.eduFormType = :eduFormType OR e.specOfferType :specOfferType OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.licCount = :licCount OR e.stateCount = :stateCount OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithOneParameter() throws Exception {
+		// Given
+		SpecOffer parent = new SpecOffer();
+		
+		SpecOffer context = new SpecOffer();
+		context.setParent(parent);
+		
+		String expectedQuery = "SELECT e FROM SpecOffer e WHERE ( e.parent = :parent ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -57,7 +74,7 @@ public class SpecOfferQueryBuilderTest {
 	public void testBuildWithExmptyParameters() throws Exception {
 		// Given
 		SpecOffer context = new SpecOffer();
-		String expectedQuery = "SELECT s FROM SpecOffer s ";
+		String expectedQuery = "SELECT e FROM SpecOffer e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

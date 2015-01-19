@@ -14,7 +14,7 @@ public class SubjectTypeQueryBuilderTest {
 		// Given
 		SubjectType context = new SubjectType();
 		
-		String expectedQuery = "SELECT e FROM SubjectType e ";
+		String expectedQuery = "SELECT e FROM SubjectType e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -33,7 +33,7 @@ public class SubjectTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
-		String expectedQuery = "SELECT e FROM SubjectType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM SubjectType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 
 		// When
 		String actualQuery = unit.build(context);

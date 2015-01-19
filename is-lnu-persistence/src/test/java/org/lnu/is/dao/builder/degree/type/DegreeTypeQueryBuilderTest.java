@@ -14,7 +14,7 @@ public class DegreeTypeQueryBuilderTest {
 		// Given
 		DegreeType context = new DegreeType();
 
-		String expectedQuery = "SELECT e FROM DegreeType e ";
+		String expectedQuery = "SELECT e FROM DegreeType e WHERE e.status=:status ";
 
 		// When
 		String actualQuery = unit.build(context);
@@ -33,7 +33,7 @@ public class DegreeTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM DegreeType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM DegreeType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

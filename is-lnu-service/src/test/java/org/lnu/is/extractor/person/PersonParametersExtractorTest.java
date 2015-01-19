@@ -5,7 +5,6 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +12,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.person.Person;
@@ -113,7 +113,7 @@ public class PersonParametersExtractorTest {
 		expected.put("endDate", endDate);
 		expected.put("isMilitary", isMilitary);
 		expected.put("isHostel", isHostel);
-
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(personTypeDao.getEntityById(anyLong())).thenReturn(personType);
 		when(genderTypeDao.getEntityById(anyLong())).thenReturn(genderType);
@@ -134,8 +134,8 @@ public class PersonParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		Person entity = new Person();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

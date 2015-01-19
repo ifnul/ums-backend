@@ -5,7 +5,6 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +12,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.EnrolmentType;
@@ -122,7 +122,7 @@ public class EnrolmentParametersExtractorTest {
 		expected.put("evDate", evDate);
 		expected.put("begDate", begDate);
 		expected.put("endDate", endDate);
-
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(personDao.getEntityById(anyLong())).thenReturn(person);
 		when(specOfferDao.getEntityById(anyLong())).thenReturn(specOffer);
@@ -147,8 +147,8 @@ public class EnrolmentParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		Enrolment entity = new Enrolment();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

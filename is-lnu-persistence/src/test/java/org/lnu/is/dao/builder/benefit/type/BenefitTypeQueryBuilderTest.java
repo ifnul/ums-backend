@@ -14,7 +14,7 @@ public class BenefitTypeQueryBuilderTest {
 		// Given
 		BenefitType context = new BenefitType();
 		
-		String expected = "SELECT e FROM BenefitType e ";
+		String expected = "SELECT e FROM BenefitType e WHERE e.status=:status ";
 		
 		// When
 		String actual = unit.build(context);
@@ -33,7 +33,7 @@ public class BenefitTypeQueryBuilderTest {
 		context.setName(name);
 		context.setPriority(priority);
 		
-		String expected = "SELECT e FROM BenefitType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.priority =:priority ";
+		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.priority =:priority ) AND e.status=:status ";
 		
 		// When
 		String actual = unit.build(context);

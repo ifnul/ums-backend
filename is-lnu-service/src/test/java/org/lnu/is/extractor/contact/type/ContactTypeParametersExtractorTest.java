@@ -2,11 +2,11 @@ package org.lnu.is.extractor.contact.type;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.contacttype.ContactType;
 
 public class ContactTypeParametersExtractorTest {
@@ -26,7 +26,7 @@ public class ContactTypeParametersExtractorTest {
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
 		expected.put("abbrName", abbrName);
-
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
@@ -38,8 +38,8 @@ public class ContactTypeParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		ContactType entity = new ContactType();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

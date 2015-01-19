@@ -28,4 +28,62 @@ public class BaseQueryBuilderTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testBuildAnd() throws Exception {
+		// Given
+		String query = "SELECT FROM SMTH %s";
+		String condition = "condition ";
+		Object parameter = new Object();
+
+		String condition1 = "condition1 ";
+		Object nullParameter = null;
+		
+		String expected = "SELECT FROM SMTH WHERE ( condition ) ";
+		
+		// When
+		String actual = BaseQueryBuilder.getInstance(query)
+			.where()
+			.openBracket()
+			.addOrCondition(condition, parameter)
+			.addOrCondition(condition1, nullParameter)
+			.closeBracket()
+			.build();
+
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testBuildWithComplicated() throws Exception {
+		// Given
+		String query = "SELECT FROM SMTH %s";
+		String condition = "condition ";
+		Object parameter = new Object();
+		
+		String condition1 = "condition1 ";
+		Object nullParameter = null;
+
+		String condition2 = "condition2 ";
+		Object parameter2 = "fdsfds";
+
+		String condition3 = "condition3 ";
+		Object parameter3 = "qwrvcvds";
+		
+		String expected = "SELECT FROM SMTH WHERE ( condition ) AND condition2 AND condition3 ";
+		
+		// When
+		String actual = BaseQueryBuilder.getInstance(query)
+				.where()
+				.openBracket()
+				.addOrCondition(condition, parameter)
+				.addOrCondition(condition1, nullParameter)
+				.closeBracket()
+				.addAndCondition(condition2, parameter2)
+				.addAndCondition(condition3, parameter3)
+				.build();
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 }

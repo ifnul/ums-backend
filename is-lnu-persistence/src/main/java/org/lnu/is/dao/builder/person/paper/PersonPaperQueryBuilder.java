@@ -33,6 +33,7 @@ public class PersonPaperQueryBuilder extends AbstractQueryBuilder<PersonPaper> {
 	protected BaseQueryBuilder build(final PersonPaper context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(PERSON_CONDITION, context.getPerson())
 				.addOrCondition(PAPERTYPE_CONDITION, context.getPaperType())
 				.addOrCondition(HONORS_TYPE, context.getHonorsType())
@@ -43,7 +44,8 @@ public class PersonPaperQueryBuilder extends AbstractQueryBuilder<PersonPaper> {
 				.addOrCondition(DOCPIN_CONDITION, context.getDocPin())
 				.addOrCondition(MARK_CONDITION, context.getMark())
 				.addOrCondition(ISCHECKED_CONDITION, context.getIsChecked())
-				.addOrCondition(ISFOREIGN_CONDITION, context.getIsForeign());
+				.addOrCondition(ISFOREIGN_CONDITION, context.getIsForeign())
+				.closeBracket();
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.enrolment.EnrolmentType;
 
 public class EnrolmentTypeParametersExtractorTest {
@@ -25,7 +26,7 @@ public class EnrolmentTypeParametersExtractorTest {
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
 		expected.put("abbrname", abbrname);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 		
@@ -39,7 +40,7 @@ public class EnrolmentTypeParametersExtractorTest {
 		EnrolmentType entity = new EnrolmentType();
 
 		Map<String, Object> expected = new HashMap<String, Object>();
-
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

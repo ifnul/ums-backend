@@ -24,8 +24,10 @@ public class BenefitTypeQueryBuilder extends AbstractQueryBuilder<BenefitType> {
 	protected BaseQueryBuilder build(final BenefitType context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(PRIORITY_CONDITION, context.getPriority());
+				.addOrCondition(PRIORITY_CONDITION, context.getPriority())
+				.closeBracket();
 	}
 
 }

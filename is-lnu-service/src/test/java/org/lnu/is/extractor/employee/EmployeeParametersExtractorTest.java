@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +11,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.employee.EmployeeStatus;
@@ -157,7 +157,7 @@ public class EmployeeParametersExtractorTest {
 		expected.put("begDate", begDate);
 		expected.put("birthDate", birthDate);
 		expected.put("email", email);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(departmentDao.getEntityById(anyLong())).thenReturn(department);
 		when(employeeStatusDao.getEntityById(anyLong())).thenReturn(employeeStatus);
@@ -179,8 +179,8 @@ public class EmployeeParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		Employee entity = new Employee();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

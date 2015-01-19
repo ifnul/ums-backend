@@ -5,7 +5,6 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.benefit.Benefit;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecofferBenefit;
 import org.mockito.InjectMocks;
@@ -49,6 +49,7 @@ public class SpecOfferBenefitParametersExtractorTest {
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("specOffer", specOffer);
 		expected.put("benefit", benefit);
+		expected.put("status", RowStatus.ACTIVE);
 		
 		// When
 		when(specOfferDao.getEntityById(anyLong())).thenReturn(specOffer);
@@ -67,7 +68,8 @@ public class SpecOfferBenefitParametersExtractorTest {
 		// Given
 		SpecofferBenefit entity = new SpecofferBenefit();
 		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

@@ -14,7 +14,7 @@ public class AssetTypeQueryBuilderTest {
 		// Given
 		AssetType context = new AssetType();
 		
-		String expected = "SELECT e FROM AssetType e ";
+		String expected = "SELECT e FROM AssetType e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 
@@ -31,7 +31,7 @@ public class AssetTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expected = "SELECT e FROM AssetType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM AssetType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		

@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.specoffer.subject;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.specoffer.SpecofferSubject;
 
 /**
@@ -11,27 +11,27 @@ import org.lnu.is.domain.specoffer.SpecofferSubject;
  *
  */
 @QBuilder("specOfferSubjectQueryBuilder")
-public class SpecOfferSubjectQueryBuilder implements QueryBuilder<SpecofferSubject> {
+public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecofferSubject> {
+	private static final String SPECOFFER_CONDITION = "e.specOffer = :specOffer ";
+	private static final String ENROLMENTSUBJECT_CONDITION = "e.enrolmentSubject = :enrolmentSubject ";
+	private static final String ISMAJOR_CONDITION = "e.isMajor = :isMajor ";
+	private static final String ALTERNATIVE_CONDITION = "e.alternative = :alternative ";
 
-	private static final String QUERY = "SELECT s FROM SpecOfferSubject s %s";
-
-	private static final String SPECOFFER_CONDITION = "s.specOffer = :specOffer ";
-	private static final String ENROLMENTSUBJECT_CONDITION = "s.enrolmentSubject = :enrolmentSubject ";
-	private static final String ISMAJOR_CONDITION = "s.isMajor = :isMajor ";
-	private static final String ALTERNATIVE_CONDITION = "s.alternative = :alternative ";
-	
 	@Override
-	public String build(final SpecofferSubject context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM SpecofferSubject e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final SpecofferSubject context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
 				.addOrCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
 				.addOrCondition(ISMAJOR_CONDITION, context.getIsMajor())
 				.addOrCondition(ALTERNATIVE_CONDITION, context.getAlternative())
-				.build();
-		
-		return query;
+				.closeBracket();
 	}
 
 }

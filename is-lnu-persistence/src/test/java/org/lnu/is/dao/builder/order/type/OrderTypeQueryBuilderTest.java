@@ -14,7 +14,7 @@ public class OrderTypeQueryBuilderTest {
 		// Given
 		OrderType context = new OrderType();
 		
-		String expected = "SELECT e FROM OrderType e ";
+		String expected = "SELECT e FROM OrderType e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 
@@ -36,7 +36,7 @@ public class OrderTypeQueryBuilderTest {
 		context.setName(name);
 		context.setParent(parent);
 		
-		String expected = "SELECT e FROM OrderType e WHERE e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM OrderType e WHERE ( e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		

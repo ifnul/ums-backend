@@ -16,7 +16,7 @@ public class PersonNameQueryBuilderTest {
 		// Given
 		PersonName context = new PersonName();
 
-		String expected = "SELECT e FROM PersonName e ";
+		String expected = "SELECT e FROM PersonName e WHERE e.status=:status ";
 		
 		// When
 		String actual = unit.build(context);
@@ -43,7 +43,7 @@ public class PersonNameQueryBuilderTest {
 		context.setFatherName(fatherName);
 		context.setSurname(surname);
 		
-		String expected = "SELECT e FROM PersonName e WHERE e.person = :person OR .language = :languageOR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:name,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') ";
+		String expected = "SELECT e FROM PersonName e WHERE ( e.person = :person OR .language = :languageOR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:name,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') ) AND e.status=:status ";
 		
 		// When
 		String actual = unit.build(context);

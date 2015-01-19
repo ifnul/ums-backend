@@ -14,7 +14,7 @@ public class EnrolmentSubjectQueryBuilderTest {
 		// Given
 		EnrolmentSubject context = new EnrolmentSubject();
 		
-		String expectedQuery = "SELECT e FROM EnrolmentSubject e ";
+		String expectedQuery = "SELECT e FROM EnrolmentSubject e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -33,7 +33,7 @@ public class EnrolmentSubjectQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
-		String expectedQuery = "SELECT e FROM EnrolmentSubject e WHERE e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') ";
+		String expectedQuery = "SELECT e FROM EnrolmentSubject e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

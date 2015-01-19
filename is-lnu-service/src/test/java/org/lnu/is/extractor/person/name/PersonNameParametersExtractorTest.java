@@ -5,13 +5,13 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonName;
@@ -55,7 +55,7 @@ public class PersonNameParametersExtractorTest {
 		expected.put("language", language);
 		expected.put("firstName", firstName);
 		expected.put("fatherName", fatherName);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(languageDao.getEntityById(anyLong())).thenReturn(language);
 		when(personDao.getEntityById(anyLong())).thenReturn(person);
@@ -72,8 +72,8 @@ public class PersonNameParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		PersonName entity = new PersonName();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

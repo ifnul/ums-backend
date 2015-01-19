@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.specoffer.benefit;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.specoffer.SpecofferBenefit;
 
 /**
@@ -11,23 +11,23 @@ import org.lnu.is.domain.specoffer.SpecofferBenefit;
  *
  */
 @QBuilder("specOfferBenefitQueryBuilder")
-public class SpecOfferBenefitQueryBuilder implements QueryBuilder<SpecofferBenefit> {
+public class SpecOfferBenefitQueryBuilder extends AbstractQueryBuilder<SpecofferBenefit> {
+	private static final String SPECOFFER_CONDITION = "e.specOffer = :specOffer ";
+	private static final String BENEFIT_CONDITION = "e.benefit = :benefit ";
 
-	private static final String QUERY = "SELECT s FROM SpecofferBenefit s %s";
-
-	private static final String SPECOFFER_CONDITION = "s.specOffer = :specOffer ";
-	private static final String BENEFIT_CONDITION = "s.benefit = :benefit ";
-	
 	@Override
-	public String build(final SpecofferBenefit context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT s FROM SpecofferBenefit s %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final SpecofferBenefit context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
 				.addOrCondition(BENEFIT_CONDITION, context.getBenefit())
-				.build();
-		
-		return query;
+				.closeBracket();
 	}
 
 }

@@ -26,8 +26,10 @@ public class ContactTypeQueryBuilder extends AbstractQueryBuilder<ContactType> {
 	protected BaseQueryBuilder build(final ContactType context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName());
+				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
+				.closeBracket();
 	}
 
 }

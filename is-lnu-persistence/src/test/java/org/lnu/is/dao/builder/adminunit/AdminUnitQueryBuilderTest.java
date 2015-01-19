@@ -17,7 +17,7 @@ public class AdminUnitQueryBuilderTest {
 		// Given
 		AdminUnit context = new AdminUnit();
 		
-		String expected = "SELECT e FROM AdminUnit e ";
+		String expected = "SELECT e FROM AdminUnit e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		
@@ -50,7 +50,7 @@ public class AdminUnitQueryBuilderTest {
 		context.setEndDate(endDate);
 		
 		
-		String expected = "SELECT e FROM AdminUnit e WHERE e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ";
+		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status ";
 		
 		// When
 		String actual = unit.build(context);

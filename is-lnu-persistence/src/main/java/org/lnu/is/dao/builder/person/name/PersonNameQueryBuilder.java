@@ -28,12 +28,14 @@ public class PersonNameQueryBuilder extends AbstractQueryBuilder<PersonName> {
 	protected BaseQueryBuilder build(final PersonName context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(PERSON_CONDITION, context.getPerson())
 				.addOrCondition(LANGUAGE_CONDITION, context.getLanguage())
 				.addOrCondition(NAME_CONDITION, context.getName())
 				.addOrCondition(FIRSTNAME_CONDITION, context.getFirstName())
 				.addOrCondition(LASTNAME_CONDITION, context.getFatherName())
-				.addOrCondition(SURNAME_CONDITION, context.getSurname());
+				.addOrCondition(SURNAME_CONDITION, context.getSurname())
+				.closeBracket();
 	}
 
 }

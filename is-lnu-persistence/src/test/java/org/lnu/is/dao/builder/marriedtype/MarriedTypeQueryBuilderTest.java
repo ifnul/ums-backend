@@ -14,7 +14,7 @@ public class MarriedTypeQueryBuilderTest {
 		// Given
 		MarriedType context = new MarriedType();
 		
-		String expectedQuery = "SELECT e FROM MarriedType e ";
+		String expectedQuery = "SELECT e FROM MarriedType e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -33,7 +33,7 @@ public class MarriedTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM MarriedType e WHERE m.name LIKE CONCAT('%',:name,'%') OR m.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM MarriedType e WHERE ( m.name LIKE CONCAT('%',:name,'%') OR m.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 
 		// When
 		String actualQuery = unit.build(context);

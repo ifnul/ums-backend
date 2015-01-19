@@ -5,7 +5,6 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +12,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.honorstype.HonorType;
 import org.lnu.is.domain.papertype.PaperType;
 import org.lnu.is.domain.person.Person;
@@ -86,7 +86,7 @@ public class PersonPaperParametersExtractorTest {
 		expected.put("mark", mark);
 		expected.put("isChecked", isChecked);
 		expected.put("isForeign", isForeign);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(personDao.getEntityById(anyLong())).thenReturn(person);
 		when(paperTypeDao.getEntityById(anyLong())).thenReturn(paperType);
@@ -105,8 +105,8 @@ public class PersonPaperParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		PersonPaper entity = new PersonPaper();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

@@ -14,7 +14,7 @@ public class GenderTypeQueryBuilderTest {
 		// Given
 		GenderType context = new GenderType();
 		
-		String expectedQuery = "SELECT e FROM GenderType e ";
+		String expectedQuery = "SELECT e FROM GenderType e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -30,7 +30,7 @@ public class GenderTypeQueryBuilderTest {
 		GenderType context = new GenderType();
 		context.setAbbrName(abbrName);
 
-		String expectedQuery = "SELECT e FROM GenderType e WHERE e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM GenderType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 
 		// When
 		String actualQuery = unit.build(context);

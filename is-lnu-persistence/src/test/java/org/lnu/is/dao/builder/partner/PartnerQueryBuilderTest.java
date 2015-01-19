@@ -16,7 +16,7 @@ public class PartnerQueryBuilderTest {
 		// Given
 		Partner context = new Partner();
 		
-		String expected = "SELECT e FROM Partner e ";
+		String expected = "SELECT e FROM Partner e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		
@@ -46,7 +46,7 @@ public class PartnerQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expected = "SELECT e FROM Partner e WHERE e.parent = :parent OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ";
+		String expected = "SELECT e FROM Partner e WHERE ( e.parent = :parent OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status ";
 		// When
 		String actual = unit.build(context);
 

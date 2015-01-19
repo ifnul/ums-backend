@@ -12,8 +12,12 @@ import java.util.List;
 public class BaseQueryBuilder {
 	
 	private static final String WHERE = "WHERE ";
+	private static final String OPEN_BRACKET = "( ";
+	private static final String CLOSE_BRACKET = ") ";
 	private static final String OR = "OR ";
+	private static final String AND = "AND ";
 	private static final List<String> WHERE_SINGLETON = Collections.singletonList(WHERE);
+	private static final List<String> WHERE_OPENBRAKCETSINGLETON = Collections.singletonList(WHERE + OPEN_BRACKET);
 	
 	private String query;
 	private List<String> conditions;
@@ -30,6 +34,10 @@ public class BaseQueryBuilder {
 		this.conditions = conditions;
 	}
 
+	/**
+	 * Method for getting conditions.
+	 * @return conditions.
+	 */
 	public List<String> getConditions() {
 		return conditions;
 	}
@@ -59,6 +67,60 @@ public class BaseQueryBuilder {
 		
 		return this;
 	}
+
+	/**
+	 * Method for adding and conditions.
+	 * @param condition
+	 * @param parameter
+	 * @return this.
+	 */
+	public BaseQueryBuilder addAndCondition(final String condition, final Object parameter) {
+		
+		if (parameter != null) {
+			and();
+			getConditions().add(condition);
+		}
+		
+		return this;
+	}
+	
+	/**
+	 * Checks if query builder contains conditions.
+	 * @return boolean value
+	 */
+	private boolean hasConditions() {
+		return WHERE_SINGLETON.equals(getConditions()) || WHERE_OPENBRAKCETSINGLETON.equals(getConditions());
+	}
+
+	/**
+	 * Add open bracket.
+	 * @return this
+	 */
+	public BaseQueryBuilder openBracket() {
+		
+		if (hasConditions()) {
+			getConditions().set(0, WHERE + OPEN_BRACKET);
+		} else {
+			getConditions().add(OPEN_BRACKET);
+		}
+		
+		return this;
+	}
+
+	/**
+	 * Add closed bracket.
+	 * @return this.
+	 */
+	public BaseQueryBuilder closeBracket() {
+		
+		if (hasConditions()) {
+			getConditions().set(0, WHERE);
+		} else {
+			getConditions().add(CLOSE_BRACKET);
+		}
+		
+		return this;
+	}
 	
 	/**
 	 * Where condition.
@@ -75,8 +137,21 @@ public class BaseQueryBuilder {
 	 */
 	public BaseQueryBuilder or() {
 		
-		if (!WHERE_SINGLETON.equals(getConditions())) {
+		if (!hasConditions()) {
 			getConditions().add(OR);
+		}
+		
+		return this;
+	}
+
+	/**
+	 * Add and keyword.
+	 * @return this
+	 */
+	public BaseQueryBuilder and() {
+		
+		if (!hasConditions()) {
+			getConditions().add(AND);
 		}
 		
 		return this;
@@ -98,7 +173,7 @@ public class BaseQueryBuilder {
 	private String prepareConditions(final List<String> conditions) {
 		StringBuilder sb = new StringBuilder();
 		
-		if (!WHERE_SINGLETON.equals(getConditions())) {
+		if (!hasConditions()) {
 			for (String condition: conditions) {
 				sb.append(condition);
 			}

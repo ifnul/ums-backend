@@ -5,7 +5,6 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +15,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.asset.Asset;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonAddress;
 import org.lnu.is.domain.streettype.StreetType;
@@ -100,7 +100,7 @@ public class PersonAddressParametersExtractorTest {
 		expected.put("apartment", apartment);
 		expected.put("begDate", begDate);
 		expected.put("endDate", endDate);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(personDao.getEntityById(anyLong())).thenReturn(person);
 		when(addressTypeDao.getEntityById(anyLong())).thenReturn(addressType);
@@ -124,8 +124,8 @@ public class PersonAddressParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		PersonAddress entity = new PersonAddress();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

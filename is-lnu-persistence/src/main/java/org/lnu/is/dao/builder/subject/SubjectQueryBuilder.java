@@ -24,8 +24,10 @@ public class SubjectQueryBuilder extends AbstractQueryBuilder<Subject> {
 	protected BaseQueryBuilder build(final Subject context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(SUBJECTTYPE_CONDITION, context.getSubjectType());
+				.addOrCondition(SUBJECTTYPE_CONDITION, context.getSubjectType())
+				.closeBracket();
 	}
 
 }

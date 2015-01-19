@@ -32,6 +32,7 @@ public class DepartmentQueryBuilder extends AbstractQueryBuilder<Department> {
 	protected BaseQueryBuilder build(final Department context, final BaseQueryBuilder builder) {
 		return builder	
 				.where()
+				.openBracket()
 				.addOrCondition(PARENT_CONDITION, context.getParent())
 				.addOrCondition(DEPARTMENTTYPE_CONDITION, context.getDepartmentType())
 				.addOrCondition(ORDER_CONDITION, context.getOrder())
@@ -41,7 +42,8 @@ public class DepartmentQueryBuilder extends AbstractQueryBuilder<Department> {
 				.addOrCondition(PHONE_CONDITION, context.getPhone())
 				.addOrCondition(EMAIL_CONDITION, context.getEmail())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate());
+				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+				.closeBracket();
 	}
 
 

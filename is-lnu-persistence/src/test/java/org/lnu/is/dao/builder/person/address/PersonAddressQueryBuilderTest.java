@@ -33,7 +33,7 @@ public class PersonAddressQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM PersonAddress e WHERE e.person = :person OR e.addressType = :addressType OR e.adminUnit = :adminUnit OR e.streetType =:streetType OR e.begDate <= :begDate OR e.endDate >= :endDate ";
+		String expectedQuery = "SELECT e FROM PersonAddress e WHERE ( e.person = :person OR e.addressType = :addressType OR e.adminUnit = :adminUnit OR e.streetType =:streetType OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -47,7 +47,7 @@ public class PersonAddressQueryBuilderTest {
 		// Given
 		PersonAddress context = new PersonAddress();
 		
-		String expectedQuery = "SELECT e FROM PersonAddress e ";
+		String expectedQuery = "SELECT e FROM PersonAddress e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

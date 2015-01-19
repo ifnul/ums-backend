@@ -2,11 +2,11 @@ package org.lnu.is.extractor.enrolment.statustype;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.enrolment.EnrolmentStatusType;
 
 public class EnrolmentStatusTypeParametersExtractorTest {
@@ -29,7 +29,7 @@ public class EnrolmentStatusTypeParametersExtractorTest {
 		expected.put("abbrName", abbrName);
 		expected.put("name", name);
 		expected.put("description", description);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
@@ -41,8 +41,8 @@ public class EnrolmentStatusTypeParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		EnrolmentStatusType entity = new EnrolmentStatusType();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

@@ -31,6 +31,7 @@ public class AdminUnitQueryBuilder extends AbstractQueryBuilder<AdminUnit> {
 	protected BaseQueryBuilder build(final AdminUnit context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(ADMINUNITTYPE_COND, context.getAdminUnitType())
 				.addOrCondition(PARENT_COND, context.getParent())
 				.addOrCondition(IDENTIFIER_COND, context.getIdentifier())
@@ -39,7 +40,8 @@ public class AdminUnitQueryBuilder extends AbstractQueryBuilder<AdminUnit> {
 				.addOrCondition(IDENTIFIER3_COND, context.getIdentifier3())
 				.addOrCondition(NAME_COND, context.getName())
 				.addOrCondition(BEGDATE_COND, context.getBegDate())
-				.addOrCondition(ENDDATE_COND, context.getEndDate());
+				.addOrCondition(ENDDATE_COND, context.getEndDate())
+				.closeBracket();
 	}
 
 }

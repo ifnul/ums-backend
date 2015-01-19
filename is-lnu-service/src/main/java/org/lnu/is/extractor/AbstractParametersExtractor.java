@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.Model;
+import org.lnu.is.domain.common.RowStatus;
 
 /**
  * Abstract parameters extractor with some operations.
@@ -18,6 +19,9 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	@Override
 	public Map<String, Object> getParameters(final T entity) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
+		
+		parameters.put("status", RowStatus.ACTIVE);
+		
 		return getParameters(entity, parameters);
 	}
 

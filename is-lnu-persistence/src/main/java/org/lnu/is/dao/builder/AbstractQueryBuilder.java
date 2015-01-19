@@ -1,6 +1,7 @@
 package org.lnu.is.dao.builder;
 
 import org.lnu.is.domain.Model;
+import org.lnu.is.domain.common.RowStatus;
 
 /**
  * Abstract query builder.
@@ -17,6 +18,8 @@ import org.lnu.is.domain.Model;
  * @param <E>
  */
 public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuilder<E> {
+
+	private static final String STATUS_CONDITION = "e.status=:status ";
 
 	/**
 	 * Method for getting base query.
@@ -35,7 +38,8 @@ public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuil
 	@Override
 	public String build(final E context) {
 		BaseQueryBuilder builder = BaseQueryBuilder.getInstance(getBaseQuery());
-		BaseQueryBuilder finalBuilder = build(context, builder);
+		BaseQueryBuilder finalBuilder = build(context, builder)
+				.addAndCondition(STATUS_CONDITION, RowStatus.ACTIVE);
 		
 		return finalBuilder.build();
 	}

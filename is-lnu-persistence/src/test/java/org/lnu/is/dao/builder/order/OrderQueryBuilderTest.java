@@ -23,7 +23,7 @@ public class OrderQueryBuilderTest {
 		// Given
 		Order context = new Order();
 
-		String expected = "SELECT e FROM Order e ";
+		String expected = "SELECT e FROM Order e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 
@@ -65,7 +65,7 @@ public class OrderQueryBuilderTest {
 		context.setDocIssued(docIssued);
 		context.setEvDate(evDate);
 		
-		String expected = "SELECT e FROM Order e WHERE e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ";
+		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ) AND e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		

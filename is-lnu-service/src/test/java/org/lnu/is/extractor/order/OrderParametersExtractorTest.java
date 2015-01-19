@@ -5,7 +5,6 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.asset.Asset;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.optype.OperationType;
 import org.lnu.is.domain.order.Order;
@@ -119,7 +119,7 @@ public class OrderParametersExtractorTest {
 		expected.put("docDate", docDate);
 		expected.put("docIssued", docIssued);
 		expected.put("evDate", evDate);
-
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(orderTypeDao.getEntityById(anyLong())).thenReturn(orderType);
 		when(employeeDao.getEntityById(anyLong())).thenReturn(employee);
@@ -146,8 +146,8 @@ public class OrderParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		Order entity = new Order();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

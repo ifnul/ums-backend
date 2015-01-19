@@ -37,6 +37,7 @@ public class AssetQueryBuilder extends AbstractQueryBuilder<Asset> {
 	protected BaseQueryBuilder build(final Asset context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(DESCRIPTION_CONDITION, context.getDescription())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
 				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
@@ -51,7 +52,8 @@ public class AssetQueryBuilder extends AbstractQueryBuilder<Asset> {
 				.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
 				.addOrCondition(ASSETSTATUS_CONDITION, context.getAssetStatus())
 				.addOrCondition(ASSETSTATE_CONDITION, context.getAssetState())
-				.addOrCondition(ASSETTYPE_CONDITION, context.getAssetType());
+				.addOrCondition(ASSETTYPE_CONDITION, context.getAssetType())
+				.closeBracket();
 	}
 
 }

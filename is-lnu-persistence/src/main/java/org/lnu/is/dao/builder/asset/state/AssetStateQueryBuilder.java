@@ -23,7 +23,9 @@ public class AssetStateQueryBuilder extends AbstractQueryBuilder<AssetState> {
 	protected BaseQueryBuilder build(final AssetState context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
-				.addOrCondition(NAME_CONDITION, context.getName());
+				.openBracket()
+				.addOrCondition(NAME_CONDITION, context.getName())
+				.closeBracket();
 	}
 
 }

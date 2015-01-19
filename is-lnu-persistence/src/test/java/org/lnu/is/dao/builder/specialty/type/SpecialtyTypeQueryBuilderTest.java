@@ -14,7 +14,7 @@ public class SpecialtyTypeQueryBuilderTest {
 		// Given
 		SpecialtyType context = new SpecialtyType();
 		
-		String expected = "SELECT e FROM SpecialtyType e ";
+		String expected = "SELECT e FROM SpecialtyType e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		
@@ -32,7 +32,7 @@ public class SpecialtyTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
-		String expected = "SELECT e FROM SpecialtyType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM SpecialtyType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 		// When
 		String actual = unit.build(context);
 

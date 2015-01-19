@@ -16,7 +16,7 @@ public class PersonAwardQueryBuilderTest {
 		// Given
 		PersonAward context = new PersonAward();
 		
-		String expectedQuery = "SELECT e FROM PersonAward e ";
+		String expectedQuery = "SELECT e FROM PersonAward e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -34,7 +34,7 @@ public class PersonAwardQueryBuilderTest {
 		context.setPerson(person);
 		context.setPersonPaper(personPaper);
 
-		String expectedQuery = "SELECT e FROM PersonAward e WHERE e.person = :person OR e.person = :person ";
+		String expectedQuery = "SELECT e FROM PersonAward e WHERE ( e.person = :person OR e.person = :person ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

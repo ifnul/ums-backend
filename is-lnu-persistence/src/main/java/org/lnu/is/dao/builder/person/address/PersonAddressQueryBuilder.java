@@ -33,17 +33,19 @@ public class PersonAddressQueryBuilder extends AbstractQueryBuilder<PersonAddres
 	protected BaseQueryBuilder build(final PersonAddress context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
-				.addOrCondition(PERSON_CONDITION, context.getPerson())
-				.addOrCondition(ADRESS_TYPE_CONDITION, context.getAddressType())
-				.addOrCondition(ADMINUNIT_CONDITION, context.getAdminUnit())
-				.addOrCondition(STREETTYPE_CONDITION, context.getStreetType())
-				.addOrCondition(ASSET_CONDITION, context.getAsset())
-				.addOrCondition(ZIPCODE_CONDITION, context.getZipCode())
-				.addOrCondition(STREET_CONDITION, context.getStreet())
-				.addOrCondition(HOUSE_CONDITION, context.getHouse())
-				.addOrCondition(APARTMENT_CONDITION, context.getApartment())
-				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate());
+				.openBracket()
+					.addOrCondition(PERSON_CONDITION, context.getPerson())
+					.addOrCondition(ADRESS_TYPE_CONDITION, context.getAddressType())
+					.addOrCondition(ADMINUNIT_CONDITION, context.getAdminUnit())
+					.addOrCondition(STREETTYPE_CONDITION, context.getStreetType())
+					.addOrCondition(ASSET_CONDITION, context.getAsset())
+					.addOrCondition(ZIPCODE_CONDITION, context.getZipCode())
+					.addOrCondition(STREET_CONDITION, context.getStreet())
+					.addOrCondition(HOUSE_CONDITION, context.getHouse())
+					.addOrCondition(APARTMENT_CONDITION, context.getApartment())
+					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+				.closeBracket();
 	}
 
 }

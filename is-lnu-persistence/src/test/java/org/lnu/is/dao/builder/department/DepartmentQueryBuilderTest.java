@@ -18,7 +18,7 @@ public class DepartmentQueryBuilderTest {
 		// Given
 		Department context = new Department();
 
-		String expectedQuery = "SELECT e FROM Department e ";
+		String expectedQuery = "SELECT e FROM Department e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -54,7 +54,7 @@ public class DepartmentQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM Department e WHERE e.parent = :parent OR e.departmentType = :departmentType OR e.order = :order OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate";
+		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent OR e.departmentType = :departmentType OR e.order = :order OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

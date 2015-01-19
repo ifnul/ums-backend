@@ -26,8 +26,10 @@ public class DutyTypeQueryBuilder extends AbstractQueryBuilder<DutyType> {
 	protected BaseQueryBuilder build(final DutyType context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName());
+				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
+				.closeBracket();
 	}
 
 }

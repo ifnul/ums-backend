@@ -27,9 +27,11 @@ public class PaperTypeQueryBuilder extends AbstractQueryBuilder<PaperType> {
 	protected BaseQueryBuilder build(final PaperType context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(NAME_CONDITION, context.getName())
 				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
-				.addOrCondition(PAPERUSAGE_CONDITION, context.getPaperUsage());
+				.addOrCondition(PAPERUSAGE_CONDITION, context.getPaperUsage())
+				.closeBracket();
 	}
 
 }

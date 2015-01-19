@@ -14,7 +14,7 @@ public class EduFormTypeQueryBuilderTest {
 		// Given
 		EduFormType context = new EduFormType();
 		
-		String expectedQuery = "SELECT e FROM EduFormType e ";
+		String expectedQuery = "SELECT e FROM EduFormType e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -30,7 +30,7 @@ public class EduFormTypeQueryBuilderTest {
 		EduFormType context = new EduFormType();
 		context.setName(name);
 
-		String expectedQuery = "SELECT e FROM EduFormType e WHERE e.name LIKE CONCAT('%',:name,'%') ";
+		String expectedQuery = "SELECT e FROM EduFormType e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

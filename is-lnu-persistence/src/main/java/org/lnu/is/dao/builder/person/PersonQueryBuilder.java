@@ -42,6 +42,7 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<Person> {
 	protected BaseQueryBuilder build(final Person context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(PERSONTYPE_CONDITION, context.getPersonType())
 				.addOrCondition(GENDERTYPE_CONDITION, context.getGenderType())
 				.addOrCondition(MARRIEDTYPE_CONDITION, context.getMarriedType())
@@ -59,7 +60,8 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<Person> {
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
 				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
 				.addOrCondition(ISMILITARY_CONDITION, context.getIsMilitary())
-				.addOrCondition(ISHOSTEL_CONDITION, context.getIsHostel());
+				.addOrCondition(ISHOSTEL_CONDITION, context.getIsHostel())
+				.closeBracket();
 	}
 
 }

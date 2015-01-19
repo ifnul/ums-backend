@@ -5,13 +5,13 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonAward;
 import org.lnu.is.domain.person.PersonPaper;
@@ -49,7 +49,7 @@ public class PersonAwardParametersExtractorTest {
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("person", person);
 		expected.put("personPaper", personPaper);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		when(personDao.getEntityById(anyLong())).thenReturn(person);
 		when(personPaperDao.getEntityById(anyLong())).thenReturn(personPaper);
@@ -66,8 +66,8 @@ public class PersonAwardParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		PersonAward entity = new PersonAward();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

@@ -5,13 +5,13 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.subject.Subject;
 import org.lnu.is.domain.subject.SubjectType;
 import org.mockito.InjectMocks;
@@ -39,9 +39,10 @@ public class SubjectParametersExtractorTest {
 		entity.setName(name);
 		entity.setSubjectType(subjectType);
 
-		Map<String, Object> expectedParameters = new HashMap<String, Object>();
-		expectedParameters.put("name", name);
-		expectedParameters.put("subjectType", subjectType);
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("subjectType", subjectType);
+		expected.put("status", RowStatus.ACTIVE);
 		
 		// When
 		when(subjectTypeDao.getEntityById(anyLong())).thenReturn(subjectType);
@@ -50,7 +51,7 @@ public class SubjectParametersExtractorTest {
 
 		// Then
 		verify(subjectTypeDao).getEntityById(subjectTypeId);
-		assertEquals(expectedParameters, actualParameters);
+		assertEquals(expected, actualParameters);
 	}
 	
 	@Test
@@ -58,7 +59,8 @@ public class SubjectParametersExtractorTest {
 		// Given
 		Subject entity = new Subject();
 		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

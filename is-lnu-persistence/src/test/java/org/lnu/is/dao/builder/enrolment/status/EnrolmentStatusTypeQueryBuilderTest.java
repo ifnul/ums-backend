@@ -14,7 +14,7 @@ public class EnrolmentStatusTypeQueryBuilderTest {
 		// Given
 		EnrolmentStatusType context = new EnrolmentStatusType();
 		
-		String expectedQuery = "SELECT e FROM EnrolmentStatusType e ";
+		String expectedQuery = "SELECT e FROM EnrolmentStatusType e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -33,7 +33,7 @@ public class EnrolmentStatusTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
-		String expectedQuery = "SELECT e FROM EnrolmentStatusType e WHERE e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') ";
+		String expectedQuery = "SELECT e FROM EnrolmentStatusType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

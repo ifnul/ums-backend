@@ -14,7 +14,7 @@ public class AdminUnitTypeQueryBuilderTest {
 		// Given
 		AdminUnitType context = new AdminUnitType();
 
-		String expected = "SELECT e FROM AdminUnitType e ";
+		String expected = "SELECT e FROM AdminUnitType e WHERE e.status=:status ";
 		
 		// When
 		String actual = unit.build(context);
@@ -33,7 +33,7 @@ public class AdminUnitTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expected = "SELECT e FROM AdminUnitType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM AdminUnitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 		
 		// When
 		String actual = unit.build(context);

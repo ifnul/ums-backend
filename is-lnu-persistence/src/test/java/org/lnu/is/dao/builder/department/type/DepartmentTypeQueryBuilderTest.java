@@ -14,7 +14,7 @@ public class DepartmentTypeQueryBuilderTest {
 		// Given
 		DepartmentType context = new DepartmentType();
 		
-		String expected = "SELECT e FROM DepartmentType e ";
+		String expected = "SELECT e FROM DepartmentType e WHERE e.status=:status ";
 		// When
 		String actual = unit.build(context);
 		
@@ -31,7 +31,7 @@ public class DepartmentTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
-		String expected = "SELECT e FROM DepartmentType e WHERE d.name LIKE CONCAT('%',:name,'%') OR d.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM DepartmentType e WHERE ( d.name LIKE CONCAT('%',:name,'%') OR d.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 		// When
 		String actual = unit.build(context);
 

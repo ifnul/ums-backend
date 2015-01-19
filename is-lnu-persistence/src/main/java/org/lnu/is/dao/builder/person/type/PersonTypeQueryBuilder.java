@@ -24,7 +24,9 @@ public class PersonTypeQueryBuilder extends AbstractQueryBuilder<PersonType> {
 	protected BaseQueryBuilder build(final PersonType context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName());
+				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
+				.closeBracket();
 	}
 }

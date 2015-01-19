@@ -17,7 +17,7 @@ public class TimePeriodQueryBuilderTest {
 		// Given
 		TimePeriod context = new TimePeriod();
 		
-		String expectedQuery = "SELECT e FROM TimePeriod e ";
+		String expectedQuery = "SELECT e FROM TimePeriod e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -38,7 +38,7 @@ public class TimePeriodQueryBuilderTest {
 		context.setTimePeriodType(timePeriodType);
 		context.setNumValue(numValue);
 
-		String expectedQuery = "SELECT e FROM TimePeriod e WHERE e.timePeriodType = :timePeriodType OR e.numValue = :numValue OR e.begDate <= :begDate OR e.endDate >= :endDate";
+		String expectedQuery = "SELECT e FROM TimePeriod e WHERE ( e.timePeriodType = :timePeriodType OR e.numValue = :numValue OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);

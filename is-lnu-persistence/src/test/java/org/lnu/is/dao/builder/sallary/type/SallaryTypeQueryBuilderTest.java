@@ -14,7 +14,7 @@ public class SallaryTypeQueryBuilderTest {
 		// Given
 		SallaryType context = new SallaryType();
 		
-		String expectedQuery = "SELECT e FROM SallaryType e ";
+		String expectedQuery = "SELECT e FROM SallaryType e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -33,7 +33,7 @@ public class SallaryTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
-		String expectedQuery = "SELECT e FROM SallaryType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM SallaryType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
 
 		// When
 		String actualQuery = unit.build(context);

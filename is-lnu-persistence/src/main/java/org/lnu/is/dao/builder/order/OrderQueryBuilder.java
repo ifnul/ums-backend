@@ -37,6 +37,7 @@ public class OrderQueryBuilder extends AbstractQueryBuilder<Order> {
 	protected BaseQueryBuilder build(final Order context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(ORDERTYPE_CONDITION, context.getOrderType())
 				.addOrCondition(EMPLOYEE_CONDITION, context.getEmployee())
 				.addOrCondition(ASSET_CONDITION, context.getAsset())
@@ -50,6 +51,7 @@ public class OrderQueryBuilder extends AbstractQueryBuilder<Order> {
 				.addOrCondition(DOCNUM_CONDITION, context.getDocNum())
 				.addOrCondition(DOCDATE_CONDITION, context.getDocDate())
 				.addOrCondition(DOCISSUED_CONDITION, context.getDocIssued())
-				.addOrCondition(EVDATE_CONDITION, context.getEvDate());
+				.addOrCondition(EVDATE_CONDITION, context.getEvDate())
+				.closeBracket();
 	}
 }

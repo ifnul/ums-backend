@@ -2,11 +2,11 @@ package org.lnu.is.extractor.eduformtype;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.eduformtype.EduFormType;
 
 public class EduFormTypeParametersExtractorTest {
@@ -23,7 +23,7 @@ public class EduFormTypeParametersExtractorTest {
 
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
-
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
@@ -35,8 +35,8 @@ public class EduFormTypeParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		EduFormType entity = new EduFormType();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

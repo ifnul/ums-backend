@@ -2,12 +2,12 @@ package org.lnu.is.extractor.asset.type;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
 import org.lnu.is.domain.asset.AssetType;
+import org.lnu.is.domain.common.RowStatus;
 
 public class AssetTypeParametersExtractorTest {
 
@@ -25,7 +25,7 @@ public class AssetTypeParametersExtractorTest {
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("abbrName", abbrName);
 		expected.put("name", name);
-		
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
@@ -37,8 +37,8 @@ public class AssetTypeParametersExtractorTest {
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		AssetType entity = new AssetType();
-		
-		Map<String, Object> expected = Collections.emptyMap();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

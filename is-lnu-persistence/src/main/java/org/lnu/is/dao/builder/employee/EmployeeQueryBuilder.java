@@ -50,6 +50,7 @@ public class EmployeeQueryBuilder extends AbstractQueryBuilder<Employee> {
 	protected BaseQueryBuilder build(final Employee context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(EMPLOYEETYPE_CONDITION, context.getEmployeeType())
 				.addOrCondition(PERSON_CONDITION, context.getPerson())
 				.addOrCondition(GENDERTYPE_CONDITION, context.getGenderType())
@@ -73,7 +74,8 @@ public class EmployeeQueryBuilder extends AbstractQueryBuilder<Employee> {
 				.addOrCondition(DOCSERIES_CONDITION, context.getDocSeries())
 				.addOrCondition(DOCNUM_CONDITION, context.getDocNum())
 				.addOrCondition(PHONE_CONDITION, context.getPhone())
-				.addOrCondition(EMAIL_CONDITION, context.getEmail());
+				.addOrCondition(EMAIL_CONDITION, context.getEmail())
+				.closeBracket();
 	}
 
 }

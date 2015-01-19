@@ -43,6 +43,7 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 	protected BaseQueryBuilder build(final Enrolment context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
+				.openBracket()
 				.addOrCondition(PERSON_CONDITION, context.getPerson())
 				.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
 				.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
@@ -59,7 +60,8 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 				.addOrCondition(ISHOSTEL_CONDITION, context.getIsHostel())
 				.addOrCondition(EVDATE_CONDITION, context.getEvDate())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate());
+				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+				.closeBracket();
 	}
 
 }
