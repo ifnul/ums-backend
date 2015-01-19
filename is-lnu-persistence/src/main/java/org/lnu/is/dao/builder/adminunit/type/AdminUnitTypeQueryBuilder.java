@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.adminunit.type;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.adminunit.type.AdminUnitType;
 
 /**
@@ -11,20 +11,20 @@ import org.lnu.is.domain.adminunit.type.AdminUnitType;
  *
  */
 @QBuilder("adminUnitTypeQueryBuilder")
-public class AdminUnitTypeQueryBuilder implements QueryBuilder<AdminUnitType> {
-	private static final String QUERY = "SELECT a FROM AdminUnitType a %s";
-
-	private static final String NAME_CONDITION = "a.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBR_NAME_CONDITION = "a.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+public class AdminUnitTypeQueryBuilder extends AbstractQueryBuilder<AdminUnitType> {
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 	@Override
-	public String build(final AdminUnitType context) {
+	protected String getBaseQuery() {
+		return "SELECT e FROM AdminUnitType e %s";
+	}
 
-		String query = BaseQueryBuilder.getInstance(QUERY).where()
+	@Override
+	protected BaseQueryBuilder build(final AdminUnitType context, final BaseQueryBuilder builder) {
+		return	builder
+				.where()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
-				.build();
-
-		return query;
+				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName());
 	}
 }

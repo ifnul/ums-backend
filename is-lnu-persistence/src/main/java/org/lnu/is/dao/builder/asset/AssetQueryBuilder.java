@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.asset;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.asset.Asset;
 
 /**
@@ -11,30 +11,31 @@ import org.lnu.is.domain.asset.Asset;
  *
  */
 @QBuilder("assetQueryBuilder")
-public class AssetQueryBuilder implements QueryBuilder<Asset> {
-
-	private static final String QUERY = "SELECT a FROM Asset a %s";
-
-	private static final String NAME_CONDITION = "a.name LIKE CONCAT('%',:name,'%') ";
-	private static final String DESCRIPTION_CONDITION = "a.description LIKE CONCAT('%',:description,'%') ";
-	private static final String PARENT_CONDITION = "a.parent = :parent ";
-	private static final String ORDER_CONDITION = "a.order = :order ";
-	private static final String BEGDATE_CONDITION = "a.begDate <= :begDate ";
-	private static final String ENDDATE_CONDITION = "a.endDate >= :endDate ";
-	private static final String PRODDATE_CONDITION = "a.prodDate = :prodDate ";
-	private static final String SERIALNUM_CONDITION = "a.serialNum = :serialNum ";
-	private static final String INVNUM_CONDITION = "a.invNum = :invNum ";
-	private static final String PARTNER_CONDITION = "a.partner = :partner ";
-	private static final String EMPLOYEE_CONDITION = "a.employee = :employee ";
-	private static final String DEPARTMENT_CONDITION = "a.department = :department ";
-	private static final String ASSETSTATUS_CONDITION = "a.assetStatus = :assetStatus ";
-	private static final String ASSETSTATE_CONDITION = "a.assetState = :assetState ";
-	private static final String ASSETTYPE_CONDITION = "a.assetType = :assetType ";
+public class AssetQueryBuilder extends AbstractQueryBuilder<Asset> {
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String DESCRIPTION_CONDITION = "e.description LIKE CONCAT('%',:description,'%') ";
+	private static final String PARENT_CONDITION = "e.parent = :parent ";
+	private static final String ORDER_CONDITION = "e.order = :order ";
+	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
+	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate ";
+	private static final String PRODDATE_CONDITION = "e.prodDate = :prodDate ";
+	private static final String SERIALNUM_CONDITION = "e.serialNum = :serialNum ";
+	private static final String INVNUM_CONDITION = "e.invNum = :invNum ";
+	private static final String PARTNER_CONDITION = "e.partner = :partner ";
+	private static final String EMPLOYEE_CONDITION = "e.employee = :employee ";
+	private static final String DEPARTMENT_CONDITION = "e.department = :department ";
+	private static final String ASSETSTATUS_CONDITION = "e.assetStatus = :assetStatus ";
+	private static final String ASSETSTATE_CONDITION = "e.assetState = :assetState ";
+	private static final String ASSETTYPE_CONDITION = "e.assetType = :assetType ";
 
 	@Override
-	public String build(final Asset context) {
-		
-	String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM Asset e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final Asset context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(DESCRIPTION_CONDITION, context.getDescription())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
@@ -50,10 +51,7 @@ public class AssetQueryBuilder implements QueryBuilder<Asset> {
 				.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
 				.addOrCondition(ASSETSTATUS_CONDITION, context.getAssetStatus())
 				.addOrCondition(ASSETSTATE_CONDITION, context.getAssetState())
-				.addOrCondition(ASSETTYPE_CONDITION, context.getAssetType())
-				.build();
-		
-		return query;
+				.addOrCondition(ASSETTYPE_CONDITION, context.getAssetType());
 	}
 
 }

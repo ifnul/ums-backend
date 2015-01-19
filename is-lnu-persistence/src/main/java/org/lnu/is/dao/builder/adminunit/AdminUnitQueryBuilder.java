@@ -3,7 +3,6 @@ package org.lnu.is.dao.builder.adminunit;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.adminunit.AdminUnit;
 
 /**
@@ -12,7 +11,7 @@ import org.lnu.is.domain.adminunit.AdminUnit;
  *
  */
 @QBuilder("adminUnitQueryBuilder")
-public class AdminUnitQueryBuilder extends AbstractQueryBuilder<AdminUnit> implements QueryBuilder<AdminUnit> {
+public class AdminUnitQueryBuilder extends AbstractQueryBuilder<AdminUnit> {
 	private static final String ADMINUNITTYPE_COND = "e.adminUnitType = :adminUnitType";
 	private static final String PARENT_COND = "e.parent = :parent ";
 	private static final String IDENTIFIER_COND = "e.identifier LIKE CONCAT('%',:identifier,'%') ";
