@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.subject;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.subject.Subject;
 
 /**
@@ -11,23 +11,21 @@ import org.lnu.is.domain.subject.Subject;
  *
  */
 @QBuilder("subjectQueryBuilder")
-public class SubjectQueryBuilder implements QueryBuilder<Subject> {
+public class SubjectQueryBuilder extends AbstractQueryBuilder<Subject> {
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String SUBJECTTYPE_CONDITION = "e.subjectType = :subjectType ";
 
-	private static final String QUERY = "SELECT r FROM Subject r %s";
-
-	private static final String NAME_CONDITION = "r.name LIKE CONCAT('%',:name,'%') ";
-	private static final String SUBJECTTYPE_CONDITION = "r.subjectType = :subjectType ";
-	
 	@Override
-	public String build(final Subject context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM Subject e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final Subject context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(SUBJECTTYPE_CONDITION, context.getSubjectType())
-				.build();
-
-		return query;
+				.addOrCondition(SUBJECTTYPE_CONDITION, context.getSubjectType());
 	}
 
 }

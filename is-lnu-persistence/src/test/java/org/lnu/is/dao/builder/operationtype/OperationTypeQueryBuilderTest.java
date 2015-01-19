@@ -12,12 +12,28 @@ public class OperationTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		OperationType context = new OperationType();
+		
+		String expectedQuery = "SELECT e FROM OperationType e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
+		String name = "fsdfds";
 		String abbrName = "dog";
 
 		OperationType context = new OperationType();
 		context.setAbbrName(abbrName);
+		context.setName(name);
 
-		String expectedQuery = "SELECT o FROM OperationType o WHERE o.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM OperationType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 		// When
 		String actualQuery = unit.build(context);

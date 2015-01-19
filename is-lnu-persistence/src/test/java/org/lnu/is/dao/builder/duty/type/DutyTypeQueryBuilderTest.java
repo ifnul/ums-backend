@@ -12,16 +12,33 @@ public class DutyTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
-		String abbrName = "AN";
 
 		DutyType context = new DutyType();
-		context.setAbbrName(abbrName);
 
-		String expectedQuery = "SELECT a FROM DutyType a WHERE a.abbrname LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM DutyType e ";
 
 		// When
 		String actualQuery = unit.build(context);
 
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
+		String abbrName = "AN";
+		String name = "asfdasf";
+		
+		DutyType context = new DutyType();
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM DutyType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrName,'%') ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}

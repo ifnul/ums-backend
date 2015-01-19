@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.operationtype;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.optype.OperationType;
 
 /**
@@ -13,22 +13,21 @@ import org.lnu.is.domain.optype.OperationType;
  */
 
 @QBuilder("operationTypeQueryBuilder")
-public class OperationTypeQueryBuilder implements QueryBuilder<OperationType> {
-
-	private static final String QUERY = "SELECT o FROM OperationType o %s";
-
-	private static final String NAME_CONDITION = "o.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBR_NAME_CONDITION = "o.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+public class OperationTypeQueryBuilder extends AbstractQueryBuilder<OperationType> {
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 	@Override
-	public String build(final OperationType context) {
+	protected String getBaseQuery() {
+		return "SELECT e FROM OperationType e %s";
+	}
 
-		String query = BaseQueryBuilder.getInstance(QUERY)
-				.where().addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
-				.build();
-
-		return query;
+	@Override
+	protected BaseQueryBuilder build(final OperationType context, final BaseQueryBuilder builder) {
+		return builder
+				.where()
+				.addOrCondition(NAME_CONDITION, context.getName())
+				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName());
 	}
 
 }

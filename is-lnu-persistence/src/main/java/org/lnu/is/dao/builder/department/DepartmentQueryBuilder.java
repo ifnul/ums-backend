@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.department;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.department.Department;
 
 /**
@@ -11,25 +11,26 @@ import org.lnu.is.domain.department.Department;
  *
  */
 @QBuilder("departmentQueryBuilder")
-public class DepartmentQueryBuilder implements QueryBuilder<Department> {
+public class DepartmentQueryBuilder extends AbstractQueryBuilder<Department> {
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String PARENT_CONDITION = "e.parent = :parent ";
+	private static final String DEPARTMENTTYPE_CONDITION = "e.departmentType = :departmentType ";
+	private static final String ORDER_CONDITION = "e.order = :order ";
+	private static final String ABBRNAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+	private static final String MANAGER_CONDITION = "e.manager LIKE CONCAT('%',:manager,'%') ";
+	private static final String PHONE_CONDITION = "e.phone LIKE CONCAT('%',:phone,'%') ";
+	private static final String EMAIL_CONDITION = "e.email LIKE CONCAT('%',:email,'%') ";
+	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
+	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate";
 
-	private static final String QUERY = "SELECT d FROM Department d %s";
-
-	private static final String NAME_CONDITION = "d.name LIKE CONCAT('%',:name,'%') ";
-	private static final String PARENT_CONDITION = "d.parent = :parent ";
-	private static final String DEPARTMENTTYPE_CONDITION = "d.departmentType = :departmentType ";
-	private static final String ORDER_CONDITION = "d.order = :order ";
-	private static final String ABBRNAME_CONDITION = "d.abbrName LIKE CONCAT('%',:abbrName,'%') ";
-	private static final String MANAGER_CONDITION = "d.manager LIKE CONCAT('%',:manager,'%') ";
-	private static final String PHONE_CONDITION = "d.phone LIKE CONCAT('%',:phone,'%') ";
-	private static final String EMAIL_CONDITION = "d.email LIKE CONCAT('%',:email,'%') ";
-	private static final String BEGDATE_CONDITION = "d.begDate <= :begDate ";
-	private static final String ENDDATE_CONDITION = "d.endDate >= :endDate";
-	
 	@Override
-	public String build(final Department context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM Department e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final Department context, final BaseQueryBuilder builder) {
+		return builder	
 				.where()
 				.addOrCondition(PARENT_CONDITION, context.getParent())
 				.addOrCondition(DEPARTMENTTYPE_CONDITION, context.getDepartmentType())
@@ -40,10 +41,7 @@ public class DepartmentQueryBuilder implements QueryBuilder<Department> {
 				.addOrCondition(PHONE_CONDITION, context.getPhone())
 				.addOrCondition(EMAIL_CONDITION, context.getEmail())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
-				.build();
-		
-		return query;
+				.addOrCondition(ENDDATE_CONDITION, context.getEndDate());
 	}
 
 

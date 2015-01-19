@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.department.type;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.department.DepartmentType;
 
 /**
@@ -11,23 +11,21 @@ import org.lnu.is.domain.department.DepartmentType;
  *
  */
 @QBuilder("departmentTypeQueryBuilder")
-public class DepartmentTypeQueryBuilder implements QueryBuilder<DepartmentType> {
-
-	private static final String QUERY = "SELECT d FROM DepartmentType d %s";
-
+public class DepartmentTypeQueryBuilder extends AbstractQueryBuilder<DepartmentType> {
 	private static final String NAME_CONDITION = "d.name LIKE CONCAT('%',:name,'%') ";
 	private static final String ABBR_NAME_CONDITION = "d.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 	@Override
-	public String build(final DepartmentType context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM DepartmentType e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final DepartmentType context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
-				.build();
-
-		return query;
+				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName());
 	}
 
 }

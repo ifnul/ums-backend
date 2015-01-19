@@ -12,15 +12,31 @@ public class HonorTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
-		String abbrName = "abbrname";
 		HonorType context = new HonorType();
-		context.setAbbrName(abbrName);
 
-		String expectedQuery = "SELECT g FROM HonorType g WHERE g.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM HonorType e ";
 
 		// When
 		String actualQuery = unit.build(context);
 
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
+		String name = "fsdfds";
+		String abbrName = "abbrname";
+		HonorType context = new HonorType();
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM HonorType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}

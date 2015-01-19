@@ -15,6 +15,21 @@ public class TimePeriodQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		TimePeriod context = new TimePeriod();
+		
+		String expectedQuery = "SELECT e FROM TimePeriod e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		TimePeriodType timePeriodType = new TimePeriodType();
 		Integer numValue = 2;
 
@@ -23,7 +38,7 @@ public class TimePeriodQueryBuilderTest {
 		context.setTimePeriodType(timePeriodType);
 		context.setNumValue(numValue);
 
-		String expectedQuery = "SELECT t FROM TimePeriod t WHERE t.timePeriodType = :timePeriodType OR t.numValue = :numValue OR t.begDate <= :begDate OR t.endDate >= :endDate";
+		String expectedQuery = "SELECT e FROM TimePeriod e WHERE e.timePeriodType = :timePeriodType OR e.numValue = :numValue OR e.begDate <= :begDate OR e.endDate >= :endDate";
 		
 		// When
 		String actualQuery = unit.build(context);

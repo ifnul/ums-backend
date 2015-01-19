@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.street.type;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.streettype.StreetType;
 
 /**
@@ -11,23 +11,21 @@ import org.lnu.is.domain.streettype.StreetType;
  *
  */
 @QBuilder("streetTypeQueryBuilder")
-public class StreetTypeQueryBuilder implements QueryBuilder<StreetType> {
+public class StreetTypeQueryBuilder extends AbstractQueryBuilder<StreetType> {
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
-	private static final String QUERY = "SELECT r FROM StreetType r %s";
-
-	private static final String NAME_CONDITION = "r.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBR_NAME_CONDITION = "r.abbrName LIKE CONCAT('%',:abbrName,'%') ";
-	
 	@Override
-	public String build(final StreetType context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM StreetType e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final StreetType context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
-				.build();
-
-		return query;
+				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName());
 	}
 
 }

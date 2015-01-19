@@ -12,6 +12,19 @@ public class OrderTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		OrderType context = new OrderType();
+		
+		String expected = "SELECT e FROM OrderType e ";
+		// When
+		String actual = unit.build(context);
+
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		Long parentId = 1L;
 		String abbrName = "abbr name";
 		String name = "name";
@@ -23,10 +36,10 @@ public class OrderTypeQueryBuilderTest {
 		context.setName(name);
 		context.setParent(parent);
 		
-		String expected = "SELECT o FROM OrderType o WHERE o.parent = :parent OR o.name LIKE CONCAT('%',:name,'%') OR o.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM OrderType e WHERE e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 		// When
 		String actual = unit.build(context);
-
+		
 		// Then
 		assertEquals(expected, actual);
 	}

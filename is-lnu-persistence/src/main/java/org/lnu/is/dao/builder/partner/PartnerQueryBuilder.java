@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.partner;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.partner.Partner;
 
 /**
@@ -11,23 +11,24 @@ import org.lnu.is.domain.partner.Partner;
  *
  */
 @QBuilder("partnerQueryBuilder")
-public class PartnerQueryBuilder implements QueryBuilder<Partner> {
-	private static final String QUERY = "SELECT p FROM Partner p %s";
+public class PartnerQueryBuilder extends AbstractQueryBuilder<Partner> {
+	private static final String PARENT_CONDITION = "e.parent = :parent ";
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
+	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate ";
+	private static final String ABBRNAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+	private static final String MANAGER_CONDITION = "e.manager LIKE CONCAT('%',:manager,'%') ";
+	private static final String PHONE_CONDITION = "e.phone LIKE CONCAT('%',:phone,'%') ";
+	private static final String EMAIL_CONDITION = "e.email LIKE CONCAT('%',:email,'%') ";
 
-	private static final String PARENT_CONDITION = "p.parent = :parent ";
-	private static final String NAME_CONDITION = "p.name LIKE CONCAT('%',:name,'%') ";
-	private static final String BEGDATE_CONDITION = "p.begDate <= :begDate ";
-	private static final String ENDDATE_CONDITION = "p.endDate >= :endDate";
-	private static final String ABBRNAME_CONDITION = "p.abbrName LIKE CONCAT('%',:abbrName,'%') ";
-	private static final String MANAGER_CONDITION = "p.manager LIKE CONCAT('%',:manager,'%') ";
-	private static final String PHONE_CONDITION = "p.phone LIKE CONCAT('%',:phone,'%') ";
-	private static final String EMAIL_CONDITION = "p.email LIKE CONCAT('%',:email,'%') ";
-	
-	
 	@Override
-	public String build(final Partner context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM Partner e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final Partner context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(PARENT_CONDITION, context.getParent())
 				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
@@ -36,10 +37,7 @@ public class PartnerQueryBuilder implements QueryBuilder<Partner> {
 				.addOrCondition(PHONE_CONDITION, context.getPhone())
 				.addOrCondition(EMAIL_CONDITION, context.getEmail())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
-				.build();
-		
-		return query;
+				.addOrCondition(ENDDATE_CONDITION, context.getEndDate());
 	}
 
 }

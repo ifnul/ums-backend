@@ -14,7 +14,7 @@ public class TimePeriodTypeQueryBuilderTest {
 		// Given
 		TimePeriodType context = new TimePeriodType();
 
-		String expected = "SELECT t FROM TimePeriodType t ";
+		String expected = "SELECT e FROM TimePeriodType e ";
 		// When
 		String actual = unit.build(context);
 
@@ -31,7 +31,7 @@ public class TimePeriodTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expected = "SELECT t FROM TimePeriodType t WHERE t.name LIKE CONCAT('%',:name,'%') OR t.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM TimePeriodType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 		// When
 		String actual = unit.build(context);
 		

@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.employee;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.employee.Employee;
 
 /**
@@ -11,9 +11,7 @@ import org.lnu.is.domain.employee.Employee;
  *
  */
 @QBuilder("employeeQueryBuilder")
-public class EmployeeQueryBuilder implements QueryBuilder<Employee> {
-	
-	private static final String QUERY = "SELECT e FROM Employee e %s";
+public class EmployeeQueryBuilder extends AbstractQueryBuilder<Employee> {
 
 	private static final String PARENT_CONDITION = "e.parent = :parent ";
 	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
@@ -42,11 +40,15 @@ public class EmployeeQueryBuilder implements QueryBuilder<Employee> {
 	private static final String ISPENSIONER_CONDITION = "e.isPensioner =:isPensioner ";
 	private static final String PHONE_CONDITION = "e.phone LIKE CONCAT('%',:phone,'%') ";
 	private static final String EMAIL_CONDITION = "e.email LIKE CONCAT('%',:email,'%') ";
-	
+
 	@Override
-	public String build(final Employee context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM Employee e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final Employee context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(EMPLOYEETYPE_CONDITION, context.getEmployeeType())
 				.addOrCondition(PERSON_CONDITION, context.getPerson())
@@ -71,10 +73,7 @@ public class EmployeeQueryBuilder implements QueryBuilder<Employee> {
 				.addOrCondition(DOCSERIES_CONDITION, context.getDocSeries())
 				.addOrCondition(DOCNUM_CONDITION, context.getDocNum())
 				.addOrCondition(PHONE_CONDITION, context.getPhone())
-				.addOrCondition(EMAIL_CONDITION, context.getEmail())
-				.build();
-		
-		return query;
+				.addOrCondition(EMAIL_CONDITION, context.getEmail());
 	}
 
 }

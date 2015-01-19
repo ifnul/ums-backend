@@ -12,11 +12,27 @@ public class SpecialtyTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		SpecialtyType context = new SpecialtyType();
+		
+		String expected = "SELECT e FROM SpecialtyType e ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		String abbrName = "abbr name";
+		String name = "fdsfds";
+		
 		SpecialtyType context = new SpecialtyType();
 		context.setAbbrName(abbrName);
+		context.setName(name);
 
-		String expected = "SELECT s FROM SpecialtyType s WHERE s.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM SpecialtyType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 		// When
 		String actual = unit.build(context);
 

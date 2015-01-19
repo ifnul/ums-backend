@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonAward;
+import org.lnu.is.domain.person.PersonPaper;
 
 public class PersonAwardQueryBuilderTest {
 
@@ -13,11 +14,27 @@ public class PersonAwardQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		PersonAward context = new PersonAward();
+		
+		String expectedQuery = "SELECT e FROM PersonAward e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
+		PersonPaper personPaper = new PersonPaper();
 		Person person = new Person();
 		PersonAward context = new PersonAward();
 		context.setPerson(person);
+		context.setPersonPaper(personPaper);
 
-		String expectedQuery = "SELECT p FROM PersonAward p WHERE p.person = :person ";
+		String expectedQuery = "SELECT e FROM PersonAward e WHERE e.person = :person OR e.person = :person ";
 		
 		// When
 		String actualQuery = unit.build(context);

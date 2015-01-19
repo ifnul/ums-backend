@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.person.address;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.person.PersonAddress;
 
 /**
@@ -11,25 +11,27 @@ import org.lnu.is.domain.person.PersonAddress;
  *
  */
 @QBuilder("personAddressQueryBuilder")
-public class PersonAddressQueryBuilder implements QueryBuilder<PersonAddress> {
-	private static final String QUERY = "SELECT p FROM PersonAddress p %s";
+public class PersonAddressQueryBuilder extends AbstractQueryBuilder<PersonAddress> {
+	private static final String PERSON_CONDITION = "e.person = :person ";
+	private static final String ADRESS_TYPE_CONDITION = "e.addressType = :addressType ";
+	private static final String ADMINUNIT_CONDITION = "e.adminUnit = :adminUnit ";
+	private static final String STREETTYPE_CONDITION = "e.streetType =:streetType ";
+	private static final String ASSET_CONDITION = "e.asset = :asset ";
+	private static final String ZIPCODE_CONDITION = "e.zipCode LIKE CONCAT('%',:zipCode,'%') ";
+	private static final String STREET_CONDITION = "e.street LIKE CONCAT('%',:street,'%') ";
+	private static final String HOUSE_CONDITION = "e.house LIKE CONCAT('%',:house,'%') ";
+	private static final String APARTMENT_CONDITION = "e.apartment LIKE CONCAT('%',:apartment,'%') ";
+	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
+	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate ";
 
-	private static final String PERSON_CONDITION = "p.person = :person ";
-	private static final String ADRESS_TYPE_CONDITION = "p.addressType = :addressType ";
-	private static final String ADMINUNIT_CONDITION = "p.adminUnit = :adminUnit ";
-	private static final String STREETTYPE_CONDITION = "p.streetType =:streetType ";
-	private static final String ASSET_CONDITION = "p.asset = :asset ";
-	private static final String ZIPCODE_CONDITION = "p.zipCode LIKE CONCAT('%',:zipCode,'%') ";
-	private static final String STREET_CONDITION = "p.street LIKE CONCAT('%',:street,'%') ";
-	private static final String HOUSE_CONDITION = "p.house LIKE CONCAT('%',:house,'%') ";
-	private static final String APARTMENT_CONDITION = "p.apartment LIKE CONCAT('%',:apartment,'%') ";
-	private static final String BEGDATE_CONDITION = "p.begDate <= :begDate ";
-	private static final String ENDDATE_CONDITION = "p.endDate >= :endDate";
-	
 	@Override
-	public String build(final PersonAddress context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM PersonAddress e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final PersonAddress context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(PERSON_CONDITION, context.getPerson())
 				.addOrCondition(ADRESS_TYPE_CONDITION, context.getAddressType())
@@ -41,10 +43,7 @@ public class PersonAddressQueryBuilder implements QueryBuilder<PersonAddress> {
 				.addOrCondition(HOUSE_CONDITION, context.getHouse())
 				.addOrCondition(APARTMENT_CONDITION, context.getApartment())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
-				.build();
-		
-		return query;
+				.addOrCondition(ENDDATE_CONDITION, context.getEndDate());
 	}
 
 }

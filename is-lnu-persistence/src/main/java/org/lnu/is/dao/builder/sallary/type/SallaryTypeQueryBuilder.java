@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.sallary.type;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.salarytype.SallaryType;
 
 /**
@@ -11,23 +11,21 @@ import org.lnu.is.domain.salarytype.SallaryType;
  *
  */
 @QBuilder("sallaryTypeQueryBuilder")
-public class SallaryTypeQueryBuilder implements QueryBuilder<SallaryType> {
+public class SallaryTypeQueryBuilder extends AbstractQueryBuilder<SallaryType> {
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
-	private static final String QUERY = "SELECT r FROM SallaryType r %s";
-
-	private static final String NAME_CONDITION = "r.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBR_NAME_CONDITION = "r.abbrName LIKE CONCAT('%',:abbrName,'%') ";
-	
 	@Override
-	public String build(final SallaryType context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM SallaryType e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final SallaryType context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
-				.build();
-
-		return query;
+				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName());
 	}
 
 }

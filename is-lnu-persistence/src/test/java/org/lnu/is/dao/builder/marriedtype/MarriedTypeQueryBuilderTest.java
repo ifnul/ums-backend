@@ -12,12 +12,28 @@ public class MarriedTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		MarriedType context = new MarriedType();
+		
+		String expectedQuery = "SELECT e FROM MarriedType e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		String abbrName = "Diablo";
+		String name = "fsdfdsfds";
 		
 		MarriedType context = new MarriedType();
 		context.setAbbrName(abbrName);
-
-		String expectedQuery = "SELECT m FROM MarriedType m WHERE m.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM MarriedType e WHERE m.name LIKE CONCAT('%',:name,'%') OR m.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 		// When
 		String actualQuery = unit.build(context);

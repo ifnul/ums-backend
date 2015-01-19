@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.enrolment;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.enrolment.Enrolment;
 
 /**
@@ -12,10 +12,7 @@ import org.lnu.is.domain.enrolment.Enrolment;
  */
 
 @QBuilder("enrolmentQueryBuilder")
-public class EnrolmentQueryBuilder implements QueryBuilder<Enrolment> {
-
-	private static final String QUERY = "SELECT e FROM Enrolment e %s";
-
+public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 	private static final String PERSON_CONDITION = "e.person = :person ";
 	private static final String SPECOFFER_CONDITION = "e.specOffer LIKE CONCAT('%',:specOffer,'%') ";
 	private static final String DEPARTMENT_CONDITION = "e.department = :department ";
@@ -36,11 +33,15 @@ public class EnrolmentQueryBuilder implements QueryBuilder<Enrolment> {
 	private static final String EVDATE_CONDITION = "e.evDate = :evDate ";
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
 	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate";
-	
+
 	@Override
-	public String build(final Enrolment context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM Enrolment e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final Enrolment context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(PERSON_CONDITION, context.getPerson())
 				.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
@@ -58,10 +59,7 @@ public class EnrolmentQueryBuilder implements QueryBuilder<Enrolment> {
 				.addOrCondition(ISHOSTEL_CONDITION, context.getIsHostel())
 				.addOrCondition(EVDATE_CONDITION, context.getEvDate())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
-				.build();
-		
-		return query;
+				.addOrCondition(ENDDATE_CONDITION, context.getEndDate());
 	}
 
 }

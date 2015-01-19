@@ -12,13 +12,26 @@ public class CourseTypeQueryBuilderTest {
 	@Test
 	public void testname() throws Exception {
 		// Given
+		CourseType context = new CourseType();
+		
+		String expected = "SELECT e FROM CourseType e ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		String abbrName = "abbr name";
 		String name = "name";
 		CourseType context = new CourseType();
 		context.setName(name);
 		context.setAbbrName(abbrName);
 
-		String expected = "SELECT a FROM CourseType a WHERE a.name LIKE CONCAT('%',:name,'%') OR a.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM CourseType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 		// When
 		String actual = unit.build(context);
 

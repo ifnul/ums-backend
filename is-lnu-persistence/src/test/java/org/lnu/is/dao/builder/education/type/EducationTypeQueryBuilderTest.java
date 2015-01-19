@@ -10,7 +10,20 @@ public class EducationTypeQueryBuilderTest {
 	private EducationTypeQueryBuilder unit = new EducationTypeQueryBuilder();
 	
 	@Test
-	public void testname() throws Exception {
+	public void testBuild() throws Exception {
+		// Given
+		EducationType context = new EducationType();
+		
+		String expected = "SELECT e FROM EducationType e ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
 		// Given
 		String abbrName = "abbr name";
 		String name = "name";
@@ -18,7 +31,7 @@ public class EducationTypeQueryBuilderTest {
 		context.setName(name);
 		context.setAbbrName(abbrName);
 
-		String expected = "SELECT a FROM EducationType a WHERE a.name LIKE CONCAT('%',:name,'%') OR a.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expected = "SELECT e FROM EducationType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 		// When
 		String actual = unit.build(context);
 

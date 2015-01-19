@@ -12,12 +12,28 @@ public class EmployeeStatusQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		EmployeeStatus context = new EmployeeStatus();
+		
+		String expectedQuery = "SELECT e FROM EmployeeStatus e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithPaameters() throws Exception {
+		// Given
 		String abbrName = "AN";
+		String name = "fdsfds";
 
 		EmployeeStatus context = new EmployeeStatus();
 		context.setAbbrName(abbrName);
+		context.setName(name);
 
-		String expectedQuery = "SELECT a FROM EmployeeStatus a WHERE a.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM EmployeeStatus e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 		// When
 		String actualQuery = unit.build(context);

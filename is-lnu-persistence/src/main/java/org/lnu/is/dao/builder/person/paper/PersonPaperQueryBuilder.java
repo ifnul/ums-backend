@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.person.paper;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.person.PersonPaper;
 
 /**
@@ -11,25 +11,27 @@ import org.lnu.is.domain.person.PersonPaper;
  *
  */
 @QBuilder("personPaperQueryBuilder")
-public class PersonPaperQueryBuilder implements QueryBuilder<PersonPaper> {
-	private static final String QUERY = "SELECT p FROM PersonPaper p %s";
+public class PersonPaperQueryBuilder extends AbstractQueryBuilder<PersonPaper> {
+	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
+	private static final String DOCNUM_CONDITION = "e.docNum LIKE CONCAT('%',:docNum,'%') ";
+	private static final String PERSON_CONDITION = "e.person = :person ";
+	private static final String PAPERTYPE_CONDITION = "e.paperType = :paperType ";
+	private static final String HONORS_TYPE = "e.honorsType = :honorsType ";
+	private static final String DOC_DATE_CONDITION = "e.docDate = :docDate ";
+	private static final String DOCISSUED_CONDITION = "e.docIssued = :docIssued ";
+	private static final String DOCPIN_CONDITION = "e.docPin = :docPin ";
+	private static final String MARK_CONDITION = "e.mark = :mark ";
+	private static final String ISCHECKED_CONDITION = "e.isChecked = :isChecked ";
+	private static final String ISFOREIGN_CONDITION = "e.isForeign = :isForeign ";
 
-	private static final String DOCSERIES_CONDITION = "p.docSeries LIKE CONCAT('%',:docSeries,'%') ";
-	private static final String DOCNUM_CONDITION = "p.docNum LIKE CONCAT('%',:docNum,'%') ";
-	private static final String PERSON_CONDITION = "p.person = :person ";
-	private static final String PAPERTYPE_CONDITION = "p.paperType = :paperType ";
-	private static final String HONORS_TYPE = "p.honorsType = :honorsType ";
-	private static final String DOC_DATE_CONDITION = "p.docDate = :docDate ";
-	private static final String DOCISSUED_CONDITION = "p.docIssued = :docIssued ";
-	private static final String DOCPIN_CONDITION = "p.docPin = :docPin ";
-	private static final String MARK_CONDITION = "p.mark = :mark ";
-	private static final String ISCHECKED_CONDITION = "p.isChecked = :isChecked ";
-	private static final String ISFOREIGN_CONDITION = "p.isForeign = :isForeign ";
-	
 	@Override
-	public String build(final PersonPaper context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM PersonPaper e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final PersonPaper context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(PERSON_CONDITION, context.getPerson())
 				.addOrCondition(PAPERTYPE_CONDITION, context.getPaperType())
@@ -41,10 +43,7 @@ public class PersonPaperQueryBuilder implements QueryBuilder<PersonPaper> {
 				.addOrCondition(DOCPIN_CONDITION, context.getDocPin())
 				.addOrCondition(MARK_CONDITION, context.getMark())
 				.addOrCondition(ISCHECKED_CONDITION, context.getIsChecked())
-				.addOrCondition(ISFOREIGN_CONDITION, context.getIsForeign())
-				.build();
-		
-		return query;
+				.addOrCondition(ISFOREIGN_CONDITION, context.getIsForeign());
 	}
 
 }

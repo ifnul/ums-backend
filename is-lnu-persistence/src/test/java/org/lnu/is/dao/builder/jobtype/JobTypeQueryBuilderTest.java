@@ -12,16 +12,32 @@ public class JobTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
-		String abbrName = "LieToMe";
-		
 		JobType context = new JobType();
-		context.setAbbrName(abbrName);
 
-		String expectedQuery = "SELECT g FROM JobType g WHERE g.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM JobType e ";
 
 		// When
 		String actualQuery = unit.build(context);
 
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
+		String abbrName = "LieToMe";
+		String name = "fdsfds";
+		
+		JobType context = new JobType();
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM JobType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}

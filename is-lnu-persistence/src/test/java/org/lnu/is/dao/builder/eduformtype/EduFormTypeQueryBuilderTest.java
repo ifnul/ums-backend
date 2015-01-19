@@ -12,6 +12,20 @@ public class EduFormTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		EduFormType context = new EduFormType();
+		
+		String expectedQuery = "SELECT e FROM EduFormType e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		String name = "name";
 		EduFormType context = new EduFormType();
 		context.setName(name);

@@ -13,6 +13,20 @@ public class SubjectQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		Subject context = new Subject();
+		
+		String expectedQuery = "SELECT e FROM Subject e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		Long subjectTypeId = 1L;
 		SubjectType subjectType = new SubjectType();
 		subjectType.setId(subjectTypeId);
@@ -21,7 +35,7 @@ public class SubjectQueryBuilderTest {
 		context.setName(name);
 		context.setSubjectType(subjectType);
 
-		String expectedQuery = "SELECT r FROM Subject r WHERE r.name LIKE CONCAT('%',:name,'%') OR r.subjectType = :subjectType ";
+		String expectedQuery = "SELECT e FROM Subject e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.subjectType = :subjectType ";
 
 		// When
 		String actualQuery = unit.build(context);

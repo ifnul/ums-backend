@@ -12,11 +12,25 @@ public class GenderTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		GenderType context = new GenderType();
+		
+		String expectedQuery = "SELECT e FROM GenderType e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		String abbrName = "abbrname";
 		GenderType context = new GenderType();
 		context.setAbbrName(abbrName);
 
-		String expectedQuery = "SELECT g FROM GenderType g WHERE g.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM GenderType e WHERE e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 		// When
 		String actualQuery = unit.build(context);

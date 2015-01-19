@@ -12,6 +12,20 @@ public class LanguageQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		Language context = new Language();
+		
+		String expectedQuery = "SELECT e FROM Language e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		String abbrName = "LieToMe";
 		String name = "name";
 		
@@ -19,7 +33,7 @@ public class LanguageQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
-		String expectedQuery = "SELECT l FROM Language l WHERE l.name LIKE CONCAT('%',:name,'%') OR l.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM Language e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 		// When
 		String actualQuery = unit.build(context);

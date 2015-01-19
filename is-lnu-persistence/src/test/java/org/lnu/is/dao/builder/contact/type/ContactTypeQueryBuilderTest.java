@@ -12,16 +12,32 @@ public class ContactTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
-		String abbrName = "AN";
-
 		ContactType context = new ContactType();
-		context.setAbbrName(abbrName);
 
-		String expectedQuery = "SELECT a FROM ContactType a WHERE a.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		String expectedQuery = "SELECT e FROM ContactType e ";
 
 		// When
 		String actualQuery = unit.build(context);
 
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
+		String abbrName = "AN";
+		String name = "fsdfds";
+		
+		ContactType context = new ContactType();
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM ContactType e WHERE e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}

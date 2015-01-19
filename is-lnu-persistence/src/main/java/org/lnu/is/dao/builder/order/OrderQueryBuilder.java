@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.order;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.order.Order;
 
 /**
@@ -11,30 +11,31 @@ import org.lnu.is.domain.order.Order;
  *
  */
 @QBuilder("orderQueryBuilder")
-public class OrderQueryBuilder implements QueryBuilder<Order> {
+public class OrderQueryBuilder extends AbstractQueryBuilder<Order> {
 
-	private static final String QUERY = "SELECT o FROM Order o %s";
+	private static final String PARENT_CONDITION = "e.parent = :parent ";
+	private static final String ORDERTYPE_CONDITION = "e.orderType = :orderType ";
+	private static final String EMPLOYEE_CONDITION = "e.employee = :employee ";
+	private static final String ASSET_CONDITION = "e.asset = :asset ";
+	private static final String PARTNER_CONDITION = "e.partner = :partner ";
+	private static final String OPTYPE_CONDITION = "e.opType = :opType ";
+	private static final String DEPARTMENT_CONDITION = "e.department = :department ";
+	private static final String REASON_CONDITION = "e.reason = :reason ";
+	private static final String REASONTEXT_CONDITION = "e.reasonText LIKE CONCAT('%',:reasonText,'%') ";
+	private static final String DOCDATE_CONDITION = "e.docDate = :docDate ";
+	private static final String DOCNUM_CONDITION = "e.docNum LIKE CONCAT('%',:docNum,'%') ";
+	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
+	private static final String DOCISSUED_CONDITION = "e.docIssued LIKE CONCAT('%',:docIssued,'%') ";
+	private static final String EVDATE_CONDITION = "e.evDate = :evDate ";
 
-	private static final String PARENT_CONDITION = "o.parent = :parent ";
-	
-	private static final String ORDERTYPE_CONDITION = "o.orderType = :orderType ";
-	private static final String EMPLOYEE_CONDITION = "o.employee = :employee ";
-	private static final String ASSET_CONDITION = "o.asset = :asset ";
-	private static final String PARTNER_CONDITION = "o.partner = :partner ";
-	private static final String OPTYPE_CONDITION = "o.opType = :opType ";
-	private static final String DEPARTMENT_CONDITION = "o.department = :department ";
-	private static final String REASON_CONDITION = "o.reason = :reason ";
-	private static final String REASONTEXT_CONDITION = "o.reasonText LIKE CONCAT('%',:reasonText,'%') ";
-	private static final String DOCDATE_CONDITION = "o.docDate = :docDate ";
-	private static final String DOCNUM_CONDITION = "o.docNum LIKE CONCAT('%',:docNum,'%') ";
-	private static final String DOCSERIES_CONDITION = "o.docSeries LIKE CONCAT('%',:docSeries,'%') ";
-	private static final String DOCISSUED_CONDITION = "o.docIssued LIKE CONCAT('%',:docIssued,'%') ";
-	private static final String EVDATE_CONDITION = "o.evDate = :evDate ";
-	
 	@Override
-	public String build(final Order context) {
-		
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	protected String getBaseQuery() {
+		return "SELECT e FROM Order e %s";
+	}
+
+	@Override
+	protected BaseQueryBuilder build(final Order context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(ORDERTYPE_CONDITION, context.getOrderType())
 				.addOrCondition(EMPLOYEE_CONDITION, context.getEmployee())
@@ -49,9 +50,6 @@ public class OrderQueryBuilder implements QueryBuilder<Order> {
 				.addOrCondition(DOCNUM_CONDITION, context.getDocNum())
 				.addOrCondition(DOCDATE_CONDITION, context.getDocDate())
 				.addOrCondition(DOCISSUED_CONDITION, context.getDocIssued())
-				.addOrCondition(EVDATE_CONDITION, context.getEvDate())
-				.build();
-		
-		return query;
+				.addOrCondition(EVDATE_CONDITION, context.getEvDate());
 	}
 }

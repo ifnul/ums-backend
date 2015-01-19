@@ -19,6 +19,7 @@ public class EnrolmentTypeParametersExtractor extends AbstractParametersExtracto
 	public Map<String, Object> getParameters(final EnrolmentType entity, final Map<String, Object> parameters) {
 
 		addParameter(entity.getName(), "name", parameters);
+		addParameter(entity.getAbbrname(), "abbrname", parameters);
 
 		return parameters;
 	}

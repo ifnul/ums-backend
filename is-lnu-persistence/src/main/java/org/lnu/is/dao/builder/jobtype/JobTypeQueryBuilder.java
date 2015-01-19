@@ -1,8 +1,8 @@
 package org.lnu.is.dao.builder.jobtype;
 
 import org.lnu.is.dao.annotations.QBuilder;
+import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.domain.jobtype.JobType;
 
 /**
@@ -12,23 +12,21 @@ import org.lnu.is.domain.jobtype.JobType;
  */
 
 @QBuilder("jobTypeQueryBuilder")
-public class JobTypeQueryBuilder implements QueryBuilder<JobType> {
-
-	private static final String QUERY = "SELECT g FROM JobType g %s";
-
-	private static final String NAME_CONDITION = "g.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBR_NAME_CONDITION = "g.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+public class JobTypeQueryBuilder extends AbstractQueryBuilder<JobType> {
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 	@Override
-	public String build(final JobType context) {
+	protected String getBaseQuery() {
+		return "SELECT e FROM JobType e %s";
+	}
 
-		String query = BaseQueryBuilder.getInstance(QUERY)
+	@Override
+	protected BaseQueryBuilder build(final JobType context, final BaseQueryBuilder builder) {
+		return builder
 				.where()
 				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
-				.build();
-
-		return query;
+				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName());
 	}
 
 }

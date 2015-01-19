@@ -12,14 +12,35 @@ public class SpecialtyQueryBuilderTest {
 	private SpecialtyQueryBuilder unit = new SpecialtyQueryBuilder();
 	
 	@Test
-	public void testBuild() throws Exception {
+	public void testBuildWithParameters() throws Exception {
 		// Given
 		String cipher = "fsdfsd";
 		Specialty context = new Specialty();
+		String abbrName = "fsdsd";
+		String name = "fsdsd";
+		Date endDate = new Date();
+		
 		context.setCipher(cipher);
 		context.setBegDate(new Date());
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		context.setEndDate(endDate);
+		
+		String expectedQuery = "SELECT e FROM Specialty e WHERE e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.cipher LIKE CONCAT('%',:cipher,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
-		String expectedQuery = "SELECT s FROM Specialty s WHERE s.cipher LIKE CONCAT('%',:cipher,'%') OR s.begDate <= :begDate ";
+	@Test
+	public void testBuil() throws Exception {
+		// Given
+		Specialty context = new Specialty();
+
+		String expectedQuery = "SELECT e FROM Specialty e ";
 		
 		// When
 		String actualQuery = unit.build(context);

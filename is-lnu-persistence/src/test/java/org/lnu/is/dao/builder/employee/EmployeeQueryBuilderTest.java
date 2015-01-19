@@ -22,6 +22,20 @@ public class EmployeeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
+		Employee context = new Employee();
+		
+		String expected = "SELECT e FROM Employee e ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 		String docNum = "doc num";
 		String email = "email@email.com";
 		Date begDate = new Date();
