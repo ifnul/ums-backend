@@ -1,6 +1,6 @@
 package org.lnu.is.converter.asset.type;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.asset.AssetType;
 import org.lnu.is.resource.asset.type.AssetTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.asset.type.AssetTypeResource;
  * @author ivanursul
  *
  */
-@Converter("assetTypeResourceConverter")
+@ResourceConverter("assetTypeResourceConverter")
 public class AssetTypeResourceConverter extends AbstractConverter<AssetTypeResource, AssetType> {
 
 	@Override

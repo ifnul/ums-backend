@@ -1,6 +1,6 @@
 package org.lnu.is.converter.specoffer.benefit;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.specoffer.SpecofferBenefit;
 import org.lnu.is.resource.specoffer.benefit.SpecOfferBenefitResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.specoffer.benefit.SpecOfferBenefitResource;
  * @author ivanursul
  *
  */
-@Converter("specOfferBenefitConverter")
+@ResourceConverter("specOfferBenefitConverter")
 public class SpecOfferBenefitConverter extends AbstractConverter<SpecofferBenefit, SpecOfferBenefitResource> {
 
 	@Override

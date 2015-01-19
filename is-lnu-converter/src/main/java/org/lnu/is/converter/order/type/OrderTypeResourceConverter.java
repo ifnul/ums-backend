@@ -1,6 +1,6 @@
 package org.lnu.is.converter.order.type;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.order.OrderType;
 import org.lnu.is.resource.order.type.OrderTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.order.type.OrderTypeResource;
  * @author ivanursul
  *
  */
-@Converter("orderTypeResourceConverter")
+@ResourceConverter("orderTypeResourceConverter")
 public class OrderTypeResourceConverter extends AbstractConverter<OrderTypeResource, OrderType> {
 
 	@Override

@@ -1,6 +1,6 @@
 package org.lnu.is.converter.sallary.type;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.salarytype.SallaryType;
 import org.lnu.is.resource.sallary.type.SallaryTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.sallary.type.SallaryTypeResource;
  * @author ivanursul
  *
  */
-@Converter("sallaryTypeConverter")
+@ResourceConverter("sallaryTypeConverter")
 public class SallaryTypeConverter extends AbstractConverter<SallaryType, SallaryTypeResource> {
 
 	@Override

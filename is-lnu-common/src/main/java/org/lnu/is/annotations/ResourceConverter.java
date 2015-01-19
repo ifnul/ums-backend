@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Component
-public @interface Converter {
+public @interface ResourceConverter {
 
 	/**
 	 * The value may indicate a suggestion for a logical component name, to be

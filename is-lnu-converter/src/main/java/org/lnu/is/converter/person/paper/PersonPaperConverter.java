@@ -1,6 +1,6 @@
 package org.lnu.is.converter.person.paper;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.resource.person.paper.PersonPaperResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.person.paper.PersonPaperResource;
  * @author ivanursul
  *
  */
-@Converter("personPaperConverter")
+@ResourceConverter("personPaperConverter")
 public class PersonPaperConverter extends AbstractConverter<PersonPaper, PersonPaperResource> {
 
 	@Override

@@ -1,6 +1,6 @@
 package org.lnu.is.converter.eduformtype;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.resource.eduformtype.EduFormTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.eduformtype.EduFormTypeResource;
  * @author ivanursul
  *
  */
-@Converter("eduFormTypeResourceConverter")
+@ResourceConverter("eduFormTypeResourceConverter")
 public class EduFormTypeResourceConverter extends AbstractConverter<EduFormTypeResource, EduFormType> {
 
 	@Override

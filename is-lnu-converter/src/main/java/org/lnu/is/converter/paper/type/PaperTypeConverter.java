@@ -1,6 +1,6 @@
 package org.lnu.is.converter.paper.type;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.papertype.PaperType;
 import org.lnu.is.resource.paper.type.PaperTypeResource;
@@ -12,7 +12,7 @@ import org.lnu.is.resource.paper.type.PaperTypeResource;
  *
  */
 
-@Converter("paperTypeConverter")
+@ResourceConverter("paperTypeConverter")
 public class PaperTypeConverter extends AbstractConverter<PaperType, PaperTypeResource> {
 
 	@Override

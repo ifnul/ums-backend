@@ -1,6 +1,6 @@
 package org.lnu.is.converter.contact.type;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.contacttype.ContactType;
 import org.lnu.is.resource.contact.type.ContactTypeResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.contact.type.ContactTypeResource;
  * @author ivanursul
  * 
  */
-@Converter("contactTypeConverter")
+@ResourceConverter("contactTypeConverter")
 public class ContactTypeConverter extends AbstractConverter<ContactType, ContactTypeResource> {
 
 	@Override

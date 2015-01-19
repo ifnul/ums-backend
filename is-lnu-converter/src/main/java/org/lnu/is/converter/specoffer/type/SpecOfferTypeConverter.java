@@ -1,6 +1,6 @@
 package org.lnu.is.converter.specoffer.type;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.resource.specoffer.type.SpecOfferTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.specoffer.type.SpecOfferTypeResource;
  * @author ivanursul
  *
  */
-@Converter("specOfferTypeConverter")
+@ResourceConverter("specOfferTypeConverter")
 public class SpecOfferTypeConverter extends AbstractConverter<SpecOfferType, SpecOfferTypeResource> {
 
 	@Override

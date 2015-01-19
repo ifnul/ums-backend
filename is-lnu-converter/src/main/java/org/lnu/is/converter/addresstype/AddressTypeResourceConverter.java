@@ -1,6 +1,6 @@
 package org.lnu.is.converter.addresstype;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.resource.addresstype.AddressTypeResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.addresstype.AddressTypeResource;
  * @author ROMA
  *
  */
-@Converter("addressTypeResourceConverter")
+@ResourceConverter("addressTypeResourceConverter")
 public class AddressTypeResourceConverter extends
 		AbstractConverter<AddressTypeResource, AddressType> {
 

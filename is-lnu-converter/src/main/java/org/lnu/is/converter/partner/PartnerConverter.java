@@ -1,6 +1,6 @@
 package org.lnu.is.converter.partner;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.resource.partner.PartnerResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.partner.PartnerResource;
  * @author ivanursul
  *
  */
-@Converter("partnerConverter")
+@ResourceConverter("partnerConverter")
 public class PartnerConverter extends AbstractConverter<Partner, PartnerResource> {
 
 	@Override

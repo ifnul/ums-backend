@@ -1,6 +1,6 @@
 package org.lnu.is.converter.gendertype;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.resource.gendertype.GenderTypeResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.gendertype.GenderTypeResource;
  * @author kushnir
  *
  */
-@Converter("genderTypeResourceConverter")
+@ResourceConverter("genderTypeResourceConverter")
 public class GenderTypeResourceConverter extends AbstractConverter<GenderTypeResource, GenderType> {
 
 	@Override

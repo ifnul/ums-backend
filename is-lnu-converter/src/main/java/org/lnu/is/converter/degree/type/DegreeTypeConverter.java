@@ -1,6 +1,6 @@
 package org.lnu.is.converter.degree.type;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.degree.DegreeType;
 import org.lnu.is.resource.degree.type.DegreeTypeResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.degree.type.DegreeTypeResource;
  * @author ivanursul
  * 
  */
-@Converter("degreeTypeConverter")
+@ResourceConverter("degreeTypeConverter")
 public class DegreeTypeConverter extends AbstractConverter<DegreeType, DegreeTypeResource> {
 
 	@Override

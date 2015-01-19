@@ -1,6 +1,6 @@
 package org.lnu.is.converter.timesheet.type;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.timesheettype.TimeSheetType;
 import org.lnu.is.resource.timesheet.type.TimesheetTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.timesheet.type.TimesheetTypeResource;
  * @author OlehZanevych
  *
  */
-@Converter("timesheetTypeResourceConverter")
+@ResourceConverter("timesheetTypeResourceConverter")
 public class TimesheetTypeResourceConverter extends AbstractConverter<TimesheetTypeResource, TimeSheetType> {
 
 	@Override

@@ -1,6 +1,6 @@
 package org.lnu.is.converter.specoffer;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.eduformtype.EduFormType;
@@ -15,7 +15,7 @@ import org.lnu.is.resource.specoffer.SpecOfferResource;
  * @author ivanursul
  *
  */
-@Converter("specOfferResourceConverter")
+@ResourceConverter("specOfferResourceConverter")
 public class SpecOfferResourceConverter extends AbstractConverter<SpecOfferResource, SpecOffer> {
 
 	@Override

@@ -1,6 +1,6 @@
 package org.lnu.is.converter.employee.status;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.employee.EmployeeStatus;
 import org.lnu.is.resource.employee.status.EmployeeStatusResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.employee.status.EmployeeStatusResource;
  * @author ivanursul
  * 
  */
-@Converter("employeeStatusConverter")
+@ResourceConverter("employeeStatusConverter")
 public class EmployeeStatusConverter extends AbstractConverter<EmployeeStatus, EmployeeStatusResource> {
 
 	@Override

@@ -1,6 +1,6 @@
 package org.lnu.is.converter.duty;
 
-import org.lnu.is.annotations.Converter;
+import org.lnu.is.annotations.ResourceConverter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.dutytype.DutyType;
 import org.lnu.is.resource.duty.type.DutyTypeResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.duty.type.DutyTypeResource;
  * @author ivanursul
  *
  */
-@Converter("dutyTypeResourceConverter")
+@ResourceConverter("dutyTypeResourceConverter")
 public class DutyTypeResourceConverter extends AbstractConverter<DutyTypeResource, DutyType> {
 
 	@Override
