@@ -1,6 +1,6 @@
 package org.lnu.is.converter.reason;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.reason.Reason;
 import org.lnu.is.resource.reason.ReasonResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.reason.ReasonResource;
  * @author ivanursul
  *
  */
-@ResourceConverter("reasonResourceConverter")
+@Converter("reasonResourceConverter")
 public class ReasonResourceConverter extends AbstractConverter<ReasonResource, Reason> {
 
 	@Override

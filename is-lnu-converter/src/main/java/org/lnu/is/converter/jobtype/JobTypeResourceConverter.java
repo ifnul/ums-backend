@@ -1,6 +1,6 @@
 package org.lnu.is.converter.jobtype;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.jobtype.JobType;
 import org.lnu.is.resource.jobtype.JobTypeResource;
@@ -9,7 +9,7 @@ import org.lnu.is.resource.jobtype.JobTypeResource;
  * @author kushnir
  *
  */
-@ResourceConverter("jobTypeResourceConverter")
+@Converter("jobTypeResourceConverter")
 public class JobTypeResourceConverter extends AbstractConverter<JobTypeResource, JobType> {
 
 	@Override

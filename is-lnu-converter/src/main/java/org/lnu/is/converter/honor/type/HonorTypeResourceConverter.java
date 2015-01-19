@@ -1,6 +1,6 @@
 package org.lnu.is.converter.honor.type;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.honorstype.HonorType;
 import org.lnu.is.resource.honor.type.HonorTypeResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.honor.type.HonorTypeResource;
  * @author ivanursul
  *
  */
-@ResourceConverter("honorTypeResourceConverter")
+@Converter("honorTypeResourceConverter")
 public class HonorTypeResourceConverter extends AbstractConverter<HonorTypeResource, HonorType> {
 
 	@Override

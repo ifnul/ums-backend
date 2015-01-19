@@ -1,6 +1,6 @@
 package org.lnu.is.converter.subject.type;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.subject.SubjectType;
 import org.lnu.is.resource.subject.type.SubjectTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.subject.type.SubjectTypeResource;
  * @author ivanursul
  *
  */
-@ResourceConverter("subjectTypeConverter")
+@Converter("subjectTypeConverter")
 public class SubjectTypeConverter extends AbstractConverter<SubjectType, SubjectTypeResource> {
 
 	@Override

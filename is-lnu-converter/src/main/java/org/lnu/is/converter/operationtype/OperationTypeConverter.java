@@ -1,6 +1,6 @@
 package org.lnu.is.converter.operationtype;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.optype.OperationType;
 import org.lnu.is.resource.operationtype.OperationTypeResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.operationtype.OperationTypeResource;
  * @author kushnir
  *
  */
-@ResourceConverter("operationTypeConverter")
+@Converter("operationTypeConverter")
 public class OperationTypeConverter extends AbstractConverter<OperationType, OperationTypeResource> {
 
 	@Override

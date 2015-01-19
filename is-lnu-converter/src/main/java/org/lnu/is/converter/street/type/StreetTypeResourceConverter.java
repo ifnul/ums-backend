@@ -1,6 +1,6 @@
 package org.lnu.is.converter.street.type;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.streettype.StreetType;
 import org.lnu.is.resource.street.type.StreetTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.street.type.StreetTypeResource;
  * @author ivanursul
  *
  */
-@ResourceConverter("streetTypeResourceConverter")
+@Converter("streetTypeResourceConverter")
 public class StreetTypeResourceConverter extends AbstractConverter<StreetTypeResource, StreetType> {
 
 	@Override

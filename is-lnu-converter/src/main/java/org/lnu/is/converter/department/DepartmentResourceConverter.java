@@ -1,6 +1,6 @@
 package org.lnu.is.converter.department;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.DepartmentType;
@@ -12,7 +12,7 @@ import org.lnu.is.resource.department.DepartmentResource;
  * @author ivanursul
  *
  */
-@ResourceConverter("departmentResourceConverter")
+@Converter("departmentResourceConverter")
 public class DepartmentResourceConverter extends AbstractConverter<DepartmentResource, Department> {
 
 	@Override

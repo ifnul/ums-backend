@@ -1,6 +1,6 @@
 package org.lnu.is.converter.specialty;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specialty.SpecialtyType;
@@ -12,7 +12,7 @@ import org.lnu.is.resource.specialty.SpecialtyResource;
  * @author ivanursul
  *
  */
-@ResourceConverter("specialtyResourceConverter")
+@Converter("specialtyResourceConverter")
 public class SpecialtyResourceConverter extends AbstractConverter<SpecialtyResource, Specialty> {
 
 	@Override

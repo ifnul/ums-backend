@@ -1,6 +1,6 @@
 package org.lnu.is.converter.benefit.type;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.benefit.BenefitType;
 import org.lnu.is.resource.benefit.type.BenefitTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.benefit.type.BenefitTypeResource;
  * @author ivanursul
  *
  */
-@ResourceConverter("benefitTypeResourceConverter")
+@Converter("benefitTypeResourceConverter")
 public class BenefitTypeResourceConverter extends AbstractConverter<BenefitTypeResource, BenefitType> {
 
 	@Override

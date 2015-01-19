@@ -2,7 +2,7 @@ package org.lnu.is.converter.base;
 
 import java.util.Date;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.resource.ApiResource;
@@ -14,7 +14,7 @@ import org.lnu.is.resource.ApiResource;
  * @param <S> resource.
  * @param <T> entity.
  */
-@ResourceConverter("updateConverter")
+@Converter("updateConverter")
 public class UpdateConverter<S extends ApiResource, T extends InformationModel> extends AbstractConverter<S, T> {
 
 	@Override

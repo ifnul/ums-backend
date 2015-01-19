@@ -1,6 +1,6 @@
 package org.lnu.is.converter.marriedtype;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.resource.marriedtype.MarriedTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.marriedtype.MarriedTypeResource;
  * @author Bohdan
  *
  */
-@ResourceConverter("marriedTypeConverter")
+@Converter("marriedTypeConverter")
 public class MarriedTypeConverter extends AbstractConverter<MarriedType, MarriedTypeResource> {
 
 	@Override

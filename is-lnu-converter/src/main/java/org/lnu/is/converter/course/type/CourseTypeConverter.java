@@ -1,6 +1,6 @@
 package org.lnu.is.converter.course.type;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.coursetype.CourseType;
 import org.lnu.is.resource.course.type.CourseTypeResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.course.type.CourseTypeResource;
  * @author ivanursul
  * 
  */
-@ResourceConverter("courseTypeConverter")
+@Converter("courseTypeConverter")
 public class CourseTypeConverter extends AbstractConverter<CourseType, CourseTypeResource> {
 
 	@Override

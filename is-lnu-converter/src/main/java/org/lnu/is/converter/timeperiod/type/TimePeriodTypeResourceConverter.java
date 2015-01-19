@@ -1,6 +1,6 @@
 package org.lnu.is.converter.timeperiod.type;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.timeperiod.TimePeriodType;
 import org.lnu.is.resource.timeperiod.type.TimePeriodTypeResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.timeperiod.type.TimePeriodTypeResource;
  * @author ivanursul
  *
  */
-@ResourceConverter("timePeriodTypeResourceConverter")
+@Converter("timePeriodTypeResourceConverter")
 public class TimePeriodTypeResourceConverter extends AbstractConverter<TimePeriodTypeResource, TimePeriodType> {
 
 	@Override

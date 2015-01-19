@@ -1,6 +1,6 @@
 package org.lnu.is.converter.enrolment.type;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.enrolment.EnrolmentType;
 import org.lnu.is.resource.enrolment.type.EnrolmentTypeResource;
@@ -11,7 +11,7 @@ import org.lnu.is.resource.enrolment.type.EnrolmentTypeResource;
  * @author kushnir
  *
  */
-@ResourceConverter("enrolmentTypeResourceConverter")
+@Converter("enrolmentTypeResourceConverter")
 public class EnrolmentTypeResourceConverter extends AbstractConverter<EnrolmentTypeResource, EnrolmentType> {
 
 	@Override

@@ -1,6 +1,6 @@
 package org.lnu.is.converter.adminunit;
 
-import org.lnu.is.annotations.ResourceConverter;
+import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.resource.adminunit.AdminUnitResource;
@@ -10,7 +10,7 @@ import org.lnu.is.resource.adminunit.AdminUnitResource;
  * @author ivanursul
  *
  */
-@ResourceConverter("adminUnitConverter")
+@Converter("adminUnitConverter")
 public class AdminUnitConverter extends AbstractConverter<AdminUnit, AdminUnitResource> {
 
 	@Override
