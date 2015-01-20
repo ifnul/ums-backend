@@ -155,6 +155,7 @@
         <class>org.lnu.is.domain.user.User</class>
         <class>org.lnu.is.domain.role.Role</class>
         <class>org.lnu.is.domain.group.Group</class>
+        <class>org.lnu.is.domain.usergroup.UserGroup</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

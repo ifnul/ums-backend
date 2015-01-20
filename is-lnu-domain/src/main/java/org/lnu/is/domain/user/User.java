@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
@@ -20,10 +19,8 @@ import org.lnu.is.domain.Model;
 @Entity
 @Table(name = "q_op_user")
 public class User extends Model implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
-    @Id
     @Column(name = "login")
     private String login;
     
@@ -43,7 +40,7 @@ public class User extends Model implements Serializable {
     @Column(name = "enddate")
     private Date endDate;
 
-    public Date getBegDate() {
+	public Date getBegDate() {
 		return begDate;
 	}
 

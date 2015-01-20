@@ -5409,5 +5409,97 @@
         <addPrimaryKey columnNames="id" constraintName="pk_q_op_group" tableName="q_op_group"/>
            
 	</changeSet>
+
+	<changeSet id="add_q_op_usergroup_table" author="ivanursul">
+	
+   		<createTable tableName="q_op_usergroup" remarks="User groups">
+    		<!-- Common fields -> Model -->
+    		<column name="id" type="BIGINT" autoIncrement="true">
+    			<constraints nullable="false" primaryKey="true" />
+    		</column>
+    		<column name="status" type="varchar(50)">
+    			<constraints nullable="false"/>
+    		</column>
+            <column name="actual" remarks="Status of row" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="varchar(255)" />
+            <column name="crtuser" type="varchar(50)" remarks="User, that made changes">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="varchar(50)" remarks="User group(user, that made changes)" >
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" type="timestamp" remarks="Update date" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="timestamp" remarks="Date of row creation" >
+            	<constraints nullable="false"/>
+        	</column>            
+			
+           	<!-- Table related fields -> User -->
+    		<column name="user_id" type="BIGINT">
+    			<constraints nullable="false" foreignKeyName="fk_q_op_usergroup_user_id" references="q_op_user(id)" />
+    		</column>
+    		<column name="group_id" type="BIGINT">
+    			<constraints nullable="false" foreignKeyName="fk_q_op_usergroup_group_id" references="q_op_group(id)" />
+    		</column>
+    		<column name="major" type="boolean">
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="title" type="varchar(50)" remarks="Group name" >
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="description" type="varchar(200)" remarks="Group description" >
+    			<constraints nullable="false"/>
+    		</column>
+    		
+    	</createTable>
+    	
+	</changeSet>
+
+	<changeSet id="add_q_op_userrole_table" author="ivanursul">
+	
+   		<createTable tableName="q_op_userrole" remarks="User roles">
+    		<!-- Common fields -> Model -->
+    		<column name="id" type="BIGINT" autoIncrement="true">
+    			<constraints nullable="false" primaryKey="true" />
+    		</column>
+    		<column name="status" type="varchar(50)">
+    			<constraints nullable="false"/>
+    		</column>
+            <column name="actual" remarks="Status of row" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="varchar(255)" />
+            <column name="crtuser" type="varchar(50)" remarks="User, that made changes">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="varchar(50)" remarks="User group(user, that made changes)" >
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" type="timestamp" remarks="Update date" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="timestamp" remarks="Date of row creation" >
+            	<constraints nullable="false"/>
+        	</column>            
+			
+           	<!-- Table related fields -> UserRole -->
+    		<column name="user_id" type="BIGINT">
+    			<constraints nullable="false" foreignKeyName="fk_q_op_userrole_user_id" references="q_op_user(id)" />
+    		</column>
+    		<column name="role_id" type="BIGINT">
+    			<constraints nullable="false" foreignKeyName="fk_q_op_userrole_role_id" references="q_op_role(id)" />
+    		</column>
+    		<column name="major" type="boolean">
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="title" type="varchar(50)" remarks="Group name" />
+    		<column name="description" type="varchar(200)" remarks="Group description" />
+    		
+    	</createTable>
+    	
+	</changeSet>
 	
 </databaseChangeLog>
