@@ -5327,5 +5327,44 @@
     	</createTable>
 	
 	</changeSet>
+	
+	<changeSet id="add_q_op_role_table" author="ivanursul">
+	
+   		<createTable tableName="q_op_role" remarks="Available roles">
+    		<!-- Common fields -> Model -->
+    		<column name="id" type="bigint">
+    			<constraints primaryKey="true"/>
+    		</column>
+    		<column name="status" type="varchar(50)">
+    			<constraints nullable="false"/>
+    		</column>
+            <column name="actual" remarks="Status of row" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="varchar(255)" />
+            <column name="crtuser" type="varchar(50)" remarks="User, that made changes">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="varchar(50)" remarks="User group(user, that made changes)" >
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" type="timestamp" remarks="Update date" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="timestamp" remarks="Date of row creation" >
+            	<constraints nullable="false"/>
+        	</column>            
+			
+           	<!-- Table related fields -> User -->
+    		<column name="title" type="varchar(50)" remarks="role name" >
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="description" type="varchar(200)" remarks="Role description" >
+    			<constraints nullable="false"/>
+    		</column>
+    		
+    	</createTable>
+	
+	</changeSet>
 
 </databaseChangeLog>
