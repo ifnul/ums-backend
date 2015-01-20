@@ -19,6 +19,8 @@
   135 API методи
 
 
+
+
 ##What is this repository for?
 
 >Репозиторій містить ERP(*Enterprise Resource Planning*) - систему, яка створюється на базі ЛНУ ім.І.Франка з використанням Java технологій.
