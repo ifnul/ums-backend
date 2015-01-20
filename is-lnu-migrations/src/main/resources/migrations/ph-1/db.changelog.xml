@@ -5283,11 +5283,11 @@
 		<dropTable tableName="q_op_user" />
 		<dropTable tableName="q_opr_usergroupinterface" />
 	
-    	<createTable tableName="q_op_user" remarks="Логіни користувачів SQL сервера">
+    	<createTable tableName="q_op_user" remarks="Логіни користувачів сервера">
     		<!-- Common fields -> Model -->
-    		<column name="id" type="bigint">
-    			<constraints primaryKey="true"/>
-    		</column>
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
     		<column name="status" type="varchar(50)">
     			<constraints nullable="false"/>
     		</column>
@@ -5326,14 +5326,16 @@
     		<column name="enddate" type="timestamp" remarks="End of access date" />
     	</createTable>
 	
+        <addPrimaryKey columnNames="id" constraintName="pk_q_op_user" tableName="q_op_user"/>
+	
 	</changeSet>
 	
 	<changeSet id="add_q_op_role_table" author="ivanursul">
 	
    		<createTable tableName="q_op_role" remarks="Available roles">
     		<!-- Common fields -> Model -->
-    		<column name="id" type="bigint">
-    			<constraints primaryKey="true"/>
+    		<column name="id" type="BIGINT" autoIncrement="true">
+    			<constraints nullable="false" />
     		</column>
     		<column name="status" type="varchar(50)">
     			<constraints nullable="false"/>
@@ -5364,15 +5366,16 @@
     		</column>
     		
     	</createTable>
-	
+        <addPrimaryKey columnNames="id" constraintName="pk_q_op_role" tableName="q_op_role"/>
+		
 	</changeSet>
 
 	<changeSet id="add_q_op_group_table" author="ivanursul">
 	
    		<createTable tableName="q_op_group" remarks="Available groups">
     		<!-- Common fields -> Model -->
-    		<column name="id" type="bigint">
-    			<constraints primaryKey="true"/>
+    		<column name="id" type="BIGINT" autoIncrement="true">
+    			<constraints nullable="false" />
     		</column>
     		<column name="status" type="varchar(50)">
     			<constraints nullable="false"/>
@@ -5403,95 +5406,8 @@
     		</column>
     		
     	</createTable>
-	
+        <addPrimaryKey columnNames="id" constraintName="pk_q_op_group" tableName="q_op_group"/>
+           
 	</changeSet>
 	
-	<changeSet id="add_q_op_usergroup_table" author="ivanursul">
-   		<createTable tableName="q_op_usergroup" remarks="User->Group relations">
-    		<!-- Common fields -> Model -->
-    		<column name="id" type="bigint">
-    			<constraints primaryKey="true"/>
-    		</column>
-    		<column name="status" type="varchar(50)">
-    			<constraints nullable="false"/>
-    		</column>
-            <column name="actual" remarks="Status of row" type="integer">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" type="varchar(255)" />
-            <column name="crtuser" type="varchar(50)" remarks="User, that made changes">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" type="varchar(50)" remarks="User group(user, that made changes)" >
-                <constraints nullable="false"/>
-            </column>
-           <column name="update_date" type="timestamp" remarks="Update date" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" type="timestamp" remarks="Date of row creation" >
-            	<constraints nullable="false"/>
-        	</column>            
-			
-           	<!-- Table related fields -> UserGroup -->
-    		<column name="user_id" type="bigint" remarks="User identifier" >
-    			<constraints nullable="false" foreignKeyName="fk_usergroup_user" references="q_op_user(id)"/>
-    		</column>
-    		<column name="group_id" type="bigint" remarks="Group identifier" >
-    			<constraints nullable="false" foreignKeyName="fk_usergroup_group" references="q_op_group(id)"/>
-    		</column>
-    		
-    		<column name="major" type="int" remarks="Identifies if this group is major">
-    			<constraints nullable="false"/>
-    		</column>
-    		<column name="description" type="int">
-    			<constraints nullable="false"/>
-    		</column>
-    		
-    	</createTable>	
-	</changeSet>
-
-	<changeSet id="add_q_op_userrole_table" author="ivanursul">
-   		<createTable tableName="q_op_userrole" remarks="User -> Role relations">
-    		<!-- Common fields -> Model -->
-    		<column name="id" type="bigint">
-    			<constraints primaryKey="true"/>
-    		</column>
-    		<column name="status" type="varchar(50)">
-    			<constraints nullable="false"/>
-    		</column>
-            <column name="actual" remarks="Status of row" type="integer">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" type="varchar(255)" />
-            <column name="crtuser" type="varchar(50)" remarks="User, that made changes">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" type="varchar(50)" remarks="User group(user, that made changes)" >
-                <constraints nullable="false"/>
-            </column>
-           <column name="update_date" type="timestamp" remarks="Update date" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" type="timestamp" remarks="Date of row creation" >
-            	<constraints nullable="false"/>
-        	</column>            
-			
-           	<!-- Table related fields -> User -->
-    		<column name="user_id" type="bigint" remarks="User identifier" >
-    			<constraints nullable="false" foreignKeyName="fk_userrole_user" references="q_op_user(id)"/>
-    		</column>
-    		<column name="role_id" type="bigint" remarks="Role identifier" >
-    			<constraints nullable="false" foreignKeyName="fk_userrole_role" references="q_op_role(id)"/>
-    		</column>
-    		
-    		<column name="major" type="int" remarks="Identifies if this role is major">
-    			<constraints nullable="false"/>
-    		</column>
-    		<column name="description" type="int">
-    			<constraints nullable="false"/>
-    		</column>
-    		
-    	</createTable>	
-	</changeSet>
-
 </databaseChangeLog>
