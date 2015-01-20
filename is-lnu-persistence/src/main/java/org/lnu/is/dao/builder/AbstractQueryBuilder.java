@@ -29,6 +29,7 @@ public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuil
 	
 	/**
 	 * Method, that builds and adds all required constaints.
+	 * This methods add additional constraint for statuses.
 	 * @param context
 	 * @param builder
 	 * @return BaseQueryBuilder instance.
@@ -38,6 +39,7 @@ public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuil
 	@Override
 	public String build(final E context) {
 		BaseQueryBuilder builder = BaseQueryBuilder.getInstance(getBaseQuery());
+		
 		BaseQueryBuilder finalBuilder = build(context, builder)
 				.addAndCondition(STATUS_CONDITION, RowStatus.ACTIVE);
 		
