@@ -134,6 +134,7 @@
         <class>org.lnu.is.domain.pensiontype.PensionType</class>
         <class>org.lnu.is.domain.optype.OperationType</class> 
         <class>org.lnu.is.domain.papertype.PaperType</class>
+        <class>org.lnu.is.domain.paperusage.PaperUsage</class>
         <class>org.lnu.is.domain.coursetype.CourseType</class>
         <class>org.lnu.is.domain.dutytype.DutyType</class>
         <class>org.lnu.is.domain.educationtype.EducationType</class>
@@ -143,16 +144,17 @@
         <class>org.lnu.is.domain.streettype.StreetType</class>
         <class>org.lnu.is.domain.timesheettype.TimeSheetType</class>
         <class>org.lnu.is.domain.wavetype.WaveType</class>
+        <class>org.lnu.is.domain.reason.Reason</class>
+        <class>org.lnu.is.domain.profession.Profession</class>
 		
 		<!-- Not structured yet :| -->
         <class>org.lnu.is.domain.error.Error</class>
         <class>org.lnu.is.domain.importexport.ImportExport</class>
-        <class>org.lnu.is.domain.paperusage.PaperUsage</class>
-        <class>org.lnu.is.domain.profession.Profession</class>
-        <class>org.lnu.is.domain.reason.Reason</class>
         
+        <!-- Security entities -->
         <class>org.lnu.is.domain.user.User</class>
         <class>org.lnu.is.domain.role.Role</class>
+        <class>org.lnu.is.domain.group.Group</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
