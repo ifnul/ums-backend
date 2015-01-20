@@ -169,7 +169,6 @@ public class DefaultFacadeTest {
 		verify(entityConverter).convert(person);
 		verify(entityDetailsConverter).convert(person, expected);
 		assertEquals(expected, actual);
-		assertEquals(true, false);
 	}
 
 	@Test
