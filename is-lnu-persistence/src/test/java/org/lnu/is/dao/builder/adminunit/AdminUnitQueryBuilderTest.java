@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.adminunit.type.AdminUnitType;
@@ -12,12 +13,21 @@ public class AdminUnitQueryBuilderTest {
 
 	private AdminUnitQueryBuilder unit = new AdminUnitQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+	
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		AdminUnit context = new AdminUnit();
 		
-		String expected = "SELECT e FROM AdminUnit e WHERE e.status=:status ";
+		String expected = "SELECT e FROM AdminUnit e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		// When
 		String actual = unit.build(context);
 		
@@ -50,7 +60,7 @@ public class AdminUnitQueryBuilderTest {
 		context.setEndDate(endDate);
 		
 		
-		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status ";
+		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actual = unit.build(context);

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
@@ -19,12 +20,21 @@ public class EmployeeQueryBuilderTest {
 
 	private EmployeeQueryBuilder unit = new EmployeeQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		Employee context = new Employee();
 		
-		String expected = "SELECT e FROM Employee e WHERE e.status=:status ";
+		String expected = "SELECT e FROM Employee e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actual = unit.build(context);
@@ -107,7 +117,7 @@ public class EmployeeQueryBuilderTest {
 		context.setBirthDate(birthDate);
 		context.setEmail(email);
 
-		String expected = "SELECT e FROM Employee e WHERE ( e.employeeType = :employeeType OR e.person = :person OR e.genderType = :genderType OR e.department = :department OR e.post =:post OR e.jobType = :jobType OR e.employeeStatus = :employeeStatus OR e.order =:order OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:firstName,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') eOR e.birthDate = :birthDate OR e.invNum = :invNum OR e.rate = :rate OR e.isPlurality =:isPlurality OR e.isPensioner =:isPensioner OR e.begDate <= :begDate OR e.endDate >= :endDateOR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') ) AND e.status=:status ";
+		String expected = "SELECT e FROM Employee e WHERE ( e.employeeType = :employeeType OR e.person = :person OR e.genderType = :genderType OR e.department = :department OR e.post =:post OR e.jobType = :jobType OR e.employeeStatus = :employeeStatus OR e.order =:order OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:firstName,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') eOR e.birthDate = :birthDate OR e.invNum = :invNum OR e.rate = :rate OR e.isPlurality =:isPlurality OR e.isPensioner =:isPensioner OR e.begDate <= :begDate OR e.endDate >= :endDateOR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actual = unit.build(context);

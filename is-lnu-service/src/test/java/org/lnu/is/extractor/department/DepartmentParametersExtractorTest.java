@@ -5,10 +5,13 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
@@ -16,6 +19,7 @@ import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.DepartmentType;
 import org.lnu.is.domain.order.Order;
+import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -34,6 +38,25 @@ public class DepartmentParametersExtractorTest {
 	
 	@InjectMocks
 	private DepartmentParametersExtractor unit;
+
+	@Mock
+	private SessionService sessionService;
+
+	private Boolean active = true;
+	private Boolean security = true;
+
+	private String group1 = "developers";
+	private String group2 = "students";
+	
+	private List<String> groups = Arrays.asList(group1, group2);
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+		
+		when(sessionService.getGroups()).thenReturn(groups);
+	}
 	
 	@Test
 	public void testGetParameters() throws Exception {
@@ -83,6 +106,8 @@ public class DepartmentParametersExtractorTest {
 		expected.put("begDate", begDate);
 		expected.put("endDate", endDate);
 		expected.put("status", RowStatus.ACTIVE);
+		expected.put("userGroups", groups);
+		
 		// When
 		when(departmentDao.getEntityById(anyLong())).thenReturn(parent);
 		when(departmentTypeDao.getEntityById(anyLong())).thenReturn(departmentType);
@@ -103,6 +128,8 @@ public class DepartmentParametersExtractorTest {
 		Department entity = new Department();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
+		expected.put("userGroups", groups);
+		
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

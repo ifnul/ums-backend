@@ -63,6 +63,10 @@
 		<jpa.database>POSTGRESQL</jpa.database>
 		<jpa.showSql>true</jpa.showSql>
 		
+		<!-- Data filtering properties -->
+		<active.filtering>true</active.filtering>
+		<security.filtering>true</security.filtering>
+		
 		<!-- Code quality properties -->
 		<checkstyleDir>${basedir}/checks</checkstyleDir>
 		<findBugsDir>${basedir}/findbugs</findBugsDir>

@@ -7,12 +7,6 @@
     	<delete tableName="q_op_user"></delete>
         <insert tableName="q_op_user">
             <column name="id">1</column>
-            <column name="login">admin</column>
-            <column name="password">nimda</column>
-            <column name="title">Adminenko Admin Adminovich</column>
-            <column name="role">ADMIN</column>
-            <column name="begdate">2013-01-01</column>
-            <column name="enddate">2017-01-01</column>
             <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note">Demo admin</column>
@@ -20,6 +14,13 @@
             <column name="crtusergroup">developers</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
+			
+			
+            <column name="login">admin</column>
+            <column name="password">nimda</column>
+            <column name="title">Adminenko Admin Adminovich</column>
+            <column name="begdate">2013-01-01</column>
+            <column name="enddate">2017-01-01</column>
         </insert>
     </changeSet>
 </databaseChangeLog>

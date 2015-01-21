@@ -5,16 +5,20 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specialty.SpecialtyType;
+import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -23,6 +27,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class SpecialtyParametersExtractorTest {
 
 	@Mock
+	private SessionService sessionService;
+	
+	@Mock
 	private Dao<SpecialtyType, Long> specialtyTypeDao;
 	
 	@Mock
@@ -30,6 +37,22 @@ public class SpecialtyParametersExtractorTest {
 	
 	@InjectMocks
 	private SpecialtyParametersExtractor unit;
+
+	private Boolean active = true;
+	private Boolean security = true;
+
+	private String group1 = "developers";
+	private String group2 = "students";
+	
+	private List<String> groups = Arrays.asList(group1, group2);
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+		
+		when(sessionService.getGroups()).thenReturn(groups);
+	}
 	
 	@Test
 	public void testGetParameters() throws Exception {
@@ -68,6 +91,7 @@ public class SpecialtyParametersExtractorTest {
 		expected.put("begDate", begDate);
 		expected.put("endDate", endDate);
 		expected.put("status", RowStatus.ACTIVE);
+		expected.put("userGroups", groups);
 
 		// When
 		when(specialtyTypeDao.getEntityById(anyLong())).thenReturn(specialtyType);
@@ -87,6 +111,8 @@ public class SpecialtyParametersExtractorTest {
 
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
+		expected.put("userGroups", groups);
+		
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

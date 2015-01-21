@@ -83,6 +83,19 @@ public class BaseQueryBuilder {
 		
 		return this;
 	}
+
+	/**
+	 * Method for adding and conditions.
+	 * @param condition
+	 * @param parameter
+	 * @return this.
+	 */
+	public BaseQueryBuilder addAndCondition(final String condition) {
+		and();
+		getConditions().add(condition);
+		
+		return this;
+	}
 	
 	/**
 	 * Checks if query builder contains conditions.

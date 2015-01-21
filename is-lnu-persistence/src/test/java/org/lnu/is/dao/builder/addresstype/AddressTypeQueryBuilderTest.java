@@ -2,19 +2,75 @@ package org.lnu.is.dao.builder.addresstype;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.addresstype.AddressType;
 
 public class AddressTypeQueryBuilderTest {
 
 	private AddressTypeQueryBuilder unit = new AddressTypeQueryBuilder();
+	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
 
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		AddressType context = new AddressType();
 		
+		String expectedQuery = "SELECT e FROM AddressType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithDisabledDefaultConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		AddressType context = new AddressType();
+		
+		String expectedQuery = "SELECT e FROM AddressType e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithDisabledSecurityCondition() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		AddressType context = new AddressType();
+		
 		String expectedQuery = "SELECT e FROM AddressType e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithDisabledStatusCondition() throws Exception {
+		// Given
+		unit.setActive(false);
+		AddressType context = new AddressType();
+		
+		String expectedQuery = "SELECT e FROM AddressType e WHERE e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -33,7 +89,7 @@ public class AddressTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status ";
+		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 
 		// When
 		String actualQuery = unit.build(context);

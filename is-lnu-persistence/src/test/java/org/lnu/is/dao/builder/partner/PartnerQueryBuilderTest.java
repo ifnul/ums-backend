@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.partner.Partner;
 
@@ -11,12 +12,22 @@ public class PartnerQueryBuilderTest {
 
 	private PartnerQueryBuilder unit = new PartnerQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+	
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		Partner context = new Partner();
 		
-		String expected = "SELECT e FROM Partner e WHERE e.status=:status ";
+		String expected = "SELECT e FROM Partner e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		// When
 		String actual = unit.build(context);
 		
@@ -46,7 +57,7 @@ public class PartnerQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expected = "SELECT e FROM Partner e WHERE ( e.parent = :parent OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status ";
+		String expected = "SELECT e FROM Partner e WHERE ( e.parent = :parent OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		// When
 		String actual = unit.build(context);
 

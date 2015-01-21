@@ -24,9 +24,10 @@
 			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-domain</artifactId>
 		</dependency>	
+
 		<dependency>
 			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-service</artifactId>
+			<artifactId>is-lnu-persistence</artifactId>
 		</dependency>	
 	
 		<dependency>

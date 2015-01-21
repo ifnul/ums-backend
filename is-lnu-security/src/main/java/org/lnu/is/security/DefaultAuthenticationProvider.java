@@ -5,9 +5,10 @@ import java.util.Collection;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Hibernate;
+import org.lnu.is.dao.dao.user.UserDao;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.role.UserRole;
-import org.lnu.is.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -28,8 +29,8 @@ import org.springframework.util.Assert;
 public class DefaultAuthenticationProvider implements AuthenticationProvider {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultAuthenticationProvider.class);
 
-    @Resource(name = "userService")
-    private UserService userService;
+    @Resource(name = "userDao")
+    private UserDao userDao;
     
     @Override
     public boolean supports(final Class<?> clazz) {
@@ -53,8 +54,10 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
      */
     private Authentication getAuthentication(final String login, final String password) {
         User user = getUser(login, password);
+        Hibernate.initialize(user.getGroups());
+        
         Collection<GrantedAuthority> authorities = getAuthorities(user);
-
+        
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(login, password, authorities);
         token.setDetails(user);
 
@@ -71,7 +74,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
         User user = null;
 
         try {
-            user =  userService.getUserByLogin(login);
+            user =  userDao.getUserByLogin(login);
             Assert.isTrue(user.getPassword().equals(password));
         } catch (Exception e) {
             LOG.error("Can't find user for login: " + login, e);
@@ -89,7 +92,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
     private Collection<GrantedAuthority> getAuthorities(final User principal) {
     	Collection<GrantedAuthority> authorities = new ArrayList<>();
 
-    	for (UserRole userRole : principal.getRoles()) {
+    	for (UserRole userRole : principal.getUserRoles()) {
     		GrantedAuthority authority = new SimpleGrantedAuthority(userRole.getRole().getTitle());
     		authorities.add(authority);
     	}

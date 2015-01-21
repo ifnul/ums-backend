@@ -2,6 +2,7 @@ package org.lnu.is.dao.builder.specoffer.subject;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.domain.specoffer.SpecOffer;
@@ -11,6 +12,16 @@ public class SpecOfferSubjectQueryBuilderTest {
 	
 	private SpecOfferSubjectQueryBuilder unit = new SpecOfferSubjectQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+	
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
@@ -18,7 +29,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		SpecofferSubject context = new SpecofferSubject();
 		context.setAlternative(alternative);
 
-		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) AND e.status=:status ";
+		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actual = unit.build(context);
@@ -43,7 +54,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		context.setIsMajor(isMajor);
 		context.setMark(mark);
 		
-		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.specOffer = :specOffer OR e.enrolmentSubject = :enrolmentSubject OR e.isMajor = :isMajor OR e.alternative = :alternative ) AND e.status=:status ";
+		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.specOffer = :specOffer OR e.enrolmentSubject = :enrolmentSubject OR e.isMajor = :isMajor OR e.alternative = :alternative ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actual = unit.build(context);

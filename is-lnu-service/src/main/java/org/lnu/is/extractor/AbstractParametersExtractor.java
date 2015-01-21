@@ -1,11 +1,15 @@
 package org.lnu.is.extractor;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
+import org.lnu.is.security.service.SessionService;
 
 /**
  * Abstract parameters extractor with some operations.
@@ -15,12 +19,27 @@ import org.lnu.is.domain.common.RowStatus;
  */
 public abstract class AbstractParametersExtractor<T> implements ParametersExtractor<T> {
 
+	@Resource(name = "sessionService")
+	private SessionService sessionService;
+
+	@Resource(name = "activeFiltering")
+	private Boolean active;
+	
+	@Resource(name = "securityFiltering")
+	private Boolean security;
 	
 	@Override
 	public Map<String, Object> getParameters(final T entity) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
-		parameters.put("status", RowStatus.ACTIVE);
+		if (active) {
+			parameters.put("status", RowStatus.ACTIVE);
+		}
+
+		if (security) {
+			List<String> groups = sessionService.getGroups();
+			parameters.put("userGroups", groups);
+		}
 		
 		return getParameters(entity, parameters);
 	}
@@ -63,4 +82,17 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 		}
 		
 	}
+
+	public void setSessionService(final SessionService sessionService) {
+		this.sessionService = sessionService;
+	}
+
+	public void setActive(final Boolean active) {
+		this.active = active;
+	}
+
+	public void setSecurity(final Boolean security) {
+		this.security = security;
+	}
+	
 }

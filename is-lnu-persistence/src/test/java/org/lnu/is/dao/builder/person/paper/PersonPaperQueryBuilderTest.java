@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.honorstype.HonorType;
 import org.lnu.is.domain.papertype.PaperType;
@@ -14,11 +15,21 @@ public class PersonPaperQueryBuilderTest {
 
 	private PersonPaperQueryBuilder unit = new PersonPaperQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+	
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		PersonPaper context = new PersonPaper();
-		String expectedQuery = "SELECT e FROM PersonPaper e WHERE e.status=:status ";
+		String expectedQuery = "SELECT e FROM PersonPaper e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -55,7 +66,7 @@ public class PersonPaperQueryBuilderTest {
 		context.setIsChecked(isChecked);
 		context.setIsForeign(isForeign);
 		
-		String expectedQuery = "SELECT e FROM PersonPaper e WHERE ( e.person = :person OR e.paperType = :paperType OR e.honorsType = :honorsType OR e.docDate = :docDate OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docIssued = :docIssued OR e.docPin = :docPin OR e.mark = :mark OR e.isChecked = :isChecked OR e.isForeign = :isForeign ) AND e.status=:status ";
+		String expectedQuery = "SELECT e FROM PersonPaper e WHERE ( e.person = :person OR e.paperType = :paperType OR e.honorsType = :honorsType OR e.docDate = :docDate OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docIssued = :docIssued OR e.docPin = :docPin OR e.mark = :mark OR e.isChecked = :isChecked OR e.isForeign = :isForeign ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);

@@ -6,10 +6,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
+import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.role.UserRole;
 
@@ -39,11 +43,25 @@ public class User extends Model implements Serializable {
     private Date endDate;
 
     @OneToMany(mappedBy = "user")
-    private List<UserGroup> groups;
+    private List<UserGroup> userGroups;
     
     @OneToMany(mappedBy = "role")
-    private List<UserRole> roles;
+    private List<UserRole> userRoles;
     
+    @ManyToMany
+    @JoinTable(name = "q_op_usergroup",
+		joinColumns = { @JoinColumn(name = "user_id") },
+		inverseJoinColumns = { @JoinColumn(name = "group_id") })
+    private List<Group> groups;
+    
+	public List<Group> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(final List<Group> groups) {
+		this.groups = groups;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -52,20 +70,20 @@ public class User extends Model implements Serializable {
 		this.title = title;
 	}
 
-	public List<UserGroup> getGroups() {
-		return groups;
+	public List<UserGroup> getUserGroups() {
+		return userGroups;
 	}
 
-	public void setGroups(final List<UserGroup> groups) {
-		this.groups = groups;
+	public void setUserGroups(final List<UserGroup> groups) {
+		this.userGroups = groups;
 	}
 
-	public List<UserRole> getRoles() {
-		return roles;
+	public List<UserRole> getUserRoles() {
+		return userRoles;
 	}
 
-	public void setRoles(final List<UserRole> roles) {
-		this.roles = roles;
+	public void setUserRoles(final List<UserRole> roles) {
+		this.userRoles = roles;
 	}
 
 	public Date getBegDate() {

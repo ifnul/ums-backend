@@ -5,15 +5,19 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.partner.Partner;
+import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -22,10 +26,29 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class PartnerParametersExtractorTest {
 
 	@Mock
+	private SessionService sessionService;
+	
+	@Mock
 	private Dao<Partner, Long> partnerDao;
 	
 	@InjectMocks
 	private PartnerParametersExtractor unit;
+
+	private Boolean active = true;
+	private Boolean security = true;
+
+	private String group1 = "developers";
+	private String group2 = "students";
+	
+	private List<String> groups = Arrays.asList(group1, group2);
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+		
+		when(sessionService.getGroups()).thenReturn(groups);
+	}
 	
 	@Test
 	public void testGetParameters() throws Exception {
@@ -62,6 +85,8 @@ public class PartnerParametersExtractorTest {
 		expected.put("phone", phone);
 		expected.put("parent", parent);
 		expected.put("status", RowStatus.ACTIVE);
+		expected.put("userGroups", groups);
+		
 		// When
 		when(partnerDao.getEntityById(anyLong())).thenReturn(parent);
 		Map<String, Object> actual = unit.getParameters(entity);
@@ -77,6 +102,8 @@ public class PartnerParametersExtractorTest {
 		Partner entity = new Partner();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
+		expected.put("userGroups", groups);
+		
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 

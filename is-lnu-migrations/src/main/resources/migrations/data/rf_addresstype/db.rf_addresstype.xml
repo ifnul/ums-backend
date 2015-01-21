@@ -15,7 +15,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -30,7 +30,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>

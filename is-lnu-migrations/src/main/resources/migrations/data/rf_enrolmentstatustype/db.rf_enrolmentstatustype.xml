@@ -10,13 +10,13 @@
             <column name="name">Нова заява</column>
             <column name="description">заяву (електронну або паперову) прийнято до розгляду у ВНЗ, заведено особову справу вступника з персональним номером та розпочато процес щодо прийняття рішення про допуск вступника до участі у конкурсному відборі</column>
             <column name="uid">1</column>
-            <column name="utid">created</column>
+            <column name="utid">publicd</column>
             <column name="uapp">edbo/PersonRequestStatusTypesGet</column>
             <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -32,7 +32,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -48,7 +48,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -64,7 +64,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -80,7 +80,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -96,7 +96,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -112,7 +112,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -128,7 +128,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -144,7 +144,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -160,7 +160,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -176,7 +176,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -192,7 +192,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>
@@ -208,7 +208,7 @@
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
-            <column name="crtusergroup">create</column>
+            <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
         </insert>

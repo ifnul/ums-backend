@@ -2,6 +2,7 @@ package org.lnu.is.dao.builder.person.name;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
@@ -11,12 +12,22 @@ public class PersonNameQueryBuilderTest {
 
 	private PersonNameQueryBuilder unit = new PersonNameQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+	
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		PersonName context = new PersonName();
 
-		String expected = "SELECT e FROM PersonName e WHERE e.status=:status ";
+		String expected = "SELECT e FROM PersonName e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actual = unit.build(context);
@@ -43,7 +54,7 @@ public class PersonNameQueryBuilderTest {
 		context.setFatherName(fatherName);
 		context.setSurname(surname);
 		
-		String expected = "SELECT e FROM PersonName e WHERE ( e.person = :person OR .language = :languageOR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:name,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') ) AND e.status=:status ";
+		String expected = "SELECT e FROM PersonName e WHERE ( e.person = :person OR .language = :languageOR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:name,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actual = unit.build(context);

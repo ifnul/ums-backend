@@ -2,6 +2,7 @@ package org.lnu.is.dao.builder.person.award;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonAward;
@@ -11,12 +12,21 @@ public class PersonAwardQueryBuilderTest {
 
 	private PersonAwardQueryBuilder unit = new PersonAwardQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		PersonAward context = new PersonAward();
 		
-		String expectedQuery = "SELECT e FROM PersonAward e WHERE e.status=:status ";
+		String expectedQuery = "SELECT e FROM PersonAward e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -34,7 +44,7 @@ public class PersonAwardQueryBuilderTest {
 		context.setPerson(person);
 		context.setPersonPaper(personPaper);
 
-		String expectedQuery = "SELECT e FROM PersonAward e WHERE ( e.person = :person OR e.person = :person ) AND e.status=:status ";
+		String expectedQuery = "SELECT e FROM PersonAward e WHERE ( e.person = :person OR e.person = :person ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -42,4 +52,5 @@ public class PersonAwardQueryBuilderTest {
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}
+	
 }

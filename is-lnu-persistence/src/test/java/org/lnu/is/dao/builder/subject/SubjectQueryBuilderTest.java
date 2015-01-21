@@ -2,6 +2,7 @@ package org.lnu.is.dao.builder.subject;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.subject.Subject;
 import org.lnu.is.domain.subject.SubjectType;
@@ -10,12 +11,22 @@ public class SubjectQueryBuilderTest {
 
 	private SubjectQueryBuilder unit = new SubjectQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+	
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		Subject context = new Subject();
 		
-		String expectedQuery = "SELECT e FROM Subject e WHERE e.status=:status ";
+		String expectedQuery = "SELECT e FROM Subject e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -35,7 +46,7 @@ public class SubjectQueryBuilderTest {
 		context.setName(name);
 		context.setSubjectType(subjectType);
 
-		String expectedQuery = "SELECT e FROM Subject e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.subjectType = :subjectType ) AND e.status=:status ";
+		String expectedQuery = "SELECT e FROM Subject e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.subjectType = :subjectType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 
 		// When
 		String actualQuery = unit.build(context);

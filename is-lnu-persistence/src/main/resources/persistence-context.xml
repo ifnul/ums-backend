@@ -11,6 +11,14 @@
     <context:component-scan base-package="org.lnu.is.dao" />
 	<import resource="dao-context.xml"/>
 
+	<bean id="activeFiltering" class="java.lang.Boolean">
+    	<constructor-arg value="${active.filtering}"/>
+	</bean>
+
+	<bean id="securityFiltering" class="java.lang.Boolean">
+    	<constructor-arg value="${security.filtering}"/>
+	</bean>
+
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

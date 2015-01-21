@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.department.Department;
@@ -18,12 +19,22 @@ public class OrderQueryBuilderTest {
 
 	private OrderQueryBuilder unit = new OrderQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+	
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		Order context = new Order();
 
-		String expected = "SELECT e FROM Order e WHERE e.status=:status ";
+		String expected = "SELECT e FROM Order e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		// When
 		String actual = unit.build(context);
 
@@ -65,7 +76,7 @@ public class OrderQueryBuilderTest {
 		context.setDocIssued(docIssued);
 		context.setEvDate(evDate);
 		
-		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ) AND e.status=:status ";
+		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		// When
 		String actual = unit.build(context);
 		

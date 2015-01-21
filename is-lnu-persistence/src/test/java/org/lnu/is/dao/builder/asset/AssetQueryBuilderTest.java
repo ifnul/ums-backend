@@ -2,6 +2,7 @@ package org.lnu.is.dao.builder.asset;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.asset.AssetState;
@@ -16,12 +17,22 @@ public class AssetQueryBuilderTest {
 
 	private AssetQueryBuilder unit = new AssetQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+	
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		Asset context = new Asset();
 
-		String expectedSql = "SELECT e FROM Asset e WHERE e.status=:status ";
+		String expectedSql = "SELECT e FROM Asset e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualSql = unit.build(context);
@@ -50,7 +61,7 @@ public class AssetQueryBuilderTest {
 		context.setPartner(partner);
 		context.setOrder(order);
 		
-		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) AND e.status=:status ";
+		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualSql = unit.build(context);

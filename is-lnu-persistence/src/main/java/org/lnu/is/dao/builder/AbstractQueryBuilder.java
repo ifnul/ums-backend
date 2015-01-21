@@ -1,5 +1,7 @@
 package org.lnu.is.dao.builder;
 
+import javax.annotation.Resource;
+
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
 
@@ -20,6 +22,13 @@ import org.lnu.is.domain.common.RowStatus;
 public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuilder<E> {
 
 	private static final String STATUS_CONDITION = "e.status=:status ";
+	private static final String GROUP_CONDITION = "e.crtUserGroup IN (:userGroups) ";
+
+	@Resource(name = "activeFiltering")
+	private Boolean active;
+	
+	@Resource(name = "securityFiltering")
+	private Boolean security;
 	
 	/**
 	 * Method for getting base query.
@@ -38,12 +47,25 @@ public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuil
 
 	@Override
 	public String build(final E context) {
-		BaseQueryBuilder builder = BaseQueryBuilder.getInstance(getBaseQuery());
+		BaseQueryBuilder builder = build(context, BaseQueryBuilder.getInstance(getBaseQuery()));
 		
-		BaseQueryBuilder finalBuilder = build(context, builder)
-				.addAndCondition(STATUS_CONDITION, RowStatus.ACTIVE);
+		if (active) {
+			builder.addAndCondition(STATUS_CONDITION, RowStatus.ACTIVE);
+		}
 		
-		return finalBuilder.build();
+		if (security) {
+			builder.addAndCondition(GROUP_CONDITION);
+		}
+		
+		return builder.build();
+	}
+
+	public void setActive(final Boolean active) {
+		this.active = active;
+	}
+
+	public void setSecurity(final Boolean security) {
+		this.security = security;
 	}
 	
 }

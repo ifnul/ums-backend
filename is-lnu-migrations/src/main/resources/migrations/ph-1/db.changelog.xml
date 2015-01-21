@@ -5318,9 +5318,6 @@
     		<column name="title" type="varchar(200)" remarks="Initials(Fist name, Surname)" >
     			<constraints nullable="false"/>
     		</column>
-    		<column name="role" type="varchar(200)" remarks="Contant role of the user" >
-    			<constraints nullable="false"/>
-    		</column>
     		
     		<column name="begdate" type="timestamp" remarks="Start access date" />
     		<column name="enddate" type="timestamp" remarks="End of access date" />
@@ -5500,10 +5497,6 @@
     		
     	</createTable>
     	
-	</changeSet>
-	
-	<changeSet id="drop role column in q_op_user" author="ivanursul">
-		<dropColumn tableName="q_op_user" columnName="role"/>
 	</changeSet>
 	
 </databaseChangeLog>

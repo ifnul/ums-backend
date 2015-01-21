@@ -12,10 +12,10 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.dao.dao.user.UserDao;
 import org.lnu.is.domain.role.Role;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.role.UserRole;
-import org.lnu.is.service.user.UserService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -29,7 +29,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 public class DefaultAuthenticationProviderTest {
 
 	@Mock
-    private UserService userService;
+    private UserDao userDao;
     
 	@Mock
 	private Authentication authentication;
@@ -65,7 +65,7 @@ public class DefaultAuthenticationProviderTest {
 		User user = new User();
 		user.setLogin(login);
 		user.setPassword(password);
-		user.setRoles(roles);
+		user.setUserRoles(roles);
 		
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(roleCode1));
@@ -77,11 +77,11 @@ public class DefaultAuthenticationProviderTest {
 		when(authentication.getName()).thenReturn(login);
 		when(authentication.getCredentials()).thenReturn(password);
 		
-		when(userService.getUserByLogin(anyString())).thenReturn(user);
+		when(userDao.getUserByLogin(anyString())).thenReturn(user);
 		Authentication actual = unit.authenticate(authentication);
 
 		// Then
-		verify(userService).getUserByLogin(login);
+		verify(userDao).getUserByLogin(login);
 		verify(authentication).getName();
 		verify(authentication).getCredentials();
 		assertEquals(expected, actual);
@@ -100,7 +100,7 @@ public class DefaultAuthenticationProviderTest {
 		when(authentication.getName()).thenReturn(login);
 		when(authentication.getCredentials()).thenReturn(credentials);
 		
-		when(userService.getUserByLogin(anyString())).thenThrow(new BadCredentialsException(""));
+		when(userDao.getUserByLogin(anyString())).thenThrow(new BadCredentialsException(""));
 		unit.authenticate(authentication);
 	}
 }

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
@@ -14,14 +15,24 @@ import org.lnu.is.domain.specoffer.SpecOffer;
 
 public class EnrolmentQueryBuilderTest {
 
-private EnrolmentQueryBuilder unit = new EnrolmentQueryBuilder();
+	private EnrolmentQueryBuilder unit = new EnrolmentQueryBuilder();
 	
+	private Boolean active = true;
+	private Boolean security = true;
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
+	
+
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		Enrolment context = new Enrolment();
 
-		String expectedQuery = "SELECT e FROM Enrolment e WHERE e.status=:status ";
+		String expectedQuery = "SELECT e FROM Enrolment e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -69,7 +80,7 @@ private EnrolmentQueryBuilder unit = new EnrolmentQueryBuilder();
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 
-		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person OR e.specOffer LIKE CONCAT('%',:specOffer,'%') OR e.department = :department OR e.personPaper = :personPaper OR e.enrolmentType = :enrolmentType OR e.parent = :parent OR e.mark LIKE CONCAT('%',:mark,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docText LIKE CONCAT('%',:docText,'%') OR e.isState LIKE CONCAT('%',:isState,'%') OR e.isContract LIKE CONCAT('%',:isContract,'%') OR e.isPrivelege LIKE CONCAT('%',:isPrivelege,'%') OR e.isHostel LIKE CONCAT('%',:isHostel,'%') OR e.evDate = :evDate OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status ";
+		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person OR e.specOffer LIKE CONCAT('%',:specOffer,'%') OR e.department = :department OR e.personPaper = :personPaper OR e.enrolmentType = :enrolmentType OR e.parent = :parent OR e.mark LIKE CONCAT('%',:mark,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docText LIKE CONCAT('%',:docText,'%') OR e.isState LIKE CONCAT('%',:isState,'%') OR e.isContract LIKE CONCAT('%',:isContract,'%') OR e.isPrivelege LIKE CONCAT('%',:isPrivelege,'%') OR e.isHostel LIKE CONCAT('%',:isHostel,'%') OR e.evDate = :evDate OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);

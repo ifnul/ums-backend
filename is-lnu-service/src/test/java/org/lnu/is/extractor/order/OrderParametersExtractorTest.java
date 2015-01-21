@@ -5,10 +5,13 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
@@ -20,6 +23,7 @@ import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.order.OrderType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
+import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -27,6 +31,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class OrderParametersExtractorTest {
 
+	@Mock
+	private SessionService sessionService;
+	
 	@Mock
 	private Dao<OrderType, Long> orderTypeDao;
 	
@@ -50,6 +57,22 @@ public class OrderParametersExtractorTest {
 	
 	@InjectMocks
 	private OrderParametersExtractor unit;
+
+	private Boolean active = true;
+	private Boolean security = true;
+
+	private String group1 = "developers";
+	private String group2 = "students";
+	
+	private List<String> groups = Arrays.asList(group1, group2);
+	
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+		
+		when(sessionService.getGroups()).thenReturn(groups);
+	}
 	
 	@Test
 	public void testGetParameters() throws Exception {
@@ -120,6 +143,8 @@ public class OrderParametersExtractorTest {
 		expected.put("docIssued", docIssued);
 		expected.put("evDate", evDate);
 		expected.put("status", RowStatus.ACTIVE);
+		expected.put("userGroups", groups);
+		
 		// When
 		when(orderTypeDao.getEntityById(anyLong())).thenReturn(orderType);
 		when(employeeDao.getEntityById(anyLong())).thenReturn(employee);
@@ -148,6 +173,8 @@ public class OrderParametersExtractorTest {
 		Order entity = new Order();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
+		expected.put("userGroups", groups);
+		
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
