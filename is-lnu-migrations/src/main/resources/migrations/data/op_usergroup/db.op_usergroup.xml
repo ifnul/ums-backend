@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="add q_op_usergroup data" author="ivanursul">
+        <insert tableName="q_op_usergroup">
+        	<column name="user_id">1</column>
+			<column name="group_id">1</column>
+			<column name="major">true</column>
+			<column name="title">admin->developers</column>
+			<column name="description">Relation between admin and developers group</column>
+			
+            <column name="id">1</column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="crtuser">ivanursul</column>
+            <column name="crtusergroup">developers</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
