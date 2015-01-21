@@ -18,7 +18,6 @@ public class HonorTypeQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -33,6 +32,55 @@ public class HonorTypeQueryBuilderTest {
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}
+	
+	@Test
+	public void testBuildWithSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		HonorType context = new HonorType();
+		
+		String expectedQuery = "SELECT e FROM HonorType e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		HonorType context = new HonorType();
+		
+		String expectedQuery = "SELECT e FROM HonorType e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		HonorType context = new HonorType();
+		
+		String expectedQuery = "SELECT e FROM HonorType e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
 	@Test
 	public void testBuildWithParameters() throws Exception {
@@ -44,6 +92,27 @@ public class HonorTypeQueryBuilderTest {
 		context.setName(name);
 		
 		String expectedQuery = "SELECT e FROM HonorType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String name = "fsdfds";
+		String abbrName = "abbrname";
+		HonorType context = new HonorType();
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM HonorType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
 		
 		// When
 		String actualQuery = unit.build(context);

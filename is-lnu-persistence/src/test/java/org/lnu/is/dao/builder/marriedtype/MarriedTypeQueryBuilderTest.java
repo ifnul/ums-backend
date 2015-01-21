@@ -18,7 +18,6 @@ public class MarriedTypeQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -26,6 +25,55 @@ public class MarriedTypeQueryBuilderTest {
 		MarriedType context = new MarriedType();
 		
 		String expectedQuery = "SELECT e FROM MarriedType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityCOnstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		MarriedType context = new MarriedType();
+		
+		String expectedQuery = "SELECT e FROM MarriedType e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusCOnstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		MarriedType context = new MarriedType();
+		
+		String expectedQuery = "SELECT e FROM MarriedType e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDEfaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		MarriedType context = new MarriedType();
+		
+		String expectedQuery = "SELECT e FROM MarriedType e ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -49,6 +97,28 @@ public class MarriedTypeQueryBuilderTest {
 		// When
 		String actualQuery = unit.build(context);
 
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String abbrName = "Diablo";
+		String name = "fsdfdsfds";
+		
+		MarriedType context = new MarriedType();
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM MarriedType e WHERE ( m.name LIKE CONCAT('%',:name,'%') OR m.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}

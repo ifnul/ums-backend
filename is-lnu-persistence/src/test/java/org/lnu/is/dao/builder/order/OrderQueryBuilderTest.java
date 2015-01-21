@@ -27,7 +27,6 @@ public class OrderQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -38,6 +37,51 @@ public class OrderQueryBuilderTest {
 		// When
 		String actual = unit.build(context);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityCOnstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		Order context = new Order();
+		
+		String expected = "SELECT e FROM Order e WHERE e.status=:status ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		Order context = new Order();
+		
+		String expected = "SELECT e FROM Order e WHERE e.crtUserGroup IN (:userGroups) ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Order context = new Order();
+		
+		String expected = "SELECT e FROM Order e ";
+		// When
+		String actual = unit.build(context);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
@@ -77,6 +121,51 @@ public class OrderQueryBuilderTest {
 		context.setEvDate(evDate);
 		
 		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		OrderType orderType = new OrderType();
+		Employee employee = new Employee();
+		Asset asset = new Asset();
+		Partner partner = new Partner();
+		OperationType opType = new OperationType();
+		Department department = new Department();
+		Reason reason = new Reason();
+		Order parent = new Order();
+		String reasonText = "fsdfsd";
+		String docSeries = "fdsfds";
+		String docNum = "fsdfds";
+		Date docDate = new Date();
+		String docIssued = "fdfds";
+		Date evDate = new Date();
+		
+		Order context = new Order();
+		context.setOrderType(orderType);
+		context.setEmployee(employee);
+		context.setAsset(asset);
+		context.setPartner(partner);
+		context.setOpType(opType);
+		context.setDepartment(department);
+		context.setReason(reason);
+		context.setParent(parent);
+		context.setReasonText(reasonText);
+		context.setDocSeries(docSeries);
+		context.setDocNum(docNum);
+		context.setDocDate(docDate);
+		context.setDocIssued(docIssued);
+		context.setEvDate(evDate);
+		
+		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ) ";
 		// When
 		String actual = unit.build(context);
 		
