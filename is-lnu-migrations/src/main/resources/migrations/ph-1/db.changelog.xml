@@ -5502,4 +5502,8 @@
     	
 	</changeSet>
 	
+	<changeSet id="drop role column in q_op_user" author="ivanursul">
+		<dropColumn tableName="q_op_user" columnName="role"/>
+	</changeSet>
+	
 </databaseChangeLog>

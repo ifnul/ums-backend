@@ -20,7 +20,7 @@ public class Role extends Model {
     private String title;
 
     @Column(name = "description")
-    private String password;
+    private String description;
 
 	public String getTitle() {
 		return title;
@@ -30,12 +30,12 @@ public class Role extends Model {
 		this.title = title;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setPassword(final String password) {
-		this.password = password;
+	public void setDescription(final String description) {
+		this.description = description;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class Role extends Model {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result
-				+ ((password == null) ? 0 : password.hashCode());
+				+ ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
@@ -60,11 +60,11 @@ public class Role extends Model {
 			return false;
 		}
 		Role other = (Role) obj;
-		if (password == null) {
-			if (other.password != null) {
+		if (description == null) {
+			if (other.description != null) {
 				return false;
 			}
-		} else if (!password.equals(other.password)) {
+		} else if (!description.equals(other.description)) {
 			return false;
 		}
 		if (title == null) {
@@ -79,7 +79,7 @@ public class Role extends Model {
 
 	@Override
 	public String toString() {
-		return "Role [title=" + title + ", password=" + password + "]";
+		return "Role [title=" + title + ", password=" + description + "]";
 	}
 	
 }

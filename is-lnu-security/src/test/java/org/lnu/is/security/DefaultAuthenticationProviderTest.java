@@ -6,12 +6,15 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.role.Role;
 import org.lnu.is.domain.user.User;
-import org.lnu.is.domain.user.UserRole;
+import org.lnu.is.domain.user.role.UserRole;
 import org.lnu.is.service.user.UserService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -51,14 +54,21 @@ public class DefaultAuthenticationProviderTest {
 		// Given
 		String login = "login";
 		String password = "password";
+		String roleCode1 = "ROLE_ADMIN";
+		
+		Role role = new Role();
+		role.setTitle(roleCode1);
+		UserRole userRole1 = new UserRole();
+		userRole1.setRole(role);
+		List<UserRole> roles = Arrays.asList(userRole1);
+
 		User user = new User();
 		user.setLogin(login);
 		user.setPassword(password);
-		user.setRole(UserRole.ADMIN);
+		user.setRoles(roles);
 		
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(user.getRole().getSecurityCode()));
-
+        authorities.add(new SimpleGrantedAuthority(roleCode1));
 
         UsernamePasswordAuthenticationToken expected = new UsernamePasswordAuthenticationToken(login, password, authorities);
         expected.setDetails(user);

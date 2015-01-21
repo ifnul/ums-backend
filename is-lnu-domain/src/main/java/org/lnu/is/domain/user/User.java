@@ -2,14 +2,16 @@ package org.lnu.is.domain.user;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
+import org.lnu.is.domain.user.group.UserGroup;
+import org.lnu.is.domain.user.role.UserRole;
 
 /**
  * User entity.
@@ -30,15 +32,41 @@ public class User extends Model implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
-    
     @Column(name = "begdate")
     private Date begDate;
     
     @Column(name = "enddate")
     private Date endDate;
+
+    @OneToMany(mappedBy = "user")
+    private List<UserGroup> groups;
+    
+    @OneToMany(mappedBy = "role")
+    private List<UserRole> roles;
+    
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(final String title) {
+		this.title = title;
+	}
+
+	public List<UserGroup> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(final List<UserGroup> groups) {
+		this.groups = groups;
+	}
+
+	public List<UserRole> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(final List<UserRole> roles) {
+		this.roles = roles;
+	}
 
 	public Date getBegDate() {
 		return begDate;
@@ -72,14 +100,6 @@ public class User extends Model implements Serializable {
         this.password = password;
     }
 
-    public UserRole getRole() {
-        return role;
-    }
-
-    public void setRole(final UserRole role) {
-        this.role = role;
-    }
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -89,7 +109,6 @@ public class User extends Model implements Serializable {
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result
 				+ ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		return result;
 	}
 
@@ -133,16 +152,12 @@ public class User extends Model implements Serializable {
 		} else if (!password.equals(other.password)) {
 			return false;
 		}
-		if (role != other.role) {
-			return false;
-		}
 		return true;
 	}
 	
 	@Override
 	public String toString() {
-		return "User [login=" + login + ", role="
-				+ role + ", begDate=" + begDate + ", endDate=" + endDate + "]";
+		return "User [login=" + login + ", begDate=" + begDate + ", endDate=" + endDate + "]";
 	}
 
 }

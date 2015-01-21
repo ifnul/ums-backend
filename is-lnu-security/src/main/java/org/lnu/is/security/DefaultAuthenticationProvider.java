@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.annotation.Resource;
 
 import org.lnu.is.domain.user.User;
+import org.lnu.is.domain.user.role.UserRole;
 import org.lnu.is.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 /**
@@ -35,6 +37,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
     }
 
     @Override
+    @Transactional
     public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
         String login = authentication.getName();
         String password = authentication.getCredentials().toString();
@@ -49,11 +52,11 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
      * @return authentification.
      */
     private Authentication getAuthentication(final String login, final String password) {
-        User principal = getUser(login, password);
-        Collection<GrantedAuthority> authorities = getAuthorities(principal);
+        User user = getUser(login, password);
+        Collection<GrantedAuthority> authorities = getAuthorities(user);
 
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(login, password, authorities);
-        token.setDetails(principal);
+        token.setDetails(user);
 
         return token;
     }
@@ -84,9 +87,13 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
      * @return collection of authorities.
      */
     private Collection<GrantedAuthority> getAuthorities(final User principal) {
-        Collection<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(principal.getRole().getSecurityCode()));
+    	Collection<GrantedAuthority> authorities = new ArrayList<>();
 
+    	for (UserRole userRole : principal.getRoles()) {
+    		GrantedAuthority authority = new SimpleGrantedAuthority(userRole.getRole().getTitle());
+    		authorities.add(authority);
+    	}
+    	
         return authorities;
     }
 }
