@@ -20,7 +20,6 @@ import org.lnu.is.domain.common.RowStatus;
  * @param <E>
  */
 public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuilder<E> {
-
 	private static final String STATUS_CONDITION = "e.status=:status ";
 	private static final String GROUP_CONDITION = "e.crtUserGroup IN (:userGroups) ";
 

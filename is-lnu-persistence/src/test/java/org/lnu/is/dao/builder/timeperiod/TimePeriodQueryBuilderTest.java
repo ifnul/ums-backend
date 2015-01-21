@@ -38,6 +38,40 @@ public class TimePeriodQueryBuilderTest {
 	}
 
 	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		TimePeriod context = new TimePeriod();
+		
+		String expectedQuery = "SELECT e FROM TimePeriod e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		TimePeriod context = new TimePeriod();
+		
+		String expectedQuery = "SELECT e FROM TimePeriod e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
 	public void testBuildWithParameters() throws Exception {
 		// Given
 		TimePeriodType timePeriodType = new TimePeriodType();
@@ -53,6 +87,30 @@ public class TimePeriodQueryBuilderTest {
 		// When
 		String actualQuery = unit.build(context);
 
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		TimePeriodType timePeriodType = new TimePeriodType();
+		Integer numValue = 2;
+		
+		TimePeriod context = new TimePeriod();
+		context.setBegDate(new Date());
+		context.setTimePeriodType(timePeriodType);
+		context.setNumValue(numValue);
+		
+		String expectedQuery = "SELECT e FROM TimePeriod e WHERE ( e.timePeriodType = :timePeriodType OR e.numValue = :numValue OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

@@ -34,6 +34,53 @@ public class TimesheetTypeQueryBuilderTest {
 	}
 
 	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		TimeSheetType context = new TimeSheetType();
+		
+		String expectedQuery = "SELECT e FROM TimeSheetType e ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		TimeSheetType context = new TimeSheetType();
+		
+		String expectedQuery = "SELECT e FROM TimeSheetType e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		TimeSheetType context = new TimeSheetType();
+		
+		String expectedQuery = "SELECT e FROM TimeSheetType e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
 	public void testBuildWithParameters() throws Exception {
 		// Given
 		String abbrName = "TestString";
@@ -47,6 +94,27 @@ public class TimesheetTypeQueryBuilderTest {
 		// When
 		String actualQuery = unit.build(context);
 
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+
+	@Test
+	public void testBuildWithParametersAndWithourDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String abbrName = "TestString";
+		String name = "fsdds";
+		
+		TimeSheetType context = new TimeSheetType();
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM TimeSheetType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		// When
+		String actualQuery = unit.build(context);
+		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}
