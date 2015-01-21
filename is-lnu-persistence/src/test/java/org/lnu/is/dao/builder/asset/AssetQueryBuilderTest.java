@@ -40,6 +40,55 @@ public class AssetQueryBuilderTest {
 		// Then
 		assertEquals(expectedSql, actualSql);
 	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		Asset context = new Asset();
+		
+		String expectedSql = "SELECT e FROM Asset e WHERE e.status=:status ";
+		
+		// When
+		String actualSql = unit.build(context);
+		
+		// Then
+		assertEquals(expectedSql, actualSql);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConsraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		Asset context = new Asset();
+		
+		String expectedSql = "SELECT e FROM Asset e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualSql = unit.build(context);
+		
+		// Then
+		assertEquals(expectedSql, actualSql);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Asset context = new Asset();
+		
+		String expectedSql = "SELECT e FROM Asset e ";
+		
+		// When
+		String actualSql = unit.build(context);
+		
+		// Then
+		assertEquals(expectedSql, actualSql);
+	}
 
 	@Test
 	public void testBuildWithParameters() throws Exception {
@@ -52,6 +101,38 @@ public class AssetQueryBuilderTest {
 		Partner partner = new Partner();
 		Order order = new Order();
 
+		Asset context = new Asset();
+		context.setAssetType(assetType);
+		context.setAssetState(assetState);
+		context.setAssetStatus(assetStatus);
+		context.setDepartment(department);
+		context.setEmployee(employee);
+		context.setPartner(partner);
+		context.setOrder(order);
+		
+		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualSql = unit.build(context);
+		
+		// Then
+		assertEquals(expectedSql, actualSql);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		AssetType assetType = new AssetType();
+		AssetState assetState = new AssetState();
+		AssetStatus assetStatus = new AssetStatus();
+		Department department = new Department();
+		Employee employee = new Employee();
+		Partner partner = new Partner();
+		Order order = new Order();
+		
 		Asset context = new Asset();
 		context.setAssetType(assetType);
 		context.setAssetState(assetState);
