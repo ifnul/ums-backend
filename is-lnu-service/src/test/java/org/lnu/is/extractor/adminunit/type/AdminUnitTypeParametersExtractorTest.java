@@ -67,6 +67,78 @@ public class AdminUnitTypeParametersExtractorTest {
 	}
 
 	@Test
+	public void testGetParametersWithoutDefaultParameters() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String name = "AdminUnitN";
+		String abbrName = "AN";
+		
+		AdminUnitType entity = new AdminUnitType();
+		entity.setName(name);
+		entity.setAbbrName(abbrName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("abbrName", abbrName);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithoutStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		String name = "AdminUnitN";
+		String abbrName = "AN";
+		
+		AdminUnitType entity = new AdminUnitType();
+		entity.setName(name);
+		entity.setAbbrName(abbrName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("abbrName", abbrName);
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testGetParametersWithoutSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		String name = "AdminUnitN";
+		String abbrName = "AN";
+		
+		AdminUnitType entity = new AdminUnitType();
+		entity.setName(name);
+		entity.setAbbrName(abbrName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("abbrName", abbrName);
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		AdminUnitType entity = new AdminUnitType();
