@@ -25,7 +25,6 @@ public class SpecOfferQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -63,6 +62,46 @@ public class SpecOfferQueryBuilderTest {
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Specialty specialty = new Specialty();
+		TimePeriod timePeriod = new TimePeriod();
+		SpecOffer parent = new SpecOffer();
+		SpecOfferType specOfferType = new SpecOfferType();
+		EduFormType eduFormType = new EduFormType();
+		Department department = new Department();
+		String docSeries = "docSeries";
+		String docNum = "docNum";
+		Integer licCount = 2;
+		Integer stateCount = 45;
+		
+		SpecOffer context = new SpecOffer();
+		context.setBegDate(new Date());
+		context.setEndDate(new Date());
+		context.setDepartment(department);
+		context.setDocNum(docNum);
+		context.setDocSeries(docSeries);
+		context.setEduFormType(eduFormType);
+		context.setLicCount(licCount);
+		context.setParent(parent);
+		context.setSpecialty(specialty);
+		context.setSpecOfferType(specOfferType);
+		context.setStateCount(stateCount);
+		context.setTimePeriod(timePeriod);
+		
+		String expectedQuery = "SELECT e FROM SpecOffer e WHERE ( e.parent = :parent OR e.specialty = :specialty OR e.department = :department OR e.timePeriod = :timePeriod OR e.eduFormType = :eduFormType OR e.specOfferType :specOfferType OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.licCount = :licCount OR e.stateCount = :stateCount OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
 	@Test
 	public void testBuildWithOneParameter() throws Exception {
@@ -86,6 +125,50 @@ public class SpecOfferQueryBuilderTest {
 		// Given
 		SpecOffer context = new SpecOffer();
 		String expectedQuery = "SELECT e FROM SpecOffer e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithExmptyParametersAndDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		SpecOffer context = new SpecOffer();
+		String expectedQuery = "SELECT e FROM SpecOffer e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithExmptyParametersAndDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		SpecOffer context = new SpecOffer();
+		String expectedQuery = "SELECT e FROM SpecOffer e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithExmptyParametersAndDisabledDefaultConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		SpecOffer context = new SpecOffer();
+		String expectedQuery = "SELECT e FROM SpecOffer e ";
 		
 		// When
 		String actualQuery = unit.build(context);
