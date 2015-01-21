@@ -1,4 +1,4 @@
-package org.lnu.is.domain.usergroup;
+package org.lnu.is.domain.user.group;
 
 import java.io.Serializable;
 

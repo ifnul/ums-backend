@@ -1,4 +1,4 @@
-package org.lnu.is.domain.userrole;
+package org.lnu.is.domain.user.role;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ import org.lnu.is.domain.user.User;
  *
  */
 @Entity
-@Table(name = "q_op_usergroup")
+@Table(name = "q_op_userrole")
 public class UserRole extends Model {
 	private static final long serialVersionUID = 1L;
 
