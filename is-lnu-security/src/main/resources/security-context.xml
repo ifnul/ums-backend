@@ -12,6 +12,8 @@
 
 	<security:http use-expressions="true" entry-point-ref="restAuthenticationEntryPoint">
 		<security:http-basic />
+		
+		<security:intercept-url pattern="/api/api-docs/**" access="permitAll" />
 		<security:intercept-url pattern="/**" access="isAuthenticated()" />
 		<security:form-login 
 			authentication-success-handler-ref="customSuccessHandler"
