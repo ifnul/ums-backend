@@ -20,7 +20,7 @@ import org.lnu.is.domain.common.RowStatus;
 public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuilder<E> {
 
 	private static final String STATUS_CONDITION = "e.status=:status ";
-
+	
 	/**
 	 * Method for getting base query.
 	 * @return base query.
