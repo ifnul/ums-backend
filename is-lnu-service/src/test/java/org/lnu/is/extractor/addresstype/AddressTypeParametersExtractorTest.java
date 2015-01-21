@@ -113,6 +113,30 @@ public class AddressTypeParametersExtractorTest {
 	}
 
 	@Test
+	public void testGetParametersWithDisabledDefaultFlags() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		unit.setActive(false);
+		
+		String name = "AddressN";
+		String abbrName = "AN";
+		
+		AddressType entity = new AddressType();
+		entity.setName(name);
+		entity.setAbbrName(abbrName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("abbrName", abbrName);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		AddressType entity = new AddressType();
