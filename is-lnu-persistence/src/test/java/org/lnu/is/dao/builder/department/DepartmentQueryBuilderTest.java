@@ -22,7 +22,6 @@ public class DepartmentQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -30,6 +29,55 @@ public class DepartmentQueryBuilderTest {
 		Department context = new Department();
 
 		String expectedQuery = "SELECT e FROM Department e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		Department context = new Department();
+		
+		String expectedQuery = "SELECT e FROM Department e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		Department context = new Department();
+		
+		String expectedQuery = "SELECT e FROM Department e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Department context = new Department();
+		
+		String expectedQuery = "SELECT e FROM Department e ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -66,6 +114,45 @@ public class DepartmentQueryBuilderTest {
 		context.setEndDate(endDate);
 		
 		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent OR e.departmentType = :departmentType OR e.order = :order OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDIsabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Department parent = new Department();
+		DepartmentType departmentType = new DepartmentType();
+		Order order = new Order();
+		String name = "name";
+		String abbrName = "abbr name";
+		String manager = "manager";
+		String phone = "pohne";
+		String email = "emaul";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		
+		Department context = new Department();
+		context.setName(name);
+		context.setParent(parent);
+		context.setDepartmentType(departmentType);
+		context.setOrder(order);
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		context.setManager(manager);
+		context.setPhone(phone);
+		context.setEmail(email);
+		context.setBegDate(begDate);
+		context.setEndDate(endDate);
+		
+		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent OR e.departmentType = :departmentType OR e.order = :order OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
 		
 		// When
 		String actualQuery = unit.build(context);

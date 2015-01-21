@@ -18,7 +18,6 @@ public class BenefitTypeQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testConvert() throws Exception {
@@ -30,6 +29,54 @@ public class BenefitTypeQueryBuilderTest {
 		// When
 		String actual = unit.build(context);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		BenefitType context = new BenefitType();
+		
+		String expected = "SELECT e FROM BenefitType e WHERE e.status=:status ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		BenefitType context = new BenefitType();
+		
+		String expected = "SELECT e FROM BenefitType e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertWithDisabledDefaultConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		BenefitType context = new BenefitType();
+		
+		String expected = "SELECT e FROM BenefitType e ";
+		
+		// When
+		String actual = unit.build(context);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
@@ -45,6 +92,28 @@ public class BenefitTypeQueryBuilderTest {
 		context.setPriority(priority);
 		
 		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.priority =:priority ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertWithParametersAndDisabledDeefaultConstaints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String name = "name";
+		Integer priority = 2;
+		
+		BenefitType context = new BenefitType();
+		context.setName(name);
+		context.setPriority(priority);
+		
+		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.priority =:priority ) ";
 		
 		// When
 		String actual = unit.build(context);

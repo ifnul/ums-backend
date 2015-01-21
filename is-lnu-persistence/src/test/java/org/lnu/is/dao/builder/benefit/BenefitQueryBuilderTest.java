@@ -21,7 +21,6 @@ public class BenefitQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -33,6 +32,55 @@ public class BenefitQueryBuilderTest {
 		// When
 		String actual = unit.build(context);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityCOnstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		Benefit context = new Benefit();
+		
+		String expected = "SELECT e FROM Benefit e WHERE e.status=:status ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		Benefit context = new Benefit();
+		
+		String expected = "SELECT e FROM Benefit e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDEfaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Benefit context = new Benefit();
+		
+		String expected = "SELECT e FROM Benefit e ";
+		
+		// When
+		String actual = unit.build(context);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
@@ -60,6 +108,40 @@ public class BenefitQueryBuilderTest {
 		
 		
 		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		BenefitType benefitType = new BenefitType();
+		Benefit parent = new Benefit();
+		
+		String abbrName = "fsdsfds";
+		String name = "name1";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		String description = "dsafds";
+		
+		Benefit context = new Benefit();
+		context.setBenefitType(benefitType);
+		context.setParent(parent);
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		context.setBegDate(begDate);
+		context.setEndDate(endDate);
+		context.setDescription(description);
+		
+		
+		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
 		
 		// When
 		String actual = unit.build(context);

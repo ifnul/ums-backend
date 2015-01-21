@@ -18,7 +18,6 @@ public class DepartmentTypeQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -26,6 +25,52 @@ public class DepartmentTypeQueryBuilderTest {
 		DepartmentType context = new DepartmentType();
 		
 		String expected = "SELECT e FROM DepartmentType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecuirtyConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		DepartmentType context = new DepartmentType();
+		
+		String expected = "SELECT e FROM DepartmentType e WHERE e.status=:status ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStautsConstaint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		DepartmentType context = new DepartmentType();
+		
+		String expected = "SELECT e FROM DepartmentType e WHERE e.crtUserGroup IN (:userGroups) ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstaitns() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		DepartmentType context = new DepartmentType();
+		
+		String expected = "SELECT e FROM DepartmentType e ";
 		// When
 		String actual = unit.build(context);
 		
@@ -46,6 +91,26 @@ public class DepartmentTypeQueryBuilderTest {
 		// When
 		String actual = unit.build(context);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDEfaultConstaints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String name = "name";
+		String abbrName = "abbr name";
+		DepartmentType context = new DepartmentType();
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		
+		String expected = "SELECT e FROM DepartmentType e WHERE ( d.name LIKE CONCAT('%',:name,'%') OR d.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		// When
+		String actual = unit.build(context);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

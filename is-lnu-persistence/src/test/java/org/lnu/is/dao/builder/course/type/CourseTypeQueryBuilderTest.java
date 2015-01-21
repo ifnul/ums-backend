@@ -18,7 +18,6 @@ public class CourseTypeQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -26,6 +25,52 @@ public class CourseTypeQueryBuilderTest {
 		CourseType context = new CourseType();
 		
 		String expected = "SELECT e FROM CourseType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstaint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		CourseType context = new CourseType();
+		
+		String expected = "SELECT e FROM CourseType e WHERE e.status=:status ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusCOnstsint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		CourseType context = new CourseType();
+		
+		String expected = "SELECT e FROM CourseType e WHERE e.crtUserGroup IN (:userGroups) ";
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		CourseType context = new CourseType();
+		
+		String expected = "SELECT e FROM CourseType e ";
 		// When
 		String actual = unit.build(context);
 		
@@ -46,6 +91,26 @@ public class CourseTypeQueryBuilderTest {
 		// When
 		String actual = unit.build(context);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDEfaultConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String abbrName = "abbr name";
+		String name = "name";
+		CourseType context = new CourseType();
+		context.setName(name);
+		context.setAbbrName(abbrName);
+		
+		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		// When
+		String actual = unit.build(context);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

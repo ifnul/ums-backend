@@ -18,7 +18,6 @@ public class EnrolmentTypeQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -26,6 +25,55 @@ public class EnrolmentTypeQueryBuilderTest {
 		EnrolmentType context = new EnrolmentType();
 		
 		String expectedQuery = "SELECT e FROM EnrolmentType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		EnrolmentType context = new EnrolmentType();
+		
+		String expectedQuery = "SELECT e FROM EnrolmentType e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		EnrolmentType context = new EnrolmentType();
+		
+		String expectedQuery = "SELECT e FROM EnrolmentType e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		EnrolmentType context = new EnrolmentType();
+		
+		String expectedQuery = "SELECT e FROM EnrolmentType e ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -64,6 +112,27 @@ public class EnrolmentTypeQueryBuilderTest {
 		// When
 		String actualQuery = unit.build(context);
 
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String abbrname = "fsfds";
+		String name = "name";
+		EnrolmentType context = new EnrolmentType();
+		context.setName(name);
+		context.setAbbrname(abbrname);
+		
+		String expectedQuery = "SELECT e FROM EnrolmentType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrname,'%') ) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}

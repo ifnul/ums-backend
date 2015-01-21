@@ -19,13 +19,61 @@ public class EduFormTypeQueryBuilderTest {
 		unit.setSecurity(security);
 	}
 	
-
 	@Test
 	public void testBuild() throws Exception {
 		// Given
 		EduFormType context = new EduFormType();
 		
 		String expectedQuery = "SELECT e FROM EduFormType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		EduFormType context = new EduFormType();
+		
+		String expectedQuery = "SELECT e FROM EduFormType e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusCOnstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		EduFormType context = new EduFormType();
+		
+		String expectedQuery = "SELECT e FROM EduFormType e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		EduFormType context = new EduFormType();
+		
+		String expectedQuery = "SELECT e FROM EduFormType e ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -42,6 +90,25 @@ public class EduFormTypeQueryBuilderTest {
 		context.setName(name);
 
 		String expectedQuery = "SELECT e FROM EduFormType e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String name = "name";
+		EduFormType context = new EduFormType();
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM EduFormType e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) ";
 		
 		// When
 		String actualQuery = unit.build(context);
