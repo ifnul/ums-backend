@@ -20,7 +20,6 @@ public class SpecialtyQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuildWithParameters() throws Exception {
@@ -45,6 +44,33 @@ public class SpecialtyQueryBuilderTest {
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String cipher = "fsdfsd";
+		Specialty context = new Specialty();
+		String abbrName = "fsdsd";
+		String name = "fsdsd";
+		Date endDate = new Date();
+		
+		context.setCipher(cipher);
+		context.setBegDate(new Date());
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		context.setEndDate(endDate);
+		
+		String expectedQuery = "SELECT e FROM Specialty e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.cipher LIKE CONCAT('%',:cipher,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
 	@Test
 	public void testBuild() throws Exception {
@@ -52,6 +78,55 @@ public class SpecialtyQueryBuilderTest {
 		Specialty context = new Specialty();
 
 		String expectedQuery = "SELECT e FROM Specialty e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		Specialty context = new Specialty();
+		
+		String expectedQuery = "SELECT e FROM Specialty e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		Specialty context = new Specialty();
+		
+		String expectedQuery = "SELECT e FROM Specialty e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Specialty context = new Specialty();
+		
+		String expectedQuery = "SELECT e FROM Specialty e ";
 		
 		// When
 		String actualQuery = unit.build(context);

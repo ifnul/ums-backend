@@ -19,7 +19,6 @@ public class SpecOfferTypeQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -27,6 +26,52 @@ public class SpecOfferTypeQueryBuilderTest {
 		SpecOfferType context = new SpecOfferType();
 
 		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		SpecOfferType context = new SpecOfferType();
+		
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		SpecOfferType context = new SpecOfferType();
+		
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		SpecOfferType context = new SpecOfferType();
+		
+		String expectedQuery = "SELECT e FROM SpecOfferType e ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -63,6 +108,28 @@ public class SpecOfferTypeQueryBuilderTest {
 		context.setSpecialtyType(specialType);
 		
 		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.specialtyType = :specialtyType) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildEmptyParametersWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		SpecialtyType specialType = new SpecialtyType();
+		String abbrName = "abbrName";
+		
+		SpecOfferType context = new SpecOfferType();
+		context.setAbbrName(abbrName);
+		context.setSpecialtyType(specialType);
+		
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.specialtyType = :specialtyType) ";
 		
 		// When
 		String actualQuery = unit.build(context);

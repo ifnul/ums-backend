@@ -20,7 +20,6 @@ public class SpecOfferBenefitQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -28,6 +27,54 @@ public class SpecOfferBenefitQueryBuilderTest {
 		SpecofferBenefit context = new SpecofferBenefit();
 		
 		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		SpecofferBenefit context = new SpecofferBenefit();
+		
+		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		SpecofferBenefit context = new SpecofferBenefit();
+		
+		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		SpecofferBenefit context = new SpecofferBenefit();
+		
+		String expectedQuery = "SELECT s FROM SpecofferBenefit s ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -50,6 +97,27 @@ public class SpecOfferBenefitQueryBuilderTest {
 		// When
 		String actualQuery = unit.build(context);
 
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithAllParametersWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Benefit benefit = new Benefit();
+		SpecOffer specOffer = new SpecOffer();
+		SpecofferBenefit context = new SpecofferBenefit();
+		context.setSpecOffer(specOffer);
+		context.setBenefit(benefit);
+		
+		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE ( e.specOffer = :specOffer OR e.benefit = :benefit ) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}
