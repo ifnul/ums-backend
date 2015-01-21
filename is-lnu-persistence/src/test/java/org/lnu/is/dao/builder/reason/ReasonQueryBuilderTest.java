@@ -18,7 +18,6 @@ public class ReasonQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -26,6 +25,53 @@ public class ReasonQueryBuilderTest {
 		Reason context = new Reason();
 		
 		String expectedQuery = "SELECT e FROM Reason e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		Reason context = new Reason();
+		
+		String expectedQuery = "SELECT e FROM Reason e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		Reason context = new Reason();
+		
+		String expectedQuery = "SELECT e FROM Reason e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Reason context = new Reason();
+		
+		String expectedQuery = "SELECT e FROM Reason e ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -49,6 +95,28 @@ public class ReasonQueryBuilderTest {
 		// When
 		String actualQuery = unit.build(context);
 
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String abbrName = "Diablo";
+		String name = "fdsfds";
+		
+		Reason context = new Reason();
+		context.setAbbrName(abbrName);
+		context.setName(name);
+		
+		String expectedQuery = "SELECT e FROM Reason e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}

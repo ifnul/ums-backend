@@ -20,7 +20,7 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<Person> {
 
 	private static final String FIRSTNAME_CONDITION = "e.firstName LIKE CONCAT('%',:firstName,'%') ";
 	private static final String FATHERNAME_CONDITION = "e.fatherName LIKE CONCAT('%',:fatherName,'%') ";
-	private static final String SURNAME_CONDITION = "e.surname LIKE CONCAT('%',:surname,'%') e";
+	private static final String SURNAME_CONDITION = "e.surname LIKE CONCAT('%',:surname,'%') ";
 	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
 	private static final String IDENTIFIER_CONDITION = "e.identifier LIKE CONCAT('%',:identifier,'%') ";
 	private static final String BIRTHPLACE_CONDITION = "e.birthPlace LIKE CONCAT('%',:birthPlace,'%') ";
