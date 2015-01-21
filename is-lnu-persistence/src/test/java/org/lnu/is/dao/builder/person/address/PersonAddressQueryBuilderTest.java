@@ -25,7 +25,6 @@ public class PersonAddressQueryBuilderTest {
 		unit.setSecurity(security);
 	}
 	
-
 	@Test
 	public void testBuildWithParameters() throws Exception {
 		// Given
@@ -52,6 +51,36 @@ public class PersonAddressQueryBuilderTest {
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Person person = new Person();
+		AddressType addressType = new AddressType();
+		AdminUnit adminUnit = new AdminUnit();
+		StreetType streetType = new StreetType();
+		Date begDate = new Date();
+		Date endDate = new Date();
+		
+		PersonAddress context = new PersonAddress();
+		context.setPerson(person);
+		context.setAddressType(addressType);
+		context.setAdminUnit(adminUnit);
+		context.setStreetType(streetType);
+		context.setBegDate(begDate);
+		context.setEndDate(endDate);
+		
+		String expectedQuery = "SELECT e FROM PersonAddress e WHERE ( e.person = :person OR e.addressType = :addressType OR e.adminUnit = :adminUnit OR e.streetType =:streetType OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
 	@Test
 	public void testBuild() throws Exception {
@@ -59,6 +88,54 @@ public class PersonAddressQueryBuilderTest {
 		PersonAddress context = new PersonAddress();
 		
 		String expectedQuery = "SELECT e FROM PersonAddress e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		PersonAddress context = new PersonAddress();
+		
+		String expectedQuery = "SELECT e FROM PersonAddress e WHERE e.status=:status ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		PersonAddress context = new PersonAddress();
+		
+		String expectedQuery = "SELECT e FROM PersonAddress e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actualQuery = unit.build(context);
+		
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		PersonAddress context = new PersonAddress();
+		
+		String expectedQuery = "SELECT e FROM PersonAddress e ";
 		
 		// When
 		String actualQuery = unit.build(context);

@@ -20,7 +20,6 @@ public class PersonNameQueryBuilderTest {
 		unit.setActive(active);
 		unit.setSecurity(security);
 	}
-	
 
 	@Test
 	public void testBuild() throws Exception {
@@ -32,6 +31,55 @@ public class PersonNameQueryBuilderTest {
 		// When
 		String actual = unit.build(context);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		PersonName context = new PersonName();
+		
+		String expected = "SELECT e FROM PersonName e WHERE e.status=:status ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		PersonName context = new PersonName();
+		
+		String expected = "SELECT e FROM PersonName e WHERE e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		PersonName context = new PersonName();
+		
+		String expected = "SELECT e FROM PersonName e ";
+		
+		// When
+		String actual = unit.build(context);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
@@ -55,6 +103,36 @@ public class PersonNameQueryBuilderTest {
 		context.setSurname(surname);
 		
 		String expected = "SELECT e FROM PersonName e WHERE ( e.person = :person OR .language = :languageOR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:name,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		// When
+		String actual = unit.build(context);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithParametersAndDisabledDefaultConstraints() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Person person = new Person();
+		Language language = new Language();
+		String name = "fdsfds";
+		String firstName = "fdsfds";
+		String fatherName = "rewrtewt";
+		String surname = "cvdfgfdh";
+		
+		PersonName context = new PersonName();
+		context.setPerson(person);
+		context.setLanguage(language);
+		context.setName(name);
+		context.setFirstName(firstName);
+		context.setFatherName(fatherName);
+		context.setSurname(surname);
+		
+		String expected = "SELECT e FROM PersonName e WHERE ( e.person = :person OR .language = :languageOR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:name,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') ) ";
 		
 		// When
 		String actual = unit.build(context);
