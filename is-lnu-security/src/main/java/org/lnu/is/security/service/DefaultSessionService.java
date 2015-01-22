@@ -8,6 +8,7 @@ import java.util.List;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
+import org.lnu.is.security.exception.AccessDeniedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
@@ -67,6 +68,24 @@ public class DefaultSessionService implements SessionService {
 		}
 		
 		return defaultGroup;
+	}
+
+	@Override
+	public void verifyGroup(final String title) {
+		List<String> groups = getGroups();
+		Boolean result = false;
+		
+		for (String groupTitle : groups) {
+			if (groupTitle.equals(title)) {
+				result = true;
+				break;
+			}
+		}
+		
+		if (!result) {
+			throw new AccessDeniedException("Access to appropriate group is denied to current user");
+		}
+		
 	}
 	
 

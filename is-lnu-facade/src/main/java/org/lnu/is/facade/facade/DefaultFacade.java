@@ -3,6 +3,7 @@ package org.lnu.is.facade.facade;
 import java.util.List;
 
 import org.lnu.is.converter.Converter;
+import org.lnu.is.domain.Model;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.resource.ApiResource;
@@ -24,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @param <KEY> Key.S
  */
 @Transactional
-public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends Service<ENTITY, KEY>, KEY> implements Facade<RESOURCE, KEY> {
+public class DefaultFacade<ENTITY extends Model, RESOURCE extends ApiResource, SERVICE extends Service<ENTITY, KEY>, KEY> implements Facade<RESOURCE, KEY> {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultFacade.class);
 
 	private Converter<RESOURCE, ENTITY> resourceConverter;
@@ -70,8 +71,8 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 	@Override
 	public void removeResource(final KEY id) {
 		LOG.info("Removing resource with id: {}", id);
-
 		ENTITY entity = service.getEntity(id);
+		
 		service.removeEntity(entity);
 	}
 
@@ -80,7 +81,7 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 		LOG.info("Updating resource with id: {}, resource: {}", id, resource);
 
 		ENTITY entity = service.getEntity(id);
-
+		
 		resourceConverter.convert(resource, entity);
 		updateConverter.convert(resource, entity);
 
@@ -140,6 +141,7 @@ public class DefaultFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends
 	public void setEntityDetailsConverter(final Converter<ENTITY, RESOURCE> entityDetailsConverter) {
 		this.entityDetailsConverter = entityDetailsConverter;
 	}
+	
 	public SERVICE getService() {
 		return service;
 	}

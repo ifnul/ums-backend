@@ -22,6 +22,10 @@
 	<dependencies>
 		<dependency>
 			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-persistence</artifactId>
 		</dependency>
 		<dependency>

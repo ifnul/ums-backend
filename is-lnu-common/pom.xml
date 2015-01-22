@@ -20,6 +20,12 @@
 	</properties>
 	
 	<dependencies>
+		<!-- Security must be in all levels -->
+		<dependency>
+			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-security</artifactId>
+		</dependency>
+			
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>

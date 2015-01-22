@@ -3,6 +3,7 @@ package org.lnu.is.dao.persistence;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -13,6 +14,7 @@ import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
+import org.lnu.is.security.service.SessionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -33,6 +35,9 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Resource(name = "sessionService")
+    private SessionService sessionService;
+    
     @Override
     public T create(final T entity) {
 		LOG.info("Saving entity for class:{}", entity.getClass());
@@ -49,6 +54,8 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
         	LOG.error("Entity is deleted, {}, {}", clazz.getSimpleName(), id);
         	throw new EntityNotFoundException("Entity does'nt exist");
         }
+
+        sessionService.verifyGroup(entity.getCrtUserGroup());
         
         return entity;
     }
@@ -56,14 +63,14 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     @Override
     public T update(final T entity) {
     	LOG.info("Updating entity for class:{}", entity.getClass());
+    	sessionService.verifyGroup(entity.getCrtUserGroup());
         return entityManager.merge(entity);
     }
 
     @Override
     public void remove(final T entity) {
     	LOG.info("Removing entity for class:{}", entity.getClass());
-        
-    	entity.setActual(0);
+		entity.setActual(0);
         entity.setStatus(RowStatus.DELETED);
 
         update(entity);

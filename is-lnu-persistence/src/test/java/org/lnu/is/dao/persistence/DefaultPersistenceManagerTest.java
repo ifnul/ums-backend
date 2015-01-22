@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -25,6 +26,8 @@ import org.lnu.is.domain.department.Department;
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
+import org.lnu.is.security.exception.AccessDeniedException;
+import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
@@ -41,6 +44,9 @@ public class DefaultPersistenceManagerTest {
 	
 	@Mock
     private EntityManager entityManager;
+	
+	@Mock
+	private SessionService sessionService;
 	
 	@InjectMocks
 	private DefaultPersistenceManager<Department, Long> unit;
@@ -69,18 +75,47 @@ public class DefaultPersistenceManagerTest {
 		Long id = 1L;
 		String name = "name";
 		String abbrName = "abbrName";
+		String group = "developers";
 		
 		Class<Department> clazz = Department.class;
 		Department expected = new Department();
 		expected.setId(id);
 		expected.setAbbrName(abbrName);
 		expected.setName(name);
+		expected.setCrtUserGroup(group);
 
 		// When
 		when(entityManager.find(Matchers.<Class<Department>>any(), anyLong())).thenReturn(expected);
 		Department actual = unit.findById(clazz, id);
 
 		// Then
+		verify(sessionService).verifyGroup(group);
+		verify(entityManager).find(clazz, id);
+		assertEquals(expected, actual);
+	}
+	
+	@Test(expected = AccessDeniedException.class)
+	public void testFindByIdWithAccessDeniedException() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "name";
+		String abbrName = "abbrName";
+		String group = "developers";
+		
+		Class<Department> clazz = Department.class;
+		Department expected = new Department();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		expected.setCrtUserGroup(group);
+		
+		// When
+		when(entityManager.find(Matchers.<Class<Department>>any(), anyLong())).thenReturn(expected);
+		doThrow(AccessDeniedException.class).when(sessionService).verifyGroup(group);
+		Department actual = unit.findById(clazz, id);
+		
+		// Then
+		verify(sessionService).verifyGroup(group);
 		verify(entityManager).find(clazz, id);
 		assertEquals(expected, actual);
 	}
@@ -121,17 +156,45 @@ public class DefaultPersistenceManagerTest {
 		Long id = 1L;
 		String name = "name";
 		String abbrName = "abbrName";
+		String group = "developers";
 		
 		Department expected = new Department();
 		expected.setId(id);
 		expected.setAbbrName(abbrName);
 		expected.setName(name);
+		expected.setCrtUserGroup(group);
 		
 		// When
 		when(entityManager.merge(any(Department.class))).thenReturn(expected);
 		Department actual = unit.update(expected);
 
 		// Then
+		verify(sessionService).verifyGroup(group);
+		verify(entityManager).merge(expected);
+		assertEquals(expected, actual);
+	}
+	
+	@Test(expected = AccessDeniedException.class)
+	public void testUpdateWithAccessDenied() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "name";
+		String abbrName = "abbrName";
+		String group = "developers";
+		
+		Department expected = new Department();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		expected.setCrtUserGroup(group);
+		
+		// When
+		when(entityManager.merge(any(Department.class))).thenReturn(expected);
+		doThrow(AccessDeniedException.class).when(sessionService).verifyGroup(group);
+		Department actual = unit.update(expected);
+		
+		// Then
+		verify(sessionService).verifyGroup(group);
 		verify(entityManager).merge(expected);
 		assertEquals(expected, actual);
 	}
@@ -142,18 +205,46 @@ public class DefaultPersistenceManagerTest {
 		Long id = 1L;
 		String name = "name";
 		String abbrName = "abbrName";
+		String group = "developers";
 		
 		Department entity = new Department();
 		entity.setId(id);
 		entity.setAbbrName(abbrName);
 		entity.setName(name);
+		entity.setCrtUserGroup(group);
 		
 		// When
 		unit.remove(entity);
-		entity.setActual(0);
-		entity.setStatus(RowStatus.DELETED);
 		
 		// Then
+		verify(sessionService).verifyGroup(group);
+		entity.setActual(0);
+		entity.setStatus(RowStatus.DELETED);
+		verify(entityManager).merge(entity);
+	}
+	
+	@Test(expected = AccessDeniedException.class)
+	public void testRemoveWithAccessException() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "name";
+		String abbrName = "abbrName";
+		String group = "developers";
+		
+		Department entity = new Department();
+		entity.setId(id);
+		entity.setAbbrName(abbrName);
+		entity.setName(name);
+		entity.setCrtUserGroup(group);
+		
+		// When
+		doThrow(AccessDeniedException.class).when(sessionService).verifyGroup(group);
+		unit.remove(entity);
+		
+		// Then
+		verify(sessionService).verifyGroup(group);
+		entity.setActual(0);
+		entity.setStatus(RowStatus.DELETED);
 		verify(entityManager).merge(entity);
 	}
 	

@@ -35,4 +35,10 @@ public interface SessionService {
 	 * @return default group.
 	 */
 	Group getDefaultGroup();
+
+	/**
+	 * Method for verifying groups.
+	 * @param title
+	 */
+	void verifyGroup(String title);
 }

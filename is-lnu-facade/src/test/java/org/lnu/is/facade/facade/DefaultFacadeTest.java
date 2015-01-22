@@ -57,7 +57,6 @@ public class DefaultFacadeTest {
 	private Converter<PagedResult<Person>, PagedResultResource<PersonResource>> pagedResultConverter;
 
 	private DefaultFacade<Person, PersonResource, DefaultService<Person, Long, DefaultDao<Person, Long>>, Long> unit = new DefaultFacade<Person, PersonResource, DefaultService<Person,Long,DefaultDao<Person,Long>>, Long>();
-
 	
 	@Before
 	public void setup() {
@@ -111,6 +110,7 @@ public class DefaultFacadeTest {
 		Long id = 1L;
 		String name = "LightMan";
 		Long personTypeId = 25L;
+		String group = "developers";
 
 		PersonResource expected = new PersonResource();
 		expected.setBegDate(new Date());
@@ -125,6 +125,7 @@ public class DefaultFacadeTest {
 		person.setEndDate(new Date());
 		person.setName(name);
 		person.setPersonType(personType);
+		person.setCrtUserGroup(group);
 
 		// When
 		when(service.getEntity(anyLong())).thenReturn(person);
@@ -175,9 +176,11 @@ public class DefaultFacadeTest {
 	public void testRemoveEntity() throws Exception {
 		// Given
 		Long id = 1L;
+		String group = "developers";
 
 		Person person = new Person();
 		person.setId(id);
+		person.setCrtUserGroup(group);
 
 		// When
 		when(service.getEntity(anyLong())).thenReturn(person);

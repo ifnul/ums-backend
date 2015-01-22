@@ -1,6 +1,7 @@
 package org.lnu.is.facade.facade;
 
 import org.is.lnu.edebo.dispatcher.IntegrationDispatcher;
+import org.lnu.is.domain.Model;
 import org.lnu.is.resource.ApiResource;
 import org.lnu.is.service.Service;
 import org.slf4j.Logger;
@@ -17,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @param <KEY> Resource.Key
  */
 @Transactional
-public class IntegrationFacade<ENTITY, RESOURCE extends ApiResource, SERVICE extends Service<ENTITY, KEY>, KEY> extends DefaultFacade<ENTITY, RESOURCE, SERVICE, KEY> {
+public class IntegrationFacade<ENTITY extends Model, RESOURCE extends ApiResource, SERVICE extends Service<ENTITY, KEY>, KEY> extends DefaultFacade<ENTITY, RESOURCE, SERVICE, KEY> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(IntegrationFacade.class);
 	
 	private IntegrationDispatcher<RESOURCE> createDispatcher;

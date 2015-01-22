@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
+import org.lnu.is.security.exception.AccessDeniedException;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -177,6 +178,56 @@ public class DefaultSessionServiceTest {
 		verify(authentification).getDetails();
 		
 		assertEquals(null, actaul);
+	}
+
+	@Test
+	public void testVerifyGroup() throws Exception {
+		// Given
+		String title = "developers";
+		Group group1 = new Group();
+		group1.setTitle(title);
+		
+		String groupTitle2 = "users";
+		Group group2 = new Group();
+		group2.setTitle(groupTitle2);
+		
+		List<Group> groups = Arrays.asList(group1, group2);
+		User user = new User();
+		user.setGroups(groups);
+		
+		// When
+		when(context.getAuthentication()).thenReturn(authentification);
+		when(authentification.getDetails()).thenReturn(user);
+		
+		unit.verifyGroup(title);
+		
+		// Then
+		verify(context).getAuthentication();
+		verify(authentification).getDetails();
+	}
+	
+	@Test(expected = AccessDeniedException.class)
+	public void testVerifyGroupWithException() throws Exception {
+		// Given
+		String title = "developers";
+		
+		String groupTitle2 = "users";
+		Group group2 = new Group();
+		group2.setTitle(groupTitle2);
+		
+		List<Group> groups = Arrays.asList(group2);
+		User user = new User();
+		user.setGroups(groups);
+		
+		// When
+		when(context.getAuthentication()).thenReturn(authentification);
+		when(authentification.getDetails()).thenReturn(user);
+		
+		unit.verifyGroup(title);
+
+		// Then
+		verify(context).getAuthentication();
+		verify(authentification).getDetails();
 	}
 	
 }
