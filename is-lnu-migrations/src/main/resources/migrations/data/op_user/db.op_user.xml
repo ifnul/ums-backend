@@ -23,4 +23,23 @@
             <column name="enddate">2017-01-01</column>
         </insert>
     </changeSet>
+    <changeSet id="add q_op_user withour groups" author="ivanursul">
+        <insert tableName="q_op_user">
+            <column name="id">2</column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note">Brokeт student</column>
+            <column name="crtuser">ivanursul</column>
+            <column name="crtusergroup">developers</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+			
+			
+            <column name="login">broken_student</column>
+            <column name="password">nevdaha</column>
+            <column name="title">Muzichuk Anatoliy Omelyanovich</column>
+            <column name="begdate">2013-01-01</column>
+            <column name="enddate">2017-01-01</column>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
