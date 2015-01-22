@@ -67,16 +67,73 @@ public class SallaryTypeParametersExtractorTest {
 	}
 	
 	@Test
-	public void testGetParametersWithDefaultEntity() throws Exception {
+	public void testGetParametersWithDisabledDEfaults() throws Exception {
 		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String name = "Extract Me All";
+		String abbrName = "EML";
+		
+		SallaryType entity = new SallaryType();
+		entity.setName(name);
+		entity.setAbbrName(abbrName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("abbrName", abbrName);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
 		SallaryType entity = new SallaryType();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
-		expected.put("userGroups", groups);
 		
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		SallaryType entity = new SallaryType();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		SallaryType entity = new SallaryType();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
