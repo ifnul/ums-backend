@@ -144,6 +144,85 @@ public class PersonAddressParametersExtractorTest {
 		
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String zipCode = "zip code";
+		String street = "street";
+		String house = "house 1";
+		String apartment = "appartment 1";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		
+		Long personId = 1L;
+		Person person = new Person();
+		person.setId(personId);
+		
+		Long addressTypeId = 2L;
+		AddressType addressType = new AddressType();
+		addressType.setId(addressTypeId);
+		
+		Long adminUnitId = 3L;
+		AdminUnit adminUnit = new AdminUnit();
+		adminUnit.setId(adminUnitId);
+		
+		Long streetTypeId = 4L;
+		StreetType streetType = new StreetType();
+		streetType.setId(streetTypeId);
+		
+		Long assetId = 5L;
+		Asset asset = new Asset();
+		asset.setId(assetId);
+		
+		PersonAddress entity = new PersonAddress();
+		entity.setPerson(person);
+		entity.setAddressType(addressType);
+		entity.setAdminUnit(adminUnit);
+		entity.setStreetType(streetType);
+		entity.setAsset(asset);
+		
+		entity.setZipCode(zipCode);
+		entity.setStreet(street);
+		entity.setHouse(house);
+		entity.setApartment(apartment);
+		entity.setBegDate(begDate);
+		entity.setEndDate(endDate);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("person", person);
+		expected.put("addressType", addressType);
+		expected.put("adminUnit", adminUnit);
+		expected.put("streetType", streetType);
+		expected.put("asset", asset);
+		expected.put("zipCode", zipCode);
+		expected.put("street", street);
+		expected.put("house", house);
+		expected.put("apartment", apartment);
+		expected.put("begDate", begDate);
+		expected.put("endDate", endDate);
+		
+		// When
+		when(personDao.getEntityById(anyLong())).thenReturn(person);
+		when(addressTypeDao.getEntityById(anyLong())).thenReturn(addressType);
+		when(adminUnitDao.getEntityById(anyLong())).thenReturn(adminUnit);
+		when(streetTypeDao.getEntityById(anyLong())).thenReturn(streetType);
+		when(assetDao.getEntityById(anyLong())).thenReturn(asset);
+		
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(personDao).getEntityById(personId);
+		verify(addressTypeDao).getEntityById(addressTypeId);
+		verify(adminUnitDao).getEntityById(adminUnitId);
+		verify(streetTypeDao).getEntityById(streetTypeId);
+		verify(assetDao).getEntityById(assetId);
+		
+		assertEquals(expected, actual);
+	}
 	
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
@@ -156,6 +235,54 @@ public class PersonAddressParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		PersonAddress entity = new PersonAddress();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		PersonAddress entity = new PersonAddress();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDEfaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		PersonAddress entity = new PersonAddress();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

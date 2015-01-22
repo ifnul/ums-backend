@@ -95,6 +95,53 @@ public class PartnerParametersExtractorTest {
 		verify(partnerDao).getEntityById(parentId);
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testGetParametersWithDisabledDEfaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String abbrName = "abbr name";
+		Date begDate = new Date();
+		String email = "Email";
+		Date endDate = new Date();
+		String manager = "manager";
+		String name = "name";
+		Long parentId = 2L;
+		String phone = "phone";
+		
+		Partner parent = new Partner();
+		parent.setId(parentId);
+		
+		Partner entity = new Partner();
+		entity.setAbbrName(abbrName);
+		entity.setBegDate(begDate);
+		entity.setEmail(email);
+		entity.setEndDate(endDate);
+		entity.setManager(manager);
+		entity.setName(name);
+		entity.setParent(parent);
+		entity.setPhone(phone);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("abbrName", abbrName);
+		expected.put("begDate", begDate);
+		expected.put("email", email);
+		expected.put("endDate", endDate);
+		expected.put("manager", manager);
+		expected.put("name", name);
+		expected.put("phone", phone);
+		expected.put("parent", parent);
+		
+		// When
+		when(partnerDao.getEntityById(anyLong())).thenReturn(parent);
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(partnerDao).getEntityById(parentId);
+		assertEquals(expected, actual);
+	}
 	
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
@@ -107,6 +154,54 @@ public class PartnerParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		Partner entity = new Partner();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		Partner entity = new Partner();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Partner entity = new Partner();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

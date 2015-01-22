@@ -67,6 +67,30 @@ public class OperationTypeParametersExtractorTest {
 	}
 	
 	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String name = "yoyo";
+		String abbrName = "yo";
+		
+		OperationType entity = new OperationType();
+		entity.setName(name);
+		entity.setAbbrName(abbrName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("abbrName", abbrName);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		OperationType entity = new OperationType();
@@ -77,6 +101,55 @@ public class OperationTypeParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityWithDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+
+		
+		OperationType entity = new OperationType();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		OperationType entity = new OperationType();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		OperationType entity = new OperationType();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

@@ -81,6 +81,38 @@ public class OrderTypeParametersExtractorTest {
 	}
 	
 	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Long parentId = 1L;
+		String abbrName = "abbrName";
+		String name = "name";
+		OrderType parent = new OrderType();
+		parent.setId(parentId);
+		
+		OrderType entity = new OrderType();
+		entity.setAbbrName(abbrName);
+		entity.setName(name);
+		entity.setParent(parent);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("abbrName", abbrName);
+		expected.put("name", name);
+		expected.put("parent", parent);
+		
+		// When
+		when(orderTypeDao.getEntityById(anyLong())).thenReturn(parent);
+		
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(orderTypeDao).getEntityById(parentId);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		OrderType entity = new OrderType();
@@ -91,6 +123,54 @@ public class OrderTypeParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityWithDisabledSecuiryt() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		OrderType entity = new OrderType();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityWithDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		OrderType entity = new OrderType();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		OrderType entity = new OrderType();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
