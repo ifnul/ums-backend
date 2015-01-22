@@ -94,6 +94,46 @@ public class PersonNameParametersExtractorTest {
 	}
 	
 	@Test
+	public void testGetParametersWithDisabledSecurity() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Long personId = 1L;
+		Person person = new Person();
+		person.setId(personId);
+		
+		Long languageId = 2L;
+		Language language = new Language();
+		language.setId(languageId);
+		
+		String firstName = "first name";
+		String fatherName = "father name";
+		PersonName entity = new PersonName();
+		entity.setPerson(person);
+		entity.setLanguage(language);
+		entity.setFirstName(firstName);
+		entity.setFatherName(fatherName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("person", person);
+		expected.put("language", language);
+		expected.put("firstName", firstName);
+		expected.put("fatherName", fatherName);
+		
+		// When
+		when(languageDao.getEntityById(anyLong())).thenReturn(language);
+		when(personDao.getEntityById(anyLong())).thenReturn(person);
+		
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(languageDao).getEntityById(languageId);
+		verify(personDao).getEntityById(personId);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		PersonName entity = new PersonName();
@@ -104,6 +144,54 @@ public class PersonNameParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		PersonName entity = new PersonName();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		PersonName entity = new PersonName();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		PersonName entity = new PersonName();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

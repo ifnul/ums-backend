@@ -125,6 +125,74 @@ public class PersonPaperParametersExtractorTest {
 		verify(honorTypeDao).getEntityById(honorTypeId);
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String docSeries = "doc series";
+		String docNum = "doc nu";
+		Date docDate = new Date();
+		String docIssued = "doc issued";
+		String docPin = "doc pin";
+		Double mark = 2.5;
+		Integer isChecked = 1;
+		Integer isForeign = 2;
+		
+		Long personId = 1L;
+		Person person = new Person();
+		person.setId(personId);
+		
+		Long paperTypeId = 2L;
+		PaperType paperType = new PaperType();
+		paperType.setId(paperTypeId);
+		
+		Long honorTypeId = 4L;
+		HonorType honorsType = new HonorType();
+		honorsType.setId(honorTypeId);
+		
+		PersonPaper entity = new PersonPaper();
+		entity.setPerson(person);
+		entity.setPaperType(paperType);
+		entity.setHonorsType(honorsType);
+		
+		entity.setDocSeries(docSeries);
+		entity.setDocNum(docNum);
+		entity.setDocDate(docDate);
+		entity.setDocIssued(docIssued);
+		entity.setDocPin(docPin);
+		entity.setMark(mark);
+		entity.setIsChecked(isChecked);
+		entity.setIsForeign(isForeign);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("person", person);
+		expected.put("paperType", paperType);
+		expected.put("honorsType", honorsType);
+		expected.put("docSeries", docSeries);
+		expected.put("docNum", docNum);
+		expected.put("docDate", docDate);
+		expected.put("docIssued", docIssued);
+		expected.put("docPin", docPin);
+		expected.put("mark", mark);
+		expected.put("isChecked", isChecked);
+		expected.put("isForeign", isForeign);
+		
+		// When
+		when(personDao.getEntityById(anyLong())).thenReturn(person);
+		when(paperTypeDao.getEntityById(anyLong())).thenReturn(paperType);
+		when(honorTypeDao.getEntityById(anyLong())).thenReturn(honorsType);
+		
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(personDao).getEntityById(personId);
+		verify(paperTypeDao).getEntityById(paperTypeId);
+		verify(honorTypeDao).getEntityById(honorTypeId);
+		assertEquals(expected, actual);
+	}
 	
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
@@ -137,6 +205,54 @@ public class PersonPaperParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		PersonPaper entity = new PersonPaper();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		PersonPaper entity = new PersonPaper();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		PersonPaper entity = new PersonPaper();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

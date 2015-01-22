@@ -88,6 +88,40 @@ public class PersonAwardParametersExtractorTest {
 	}
 	
 	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Long personId = 1L;
+		Person person = new Person();
+		person.setId(personId);
+		
+		Long personPaperId = 2L;
+		PersonPaper personPaper = new PersonPaper();
+		personPaper.setId(personPaperId);
+		
+		PersonAward entity = new PersonAward();
+		entity.setPerson(person);
+		entity.setPersonPaper(personPaper);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("person", person);
+		expected.put("personPaper", personPaper);
+		
+		// When
+		when(personDao.getEntityById(anyLong())).thenReturn(person);
+		when(personPaperDao.getEntityById(anyLong())).thenReturn(personPaper);
+		
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(personDao).getEntityById(personId);
+		verify(personPaperDao).getEntityById(personPaperId);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		PersonAward entity = new PersonAward();
@@ -98,6 +132,54 @@ public class PersonAwardParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		PersonAward entity = new PersonAward();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		PersonAward entity = new PersonAward();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		unit.setActive(false);
+		
+		PersonAward entity = new PersonAward();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
