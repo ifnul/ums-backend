@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
@@ -15,6 +16,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.user.UserDao;
 import org.lnu.is.domain.role.Role;
 import org.lnu.is.domain.user.User;
+import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.role.UserRole;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -62,10 +64,13 @@ public class DefaultAuthenticationProviderTest {
 		userRole1.setRole(role);
 		List<UserRole> roles = Arrays.asList(userRole1);
 
+		List<UserGroup> userGroups = Collections.emptyList();
+
 		User user = new User();
 		user.setLogin(login);
 		user.setPassword(password);
 		user.setUserRoles(roles);
+		user.setUserGroups(userGroups);
 		
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(roleCode1));

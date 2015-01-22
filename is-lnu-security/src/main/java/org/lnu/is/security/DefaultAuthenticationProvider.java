@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.hibernate.Hibernate;
 import org.lnu.is.dao.dao.user.UserDao;
 import org.lnu.is.domain.user.User;
+import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.role.UserRole;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,7 +55,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
      */
     private Authentication getAuthentication(final String login, final String password) {
         User user = getUser(login, password);
-        Hibernate.initialize(user.getGroups());
+        loadLazyFields(user);
         
         Collection<GrantedAuthority> authorities = getAuthorities(user);
         
@@ -65,6 +66,20 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
     }
 
     /**
+     * Method for loading lazy objects.
+     * @param user
+     */
+    private void loadLazyFields(final User user) {
+    	Hibernate.initialize(user.getGroups());
+        Hibernate.initialize(user.getUserGroups());
+        
+        for (UserGroup userGroup : user.getUserGroups()) {
+			Hibernate.initialize(userGroup.getGroup());
+		}
+        
+	}
+
+	/**
      * Method for getting user.
      * @param login
      * @param password

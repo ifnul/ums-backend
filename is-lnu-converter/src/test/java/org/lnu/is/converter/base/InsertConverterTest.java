@@ -1,12 +1,17 @@
 package org.lnu.is.converter.base;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.common.RowStatus;
+import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.specialty.Specialty;
+import org.lnu.is.domain.user.User;
 import org.lnu.is.resource.specialty.SpecialtyResource;
+import org.lnu.is.security.service.SessionService;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
@@ -14,22 +19,36 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class InsertConverterTest {
 
 	@Mock
+	private SessionService sessionService;
+	
+	@Mock
 	private Specialty target;
 	
-	private InsertConverter<SpecialtyResource, Specialty> unit = new InsertConverter<SpecialtyResource, Specialty>();
+	@InjectMocks
+	private InsertConverter<SpecialtyResource, Specialty> unit;
 	
 	@Test
 	public void testConvert() throws Exception {
 		// Given
 		SpecialtyResource source = new SpecialtyResource();
+		String groupTitle = "developers";
+		Group group = new Group();
+		group.setTitle(groupTitle);
+
+		String login = "ivanursul";
+		User user = new User();
+		user.setLogin(login);
 
 		// When
+		when(sessionService.getDefaultGroup()).thenReturn(group);
+		when(sessionService.getUser()).thenReturn(user);
+		
 		unit.convert(source, target);
 
 		// Then
 		verify(target).setActual(1);
-		verify(target).setCrtUser("default user");
-		verify(target).setCrtUserGroup("default user group");
+		verify(target).setCrtUser(login);
+		verify(target).setCrtUserGroup(groupTitle);
 		verify(target).setStatus(RowStatus.ACTIVE);
 	}
 	

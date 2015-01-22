@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.User;
+import org.lnu.is.domain.user.group.UserGroup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
@@ -43,13 +44,29 @@ public class DefaultSessionService implements SessionService {
 	@Override
 	public List<String> getGroups() {
 		List<String> groups = new ArrayList<>();
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getDetails();
+		User user = getUser();
 		
 		for (Group group : user.getGroups()) {
 			groups.add(group.getTitle());
 		}
 		
 		return groups;
+	}
+
+	@Override
+	public Group getDefaultGroup() {
+		Group defaultGroup = null;
+		User user = getUser();
+		
+		for (UserGroup userGroup : user.getUserGroups()) {
+			
+			if (userGroup.getMajor()) {
+				defaultGroup = userGroup.getGroup();
+				break;
+			}
+		}
+		
+		return defaultGroup;
 	}
 	
 

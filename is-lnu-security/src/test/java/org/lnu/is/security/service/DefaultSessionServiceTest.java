@@ -2,6 +2,7 @@ package org.lnu.is.security.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.User;
+import org.lnu.is.domain.user.group.UserGroup;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -117,6 +119,64 @@ public class DefaultSessionServiceTest {
 		
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetDefaultGroup() throws Exception {
+		// Given
+		String groupTitle1 = "developers";
+		Group group1 = new Group();
+		group1.setTitle(groupTitle1);
+
+		String groupTitle2 = "users";
+		Group group2 = new Group();
+		group2.setTitle(groupTitle2);
+		
+		UserGroup userGroup1 = new UserGroup();
+		userGroup1.setGroup(group1);
+		userGroup1.setMajor(true);
+		
+		UserGroup userGroups2 = new UserGroup();
+		userGroups2.setGroup(group2);
+		userGroups2.setMajor(false);
+		
+		List<Group> groups = Arrays.asList(group1, group2);
+		List<UserGroup> userGroups = Arrays.asList(userGroup1, userGroups2);
+
+		User user = new User();
+		user.setGroups(groups);
+		user.setUserGroups(userGroups);
+
+		// When
+		when(context.getAuthentication()).thenReturn(authentification);
+		when(authentification.getDetails()).thenReturn(user);
+		Group actaul = unit.getDefaultGroup();
+
+		// Then
+		verify(context).getAuthentication();
+		verify(authentification).getDetails();
+		
+		assertEquals(group1, actaul);
+	}
+	
+	@Test
+	public void testGetDefaulGroupWithEmptyUserGroups() throws Exception {
+		// Given
+		List<UserGroup> userGroups = Collections.emptyList();
+		
+		User user = new User();
+		user.setUserGroups(userGroups);
+		
+		// When
+		when(context.getAuthentication()).thenReturn(authentification);
+		when(authentification.getDetails()).thenReturn(user);
+		Group actaul = unit.getDefaultGroup();
+		
+		// Then
+		verify(context).getAuthentication();
+		verify(authentification).getDetails();
+		
+		assertEquals(null, actaul);
 	}
 	
 }

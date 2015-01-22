@@ -2,6 +2,7 @@ package org.lnu.is.security.service;
 
 import java.util.List;
 
+import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.User;
 
 /**
@@ -28,4 +29,10 @@ public interface SessionService {
 	 * @return groups
 	 */
 	List<String> getGroups();
+	
+	/**
+	 * Method for getting default group of authentificated user.
+	 * @return default group.
+	 */
+	Group getDefaultGroup();
 }
