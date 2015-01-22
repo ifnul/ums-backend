@@ -100,6 +100,53 @@ public class AdminUnitParametersExtractorTest {
 	}
 
 	@Test
+	public void testGetParametersWithDisabledDEfaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Long adminUnitTypeId = 1L;
+		AdminUnitType adminUnitType = new AdminUnitType();
+		adminUnitType.setId(adminUnitTypeId);
+		
+		String identifier = "identifier";
+		String identifier1 = "identifier1";
+		String identifier2 = "identifier2";
+		String identifier3 = "identifier3";
+		String name = "name";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		
+		AdminUnit entity = new AdminUnit();
+		entity.setAdminUnitType(adminUnitType);
+		entity.setIdentifier(identifier);
+		entity.setIdentifier1(identifier1);
+		entity.setIdentifier2(identifier2);
+		entity.setIdentifier3(identifier3);
+		entity.setName(name);
+		entity.setBegDate(begDate);
+		entity.setEndDate(endDate);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("adminUnitType", adminUnitType);
+		expected.put("identifier", identifier);
+		expected.put("identifier1", identifier1);
+		expected.put("identifier2", identifier2);
+		expected.put("identifier3", identifier3);
+		expected.put("name", name);
+		expected.put("begDate", begDate);
+		expected.put("endDate", endDate);
+		
+		// When
+		when(adminUnitTypeDao.getEntityById(anyLong())).thenReturn(adminUnitType);
+		
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		AdminUnit entity = new AdminUnit();
@@ -110,6 +157,54 @@ public class AdminUnitParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		AdminUnit entity = new AdminUnit();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		AdminUnit entity = new AdminUnit();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDEfaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		AdminUnit entity = new AdminUnit();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

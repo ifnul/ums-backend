@@ -121,6 +121,71 @@ public class DepartmentParametersExtractorTest {
 		verify(orderDao).getEntityById(orderId);
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Long parentId = 1L;
+		Department parent = new Department();
+		parent.setId(parentId);
+		
+		Long departmentTypeId = 2L;
+		DepartmentType departmentType = new DepartmentType();
+		departmentType.setId(departmentTypeId);
+		
+		Long orderId = 3L;
+		Order order = new Order();
+		order.setId(orderId);
+		
+		String abbrName = "abbr name";
+		String name = "name1";
+		String manager = "manager1";
+		String phone = "542534534";
+		String email = "email@email.emao;";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		
+		Department entity = new Department();
+		entity.setParent(parent);
+		entity.setDepartmentType(departmentType);
+		entity.setOrder(order);
+		
+		entity.setAbbrName(abbrName);
+		entity.setName(name);
+		entity.setManager(manager);
+		entity.setPhone(phone);
+		entity.setEmail(email);
+		entity.setBegDate(begDate);
+		entity.setEndDate(endDate);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("parent", parent);
+		expected.put("departmentType", departmentType);
+		expected.put("order", order);
+		expected.put("abbrName", abbrName);
+		expected.put("name", name);
+		expected.put("manager", manager);
+		expected.put("phone", phone);
+		expected.put("email", email);
+		expected.put("begDate", begDate);
+		expected.put("endDate", endDate);
+		
+		// When
+		when(departmentDao.getEntityById(anyLong())).thenReturn(parent);
+		when(departmentTypeDao.getEntityById(anyLong())).thenReturn(departmentType);
+		when(orderDao.getEntityById(anyLong())).thenReturn(order);
+		
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(departmentDao).getEntityById(parentId);
+		verify(departmentTypeDao).getEntityById(departmentTypeId);
+		verify(orderDao).getEntityById(orderId);
+		assertEquals(expected, actual);
+	}
 	
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
@@ -133,6 +198,54 @@ public class DepartmentParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		Department entity = new Department();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		Department entity = new Department();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Department entity = new Department();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
