@@ -65,6 +65,30 @@ public class EnrolmentTypeParametersExtractorTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String name = "AddressN";
+		String abbrname = "fsdfds";
+		
+		EnrolmentType entity = new EnrolmentType();
+		entity.setName(name);
+		entity.setAbbrname(abbrname);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("abbrname", abbrname);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
 
 	@Test
 	public void testGetParametersWithNoRelations() throws Exception {
@@ -78,6 +102,56 @@ public class EnrolmentTypeParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithNoRelationsAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		EnrolmentType entity = new EnrolmentType();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithNoRelationsAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		EnrolmentType entity = new EnrolmentType();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithNoRelationsAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		EnrolmentType entity = new EnrolmentType();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

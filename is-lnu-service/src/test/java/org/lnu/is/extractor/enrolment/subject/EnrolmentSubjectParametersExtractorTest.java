@@ -82,6 +82,41 @@ public class EnrolmentSubjectParametersExtractorTest {
 		verify(enrolmentSubjectDao).getEntityById(parentId);
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Long parentId = 1L;
+		EnrolmentSubject parent = new EnrolmentSubject();
+		parent.setId(parentId);
+		
+		String abbrName = "abbr name";
+		String name = "name1";
+		Integer isTesting = 1;
+		
+		EnrolmentSubject entity = new EnrolmentSubject();
+		entity.setParent(parent);
+		entity.setAbbrName(abbrName);
+		entity.setName(name);
+		entity.setIsTesting(isTesting);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("parent", parent);
+		expected.put("abbrName", abbrName);
+		expected.put("name", name);
+		expected.put("isTesting", isTesting);
+		
+		// When
+		when(enrolmentSubjectDao.getEntityById(anyLong())).thenReturn(parent);
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(enrolmentSubjectDao).getEntityById(parentId);
+		assertEquals(expected, actual);
+	}
 	
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
@@ -94,6 +129,54 @@ public class EnrolmentSubjectParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		EnrolmentSubject entity = new EnrolmentSubject();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDIsabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		EnrolmentSubject entity = new EnrolmentSubject();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		EnrolmentSubject entity = new EnrolmentSubject();
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
