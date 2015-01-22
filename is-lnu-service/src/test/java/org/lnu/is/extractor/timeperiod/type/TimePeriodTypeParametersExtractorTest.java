@@ -43,7 +43,6 @@ public class TimePeriodTypeParametersExtractorTest {
 		when(sessionService.getGroups()).thenReturn(groups);
 	}
 	
-	
 	@Test
 	public void testGetParameters() throws Exception {
 		// Given
@@ -68,6 +67,78 @@ public class TimePeriodTypeParametersExtractorTest {
 	}
 	
 	@Test
+	public void testGetParametersWithDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		String abbrName = "abbr name";
+		String name = "name";
+		
+		TimePeriodType entity = new TimePeriodType();
+		entity.setName(name);
+		entity.setAbbrName(abbrName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("abbrName", abbrName);
+		expected.put("name", name);
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		String abbrName = "abbr name";
+		String name = "name";
+		
+		TimePeriodType entity = new TimePeriodType();
+		entity.setName(name);
+		entity.setAbbrName(abbrName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("abbrName", abbrName);
+		expected.put("name", name);
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String abbrName = "abbr name";
+		String name = "name";
+		
+		TimePeriodType entity = new TimePeriodType();
+		entity.setName(name);
+		entity.setAbbrName(abbrName);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("abbrName", abbrName);
+		expected.put("name", name);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		TimePeriodType entity = new TimePeriodType();
@@ -79,6 +150,23 @@ public class TimePeriodTypeParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		TimePeriodType entity = new TimePeriodType();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

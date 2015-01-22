@@ -64,6 +64,69 @@ public class TimePeriodParametersExtractorTest {
 	}
 	
 	@Test
+	public void testGetParametersWithDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		String name = "Extract Me All";
+		
+		TimePeriod entity = new TimePeriod();
+		entity.setName(name);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		String name = "Extract Me All";
+		
+		TimePeriod entity = new TimePeriod();
+		entity.setName(name);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		String name = "Extract Me All";
+		
+		TimePeriod entity = new TimePeriod();
+		entity.setName(name);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("name", name);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		TimePeriod entity = new TimePeriod();
@@ -75,6 +138,23 @@ public class TimePeriodParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		TimePeriod entity = new TimePeriod();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
