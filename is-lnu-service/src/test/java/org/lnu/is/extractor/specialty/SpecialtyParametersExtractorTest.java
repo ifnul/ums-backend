@@ -105,6 +105,57 @@ public class SpecialtyParametersExtractorTest {
 	}
 	
 	@Test
+	public void testGetParametersWithDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Specialty entity = new Specialty();
+		
+		Long specialtyTypeId = 1L;
+		SpecialtyType specialtyType = new SpecialtyType();
+		specialtyType.setId(specialtyTypeId);
+		
+		Long parentId = 2L;
+		Specialty parent = new Specialty();
+		parent.setId(parentId);
+		
+		String abbrName = "abbr name";
+		String name = "name1";
+		String cipher = "cipher1";
+		Date begDate = new Date();
+		Date endDate = new Date();
+		
+		entity.setSpecialtyType(specialtyType);
+		entity.setParent(parent);
+		
+		entity.setAbbrName(abbrName);
+		entity.setName(name);
+		entity.setCipher(cipher);
+		entity.setBegDate(begDate);
+		entity.setEndDate(endDate);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("specialtyType", specialtyType);
+		expected.put("parent", parent);
+		expected.put("abbrName", abbrName);
+		expected.put("name", name);
+		expected.put("cipher", cipher);
+		expected.put("begDate", begDate);
+		expected.put("endDate", endDate);
+		
+		// When
+		when(specialtyTypeDao.getEntityById(anyLong())).thenReturn(specialtyType);
+		when(specialtyDao.getEntityById(anyLong())).thenReturn(parent);
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(specialtyTypeDao).getEntityById(specialtyTypeId);
+		verify(specialtyDao).getEntityById(parentId);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		Specialty entity = new Specialty();
@@ -116,6 +167,57 @@ public class SpecialtyParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		Specialty entity = new Specialty();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		Specialty entity = new Specialty();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Specialty entity = new Specialty();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}

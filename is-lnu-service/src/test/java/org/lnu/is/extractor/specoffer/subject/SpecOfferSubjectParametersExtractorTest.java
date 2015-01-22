@@ -94,6 +94,46 @@ public class SpecOfferSubjectParametersExtractorTest {
 	}
 	
 	@Test
+	public void testGetParametersWithDisabledDefauts() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		Long specOfferId = 1L;
+		SpecOffer specOffer = new SpecOffer();
+		specOffer.setId(specOfferId);
+		
+		Long enrolmentSubjectId = 2L;
+		EnrolmentSubject enrolmentSubject = new EnrolmentSubject();
+		enrolmentSubject.setId(enrolmentSubjectId);
+		
+		Boolean isMajor = false;
+		Boolean alternative = true;
+		
+		SpecofferSubject entity = new SpecofferSubject();
+		entity.setSpecOffer(specOffer);
+		entity.setEnrolmentSubject(enrolmentSubject);
+		entity.setIsMajor(isMajor);
+		entity.setAlternative(alternative);
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("specOffer", specOffer);
+		expected.put("enrolmentSubject", enrolmentSubject);
+		expected.put("isMajor", isMajor);
+		expected.put("alternative", alternative);
+		
+		// When
+		when(specOfferDao.getEntityById(anyLong())).thenReturn(specOffer);
+		when(enrolmenntSubjectDao.getEntityById(anyLong())).thenReturn(enrolmentSubject);
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		verify(specOfferDao).getEntityById(specOfferId);
+		verify(enrolmenntSubjectDao).getEntityById(enrolmentSubjectId);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
 		SpecofferSubject entity = new SpecofferSubject();
@@ -105,6 +145,57 @@ public class SpecOfferSubjectParametersExtractorTest {
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledSecurity() throws Exception {
+		// Given
+		unit.setSecurity(false);
+		
+		SpecofferSubject entity = new SpecofferSubject();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("status", RowStatus.ACTIVE);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
+		// Given
+		unit.setActive(false);
+		
+		SpecofferSubject entity = new SpecofferSubject();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("userGroups", groups);
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetParametersWithDefaultEntityAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		SpecofferSubject entity = new SpecofferSubject();
+		
+		Map<String, Object> expected = new HashMap<String, Object>();
+		
+		// When
+		Map<String, Object> actual = unit.getParameters(entity);
+		
 		// Then
 		assertEquals(expected, actual);
 	}
