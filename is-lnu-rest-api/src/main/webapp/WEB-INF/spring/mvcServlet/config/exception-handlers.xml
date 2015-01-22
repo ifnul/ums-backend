@@ -11,6 +11,7 @@
 
 	<bean id="entityNotFoundExceptionHandler" class="org.lnu.is.web.rest.handler.entity.EntityNotFoundExceptionHandler" />
 	<bean id="messageNotReadableExceptionHandler" class="org.lnu.is.web.rest.handler.request.MessageNotReadableExceptionHandler" />
-	<bean id="messageArgumentNotValidException" class="org.lnu.is.web.rest.handler.request.MethodArgumentNotValidExceptionHandler" />
+	<bean id="messageArgumentNotValidExceptionHandler" class="org.lnu.is.web.rest.handler.request.MethodArgumentNotValidExceptionHandler" />
+	<bean id="accessDeniedExceptionHandler" class="org.lnu.is.web.rest.handler.access.AccessDeniedExceptionHandler" />
 	
 </beans>

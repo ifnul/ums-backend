@@ -23,6 +23,8 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
+import org.lnu.is.domain.group.Group;
+import org.lnu.is.domain.user.User;
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
@@ -57,11 +59,23 @@ public class DefaultPersistenceManagerTest {
 		String name = "name";
 		String abbrName = "abbrName";
 		
+		String groupTitle = "group";
+		String login = "login";
+		User user = new User();
+		user.setLogin(login);
+		Group group = new Group();
+		group.setTitle(groupTitle);
+
 		Department expected = new Department();
 		expected.setAbbrName(abbrName);
 		expected.setName(name);
-
+		expected.setCrtUser(user.getLogin());
+		expected.setCrtUserGroup(group.getTitle());
+		
 		// When
+		when(sessionService.getUser()).thenReturn(user);
+		when(sessionService.getDefaultGroup()).thenReturn(group);
+		
 		Department actual = unit.create(expected);
 
 		// Then

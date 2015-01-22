@@ -11,6 +11,8 @@ import javax.persistence.TypedQuery;
 import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
+import org.lnu.is.domain.group.Group;
+import org.lnu.is.domain.user.User;
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
@@ -41,6 +43,15 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     @Override
     public T create(final T entity) {
 		LOG.info("Saving entity for class:{}", entity.getClass());
+
+		// Adding user, that created this row.
+		User user = sessionService.getUser();
+		entity.setCrtUser(user.getLogin());
+
+		// Adding default user group.
+		Group group = sessionService.getDefaultGroup();
+		entity.setCrtUserGroup(group.getTitle());
+		
 		entityManager.persist(entity);
 		LOG.info("Generated id {} for entitu: {}", entity.getId(), entity);
 		return entity;
