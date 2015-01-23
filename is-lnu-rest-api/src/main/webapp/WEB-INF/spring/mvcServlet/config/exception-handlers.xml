@@ -13,5 +13,6 @@
 	<bean id="messageNotReadableExceptionHandler" class="org.lnu.is.web.rest.handler.request.MessageNotReadableExceptionHandler" />
 	<bean id="messageArgumentNotValidExceptionHandler" class="org.lnu.is.web.rest.handler.request.MethodArgumentNotValidExceptionHandler" />
 	<bean id="accessDeniedExceptionHandler" class="org.lnu.is.web.rest.handler.access.AccessDeniedExceptionHandler" />
+	<bean id="noGroupsForUserExceptionHandler" class="org.lnu.is.web.rest.handler.access.NoGroupForUserExceptionHandler" />
 	
 </beans>

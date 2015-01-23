@@ -18,9 +18,13 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.dao.enhancers.Enhancer;
 import org.lnu.is.dao.exception.EntityNotFoundException;
+import org.lnu.is.dao.model.DaoMethod;
+import org.lnu.is.dao.verifier.VerifierChainLink;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.group.Group;
@@ -49,9 +53,47 @@ public class DefaultPersistenceManagerTest {
 	
 	@Mock
 	private SessionService sessionService;
+
+    private Map<DaoMethod, VerifierChainLink<? super Object>> persistenceChains;
+
+    private Map<DaoMethod, Enhancer<? super Object>> persistenceEnhancers;
 	
 	@InjectMocks
 	private DefaultPersistenceManager<Department, Long> unit;
+
+	@Mock
+	private VerifierChainLink<? super Object> createVerifier;
+
+	@Mock
+	private VerifierChainLink<? super Object> singleGetVerifier;
+
+	@Mock
+	private VerifierChainLink<? super Object> multipleGetVerifier;
+
+	@Mock
+	private VerifierChainLink<? super Object> updateVerifier;
+
+	@Mock
+	private Enhancer<? super Object> createEnhancer;
+	
+	@Mock
+	private Enhancer<? super Object> deleteEnhancer;
+	
+	@Before
+	public void setup() {
+		persistenceChains = new HashMap<DaoMethod, VerifierChainLink<? super Object>>();
+		persistenceChains.put(DaoMethod.CREATE, createVerifier);
+		persistenceChains.put(DaoMethod.SINGLE_GET, singleGetVerifier);
+		persistenceChains.put(DaoMethod.MULTIPLE_GET, multipleGetVerifier);
+		persistenceChains.put(DaoMethod.UPDATE, updateVerifier);
+		
+		persistenceEnhancers = new HashMap<>();
+		persistenceEnhancers.put(DaoMethod.CREATE, createEnhancer);
+		persistenceEnhancers.put(DaoMethod.DELETE, deleteEnhancer);
+		
+		unit.setPersistenceChains(persistenceChains);
+		unit.setPersistenceEnhancers(persistenceEnhancers);
+	}
 	
 	@Test
 	public void testCreate() throws Exception {
@@ -103,7 +145,7 @@ public class DefaultPersistenceManagerTest {
 		Department actual = unit.findById(clazz, id);
 
 		// Then
-		verify(sessionService).verifyGroup(group);
+		verify(singleGetVerifier).verify(expected);
 		verify(entityManager).find(clazz, id);
 		assertEquals(expected, actual);
 	}
@@ -125,11 +167,11 @@ public class DefaultPersistenceManagerTest {
 		
 		// When
 		when(entityManager.find(Matchers.<Class<Department>>any(), anyLong())).thenReturn(expected);
-		doThrow(AccessDeniedException.class).when(sessionService).verifyGroup(group);
+		doThrow(AccessDeniedException.class).when(singleGetVerifier).verify(any());
 		Department actual = unit.findById(clazz, id);
 		
 		// Then
-		verify(sessionService).verifyGroup(group);
+		verify(singleGetVerifier).verify(expected);
 		verify(entityManager).find(clazz, id);
 		assertEquals(expected, actual);
 	}
@@ -150,6 +192,7 @@ public class DefaultPersistenceManagerTest {
 		
 		// When
 		when(entityManager.find(Matchers.<Class<Department>>any(), anyLong())).thenReturn(expected);
+		doThrow(EntityNotFoundException.class).when(singleGetVerifier).verify(any());
 		unit.findById(clazz, id);
 	}
 
@@ -161,6 +204,7 @@ public class DefaultPersistenceManagerTest {
 
 		// When
 		when(entityManager.find(Matchers.<Class<Department>>any(), anyLong())).thenReturn(null);
+		doThrow(EntityNotFoundException.class).when(singleGetVerifier).verify(any());
 		unit.findById(clazz, id);
 	}
 	
@@ -183,7 +227,7 @@ public class DefaultPersistenceManagerTest {
 		Department actual = unit.update(expected);
 
 		// Then
-		verify(sessionService).verifyGroup(group);
+		verify(updateVerifier).verify(expected);
 		verify(entityManager).merge(expected);
 		assertEquals(expected, actual);
 	}
@@ -204,11 +248,10 @@ public class DefaultPersistenceManagerTest {
 		
 		// When
 		when(entityManager.merge(any(Department.class))).thenReturn(expected);
-		doThrow(AccessDeniedException.class).when(sessionService).verifyGroup(group);
+		doThrow(AccessDeniedException.class).when(updateVerifier).verify(expected);
 		Department actual = unit.update(expected);
 		
 		// Then
-		verify(sessionService).verifyGroup(group);
 		verify(entityManager).merge(expected);
 		assertEquals(expected, actual);
 	}
@@ -231,7 +274,7 @@ public class DefaultPersistenceManagerTest {
 		unit.remove(entity);
 		
 		// Then
-		verify(sessionService).verifyGroup(group);
+		verify(updateVerifier).verify(entity);
 		entity.setActual(0);
 		entity.setStatus(RowStatus.DELETED);
 		verify(entityManager).merge(entity);
@@ -252,11 +295,10 @@ public class DefaultPersistenceManagerTest {
 		entity.setCrtUserGroup(group);
 		
 		// When
-		doThrow(AccessDeniedException.class).when(sessionService).verifyGroup(group);
+		doThrow(AccessDeniedException.class).when(updateVerifier).verify(any());
 		unit.remove(entity);
 		
 		// Then
-		verify(sessionService).verifyGroup(group);
 		entity.setActual(0);
 		entity.setStatus(RowStatus.DELETED);
 		verify(entityManager).merge(entity);
