@@ -15,6 +15,7 @@ object AssetStateIntegrationTest {
 
   val testCase = exec(http("Asset State Get Paged Result")
       .get("/assets/states")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 

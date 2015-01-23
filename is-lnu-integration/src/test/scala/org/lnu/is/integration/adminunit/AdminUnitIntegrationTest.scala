@@ -23,6 +23,7 @@ object AdminUnitIntegrationTest {
   val testCase = feed(feeder)
     .exec(http("Admin Unit Get Paged Result")
       .get("${targetUrl}")
+      .basicAuth("admin", "nimda")
       .check(status.is(200))
       .check(jsonPath("$.count").find.saveAs("${count}"))
     )

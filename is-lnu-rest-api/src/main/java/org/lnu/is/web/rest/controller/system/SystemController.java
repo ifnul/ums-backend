@@ -4,6 +4,9 @@ import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_EXCEPTI
 import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_MESSAGE;
 import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_STATUS_CODE;
 
+import java.text.MessageFormat;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.lnu.is.resource.message.MessageResource;
@@ -39,7 +42,9 @@ public class SystemController extends BaseController {
         String exceptionMessage = (String) request.getAttribute(JAVAX_SERVLET_ERROR_MESSAGE);
         Throwable exception = (Throwable) request.getAttribute(JAVAX_SERVLET_ERROR_EXCEPTION);
 
-        LOGGER.error("Handle exception from Servlet container: status code - " + statusCode, exception);
+        String logMessage = MessageFormat.format("Handle exception from Servlet container: status code: {0}, url: {1}", statusCode, 
+        		request.getAttribute(RequestDispatcher.FORWARD_REQUEST_URI));
+		LOGGER.error(logMessage, exception);
 
         Integer responseCode = statusCode;
         String msg = "Exception occured";

@@ -15,6 +15,7 @@ object LanguageIntegrationTest {
   
   val testCase = exec(http("Language Get Paged Result")
       .get("/languages")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

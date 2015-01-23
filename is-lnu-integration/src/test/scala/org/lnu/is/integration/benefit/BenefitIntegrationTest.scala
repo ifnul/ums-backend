@@ -25,19 +25,22 @@ object BenefitIntegrationTest {
     })
     .exec(http("Post Benefit")
 		.post("/benefits")
-		.header("Content-Type", "application/json")
-		.body(ELFileBody("data/benefit/post.json"))
-		.asJSON
-		.check(status.is(201))
-		.check(jsonPath("$.id").find.saveAs("benefitId")))
+      .basicAuth("admin", "nimda")
+  		.header("Content-Type", "application/json")
+  		.body(ELFileBody("data/benefit/post.json"))
+  		.asJSON
+  		.check(status.is(201))
+  		.check(jsonPath("$.id").find.saveAs("benefitId")))
     .pause(500 milliseconds, 2 seconds)
     .exec(
       http("Get Benefit")
         .get("/benefits/${benefitId}")
+        .basicAuth("admin", "nimda")
         .check(status.is(200)))
     .exec(
       http("Update Benefit")
         .put("/benefits/${benefitId}")
+        .basicAuth("admin", "nimda")
         .header("Content-Type", "application/json")
         .body(ELFileBody("data/benefit/put.json"))
         .asJSON
@@ -45,15 +48,16 @@ object BenefitIntegrationTest {
     .exec(
       http("Get Benefit")
         .get("/benefits/${benefitId}")
+        .basicAuth("admin", "nimda")
         .check(status.is(200))
         .check(jsonPath("$.name").find.is("name1")))
     .exec(http("Delete Benefit")
 		.delete("/benefits/${benefitId}")
-		.check(status.is(204))
-    )
+		  .basicAuth("admin", "nimda")
+      .check(status.is(204)))
     .exec(http("Get Benefit")
 		.get("/benefits/${benefitId}")
-    	.check(status.is(404))
-    )
+      .basicAuth("admin", "nimda")
+    	.check(status.is(404)))
       
 }

@@ -16,6 +16,7 @@ object CourseTypeIntegrationTest {
 
   val testCase = exec(http("Course Types Get Paged Result")
       .get("/courses/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 

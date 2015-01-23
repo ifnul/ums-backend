@@ -1,0 +1,23 @@
+url, accessDeniedId
+/gendertypes,1
+/persons/types,2
+/streets/types,3
+/timeperiods/types,4
+/papers/types,5
+/orders/types,6
+/marriedtypes,7
+/languages,8
+/honors/types,9
+/enrolments/types,10
+/enrolments/subjects,11
+/enrolments/statustypes,12
+/eduformtypes,13
+/educations/types,14
+/departments/types,15
+/courses/types,16
+/contacts/types,17
+/assets/types,18
+/assets/statuses,19
+/assets/states,20
+/adminunits,21
+/addresstypes,22

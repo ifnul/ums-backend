@@ -15,6 +15,7 @@ object EduFormTypeIntegrationTest {
 
   val testCase = exec(http("Edu Form Types Get Paged Result")
       .get("/eduformtypes")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 

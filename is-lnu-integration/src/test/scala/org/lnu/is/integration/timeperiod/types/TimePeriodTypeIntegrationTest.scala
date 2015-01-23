@@ -15,6 +15,7 @@ object TimePeriodTypeIntegrationTest {
   
   val testCase = exec(http("Time Period Type Get Paged Result")
       .get("/timeperiods/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

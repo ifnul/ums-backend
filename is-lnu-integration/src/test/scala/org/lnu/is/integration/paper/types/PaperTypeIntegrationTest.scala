@@ -15,6 +15,7 @@ object PaperTypeIntegrationTest {
   
   val testCase = exec(http("Paper Types Get Paged Result")
       .get("/papers/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

@@ -24,20 +24,23 @@ object PersonIntegrationTest {
       	.set("other_value_example", "value")
     })
     .exec(http("Post Person")
-		.post("/persons")
-		.header("Content-Type", "application/json")
-		.body(ELFileBody("data/person/post.json"))
-		.asJSON
-		.check(status.is(201))
-		.check(jsonPath("$.id").find.saveAs("identifier")))
+  		.post("/persons")
+      .basicAuth("admin", "nimda")
+  		.header("Content-Type", "application/json")
+  		.body(ELFileBody("data/person/post.json"))
+  		.asJSON
+  		.check(status.is(201))
+  		.check(jsonPath("$.id").find.saveAs("identifier")))
     .pause(500 milliseconds, 2 seconds)
     .exec(
       http("Get Person")
         .get("/persons/${identifier}")
+        .basicAuth("admin", "nimda")
         .check(status.is(200)))
     .exec(
       http("Update Person")
         .put("/persons/${identifier}")
+        .basicAuth("admin", "nimda")
         .header("Content-Type", "application/json")
         .body(ELFileBody("data/person/put.json"))
         .asJSON
@@ -45,16 +48,16 @@ object PersonIntegrationTest {
     .exec(
       http("Get Person")
         .get("/persons/${identifier}")
+        .basicAuth("admin", "nimda")
         .check(status.is(200))
         .check(jsonPath("$.name").find.is("name1")))
     .exec(http("Delete Person")
 		.delete("/persons/${identifier}")
-		.check(status.is(204))
-    )
+      .basicAuth("admin", "nimda")
+		  .check(status.is(204)))
     .exec(http("Get Person")
 		.get("/persons/${identifier}")
-    	.check(status.is(404))
-    )
-      
+      .basicAuth("admin", "nimda")
+    	.check(status.is(404)))
 
 }
