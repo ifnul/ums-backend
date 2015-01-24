@@ -29,6 +29,7 @@ import org.lnu.is.integration.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.language.LanguageIntegrationTest
 import org.lnu.is.integration.course.types.CourseTypeIntegrationTest
 import org.lnu.is.integration.asset.status.AssetStatusIntegrationTest
+import org.lnu.is.integration.resource.ResourceByIdIntegrationTest
 
 
 /**

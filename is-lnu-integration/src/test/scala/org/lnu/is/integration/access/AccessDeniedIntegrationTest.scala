@@ -48,7 +48,6 @@ object AccessDeniedIntegrationTest {
           .foreach("${resources}", "resource"){
                     exec( session => {
                         val resource = session("resource").as[Map[String, Any]]
-                        println("AccessDeniedIntegrationTest:" + resource);
                         val resourceId = resource("id")
                         session.set("resourceId", resourceId)
                     })

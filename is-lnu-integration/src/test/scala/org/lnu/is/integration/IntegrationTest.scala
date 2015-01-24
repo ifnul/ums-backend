@@ -23,10 +23,12 @@ class IntegrationTest extends Simulation {
 	
 	val injectStep = atOnceUsers(1);
 	
-  val scn = TestCases.scn;
+  val scn = getTestCases()
  
 	setUp(scn.inject(injectStep))
 	  .protocols(httpConf)
 	  .assertions(global.successfulRequests.percent.greaterThan(successPercent))
 	
+  def getTestCases() = TestCases.scn  
+    
 }
