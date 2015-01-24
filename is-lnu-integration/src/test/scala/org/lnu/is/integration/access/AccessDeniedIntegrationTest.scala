@@ -18,29 +18,46 @@ import io.gatling.http.Predef.status
 import io.gatling.http.request.builder.HttpRequestBuilder.toActionBuilder
 import scala.concurrent.duration.DurationInt
 
+/**
+ * Main purpose of this test is to be sure, 
+ * that security of web service is working well.
+ * That's why we retrieve multiple results using
+ * admin credentials, and, after that, when we 
+ * will get id of resource, we send 
+ * "Resource By ID" request with fake credentials.
+ * 
+ */
 object AccessDeniedIntegrationTest {
     
-    val links = csv("data/access/links.csv").queue
-  
+    val urls = List("/persons/types", "/streets/types", "/timeperiods/types","/papers/types" , 
+        "/orders/types", "/marriedtypes", "/languages", "/gendertypes", "/honors/types",
+        "/enrolments/types", "/enrolments/subjects", "/enrolments/statustypes",
+        "/eduformtypes", "/educations/types", "/departments/types", "/courses/types",
+        "/contacts/types", "/assets/types", "/assets/statuses", "/assets/states", "/adminunits", "/addresstypes")
+    
     val testCase = 
-      feed(links)
-      .exec(http("Access Denied Get Paged Result")
-        .get("${url}")
-        .basicAuth("admin", "nimda")
-        .check(status.is(200))
-        .check(jsonPath("$.resources[*]").ofType[Map[String, Any]].findAll.saveAs("resources")))
-        .foreach("${resources}", "resource"){
-                exec( session => {
-                    val resource = session("resource").as[Map[String, Any]]
-                    println("AccessDeniedIntegrationTest:" + resource);
-                    val resourceId = resource("id")
-                    session.set("resourceId", resourceId)
-                })
-                .exec(
-                    http("Checking Access Denied Request Access")
-                      .get("${url}/${resourceId}")
-                      .basicAuth("broken_student", "nevdaha")
-                      .check(status.is(403))
-                )      
+      exec(session => {
+        session.set("urls", urls);
+      })
+      .foreach("${urls}", "url") {
+          exec(http("Access Denied Get Paged Result")
+            .get("${url}")
+            .basicAuth("admin", "nimda")
+            .check(status.is(200))
+            .check(jsonPath("$.resources[*]").ofType[Map[String, Any]].findAll.saveAs("resources")))
+          .foreach("${resources}", "resource"){
+                    exec( session => {
+                        val resource = session("resource").as[Map[String, Any]]
+                        println("AccessDeniedIntegrationTest:" + resource);
+                        val resourceId = resource("id")
+                        session.set("resourceId", resourceId)
+                    })
+                    .exec(
+                        http("Checking Access Denied Request Access")
+                          .get("${url}/${resourceId}")
+                          .basicAuth("broken_student", "nevdaha")
+                          .check(status.is(403))
+                    )      
           }
+      }
 }
