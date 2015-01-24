@@ -20,30 +20,27 @@ import scala.concurrent.duration.DurationInt
 
 object AccessDeniedIntegrationTest {
     
-    val links = csv("data/access/links.csv").random
+    val links = csv("data/access/links.csv").queue
   
     val testCase = 
       feed(links)
-      .pause(1 seconds)  
       .exec(http("Access Denied Get Paged Result")
         .get("${url}")
         .basicAuth("admin", "nimda")
         .check(status.is(200))
         .check(jsonPath("$.resources[*]").ofType[Map[String, Any]].findAll.saveAs("resources")))
-      .pause(2 seconds)  
-      .exec(
-            foreach("${resources}", "resource"){
-                  exec( session => {
-                      val resource = session("resource").as[Map[String, Any]]
-                      val resourceId = resource("id")
-                      session.set("resourceId", resourceId)
-                  })
-                  .exec(
-                      http("Checking Access Denied Request Access")
-                        .get("${url}/${resourceId}")
-                        .basicAuth("broken_student", "nevdaha")
-                        .check(status.is(403))
-                  )      
-            })
-      .pause(1 seconds)  
+        .foreach("${resources}", "resource"){
+                exec( session => {
+                    val resource = session("resource").as[Map[String, Any]]
+                    println("AccessDeniedIntegrationTest:" + resource);
+                    val resourceId = resource("id")
+                    session.set("resourceId", resourceId)
+                })
+                .exec(
+                    http("Checking Access Denied Request Access")
+                      .get("${url}/${resourceId}")
+                      .basicAuth("broken_student", "nevdaha")
+                      .check(status.is(403))
+                )      
+          }
 }
