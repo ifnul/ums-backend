@@ -21,19 +21,22 @@ object SpecialtyIntegrationTest {
       	.set("idnum", UUID.randomUUID())
     })
     .exec(http("Post Specialty")
-		.post("/specialties")
-		.header("Content-Type", "application/json")
-		.body(ELFileBody("data/specialty/post.json"))
-		.asJSON
-		.check(status.is(201))
-		.check(jsonPath("$.id").find.saveAs("specialtyId")))
+  		.post("/specialties")
+      .basicAuth("admin", "nimda")
+  		.header("Content-Type", "application/json")
+  		.body(ELFileBody("data/specialty/post.json"))
+  		.asJSON
+  		.check(status.is(201))
+  		.check(jsonPath("$.id").find.saveAs("specialtyId")))
     .exec(
       http("Get Specialty")
         .get("/specialties/${specialtyId}")
+        .basicAuth("admin", "nimda")
         .check(status.is(200)))
     .exec(
       http("Update Specialty")
         .put("/specialties/${specialtyId}")
+        .basicAuth("admin", "nimda")
         .header("Content-Type", "application/json")
         .body(ELFileBody("data/specialty/put.json"))
         .asJSON
@@ -41,15 +44,16 @@ object SpecialtyIntegrationTest {
     .exec(
       http("Get Specialty")
         .get("/specialties/${specialtyId}")
+        .basicAuth("admin", "nimda")
         .check(status.is(200))
         .check(jsonPath("$.name").find.is("Теоретичні основи інформатики та кібернетики")))
     .exec(http("Delete Specialty")
 		.delete("/specialties/${specialtyId}")
-		.check(status.is(204))
-    )
+		  .basicAuth("admin", "nimda")
+      .check(status.is(204)))
     .exec(http("Get Specialty")
 		.get("/specialties/${specialtyId}")
-    	.check(status.is(404))
-    )
+      .basicAuth("admin", "nimda")
+    	.check(status.is(404)))
       
 }

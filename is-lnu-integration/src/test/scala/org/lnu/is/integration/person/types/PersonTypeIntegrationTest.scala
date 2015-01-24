@@ -15,6 +15,7 @@ object PersonTypeIntegrationTest {
   
   val testCase = exec(http("Person Type Get Paged Result")
       .get("/persons/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

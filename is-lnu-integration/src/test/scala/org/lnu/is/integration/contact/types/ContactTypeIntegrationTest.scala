@@ -16,6 +16,7 @@ object ContactTypeIntegrationTest {
 
   val testCase = exec(http("Contact Types Get Paged Result")
       .get("/contacts/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 

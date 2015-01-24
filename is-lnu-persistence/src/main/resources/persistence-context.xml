@@ -9,7 +9,10 @@
        default-autowire="byName">
 
     <context:component-scan base-package="org.lnu.is.dao" />
+	
 	<import resource="dao-context.xml"/>
+	<import resource="verifier-context.xml"/>
+	<import resource="enhancers-context.xml"/>
 
 	<bean id="activeFiltering" class="java.lang.Boolean">
     	<constructor-arg value="${active.filtering}"/>

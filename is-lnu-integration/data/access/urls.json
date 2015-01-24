@@ -1,0 +1,80 @@
+[
+{
+	"url" : "/timesheets/types"
+},
+{	
+	"url" : "/timeperiods/types"
+},
+{	
+	"url" : "/streets/types"
+},
+{	
+	"url" : "/specialties/types"
+},
+{	
+	"url" : "/reasons"
+},
+{	
+	"url" : "/persons/types"
+},
+{	
+	"url" : "/papers/types"
+},
+{	
+	"url" : "/orders/types"
+},
+{	
+	"url" : "/operations/types"
+},
+{	
+	"url" : "/marriedtypes"
+},
+{	
+	"url" : "/languages"
+},
+{	
+	"url" : "/honors/types"
+},
+{	
+	"url" : "/gendertypes"
+},
+{	
+	"url" : "/enrolments/types"
+},
+{	
+	"url" : "/enrolments/subjects"
+},
+{
+	"url" : "/enrolments/statustypes"
+},
+{	
+	"url" : "/eduformtypes"
+},
+{	
+	"url" : "/educations/types"
+},
+{
+	"url" : "/departments/types"
+},
+{	
+	"url" : "/courses/types"
+},
+{	
+	"url" : "/contacts/types"
+},
+{	
+	"url" : "/assets/types"
+},
+{	
+	"url" : "/assets/statuses"
+},
+{	
+	"url" : "/assets/states"
+},
+{	
+	"url" : "/adminunits"
+},
+{	
+	"url" : "/addresstypes"
+}
+]

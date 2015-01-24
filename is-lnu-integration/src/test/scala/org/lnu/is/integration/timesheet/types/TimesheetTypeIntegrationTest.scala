@@ -16,6 +16,7 @@ object TimesheetTypeIntegrationTest {
   
   val testCase = exec(http("Timesheet Type Get Paged Result")
       .get("/timesheets/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

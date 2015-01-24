@@ -15,6 +15,7 @@ object HonorTypeIntegrationTest {
   
   val testCase = exec(http("Honor Types Get Paged Result")
       .get("/honors/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

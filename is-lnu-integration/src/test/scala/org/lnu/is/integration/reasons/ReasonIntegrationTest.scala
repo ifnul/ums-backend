@@ -16,6 +16,7 @@ object ReasonIntegrationTest {
   
   val testCase = exec(http("Reasons Get Paged Result")
       .get("/reasons")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

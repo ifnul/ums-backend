@@ -15,6 +15,7 @@ object AddressTypeIntegrationTest {
 
   val testCase = exec(http("Address Types Get Paged Result")
       .get("/addresstypes")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 

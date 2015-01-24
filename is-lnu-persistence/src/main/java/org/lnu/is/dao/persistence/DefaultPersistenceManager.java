@@ -8,15 +8,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.lnu.is.dao.exception.EntityNotFoundException;
+import org.lnu.is.dao.enhancers.Enhancer;
+import org.lnu.is.dao.model.DaoMethod;
+import org.lnu.is.dao.verifier.VerifierChainLink;
 import org.lnu.is.domain.Model;
-import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.group.Group;
-import org.lnu.is.domain.user.User;
 import org.lnu.is.pagination.PagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
-import org.lnu.is.security.service.SessionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -37,59 +35,49 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Resource(name = "sessionService")
-    private SessionService sessionService;
+    @Resource(name = "persistenceChains")
+    private Map<DaoMethod, VerifierChainLink<? super Object>> persistenceChains;
+    
+    @Resource(name = "persistenceEnhancers")
+    private Map<DaoMethod, Enhancer<? super Object>> persistenceEnhancers;
     
     @Override
     public T create(final T entity) {
 		LOG.info("Saving entity for class:{}", entity.getClass());
 
-		// Adding user, that created this row.
-		User user = sessionService.getUser();
-		entity.setCrtUser(user.getLogin());
-
-		// Adding default user group.
-		Group group = sessionService.getDefaultGroup();
-		entity.setCrtUserGroup(group.getTitle());
-		
+		verify(DaoMethod.CREATE, entity);
+		enhance(DaoMethod.CREATE, entity);
 		entityManager.persist(entity);
-		LOG.info("Generated id {} for entitu: {}", entity.getId(), entity);
+		
 		return entity;
     }
 
     @Override
     public T findById(final Class<T> clazz, final I id) {
         T entity = entityManager.find(clazz, id);
-        
-        if (entity == null || RowStatus.DELETED.equals(entity.getStatus())) {
-        	LOG.error("Entity is deleted, {}, {}", clazz.getSimpleName(), id);
-        	throw new EntityNotFoundException("Entity does'nt exist");
-        }
-
-        sessionService.verifyGroup(entity.getCrtUserGroup());
-        
+        verify(DaoMethod.SINGLE_GET, entity);
         return entity;
     }
 
     @Override
     public T update(final T entity) {
     	LOG.info("Updating entity for class:{}", entity.getClass());
-    	sessionService.verifyGroup(entity.getCrtUserGroup());
+    	verify(DaoMethod.UPDATE, entity);
         return entityManager.merge(entity);
     }
 
     @Override
     public void remove(final T entity) {
     	LOG.info("Removing entity for class:{}", entity.getClass());
-		entity.setActual(0);
-        entity.setStatus(RowStatus.DELETED);
-
+    	enhance(DaoMethod.DELETE, entity);
         update(entity);
     }
 
     @Override
     public PagedResult<T> search(final PagedQuerySearch<T> request) {
-        TypedQuery<T> typedQuery = createQuery(request.getQuery().getQuery(), request.getParameters(), request.getClazz());
+    	verify(DaoMethod.MULTIPLE_GET, request);
+    	
+    	TypedQuery<T> typedQuery = createQuery(request.getQuery().getQuery(), request.getParameters(), request.getClazz());
         typedQuery.setFirstResult(request.getOffset());
         typedQuery.setMaxResults(request.getLimit());
 
@@ -145,4 +133,33 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
 
         return typedQuery;
     }
+    
+	/**
+	 * Method for verifying appropriate logic.
+	 * @param method
+	 * @param resource
+	 */
+	protected void verify(final DaoMethod method, final Object resource) {
+		VerifierChainLink<? super Object> verifier = persistenceChains.get(method);
+		verifier.verify(resource);
+	}
+
+	/**
+	 * Method for verifying appropriate logic.
+	 * @param method
+	 * @param resource
+	 */
+	protected void enhance(final DaoMethod method, final Object entity) {
+		Enhancer<? super Object> enhancer = persistenceEnhancers.get(method);
+		enhancer.enhance(entity);
+	}
+
+	public void setPersistenceChains(final Map<DaoMethod, VerifierChainLink<? super Object>> persistenceChains) {
+		this.persistenceChains = persistenceChains;
+	}
+
+	public void setPersistenceEnhancers(final Map<DaoMethod, Enhancer<? super Object>> persistenceEnhancers) {
+		this.persistenceEnhancers = persistenceEnhancers;
+	}
+	
 }

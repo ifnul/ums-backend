@@ -15,6 +15,7 @@ object MarriedTypeIntegrationTest {
   
   val testCase = exec(http("Married Types Get Paged Result")
       .get("/marriedtypes")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

@@ -16,6 +16,7 @@ object OrderTypeIntegrationTest {
   
   val testCase = exec(http("Order Type Get Paged Result")
       .get("/orders/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

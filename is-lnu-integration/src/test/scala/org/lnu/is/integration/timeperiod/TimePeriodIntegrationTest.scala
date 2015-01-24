@@ -17,19 +17,22 @@ object TimePeriodIntegrationTest {
 
   val testCase = exec(http("Post TimePeriod")
 		.post("/timeperiods")
-		.header("Content-Type", "application/json")
-		.body(ELFileBody("data/timeperiod/post.json"))
-		.asJSON
-		.check(status.is(201))
-		.check(jsonPath("$.id").find.saveAs("timePeriodId")))
+      .basicAuth("admin", "nimda")
+  		.header("Content-Type", "application/json")
+  		.body(ELFileBody("data/timeperiod/post.json"))
+  		.asJSON
+  		.check(status.is(201))
+  		.check(jsonPath("$.id").find.saveAs("timePeriodId")))
     .pause(500 milliseconds, 2 seconds)
     .exec(
       http("Get TimePeriod")
         .get("/timeperiods/${timePeriodId}")
+        .basicAuth("admin", "nimda")
         .check(status.is(200)))
     .exec(
       http("Update TimePeriod")
         .put("/timeperiods/${timePeriodId}")
+        .basicAuth("admin", "nimda")
         .header("Content-Type", "application/json")
         .body(ELFileBody("data/timeperiod/put.json"))
         .asJSON
@@ -37,14 +40,15 @@ object TimePeriodIntegrationTest {
     .exec(
       http("Get TimePeriod")
         .get("/timeperiods/${timePeriodId}")
+        .basicAuth("admin", "nimda")
         .check(status.is(200))
         .check(jsonPath("$.name").find.is("Enrolment company 2015")))
     .exec(http("Delete TimePeriod")
 		.delete("/timeperiods/${timePeriodId}")
-		.check(status.is(204))
-    )
+      .basicAuth("admin", "nimda")
+  		.check(status.is(204)))
     .exec(http("Get TimePeriod")
 		.get("/timeperiods/${timePeriodId}")
-    	.check(status.is(404))
-    )
+    	.basicAuth("admin", "nimda")
+      .check(status.is(404)))
 }

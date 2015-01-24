@@ -15,6 +15,7 @@ object StreetTypeIntegrationTest {
   
   val testCase = exec(http("Street Type Get Paged Result")
       .get("/streets/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 }

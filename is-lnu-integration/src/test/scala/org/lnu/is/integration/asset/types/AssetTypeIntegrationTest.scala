@@ -15,6 +15,7 @@ object AssetTypeIntegrationTest {
 
   val testCase = exec(http("Asset Type Get Paged Result")
       .get("/assets/types")
+      .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )
 
