@@ -6,11 +6,13 @@ import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_STATUS_
 
 import java.text.MessageFormat;
 
+import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
+import org.lnu.is.resource.system.SystemResource;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +30,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class SystemController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(SystemController.class);
 
+    @Resource(name = "systemResource")
+    private SystemResource systemResource;
+    
+    @RequestMapping(value = "/")
+    public SystemResource getSystemInformation() {
+    	return systemResource;
+    }
+    
     /**
      * Servlet Error's handler.
      *

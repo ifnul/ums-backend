@@ -24,8 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebServiceMethodCountBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 	private static final Logger LOGGER =  LoggerFactory.getLogger(WebServiceMethodCountBeanFactoryPostProcessor.class);
 	
-	private Map<RequestMethod, Integer> httpMethodsCount;
-	
 	@Override
 	public void postProcessBeanFactory(final ConfigurableListableBeanFactory beanFactory) throws BeansException {
 		
@@ -51,7 +49,8 @@ public class WebServiceMethodCountBeanFactoryPostProcessor implements BeanFactor
 		
 		LOGGER.info("All methods count: {}", allMethodCount);
 		
-		this.httpMethodsCount = methodsCount;
+		beanFactory.registerSingleton("httpMethodsCount", allMethodCount);
+		beanFactory.registerSingleton("httpMethods", methodsCount);
 	}
 
 	/**
@@ -91,10 +90,6 @@ public class WebServiceMethodCountBeanFactoryPostProcessor implements BeanFactor
 			methodsCount.put(requestMethod, methodCount);
 		}
 		
-	}
-
-	public Map<RequestMethod, Integer> getMethodsCount() {
-		return httpMethodsCount;
 	}
 
 }

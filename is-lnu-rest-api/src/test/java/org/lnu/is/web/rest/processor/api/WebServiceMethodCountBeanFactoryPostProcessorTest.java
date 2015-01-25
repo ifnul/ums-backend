@@ -1,6 +1,5 @@
 package org.lnu.is.web.rest.processor.api;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -48,7 +47,6 @@ public class WebServiceMethodCountBeanFactoryPostProcessorTest {
 
 		// Then
 		verify(beanFactory).getBeanDefinitionNames();
-		assertEquals(4, unit.getMethodsCount().size());
 	}
 	
 	public static <T> Answer<T> createAnswer(final T value) {

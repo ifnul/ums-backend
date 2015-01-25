@@ -39,6 +39,13 @@ public class SystemControllerTest extends AbstractControllerTest {
 	}
 
 	@Test
+	public void testGetSystemInformation() throws Exception {
+		// Then
+		mockMvc.perform(get("/"))
+			.andExpect(status().isOk());
+	}
+	
+	@Test
 	public void testError() throws Exception {
 		mockMvc.perform(get("/error/{status}", status))
 			.andExpect(status().is(status));
