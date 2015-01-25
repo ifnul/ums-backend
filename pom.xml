@@ -73,7 +73,7 @@
 		
 		<!-- Gatling properties -->
 		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
-		<integration.successtests.percent>96</integration.successtests.percent>
+		<integration.successtests.percent>99</integration.successtests.percent>
 		
 		<!-- Tomcat manager properties -->		
 		<tomcat.deploy.url>http://104.236.29.16:8080/manager/text</tomcat.deploy.url>

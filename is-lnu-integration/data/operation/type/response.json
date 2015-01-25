@@ -1,8 +1,7 @@
-[
-	{
-		"targetUrl":"/operationtypes",
-		"expectedResponse": {
-		    "TODO": "Add data"
-		}
-	}
-]
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 0,
+  "resources" : [ ],
+  "uri" : "/operationtypes"
+}

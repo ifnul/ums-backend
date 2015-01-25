@@ -54,17 +54,6 @@ FAQ:
 	відправити запит на видалення персони.
 	
 TODO Integration tests:
-FamilyType
-DegreeType
-EmployeeType
-EmployeeStatus
-DutyType
 Benefit
-DepartmentType
-SpecialtyType
-Reason
-OperationType
 Specialty
-SallaryType
-Subject
 SubjectType

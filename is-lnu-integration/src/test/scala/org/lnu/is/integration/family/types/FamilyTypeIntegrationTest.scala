@@ -1,4 +1,4 @@
-package org.lnu.is.integration.operation.types
+package org.lnu.is.integration.family.types
 
 import io.gatling.core.Predef.checkBuilder2Check
 import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
@@ -9,12 +9,12 @@ import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
 import io.gatling.http.request.RawFileBody
 
-object OperationTypeIntegrationTest {
+object FamilyTypeIntegrationTest {
 
-  val response = RawFileBody("data/operation/type/response.json")
-  
-  val testCase = exec(http("Operation Types Get Paged Result")
-      .get("/operationtypes")
+  val response = RawFileBody("data/family/types/response.json")
+
+  val testCase = exec(http("Family Types Get Paged Result")
+      .get("/families/types")
       .basicAuth("admin", "nimda")
       .check(bodyString.is(response))
     )

@@ -21,7 +21,7 @@ public class DegreeTypeResource extends ApiResource {
 	
 	@Override
 	public String getRootUri() {
-		return "/degress/types";
+		return "/degrees/types";
 	}
 	
 	public String getAbbrName() {

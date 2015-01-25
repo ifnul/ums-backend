@@ -32,6 +32,17 @@ import org.lnu.is.integration.asset.status.AssetStatusIntegrationTest
 import org.lnu.is.integration.resource.ResourceByIdIntegrationTest
 import org.lnu.is.integration.department.DepartmentIntegrationTest
 import org.lnu.is.integration.department.types.DepartmentTypeIntegrationTest
+import org.lnu.is.integration.family.types.FamilyTypeIntegrationTest
+import org.lnu.is.integration.degree.types.DegreeTypeIntegrationTest
+import org.lnu.is.integration.employee.types.EmployeeTypeIntegrationTest
+import org.lnu.is.integration.employee.status.EmployeeStatusIntegrationTest
+import org.lnu.is.integration.duties.types.DutyTypeIntegrationTest
+import org.lnu.is.integration.specialty.types.SpecialtyTypeIntegrationTest
+import org.lnu.is.integration.reasons.ReasonIntegrationTest
+import org.lnu.is.integration.operation.types.OperationTypeIntegrationTest
+import org.lnu.is.integration.sallary.types.SallaryTypeIntegrationTest
+import org.lnu.is.integration.subject.SubjectIntegrationTest
+import org.lnu.is.integration.subject.types.SubjectTypeIntegrationTest
 
 
 /**
@@ -54,18 +65,29 @@ object TestCases {
                     CourseTypeIntegrationTest.testCase,
                     EduFormTypeIntegrationTest.testCase,
                     EducationTypeIntegrationTest.testCase,
+                    EmployeeTypeIntegrationTest.testCase,
+                    EmployeeStatusIntegrationTest.testCase,
                     DepartmentIntegrationTest.testCase,
                     DepartmentTypeIntegrationTest.testCase,
+                    DegreeTypeIntegrationTest.testCase,
+                    DutyTypeIntegrationTest.testCase,
+                    FamilyTypeIntegrationTest.testCase,
+                    SallaryTypeIntegrationTest.testCase,
                     StreetTypeIntegrationTest.testCase,
+                    SpecialtyTypeIntegrationTest.testCase,
+                    SubjectIntegrationTest.testCase,
+                    SubjectTypeIntegrationTest.testCase,
                     EnrolmentStatusTypeIntegrationTest.testCase,
                     EnrolmentTypeIntegrationTest.testCase,
                     EnrolmentSubjectIntegrationTest.testCase,
                     GenderTypeIntegrationTest.testCase,
                     LanguageIntegrationTest.testCase,
                     OrderTypeIntegrationTest.testCase,
+                    OperationTypeIntegrationTest.testCase,
                     TimePeriodIntegrationTest.testCase,
                     TimePeriodTypeIntegrationTest.testCase,
                     PartnerIntegrationTest.testCase,
+                    ReasonIntegrationTest.testCase,
                     HonorTypeIntegrationTest.testCase,
                     PaperTypeIntegrationTest.testCase
               )
