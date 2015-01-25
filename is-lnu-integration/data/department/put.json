@@ -1,0 +1,10 @@
+{
+	"departmentTypeId" : 1,
+	"abbrName" : "t_AbbrName${departmentAbbrName}",
+	"name" : "t_name${departmentName}_updated",
+	"manager" : "t_manager{departmentManager}",
+	"phone" : "t_phone{departmentPhone}",
+	"email" : "t_email${departmentEmail}",
+	"begDate" : "1998-01-01",
+	"endDate" : "2020-01-01"	
+}

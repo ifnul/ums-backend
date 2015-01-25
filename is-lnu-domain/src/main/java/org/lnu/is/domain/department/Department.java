@@ -35,25 +35,10 @@ public class Department extends InformationModel {
 	@JoinColumn(name = "departmenttype_id")
 	private DepartmentType departmentType;
 	
-	@OneToMany(mappedBy = "department")
-	private List<DepartmentAddress> addresses;
-	
-	@OneToMany(mappedBy = "department")
-	private List<DepartmentContact> contacts;
-	
 	@ManyToOne
 	@JoinColumn(name = "order_id")
 	private Order order;
 
-	@OneToMany(mappedBy = "department")
-	private List<DepartmentName> names;
-	
-	@ManyToMany
-	@JoinTable(name = "q_od_departmentspecialty", 
-		joinColumns = { @JoinColumn(name = "department_id") },
-		inverseJoinColumns = { @JoinColumn(name = "specialty_id") })
-	private List<Specialty> specialties;
-	
 	@Column(name = "abbrname")
 	private String abbrName;
 	
@@ -74,7 +59,22 @@ public class Department extends InformationModel {
 	
 	@Column(name = "enddate")
 	private Date endDate;
+	
+	@OneToMany(mappedBy = "department")
+	private List<DepartmentAddress> addresses;
+	
+	@OneToMany(mappedBy = "department")
+	private List<DepartmentContact> contacts;
+	
+	@OneToMany(mappedBy = "department")
+	private List<DepartmentName> names;
 
+	@ManyToMany
+	@JoinTable(name = "q_od_departmentspecialty", 
+		joinColumns = { @JoinColumn(name = "department_id") },
+		inverseJoinColumns = { @JoinColumn(name = "specialty_id") })
+	private List<Specialty> specialties;
+	
 	public Department getParent() {
 		return parent;
 	}

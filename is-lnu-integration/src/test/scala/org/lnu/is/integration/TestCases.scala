@@ -30,6 +30,8 @@ import org.lnu.is.integration.language.LanguageIntegrationTest
 import org.lnu.is.integration.course.types.CourseTypeIntegrationTest
 import org.lnu.is.integration.asset.status.AssetStatusIntegrationTest
 import org.lnu.is.integration.resource.ResourceByIdIntegrationTest
+import org.lnu.is.integration.department.DepartmentIntegrationTest
+import org.lnu.is.integration.department.types.DepartmentTypeIntegrationTest
 
 
 /**
@@ -39,7 +41,8 @@ import org.lnu.is.integration.resource.ResourceByIdIntegrationTest
 object TestCases {
 
     val scn = scenario("Integration test scenario")
-              .exec(AdminUnitIntegrationTest.testCase,
+              .exec(
+                    AdminUnitIntegrationTest.testCase,
                     AddressTypeIntegrationTest.testCase,
                     AssetTypeIntegrationTest.testCase,
                     AssetStatusIntegrationTest.testCase,
@@ -51,6 +54,8 @@ object TestCases {
                     CourseTypeIntegrationTest.testCase,
                     EduFormTypeIntegrationTest.testCase,
                     EducationTypeIntegrationTest.testCase,
+                    DepartmentIntegrationTest.testCase,
+                    DepartmentTypeIntegrationTest.testCase,
                     StreetTypeIntegrationTest.testCase,
                     EnrolmentStatusTypeIntegrationTest.testCase,
                     EnrolmentTypeIntegrationTest.testCase,
@@ -62,9 +67,7 @@ object TestCases {
                     TimePeriodTypeIntegrationTest.testCase,
                     PartnerIntegrationTest.testCase,
                     HonorTypeIntegrationTest.testCase,
-                    PaperTypeIntegrationTest.testCase,
-                    
-                    AccessDeniedIntegrationTest.testCase
+                    PaperTypeIntegrationTest.testCase
               )
   
 }

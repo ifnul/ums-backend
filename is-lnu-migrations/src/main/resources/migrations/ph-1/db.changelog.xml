@@ -5499,4 +5499,12 @@
     	
 	</changeSet>
 	
+	<changeSet id="dropNotNullConstraint" author="ivanursul">
+		<dropNotNullConstraint tableName="q_dc_order" columnName="department_id"/>
+	</changeSet>
+	
+	<changeSet id="dropNotNullConstraintInDepartmentTable" author="ivanursul">
+		<dropNotNullConstraint tableName="q_ob_department" columnName="order_id"/>
+	</changeSet>
+	
 </databaseChangeLog>
