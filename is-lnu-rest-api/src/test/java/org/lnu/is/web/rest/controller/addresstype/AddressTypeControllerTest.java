@@ -1,12 +1,14 @@
 package org.lnu.is.web.rest.controller.addresstype;
 
 import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -98,4 +100,18 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 		verify(facade).getResource(id);
 	}
 
+	@Test(expected = AccessDeniedException.class)
+	public void testGetResourceWithException() throws Exception {
+		// Given
+		Long id = 1L;
+		
+		// When
+		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+		
+		// Then
+		mockMvc.perform(get("/addresstypes/{id}", id));
+		
+		verify(facade).getResource(id);
+	}
+	
 }

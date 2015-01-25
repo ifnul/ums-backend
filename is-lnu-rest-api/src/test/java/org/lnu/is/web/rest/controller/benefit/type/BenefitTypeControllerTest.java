@@ -1,12 +1,14 @@
 package org.lnu.is.web.rest.controller.benefit.type;
 
 import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -91,6 +93,20 @@ public class BenefitTypeControllerTest extends AbstractControllerTest {
 		mockMvc.perform(get("/benefits/types/{id}", id))
 			.andExpect(status().isOk())
 			.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
+	}
+
+	@Test(expected = AccessDeniedException.class)
+	public void testGetResourceWithAccessDeniedException() throws Exception {
+		// Given
+		Long id = 1L;
+		
+		// When
+		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+		
+		// Then
+		mockMvc.perform(get("/benefits/types/{id}", id));
 		
 		verify(facade).getResource(id);
 	}

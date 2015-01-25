@@ -1,12 +1,14 @@
 package org.lnu.is.web.rest.controller.adminunit;
 
 import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,7 +51,7 @@ public class AdminUnitControllerTest extends AbstractControllerTest {
 		int offset = 0;
 		int limit = 20;
 		long count = 1;
-		PagedResultResource<AdminUnitResource> expected = new PagedResultResource<>("/marriedtypes");
+		PagedResultResource<AdminUnitResource> expected = new PagedResultResource<>("/adminunits");
 		expected.setResources(entities);
 		expected.setOffset(offset);
 		expected.setLimit(limit);
@@ -90,6 +92,20 @@ public class AdminUnitControllerTest extends AbstractControllerTest {
 		mockMvc.perform(get("/adminunits/{id}", id))
 			.andExpect(status().isOk())
 			.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
+	}
+
+	@Test(expected = AccessDeniedException.class)
+	public void testGetResourceWithAccessDeniedException() throws Exception {
+		// Given
+		Long id = 1L;
+		
+		// When
+		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+		
+		// Then
+		mockMvc.perform(get("/adminunits/{id}", id));
 		
 		verify(facade).getResource(id);
 	}

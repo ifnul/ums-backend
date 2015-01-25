@@ -122,4 +122,18 @@ public class AdminUnitTypeControllerTest extends AbstractControllerTest {
 		
 		verify(facade).getResource(id);
 	}
+
+	@Test(expected = AccessDeniedException.class)
+	public void testGetResourceWithAccessDeniedException() throws Exception {
+		// Given
+		Long id = 1L;
+		
+		// When
+		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+		
+		// Then
+		mockMvc.perform(get("/adminunits/types/{id}", id));
+		
+		verify(facade).getResource(id);
+	}
 }

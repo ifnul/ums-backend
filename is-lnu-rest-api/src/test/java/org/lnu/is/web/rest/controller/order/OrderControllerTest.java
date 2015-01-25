@@ -2,6 +2,7 @@ package org.lnu.is.web.rest.controller.order;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -11,6 +12,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -169,5 +171,18 @@ public class OrderControllerTest extends AbstractControllerTest {
     	
 		verify(facade).getResources(pagedRequest);
 	}
-  
+
+	@Test(expected = AccessDeniedException.class)
+	public void testGetResourceWithAccessDeniedException() throws Exception {
+		// Given
+		Long id = 1L;
+		
+		// When
+		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+		
+		// Then
+		mockMvc.perform(get("/orders/{id}", id));
+		
+		verify(facade).getResource(id);
+	}
 }

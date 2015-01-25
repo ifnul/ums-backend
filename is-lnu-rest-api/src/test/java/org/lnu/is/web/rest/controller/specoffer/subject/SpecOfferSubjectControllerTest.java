@@ -2,6 +2,7 @@ package org.lnu.is.web.rest.controller.specoffer.subject;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -11,6 +12,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.nio.file.AccessDeniedException;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
@@ -166,5 +168,20 @@ public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
     		.andExpect(content().string(response));
     	
 		verify(facade).getResources(pagedRequest);
+	}
+
+	@Test(expected = AccessDeniedException.class)
+	public void testGetResourceWithAccessDeniedException() throws Exception {
+		// Given
+		Long id = 1L;
+		Long specOfferId = 2L;
+		
+		// When
+		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+		
+		// Then
+		mockMvc.perform(get("/specoffers/{specOfferId}/subjects/{id}", specOfferId, id));
+		
+		verify(facade).getResource(id);
 	}
 }
