@@ -13,10 +13,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SystemResource {
 
 	private Integer methodsCount;
+	private Boolean enabled;
 	private Map<RequestMethod, Integer> methods;
 	private String version;
 	private List<String> developers;
 	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(final Boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	public Integer getMethodsCount() {
 		return methodsCount;
 	}
@@ -55,6 +64,7 @@ public class SystemResource {
 		int result = 1;
 		result = prime * result
 				+ ((developers == null) ? 0 : developers.hashCode());
+		result = prime * result + ((enabled == null) ? 0 : enabled.hashCode());
 		result = prime * result + ((methods == null) ? 0 : methods.hashCode());
 		result = prime * result
 				+ ((methodsCount == null) ? 0 : methodsCount.hashCode());
@@ -79,6 +89,13 @@ public class SystemResource {
 				return false;
 			}
 		} else if (!developers.equals(other.developers)) {
+			return false;
+		}
+		if (enabled == null) {
+			if (other.enabled != null) {
+				return false;
+			}
+		} else if (!enabled.equals(other.enabled)) {
 			return false;
 		}
 		if (methods == null) {
@@ -107,9 +124,9 @@ public class SystemResource {
 
 	@Override
 	public String toString() {
-		return "SystemResource [methods=" + methods + ", methodsCount="
-				+ methodsCount + ", version=" + version + ", developers="
-				+ developers + "]";
+		return "SystemResource [methodsCount=" + methodsCount + ", enabled="
+				+ enabled + ", methods=" + methods + ", version=" + version
+				+ ", developers=" + developers + "]";
 	}
 
 }
