@@ -5507,4 +5507,8 @@
 		<dropNotNullConstraint tableName="q_ob_department" columnName="order_id"/>
 	</changeSet>
 	
+	<changeSet id="dropNotNullConstraintInPersonAddressTable" author="ivanursul">
+		<dropNotNullConstraint tableName="q_od_personaddress" columnName="asset_id"/>
+	</changeSet>
+	
 </databaseChangeLog>
