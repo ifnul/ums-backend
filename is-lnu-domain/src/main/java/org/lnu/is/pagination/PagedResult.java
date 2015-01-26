@@ -19,7 +19,6 @@ public class PagedResult<E> {
     
     /**
      * Basic constructor for all required parameters.
-     * @author ivanursul
      * @param offset start position.
      * @param limit Maximum of elements to be retrieved.
      * @param count Count of all elements.

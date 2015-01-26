@@ -1,5 +1,6 @@
 package org.lnu.is.resource.benefit.type;
 
+import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -7,6 +8,7 @@ import org.lnu.is.resource.ApiResource;
  * @author ivanursul
  *
  */
+@ReferenceResource
 public class BenefitTypeResource extends ApiResource {
 
 	private String name;

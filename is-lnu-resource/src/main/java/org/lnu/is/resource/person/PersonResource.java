@@ -3,6 +3,7 @@ package org.lnu.is.resource.person;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -10,6 +11,7 @@ import org.lnu.is.resource.ApiResource;
  * @author ivanursul
  *
  */
+@CrudableResource
 public class PersonResource extends ApiResource {
 
 	private Long personTypeId;

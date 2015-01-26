@@ -2,12 +2,14 @@ package org.lnu.is.resource.jobtype;
 
 import java.text.MessageFormat;
 
+import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 /**
  * 
  * @author kushnir
  *
  */
+@ReferenceResource
 public class JobTypeResource extends ApiResource {
 
 	private String name;

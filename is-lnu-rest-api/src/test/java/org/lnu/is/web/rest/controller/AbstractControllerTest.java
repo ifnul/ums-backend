@@ -1,9 +1,11 @@
 package org.lnu.is.web.rest.controller;
 
+
 import org.junit.Before;
 import org.lnu.is.web.rest.processor.resolver.PagedRequestHandlerMethodArgumentResolver;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -17,15 +19,20 @@ public abstract class AbstractControllerTest {
 	
 	private ObjectMapper objectMapper = new ObjectMapper();
 	private PagedRequestHandlerMethodArgumentResolver pagedRequestArgumentResolver;
-
+	
 	@Before
 	public void setup() {
 		pagedRequestArgumentResolver = new PagedRequestHandlerMethodArgumentResolver();
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
+				.setValidator(getValidator())
 				.setCustomArgumentResolvers(pagedRequestArgumentResolver)
 				.build();
 	}
 
+    private LocalValidatorFactoryBean getValidator() {
+        return new LocalValidatorFactoryBean();
+    }
+    
 	protected abstract BaseController getUnit();
 
 	/**

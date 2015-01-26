@@ -2,6 +2,7 @@ package org.lnu.is.resource.gendertype;
 
 import java.text.MessageFormat;
 
+import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -10,6 +11,7 @@ import org.lnu.is.resource.ApiResource;
  * @author kushnir
  *
  */
+@ReferenceResource
 public class GenderTypeResource extends ApiResource {
 
 	private String abbrName;

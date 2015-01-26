@@ -2,6 +2,7 @@ package org.lnu.is.resource.person.name;
 
 import java.text.MessageFormat;
 
+import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -9,6 +10,7 @@ import org.lnu.is.resource.ApiResource;
  * @author ivanursul
  *
  */
+@CrudableResource
 public class PersonNameResource extends ApiResource {
 
 	private Long personId;

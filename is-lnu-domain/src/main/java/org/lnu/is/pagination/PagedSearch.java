@@ -19,7 +19,6 @@ public class PagedSearch<T> {
 	
     /**
      * Constructor with no parameters.
-     * @author ivanursul
      */
     public PagedSearch() {
 		super();
@@ -27,7 +26,6 @@ public class PagedSearch<T> {
 
     /**
      * Basic constructor for setting all required fields to PagedSearch.
-     * @author ivanursul
      * @param offset start position.
      * @param limit Maximum of elements to be retrieved.
      * @param parameters required parameters(can be empty)

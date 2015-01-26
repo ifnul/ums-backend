@@ -2,6 +2,7 @@ package org.lnu.is.resource.timesheet.type;
 
 import java.text.MessageFormat;
 
+import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -9,6 +10,7 @@ import org.lnu.is.resource.ApiResource;
  * @author OlehZanevych
  *
  */
+@ReferenceResource
 public class TimesheetTypeResource extends ApiResource {
 	
 	private String name;

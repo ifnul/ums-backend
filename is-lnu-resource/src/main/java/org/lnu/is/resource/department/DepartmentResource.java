@@ -3,6 +3,7 @@ package org.lnu.is.resource.department;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -10,6 +11,7 @@ import org.lnu.is.resource.ApiResource;
  * @author ivanursul
  *
  */
+@CrudableResource
 public class DepartmentResource extends ApiResource {
 
 	private Long parentId;
@@ -124,10 +126,12 @@ public class DepartmentResource extends ApiResource {
 		this.endDate = endDate;
 	}
 
+	@Override
 	public String getNote() {
 		return note;
 	}
 
+	@Override
 	public void setNote(final String note) {
 		this.note = note;
 	}

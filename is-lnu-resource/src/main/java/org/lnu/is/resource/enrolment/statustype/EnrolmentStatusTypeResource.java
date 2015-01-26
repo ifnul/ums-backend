@@ -2,6 +2,7 @@ package org.lnu.is.resource.enrolment.statustype;
 
 import java.text.MessageFormat;
 
+import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -10,7 +11,7 @@ import org.lnu.is.resource.ApiResource;
  * @author kushnir
  *
  */
-
+@ReferenceResource
 public class EnrolmentStatusTypeResource extends ApiResource {
 
 	private String abbrName;

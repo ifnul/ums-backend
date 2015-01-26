@@ -3,6 +3,7 @@ package org.lnu.is.resource.specialty;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -11,6 +12,7 @@ import org.lnu.is.resource.ApiResource;
  * @author ivanursul
  *
  */
+@CrudableResource
 public class SpecialtyResource extends ApiResource {
 
 	private Long specialtyTypeId;
@@ -39,10 +41,12 @@ public class SpecialtyResource extends ApiResource {
 		return "/specialties";
 	}
 
+	@Override
 	public String getNote() {
 		return note;
 	}
 
+	@Override
 	public void setNote(final String note) {
 		this.note = note;
 	}

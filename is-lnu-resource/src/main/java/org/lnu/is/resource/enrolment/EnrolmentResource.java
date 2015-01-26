@@ -3,6 +3,7 @@ package org.lnu.is.resource.enrolment;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -11,6 +12,7 @@ import org.lnu.is.resource.ApiResource;
  * @author kushnir
  *
  */
+@CrudableResource
 public class EnrolmentResource extends ApiResource {
 
 	private Long personId;

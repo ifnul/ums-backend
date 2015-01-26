@@ -2,6 +2,7 @@ package org.lnu.is.resource.specoffer.subject;
 
 import java.text.MessageFormat;
 
+import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -9,6 +10,7 @@ import org.lnu.is.resource.ApiResource;
  * @author ivanursul
  *
  */
+@CrudableResource
 public class SpecOfferSubjectResource extends ApiResource {
 
 	private Long specOfferId;

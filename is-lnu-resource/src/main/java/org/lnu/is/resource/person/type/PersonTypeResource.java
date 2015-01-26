@@ -2,6 +2,7 @@ package org.lnu.is.resource.person.type;
 
 import java.text.MessageFormat;
 
+import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -9,6 +10,7 @@ import org.lnu.is.resource.ApiResource;
  * @author ivanursul
  *
  */
+@ReferenceResource
 public class PersonTypeResource extends ApiResource {
 
 	private String abbrName;
