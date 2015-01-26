@@ -61,6 +61,7 @@ object TestCases {
                     AssetStateIntegrationTest.testCase,
                     PersonIntegrationTest.testCase,
                     PersonNameIntegrationTest.testCase,
+                    PersonAddressIntegrationTest.testCase,
                     PersonTypeIntegrationTest.testCase,
                     ContactTypeIntegrationTest.testCase,
                     CourseTypeIntegrationTest.testCase,

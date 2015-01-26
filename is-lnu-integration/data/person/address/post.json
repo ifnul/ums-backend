@@ -1,5 +1,4 @@
 {
-  "assetId": 0,
   "personId": ${personId},
   "streetTypeId": 1,
   "adminUnitId": 678,

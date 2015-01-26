@@ -60,10 +60,10 @@ object PersonAddressIntegrationTest {
 		.get("/persons/${personId}/addresses/${personAddressId}")
     .basicAuth("admin", "nimda")
 		.check(status.is(200))
-		.check(jsonPath("$.zipCode").find.is("zipCode1")))
+		.check(jsonPath("$.zipCode").find.is("790901")))
 	// Deleting person address
 	.exec(http("Delete Person Address")
-	    .delete("/persons/${personId}/addresses")
+	    .delete("/persons/${personId}/addresses/${personAddressId}")
       .basicAuth("admin", "nimda")
 	    .check(status.is(204)))
 	// Deleting person

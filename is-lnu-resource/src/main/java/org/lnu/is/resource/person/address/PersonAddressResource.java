@@ -16,6 +16,8 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class PersonAddressResource extends ApiResource {
 
+	private Long assetId;
+
 	@NotNull(message = "Field required")
 	private Long personId;
 
@@ -27,9 +29,6 @@ public class PersonAddressResource extends ApiResource {
 
 	@NotNull(message = "Field required")
 	private Long streetTypeId;
-
-	@NotNull(message = "Field required")
-	private Long assetId;
 
 	@NotNull(message = "Field required")
 	private String zipCode;

@@ -1,5 +1,4 @@
 {
-  "assetId": 0,
   "personId": ${personId},
   "streetTypeId": 1,
   "adminUnitId": 214,
@@ -7,7 +6,7 @@
   "begDate": "${begDate}",
   "endDate": "${endDate}",
   "house": "54",
-  "zipCode": "79090",
+  "zipCode": "790901",
   "street": "Університетська",
   "apartment": "2"
 }
