@@ -1,7 +1,7 @@
 {
   "offset" : 0,
   "limit" : 60,
-  "count" : 52,
+  "count" : 54,
   "resources" : [ {
     "id" : 1,
     "name" : "Свідоцтво про народження",
@@ -17,6 +17,12 @@
     "name" : "Паспорт",
     "paperUsageId" : 3,
     "uri" : "/papers/types/3"
+  }, {
+    "id" : 4,
+    "name" : "Сертифікат ЗНО",
+    "abbrName" : "zno",
+    "paperUsageId" : 6,
+    "uri" : "/papers/types/4"
   }, {
     "id" : 5,
     "name" : "Індивідуальний податковий номер",
@@ -142,6 +148,12 @@
     "name" : "Диплом",
     "paperUsageId" : 4,
     "uri" : "/papers/types/29"
+  }, {
+    "id" : 30,
+    "name" : "Іспит НУ ЛП",
+    "abbrName" : "exam",
+    "paperUsageId" : 6,
+    "uri" : "/papers/types/30"
   }, {
     "id" : 31,
     "name" : "Курси НУ \"Львівська Політехніка\"",

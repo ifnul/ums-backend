@@ -1,8 +1,20 @@
 {
   "offset" : 0,
   "limit" : 32,
-  "count" : 28,
+  "count" : 32,
   "resources" : [ {
+    "id" : 1,
+    "name" : "За даними сертифікату",
+    "uri" : "/enrolments/types/1"
+  }, {
+    "id" : 2,
+    "name" : "За результатами іспитів",
+    "uri" : "/enrolments/types/2"
+  }, {
+    "id" : 3,
+    "name" : "За даними сертифікатів та результатами іспитів",
+    "uri" : "/enrolments/types/3"
+  }, {
     "id" : 4,
     "name" : "іноземець за контрактом",
     "uri" : "/enrolments/types/4"
@@ -114,6 +126,10 @@
     "id" : 31,
     "name" : "Учасник міжнародної олімпіади",
     "uri" : "/enrolments/types/31"
+  }, {
+    "id" : 32,
+    "name" : "За даними сертифікату",
+    "uri" : "/enrolments/types/32"
   } ],
   "uri" : "/types"
 }
