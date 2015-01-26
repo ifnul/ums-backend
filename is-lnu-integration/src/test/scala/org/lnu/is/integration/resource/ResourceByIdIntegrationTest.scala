@@ -48,9 +48,6 @@ object ResourceByIdIntegrationTest {
                 // First occurance -> Situation, when offset == 0 and needs to proceed.
                 val result = offset + limit < count || offset <= count
                 
-                //val url = session("url").as[String]
-                //println("Multiple GET request to : " + url, " , limit: " + limit + " , offset : " + offset + ", count: " + count + " , result = " + result);
-                
                 session.set("result", result)
             })     
             .asLongAs(session => session("result").as[Boolean]) {
@@ -68,8 +65,6 @@ object ResourceByIdIntegrationTest {
                             exec( session => {
                                 val resource = session("resource").as[Map[String, Any]]
                                 val resourceId = resource("id")
-                                
-                                //println("Received resource: " + resource)
                                 
                                 session.set("resourceId", resourceId)
                             })
