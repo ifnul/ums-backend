@@ -45,6 +45,7 @@ object ResourceByIdIntegrationTest {
                 val limit = session("limit").as[String].toInt
                 val count = session("count").as[String].toInt
 
+                // First occurance -> Situation, when offset == 0 and needs to proceed.
                 val result = offset + limit < count || offset <= count
                 
                 //val url = session("url").as[String]
@@ -84,6 +85,8 @@ object ResourceByIdIntegrationTest {
                       val limit = session("limit").as[String].toInt
                       val count = session("count").as[String].toInt
 
+                      // Can be a situation, when offset == 0 and offset + count will be > count
+                      // That's why we need to add additional check -> offset != null
                       val result = offset + limit < count || (offset <= count && offset != 0)
                       
                       session
