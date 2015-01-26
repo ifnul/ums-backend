@@ -5514,4 +5514,14 @@
 	<changeSet id="chabgeTypeQ_rf_specialtytypeName" author="illay">
 		<modifyDataType tableName="q_rf_specialtytype" columnName="name" newDataType="VARCHAR(100)"/>
 	</changeSet>
+	
+	<changeSet id="addDepartmentColumnInto q_op_group table" author="ivanursul">
+		
+		<addColumn tableName="q_op_group">
+			<column name="department_id" type="bigint" remarks="Possible department of group" >
+				<constraints foreignKeyName="fk_q_op_group_department_id" references="q_ob_department(id)" />
+			</column>
+		</addColumn>
+	</changeSet>
+	
 </databaseChangeLog>

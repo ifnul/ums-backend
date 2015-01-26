@@ -2,9 +2,12 @@ package org.lnu.is.domain.group;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.domain.Model;
+import org.lnu.is.domain.department.Department;
 
 /**
  * Entity for storing groups of users.
@@ -22,6 +25,18 @@ public class Group extends Model {
 
     @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+    
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(final Department department) {
+		this.department = department;
+	}
 
 	public String getTitle() {
 		return title;
