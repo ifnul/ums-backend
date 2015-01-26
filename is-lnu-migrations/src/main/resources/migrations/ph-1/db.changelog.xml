@@ -5510,5 +5510,8 @@
 	<changeSet id="dropNotNullConstraintInPersonAddressTable" author="ivanursul">
 		<dropNotNullConstraint tableName="q_od_personaddress" columnName="asset_id"/>
 	</changeSet>
-	
+
+	<changeSet id="chabgeTypeQ_rf_specialtytypeName" author="illay">
+		<modifyDataType tableName="q_rf_specialtytype" columnName="name" newDataType="VARCHAR(100)"/>
+	</changeSet>
 </databaseChangeLog>
