@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_wavetype" author="illay">
         <insert tableName="q_rf_wavetype">
-            <column name="id">1</column>
             <column name="abbrname"></column>
             <column name="name">здача документів</column>
             <column name="uid"></column>
@@ -20,7 +19,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_wavetype">
-            <column name="id">2</column>
             <column name="abbrname"></column>
             <column name="name">1 хвиля зарахування</column>
             <column name="uid"></column>
@@ -35,7 +33,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_wavetype">
-            <column name="id">3</column>
             <column name="abbrname"></column>
             <column name="name">2 хвиля зарахування</column>
             <column name="uid"></column>
@@ -50,7 +47,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_wavetype">
-            <column name="id">4</column>
             <column name="abbrname"></column>
             <column name="name">3 хвиля зарахування</column>
             <column name="uid"></column>

@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_ordertype" author="illay">
         <insert tableName="q_rf_ordertype">
-            <column name="id">9</column>
             <column name="abbrname">ABITUR</column>
             <column name="name">Протоколи та накази на зарахування</column>
             <column name="parent_id"></column>
@@ -21,10 +20,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_ordertype">
-            <column name="id">1</column>
             <column name="abbrname"></column>
             <column name="name">Протокол основний</column>
-            <column name="parent_id">9</column>
+            <column name="parent_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -37,10 +35,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_ordertype">
-            <column name="id">2</column>
             <column name="abbrname"></column>
             <column name="name">Протокол додатковий</column>
-            <column name="parent_id">9</column>
+            <column name="parent_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -53,10 +50,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_ordertype">
-            <column name="id">3</column>
             <column name="abbrname"></column>
             <column name="name">Протокол на поновлення</column>
-            <column name="parent_id">9</column>
+            <column name="parent_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -69,10 +65,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_ordertype">
-            <column name="id">4</column>
             <column name="abbrname"></column>
             <column name="name">Протокол - іноземці</column>
-            <column name="parent_id">9</column>
+            <column name="parent_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -85,10 +80,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_ordertype">
-            <column name="id">5</column>
             <column name="abbrname"></column>
             <column name="name">Наказ основний</column>
-            <column name="parent_id">9</column>
+            <column name="parent_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -101,10 +95,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_ordertype">
-            <column name="id">6</column>
             <column name="abbrname"></column>
             <column name="name">Наказ додатковий</column>
-            <column name="parent_id">9</column>
+            <column name="parent_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -117,10 +110,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_ordertype">
-            <column name="id">7</column>
             <column name="abbrname"></column>
             <column name="name">Наказ на поновлення</column>
-            <column name="parent_id">9</column>
+            <column name="parent_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -133,10 +125,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_ordertype">
-            <column name="id">8</column>
             <column name="abbrname"></column>
             <column name="name">Наказ  іноземці</column>
-            <column name="parent_id">9</column>
+            <column name="parent_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>

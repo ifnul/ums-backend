@@ -3,17 +3,17 @@
   "limit" : 20,
   "count" : 3,
   "resources" : [ {
-    "id" : -1,
-    "name" : "Несправний",
-    "uri" : "/assets/states/-1"
-  }, {
-    "id" : 0,
-    "name" : "Задовільний",
-    "uri" : "/assets/states/0"
-  }, {
     "id" : 1,
-    "name" : "Cправний",
+    "name" : "Несправний",
     "uri" : "/assets/states/1"
+  }, {
+    "id" : 2,
+    "name" : "Задовільний",
+    "uri" : "/assets/states/2"
+  }, {
+    "id" : 3,
+    "name" : "Cправний",
+    "uri" : "/assets/states/3"
   } ],
   "uri" : "/assets/states"
 }

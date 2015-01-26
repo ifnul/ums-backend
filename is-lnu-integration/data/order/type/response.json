@@ -3,50 +3,50 @@
   "limit" : 20,
   "count" : 9,
   "resources" : [ {
-    "id" : 9,
+    "id" : 1,
     "abbrName" : "ABITUR",
     "name" : "Протоколи та накази на зарахування",
-    "uri" : "/orders/types/9"
-  }, {
-    "id" : 1,
-    "name" : "Протокол основний",
-    "parentId" : 9,
     "uri" : "/orders/types/1"
   }, {
     "id" : 2,
-    "name" : "Протокол додатковий",
-    "parentId" : 9,
+    "name" : "Протокол основний",
+    "parentId" : 1,
     "uri" : "/orders/types/2"
   }, {
     "id" : 3,
-    "name" : "Протокол на поновлення",
-    "parentId" : 9,
+    "name" : "Протокол додатковий",
+    "parentId" : 1,
     "uri" : "/orders/types/3"
   }, {
     "id" : 4,
-    "name" : "Протокол - іноземці",
-    "parentId" : 9,
+    "name" : "Протокол на поновлення",
+    "parentId" : 1,
     "uri" : "/orders/types/4"
   }, {
     "id" : 5,
-    "name" : "Наказ основний",
-    "parentId" : 9,
+    "name" : "Протокол - іноземці",
+    "parentId" : 1,
     "uri" : "/orders/types/5"
   }, {
     "id" : 6,
-    "name" : "Наказ додатковий",
-    "parentId" : 9,
+    "name" : "Наказ основний",
+    "parentId" : 1,
     "uri" : "/orders/types/6"
   }, {
     "id" : 7,
-    "name" : "Наказ на поновлення",
-    "parentId" : 9,
+    "name" : "Наказ додатковий",
+    "parentId" : 1,
     "uri" : "/orders/types/7"
   }, {
     "id" : 8,
-    "name" : "Наказ  іноземці",
-    "parentId" : 9,
+    "name" : "Наказ на поновлення",
+    "parentId" : 1,
     "uri" : "/orders/types/8"
+  }, {
+    "id" : 9,
+    "name" : "Наказ  іноземці",
+    "parentId" : 1,
+    "uri" : "/orders/types/9"
   } ],
   "uri" : "/orders/types"
 }

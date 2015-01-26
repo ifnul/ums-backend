@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_marriedtype" author="illay">
         <insert tableName="q_rf_marriedtype">
-            <column name="id">1</column>
             <column name="abbrname"></column>
             <column name="name">одружений</column>
             <column name="uid"></column>
@@ -18,9 +17,8 @@
             <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
-        </insert>  
-	<insert tableName="q_rf_marriedtype">
-            <column name="id">2</column>
+        </insert>
+        <insert tableName="q_rf_marriedtype">
             <column name="abbrname"></column>
             <column name="name">не одружений</column>
             <column name="uid"></column>
@@ -33,9 +31,8 @@
             <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
-        </insert>  
-	<insert tableName="q_rf_marriedtype">
-            <column name="id">3</column>
+        </insert>
+        <insert tableName="q_rf_marriedtype">
             <column name="abbrname"></column>
             <column name="name">заміжня</column>
             <column name="uid"></column>
@@ -48,9 +45,8 @@
             <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
-        </insert> 
-	<insert tableName="q_rf_marriedtype">
-            <column name="id">4</column>
+        </insert>
+        <insert tableName="q_rf_marriedtype">
             <column name="abbrname"></column>
             <column name="name">не заміжня</column>
             <column name="uid"></column>
@@ -63,9 +59,8 @@
             <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
-        </insert> 
-	<insert tableName="q_rf_marriedtype">
-            <column name="id">5</column>
+        </insert>
+        <insert tableName="q_rf_marriedtype">
             <column name="abbrname"></column>
             <column name="name">розлучена</column>
             <column name="uid"></column>
@@ -78,9 +73,8 @@
             <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
-        </insert> 
-	<insert tableName="q_rf_marriedtype">
-            <column name="id">6</column>
+        </insert>
+        <insert tableName="q_rf_marriedtype">
             <column name="abbrname"></column>
             <column name="name">розлучений</column>
             <column name="uid"></column>
@@ -93,6 +87,6 @@
             <column name="crtusergroup">public</column>
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
-        </insert> 
-  </changeSet>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

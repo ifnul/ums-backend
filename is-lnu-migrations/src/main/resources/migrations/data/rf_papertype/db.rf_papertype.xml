@@ -5,10 +5,9 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_papertype" author="illay">
         <insert tableName="q_rf_papertype">
-            <column name="id">1</column>
             <column name="abbrname"></column>
             <column name="name">Свідоцтво про народження</column>
-            <column name="paperusage_id">2</column>
+            <column name="paperusage_id">3</column>
             <column name="uid">1</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -21,10 +20,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">2</column>
             <column name="abbrname"></column>
             <column name="name">Атестат про повну загальну середню освіту</column>
-            <column name="paperusage_id">1</column>
+            <column name="paperusage_id">2</column>
             <column name="uid">2</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -37,10 +35,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">3</column>
             <column name="abbrname"></column>
             <column name="name">Паспорт</column>
-            <column name="paperusage_id">2</column>
+            <column name="paperusage_id">3</column>
             <column name="uid">3</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -53,10 +50,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">4</column>
             <column name="abbrname">zno</column>
             <column name="name">Сертифікат ЗНО</column>
-            <column name="paperusage_id">5</column>
+            <column name="paperusage_id">6</column>
             <column name="uid">4</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -69,10 +65,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">5</column>
             <column name="abbrname"></column>
             <column name="name">Індивідуальний податковий номер</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">5</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -85,10 +80,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">6</column>
             <column name="abbrname"></column>
             <column name="name">Медична довідка</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">6</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -101,10 +95,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">7</column>
             <column name="abbrname"></column>
             <column name="name">Cвідоцтво про базову загальну середню освіту</column>
-            <column name="paperusage_id">1</column>
+            <column name="paperusage_id">2</column>
             <column name="uid">7</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -117,10 +110,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">8</column>
             <column name="abbrname"></column>
             <column name="name">Свідоцтво про присвоєння(підвищення) робітничої кваліфікації</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">8</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -133,10 +125,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">9</column>
             <column name="abbrname"></column>
             <column name="name">Диплом кваліфікованого робітника</column>
-            <column name="paperusage_id">1</column>
+            <column name="paperusage_id">2</column>
             <column name="uid">9</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -149,10 +140,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">10</column>
             <column name="abbrname"></column>
             <column name="name">Диплом молодшого спеціаліста</column>
-            <column name="paperusage_id">1</column>
+            <column name="paperusage_id">2</column>
             <column name="uid">10</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -165,10 +155,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">11</column>
             <column name="abbrname"></column>
             <column name="name">Диплом бакалавра</column>
-            <column name="paperusage_id">1</column>
+            <column name="paperusage_id">2</column>
             <column name="uid">11</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -181,10 +170,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">12</column>
             <column name="abbrname"></column>
             <column name="name">Диплом спеціаліста</column>
-            <column name="paperusage_id">1</column>
+            <column name="paperusage_id">2</column>
             <column name="uid">12</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -197,10 +185,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">13</column>
             <column name="abbrname"></column>
             <column name="name">Диплом магістра</column>
-            <column name="paperusage_id">1</column>
+            <column name="paperusage_id">2</column>
             <column name="uid">13</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -213,10 +200,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">14</column>
             <column name="abbrname"></column>
             <column name="name">Академічна довідка</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">14</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -229,10 +215,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">15</column>
             <column name="abbrname"></column>
             <column name="name">Студентський квиток</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">16</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -245,10 +230,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">16</column>
             <column name="abbrname"></column>
             <column name="name">Посвідка на постійне проживання в Україні</column>
-            <column name="paperusage_id">2</column>
+            <column name="paperusage_id">3</column>
             <column name="uid">17</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -261,10 +245,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">17</column>
             <column name="abbrname"></column>
             <column name="name">Закордонний паспорт</column>
-            <column name="paperusage_id">2</column>
+            <column name="paperusage_id">3</column>
             <column name="uid">19</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -277,10 +260,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">18</column>
             <column name="abbrname"></column>
             <column name="name">Тимчасове посвідчення</column>
-            <column name="paperusage_id">2</column>
+            <column name="paperusage_id">3</column>
             <column name="uid">20</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -293,10 +275,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">19</column>
             <column name="abbrname"></column>
             <column name="name">Учнівський квиток</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">21</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -309,10 +290,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">20</column>
             <column name="abbrname"></column>
             <column name="name">Військовий квиток</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">22</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -325,10 +305,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">21</column>
             <column name="abbrname"></column>
             <column name="name">Довідка</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">23</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -341,10 +320,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">22</column>
             <column name="abbrname"></column>
             <column name="name">Свідоцтво про закінчення спеціальної загальноосвітньої школи</column>
-            <column name="paperusage_id">1</column>
+            <column name="paperusage_id">2</column>
             <column name="uid">24</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -357,10 +335,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">23</column>
             <column name="abbrname"></column>
             <column name="name">Довідка про навчання у загальноосвітній школі</column>
-            <column name="paperusage_id">1</column>
+            <column name="paperusage_id">2</column>
             <column name="uid">25</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -373,10 +350,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">24</column>
             <column name="abbrname"></column>
             <column name="name">Студентський квиток (банківська карта)</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">26</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -389,10 +365,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">25</column>
             <column name="abbrname"></column>
             <column name="name">Учнівський квиток (банківська карта)</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">27</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -405,10 +380,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">26</column>
             <column name="abbrname"></column>
             <column name="name">Книжка обліку в гуртожитку</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -421,10 +395,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">27</column>
             <column name="abbrname"></column>
             <column name="name">Довідка про відрахування</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid">28</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
@@ -437,10 +410,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">28</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення про приписку до призовної дільниці</column>
-            <column name="paperusage_id">0</column>
+            <column name="paperusage_id">1</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -453,10 +425,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">29</column>
             <column name="abbrname"></column>
             <column name="name">Диплом</column>
-            <column name="paperusage_id">3</column>
+            <column name="paperusage_id">4</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -469,10 +440,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">30</column>
             <column name="abbrname">exam</column>
             <column name="name">Іспит НУ ЛП</column>
-            <column name="paperusage_id">5</column>
+            <column name="paperusage_id">6</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -485,10 +455,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">31</column>
             <column name="abbrname"></column>
             <column name="name">Курси НУ "Львівська Політехніка"</column>
-            <column name="paperusage_id">3</column>
+            <column name="paperusage_id">4</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -501,10 +470,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">32</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення учасника бойових дій.</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -517,10 +485,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">33</column>
             <column name="abbrname"></column>
             <column name="name">свідоцтво про смерть  учасника  бойових  дій</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -533,10 +500,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">34</column>
             <column name="abbrname"></column>
             <column name="name"> Посвідчення дитини (матері) як члена сім’ї загиблого (померлого) ветерана війни</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -549,10 +515,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">35</column>
             <column name="abbrname"></column>
             <column name="name">Рішення про надання  статусу дитини-сироти  або дитини, позбавленої батьківського піклування </column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -565,10 +530,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">36</column>
             <column name="abbrname"></column>
             <column name="name">Довідка МСЕК (висновок ЛТЕК)</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -581,10 +545,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">37</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення (пенсійне або отримувача державної соціальної допомоги, у якому зазначена група інвалідності)</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -597,10 +560,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">38</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення особи, яка постраждала внаслідок Чорнобильської катастрофи. Серія А. Синього кольору</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -613,10 +575,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">39</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення особи, яка потерпіла внаслідок Чорнобильської катастрофи. Серія Б. Сірого кольору</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -629,10 +590,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">40</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення потерпілого внаслідок Чорнобильської катастрофи. Серія Б. Зеленого кольору</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -645,10 +605,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">41</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення дитини, яка потерпіла від Чорнобильської катастрофи. Серія Д. Жовтого кольору</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -661,10 +620,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">42</column>
             <column name="abbrname"></column>
             <column name="name">Довідка про смерть одного (обох) батьків, де встановлено зв'язок з Чорнобильською катастрофою</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -677,10 +635,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">43</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення дитини з багатодітної родини</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -693,10 +650,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">44</column>
             <column name="abbrname"></column>
             <column name="name">Позитивна характеристика від командування військової частини за місцем проходження строкової військової служби або служби за контрактом</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -709,10 +665,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">45</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення члена сім’ї загиблого шахтаря</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -725,10 +680,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">46</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення члена сім’ї загиблого (померлого) військовослужбовця</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -741,10 +695,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">47</column>
             <column name="abbrname"></column>
             <column name="name">Довідка про хворобу згідно з переліком</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -757,10 +710,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">48</column>
             <column name="abbrname"></column>
             <column name="name">Цільове направлення</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -773,10 +725,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">49</column>
             <column name="abbrname"></column>
             <column name="name">Диплом учасника міжнародної олімпіади</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -789,10 +740,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">50</column>
             <column name="abbrname"></column>
             <column name="name">Диплом I - III ступенів IV етапу Всеукраїнських учнівських олімпіад з базових предметів</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -805,10 +755,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">51</column>
             <column name="abbrname"></column>
             <column name="name">Диплом І – ІІІ ступенів ІІІ етапу Всеукраїнських конкурсів-захистів науково-дослідницьких робіт учнів–членів Малої академії наук</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -821,10 +770,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">52</column>
             <column name="abbrname"></column>
             <column name="name">Довідка за результатами підсумкової атестації з зазначенням кількості балів, що додаватимуться до конкурсного бала вступника</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -837,10 +785,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">53</column>
             <column name="abbrname"></column>
             <column name="name">Посвідчення особи, яка проживає на території населеного пункту, якому надано статус гірського</column>
-            <column name="paperusage_id">4</column>
+            <column name="paperusage_id">5</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -853,10 +800,9 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_papertype">
-            <column name="id">54</column>
             <column name="abbrname">create</column>
             <column name="name">Творчий конкурс НУ ЛП</column>
-            <column name="paperusage_id">5</column>
+            <column name="paperusage_id">6</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>

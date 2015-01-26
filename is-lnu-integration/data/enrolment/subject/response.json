@@ -129,104 +129,104 @@
     "isTesting" : 0,
     "uri" : "/enrolments/subjects/25"
   }, {
-    "id" : 27,
+    "id" : 26,
     "name" : "Фізична культура",
+    "isTesting" : 0,
+    "uri" : "/enrolments/subjects/26"
+  }, {
+    "id" : 27,
+    "name" : "Захист вітчизни",
     "isTesting" : 0,
     "uri" : "/enrolments/subjects/27"
   }, {
     "id" : 28,
-    "name" : "Захист вітчизни",
-    "isTesting" : 0,
+    "name" : "Українська мова та література",
+    "isTesting" : 1,
     "uri" : "/enrolments/subjects/28"
   }, {
     "id" : 29,
-    "name" : "Українська мова та література",
-    "isTesting" : 1,
+    "parentId" : 3,
+    "name" : "Англійська мова",
+    "isTesting" : 12,
     "uri" : "/enrolments/subjects/29"
   }, {
     "id" : 30,
     "parentId" : 3,
-    "name" : "Англійська мова",
-    "isTesting" : 12,
+    "name" : "Французька мова",
+    "isTesting" : 13,
     "uri" : "/enrolments/subjects/30"
   }, {
     "id" : 31,
     "parentId" : 3,
-    "name" : "Французька мова",
-    "isTesting" : 13,
+    "name" : "Німецька мова",
+    "isTesting" : 14,
     "uri" : "/enrolments/subjects/31"
   }, {
     "id" : 32,
     "parentId" : 3,
-    "name" : "Німецька мова",
-    "isTesting" : 14,
+    "name" : "Іспанська мова",
+    "isTesting" : 15,
     "uri" : "/enrolments/subjects/32"
   }, {
     "id" : 33,
-    "parentId" : 3,
-    "name" : "Іспанська мова",
-    "isTesting" : 15,
+    "name" : "Творчий конкурс",
+    "isTesting" : 0,
     "uri" : "/enrolments/subjects/33"
   }, {
     "id" : 34,
-    "name" : "Творчий конкурс",
-    "isTesting" : 0,
-    "uri" : "/enrolments/subjects/34"
-  }, {
-    "id" : 35,
     "parentId" : 3,
     "name" : "Російська мова",
     "isTesting" : 16,
+    "uri" : "/enrolments/subjects/34"
+  }, {
+    "id" : 35,
+    "name" : "Фаховий іспит",
+    "isTesting" : 0,
     "uri" : "/enrolments/subjects/35"
   }, {
     "id" : 36,
-    "name" : "Фаховий іспит",
-    "isTesting" : 0,
+    "name" : "Зарубіжна література",
+    "isTesting" : 9,
     "uri" : "/enrolments/subjects/36"
   }, {
     "id" : 37,
-    "name" : "Зарубіжна література",
-    "isTesting" : 9,
+    "parentId" : 33,
+    "name" : "Рисунок",
+    "isTesting" : 100,
     "uri" : "/enrolments/subjects/37"
   }, {
     "id" : 38,
-    "parentId" : 34,
-    "name" : "Рисунок",
+    "parentId" : 33,
+    "name" : "Живопис",
     "isTesting" : 100,
     "uri" : "/enrolments/subjects/38"
   }, {
     "id" : 39,
-    "parentId" : 34,
-    "name" : "Живопис",
+    "parentId" : 33,
+    "name" : "Композиція",
     "isTesting" : 100,
     "uri" : "/enrolments/subjects/39"
   }, {
     "id" : 40,
-    "parentId" : 34,
-    "name" : "Композиція",
-    "isTesting" : 100,
+    "name" : "Трудове навчання",
+    "isTesting" : 0,
     "uri" : "/enrolments/subjects/40"
   }, {
     "id" : 41,
-    "name" : "Трудове навчання",
+    "name" : "Педагогіка та психологія",
     "isTesting" : 0,
     "uri" : "/enrolments/subjects/41"
   }, {
     "id" : 42,
-    "name" : "Педагогіка та психологія",
+    "name" : "Китайська мова",
     "isTesting" : 0,
     "uri" : "/enrolments/subjects/42"
   }, {
     "id" : 43,
-    "name" : "Китайська мова",
-    "isTesting" : 0,
-    "uri" : "/enrolments/subjects/43"
-  }, {
-    "id" : 26,
-    "parentId" : 34,
+    "parentId" : 33,
     "name" : "Креслення",
     "isTesting" : 100,
-    "uri" : "/enrolments/subjects/26"
+    "uri" : "/enrolments/subjects/43"
   } ],
   "uri" : "/enrolments/subjects"
 }

@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_assetstate" author="illay">
         <insert tableName="q_rf_assetstate">
-            <column name="id">-1</column>
             <column name="name">Несправний</column>
             <column name="uid"></column>
             <column name="utid"></column>
@@ -19,7 +18,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_assetstate">
-            <column name="id">0</column>
             <column name="name">Задовільний</column>
             <column name="uid"></column>
             <column name="utid"></column>
@@ -33,7 +31,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_assetstate">
-            <column name="id">1</column>
             <column name="name">Cправний</column>
             <column name="uid"></column>
             <column name="utid"></column>

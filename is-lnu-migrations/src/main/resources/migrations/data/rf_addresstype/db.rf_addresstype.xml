@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_addresstype" author="illay">
         <insert tableName="q_rf_addresstype">
-            <column name="id">1</column>
             <column name="abbrname">реєстр.</column>
             <column name="name">Реєстрації</column>
             <column name="uid"></column>
@@ -20,7 +19,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_addresstype">
-            <column name="id">2</column>
             <column name="abbrname">пошт.</column>
             <column name="name">Поштова</column>
             <column name="uid"></column>

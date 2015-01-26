@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_timeperiodtype" author="illay">
         <insert tableName="q_rf_timeperiodtype">
-            <column name="id">1</column>
             <column name="abbrname">Вст. к.</column>
             <column name="name">Вступна кампанія</column>
             <column name="uid"></column>
@@ -20,7 +19,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_timeperiodtype">
-            <column name="id">2</column>
             <column name="abbrname">eduyear</column>
             <column name="name">навчальний рік</column>
             <column name="uid"></column>
@@ -35,7 +33,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_timeperiodtype">
-            <column name="id">3</column>
             <column name="abbrname">calendaryear</column>
             <column name="name">календарний рік</column>
             <column name="uid"></column>
@@ -50,7 +47,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_timeperiodtype">
-            <column name="id">4</column>
             <column name="abbrname">course</column>
             <column name="name">курс</column>
             <column name="uid"></column>
@@ -65,7 +61,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_timeperiodtype">
-            <column name="id">5</column>
             <column name="abbrname">semestr</column>
             <column name="name">семестр</column>
             <column name="uid"></column>
@@ -80,7 +75,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_timeperiodtype">
-            <column name="id">6</column>
             <column name="abbrname">month</column>
             <column name="name">місяць</column>
             <column name="uid"></column>
@@ -95,7 +89,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_timeperiodtype">
-            <column name="id">7</column>
             <column name="abbrname">week</column>
             <column name="name">тиждень</column>
             <column name="uid"></column>
@@ -110,7 +103,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_timeperiodtype">
-            <column name="id">8</column>
             <column name="abbrname">weekday</column>
             <column name="name">день тижня</column>
             <column name="uid"></column>

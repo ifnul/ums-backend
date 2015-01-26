@@ -3,21 +3,21 @@
   "limit" : 20,
   "count" : 4,
   "resources" : [ {
-    "id" : -2,
-    "name" : "Переданий (тимчасово)",
-    "uri" : "/assets/states/-2"
-  }, {
-    "id" : -1,
-    "name" : "Списаний",
-    "uri" : "/assets/states/-1"
-  }, {
     "id" : 1,
-    "name" : "На балансі",
+    "name" : "Переданий (тимчасово)",
     "uri" : "/assets/states/1"
   }, {
     "id" : 2,
-    "name" : "Отриманий (тимчасово)",
+    "name" : "Списаний",
     "uri" : "/assets/states/2"
+  }, {
+    "id" : 3,
+    "name" : "На балансі",
+    "uri" : "/assets/states/3"
+  }, {
+    "id" : 4,
+    "name" : "Отриманий (тимчасово)",
+    "uri" : "/assets/states/4"
   } ],
   "uri" : "/assets/statuses"
 }

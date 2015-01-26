@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_languagelevel" author="illay">
         <insert tableName="q_rf_languagelevel">
-            <column name="id">1</column>
             <column name="abbrname">A1</column>
             <column name="name">Елементарний </column>
             <column name="description">Розуміє та використовує знайомі щоденні вирази та найбазовіші фрази, що спрямовані на задоволення конкретних потреб. Може взаємодіяти найпростішим способом, якщо інша людина говорить повільно та чітко і готова допомогти.</column>
@@ -21,7 +20,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_languagelevel">
-            <column name="id">2</column>
             <column name="abbrname">A2</column>
             <column name="name">Нижче середнього </column>
             <column name="description">Може спілкуватись у простих та рутинних ситуаціях, що вимагають простого і прямого обміну інформацією на знайомі чи побутові теми. Може описати у простих словах питання свого походження, найближче середовище та пояснити безпосередні потреби.</column>
@@ -37,7 +35,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_languagelevel">
-            <column name="id">3</column>
             <column name="abbrname">B1</column>
             <column name="name">Середній </column>
             <column name="description">Може розуміти основний зміст чіткого нормативного мовлення на теми, близькі і часто вживані на роботі, у навчанні, під час дозвілля тощо. Може вирішити більшість проблем під час перебування у країні, мова якої вивчається.</column>
@@ -53,7 +50,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_languagelevel">
-            <column name="id">4</column>
             <column name="abbrname">B2</column>
             <column name="name">Вище середнього </column>
             <column name="description">Може розуміти основні ідеї тексту як на конкретну, так і на абстрактну тему, у тому числі й дискусії за фахом. Може вільно спілкуватися з носіями мови. Може чітко, детально висловитись на широке коло тем.</column>
@@ -69,7 +65,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_languagelevel">
-            <column name="id">5</column>
             <column name="abbrname">C1</column>
             <column name="name">Просунутий</column>
             <column name="description">Може висловлюватись швидко і спонтанно без помітних утруднень, пов’язаних з пошуком засобів вираження. Може ефективно і гнучко користуватись мовою у суспільному житті, навчанні та роботі.</column>
@@ -85,7 +80,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_languagelevel">
-            <column name="id">6</column>
             <column name="abbrname">C2</column>
             <column name="name">Досвідчений </column>
             <column name="description">Може розуміти без утруднень практично все, що чує або читає. Може вилучити інформацію з різних усних чи письмових джерел, узагальнити її і зробити аргументований виклад у зв’язній формі. Може висловлюватись спонтанно,  дуже швидко і точно. </column>

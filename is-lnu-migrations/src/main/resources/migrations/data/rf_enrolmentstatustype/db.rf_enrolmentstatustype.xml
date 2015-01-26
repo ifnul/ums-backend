@@ -5,12 +5,11 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_enrolmentstatustype" author="illay">
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">1</column>
             <column name="abbrname"></column>
             <column name="name">Нова заява</column>
             <column name="description">заяву (електронну або паперову) прийнято до розгляду у ВНЗ, заведено особову справу вступника з персональним номером та розпочато процес щодо прийняття рішення про допуск вступника до участі у конкурсному відборі</column>
             <column name="uid">1</column>
-            <column name="utid">publicd</column>
+            <column name="utid">created</column>
             <column name="uapp">edbo/PersonRequestStatusTypesGet</column>
             <column name="status">ACTIVE</column>
             <column name="actual">1</column>
@@ -21,7 +20,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">2</column>
             <column name="abbrname"></column>
             <column name="name">Відмова</column>
             <column name="description">власника зареєстрованої заяви не допущено до участі у конкурсному відборі на підставі рішення приймальної комісії. У разі присвоєння заяві цього статусу ВНЗ зазначає причину відмови</column>
@@ -37,7 +35,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">3</column>
             <column name="abbrname"></column>
             <column name="name">Скасовано</column>
             <column name="description">подана заява вважається такою, що не подавалась, а факт подачі – анулюється в ЄДЕБО, якщо:– електронну заяву скасовано вступником в особ. електр. кабінеті до моменту встановлення заяві статусу «Зареєстровано у ВНЗ» або «Потребує уточнення вступником»;– заяву анульовано ВНЗ за рішенням прийм.комісії (до моменту встановлення статусу «Рекомендовано до зарахування») за умови виявлення ВНЗ техн.помилки, зробленої під час внесення даних до ЄДЕБО, з обов’язковим зазначенням причини анулювання</column>
@@ -53,7 +50,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">4</column>
             <column name="abbrname"></column>
             <column name="name">Допущено в ЄДБО</column>
             <column name="description"></column>
@@ -69,7 +65,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">5</column>
             <column name="abbrname"></column>
             <column name="name">Рекомендовано</column>
             <column name="description"></column>
@@ -85,7 +80,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">6</column>
             <column name="abbrname"></column>
             <column name="name">Відхилено</column>
             <column name="description">вступник втратив право бути зарахованим на навчання до обраного ВНЗ у зв’язку з невиконанням вимог  Умов прийому або їх порушенням, зарахуванням на навчання до іншого навчального закладу тощо. При встановленні заяві такого статусу ВНЗ обов’язково зазначає причину виключення</column>
@@ -101,7 +95,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">7</column>
             <column name="abbrname"></column>
             <column name="name">До наказу</column>
             <column name="description">наказом про зарахування на навчання вступника зараховано до ВНЗ</column>
@@ -117,7 +110,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">8</column>
             <column name="abbrname"></column>
             <column name="name">Заява надійшла з сайту</column>
             <column name="description">підтвердження факту подання електронної заяви до обраного вступником ВНЗ. Подана електронна заява одразу відображається в ЄДЕБО на сторінці ВНЗ</column>
@@ -133,7 +125,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">9</column>
             <column name="abbrname"></column>
             <column name="name">Затримано</column>
             <column name="description">електронну заяву прийнято до розгляду у ВНЗ, але дані стосовно вступника потребують уточнення. Після присвоєння електронній заяві цього статусу ВНЗ зобов`язаний невідкладно надіслати вступнику повідомлення з переліком даних, які потребують уточнення, та в який спосіб їх необхідно подати</column>
@@ -149,7 +140,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">10</column>
             <column name="abbrname"></column>
             <column name="name">Прийнята</column>
             <column name="description">заява повністю перевірена і готова до відправки в ЄДБО</column>
@@ -165,7 +155,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">11</column>
             <column name="abbrname"></column>
             <column name="name">Не відправлено в ЄДБО</column>
             <column name="description"></column>
@@ -181,7 +170,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">12</column>
             <column name="abbrname"></column>
             <column name="name">Зараховано</column>
             <column name="description">наказ на зарахування підписаний</column>
@@ -197,7 +185,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmentstatustype">
-            <column name="id">13</column>
             <column name="abbrname"></column>
             <column name="name">Рекомендовано на комерцію</column>
             <column name="description"></column>

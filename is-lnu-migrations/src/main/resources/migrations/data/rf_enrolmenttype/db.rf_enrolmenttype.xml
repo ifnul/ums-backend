@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_enrolmenttype" author="illay">
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">1</column>
             <column name="abbrname">сертифікат</column>
             <column name="name">За даними сертифікату</column>
             <column name="parent_id"></column>
@@ -21,7 +20,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">2</column>
             <column name="abbrname">іспит</column>
             <column name="name">За результатами іспитів</column>
             <column name="parent_id"></column>
@@ -37,7 +35,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">3</column>
             <column name="abbrname">сертифікат+іспит</column>
             <column name="name">За даними сертифікатів та результатами іспитів</column>
             <column name="parent_id"></column>
@@ -53,7 +50,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">4</column>
             <column name="abbrname"></column>
             <column name="name">іноземець за контрактом</column>
             <column name="parent_id">2</column>
@@ -69,7 +65,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">5</column>
             <column name="abbrname"></column>
             <column name="name">громадяни, що звільнились із ЗСУ в цьому році</column>
             <column name="parent_id">2</column>
@@ -85,7 +80,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">6</column>
             <column name="abbrname"></column>
             <column name="name">військовосл., що служать за контрактом (заочна ф.н.)</column>
             <column name="parent_id">2</column>
@@ -101,7 +95,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">7</column>
             <column name="abbrname"></column>
             <column name="name">особи, що мають захворювання із переліку захворювань із Наказу 124/95 МОН/МОЗ</column>
             <column name="parent_id">2</column>
@@ -117,7 +110,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">8</column>
             <column name="abbrname"></column>
             <column name="name">діти-інваліди (до 18 років), інваліди І-ІІ групи (від 18 років)</column>
             <column name="parent_id">2</column>
@@ -133,7 +125,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">9</column>
             <column name="abbrname"></column>
             <column name="name">отримав ПЗСО в 2007 і раніше</column>
             <column name="parent_id">2</column>
@@ -149,7 +140,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">10</column>
             <column name="abbrname"></column>
             <column name="name">другий (третій) предмет – творчий конкурс</column>
             <column name="parent_id">2</column>
@@ -165,7 +155,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">11</column>
             <column name="abbrname"></column>
             <column name="name">перший предмет для не атестованих з української мови</column>
             <column name="parent_id">2</column>
@@ -181,7 +170,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">12</column>
             <column name="abbrname"></column>
             <column name="name">Громадяни України, які в рік вступу здобули повну загальну середню освіту за кордоном</column>
             <column name="parent_id">2</column>
@@ -197,7 +185,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">13</column>
             <column name="abbrname"></column>
             <column name="name">особи, що проживають у Донецькій та Луганській областях та не проходили ЗНО (РКМУ від 27.08.2014р. №785-р)</column>
             <column name="parent_id">2</column>
@@ -213,7 +200,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">14</column>
             <column name="abbrname"></column>
             <column name="name">Вступ не по ЗНО</column>
             <column name="parent_id">2</column>
@@ -229,7 +215,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">15</column>
             <column name="abbrname"></column>
             <column name="name">Вступ з частковим набором предметів ЗНО</column>
             <column name="parent_id">2</column>
@@ -245,7 +230,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">16</column>
             <column name="abbrname"></column>
             <column name="name">Зарахування за співбесідою</column>
             <column name="parent_id">2</column>
@@ -261,7 +245,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">17</column>
             <column name="abbrname"></column>
             <column name="name">Учасник міжнародної олімпіади</column>
             <column name="parent_id">2</column>
@@ -277,7 +260,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">18</column>
             <column name="abbrname"></column>
             <column name="name">іноземець за контрактом</column>
             <column name="parent_id">3</column>
@@ -293,7 +275,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">19</column>
             <column name="abbrname"></column>
             <column name="name">громадяни, що звільнились із ЗСУ в цьому році</column>
             <column name="parent_id">3</column>
@@ -309,7 +290,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">20</column>
             <column name="abbrname"></column>
             <column name="name">військовосл., що служать за контрактом (заочна ф.н.)</column>
             <column name="parent_id">3</column>
@@ -325,7 +305,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">21</column>
             <column name="abbrname"></column>
             <column name="name">особи, що мають захворювання із переліку захворювань із Наказу 124/95 МОН/МОЗ</column>
             <column name="parent_id">3</column>
@@ -341,7 +320,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">22</column>
             <column name="abbrname"></column>
             <column name="name">діти-інваліди (до 18 років), інваліди І-ІІ групи (від 18 років)</column>
             <column name="parent_id">3</column>
@@ -357,7 +335,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">23</column>
             <column name="abbrname"></column>
             <column name="name">отримав ПЗСО в 2007 і раніше</column>
             <column name="parent_id">3</column>
@@ -373,7 +350,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">24</column>
             <column name="abbrname"></column>
             <column name="name">другий (третій) предмет – творчий конкурс</column>
             <column name="parent_id">3</column>
@@ -389,7 +365,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">25</column>
             <column name="abbrname"></column>
             <column name="name">перший предмет для не атестованих з української мови</column>
             <column name="parent_id">3</column>
@@ -405,7 +380,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">26</column>
             <column name="abbrname"></column>
             <column name="name">Громадяни України, які в рік вступу здобули повну загальну середню освіту за кордоном</column>
             <column name="parent_id">3</column>
@@ -421,7 +395,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">27</column>
             <column name="abbrname"></column>
             <column name="name">особи, що проживають у Донецькій та Луганській областях та не проходили ЗНО (РКМУ від 27.08.2014р. №785-р)</column>
             <column name="parent_id">3</column>
@@ -437,7 +410,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">28</column>
             <column name="abbrname"></column>
             <column name="name">Вступ не по ЗНО</column>
             <column name="parent_id">3</column>
@@ -453,7 +425,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">29</column>
             <column name="abbrname"></column>
             <column name="name">Вступ з частковим набором предметів ЗНО</column>
             <column name="parent_id">3</column>
@@ -469,7 +440,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">30</column>
             <column name="abbrname"></column>
             <column name="name">Зарахування за співбесідою</column>
             <column name="parent_id">3</column>
@@ -485,7 +455,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">31</column>
             <column name="abbrname"></column>
             <column name="name">Учасник міжнародної олімпіади</column>
             <column name="parent_id">3</column>
@@ -501,7 +470,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolmenttype">
-            <column name="id">32</column>
             <column name="abbrname"></column>
             <column name="name">За даними сертифікату</column>
             <column name="parent_id">1</column>

@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_adminunittype" author="illay">
         <insert tableName="q_rf_adminunittype">
-            <column name="id">1</column>
             <column name="abbrname">р-н</column>
             <column name="name">Район</column>
             <column name="uid"></column>
@@ -20,7 +19,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_adminunittype">
-            <column name="id">2</column>
             <column name="abbrname">м.</column>
             <column name="name">Місто</column>
             <column name="uid"></column>
@@ -35,7 +33,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_adminunittype">
-            <column name="id">3</column>
             <column name="abbrname">с.м.т.</column>
             <column name="name">Селище міського типу</column>
             <column name="uid"></column>
@@ -50,7 +47,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_adminunittype">
-            <column name="id">4</column>
             <column name="abbrname">с.</column>
             <column name="name">Село</column>
             <column name="uid"></column>
@@ -65,7 +61,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_adminunittype">
-            <column name="id">5</column>
             <column name="abbrname">с-ще</column>
             <column name="name">Селище</column>
             <column name="uid"></column>
@@ -80,7 +75,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_adminunittype">
-            <column name="id">6</column>
             <column name="abbrname">кр.</column>
             <column name="name">Країна</column>
             <column name="uid"></column>
@@ -95,7 +89,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_adminunittype">
-            <column name="id">7</column>
             <column name="abbrname">ср.</column>
             <column name="name">Сільрада</column>
             <column name="uid"></column>
@@ -110,7 +103,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_adminunittype">
-            <column name="id">8</column>
             <column name="abbrname">нерезид.</column>
             <column name="name">Для не резидентів</column>
             <column name="uid"></column>

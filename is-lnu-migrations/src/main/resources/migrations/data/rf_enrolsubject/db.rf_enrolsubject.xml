@@ -5,7 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet id="add q_rf_enrolsubject" author="illay">
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">1</column>
             <column name="abbrname"></column>
             <column name="name">Українська мова</column>
             <column name="istesting">0</column>
@@ -22,7 +21,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">2</column>
             <column name="abbrname"></column>
             <column name="name">Українська література</column>
             <column name="istesting">0</column>
@@ -39,7 +37,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">3</column>
             <column name="abbrname"></column>
             <column name="name">Іноземна мова</column>
             <column name="istesting">0</column>
@@ -56,7 +53,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">4</column>
             <column name="abbrname"></column>
             <column name="name">Іноземна мова</column>
             <column name="istesting">0</column>
@@ -73,7 +69,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">5</column>
             <column name="abbrname"></column>
             <column name="name">Світова література</column>
             <column name="istesting">17</column>
@@ -90,7 +85,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">6</column>
             <column name="abbrname"></column>
             <column name="name">Історія України</column>
             <column name="istesting">2</column>
@@ -107,7 +101,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">7</column>
             <column name="abbrname"></column>
             <column name="name">Всесвітня історія</column>
             <column name="istesting">4</column>
@@ -124,7 +117,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">8</column>
             <column name="abbrname"></column>
             <column name="name">Правознавство</column>
             <column name="istesting">11</column>
@@ -141,7 +133,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">9</column>
             <column name="abbrname"></column>
             <column name="name">Економіка</column>
             <column name="istesting">10</column>
@@ -158,7 +149,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">10</column>
             <column name="abbrname"></column>
             <column name="name">Людина і світ</column>
             <column name="istesting">0</column>
@@ -175,7 +165,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">11</column>
             <column name="abbrname"></column>
             <column name="name">Філософія</column>
             <column name="istesting">0</column>
@@ -192,7 +181,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">12</column>
             <column name="abbrname"></column>
             <column name="name">Художня культура</column>
             <column name="istesting">0</column>
@@ -209,7 +197,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">13</column>
             <column name="abbrname"></column>
             <column name="name">Естетика</column>
             <column name="istesting">0</column>
@@ -226,7 +213,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">14</column>
             <column name="abbrname"></column>
             <column name="name">Математика</column>
             <column name="istesting">3</column>
@@ -243,7 +229,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">15</column>
             <column name="abbrname"></column>
             <column name="name">Алгебра</column>
             <column name="istesting">0</column>
@@ -260,7 +245,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">16</column>
             <column name="abbrname"></column>
             <column name="name">Геометрія</column>
             <column name="istesting">0</column>
@@ -277,7 +261,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">17</column>
             <column name="abbrname"></column>
             <column name="name">Астрономія</column>
             <column name="istesting">0</column>
@@ -294,7 +277,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">18</column>
             <column name="abbrname"></column>
             <column name="name">Біологія</column>
             <column name="istesting">7</column>
@@ -311,7 +293,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">19</column>
             <column name="abbrname"></column>
             <column name="name">Географія</column>
             <column name="istesting">8</column>
@@ -328,7 +309,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">20</column>
             <column name="abbrname"></column>
             <column name="name">Психологія</column>
             <column name="istesting">0</column>
@@ -345,7 +325,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">21</column>
             <column name="abbrname"></column>
             <column name="name">Фізика</column>
             <column name="istesting">5</column>
@@ -362,7 +341,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">22</column>
             <column name="abbrname"></column>
             <column name="name">Хімія</column>
             <column name="istesting">6</column>
@@ -379,7 +357,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">23</column>
             <column name="abbrname"></column>
             <column name="name">Екологія</column>
             <column name="istesting">0</column>
@@ -396,7 +373,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">24</column>
             <column name="abbrname"></column>
             <column name="name">Технології</column>
             <column name="istesting">0</column>
@@ -413,7 +389,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">25</column>
             <column name="abbrname"></column>
             <column name="name">Інформатика</column>
             <column name="istesting">0</column>
@@ -430,7 +405,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">27</column>
             <column name="abbrname"></column>
             <column name="name">Фізична культура</column>
             <column name="istesting">0</column>
@@ -447,7 +421,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">28</column>
             <column name="abbrname"></column>
             <column name="name">Захист вітчизни</column>
             <column name="istesting">0</column>
@@ -464,7 +437,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">29</column>
             <column name="abbrname"></column>
             <column name="name">Українська мова та література</column>
             <column name="istesting">1</column>
@@ -481,7 +453,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">30</column>
             <column name="abbrname"></column>
             <column name="name">Англійська мова</column>
             <column name="istesting">12</column>
@@ -498,7 +469,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">31</column>
             <column name="abbrname"></column>
             <column name="name">Французька мова</column>
             <column name="istesting">13</column>
@@ -515,7 +485,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">32</column>
             <column name="abbrname"></column>
             <column name="name">Німецька мова</column>
             <column name="istesting">14</column>
@@ -532,7 +501,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">33</column>
             <column name="abbrname"></column>
             <column name="name">Іспанська мова</column>
             <column name="istesting">15</column>
@@ -549,7 +517,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">34</column>
             <column name="abbrname"></column>
             <column name="name">Творчий конкурс</column>
             <column name="istesting">0</column>
@@ -566,7 +533,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">35</column>
             <column name="abbrname"></column>
             <column name="name">Російська мова</column>
             <column name="istesting">16</column>
@@ -583,7 +549,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">36</column>
             <column name="abbrname"></column>
             <column name="name">Фаховий іспит</column>
             <column name="istesting">0</column>
@@ -600,7 +565,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">37</column>
             <column name="abbrname"></column>
             <column name="name">Зарубіжна література</column>
             <column name="istesting">9</column>
@@ -617,11 +581,10 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">38</column>
             <column name="abbrname"></column>
             <column name="name">Рисунок</column>
             <column name="istesting">100</column>
-            <column name="parent_id">34</column>
+            <column name="parent_id">33</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -634,11 +597,10 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">39</column>
             <column name="abbrname"></column>
             <column name="name">Живопис</column>
             <column name="istesting">100</column>
-            <column name="parent_id">34</column>
+            <column name="parent_id">33</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -651,11 +613,10 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">40</column>
             <column name="abbrname"></column>
             <column name="name">Композиція</column>
             <column name="istesting">100</column>
-            <column name="parent_id">34</column>
+            <column name="parent_id">33</column>
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
@@ -668,7 +629,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">41</column>
             <column name="abbrname"></column>
             <column name="name">Трудове навчання</column>
             <column name="istesting">0</column>
@@ -685,7 +645,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">42</column>
             <column name="abbrname"></column>
             <column name="name">Педагогіка та психологія</column>
             <column name="istesting">0</column>
@@ -702,7 +661,6 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">43</column>
             <column name="abbrname"></column>
             <column name="name">Китайська мова</column>
             <column name="istesting">0</column>
@@ -719,11 +677,10 @@
             <column name="update_date">now()</column>
         </insert>
         <insert tableName="q_rf_enrolsubject">
-            <column name="id">26</column>
             <column name="abbrname"></column>
             <column name="name">Креслення</column>
             <column name="istesting">100</column>
-            <column name="parent_id">34</column>
+            <column name="parent_id">33</column>
             <column name="uid">26</column>
             <column name="utid">drawing</column>
             <column name="uapp">edbo/SubjectsGet</column>
