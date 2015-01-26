@@ -24,7 +24,6 @@ object PersonAddressIntegrationTest {
       	.set("begDate", "2010-01-01")
       	.set("endDate", "2014-12-01")
     })
-    //Creating new person
   .exec(http("Post Person")
 		.post("/persons")
     .basicAuth("admin", "nimda")
@@ -33,7 +32,6 @@ object PersonAddressIntegrationTest {
 		.asJSON
 		.check(status.is(201))
 		.check(jsonPath("$.id").find.saveAs("personId")))
-	// Creating new person address
 	.exec(http("Post Person Address")
 	    .post("/persons/${personId}/addresses")
       .basicAuth("admin", "nimda")
@@ -42,12 +40,10 @@ object PersonAddressIntegrationTest {
 	    .asJSON
 	    .check(status.is(201))
 	    .check(jsonPath("$.id").find.saveAs("personAddressId")))
-	// Getting created earlier person address    
 	.exec(http("Get Person Address")
 	    .get("/persons/${personId}/addresses/${personAddressId}")
       .basicAuth("admin", "nimda")
 	    .check(status.is(200)))
-    // Updating person address
   .exec(http("Update Person Address")
         .put("/persons/${personId}/addresses/${personAddressId}")
         .basicAuth("admin", "nimda")
@@ -55,18 +51,15 @@ object PersonAddressIntegrationTest {
         .body(ELFileBody("data/person/address/put.json"))
         .asJSON
         .check(status.is(200)))
-    // Checking updated person address
   .exec(http("Get Person Address")
 		.get("/persons/${personId}/addresses/${personAddressId}")
     .basicAuth("admin", "nimda")
 		.check(status.is(200))
 		.check(jsonPath("$.zipCode").find.is("790901")))
-	// Deleting person address
 	.exec(http("Delete Person Address")
 	    .delete("/persons/${personId}/addresses/${personAddressId}")
       .basicAuth("admin", "nimda")
 	    .check(status.is(204)))
-	// Deleting person
   .exec(http("Delete Person")
 		.delete("/persons/${personId}")
     .basicAuth("admin", "nimda")

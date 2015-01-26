@@ -44,6 +44,7 @@ import org.lnu.is.integration.sallary.types.SallaryTypeIntegrationTest
 import org.lnu.is.integration.subject.SubjectIntegrationTest
 import org.lnu.is.integration.subject.types.SubjectTypeIntegrationTest
 import org.lnu.is.integration.person.address.PersonAddressIntegrationTest
+import org.lnu.is.integration.person.paper.PersonPaperIntegrationTest
 
 
 /**
@@ -63,6 +64,7 @@ object TestCases {
                     PersonNameIntegrationTest.testCase,
                     PersonAddressIntegrationTest.testCase,
                     PersonTypeIntegrationTest.testCase,
+                    PersonPaperIntegrationTest.testCase,
                     ContactTypeIntegrationTest.testCase,
                     CourseTypeIntegrationTest.testCase,
                     EduFormTypeIntegrationTest.testCase,
