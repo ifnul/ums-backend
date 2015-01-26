@@ -21,7 +21,7 @@ class LoadTest extends Simulation {
       .baseURL(host)
       .acceptHeader("application/json")
   
-  val injectStep = rampUsers(20) over (20 seconds)
+  val injectStep = rampUsers(20) over (40 seconds)
   
   val scn = TestCases.scn;
  
