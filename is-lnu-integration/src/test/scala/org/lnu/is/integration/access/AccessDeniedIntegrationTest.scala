@@ -40,7 +40,7 @@ object AccessDeniedIntegrationTest {
         session.set("urls", urls);
       })
       .foreach("${urls}", "url") {
-          exec(http("Access Denied Get Paged Result")
+          exec(http("Getting First Paged Result for ${url}")
             .get("${url}")
             .basicAuth("admin", "nimda")
             .check(status.is(200))
@@ -52,7 +52,7 @@ object AccessDeniedIntegrationTest {
                         session.set("resourceId", resourceId)
                     })
                     .exec(
-                        http("Checking Access Denied Request Access")
+                        http("Access Denied Request ${url}")
                           .get("${url}/${resourceId}")
                           .basicAuth("broken_student", "nevdaha")
                           .check(status.is(403))

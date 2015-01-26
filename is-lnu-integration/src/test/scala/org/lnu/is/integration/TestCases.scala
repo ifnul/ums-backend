@@ -45,7 +45,7 @@ import org.lnu.is.integration.subject.SubjectIntegrationTest
 import org.lnu.is.integration.subject.types.SubjectTypeIntegrationTest
 import org.lnu.is.integration.person.address.PersonAddressIntegrationTest
 import org.lnu.is.integration.person.paper.PersonPaperIntegrationTest
-import org.lnu.is.integration.assets.AssetInvalidRequestBodyIntegrationTest
+import org.lnu.is.integration.invalid.InvalidRequestBodyIntegrationTest
 
 
 /**
@@ -56,7 +56,6 @@ object TestCases {
 
     val scn = scenario("Integration test scenario")
               .exec(
-                    AssetInvalidRequestBodyIntegrationTest.testCase,
                     AdminUnitIntegrationTest.testCase,
                     AddressTypeIntegrationTest.testCase,
                     AssetTypeIntegrationTest.testCase,
@@ -96,7 +95,9 @@ object TestCases {
                     ReasonIntegrationTest.testCase,
                     HonorTypeIntegrationTest.testCase,
                     PaperTypeIntegrationTest.testCase,
-                    AccessDeniedIntegrationTest.testCase
+                    
+                    AccessDeniedIntegrationTest.testCase,
+                    InvalidRequestBodyIntegrationTest.testCase
               )
   
 }
