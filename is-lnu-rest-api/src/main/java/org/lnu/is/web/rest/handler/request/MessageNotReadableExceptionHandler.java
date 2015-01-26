@@ -26,7 +26,7 @@ public class MessageNotReadableExceptionHandler implements BaseExceptionHandler<
 	private static final Logger LOGGER = LoggerFactory.getLogger(MessageNotReadableExceptionHandler.class);
 	
 	@ExceptionHandler(value = { HttpMessageNotReadableException.class })
-	@ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	@ResponseBody
 	@Override
 	public MessageResource handle(final HttpMessageNotReadableException e) throws Exception {

@@ -16,6 +16,7 @@ public class SpecialtyTypeConverter extends AbstractConverter<SpecialtyType, Spe
 	@Override
 	public SpecialtyTypeResource convert(final SpecialtyType source, final SpecialtyTypeResource target) {
 		
+		target.setId(source.getId());
 		target.setName(source.getName());
 		target.setAbbrName(source.getAbbrName());
 		

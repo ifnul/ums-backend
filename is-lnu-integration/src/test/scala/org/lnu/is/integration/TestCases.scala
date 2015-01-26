@@ -5,11 +5,11 @@ import io.gatling.http.Predef._
 import io.gatling.jdbc.Predef._
 import org.lnu.is.integration._
 import org.lnu.is.integration.access.AccessDeniedIntegrationTest
-import org.lnu.is.integration.asset.state.AssetStateIntegrationTest
+import org.lnu.is.integration.assets.state.AssetStateIntegrationTest
 import org.lnu.is.integration.street.types.StreetTypeIntegrationTest
 import org.lnu.is.integration.enrolment.types.EnrolmentTypeIntegrationTest
 import org.lnu.is.integration.enrolment.subject.EnrolmentSubjectIntegrationTest
-import org.lnu.is.integration.asset.types.AssetTypeIntegrationTest
+import org.lnu.is.integration.assets.types.AssetTypeIntegrationTest
 import org.lnu.is.integration.timeperiod.types.TimePeriodTypeIntegrationTest
 import org.lnu.is.integration.eduformtypes.EduFormTypeIntegrationTest
 import org.lnu.is.integration.adminunit.AdminUnitIntegrationTest
@@ -28,7 +28,7 @@ import org.lnu.is.integration.enrolment.statustype.EnrolmentStatusTypeIntegratio
 import org.lnu.is.integration.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.language.LanguageIntegrationTest
 import org.lnu.is.integration.course.types.CourseTypeIntegrationTest
-import org.lnu.is.integration.asset.status.AssetStatusIntegrationTest
+import org.lnu.is.integration.assets.statuses.AssetStatusIntegrationTest
 import org.lnu.is.integration.resource.ResourceByIdIntegrationTest
 import org.lnu.is.integration.department.DepartmentIntegrationTest
 import org.lnu.is.integration.department.types.DepartmentTypeIntegrationTest
@@ -45,6 +45,7 @@ import org.lnu.is.integration.subject.SubjectIntegrationTest
 import org.lnu.is.integration.subject.types.SubjectTypeIntegrationTest
 import org.lnu.is.integration.person.address.PersonAddressIntegrationTest
 import org.lnu.is.integration.person.paper.PersonPaperIntegrationTest
+import org.lnu.is.integration.assets.AssetInvalidRequestBodyIntegrationTest
 
 
 /**
@@ -55,6 +56,7 @@ object TestCases {
 
     val scn = scenario("Integration test scenario")
               .exec(
+                    AssetInvalidRequestBodyIntegrationTest.testCase,
                     AdminUnitIntegrationTest.testCase,
                     AddressTypeIntegrationTest.testCase,
                     AssetTypeIntegrationTest.testCase,
@@ -93,7 +95,8 @@ object TestCases {
                     PartnerIntegrationTest.testCase,
                     ReasonIntegrationTest.testCase,
                     HonorTypeIntegrationTest.testCase,
-                    PaperTypeIntegrationTest.testCase
+                    PaperTypeIntegrationTest.testCase,
+                    AccessDeniedIntegrationTest.testCase
               )
   
 }

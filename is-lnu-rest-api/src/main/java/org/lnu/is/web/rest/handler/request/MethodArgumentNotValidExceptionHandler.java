@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class MethodArgumentNotValidExceptionHandler implements BaseExceptionHandler<MethodArgumentNotValidException> {
 	private static final Logger LOGGER =  LoggerFactory.getLogger(MethodArgumentNotValidExceptionHandler.class);
 	
-	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+	@ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
     @ExceptionHandler(value = { MethodArgumentNotValidException.class })
     @ResponseBody
     @Override
