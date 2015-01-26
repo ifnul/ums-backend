@@ -84,7 +84,7 @@ object ResourceByIdIntegrationTest {
                       val limit = session("limit").as[String].toInt
                       val count = session("count").as[String].toInt
 
-                      val result = offset + limit < count || offset <= count
+                      val result = offset + limit < count || (offset <= count && offset != 0)
                       
                       session
                         .set("offset", offset + limit)
