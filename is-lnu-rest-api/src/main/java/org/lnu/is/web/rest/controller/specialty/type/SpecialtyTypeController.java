@@ -2,6 +2,7 @@ package org.lnu.is.web.rest.controller.specialty.type;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.Limit;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
@@ -39,7 +40,7 @@ public class SpecialtyTypeController extends BaseController implements PagedCont
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get All Specialty Types")
-	public PagedResultResource<SpecialtyTypeResource> getPagedResource(final PagedRequest<SpecialtyTypeResource> request) {
+	public PagedResultResource<SpecialtyTypeResource> getPagedResource(@Limit(defaultValue = "33") final PagedRequest<SpecialtyTypeResource> request) {
 		LOG.info("Getting PagedResultResource for Specialty Type with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);	
 	}

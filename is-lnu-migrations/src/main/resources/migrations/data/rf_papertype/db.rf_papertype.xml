@@ -56,7 +56,7 @@
             <column name="uid">4</column>
             <column name="utid"></column>
             <column name="uapp">edbo/PersonDocumentTypesGet</column>
-            <column name="status">DELETED</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -446,7 +446,7 @@
             <column name="uid"></column>
             <column name="utid"></column>
             <column name="uapp"></column>
-            <column name="status">DELETED</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>

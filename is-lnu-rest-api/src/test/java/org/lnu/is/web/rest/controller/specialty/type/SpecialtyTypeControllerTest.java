@@ -51,7 +51,7 @@ public class SpecialtyTypeControllerTest extends AbstractControllerTest {
 		List<SpecialtyTypeResource> entities = Arrays.asList(resource);
 		
 		int offset = 0;
-		int limit = 20;
+		int limit = 33;
 		long count = 1;
 		PagedResultResource<SpecialtyTypeResource> expected = new PagedResultResource<>("/specialties/types");
 		expected.setResources(entities);
