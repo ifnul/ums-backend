@@ -2,6 +2,8 @@ package org.lnu.is.resource.person.award;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -13,12 +15,16 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class PersonAwardResource extends ApiResource {
 
+	@NotNull(message = "Field required")
 	private Long personId;
 	
+	@NotNull(message = "Field required")
 	private Long personPaperId;
 	
+	@NotNull(message = "Field required")
 	private Long publicActivityAwardId;
 	
+	@NotNull(message = "Field required")
 	private Double bonus;
 	
 	@Override

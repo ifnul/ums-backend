@@ -3,6 +3,9 @@ package org.lnu.is.resource.department;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -16,26 +19,35 @@ public class DepartmentResource extends ApiResource {
 
 	private Long parentId;
 
-	private Long departmentTypeId;
-	
 	private Long orderId;
-	
-	private String abbrName;
-	
-	private String name;
-	
-	private String manager;
-	
-	private String phone;
-	
-	private String email;
-	
-	private Date begDate;
-	
-	private Date endDate;
 
 	private String note;
+
+	@NotNull(message = "Field required")
+	private Long departmentTypeId;
+
+	@NotNull(message = "Field required")
+	private String abbrName;
 	
+	@NotNull(message = "Field required")
+	private String name;
+	
+	@NotNull(message = "Field required")
+	private String manager;
+	
+	@NotNull(message = "Field required")
+	private String phone;
+	
+	@NotNull(message = "Field required")
+	@Email
+	private String email;
+	
+	@NotNull(message = "Field required")
+	private Date begDate;
+	
+	@NotNull(message = "Field required")
+	private Date endDate;
+
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/departments/{0}", getId());

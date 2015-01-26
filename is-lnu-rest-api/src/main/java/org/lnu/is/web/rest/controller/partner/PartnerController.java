@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.partner;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
@@ -21,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wordnik.swagger.annotations.ApiOperation;
-
 /**
  * Controller for handling .
  * @author ivanursul
@@ -39,8 +38,7 @@ public class PartnerController extends BaseController implements CrudController<
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
-	@ApiOperation(value = "Create Partner", position = 1)
-	public PartnerResource createResource(@RequestBody final PartnerResource partnerResource) {
+	public PartnerResource createResource(@Valid @RequestBody final PartnerResource partnerResource) {
 		LOG.info("Creating partner: {}", partnerResource);
 		return facade.createResource(partnerResource);
 	}
@@ -48,9 +46,8 @@ public class PartnerController extends BaseController implements CrudController<
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
-	@ApiOperation(value = "Update Partner", position = 2)
 	public MessageResource updateResource(@PathVariable("id") final Long id,
-			@RequestBody final PartnerResource partnerResource) {
+			@Valid @RequestBody final PartnerResource partnerResource) {
 		LOG.info("Updating partner with id: {}, {}", id, partnerResource);
 		facade.updateResource(id, partnerResource);
 		return new MessageResource(MessageType.INFO, "Partner Updated");
@@ -59,7 +56,6 @@ public class PartnerController extends BaseController implements CrudController<
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
-	@ApiOperation(value = "Get Partner by id", position = 3)
 	public PartnerResource getResource(@PathVariable("id") final Long id) {
 		LOG.info("Retrieving partner with id: {}", id);
 		return facade.getResource(id);
@@ -68,7 +64,6 @@ public class PartnerController extends BaseController implements CrudController<
 	@Override
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = Request.ID, method = RequestMethod.DELETE)
-	@ApiOperation(value = "Delete Partner", position = 4)
 	public MessageResource removeResource(@PathVariable("id") final Long id) {
 		LOG.info("Removing partner with id: {}", id);
 		facade.removeResource(id);
@@ -78,7 +73,6 @@ public class PartnerController extends BaseController implements CrudController<
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation(value = "Get Partners", position = 5)
 	public PagedResultResource<PartnerResource> getPagedResource(final PagedRequest<PartnerResource> request) {
 		LOG.info("Retrieving PagedResultResource for Partner Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

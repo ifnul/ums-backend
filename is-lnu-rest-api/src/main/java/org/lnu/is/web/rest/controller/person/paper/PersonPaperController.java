@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.person.paper;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
@@ -41,7 +42,7 @@ public class PersonPaperController extends BaseController implements CrudControl
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/{personId}/papers", method = RequestMethod.POST)
 	@ApiOperation(value = "Create PersonPaper", position = 1)
-	public PersonPaperResource createResource(@RequestBody final PersonPaperResource personPaperResource) {
+	public PersonPaperResource createResource(@Valid @RequestBody final PersonPaperResource personPaperResource) {
 		LOG.info("Creating personPaper: {}", personPaperResource);
 		return facade.createResource(personPaperResource);
 	}
@@ -51,7 +52,7 @@ public class PersonPaperController extends BaseController implements CrudControl
 	@RequestMapping(value = "/{personId}/papers/{personPaperId}", method = RequestMethod.PUT)
 	@ApiOperation(value = "Update PersonPaper", position = 2)
 	public MessageResource updateResource(@PathVariable("personPaperId") final Long personPaperId,
- 			@RequestBody final PersonPaperResource personPaperResource) {
+ 			@Valid @RequestBody final PersonPaperResource personPaperResource) {
 		LOG.info("Updating personPaper with id: {}", personPaperResource);
 		
 		facade.updateResource(personPaperId, personPaperResource);

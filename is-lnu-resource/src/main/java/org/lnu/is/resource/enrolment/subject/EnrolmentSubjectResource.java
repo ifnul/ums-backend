@@ -2,7 +2,7 @@ package org.lnu.is.resource.enrolment.subject;
 
 import java.text.MessageFormat;
 
-import org.lnu.is.annotation.CrudableResource;
+import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -10,7 +10,7 @@ import org.lnu.is.resource.ApiResource;
  * @author ivanursul
  *
  */
-@CrudableResource
+@ReferenceResource
 public class EnrolmentSubjectResource extends ApiResource {
 
 	private Long parentId;

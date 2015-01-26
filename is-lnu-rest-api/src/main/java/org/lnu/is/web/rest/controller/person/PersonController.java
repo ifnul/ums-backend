@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.person;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
@@ -43,7 +44,7 @@ public class PersonController extends BaseController implements CrudController<P
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Person", position = 1)
-	public PersonResource createResource(@RequestBody final PersonResource personResource) {
+	public PersonResource createResource(@Valid @RequestBody final PersonResource personResource) {
 		LOG.info("Creating person: {}", personResource);
 		return facade.createResource(personResource);
 	}
@@ -53,7 +54,7 @@ public class PersonController extends BaseController implements CrudController<P
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Person", position = 2)
 	public MessageResource updateResource(@PathVariable("id") final Long id,
-			@RequestBody final PersonResource personResource) {
+			@Valid @RequestBody final PersonResource personResource) {
 		LOG.info("Updating person with id: {}, {}", id, personResource);
 		facade.updateResource(id, personResource);
 		return new MessageResource(MessageType.INFO, "Person Updated");

@@ -3,6 +3,8 @@ package org.lnu.is.resource.specialty;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -15,20 +17,27 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class SpecialtyResource extends ApiResource {
 
-	private Long specialtyTypeId;
-
 	private Long parentId;
+
+	@NotNull(message = "Field required")
+	private Long specialtyTypeId;
 	
+	@NotNull(message = "Field required")
 	private String abbrName;
 	
+	@NotNull(message = "Field required")
 	private String name;
 	
+	@NotNull(message = "Field required")
 	private String cipher;
 	
+	@NotNull(message = "Field required")
 	private Date begDate;
 	
+	@NotNull(message = "Field required")
 	private Date endDate;
 	
+	@NotNull(message = "Field required")
 	private String note;
 	
 	@Override

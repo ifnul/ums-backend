@@ -2,6 +2,8 @@ package org.lnu.is.resource.specoffer.benefit;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -13,8 +15,10 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class SpecOfferBenefitResource extends ApiResource {
 
+	@NotNull(message = "Field required")
 	private Long specOfferId;
 
+	@NotNull(message = "Field required")
 	private Long benefitId;
 	
 	@Override

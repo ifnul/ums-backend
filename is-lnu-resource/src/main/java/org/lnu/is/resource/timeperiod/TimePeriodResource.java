@@ -18,16 +18,18 @@ public class TimePeriodResource extends ApiResource {
 
 	private Long parentId;
 
-	@NotNull
+	private Integer numValue;
+
+	@NotNull(message = "Field required")
 	private Long timePeriodTypeId;
 	
-	@NotNull
+	@NotNull(message = "Field required")
 	private String name;
-	
-	private Integer numValue;
-	
+
+	@NotNull(message = "Field required")
 	private Date begDate;
-	
+
+	@NotNull(message = "Field required")
 	private Date endDate;
 	
 	@Override

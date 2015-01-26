@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.asset;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.asset.AssetResource;
@@ -42,7 +43,7 @@ public class AssetController extends BaseController implements CrudController<As
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Asset")
-	public AssetResource createResource(@RequestBody final AssetResource resource) {
+	public AssetResource createResource(@Valid @RequestBody final AssetResource resource) {
 		LOG.info("Creating asset: {}", resource);
 		return facade.createResource(resource);
 	}
@@ -52,7 +53,7 @@ public class AssetController extends BaseController implements CrudController<As
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Asset")
 	public MessageResource updateResource(@PathVariable("id") final Long id,
-			@RequestBody final AssetResource resource) {
+			@Valid @RequestBody final AssetResource resource) {
 		LOG.info("Updated asset with id: {}, {}", id, resource);
 		facade.updateResource(id, resource);
 		return new MessageResource(MessageType.INFO, "Asset Updated");

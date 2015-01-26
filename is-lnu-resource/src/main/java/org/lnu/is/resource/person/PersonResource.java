@@ -3,6 +3,8 @@ package org.lnu.is.resource.person;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -14,42 +16,60 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class PersonResource extends ApiResource {
 
+	private Long parentId;
+
+	@NotNull(message = "Field required")
 	private Long personTypeId;
 	
+	@NotNull(message = "Field required")
 	private String name;
 	
+	@NotNull(message = "Field required")
 	private String firstName;
 	
+	@NotNull(message = "Field required")
 	private String fatherName;
 	
+	@NotNull(message = "Field required")
 	private String surname;
 	
+	@NotNull(message = "Field required")
 	private String photo;
 	
+	@NotNull(message = "Field required")
 	private Long genderTypeId;
 	
+	@NotNull(message = "Field required")
 	private Long marriedTypeId;
 	
+	@NotNull(message = "Field required")
 	private Long citizenCountryId;
 	
-	private Long parentId;
-	
+	@NotNull(message = "Field required")
 	private String docSeries;
 	
+	@NotNull(message = "Field required")
 	private String docNum;
 	
+	@NotNull(message = "Field required")
 	private String identifier;
 	
+	@NotNull(message = "Field required")
 	private Integer resident;
 	
+	@NotNull(message = "Field required")
 	private String birthPlace;
 	
+	@NotNull(message = "Field required")
 	private Date begDate;
 	
+	@NotNull(message = "Field required")
 	private Date endDate;
 	
+	@NotNull(message = "Field required")
 	private Integer isMilitary;
 	
+	@NotNull(message = "Field required")
 	private Integer isHostel;
 
 	@Override

@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.specoffer.benefit;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
@@ -42,7 +43,7 @@ public class SpecOfferBenefitController extends BaseController implements CrudCo
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/{specOfferId}/benefits", method = RequestMethod.POST)
 	@ApiOperation(value = "Method for creating Spec Offer Benefit")
-	public SpecOfferBenefitResource createResource(@RequestBody final SpecOfferBenefitResource resource) {
+	public SpecOfferBenefitResource createResource(@Valid @RequestBody final SpecOfferBenefitResource resource) {
 		LOG.info("Creating spec offer subject: {}", resource);
 		return facade.createResource(resource);
 	}

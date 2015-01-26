@@ -3,6 +3,8 @@ package org.lnu.is.resource.specoffer;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -15,28 +17,40 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class SpecOfferResource extends ApiResource {
 
+	@NotNull(message = "Field required")
 	private Long specialtyId;
 	
+	@NotNull(message = "Field required")
 	private Long departmentId;
 	
+	@NotNull(message = "Field required")
 	private Long timePeriodId;
 	
+	@NotNull(message = "Field required")
 	private Long specofferTypeId;
 	
+	@NotNull(message = "Field required")
 	private String docSeries;
 	
+	@NotNull(message = "Field required")
 	private String docNum;
 	
+	@NotNull(message = "Field required")
 	private Long eduFormTypeId;
 	
+	@NotNull(message = "Field required")
 	private Integer licCount;
 	
+	@NotNull(message = "Field required")
 	private Integer stateCount;
 	
+	@NotNull(message = "Field required")
 	private Date begDate;
 	
+	@NotNull(message = "Field required")
 	private Date endDate;
 	
+	@NotNull(message = "Field required")
 	private String note;
 	
 	@Override

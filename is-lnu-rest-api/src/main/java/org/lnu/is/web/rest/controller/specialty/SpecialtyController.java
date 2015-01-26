@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.specialty;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
@@ -43,7 +44,7 @@ public class SpecialtyController extends BaseController implements CrudControlle
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Specialty", position = 1)
-	public SpecialtyResource createResource(@RequestBody final SpecialtyResource specialtyResource) {
+	public SpecialtyResource createResource(@Valid @RequestBody final SpecialtyResource specialtyResource) {
 		LOG.info("Creating specialty: {}", specialtyResource);
 		return facade.createResource(specialtyResource);
 	}
@@ -53,7 +54,7 @@ public class SpecialtyController extends BaseController implements CrudControlle
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Specialty", position = 2)
 	public MessageResource updateResource(@PathVariable("id") final Long id,
-			@RequestBody final SpecialtyResource specialtyResource) {
+			@Valid @RequestBody final SpecialtyResource specialtyResource) {
 		LOG.info("Updated specialty with id: {}, {}", id, specialtyResource);
 		facade.updateResource(id, specialtyResource);
 		return new MessageResource(MessageType.INFO, "Specialty Updated");

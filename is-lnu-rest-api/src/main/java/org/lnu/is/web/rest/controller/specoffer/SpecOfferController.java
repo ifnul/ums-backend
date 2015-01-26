@@ -53,7 +53,7 @@ public class SpecOfferController extends BaseController implements CrudControlle
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update SpecOffer", position = 2)
 	public MessageResource updateResource(@PathVariable("id") final Long id,
-			@RequestBody final SpecOfferResource specOfferResource) {
+			@Valid @RequestBody final SpecOfferResource specOfferResource) {
 		LOG.info("Updated specoffer with id: {}, {}", id, specOfferResource);
 		facade.updateResource(id, specOfferResource);
 		return new MessageResource(MessageType.INFO, "SpecOffer Updated");

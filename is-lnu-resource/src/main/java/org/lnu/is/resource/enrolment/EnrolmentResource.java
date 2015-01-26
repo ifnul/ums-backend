@@ -3,6 +3,8 @@ package org.lnu.is.resource.enrolment;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -15,38 +17,54 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class EnrolmentResource extends ApiResource {
 
-	private Long personId;
-
-	private Long specofferId;
-
-	private Long departmentId;
-
-	private Long personPaperId;
-
-	private Long enrolmentTypeId;
-
 	private Long parentId;
 
+	@NotNull(message = "Field required")
+	private Long personId;
+
+	@NotNull(message = "Field required")
+	private Long specofferId;
+
+	@NotNull(message = "Field required")
+	private Long departmentId;
+
+	@NotNull(message = "Field required")
+	private Long personPaperId;
+
+	@NotNull(message = "Field required")
+	private Long enrolmentTypeId;
+
+	@NotNull(message = "Field required")
 	private Double mark;
 
+	@NotNull(message = "Field required")
 	private String docSeries;
 
+	@NotNull(message = "Field required")
 	private String docNum;
 
+	@NotNull(message = "Field required")
 	private String docText;
 
+	@NotNull(message = "Field required")
 	private Integer isState;
 
+	@NotNull(message = "Field required")
 	private Integer isContract;
 
+	@NotNull(message = "Field required")
 	private Integer isPrivilege;
 
+	@NotNull(message = "Field required")
 	private Integer isHostel;
 
+	@NotNull(message = "Field required")
 	private Date evDate;
 
+	@NotNull(message = "Field required")
 	private Date begDate;
 
+	@NotNull(message = "Field required")
 	private Date endDate;
 
 	@Override

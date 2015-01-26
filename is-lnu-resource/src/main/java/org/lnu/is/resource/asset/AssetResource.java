@@ -3,6 +3,8 @@ package org.lnu.is.resource.asset;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -14,40 +16,56 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class AssetResource extends ApiResource {
 
-	private Long assetTypeId;
-
-	private Long assetStateId;
-	
-	private Long assetStatusId;
-	
-	private Long departmentId;
-	
-	private Long employeeId;
-	
 	private Long partnerId;
 
-	private Long orderId;
-	
 	private Long parentId;
 	
+	@NotNull(message = "Field required")
+	private Long assetTypeId;
+
+	@NotNull(message = "Field required")
+	private Long assetStateId;
+	
+	@NotNull(message = "Field required")
+	private Long assetStatusId;
+	
+	@NotNull(message = "Field required")
+	private Long departmentId;
+	
+	@NotNull(message = "Field required")
+	private Long employeeId;
+	
+	@NotNull(message = "Field required")
+	private Long orderId;
+
+	@NotNull(message = "Field required")
 	private String name;
 	
+	@NotNull(message = "Field required")
 	private String invNum;
 	
+	@NotNull(message = "Field required")
 	private String serialNum;
 	
+	@NotNull(message = "Field required")
 	private Date prodDate;
 
+	@NotNull(message = "Field required")
 	private Date begDate;
 	
+	@NotNull(message = "Field required")
 	private Date endDate;
 	
+	@NotNull(message = "Field required")
 	private Double price;
 	
+	@NotNull(message = "Field required")
 	private Double amount;
 
+	@NotNull(message = "Field required")
 	private Double suma;
 
+	@NotNull(message = "Field required")
 	private String description;
 	
 	@Override

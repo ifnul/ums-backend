@@ -54,7 +54,7 @@ public class TimePeriodController extends BaseController implements CrudControll
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update TimePeriod")
 	public MessageResource updateResource(@PathVariable("id") final Long id,
-			@RequestBody final TimePeriodResource resource) {
+			@Valid @RequestBody final TimePeriodResource resource) {
 		LOG.info("Updating timePeriod with id: {}, {}", id, resource);
 		facade.updateResource(id, resource);
 		return new MessageResource(MessageType.INFO, "TimePeriod Updated");

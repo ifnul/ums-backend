@@ -3,6 +3,8 @@ package org.lnu.is.resource.benefit;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -14,13 +16,25 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class BenefitResource extends ApiResource {
 
-	private Long benefitTypeId;
 	private Long parentId;
-	private String abbrName;
+
+	@NotNull(message = "Field required")
+	private Long benefitTypeId;
+	
+	@NotNull(message = "Field required")
 	private String name;
-	private Date begDate;
-	private Date endDate;
+
+	@NotNull(message = "Field required")
+	private String abbrName;
+	
+	@NotNull(message = "Field required")
 	private String description;
+
+	@NotNull(message = "Field required")
+	private Date begDate;
+	
+	@NotNull(message = "Field required")
+	private Date endDate;
 	
 	@Override
 	public String getUri() {

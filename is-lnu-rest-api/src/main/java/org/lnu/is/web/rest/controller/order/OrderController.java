@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.order;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
@@ -42,7 +43,7 @@ public class OrderController extends BaseController implements CrudController<Or
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Order", position = 1)
-	public OrderResource createResource(@RequestBody final OrderResource orderResource) {
+	public OrderResource createResource(@Valid @RequestBody final OrderResource orderResource) {
 		LOG.info("Creating order: {}", orderResource);
 		return facade.createResource(orderResource);
 	}
@@ -52,7 +53,7 @@ public class OrderController extends BaseController implements CrudController<Or
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Order", position = 2)
 	public MessageResource updateResource(@PathVariable("id") final Long id,
-			@RequestBody final OrderResource resource) {
+			@Valid @RequestBody final OrderResource resource) {
 		LOG.info("Updating order with id: {}, {}", id, resource);
 		facade.updateResource(id, resource);
 		return new MessageResource(MessageType.INFO, "Order Updated");

@@ -3,6 +3,8 @@ package org.lnu.is.resource.person.address;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -14,26 +16,37 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class PersonAddressResource extends ApiResource {
 
+	@NotNull(message = "Field required")
 	private Long personId;
 
+	@NotNull(message = "Field required")
 	private Long addressTypeId;
 	
+	@NotNull(message = "Field required")
 	private Long adminUnitId;
 
+	@NotNull(message = "Field required")
 	private Long streetTypeId;
 
+	@NotNull(message = "Field required")
 	private Long assetId;
 
+	@NotNull(message = "Field required")
 	private String zipCode;
 	
+	@NotNull(message = "Field required")
 	private String street;
 	
+	@NotNull(message = "Field required")
 	private String house;
 	
+	@NotNull(message = "Field required")
 	private String apartment;
 	
+	@NotNull(message = "Field required")
 	private Date begDate;
 	
+	@NotNull(message = "Field required")
 	private Date endDate;
 
 	@Override

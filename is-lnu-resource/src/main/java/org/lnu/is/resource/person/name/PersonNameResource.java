@@ -2,6 +2,8 @@ package org.lnu.is.resource.person.name;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -13,18 +15,23 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class PersonNameResource extends ApiResource {
 
+	@NotNull(message = "Field required")
 	private Long personId;
 	
+	@NotNull(message = "Field required")
 	private Long languageId;
 	
+	@NotNull(message = "Field required")
 	private String name;
 	
+	@NotNull(message = "Field required")
 	private String firstName;
 	
+	@NotNull(message = "Field required")
 	private String fatherName;
 	
+	@NotNull(message = "Field required")
 	private String surname;
-
 	
 	@Override
 	public String getUri() {

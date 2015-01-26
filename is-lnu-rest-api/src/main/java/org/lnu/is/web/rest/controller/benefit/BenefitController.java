@@ -2,6 +2,7 @@ package org.lnu.is.web.rest.controller.benefit;
 
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.benefit.BenefitResource;
@@ -59,7 +60,7 @@ public class BenefitController extends BaseController implements CrudController<
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Benefit")
-	public BenefitResource createResource(@RequestBody final BenefitResource resource) {
+	public BenefitResource createResource(@Valid @RequestBody final BenefitResource resource) {
 		LOGGER.info("Creating new benefit:{}", resource);
 		return facade.createResource(resource);
 	}
@@ -69,7 +70,7 @@ public class BenefitController extends BaseController implements CrudController<
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Benefit")
 	public MessageResource updateResource(@PathVariable("id") final Long id,
-			@RequestBody final BenefitResource resource) {
+			@Valid @RequestBody final BenefitResource resource) {
 		LOGGER.info("Updating new resource, id:{}, resource:{}", id, resource);
 		facade.updateResource(id, resource);
 		return new MessageResource(MessageType.INFO, "Benefit updated");

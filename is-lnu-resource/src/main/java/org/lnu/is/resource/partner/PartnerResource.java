@@ -3,6 +3,8 @@ package org.lnu.is.resource.partner;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -16,18 +18,25 @@ public class PartnerResource extends ApiResource {
 	
 	private Long parentId;
 	
+	@NotNull(message = "Field required")
 	private String abbrName;
 
+	@NotNull(message = "Field required")
 	private String name;
 
+	@NotNull(message = "Field required")
 	private String manager;
 
+	@NotNull(message = "Field required")
 	private String phone;
 
+	@NotNull(message = "Field required")
 	private String email;
 	
+	@NotNull(message = "Field required")
 	private Date begDate;
 	
+	@NotNull(message = "Field required")
 	private Date endDate;
 
 	@Override

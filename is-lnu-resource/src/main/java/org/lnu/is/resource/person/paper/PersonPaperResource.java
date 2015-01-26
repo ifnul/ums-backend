@@ -3,6 +3,8 @@ package org.lnu.is.resource.person.paper;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -14,26 +16,37 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class PersonPaperResource extends ApiResource {
 
+	@NotNull(message = "Field required")
 	private Long personId;
 	
+	@NotNull(message = "Field required")
 	private Long paperTypeId;
 	
+	@NotNull(message = "Field required")
 	private Long honorsTypeId;
 	
+	@NotNull(message = "Field required")
 	private String docSeries;
 	
+	@NotNull(message = "Field required")
 	private String docNum;
 
+	@NotNull(message = "Field required")
 	private Date docDate;
 	
+	@NotNull(message = "Field required")
 	private String docIssued;
 	
+	@NotNull(message = "Field required")
 	private String docPin;
 	
+	@NotNull(message = "Field required")
 	private Double mark;
 	
+	@NotNull(message = "Field required")
 	private Integer isChecked;
 	
+	@NotNull(message = "Field required")
 	private Integer isForeign;
 
 	@Override

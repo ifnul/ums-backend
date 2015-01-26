@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.enrolment;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.enrolment.EnrolmentResource;
@@ -43,7 +44,7 @@ public class EnrolmentController extends BaseController implements CrudControlle
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Create Enrolment", position = 1)
-	public EnrolmentResource createResource(@RequestBody final EnrolmentResource enrolmentResource) {
+	public EnrolmentResource createResource(@Valid @RequestBody final EnrolmentResource enrolmentResource) {
 		LOG.info("Creating enrolment : {} ", enrolmentResource);
 		return facade.createResource(enrolmentResource);
 	}
@@ -53,7 +54,7 @@ public class EnrolmentController extends BaseController implements CrudControlle
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
 	@ApiOperation(value = "Update Enrolment", position = 2)
 	public MessageResource updateResource(@PathVariable("id") final Long id, 
-			@RequestBody final EnrolmentResource resource) {
+			@Valid @RequestBody final EnrolmentResource resource) {
 		LOG.info("Updating enrolment with id : {} , {} ", id, resource);
 		facade.updateResource(id, resource);
 		return new MessageResource(MessageType.INFO, "Enrolment Updated");

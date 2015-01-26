@@ -1,6 +1,7 @@
 package org.lnu.is.web.rest.controller.person.award;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
@@ -41,7 +42,7 @@ public class PersonAwardController extends BaseController implements CrudControl
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/{personId}/awards", method = RequestMethod.POST)
 	@ApiOperation(value = "Create PersonAward")
-	public PersonAwardResource createResource(@RequestBody final PersonAwardResource personAwardResource) {
+	public PersonAwardResource createResource(@Valid @RequestBody final PersonAwardResource personAwardResource) {
 		LOG.info("Creating personAward: {}", personAwardResource);
 		return facade.createResource(personAwardResource);
 	}
@@ -51,7 +52,7 @@ public class PersonAwardController extends BaseController implements CrudControl
 	@RequestMapping(value = "/{personId}/awards/{personAwardId}", method = RequestMethod.PUT)
 	@ApiOperation(value = "Update PersonAward")
 	public MessageResource updateResource(@PathVariable("personAwardId") final Long personAwardId,
- 			@RequestBody final PersonAwardResource personAwardResource) {
+ 			@Valid @RequestBody final PersonAwardResource personAwardResource) {
 		LOG.info("Updating personAward with id: {}, {}", personAwardId, personAwardResource);
 		facade.updateResource(personAwardId, personAwardResource);
 		return new MessageResource(MessageType.INFO, "Person Award Updated");

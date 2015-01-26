@@ -3,6 +3,8 @@ package org.lnu.is.resource.adminunit;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -14,22 +16,30 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class AdminUnitResource extends ApiResource {
 	
-	private Long adminUnitTypeId;
-	
 	private Long parentId;
-	
+
+	@NotNull(message = "Field required")
+	private Long adminUnitTypeId;
+
+	@NotNull(message = "Field required")
 	private String identifier;
 	
+	@NotNull(message = "Field required")
 	private String identifier1;
 	
+	@NotNull(message = "Field required")
 	private String identifier2;
 
+	@NotNull(message = "Field required")
 	private String identifier3;
 	
+	@NotNull(message = "Field required")
 	private String name;
 	
+	@NotNull(message = "Field required")
 	private Date begDate;
 	
+	@NotNull(message = "Field required")
 	private Date endDate;
 	
 	@Override

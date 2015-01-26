@@ -2,6 +2,8 @@ package org.lnu.is.resource.specoffer.subject;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -13,14 +15,19 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class SpecOfferSubjectResource extends ApiResource {
 
+	@NotNull(message = "Field required")
 	private Long specOfferId;
 	
+	@NotNull(message = "Field required")
 	private Long enrolmentSubjectId;
 	
+	@NotNull(message = "Field required")
 	private Boolean isMajor;
 	
+	@NotNull(message = "Field required")
 	private Boolean alternative;
 	
+	@NotNull(message = "Field required")
 	private Double mark;
 	
 	@Override

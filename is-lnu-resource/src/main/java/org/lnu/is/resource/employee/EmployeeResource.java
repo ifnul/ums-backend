@@ -3,6 +3,8 @@ package org.lnu.is.resource.employee;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -14,52 +16,75 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class EmployeeResource extends ApiResource {
 
-	private Long employeeTypeId;
-	
+	private Long parentId;
+
+	@NotNull(message = "Field required")
 	private Long personId;
-	
+
+	@NotNull(message = "Field required")
+	private Long employeeTypeId;
+
+	@NotNull(message = "Field required")
 	private Long genderTypeId;
 	
+	@NotNull(message = "Field required")
 	private Long departmentId;
 	
+	@NotNull(message = "Field required")
 	private Long postId;
 	
+	@NotNull(message = "Field required")
 	private Long jobTypeId;
 	
+	@NotNull(message = "Field required")
 	private Long employeeStatusId;
 	
+	@NotNull(message = "Field required")
 	private Long orderId;
-	
-	private Long parentId;
-	
+
+	@NotNull(message = "Field required")
 	private String name;
 
+	@NotNull(message = "Field required")
 	private String firstName;
 	
+	@NotNull(message = "Field required")
 	private String fatherName;
 	
+	@NotNull(message = "Field required")
 	private String surname;
 	
+	@NotNull(message = "Field required")
 	private Date birthDate;
 	
+	@NotNull(message = "Field required")
 	private String invNum;
 	
+	@NotNull(message = "Field required")
 	private Double rate;
 	
+	@NotNull(message = "Field required")
 	private Integer isPlurality;
 	
+	@NotNull(message = "Field required")
 	private Integer isPensioner;
 	
+	@NotNull(message = "Field required")
 	private Date begDate;
 	
+	@NotNull(message = "Field required")
 	private Date endDate;
 	
+	@NotNull(message = "Field required")
 	private String docSeries;
 	
+	@NotNull(message = "Field required")
 	private String docNum;
 	
+	@NotNull(message = "Field required")
 	private String phone;
 	
+	@NotNull(message = "Field required")
 	private String email;
 	
 	@Override
