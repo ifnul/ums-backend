@@ -17,6 +17,7 @@ public class SpecialtyConverter extends AbstractConverter<Specialty, SpecialtyRe
 	@Override
 	public SpecialtyResource convert(final Specialty source, final SpecialtyResource target) {
 		
+		target.setId(source.getId());
 		target.setAbbrName(source.getAbbrName());
 		target.setBegDate(source.getBegDate());
 		target.setCipher(source.getCipher());

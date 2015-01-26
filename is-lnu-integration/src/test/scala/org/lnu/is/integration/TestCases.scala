@@ -46,6 +46,7 @@ import org.lnu.is.integration.subject.types.SubjectTypeIntegrationTest
 import org.lnu.is.integration.person.address.PersonAddressIntegrationTest
 import org.lnu.is.integration.person.paper.PersonPaperIntegrationTest
 import org.lnu.is.integration.invalid.InvalidRequestBodyIntegrationTest
+import org.lnu.is.integration.specialty.SpecialtyIntegrationTest
 
 
 /**
@@ -79,6 +80,7 @@ object TestCases {
                     FamilyTypeIntegrationTest.testCase,
                     SallaryTypeIntegrationTest.testCase,
                     StreetTypeIntegrationTest.testCase,
+                    SpecialtyIntegrationTest.testCase,
                     SpecialtyTypeIntegrationTest.testCase,
                     SubjectIntegrationTest.testCase,
                     SubjectTypeIntegrationTest.testCase,
@@ -95,7 +97,6 @@ object TestCases {
                     ReasonIntegrationTest.testCase,
                     HonorTypeIntegrationTest.testCase,
                     PaperTypeIntegrationTest.testCase,
-                    
                     AccessDeniedIntegrationTest.testCase,
                     InvalidRequestBodyIntegrationTest.testCase
               )

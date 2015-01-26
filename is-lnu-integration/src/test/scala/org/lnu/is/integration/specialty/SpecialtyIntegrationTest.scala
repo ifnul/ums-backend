@@ -48,11 +48,11 @@ object SpecialtyIntegrationTest {
         .check(status.is(200))
         .check(jsonPath("$.name").find.is("Теоретичні основи інформатики та кібернетики")))
     .exec(http("Delete Specialty")
-		.delete("/specialties/${specialtyId}")
+		  .delete("/specialties/${specialtyId}")
 		  .basicAuth("admin", "nimda")
       .check(status.is(204)))
     .exec(http("Get Specialty")
-		.get("/specialties/${specialtyId}")
+		  .get("/specialties/${specialtyId}")
       .basicAuth("admin", "nimda")
     	.check(status.is(404)))
       

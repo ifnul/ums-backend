@@ -29,7 +29,6 @@
 	<properties>
 		<version>0.9.0-SNAPSHOT</version>
 		<developers>Ivan Ursul, Illay Mazuriak, Yura Kushnir, Bohdan Yaremtso, Roman Pelipets, Oleh Zanevich</developers>
-		<service.enabled>true</service.enabled>
 				
 		<!-- Version properties -->
 		<spring.version>4.1.0.RELEASE</spring.version>
