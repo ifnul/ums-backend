@@ -4,7 +4,7 @@
 
 	<groupId>is-lnu</groupId>
 	<artifactId>is-lnu</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${version}</version>
 	<packaging>pom</packaging>
 
 	<name>is-lnu</name>
@@ -27,8 +27,8 @@
 	</modules>
 
 	<properties>
-		<version>0.0.1-SNAPSHOT</version>
-		<developers>Ivan Ursul, Illay Mazuriak</developers>
+		<version>0.9.0-SNAPSHOT</version>
+		<developers>Ivan Ursul, Illay Mazuriak, Yura Kushnir, Bohdan Yaremtso, Roman Pelipets, Oleh Zanevich</developers>
 		<service.enabled>true</service.enabled>
 				
 		<!-- Version properties -->
