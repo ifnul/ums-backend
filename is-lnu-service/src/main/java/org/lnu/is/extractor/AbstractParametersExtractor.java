@@ -71,14 +71,14 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	
 	/**
 	 * Method for simple fields.
-	 * @param parameter
+	 * @param entity
 	 * @param parameterName
 	 * @param parameters
 	 */
-	protected void addParameter(final Object parameter, final String parameterName, final Map<String, Object> parameters) {
+	protected void addParameter(final Object entity, final String parameterName, final Map<String, Object> parameters) {
 		
-		if (parameter != null) {
-			parameters.put(parameterName, parameter);
+		if (entity != null) {
+			parameters.put(parameterName, entity);
 		}
 		
 	}

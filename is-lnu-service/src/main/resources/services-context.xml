@@ -101,6 +101,11 @@
 		<property name="dao" ref="departmentDao" />
 	</bean>
 
+	<bean id="departmentAddressService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="departmentAddressParametersExtractor" />
+		<property name="dao" ref="departmentAddressDao" />
+	</bean>
+
 	<bean id="departmentTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="departmentTypeParametersExtractor" />
 		<property name="dao" ref="departmentTypeDao" />
