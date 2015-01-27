@@ -3,7 +3,7 @@ package org.lnu.is.converter.employee.status;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.domain.employee.EmployeeStatus;
+import org.lnu.is.domain.employee.status.EmployeeStatus;
 import org.lnu.is.resource.employee.status.EmployeeStatusResource;
 
 public class EmployeeStatusConverterTest {

@@ -2,7 +2,7 @@ package org.lnu.is.converter.employee.status;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.employee.EmployeeStatus;
+import org.lnu.is.domain.employee.status.EmployeeStatus;
 import org.lnu.is.resource.employee.status.EmployeeStatusResource;
 
 /**

@@ -67,12 +67,12 @@
 	</bean>
 
 	<bean id="employeeTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeType" />
+		<property name="entityClass" value="org.lnu.is.domain.employee.type.EmployeeType" />
 		<property name="queryBuilder" ref="employeeTypeQueryBuilder"/>
 	</bean>
 
 	<bean id="employeeStatusDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.employee.EmployeeStatus" />
+		<property name="entityClass" value="org.lnu.is.domain.employee.status.EmployeeStatus" />
 		<property name="queryBuilder" ref="employeeStatusQueryBuilder" />
 	</bean>
 

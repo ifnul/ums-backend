@@ -2,7 +2,7 @@ package org.lnu.is.converter.employee.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.employee.EmployeeType;
+import org.lnu.is.domain.employee.type.EmployeeType;
 import org.lnu.is.resource.employee.type.EmployeeTypeResource;
 
 /**

@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.employee.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.employee.EmployeeType;
+import org.lnu.is.domain.employee.type.EmployeeType;
 
 /**
  * Query builder for Employee Type.

@@ -3,7 +3,7 @@ package org.lnu.is.extractor.employee.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.employee.EmployeeType;
+import org.lnu.is.domain.employee.type.EmployeeType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

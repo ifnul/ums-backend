@@ -1,4 +1,4 @@
-package org.lnu.is.domain.employee;
+package org.lnu.is.domain.employee.schedule;
 
 import java.util.Date;
 
@@ -10,33 +10,25 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.post.Post;
-import org.lnu.is.domain.profession.Profession;
-
+import org.lnu.is.domain.employee.Employee;
 /**
- * Employee Profession entity.
+ * Employee Schedule ebntity.
  * @author illay
  *
  */
 @OD
 @Entity
-@Table(name = "q_od_employeeprofession") 
-public class EmployeeProfession extends InformationModel {
+@Table(name = "q_od_employeeschedule")
+public class EmployeeSchedule extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
-	@JoinColumn(name = "profession_id")
-	private Profession profession;
+	@JoinColumn(name = "employee_id")
+	private Employee employee;
 	
-	@ManyToOne
-	@JoinColumn(name = "person_id")
-	private Person person;
-	
-	@ManyToOne
-	@JoinColumn(name = "post_id")
-	private Post post;
+	@Column(name = "evdate")
+	private Date evdate;
 	
 	@Column(name = "begdate")
 	private Date begDate;
@@ -44,28 +36,20 @@ public class EmployeeProfession extends InformationModel {
 	@Column(name = "enddate")
 	private Date endDate;
 
-	public Profession getProfession() {
-		return profession;
+	public Employee getEmployee() {
+		return employee;
 	}
 
-	public void setProfession(final Profession profession) {
-		this.profession = profession;
+	public void setEmployee(final Employee employee) {
+		this.employee = employee;
 	}
 
-	public Person getPerson() {
-		return person;
+	public Date getEvdate() {
+		return evdate;
 	}
 
-	public void setPerson(final Person person) {
-		this.person = person;
-	}
-
-	public Post getPost() {
-		return post;
-	}
-
-	public void setPost(final Post post) {
-		this.post = post;
+	public void setEvdate(final Date evdate) {
+		this.evdate = evdate;
 	}
 
 	public Date getBegDate() {
@@ -90,6 +74,7 @@ public class EmployeeProfession extends InformationModel {
 		int result = super.hashCode();
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
+		result = prime * result + ((evdate == null) ? 0 : evdate.hashCode());
 		return result;
 	}
 
@@ -104,7 +89,7 @@ public class EmployeeProfession extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		EmployeeProfession other = (EmployeeProfession) obj;
+		EmployeeSchedule other = (EmployeeSchedule) obj;
 		if (begDate == null) {
 			if (other.begDate != null) {
 				return false;
@@ -119,12 +104,21 @@ public class EmployeeProfession extends InformationModel {
 		} else if (!endDate.equals(other.endDate)) {
 			return false;
 		}
+		if (evdate == null) {
+			if (other.evdate != null) {
+				return false;
+			}
+		} else if (!evdate.equals(other.evdate)) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "EmployeeProfession [begDate=" + begDate + ", endDate="
-				+ endDate + "]";
+		return "EmployeeSchedule [evdate=" + evdate + ", begDate=" + begDate
+				+ ", endDate=" + endDate + "]";
 	}
+	
+	
 }

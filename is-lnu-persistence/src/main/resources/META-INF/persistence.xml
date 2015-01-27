@@ -26,12 +26,12 @@
 
 		<!-- Employee related entities -->
 		<class>org.lnu.is.domain.employee.Employee</class> 
-        <class>org.lnu.is.domain.employee.EmployeeStatus</class> 
-        <class>org.lnu.is.domain.employee.EmployeeType</class> 
-        <class>org.lnu.is.domain.employee.EmployeeContact</class>
-        <class>org.lnu.is.domain.employee.EmployeeProfession</class>
-        <class>org.lnu.is.domain.employee.EmployeeSallary</class>
-        <class>org.lnu.is.domain.employee.EmployeeSchedule</class>
+        <class>org.lnu.is.domain.employee.status.EmployeeStatus</class> 
+        <class>org.lnu.is.domain.employee.type.EmployeeType</class> 
+        <class>org.lnu.is.domain.employee.contact.EmployeeContact</class>
+        <class>org.lnu.is.domain.employee.profession.EmployeeProfession</class>
+        <class>org.lnu.is.domain.employee.sallary.EmployeeSallary</class>
+        <class>org.lnu.is.domain.employee.schedule.EmployeeSchedule</class>
 
 		<!-- Partner related entities -->
         <class>org.lnu.is.domain.partner.Partner</class>

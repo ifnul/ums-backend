@@ -1,4 +1,4 @@
-package org.lnu.is.domain.employee;
+package org.lnu.is.domain.employee.status;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
