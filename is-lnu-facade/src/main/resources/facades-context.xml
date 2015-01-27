@@ -356,5 +356,11 @@
 		<property name="entityConverter" ref="specOfferBenefitConverter" />
 		<property name="service" ref="specOfferBenefitService" />
 	</bean>
-
+	
+	<bean id="waveTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="waveTypeResourceConverter" />
+		<property name="entityConverter" ref="waveTypeConverter" />
+		<property name="service" ref="waveTypeService" />
+	</bean>
+	
 </beans>

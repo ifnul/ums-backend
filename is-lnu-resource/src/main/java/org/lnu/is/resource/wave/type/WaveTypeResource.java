@@ -1,25 +1,28 @@
-package org.lnu.is.domain.wavetype;
+package org.lnu.is.resource.wave.type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.text.MessageFormat;
 
-import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.InformationModel;
-
+import org.lnu.is.annotation.ReferenceResource;
+import org.lnu.is.resource.ApiResource;
 /**
- * Wave Type entity.
- * @author ivanursul
+ * Wave Type Resource.
+ * @author illay
  *
  */
-@RF
-@Entity
-@Table(name = "q_rf_wavetype")
-public class WaveType extends InformationModel {
-	private static final long serialVersionUID = 1L;
-
-	@Column(name = "name")
+@ReferenceResource
+public class WaveTypeResource  extends ApiResource {
+	
 	private String name;
+	
+	@Override
+	public String getUri() {
+		return MessageFormat.format("/wave/types/{0}", getId());
+	}
+	
+	@Override
+	public String getRootUri() {
+		return "/wave/types";
+	}
 
 	public String getName() {
 		return name;
@@ -48,7 +51,7 @@ public class WaveType extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		WaveType other = (WaveType) obj;
+		WaveTypeResource other = (WaveTypeResource) obj;
 		if (name == null) {
 			if (other.name != null) {
 				return false;
@@ -61,7 +64,7 @@ public class WaveType extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "WaveType [name=" + name + "]";
+		return "WaveTypeResource [name=" + name + "]";
 	}
 	
 }

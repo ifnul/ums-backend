@@ -143,7 +143,7 @@
         <class>org.lnu.is.domain.specstagetype.SpecStageType</class>
         <class>org.lnu.is.domain.streettype.StreetType</class>
         <class>org.lnu.is.domain.timesheettype.TimeSheetType</class>
-        <class>org.lnu.is.domain.wavetype.WaveType</class>
+        <class>org.lnu.is.domain.wave.type.WaveType</class>
         <class>org.lnu.is.domain.reason.Reason</class>
         <class>org.lnu.is.domain.profession.Profession</class>
 		

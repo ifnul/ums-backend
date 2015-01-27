@@ -1,8 +1,7 @@
-[
-	{
-		"targetUrl":"/timesheets/types",
-		"expectedResponse": {
-		    "TODO": "ADD DATA!!!!!"
-		}
-	}
-]
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 0,
+  "resources" : [ ],
+  "uri" : "/timesheets/types"
+}

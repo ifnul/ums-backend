@@ -304,6 +304,11 @@
 		<property name="entityClass" value="org.lnu.is.domain.timesheettype.TimeSheetType" />
 		<property name="queryBuilder" ref="timesheetTypeQueryBuilder" />
 	</bean>
+	
+	<bean id="waveTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.wave.type.WaveType" />
+		<property name="queryBuilder" ref="waveTypeQueryBuilder" />
+	</bean>
 
 	<bean id="userDao" class="org.lnu.is.dao.dao.user.DefaultUserDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.user.User" />

@@ -1,0 +1,23 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 4,
+  "resources" : [ {
+    "id" : 1,
+    "name" : "здача документів",
+    "uri" : "/wave/types/1"
+  }, {
+    "id" : 2,
+    "name" : "1 хвиля зарахування",
+    "uri" : "/wave/types/2"
+  }, {
+    "id" : 3,
+    "name" : "2 хвиля зарахування",
+    "uri" : "/wave/types/3"
+  }, {
+    "id" : 4,
+    "name" : "3 хвиля зарахування",
+    "uri" : "/wave/types/4"
+  } ],
+  "uri" : "/wave/types"
+}

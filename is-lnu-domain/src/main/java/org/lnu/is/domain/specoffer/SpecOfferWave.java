@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.wavetype.WaveType;
+import org.lnu.is.domain.wave.type.WaveType;
 
 /**
  * SpecOffer Wave entity.

@@ -291,6 +291,11 @@
 		<property name="dao" ref="orderTypeDao"/>
 	</bean>
 	
+	<bean id="waveTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="waveTypeParametersExtractor" />
+		<property name="dao" ref="waveTypeDao" />
+	</bean>
+	
 	<bean id="userService" class="org.lnu.is.service.user.DefaultUserService">
 		<property name="dao" ref="userDao"/>
 	</bean>
