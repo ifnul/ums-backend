@@ -5,6 +5,7 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -88,7 +89,7 @@ public class DepartmentContactControllerTest extends AbstractControllerTest {
     	
 		
     	// Then
-		mockMvc.perform(put("/departments/{departmentId}/contacts/{addressId}", departmentId, id)
+		mockMvc.perform(put("/departments/{departmentId}/contacts/{contactId}", departmentId, id)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(request))
 				.andExpect(status().isOk())
@@ -96,6 +97,22 @@ public class DepartmentContactControllerTest extends AbstractControllerTest {
 		
 		verify(facade).updateResource(id, departmentContactResource);
 	}
+    
+    @Test
+	public void testDeleteDepatmentContact() throws Exception {
+    	// Given
+    	Long personId = 2L;
+    	Long contactId = 1L;
+    	
+		// When
+
+		// Then
+    	mockMvc.perform(delete("/departments/{departmentId}/contacts/{contactId}", personId, contactId))
+    		.andExpect(status().is(204));
+    	
+    	verify(facade).removeResource(contactId);
+	}
+
     
     @Test
 	public void testGetContact() throws Exception {
@@ -113,7 +130,7 @@ public class DepartmentContactControllerTest extends AbstractControllerTest {
 		when(facade.getResource(anyLong())).thenReturn(departmentContactResource);
 		
 		// Then
-    	mockMvc.perform(get("/departments/{departmentId}/contacts/{addressId}", departmentId, id))
+    	mockMvc.perform(get("/departments/{departmentId}/contacts/{contactId}", departmentId, id))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
     	

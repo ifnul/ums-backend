@@ -1,11 +1,14 @@
 package org.lnu.is.web.rest.controller.wave.type;
 
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -71,5 +74,61 @@ public class WaveTypeControllerTest extends AbstractControllerTest {
 				.andExpect(content().string(response));
 		
 		verify(facade).getResources(request);
+	}
+	
+	@Test
+	public void testGetResource() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "all difficult";
+		WaveTypeResource expected = new WaveTypeResource();
+		expected.setName(name);
+		expected.setId(id);
+		
+		// When
+		when(facade.getResource(anyLong())).thenReturn(expected);
+		String response = getJson(expected, false);
+
+		// Then
+		mockMvc.perform(get("/wave/types/{id}", id))
+			.andExpect(status().isOk())
+			.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
+	}
+	
+	@Test(expected = AccessDeniedException.class)
+	public void testGetResourceWithException() throws Exception {
+		// Given
+		Long id = 1L;
+		String name = "all difficult";
+		WaveTypeResource expected = new WaveTypeResource();
+		expected.setName(name);
+		expected.setId(id);
+		
+		// When
+		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+		String response = getJson(expected, false);
+		
+		// Then
+		mockMvc.perform(get("/wave/types/{id}", id))
+		.andExpect(status().isOk())
+		.andExpect(content().string(response));
+		
+		verify(facade).getResource(id);
+	}
+
+	@Test(expected = AccessDeniedException.class)
+	public void testGetResourceWithAccessDeniedException() throws Exception {
+		// Given
+		Long id = 1L;
+		
+		// When
+		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+		
+		// Then
+		mockMvc.perform(get("/wave/types/{id}", id));
+		
+		verify(facade).getResource(id);
 	}
 }

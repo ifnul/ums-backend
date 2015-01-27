@@ -5,6 +5,7 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -95,6 +96,21 @@ public class PersonAddressControllerTest extends AbstractControllerTest {
 				.andExpect(content().string(response));
 		
 		verify(facade).updateResource(id, personAddressResource);
+	}
+    
+    @Test
+	public void testDeletePersonAddress() throws Exception {
+    	// Given
+    	Long personId = 2L;
+    	Long addressId = 1L;
+    	
+		// When
+
+		// Then
+    	mockMvc.perform(delete("/persons/{persinId}/addresses/{addressId}", personId, addressId))
+    		.andExpect(status().is(204));
+    	
+    	verify(facade).removeResource(addressId);
 	}
     
     @Test
