@@ -48,6 +48,7 @@ import org.lnu.is.integration.person.paper.PersonPaperIntegrationTest
 import org.lnu.is.integration.invalid.InvalidRequestBodyIntegrationTest
 import org.lnu.is.integration.specialty.SpecialtyIntegrationTest
 import org.lnu.is.integration.department.address.DepartmentAddressIntegrationTest
+import org.lnu.is.integration.department.contact.DepartmentContactIntegrationTest
 
 
 /**
@@ -76,6 +77,7 @@ object TestCases {
                     EmployeeStatusIntegrationTest.testCase,
                     DepartmentIntegrationTest.testCase,
                     DepartmentAddressIntegrationTest.testCase,
+                    DepartmentContactIntegrationTest.testCase,
                     DepartmentTypeIntegrationTest.testCase,
                     DegreeTypeIntegrationTest.testCase,
                     DutyTypeIntegrationTest.testCase,

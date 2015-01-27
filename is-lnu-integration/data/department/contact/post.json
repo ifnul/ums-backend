@@ -1,0 +1,5 @@
+{
+	"departmentId" : ${departmentId},
+	"contactTypeId" : 1,
+	"value" : "value"
+}

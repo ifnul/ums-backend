@@ -270,6 +270,11 @@
 		<property name="queryBuilder" ref="departmentAddressQueryBuilder" />
 	</bean>
 
+	<bean id="departmentContactDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.department.contact.DepartmentContact" />
+		<property name="queryBuilder" ref="departmentContactQueryBuilder" />
+	</bean>
+
 	<bean id="departmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.department.type.DepartmentType" />
 		<property name="queryBuilder" ref="departmentTypeQueryBuilder" />

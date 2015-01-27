@@ -31,7 +31,7 @@ public class DepartmentContact extends InformationModel {
 	private ContactType contactType;
 	
 	@Column(name = "strvalue")
-	private String strValue;
+	private String value;
 
 	public Department getDepartment() {
 		return department;
@@ -49,12 +49,12 @@ public class DepartmentContact extends InformationModel {
 		this.contactType = contactType;
 	}
 
-	public String getStrValue() {
-		return strValue;
+	public String getValue() {
+		return value;
 	}
 
-	public void setStrValue(final String strValue) {
-		this.strValue = strValue;
+	public void setValue(final String value) {
+		this.value = value;
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class DepartmentContact extends InformationModel {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result
-				+ ((strValue == null) ? 0 : strValue.hashCode());
+				+ ((value == null) ? 0 : value.hashCode());
 		return result;
 	}
 
@@ -78,11 +78,11 @@ public class DepartmentContact extends InformationModel {
 			return false;
 		}
 		DepartmentContact other = (DepartmentContact) obj;
-		if (strValue == null) {
-			if (other.strValue != null) {
+		if (value == null) {
+			if (other.value != null) {
 				return false;
 			}
-		} else if (!strValue.equals(other.strValue)) {
+		} else if (!value.equals(other.value)) {
 			return false;
 		}
 		return true;
@@ -90,7 +90,7 @@ public class DepartmentContact extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "DepartmentContact [strValue=" + strValue + "]";
+		return "DepartmentContact [strValue=" + value + "]";
 	}
 	
 }

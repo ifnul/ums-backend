@@ -135,6 +135,12 @@
 		<property name="service" ref="departmentAddressService" />
 	</bean>
 
+	<bean id="departmentContactFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="departmentContactResourceConverter" />
+		<property name="entityConverter" ref="departmentContactConverter" />
+		<property name="service" ref="departmentContactService" />
+	</bean>
+
 	<bean id="departmentTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="departmentTypeResourceConverter" />
 		<property name="entityConverter" ref="departmentTypeConverter" />
