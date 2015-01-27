@@ -68,6 +68,7 @@ public class DepartmentAddressConverterTest {
 		assertEquals(expected, actual);
 	}
 	
+	@Test
 	public void testConvertWithEmptyFields() throws Exception {
 		// Given
 		DepartmentAddressResource expected = new DepartmentAddressResource();
