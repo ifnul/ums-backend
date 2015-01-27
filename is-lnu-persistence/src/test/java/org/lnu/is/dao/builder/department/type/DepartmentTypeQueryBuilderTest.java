@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.department.DepartmentType;
+import org.lnu.is.domain.department.type.DepartmentType;
 
 public class DepartmentTypeQueryBuilderTest {
 

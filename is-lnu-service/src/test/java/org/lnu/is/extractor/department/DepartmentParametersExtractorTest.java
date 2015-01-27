@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.department.DepartmentType;
+import org.lnu.is.domain.department.type.DepartmentType;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;

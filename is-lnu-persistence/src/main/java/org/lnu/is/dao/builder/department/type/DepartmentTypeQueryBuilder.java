@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.department.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.department.DepartmentType;
+import org.lnu.is.domain.department.type.DepartmentType;
 
 /**
  * Department Type Query Builder.

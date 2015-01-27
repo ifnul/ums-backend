@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.department.DepartmentType;
+import org.lnu.is.domain.department.type.DepartmentType;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 

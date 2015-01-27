@@ -2,7 +2,7 @@ package org.lnu.is.converter.department.address;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.department.DepartmentAddress;
+import org.lnu.is.domain.department.address.DepartmentAddress;
 import org.lnu.is.resource.department.address.DepartmentAddressResource;
 
 /**

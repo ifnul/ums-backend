@@ -7,7 +7,7 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.department.DepartmentType;
+import org.lnu.is.domain.department.type.DepartmentType;
 import org.lnu.is.domain.order.Order;
 
 public class DepartmentQueryBuilderTest {

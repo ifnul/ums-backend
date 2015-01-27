@@ -5,7 +5,7 @@ import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.department.DepartmentAddress;
+import org.lnu.is.domain.department.address.DepartmentAddress;
 import org.lnu.is.domain.streettype.StreetType;
 import org.lnu.is.resource.department.address.DepartmentAddressResource;
 

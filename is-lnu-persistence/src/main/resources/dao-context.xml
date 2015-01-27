@@ -266,12 +266,12 @@
 	</bean>
 
 	<bean id="departmentAddressDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.department.DepartmentAddress" />
+		<property name="entityClass" value="org.lnu.is.domain.department.address.DepartmentAddress" />
 		<property name="queryBuilder" ref="departmentAddressQueryBuilder" />
 	</bean>
 
 	<bean id="departmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.department.DepartmentType" />
+		<property name="entityClass" value="org.lnu.is.domain.department.type.DepartmentType" />
 		<property name="queryBuilder" ref="departmentTypeQueryBuilder" />
 	</bean>
 

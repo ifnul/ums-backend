@@ -14,6 +14,10 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.department.address.DepartmentAddress;
+import org.lnu.is.domain.department.contact.DepartmentContact;
+import org.lnu.is.domain.department.name.DepartmentName;
+import org.lnu.is.domain.department.type.DepartmentType;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.specialty.Specialty;
 

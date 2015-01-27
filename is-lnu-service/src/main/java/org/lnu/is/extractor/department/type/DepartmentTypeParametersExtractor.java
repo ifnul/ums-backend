@@ -3,7 +3,7 @@ package org.lnu.is.extractor.department.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.department.DepartmentType;
+import org.lnu.is.domain.department.type.DepartmentType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

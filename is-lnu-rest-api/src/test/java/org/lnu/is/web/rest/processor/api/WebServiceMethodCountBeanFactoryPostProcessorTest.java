@@ -5,7 +5,7 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.domain.department.DepartmentType;
+import org.lnu.is.domain.department.type.DepartmentType;
 import org.lnu.is.web.rest.controller.department.DepartmentController;
 import org.mockito.Mock;
 import org.mockito.invocation.InvocationOnMock;

@@ -1,4 +1,4 @@
-package org.lnu.is.domain.department;
+package org.lnu.is.domain.department.name;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.language.Language;
 
 /**

@@ -3,7 +3,7 @@ package org.lnu.is.converter.department;
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.department.DepartmentType;
+import org.lnu.is.domain.department.type.DepartmentType;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.resource.department.DepartmentResource;
 

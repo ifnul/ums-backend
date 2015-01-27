@@ -1,4 +1,4 @@
-package org.lnu.is.domain.department;
+package org.lnu.is.domain.department.type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

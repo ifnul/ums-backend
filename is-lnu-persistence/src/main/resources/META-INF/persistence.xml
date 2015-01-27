@@ -18,11 +18,11 @@
 
 		<!-- Department related entities -->
         <class>org.lnu.is.domain.department.Department</class>
-        <class>org.lnu.is.domain.department.DepartmentType</class>
-        <class>org.lnu.is.domain.department.DepartmentAddress</class>
-        <class>org.lnu.is.domain.department.DepartmentContact</class>
-        <class>org.lnu.is.domain.department.DepartmentName</class>
-        <class>org.lnu.is.domain.department.DepartmentSpecialty</class>
+        <class>org.lnu.is.domain.department.type.DepartmentType</class>
+        <class>org.lnu.is.domain.department.address.DepartmentAddress</class>
+        <class>org.lnu.is.domain.department.contact.DepartmentContact</class>
+        <class>org.lnu.is.domain.department.name.DepartmentName</class>
+        <class>org.lnu.is.domain.department.specialty.DepartmentSpecialty</class>
 
 		<!-- Employee related entities -->
 		<class>org.lnu.is.domain.employee.Employee</class> 
