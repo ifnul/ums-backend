@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.specoffer.benefit;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.specoffer.SpecofferBenefit;
+import org.lnu.is.domain.specoffer.SpecOfferBenefit;
 
 /**
  * Spec Offer Benefit Query builder.
@@ -11,7 +11,7 @@ import org.lnu.is.domain.specoffer.SpecofferBenefit;
  *
  */
 @QBuilder("specOfferBenefitQueryBuilder")
-public class SpecOfferBenefitQueryBuilder extends AbstractQueryBuilder<SpecofferBenefit> {
+public class SpecOfferBenefitQueryBuilder extends AbstractQueryBuilder<SpecOfferBenefit> {
 	private static final String SPECOFFER_CONDITION = "e.specOffer = :specOffer ";
 	private static final String BENEFIT_CONDITION = "e.benefit = :benefit ";
 
@@ -21,7 +21,7 @@ public class SpecOfferBenefitQueryBuilder extends AbstractQueryBuilder<Specoffer
 	}
 
 	@Override
-	protected BaseQueryBuilder build(final SpecofferBenefit context, final BaseQueryBuilder builder) {
+	protected BaseQueryBuilder build(final SpecOfferBenefit context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
 				.openBracket()

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferSubject;
+import org.lnu.is.domain.specoffer.SpecOfferSubject;
 import org.lnu.is.resource.specoffer.subject.SpecOfferSubjectResource;
 
 public class SpecOfferSubjectConverterTest {
@@ -28,7 +28,7 @@ public class SpecOfferSubjectConverterTest {
 		EnrolmentSubject enrolmentSubject = new EnrolmentSubject();
 		enrolmentSubject.setId(enrolmentSubjectId);
 		
-		SpecofferSubject source = new SpecofferSubject();
+		SpecOfferSubject source = new SpecOfferSubject();
 		source.setAlternative(alternative);
 		source.setId(id);
 		source.setIsMajor(isMajor);
@@ -59,7 +59,7 @@ public class SpecOfferSubjectConverterTest {
 		Boolean isMajor = false;
 		Double mark = 1.5;
 		
-		SpecofferSubject source = new SpecofferSubject();
+		SpecOfferSubject source = new SpecOfferSubject();
 		source.setAlternative(alternative);
 		source.setId(id);
 		source.setIsMajor(isMajor);

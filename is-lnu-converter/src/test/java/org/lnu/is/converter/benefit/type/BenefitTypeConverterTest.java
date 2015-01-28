@@ -2,6 +2,9 @@ package org.lnu.is.converter.benefit.type;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.converter.benefit.type.BenefitTypeConverter;
 import org.lnu.is.domain.benefit.BenefitType;
@@ -29,5 +32,30 @@ public class BenefitTypeConverterTest {
 
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String name = "n a m e";
+		
+		BenefitType source = new BenefitType();
+		source.setId(id);		
+		source.setName(name);
+		
+		List<BenefitType> sources = Arrays.asList(source); 
+		
+		BenefitTypeResource expected = new BenefitTypeResource();
+		expected.setId(id);
+		expected.setName(name);
+		
+		List<BenefitTypeResource> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<BenefitTypeResource> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
 	}
 }

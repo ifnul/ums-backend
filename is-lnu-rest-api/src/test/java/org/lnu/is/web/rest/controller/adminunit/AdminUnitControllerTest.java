@@ -108,5 +108,6 @@ public class AdminUnitControllerTest extends AbstractControllerTest {
 		mockMvc.perform(get("/adminunits/{id}", id));
 		
 		verify(facade).getResource(id);
+		
 	}
 }

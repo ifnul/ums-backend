@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferBenefit;
+import org.lnu.is.domain.specoffer.SpecOfferBenefit;
 
 public class SpecOfferBenefitQueryBuilderTest {
 
@@ -24,7 +24,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
-		SpecofferBenefit context = new SpecofferBenefit();
+		SpecOfferBenefit context = new SpecOfferBenefit();
 		
 		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
@@ -39,7 +39,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 	public void testBuildWithDisabledSecurityConstraint() throws Exception {
 		// Given
 		unit.setSecurity(false);
-		SpecofferBenefit context = new SpecofferBenefit();
+		SpecOfferBenefit context = new SpecOfferBenefit();
 		
 		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE e.status=:status ";
 		
@@ -55,7 +55,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		// Given
 		unit.setActive(false);
 		
-		SpecofferBenefit context = new SpecofferBenefit();
+		SpecOfferBenefit context = new SpecOfferBenefit();
 		
 		String expectedQuery = "SELECT s FROM SpecofferBenefit s WHERE e.crtUserGroup IN (:userGroups) ";
 		
@@ -72,7 +72,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		SpecofferBenefit context = new SpecofferBenefit();
+		SpecOfferBenefit context = new SpecOfferBenefit();
 		
 		String expectedQuery = "SELECT s FROM SpecofferBenefit s ";
 		
@@ -88,7 +88,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		// Given
 		Benefit benefit = new Benefit();
 		SpecOffer specOffer = new SpecOffer();
-		SpecofferBenefit context = new SpecofferBenefit();
+		SpecOfferBenefit context = new SpecOfferBenefit();
 		context.setSpecOffer(specOffer);
 		context.setBenefit(benefit);
 
@@ -109,7 +109,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		
 		Benefit benefit = new Benefit();
 		SpecOffer specOffer = new SpecOffer();
-		SpecofferBenefit context = new SpecofferBenefit();
+		SpecOfferBenefit context = new SpecOfferBenefit();
 		context.setSpecOffer(specOffer);
 		context.setBenefit(benefit);
 		

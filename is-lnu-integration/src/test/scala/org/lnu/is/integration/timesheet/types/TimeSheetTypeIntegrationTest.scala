@@ -9,8 +9,8 @@ import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
 import io.gatling.http.request.RawFileBody
 
-
-object TimesheetTypeIntegrationTest {
+//TODO:Add to case
+object TimeSheetTypeIntegrationTest {
 
   val response = RawFileBody("data/timesheet/type/response.json")
   

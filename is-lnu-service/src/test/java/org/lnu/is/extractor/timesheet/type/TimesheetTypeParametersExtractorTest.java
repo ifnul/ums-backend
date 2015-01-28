@@ -25,7 +25,7 @@ public class TimesheetTypeParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@InjectMocks
-	private TimesheetTypeParametersExtractor unit;
+	private TimeSheetTypeParametersExtractor unit;
 	
 	private Boolean active = true;
 	private Boolean security = true;

@@ -2,6 +2,9 @@ package org.lnu.is.converter.marriedtype;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.converter.marriedtype.MarriedTypeConverter;
 import org.lnu.is.domain.marriedtype.MarriedType;
@@ -32,4 +35,31 @@ public class MarriedTypeConverterTest {
 		assertEquals(expected, actual);
 	}
 
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String abbrName = "abbr Name";
+		String name = "n a m e";
+		
+		MarriedType source = new MarriedType();
+		source.setId(id);
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		List<MarriedType> sources = Arrays.asList(source); 
+		
+		MarriedTypeResource expected = new MarriedTypeResource();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		
+		List<MarriedTypeResource> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<MarriedTypeResource> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
+	}
 }

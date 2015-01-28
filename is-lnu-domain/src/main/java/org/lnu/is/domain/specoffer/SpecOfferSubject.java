@@ -17,7 +17,7 @@ import org.lnu.is.domain.enrolment.EnrolmentSubject;
 @OD
 @Entity
 @Table(name = "q_od_specoffersubject")
-public class SpecofferSubject extends InformationModel {
+public class SpecOfferSubject extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -100,7 +100,7 @@ public class SpecofferSubject extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		SpecofferSubject other = (SpecofferSubject) obj;
+		SpecOfferSubject other = (SpecOfferSubject) obj;
 		if (alternative == null) {
 			if (other.alternative != null) {
 				return false;

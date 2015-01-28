@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferSubject;
+import org.lnu.is.domain.specoffer.SpecOfferSubject;
 
 public class SpecOfferSubjectQueryBuilderTest {
 	
@@ -25,7 +25,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 	public void testBuild() throws Exception {
 		// Given
 		Boolean alternative = false;
-		SpecofferSubject context = new SpecofferSubject();
+		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 
 		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
@@ -42,7 +42,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		// Given
 		unit.setSecurity(false);
 		Boolean alternative = false;
-		SpecofferSubject context = new SpecofferSubject();
+		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 		
 		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) AND e.status=:status ";
@@ -59,7 +59,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		// Given
 		unit.setActive(false);
 		Boolean alternative = false;
-		SpecofferSubject context = new SpecofferSubject();
+		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 		
 		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) AND e.crtUserGroup IN (:userGroups) ";
@@ -78,7 +78,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		unit.setSecurity(false);
 		
 		Boolean alternative = false;
-		SpecofferSubject context = new SpecofferSubject();
+		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 		
 		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) ";
@@ -99,7 +99,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		Double mark = 2.4;
 		Boolean alternative = false;
 		
-		SpecofferSubject context = new SpecofferSubject();
+		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 		context.setSpecOffer(specOffer);
 		context.setEnrolmentSubject(enrolmentSubject);
@@ -127,7 +127,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		Double mark = 2.4;
 		Boolean alternative = false;
 		
-		SpecofferSubject context = new SpecofferSubject();
+		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 		context.setSpecOffer(specOffer);
 		context.setEnrolmentSubject(enrolmentSubject);

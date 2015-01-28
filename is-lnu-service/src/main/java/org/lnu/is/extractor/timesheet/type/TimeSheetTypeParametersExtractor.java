@@ -11,8 +11,8 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
  * @author OlehZanevych
  *
  */
-@ParametersExtractor("timesheetTypeParametersExtractor")
-public class TimesheetTypeParametersExtractor extends AbstractParametersExtractor<TimeSheetType> {
+@ParametersExtractor("timeSheetTypeParametersExtractor")
+public class TimeSheetTypeParametersExtractor extends AbstractParametersExtractor<TimeSheetType> {
 
 	@Override
 	public Map<String, Object> getParameters(final TimeSheetType entity, final Map<String, Object> parameters) {

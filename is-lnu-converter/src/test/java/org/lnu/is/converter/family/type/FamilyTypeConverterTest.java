@@ -2,6 +2,9 @@ package org.lnu.is.converter.family.type;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.domain.familytype.FamilyType;
 import org.lnu.is.resource.familytype.FamilyTypeResource;
@@ -32,5 +35,33 @@ public class FamilyTypeConverterTest {
 
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String abbrName = "abbr Name";
+		String name = "n a m e";
+		
+		FamilyType source = new FamilyType();
+		source.setId(id);
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		List<FamilyType> sources = Arrays.asList(source); 
+		
+		FamilyTypeResource expected = new FamilyTypeResource();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		
+		List<FamilyTypeResource> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<FamilyTypeResource> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
 	}
 }

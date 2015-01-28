@@ -2,7 +2,7 @@ package org.lnu.is.converter.specoffer.subject;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.specoffer.SpecofferSubject;
+import org.lnu.is.domain.specoffer.SpecOfferSubject;
 import org.lnu.is.resource.specoffer.subject.SpecOfferSubjectResource;
 
 /**
@@ -11,10 +11,10 @@ import org.lnu.is.resource.specoffer.subject.SpecOfferSubjectResource;
  *
  */
 @Converter("specOfferSubjectConverter")
-public class SpecOfferSubjectConverter extends AbstractConverter<SpecofferSubject, SpecOfferSubjectResource> {
+public class SpecOfferSubjectConverter extends AbstractConverter<SpecOfferSubject, SpecOfferSubjectResource> {
 
 	@Override
-	public SpecOfferSubjectResource convert(final SpecofferSubject source, final SpecOfferSubjectResource target) {
+	public SpecOfferSubjectResource convert(final SpecOfferSubject source, final SpecOfferSubjectResource target) {
 		
 		target.setAlternative(source.getAlternative());
 		target.setId(source.getId());
@@ -33,7 +33,7 @@ public class SpecOfferSubjectConverter extends AbstractConverter<SpecofferSubjec
 	}
 
 	@Override
-	public SpecOfferSubjectResource convert(final SpecofferSubject source) {
+	public SpecOfferSubjectResource convert(final SpecOfferSubject source) {
 		return convert(source, new SpecOfferSubjectResource());
 	}
 

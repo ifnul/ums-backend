@@ -8,7 +8,7 @@ import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferSubject;
+import org.lnu.is.domain.specoffer.SpecOfferSubject;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**
@@ -17,7 +17,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
  *
  */
 @ParametersExtractor("specOfferSubjectParametersExtractor")
-public class SpecOfferSubjectParametersExtractor extends AbstractParametersExtractor<SpecofferSubject> {
+public class SpecOfferSubjectParametersExtractor extends AbstractParametersExtractor<SpecOfferSubject> {
 
 	@Resource(name = "specOfferDao")
 	private Dao<SpecOffer, Long> specOfferDao;
@@ -26,7 +26,7 @@ public class SpecOfferSubjectParametersExtractor extends AbstractParametersExtra
 	private Dao<EnrolmentSubject, Long> enrolmenntSubjectDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final SpecofferSubject entity, final Map<String, Object> parameters) {
+	public Map<String, Object> getParameters(final SpecOfferSubject entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getSpecOffer(), specOfferDao, "specOffer", parameters);
 		addParameter(entity.getEnrolmentSubject(), enrolmenntSubjectDao, "enrolmentSubject", parameters);

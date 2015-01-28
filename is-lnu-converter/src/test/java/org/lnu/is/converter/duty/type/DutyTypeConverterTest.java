@@ -2,6 +2,9 @@ package org.lnu.is.converter.duty.type;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.converter.duty.DutyTypeConverter;
 import org.lnu.is.domain.dutytype.DutyType;
@@ -30,5 +33,33 @@ public class DutyTypeConverterTest {
 
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String abbrName = "abbr Name";
+		String name = "n a m e";
+		
+		DutyType source = new DutyType();
+		source.setId(id);
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		List<DutyType> sources = Arrays.asList(source); 
+		
+		DutyTypeResource expected = new DutyTypeResource();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		
+		List<DutyTypeResource> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<DutyTypeResource> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
 	}
 }

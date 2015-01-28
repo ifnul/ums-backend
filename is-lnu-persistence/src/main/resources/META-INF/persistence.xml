@@ -87,8 +87,8 @@
         
         <!-- Spec offer related entities -->
         <class>org.lnu.is.domain.specoffer.SpecOffer</class>
-        <class>org.lnu.is.domain.specoffer.SpecofferBenefit</class>
-        <class>org.lnu.is.domain.specoffer.SpecofferSubject</class>
+        <class>org.lnu.is.domain.specoffer.SpecOfferBenefit</class>
+        <class>org.lnu.is.domain.specoffer.SpecOfferSubject</class>
         <class>org.lnu.is.domain.specoffer.SpecOfferWave</class>
         <class>org.lnu.is.domain.specoffer.SpecOfferType</class>
 		

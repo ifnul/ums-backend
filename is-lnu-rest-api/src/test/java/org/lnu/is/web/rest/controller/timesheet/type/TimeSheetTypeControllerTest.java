@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
-import org.lnu.is.resource.timesheet.type.TimesheetTypeResource;
+import org.lnu.is.resource.timesheet.type.TimeSheetTypeResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.mockito.InjectMocks;
@@ -26,13 +26,13 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TimesheetTypeControllerTest extends AbstractControllerTest {
+public class TimeSheetTypeControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<TimesheetTypeResource, Long> facade;
+	private Facade<TimeSheetTypeResource, Long> facade;
 	
 	@InjectMocks
-	private TimesheetTypeController unit;
+	private TimeSheetTypeController unit;
 	
 	@Override
 	protected BaseController getUnit() {
@@ -44,29 +44,29 @@ public class TimesheetTypeControllerTest extends AbstractControllerTest {
 		// Given
 		String name = "all difficult";
 		String abbrName = "ad";
-		TimesheetTypeResource resource = new TimesheetTypeResource();
+		TimeSheetTypeResource resource = new TimeSheetTypeResource();
 		resource.setName(name);
 		resource.setAbbrName(abbrName);
 		
-		List<TimesheetTypeResource> entities = Arrays.asList(resource);
+		List<TimeSheetTypeResource> entities = Arrays.asList(resource);
 		
 		int offset = 0;
 		int limit = 20;
 		long count = 1;
-		PagedResultResource<TimesheetTypeResource> expected = new PagedResultResource<>("/timesheets/types");
+		PagedResultResource<TimeSheetTypeResource> expected = new PagedResultResource<>("/timesheets/types");
 		expected.setResources(entities);
 		expected.setOffset(offset);
 		expected.setLimit(limit);
 		expected.setCount(count);
 		
-		TimesheetTypeResource paramResource = new TimesheetTypeResource();
+		TimeSheetTypeResource paramResource = new TimeSheetTypeResource();
 		paramResource.setName(name);
 		paramResource.setAbbrName(abbrName);		
 		
-		PagedRequest<TimesheetTypeResource> request = new PagedRequest<TimesheetTypeResource>(paramResource, offset, limit);
+		PagedRequest<TimeSheetTypeResource> request = new PagedRequest<TimeSheetTypeResource>(paramResource, offset, limit);
 		
 		// When
-		when(facade.getResources(Matchers.<PagedRequest<TimesheetTypeResource>> any())).thenReturn(expected);
+		when(facade.getResources(Matchers.<PagedRequest<TimeSheetTypeResource>> any())).thenReturn(expected);
 		String response = getJson(expected, false);
 		
 		// Then
@@ -85,7 +85,7 @@ public class TimesheetTypeControllerTest extends AbstractControllerTest {
 		Long id = 1L;
 		String name = "all difficult";
 		String abbrName = "ad";
-		TimesheetTypeResource expected = new TimesheetTypeResource();
+		TimeSheetTypeResource expected = new TimeSheetTypeResource();
 		expected.setName(name);
 		expected.setAbbrName(abbrName);
 		expected.setId(id);

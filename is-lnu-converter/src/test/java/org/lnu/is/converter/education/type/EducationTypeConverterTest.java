@@ -2,6 +2,9 @@ package org.lnu.is.converter.education.type;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.domain.educationtype.EducationType;
 import org.lnu.is.resource.education.type.EducationTypeResource;
@@ -28,6 +31,34 @@ public class EducationTypeConverterTest {
 
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String abbrName = "abbr Name";
+		String name = "n a m e";
+		
+		EducationType source = new EducationType();
+		source.setId(id);
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		List<EducationType> sources = Arrays.asList(source); 
+		
+		EducationTypeResource expected = new EducationTypeResource();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		
+		List<EducationTypeResource> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<EducationTypeResource> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
 	}
 }
 

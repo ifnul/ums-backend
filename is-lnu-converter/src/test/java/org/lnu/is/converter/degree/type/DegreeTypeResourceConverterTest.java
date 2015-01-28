@@ -2,6 +2,9 @@ package org.lnu.is.converter.degree.type;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.domain.degree.DegreeType;
 import org.lnu.is.resource.degree.type.DegreeTypeResource;
@@ -29,5 +32,33 @@ public class DegreeTypeResourceConverterTest {
 
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String abbrName = "abbr Name";
+		String name = "n a m e";
+		
+		DegreeTypeResource source = new DegreeTypeResource();
+		source.setId(id);
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		List<DegreeTypeResource> sources = Arrays.asList(source); 
+		
+		DegreeType expected = new DegreeType();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		
+		List<DegreeType> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<DegreeType> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
 	}
 }

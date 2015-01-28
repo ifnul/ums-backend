@@ -10,8 +10,8 @@ import org.lnu.is.domain.timesheettype.TimeSheetType;
  * @author OlehZanevych
  *
  */
-@QBuilder("timesheetTypeQueryBuilder")
-public class TimesheetTypeQueryBuilder extends AbstractQueryBuilder<TimeSheetType> {
+@QBuilder("timeSheetTypeQueryBuilder")
+public class TimeSheetTypeQueryBuilder extends AbstractQueryBuilder<TimeSheetType> {
 	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
 	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 

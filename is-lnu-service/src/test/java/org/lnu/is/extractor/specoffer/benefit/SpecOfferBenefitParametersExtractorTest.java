@@ -17,7 +17,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferBenefit;
+import org.lnu.is.domain.specoffer.SpecOfferBenefit;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -65,7 +65,7 @@ public class SpecOfferBenefitParametersExtractorTest {
 		Benefit benefit = new Benefit();
 		benefit.setId(benefitId);
 		
-		SpecofferBenefit entity = new SpecofferBenefit();
+		SpecOfferBenefit entity = new SpecOfferBenefit();
 		entity.setSpecOffer(specOffer);
 		entity.setBenefit(benefit);
 
@@ -101,7 +101,7 @@ public class SpecOfferBenefitParametersExtractorTest {
 		Benefit benefit = new Benefit();
 		benefit.setId(benefitId);
 		
-		SpecofferBenefit entity = new SpecofferBenefit();
+		SpecOfferBenefit entity = new SpecOfferBenefit();
 		entity.setSpecOffer(specOffer);
 		entity.setBenefit(benefit);
 		
@@ -124,7 +124,7 @@ public class SpecOfferBenefitParametersExtractorTest {
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		SpecofferBenefit entity = new SpecofferBenefit();
+		SpecOfferBenefit entity = new SpecOfferBenefit();
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
@@ -144,7 +144,7 @@ public class SpecOfferBenefitParametersExtractorTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		SpecofferBenefit entity = new SpecofferBenefit();
+		SpecOfferBenefit entity = new SpecOfferBenefit();
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		
@@ -161,7 +161,7 @@ public class SpecOfferBenefitParametersExtractorTest {
 		// Given
 		unit.setActive(false);
 		
-		SpecofferBenefit entity = new SpecofferBenefit();
+		SpecOfferBenefit entity = new SpecOfferBenefit();
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("userGroups", groups);
@@ -178,7 +178,7 @@ public class SpecOfferBenefitParametersExtractorTest {
 		// Given
 		unit.setSecurity(false);
 		
-		SpecofferBenefit entity = new SpecofferBenefit();
+		SpecOfferBenefit entity = new SpecOfferBenefit();
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
