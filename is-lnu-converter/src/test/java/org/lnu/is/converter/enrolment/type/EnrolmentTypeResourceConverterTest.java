@@ -2,6 +2,9 @@ package org.lnu.is.converter.enrolment.type;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.converter.enrolment.type.EnrolmentTypeResourceConverter;
 import org.lnu.is.domain.enrolment.EnrolmentType;
@@ -26,5 +29,30 @@ public class EnrolmentTypeResourceConverterTest {
 
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String name = "n a m e";
+		
+		EnrolmentTypeResource source = new EnrolmentTypeResource();
+		source.setId(id);
+		source.setName(name);
+		
+		List<EnrolmentTypeResource> sources = Arrays.asList(source); 
+		
+		EnrolmentType expected = new EnrolmentType();
+		expected.setId(id);
+		expected.setName(name);
+		
+		List<EnrolmentType> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<EnrolmentType> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
 	}
 }

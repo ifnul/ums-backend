@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.specoffer.subject;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.specoffer.SpecofferSubject;
+import org.lnu.is.domain.specoffer.SpecOfferSubject;
 
 /**
  * Spec Offer Query Builder.
@@ -11,7 +11,7 @@ import org.lnu.is.domain.specoffer.SpecofferSubject;
  *
  */
 @QBuilder("specOfferSubjectQueryBuilder")
-public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecofferSubject> {
+public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecOfferSubject> {
 	private static final String SPECOFFER_CONDITION = "e.specOffer = :specOffer ";
 	private static final String ENROLMENTSUBJECT_CONDITION = "e.enrolmentSubject = :enrolmentSubject ";
 	private static final String ISMAJOR_CONDITION = "e.isMajor = :isMajor ";
@@ -23,7 +23,7 @@ public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<Specoffer
 	}
 
 	@Override
-	protected BaseQueryBuilder build(final SpecofferSubject context, final BaseQueryBuilder builder) {
+	protected BaseQueryBuilder build(final SpecOfferSubject context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
 				.openBracket()

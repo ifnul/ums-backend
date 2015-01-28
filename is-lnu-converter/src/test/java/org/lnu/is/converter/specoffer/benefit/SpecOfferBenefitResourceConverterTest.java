@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferBenefit;
+import org.lnu.is.domain.specoffer.SpecOfferBenefit;
 import org.lnu.is.resource.specoffer.benefit.SpecOfferBenefitResource;
 
 public class SpecOfferBenefitResourceConverterTest {
@@ -27,12 +27,12 @@ public class SpecOfferBenefitResourceConverterTest {
 		SpecOffer specOffer = new SpecOffer();
 		specOffer.setId(specOfferId);
 		
-		SpecofferBenefit expected = new SpecofferBenefit();
+		SpecOfferBenefit expected = new SpecOfferBenefit();
 		expected.setBenefit(benefit);
 		expected.setSpecOffer(specOffer);
 		
 		// When
-		SpecofferBenefit actual = unit.convert(source);
+		SpecOfferBenefit actual = unit.convert(source);
 
 		// Then
 		assertEquals(expected, actual);
@@ -44,10 +44,10 @@ public class SpecOfferBenefitResourceConverterTest {
 		SpecOfferBenefitResource source = new SpecOfferBenefitResource();
 		
 		
-		SpecofferBenefit expected = new SpecofferBenefit();
+		SpecOfferBenefit expected = new SpecOfferBenefit();
 		
 		// When
-		SpecofferBenefit actual = unit.convert(source);
+		SpecOfferBenefit actual = unit.convert(source);
 		
 		// Then
 		assertEquals(expected, actual);

@@ -2,6 +2,9 @@ package org.lnu.is.converter.gendertype;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.converter.gendertype.GenderTypeConverter;
 import org.lnu.is.domain.gendertype.GenderType;
@@ -30,5 +33,33 @@ public class GenderTypeConverterTest {
 		
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String abbrName = "abbr Name";
+		String name = "n a m e";
+		
+		GenderType source = new GenderType();
+		source.setId(id);
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		List<GenderType> sources = Arrays.asList(source); 
+		
+		GenderTypeResource expected = new GenderTypeResource();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		
+		List<GenderTypeResource> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<GenderTypeResource> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
 	}
 }

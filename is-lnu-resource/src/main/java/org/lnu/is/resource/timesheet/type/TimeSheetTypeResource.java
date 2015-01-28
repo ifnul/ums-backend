@@ -11,7 +11,7 @@ import org.lnu.is.resource.ApiResource;
  *
  */
 @ReferenceResource
-public class TimesheetTypeResource extends ApiResource {
+public class TimeSheetTypeResource extends ApiResource {
 	
 	private String name;
 	
@@ -64,7 +64,7 @@ public class TimesheetTypeResource extends ApiResource {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		TimesheetTypeResource other = (TimesheetTypeResource) obj;
+		TimeSheetTypeResource other = (TimeSheetTypeResource) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;

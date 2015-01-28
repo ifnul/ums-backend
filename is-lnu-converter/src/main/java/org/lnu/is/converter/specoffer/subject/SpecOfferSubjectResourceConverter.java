@@ -4,7 +4,7 @@ import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferSubject;
+import org.lnu.is.domain.specoffer.SpecOfferSubject;
 import org.lnu.is.resource.specoffer.subject.SpecOfferSubjectResource;
 
 /**
@@ -13,10 +13,10 @@ import org.lnu.is.resource.specoffer.subject.SpecOfferSubjectResource;
  *
  */
 @Converter("specOfferSubjectResourceConverter")
-public class SpecOfferSubjectResourceConverter extends AbstractConverter<SpecOfferSubjectResource, SpecofferSubject> {
+public class SpecOfferSubjectResourceConverter extends AbstractConverter<SpecOfferSubjectResource, SpecOfferSubject> {
 
 	@Override
-	public SpecofferSubject convert(final SpecOfferSubjectResource source, final SpecofferSubject target) {
+	public SpecOfferSubject convert(final SpecOfferSubjectResource source, final SpecOfferSubject target) {
 		
 		target.setAlternative(source.getAlternative());
 		target.setIsMajor(source.getIsMajor());
@@ -40,8 +40,8 @@ public class SpecOfferSubjectResourceConverter extends AbstractConverter<SpecOff
 	}
 
 	@Override
-	public SpecofferSubject convert(final SpecOfferSubjectResource source) {
-		return convert(source, new SpecofferSubject());
+	public SpecOfferSubject convert(final SpecOfferSubjectResource source) {
+		return convert(source, new SpecOfferSubject());
 	}
 
 }

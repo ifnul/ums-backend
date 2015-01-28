@@ -17,7 +17,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.enrolment.EnrolmentSubject;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferSubject;
+import org.lnu.is.domain.specoffer.SpecOfferSubject;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -68,7 +68,7 @@ public class SpecOfferSubjectParametersExtractorTest {
 		Boolean isMajor = false;
 		Boolean alternative = true;
 		
-		SpecofferSubject entity = new SpecofferSubject();
+		SpecOfferSubject entity = new SpecOfferSubject();
 		entity.setSpecOffer(specOffer);
 		entity.setEnrolmentSubject(enrolmentSubject);
 		entity.setIsMajor(isMajor);
@@ -110,7 +110,7 @@ public class SpecOfferSubjectParametersExtractorTest {
 		Boolean isMajor = false;
 		Boolean alternative = true;
 		
-		SpecofferSubject entity = new SpecofferSubject();
+		SpecOfferSubject entity = new SpecOfferSubject();
 		entity.setSpecOffer(specOffer);
 		entity.setEnrolmentSubject(enrolmentSubject);
 		entity.setIsMajor(isMajor);
@@ -136,7 +136,7 @@ public class SpecOfferSubjectParametersExtractorTest {
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		SpecofferSubject entity = new SpecofferSubject();
+		SpecOfferSubject entity = new SpecOfferSubject();
 
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
@@ -154,7 +154,7 @@ public class SpecOfferSubjectParametersExtractorTest {
 		// Given
 		unit.setSecurity(false);
 		
-		SpecofferSubject entity = new SpecofferSubject();
+		SpecOfferSubject entity = new SpecOfferSubject();
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
@@ -171,7 +171,7 @@ public class SpecOfferSubjectParametersExtractorTest {
 		// Given
 		unit.setActive(false);
 		
-		SpecofferSubject entity = new SpecofferSubject();
+		SpecOfferSubject entity = new SpecOfferSubject();
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("userGroups", groups);
@@ -189,7 +189,7 @@ public class SpecOfferSubjectParametersExtractorTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		SpecofferSubject entity = new SpecofferSubject();
+		SpecOfferSubject entity = new SpecOfferSubject();
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		

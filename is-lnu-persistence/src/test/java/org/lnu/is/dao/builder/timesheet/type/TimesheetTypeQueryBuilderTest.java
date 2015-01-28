@@ -8,7 +8,7 @@ import org.lnu.is.domain.timesheettype.TimeSheetType;
 
 public class TimesheetTypeQueryBuilderTest {
 
-	private TimesheetTypeQueryBuilder unit = new TimesheetTypeQueryBuilder();
+	private TimeSheetTypeQueryBuilder unit = new TimeSheetTypeQueryBuilder();
 	
 	private Boolean active = true;
 	private Boolean security = true;

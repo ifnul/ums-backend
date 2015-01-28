@@ -2,6 +2,9 @@ package org.lnu.is.converter.jobtype;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.converter.jobtype.JobTypeResourceConverter;
 import org.lnu.is.domain.jobtype.JobType;
@@ -30,5 +33,33 @@ public class JobTypeResourceConverterTest {
 
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String abbrName = "abbr Name";
+		String name = "n a m e";
+		
+		JobTypeResource source = new JobTypeResource();
+		source.setId(id);
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		List<JobTypeResource> sources = Arrays.asList(source); 
+		
+		JobType expected = new JobType();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		
+		List<JobType> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<JobType> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
 	}
 }

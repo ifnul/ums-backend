@@ -16,7 +16,7 @@ import org.lnu.is.domain.benefit.Benefit;
 @OD
 @Entity
 @Table(name = "q_od_specofferbenefit")
-public class SpecofferBenefit extends InformationModel {
+public class SpecOfferBenefit extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 

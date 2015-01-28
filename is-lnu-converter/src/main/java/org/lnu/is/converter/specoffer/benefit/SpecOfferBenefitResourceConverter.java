@@ -4,7 +4,7 @@ import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.domain.specoffer.SpecofferBenefit;
+import org.lnu.is.domain.specoffer.SpecOfferBenefit;
 import org.lnu.is.resource.specoffer.benefit.SpecOfferBenefitResource;
 
 /**
@@ -13,10 +13,10 @@ import org.lnu.is.resource.specoffer.benefit.SpecOfferBenefitResource;
  *
  */
 @Converter("specOfferBenefitResourceConverter")
-public class SpecOfferBenefitResourceConverter extends AbstractConverter<SpecOfferBenefitResource, SpecofferBenefit> {
+public class SpecOfferBenefitResourceConverter extends AbstractConverter<SpecOfferBenefitResource, SpecOfferBenefit> {
 
 	@Override
-	public SpecofferBenefit convert(final SpecOfferBenefitResource source, final SpecofferBenefit target) {
+	public SpecOfferBenefit convert(final SpecOfferBenefitResource source, final SpecOfferBenefit target) {
 		
 		if (source.getBenefitId() != null) {
 			Benefit benefit = new Benefit();
@@ -34,8 +34,8 @@ public class SpecOfferBenefitResourceConverter extends AbstractConverter<SpecOff
 	}
 
 	@Override
-	public SpecofferBenefit convert(final SpecOfferBenefitResource source) {
-		return convert(source, new SpecofferBenefit());
+	public SpecOfferBenefit convert(final SpecOfferBenefitResource source) {
+		return convert(source, new SpecOfferBenefit());
 	}
 
 }

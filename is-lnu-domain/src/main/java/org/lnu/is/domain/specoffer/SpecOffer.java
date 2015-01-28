@@ -54,10 +54,10 @@ public class SpecOffer extends InformationModel {
 	private SpecOfferType specOfferType;
 	
 	@OneToMany(mappedBy = "specOffer")
-	private List<SpecofferBenefit> benefits;
+	private List<SpecOfferBenefit> benefits;
 	
 	@OneToMany(mappedBy = "specOffer")
-	private List<SpecofferSubject> subjects;
+	private List<SpecOfferSubject> subjects;
 	
 	@OneToMany(mappedBy = "specOffer")
 	private List<SpecOfferWave> waves;
@@ -176,19 +176,19 @@ public class SpecOffer extends InformationModel {
 		this.specOfferType = specOfferType;
 	}
 
-	public List<SpecofferBenefit> getBenefits() {
+	public List<SpecOfferBenefit> getBenefits() {
 		return benefits;
 	}
 
-	public void setBenefits(final List<SpecofferBenefit> benefits) {
+	public void setBenefits(final List<SpecOfferBenefit> benefits) {
 		this.benefits = benefits;
 	}
 
-	public List<SpecofferSubject> getSubjects() {
+	public List<SpecOfferSubject> getSubjects() {
 		return subjects;
 	}
 
-	public void setSubjects(final List<SpecofferSubject> subjects) {
+	public void setSubjects(final List<SpecOfferSubject> subjects) {
 		this.subjects = subjects;
 	}
 

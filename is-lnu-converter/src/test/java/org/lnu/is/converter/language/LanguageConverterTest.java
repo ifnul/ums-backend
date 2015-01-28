@@ -2,6 +2,9 @@ package org.lnu.is.converter.language;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.converter.language.LanguageConverter;
 import org.lnu.is.domain.language.Language;
@@ -32,5 +35,33 @@ public class LanguageConverterTest {
 
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1l;
+		String abbrName = "abbr Name";
+		String name = "n a m e";
+		
+		Language source = new Language();
+		source.setId(id);
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		List<Language> sources = Arrays.asList(source); 
+		
+		LanguageResource expected = new LanguageResource();
+		expected.setId(id);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		
+		List<LanguageResource> expecteds = Arrays.asList(expected);
+		
+		// Where
+		List<LanguageResource> actuals = unit.convertAll(sources);
+		
+		//Then
+		assertEquals(expecteds, actuals);
 	}
 }

@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
-import org.lnu.is.resource.timesheet.type.TimesheetTypeResource;
+import org.lnu.is.resource.timesheet.type.TimeSheetTypeResource;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.lnu.is.web.rest.controller.PagedController;
@@ -27,17 +27,17 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/timesheets/types")
-public class TimesheetTypeController extends BaseController implements PagedController<TimesheetTypeResource> {
-	private static final Logger LOG = LoggerFactory.getLogger(TimesheetTypeController.class);
+public class TimeSheetTypeController extends BaseController implements PagedController<TimeSheetTypeResource> {
+	private static final Logger LOG = LoggerFactory.getLogger(TimeSheetTypeController.class);
 	
-	@Resource(name = "timesheetTypeFacade")
-	private Facade<TimesheetTypeResource, Long> facade;
+	@Resource(name = "timeSheetTypeFacade")
+	private Facade<TimeSheetTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation(value = "Get All TimesheetTypes")
-	public PagedResultResource<TimesheetTypeResource> getPagedResource(final PagedRequest<TimesheetTypeResource> request) {
+	@ApiOperation(value = "Get All TimeSheetTypes")
+	public PagedResultResource<TimeSheetTypeResource> getPagedResource(final PagedRequest<TimeSheetTypeResource> request) {
 		LOG.info("Getting PagedResultResource for TimesheetTypes with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);	
 	}
@@ -46,7 +46,7 @@ public class TimesheetTypeController extends BaseController implements PagedCont
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get reason resource by id")
-	public TimesheetTypeResource getResource(@PathVariable("id") final Long id) {
+	public TimeSheetTypeResource getResource(@PathVariable("id") final Long id) {
 		return facade.getResource(id);
 	}
 
