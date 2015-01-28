@@ -50,6 +50,7 @@ import org.lnu.is.integration.specialty.SpecialtyIntegrationTest
 import org.lnu.is.integration.department.address.DepartmentAddressIntegrationTest
 import org.lnu.is.integration.department.contact.DepartmentContactIntegrationTest
 import org.lnu.is.integration.wave.types.WaveTypeIntegrationTest
+import org.lnu.is.integration.department.name.DepartmentNameIntegrationTest
 
 /**
  * All Test cases, that are in system.
@@ -78,6 +79,7 @@ object TestCases {
                     DepartmentIntegrationTest.testCase,
                     DepartmentAddressIntegrationTest.testCase,
                     DepartmentContactIntegrationTest.testCase,
+                    DepartmentNameIntegrationTest.testCase,
                     DepartmentTypeIntegrationTest.testCase,
                     DegreeTypeIntegrationTest.testCase,
                     DutyTypeIntegrationTest.testCase,

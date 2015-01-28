@@ -111,6 +111,11 @@
 		<property name="dao" ref="departmentContactDao" />
 	</bean>
 
+	<bean id="departmentNameService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="departmentNameParametersExtractor" />
+		<property name="dao" ref="departmentNameDao" />
+	</bean>
+
 	<bean id="departmentTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="departmentTypeParametersExtractor" />
 		<property name="dao" ref="departmentTypeDao" />
@@ -271,9 +276,9 @@
 		<property name="dao" ref="timePeriodTypeDao" />
 	</bean>
 	
-	<bean id="timesheetTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="timesheetTypeParametersExtractor" />
-		<property name="dao" ref="timesheetTypeDao" />
+	<bean id="timeSheetTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="timeSheetTypeParametersExtractor" />
+		<property name="dao" ref="timeSheetTypeDao" />
 	</bean>
 
 	<bean id="specOfferBenefitService" class="org.lnu.is.service.DefaultService">

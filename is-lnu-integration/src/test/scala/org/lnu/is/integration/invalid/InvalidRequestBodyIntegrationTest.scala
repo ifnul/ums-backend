@@ -21,15 +21,26 @@ import scala.concurrent.duration.DurationInt
 
 object InvalidRequestBodyIntegrationTest {
     
-    val urls = List("/assets", "/benefits", "/employees",
-        "/enrolments", "/orders", "/partners", "/persons", "/specialties", "/timeperiods")
+    val urls = List(
+        "/assets", 
+        "/benefits", 
+        "/employees",
+        "/enrolments", 
+        "/departments/1/addresses",
+        "/departments/1/contacts",
+        "/orders", 
+        "/partners", 
+        "/persons", 
+        "/specialties", 
+        "/timeperiods"
+        )
     
     val testCase = 
       exec(session => {
         session.set("urls", urls);
       })
       .foreach("${urls}", "url") {
-          exec(http("Invalid Json Request Body Request ${url}")
+          exec(http("Invalid Json Request Body Request")
             .post("${url}")
             .basicAuth("admin", "nimda")
             .header("Content-Type", "application/json")

@@ -141,6 +141,12 @@
 		<property name="service" ref="departmentContactService" />
 	</bean>
 
+	<bean id="departmentNameFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="departmentNameResourceConverter" />
+		<property name="entityConverter" ref="departmentNameConverter" />
+		<property name="service" ref="departmentNameService" />
+	</bean>
+
 	<bean id="departmentTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="departmentTypeResourceConverter" />
 		<property name="entityConverter" ref="departmentTypeConverter" />
@@ -345,10 +351,10 @@
 		<property name="service" ref="timePeriodTypeService" />
 	</bean>
 	
-	<bean id="timesheetTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
-		<property name="resourceConverter" ref="timesheetTypeResourceConverter" />
-		<property name="entityConverter" ref="timesheetTypeConverter" />
-		<property name="service" ref="timesheetTypeService" />
+	<bean id="timeSheetTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="timeSheetTypeResourceConverter" />
+		<property name="entityConverter" ref="timeSheetTypeConverter" />
+		<property name="service" ref="timeSheetTypeService" />
 	</bean>
 
 	<bean id="specOfferBenefitFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
