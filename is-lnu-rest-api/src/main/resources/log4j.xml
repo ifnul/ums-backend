@@ -47,7 +47,7 @@
 	</logger>
 
 	<root>
-		<priority value="DEBUG"></priority>
+		<priority value="INFO"></priority>
 		<!-- log all log entries on console -->
 		<appender-ref ref="consoleAppender" />
 		<!-- push all error logs to fileAppender -->
