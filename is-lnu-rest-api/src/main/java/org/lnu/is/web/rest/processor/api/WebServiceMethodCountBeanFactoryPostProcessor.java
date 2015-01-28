@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @author ivanursul
  *
  */
-@Component("webServiceMethodCountProcessor")
 public class WebServiceMethodCountBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 	private static final Logger LOGGER =  LoggerFactory.getLogger(WebServiceMethodCountBeanFactoryPostProcessor.class);
 	

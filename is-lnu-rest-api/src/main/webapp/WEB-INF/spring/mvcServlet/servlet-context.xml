@@ -38,8 +38,6 @@
 	
 	<!-- Bean, that gives information about system -->
 	<bean id="systemResource" class="org.lnu.is.resource.system.SystemResource">
-		<property name="methods" ref="httpMethods"/>
-		<property name="methodsCount" ref="httpMethodsCount"/>
 		<property name="version" value="${version}" />
 		<property name="developers" value="#{T(java.util.Arrays).asList('${developers}')}"/> 
 	</bean>
