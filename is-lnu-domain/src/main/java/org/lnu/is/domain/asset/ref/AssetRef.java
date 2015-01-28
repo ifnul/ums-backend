@@ -1,4 +1,4 @@
-package org.lnu.is.domain.asset;
+package org.lnu.is.domain.asset.ref;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.asset.Asset;
 /***
  * AssetRef entity.
  * @author illay

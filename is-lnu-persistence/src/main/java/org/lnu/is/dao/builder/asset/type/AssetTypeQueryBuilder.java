@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.asset.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.asset.AssetType;
+import org.lnu.is.domain.asset.type.AssetType;
 
 /**
  * Asset Type Query Builder.

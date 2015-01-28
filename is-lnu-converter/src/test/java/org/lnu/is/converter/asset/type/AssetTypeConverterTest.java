@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.converter.asset.type.AssetTypeConverter;
-import org.lnu.is.domain.asset.AssetType;
+import org.lnu.is.domain.asset.type.AssetType;
 import org.lnu.is.resource.asset.type.AssetTypeResource;
 
 public class AssetTypeConverterTest {

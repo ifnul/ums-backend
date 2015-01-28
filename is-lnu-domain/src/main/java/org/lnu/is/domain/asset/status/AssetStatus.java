@@ -1,4 +1,4 @@
-package org.lnu.is.domain.asset;
+package org.lnu.is.domain.asset.status;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,14 +8,14 @@ import org.lnu.is.annotation.dbtable.RF;
 import org.lnu.is.domain.InformationModel;
 
 /**
- * Asset State entity.
+ * Asset Status entity.
  * @author ivanursul
  *
  */
 @RF
 @Entity
-@Table(name = "q_rf_assetstate")
-public class AssetState extends InformationModel {
+@Table(name = "q_rf_assetstatus")
+public class AssetStatus extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "name")
@@ -48,7 +48,7 @@ public class AssetState extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		AssetState other = (AssetState) obj;
+		AssetStatus other = (AssetStatus) obj;
 		if (name == null) {
 			if (other.name != null) {
 				return false;
@@ -61,7 +61,7 @@ public class AssetState extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "AssetState [name=" + name + "]";
+		return "AssetStatus [name=" + name + "]";
 	}
 	
 }

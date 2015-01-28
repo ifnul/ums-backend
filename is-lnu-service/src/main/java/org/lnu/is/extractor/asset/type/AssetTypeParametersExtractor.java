@@ -3,7 +3,7 @@ package org.lnu.is.extractor.asset.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.asset.AssetType;
+import org.lnu.is.domain.asset.type.AssetType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

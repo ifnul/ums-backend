@@ -11,9 +11,9 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.asset.Asset;
-import org.lnu.is.domain.asset.AssetState;
-import org.lnu.is.domain.asset.AssetStatus;
-import org.lnu.is.domain.asset.AssetType;
+import org.lnu.is.domain.asset.state.AssetState;
+import org.lnu.is.domain.asset.status.AssetStatus;
+import org.lnu.is.domain.asset.type.AssetType;
 
 /**
  * Order New Asset entity.

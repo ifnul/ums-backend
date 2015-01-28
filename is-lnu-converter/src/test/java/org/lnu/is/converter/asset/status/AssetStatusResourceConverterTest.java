@@ -3,7 +3,7 @@ package org.lnu.is.converter.asset.status;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.domain.asset.AssetStatus;
+import org.lnu.is.domain.asset.status.AssetStatus;
 import org.lnu.is.resource.asset.status.AssetStatusResource;
 
 public class AssetStatusResourceConverterTest {

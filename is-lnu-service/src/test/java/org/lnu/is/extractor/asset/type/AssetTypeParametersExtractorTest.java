@@ -11,7 +11,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.domain.asset.AssetType;
+import org.lnu.is.domain.asset.type.AssetType;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;

@@ -12,6 +12,12 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.asset.address.AssetAddress;
+import org.lnu.is.domain.asset.property.AssetProperty;
+import org.lnu.is.domain.asset.ref.AssetRef;
+import org.lnu.is.domain.asset.state.AssetState;
+import org.lnu.is.domain.asset.status.AssetStatus;
+import org.lnu.is.domain.asset.type.AssetType;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;

@@ -1,4 +1,4 @@
-package org.lnu.is.domain.asset;
+package org.lnu.is.domain.asset.address;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,7 @@ import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.domain.adminunit.AdminUnit;
+import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.streettype.StreetType;
 
 /**

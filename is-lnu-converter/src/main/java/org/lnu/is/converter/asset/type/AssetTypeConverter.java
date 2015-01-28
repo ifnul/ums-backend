@@ -2,7 +2,7 @@ package org.lnu.is.converter.asset.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.asset.AssetType;
+import org.lnu.is.domain.asset.type.AssetType;
 import org.lnu.is.resource.asset.type.AssetTypeResource;
 
 /**

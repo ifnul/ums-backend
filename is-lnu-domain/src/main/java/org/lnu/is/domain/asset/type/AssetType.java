@@ -1,4 +1,4 @@
-package org.lnu.is.domain.asset;
+package org.lnu.is.domain.asset.type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

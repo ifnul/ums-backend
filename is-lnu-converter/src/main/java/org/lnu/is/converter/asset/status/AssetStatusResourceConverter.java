@@ -2,7 +2,7 @@ package org.lnu.is.converter.asset.status;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.asset.AssetStatus;
+import org.lnu.is.domain.asset.status.AssetStatus;
 import org.lnu.is.resource.asset.status.AssetStatusResource;
 
 /**

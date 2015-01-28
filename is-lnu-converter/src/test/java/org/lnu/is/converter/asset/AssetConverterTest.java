@@ -6,9 +6,9 @@ import java.util.Date;
 
 import org.junit.Test;
 import org.lnu.is.domain.asset.Asset;
-import org.lnu.is.domain.asset.AssetState;
-import org.lnu.is.domain.asset.AssetStatus;
-import org.lnu.is.domain.asset.AssetType;
+import org.lnu.is.domain.asset.state.AssetState;
+import org.lnu.is.domain.asset.status.AssetStatus;
+import org.lnu.is.domain.asset.type.AssetType;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;

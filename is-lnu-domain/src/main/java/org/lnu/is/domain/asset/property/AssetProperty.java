@@ -1,4 +1,4 @@
-package org.lnu.is.domain.asset;
+package org.lnu.is.domain.asset.property;
 
 import java.util.Date;
 
@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.property.Property;
 
 /**

@@ -22,17 +22,17 @@
 	</bean>
 
 	<bean id="assetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.asset.AssetType" />
+		<property name="entityClass" value="org.lnu.is.domain.asset.type.AssetType" />
 		<property name="queryBuilder" ref="assetTypeQueryBuilder" />
 	</bean>
 	
 	<bean id="assetStateDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.asset.AssetState" />
+		<property name="entityClass" value="org.lnu.is.domain.asset.state.AssetState" />
 		<property name="queryBuilder" ref="assetStateQueryBuilder" />
 	</bean>
 
 	<bean id="assetStatusDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.asset.AssetStatus" />
+		<property name="entityClass" value="org.lnu.is.domain.asset.status.AssetStatus" />
 		<property name="queryBuilder" ref="assetStatusQueryBuilder" />
 	</bean>
 

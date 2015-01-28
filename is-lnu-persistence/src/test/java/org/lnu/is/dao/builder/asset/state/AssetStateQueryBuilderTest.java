@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.asset.AssetState;
+import org.lnu.is.domain.asset.state.AssetState;
 
 public class AssetStateQueryBuilderTest {
 
