@@ -51,12 +51,12 @@
 
 		<!-- Enrolment related entities -->
         <class>org.lnu.is.domain.enrolment.Enrolment</class>
-        <class>org.lnu.is.domain.enrolment.EnrolmentBenefit</class>
-        <class>org.lnu.is.domain.enrolment.EnrolmentEnrolSubject</class>
-        <class>org.lnu.is.domain.enrolment.EnrolmentStatusType</class>
-        <class>org.lnu.is.domain.enrolment.EnrolmentStatus</class>
-        <class>org.lnu.is.domain.enrolment.EnrolmentType</class>
-        <class>org.lnu.is.domain.enrolment.EnrolmentSubject</class>
+        <class>org.lnu.is.domain.enrolment.benefit.EnrolmentBenefit</class>
+        <class>org.lnu.is.domain.enrolment.enrolsubject.EnrolmentEnrolSubject</class>
+        <class>org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType</class>
+        <class>org.lnu.is.domain.enrolment.status.EnrolmentStatus</class>
+        <class>org.lnu.is.domain.enrolment.type.EnrolmentType</class>
+        <class>org.lnu.is.domain.enrolment.subject.EnrolmentSubject</class>
         
         <!-- Order related entities -->
         <class>org.lnu.is.domain.order.Order</class>

@@ -1,4 +1,4 @@
-package org.lnu.is.domain.enrolment;
+package org.lnu.is.domain.enrolment.enrolsubject;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.enrolment.Enrolment;
+import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
 import org.lnu.is.domain.person.PersonEnrolmentSubject;
 
 /**

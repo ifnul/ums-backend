@@ -88,7 +88,7 @@
 
 	
 	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.enrolment.EnrolmentType" />
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.type.EnrolmentType" />
 		<property name="queryBuilder" ref="enrolmentTypeQueryBuilder" />
 	</bean>
 
@@ -236,12 +236,12 @@
 	</bean>
 
 	<bean id="enrolmentStatusTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.enrolment.EnrolmentStatusType" />
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType" />
 		<property name="queryBuilder" ref="enrolmentStatusTypeQueryBuilder" />
 	</bean>
 
 	<bean id="enrolmentSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.enrolment.EnrolmentSubject" />
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.subject.EnrolmentSubject" />
 		<property name="queryBuilder" ref="enrolmentSubjectQueryBuilder" />
 	</bean>
 

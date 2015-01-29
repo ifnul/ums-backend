@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.lnu.is.converter.enrolment.statustype.EnrolmentStatusTypeResourceConverter;
-import org.lnu.is.domain.enrolment.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType;
 import org.lnu.is.resource.enrolment.statustype.EnrolmentStatusTypeResource;
 
 public class EnrolmentStatusTypeResourceConverterTest {

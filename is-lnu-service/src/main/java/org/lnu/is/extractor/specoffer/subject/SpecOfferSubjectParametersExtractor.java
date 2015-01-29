@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.enrolment.EnrolmentSubject;
+import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferSubject;
 import org.lnu.is.extractor.AbstractParametersExtractor;

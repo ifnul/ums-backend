@@ -2,7 +2,7 @@ package org.lnu.is.converter.enrolment.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.enrolment.EnrolmentType;
+import org.lnu.is.domain.enrolment.type.EnrolmentType;
 import org.lnu.is.resource.enrolment.type.EnrolmentTypeResource;
 
 /**

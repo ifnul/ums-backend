@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.enrolment.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

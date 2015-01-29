@@ -1,38 +1,49 @@
-package org.lnu.is.domain.enrolment;
+package org.lnu.is.domain.enrolment.type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
 import org.lnu.is.domain.InformationModel;
 
 /**
- * Enrolment Status Type entity.
+ * Enrolment Type entity.
  * @author ivanursul
  *
  */
 @RF
 @Entity
-@Table(name = "q_rf_enrolmentstatustype")
-public class EnrolmentStatusType extends InformationModel {
+@Table(name = "q_rf_enrolmenttype")
+public class EnrolmentType extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")
-	private String abbrName;
+	private String abbrname;
 	
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "description")
-	private String description;
-
-	public String getAbbrName() {
-		return abbrName;
+	@ManyToOne
+	@JoinColumn(name = "parent_id")
+	private EnrolmentType enrolmentType;
+	
+	public String getAbbrname() {
+		return abbrname;
 	}
 
-	public void setAbbrName(final String abbrName) {
-		this.abbrName = abbrName;
+	public void setAbbrname(final String abbrname) {
+		this.abbrname = abbrname;
+	}
+
+	public EnrolmentType getEnrolmentType() {
+		return enrolmentType;
+	}
+
+	public void setEnrolmentType(final EnrolmentType enrolmentType) {
+		this.enrolmentType = enrolmentType;
 	}
 
 	public String getName() {
@@ -43,22 +54,12 @@ public class EnrolmentStatusType extends InformationModel {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(final String description) {
-		this.description = description;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result
-				+ ((abbrName == null) ? 0 : abbrName.hashCode());
-		result = prime * result
-				+ ((description == null) ? 0 : description.hashCode());
+				+ ((abbrname == null) ? 0 : abbrname.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -74,19 +75,12 @@ public class EnrolmentStatusType extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		EnrolmentStatusType other = (EnrolmentStatusType) obj;
-		if (abbrName == null) {
-			if (other.abbrName != null) {
+		EnrolmentType other = (EnrolmentType) obj;
+		if (abbrname == null) {
+			if (other.abbrname != null) {
 				return false;
 			}
-		} else if (!abbrName.equals(other.abbrName)) {
-			return false;
-		}
-		if (description == null) {
-			if (other.description != null) {
-				return false;
-			}
-		} else if (!description.equals(other.description)) {
+		} else if (!abbrname.equals(other.abbrname)) {
 			return false;
 		}
 		if (name == null) {
@@ -101,8 +95,7 @@ public class EnrolmentStatusType extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "EnrolmentStatusType [abbrName=" + abbrName + ", name=" + name
-				+ ", description=" + description + "]";
+		return "EnrolmentType [abbrname=" + abbrname + ", name=" + name + "]";
 	}
-	
+
 }

@@ -3,7 +3,7 @@ package org.lnu.is.converter.specoffer.subject;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.domain.enrolment.EnrolmentSubject;
+import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferSubject;
 import org.lnu.is.resource.specoffer.subject.SpecOfferSubjectResource;

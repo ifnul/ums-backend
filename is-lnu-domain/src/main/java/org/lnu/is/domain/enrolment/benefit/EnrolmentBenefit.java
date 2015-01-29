@@ -1,4 +1,4 @@
-package org.lnu.is.domain.enrolment;
+package org.lnu.is.domain.enrolment.benefit;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -8,6 +8,7 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.benefit.Benefit;
+import org.lnu.is.domain.enrolment.Enrolment;
 
 /**
  * Enrolment benefit entity.

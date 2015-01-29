@@ -18,7 +18,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
-import org.lnu.is.domain.enrolment.EnrolmentType;
+import org.lnu.is.domain.enrolment.type.EnrolmentType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;

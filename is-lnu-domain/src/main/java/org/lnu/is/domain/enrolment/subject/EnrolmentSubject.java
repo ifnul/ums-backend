@@ -1,4 +1,4 @@
-package org.lnu.is.domain.enrolment;
+package org.lnu.is.domain.enrolment.subject;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

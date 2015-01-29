@@ -3,7 +3,7 @@ package org.lnu.is.extractor.enrolment.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.enrolment.EnrolmentType;
+import org.lnu.is.domain.enrolment.type.EnrolmentType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

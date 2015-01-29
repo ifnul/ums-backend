@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.enrolment.EnrolmentSubject;
+import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
 /**
  * Public Activity Award entity.
  * @author illay
