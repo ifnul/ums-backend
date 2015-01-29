@@ -22,7 +22,6 @@
 		<module>is-lnu-security</module>
     	<module>is-lnu-edebo</module>
    		<module>is-lnu-edebo-domain</module>
-   		<module>is-lnu-migrations</module>
    		<module>is-lnu-mailing</module>
 	</modules>
 
@@ -71,17 +70,13 @@
 		<security.filtering>true</security.filtering>
 		
 		<!-- Code quality properties -->
+		<findbugs.skip>false</findbugs.skip>
 		<checkstyleDir>${basedir}/checks</checkstyleDir>
 		<findBugsDir>${basedir}/findbugs</findBugsDir>
 		
 		<!-- Gatling properties -->
 		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
 		<integration.successtests.percent>100</integration.successtests.percent>
-		
-		<!-- Tomcat manager properties -->		
-		<tomcat.deploy.url>http://104.236.29.16:8080/manager/text</tomcat.deploy.url>
-		<tomcat.server.name>TomcatServer</tomcat.server.name>
-		<tomcat.contextPath>/is-lnu-rest-api</tomcat.contextPath>
 		
 		<!-- Mail related properties -->
         <mail.from>infosystem.lnu@gmail.com</mail.from>
@@ -97,7 +92,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			
 			<dependency>
 				<groupId>is-lnu</groupId>
 				<artifactId>is-lnu-rest-api</artifactId>
@@ -370,6 +364,7 @@
 					<artifactId>findbugs-maven-plugin</artifactId>
 					<version>2.3.3</version>
 					<configuration>
+						<skip>${findbugs.skip}</skip>
 						<includeFilterFile>${findBugsDir}/findbugs-include.xml</includeFilterFile>
 						<excludeFilterFile>${findBugsDir}/findbugs-exclude.xml</excludeFilterFile>
 						<xmlOutput>true</xmlOutput>
@@ -449,16 +444,6 @@
 		                </formats>
 		            </configuration>					
 				</plugin>
-				<plugin>
-					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>2.2</version>
-					<configuration>
-						<url>${tomcat.deploy.url}</url>
-						<server>${tomcat.server.name}</server>
-						<path>${tomcat.contextPath}</path>
-					</configuration>
-				</plugin>												
 			</plugins>
 		</pluginManagement>
 		<resources>

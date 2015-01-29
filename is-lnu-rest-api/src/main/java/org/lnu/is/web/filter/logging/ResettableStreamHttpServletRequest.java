@@ -25,7 +25,6 @@ public class ResettableStreamHttpServletRequest extends HttpServletRequestWrappe
 
 	/**
 	 * Default constructor.
-	 * @author ivanursul
 	 * @param request
 	 */
 	public ResettableStreamHttpServletRequest(final HttpServletRequest request) {
