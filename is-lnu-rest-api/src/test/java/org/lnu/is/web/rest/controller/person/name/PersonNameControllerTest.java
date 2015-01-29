@@ -135,7 +135,6 @@ public class PersonNameControllerTest extends AbstractControllerTest {
 	}
     
     @Test
-    //TODO: Write test with person Id path variable.
 	public void testGetPersonNames() throws Exception {
 		// Given
     	Long id = 1L;

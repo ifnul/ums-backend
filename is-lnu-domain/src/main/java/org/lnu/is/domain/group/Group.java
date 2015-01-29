@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OP;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.department.Department;
 
@@ -15,6 +16,7 @@ import org.lnu.is.domain.department.Department;
  * @author ivanursul
  *
  */
+@OP
 @Entity
 @Table(name = "q_op_group")
 public class Group extends Model {

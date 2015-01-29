@@ -10,7 +10,6 @@ import org.lnu.is.pagination.PagedSearch;
  * @param <ENTITY> Entity.
  * @param <KEY> Key.
  */
-// TODO: Ivan Ursul - Rename to Service, when refactoring will be finished.
 public interface Service<ENTITY, KEY> {
 
 	/**

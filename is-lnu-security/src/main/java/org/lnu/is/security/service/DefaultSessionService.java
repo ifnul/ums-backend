@@ -54,7 +54,6 @@ public class DefaultSessionService implements SessionService {
 		return groups;
 	}
 
-	// TODO : If no group found - throw exception.
 	@Override
 	public Group getDefaultGroup() {
 		Group defaultGroup = null;

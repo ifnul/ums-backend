@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OP;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.group.UserGroup;
@@ -22,6 +23,7 @@ import org.lnu.is.domain.user.role.UserRole;
  *
  * @author 
  */
+@OP
 @Entity
 @Table(name = "q_op_user")
 public class User extends Model implements Serializable {

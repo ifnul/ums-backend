@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lnu.is.annotation.dbtable.OP;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.User;
@@ -17,6 +18,7 @@ import org.lnu.is.domain.user.User;
  * @author ivanursul
  *
  */
+@OP
 @Entity
 @Table(name = "q_op_usergroup")
 public class UserGroup extends Model implements Serializable {
