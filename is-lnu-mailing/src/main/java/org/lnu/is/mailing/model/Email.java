@@ -22,7 +22,45 @@ public class Email {
 	private String content;
 	
 	private boolean isHtml;
-	
+
+	/**
+	 * Constructor with all fields.
+	 * @param recipients
+	 * @param ccRecipients
+	 * @param attachments
+	 * @param sender
+	 * @param topic
+	 * @param content
+	 * @param isHtml
+	 */
+	public Email(final List<Recipient> recipients, final List<Recipient> ccRecipients,
+			final List<Attachment> attachments, final String sender, final String topic,
+			final String content, final boolean isHtml) {
+		super();
+		this.recipients = recipients;
+		this.ccRecipients = ccRecipients;
+		this.attachments = attachments;
+		this.sender = sender;
+		this.topic = topic;
+		this.content = content;
+		this.isHtml = isHtml;
+	}
+
+	/**
+	 * Copy constructor.
+	 * @param email
+	 */
+	public Email(final Email email) {
+		this(email.getRecipients(), email.getCcRecipients(), email.getAttachments(), 
+				email.getSender(), email.getTopic(), email.getContent(), email.isHtml());
+	}
+
+	/**
+	 * Default constuctor.
+	 */
+	public Email() {
+		super();
+	}
 
 	public List<Recipient> getCcRecipients() {
 		return ccRecipients;

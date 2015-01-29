@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  * Exception handler, that say, that current user don't has no groups.
  * TODO: If current exception occurs -> Send email to maintenance team.	
+ * example -> mailService.send(e.getUser());
  * @author ivanursul
  *
  */

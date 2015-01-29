@@ -29,7 +29,7 @@ public class GroupExistanceVerifierChainLink<T> extends DefaultVerifierChainLink
 		if (groups.isEmpty()) {
 			LOG.info(MessageFormat.format("There is no group for user:{0}", user.getLogin()));
 			NoGroupForUserException e = new NoGroupForUserException("There is no group for user");
-			e.setCurrentUser(user);
+			e.setUser(user);
 			throw e;
 		}
 		

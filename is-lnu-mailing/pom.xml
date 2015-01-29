@@ -9,11 +9,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>is-lnu-mail</groupId>
 	<artifactId>is-lnu-mailing</artifactId>
-
 	<name>is-lnu-mail</name>
-	<url>http://maven.apache.org</url>
+	
 	<properties>
 		<java.mail.version>1.4.7</java.mail.version>
 		<handlebars.version>2.0.0</handlebars.version>

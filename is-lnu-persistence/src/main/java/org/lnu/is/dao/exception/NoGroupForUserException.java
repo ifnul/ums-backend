@@ -10,7 +10,7 @@ import org.lnu.is.domain.user.User;
 public class NoGroupForUserException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
-	private User currentUser;
+	private User user;
 	
 	/**
 	 * Default constructor.
@@ -20,12 +20,12 @@ public class NoGroupForUserException extends RuntimeException {
 		super(message);
 	}
 
-	public User getCurrentUser() {
-		return currentUser;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCurrentUser(final User currentUser) {
-		this.currentUser = currentUser;
+	public void setUser(final User user) {
+		this.user = user;
 	}
 	
 }
