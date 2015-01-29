@@ -1,0 +1,4 @@
+{
+	"departmentId" : ${departmentId},
+	"specialtyId" : ${specialtyId}
+}

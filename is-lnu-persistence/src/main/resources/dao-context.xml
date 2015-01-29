@@ -280,6 +280,11 @@
 		<property name="queryBuilder" ref="departmentNameQueryBuilder" />
 	</bean>
 
+	<bean id="departmentSpecialtyDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.department.specialty.DepartmentSpecialty" />
+		<property name="queryBuilder" ref="departmentSpecialtyQueryBuilder" />
+	</bean>
+
 	<bean id="departmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.department.type.DepartmentType" />
 		<property name="queryBuilder" ref="departmentTypeQueryBuilder" />
