@@ -126,6 +126,11 @@
 		<property name="dao" ref="departmentTypeDao" />
 	</bean>
 
+	<bean id="degreeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="degreeParametersExtractor" />
+		<property name="dao" ref="degreeDao" />
+	</bean>
+
 	<bean id="degreeTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="degreeTypeParametersExtractor" />
 		<property name="dao" ref="degreeTypeDao" />

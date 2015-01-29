@@ -159,6 +159,12 @@
 		<property name="service" ref="departmentTypeService" />
 	</bean>
 
+	<bean id="degreeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="degreeResourceConverter" />
+		<property name="entityConverter" ref="degreeConverter" />
+		<property name="service" ref="degreeService" />
+	</bean>
+
 	<bean id="degreeTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="degreeTypeResourceConverter" />
 		<property name="entityConverter" ref="degreeTypeConverter" />
