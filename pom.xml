@@ -457,6 +457,7 @@
 						<url>${tomcat.deploy.url}</url>
 						<server>${tomcat.server.name}</server>
 						<path>${tomcat.contextPath}</path>
+						<update>true</update>
 					</configuration>
 				</plugin>												
 			</plugins>
