@@ -9,9 +9,7 @@ import org.junit.Test;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferBenefit;
-import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.resource.specoffer.benefit.SpecOfferBenefitResource;
-import org.lnu.is.resource.timeperiod.TimePeriodResource;
 
 public class SpecOfferBenefitConverterTest {
 
