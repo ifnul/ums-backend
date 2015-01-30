@@ -5524,4 +5524,9 @@
 		</addColumn>
 	</changeSet>
 	
+	<changeSet id="depete column person_id" author="illay">
+		<dropForeignKeyConstraint baseTableName="q_od_specofferwave" constraintName="fk_q_ob_person_id"/>
+		<dropColumn tableName="q_od_specofferwave" columnName="person_id"/>
+	</changeSet>
+    
 </databaseChangeLog>

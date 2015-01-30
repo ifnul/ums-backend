@@ -8,7 +8,6 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.wave.type.WaveType;
 
 /**
@@ -29,10 +28,6 @@ public class SpecOfferWave extends InformationModel {
 	@ManyToOne
 	@JoinColumn(name = "specoffer_id")
 	private SpecOffer specOffer;
-	
-	@ManyToOne
-	@JoinColumn(name = "person_id")
-	private Person person;
 	
 	@Column(name = "liccount")
 	private Integer licCount;
@@ -60,14 +55,6 @@ public class SpecOfferWave extends InformationModel {
 
 	public void setSpecOffer(final SpecOffer specOffer) {
 		this.specOffer = specOffer;
-	}
-
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(final Person person) {
-		this.person = person;
 	}
 
 	public Integer getLicCount() {

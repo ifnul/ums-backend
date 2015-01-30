@@ -15,7 +15,6 @@ import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
-import org.lnu.is.domain.specoffer.SpecOfferWave;
 
 /**
  * Person entity.
@@ -77,9 +76,6 @@ public class Person extends InformationModel {
 	
 	@OneToMany(mappedBy = "person")
 	private List<PersonPension> pensions;
-	
-	@OneToMany(mappedBy = "person")
-	private List<SpecOfferWave> waves;
 	
 	@Column(name = "name")
 	private String name;
@@ -353,14 +349,6 @@ public class Person extends InformationModel {
 
 	public void setPensions(final List<PersonPension> pensions) {
 		this.pensions = pensions;
-	}
-
-	public List<SpecOfferWave> getWaves() {
-		return waves;
-	}
-
-	public void setWaves(final List<SpecOfferWave> waves) {
-		this.waves = waves;
 	}
 
 	@Override
