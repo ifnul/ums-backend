@@ -5528,5 +5528,22 @@
 		<dropForeignKeyConstraint baseTableName="q_od_specofferwave" constraintName="fk_q_ob_person_id"/>
 		<dropColumn tableName="q_od_specofferwave" columnName="person_id"/>
 	</changeSet>
+	
+	<changeSet id="add parent_id in q_rf_benefittype" author="illay">
+	
+		<addColumn tableName="q_rf_benefittype" >
+			<column name="parent_id" type="BIGINT"/>
+		</addColumn>
+		
+		<addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_benefittype" constraintName="fk_q_rf_benefittype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_benefittype"/>
+		
+		<addColumn tableName="q_ob_benefit">
+			<column name="identifier" type="varchar(50)" remarks="Інформація про коди пільг вступу"></column>
+		</addColumn>
+		
+		<modifyDataType tableName="q_rf_benefittype" columnName="name" newDataType="VARCHAR(500)"/>
+		
+		<modifyDataType tableName="q_ob_benefit" columnName="name" newDataType="VARCHAR(500)"/>	
+	</changeSet>
     
 </databaseChangeLog>

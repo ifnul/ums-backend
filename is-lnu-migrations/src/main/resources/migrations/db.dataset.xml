@@ -35,6 +35,8 @@
     <include file="data/rf_departmenttype/db.rf_departmenttype.xml" relativeToChangelogFile="true"/>
     <include file="data/ob_department/db.ob_department.xml" relativeToChangelogFile="true"/>
     <include file="data/rf_specialtytype/db.rf_specialtytype.xml" relativeToChangelogFile="true"/>
+    <include file="data/rf_benefittype/db.rf_benefittype.xml" relativeToChangelogFile="true"/>
+    <include file="data/ob_benefit/db.ob_benefit.xml" relativeToChangelogFile="true"/>
 
 	<!-- Security related dataserts -->
     <include file="data/op_user/db.op_user.xml" relativeToChangelogFile="true"/>
