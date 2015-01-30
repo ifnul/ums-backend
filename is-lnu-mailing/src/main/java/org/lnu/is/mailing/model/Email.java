@@ -1,5 +1,6 @@
 package org.lnu.is.mailing.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -31,6 +32,7 @@ public class Email extends SimpleEmail {
 	public Email(final List<Recipient> recipients, final List<Recipient> ccRecipients,
 			final String sender, final String topic, final boolean isHtml) {
 		super(recipients, ccRecipients, sender, topic, isHtml);
+		attachments = new ArrayList<>();
 	}
 	
 	/**

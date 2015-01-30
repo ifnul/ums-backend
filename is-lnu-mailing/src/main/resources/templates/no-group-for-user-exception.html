@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Daily Reporting</title>
+	<title>No Group For User Exception</title>
 	<style>
 	a:hover {
 		text-decoration: underline !important;
@@ -102,20 +102,20 @@
 		
 	   	<table width="600" cellpadding="0" cellspacing="0" border="0" class="table">
 		<tr>
-			<td width="250" bgcolor="#e4e4e4" class="logocell"><img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="20" class="hide"><br class="hide"><img src="http://162.243.111.191:8080/loyalty/images/widget-logo4.png" width="178" height="76" alt="Campaign Monitor" style="-ms-interpolation-mode:bicubic;"><br><img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="10" class="hide"><br class="hide"></td>
-			<td align="right" width="350" class="hide" style="color:#a6a6a6;font-size:12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;text-shadow: 0 1px 0 #ffffff;" valign="top" bgcolor="#e4e4e4"><img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="63"><br><span>MERCHANDISER&nbsp;</span><strong><span style="text-transform:uppercase;"> <currentmonthname> <currentyear></span></strong> <span>REPORTING&nbsp;</span></td>
+			<td width="250" bgcolor="#e4e4e4" class="logocell">
+			<img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="20" class="hide">
+			<br class="hide"><img src="http://lnu.edu.ua/images/template/logo.png" width="178" height="76" alt="Campaign Monitor" style="-ms-interpolation-mode:bicubic;"><br><img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="10" class="hide"><br class="hide"></td>
+			<td align="right" width="350" class="hide" style="color:#a6a6a6;font-size:12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;text-shadow: 0 1px 0 #ffffff;" valign="top" bgcolor="#e4e4e4"><img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="63"><br><span>ЛНУ імені Івана Франка&nbsp;</span><strong><span style="text-transform:uppercase;"> <currentmonthname> <currentyear></span></strong></td>
 		</tr>
 		</table>
 	
 		<table width="600" cellpadding="2" cellspacing="0" border="0" class="promotable">
 		<tr>
 			<td bgcolor="#456265" width="600" class="promocell" style="text-align:center;">                      
-				<multiline label="Main feature intro"><h2 style="color:#FFFFFF">Daily reporting</h2></multiline>
+				<multiline label="Main feature intro"><h2 style="color:#FFFFFF">Виявлено користувача з відсутніми групами</h2></multiline>
 			</td>
 		</tr>
 		</table>
-	
-		<img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="15" class="divider"><br>
 	
 		<repeater>
 			<layout label="New feature">
@@ -128,12 +128,8 @@
 					<tr>
 						<td bgcolor="#ffffff" class="contentblock">
 
-							<h4 class="secondary"><strong><singleline label="Title">Merchandiser: {{merchandiser.name}}</singleline></strong></h4>
-							<h4 class="secondary"><strong><singleline label="Title">Phone: {{merchandiser.phoneNumber}}</singleline></strong></h4>
-							<h4 class="secondary"><strong><singleline label="Title">E-mail: {{merchandiser.email}}</singleline></strong></h4>
-							<h4>Start Date: {{startDate}}</h4>
-							<h4>End Date: {{endDate}}</h4>
-							<h4></h4>
+							<h4 class="secondary"><strong><singleline label="Title">Id: {{id}}</singleline></strong></h4>
+							<h4 class="secondary"><strong><singleline label="Title">Login: {{login}}</singleline></strong></h4>
 						</td>
 					</tr>
 					</table>
@@ -141,7 +137,6 @@
 				</td>
 			</tr>
 			</table>  
-			<img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="15" class="divider"><br>
 			</layout>
 		</repeater>           
 		
@@ -168,23 +163,14 @@
 							<img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="8"><br>  
 						
 							<p style="color:#a6a6a6;font-size:12px;font-family:Helvetica,Arial,sans-serif;margin-top:0;margin-bottom:15px;padding-top:0;padding-bottom:0;line-height:18px;" class="reminder">
-							Regular mail to Simple Save customer
-							<a href="http://www.abcwidgets.com/" style="color:#a6a6a6;text-decoration:underline;">Visit Web Site</a>.
+							Львівський університет імені Івана Франка
+							<a href="http://lnu.edu.ua/" style="color:#a6a6a6;text-decoration:underline;">Відвідати сайт</a>.
 							</p>
 
 						
 						</td>
-						<td align="right" width="220" style="color:#a6a6a6;font-size:12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;text-shadow: 0 1px 0 #ffffff;" valign="top" class="hide">
-						
-							<table cellpadding="0" cellspacing="0" border="0">
-							<tr>
-								<td><a href="http://www.flickr.com/photos/freshview"><img border="0" src="http://162.243.111.191:8080/loyalty/images/flickr.gif" width="42" height="32" alt="See our photos on Flickr"></a></td>
-								<td><a href="http://twitter.com/campaignmonitor"><img border="0" src="http://162.243.111.191:8080/loyalty/images/twitter.gif" width="42" height="32" alt="Follow us on Twitter"></a></td>
-								<td><a href="http://www.facebook.com/campaignmonitor"><img border="0" src="http://162.243.111.191:8080/loyalty/images/facebook.gif" width="32" height="32" alt="Visit us on Facebook"></a></td>
-							</tr>
-							</table>
-						
-							<img border="0" src="http://162.243.111.191:8080/loyalty/images/spacer.gif" width="1" height="10"><br><p style="color:#b3b3b3;font-size:11px;line-height:15px;font-family:Helvetica,Arial,sans-serif;margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;font-weight:bold;">Developed by Ivan Ursul</p>
+						<td align="right" width="220" style="color:#a6a6a6;font-size:12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;text-shadow: 0 1px 0 #ffffff;" valign="top" class="hide">					
+							<p style="color:#b3b3b3;font-size:11px;line-height:15px;font-family:Helvetica,Arial,sans-serif;margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;font-weight:bold;">Розроблено</p>
 							<p style="color:#b3b3b3;font-size:11px;line-height:15px;font-family:Helvetica,Arial,sans-serif;margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;font-weight:normal;">
 							<a href="mailto:johnursul@gmail.com">johnursul@gmail.com</a> 
 							</p></td>

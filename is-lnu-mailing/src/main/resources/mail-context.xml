@@ -7,6 +7,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 	<context:component-scan base-package="org.lnu.is.mailing" />
 	<import resource="mail-context-${mail.environment.active}.xml"/>
+	<import resource="mail-services.xml"/>
 
 	<bean id="mailEnabled" class="java.lang.Boolean">
     	<constructor-arg value="${mail.enabled}"/>
