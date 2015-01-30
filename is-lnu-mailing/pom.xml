@@ -15,16 +15,24 @@
 	<properties>
 		<java.mail.version>1.4.7</java.mail.version>
 		<handlebars.version>2.0.0</handlebars.version>
-		
+		<greenmail.version>1.4.0</greenmail.version>
+
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>		
 	</properties>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
-			<version>1.4.7</version>
+			<version>${java.mail.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.icegreen</groupId>
+			<artifactId>greenmail</artifactId>
+			<version>${greenmail.version}</version>
 		</dependency>
 
 		<dependency>

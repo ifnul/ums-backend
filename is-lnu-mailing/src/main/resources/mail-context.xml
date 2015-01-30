@@ -6,6 +6,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 ">
 
 	<context:component-scan base-package="org.lnu.is.mailing" />
+
+	<import resource="mail-context-${mail.environment.active}.xml"/>
 	
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="${mail.host}" />
@@ -13,11 +15,15 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<property name="username" value="${mail.username}" />
 		<property name="password" value="${mail.password}" />
 		<property name="javaMailProperties">
-	            <props>
-	                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
-	                <prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
-	                <prop key="mail.smtp.ssl.trust">${mail.smtp.ssl.trust}</prop>
-	            </props>
+	        <props>
+	        	<prop key="mail.debug">${mail.debug}</prop>
+	        	<prop key="mail.transport.protocol">smtp</prop>
+	            <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+	      			<prop key="mail.smtp.user">${mail.smtp.user}</prop>
+	            <prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+	            <prop key="mail.smtp.ssl.trust">${mail.smtp.ssl.trust}</prop>
+	            <prop key="mail.smtp.from">${mail.from}</prop>
+	        </props>
 		</property>		
 	</bean>
 	
