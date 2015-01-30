@@ -32,9 +32,17 @@ public class DefaultEmailSenderAdapter implements EmailSenderAdapter {
 
 	@Resource(name = "mailSender")
 	private JavaMailSender mailSender;
+
+	@Resource(name = "mailEnabled")
+	private Boolean enabled;
 	
 	@Override
 	public void send(final Email email) {
+		
+		if (!enabled) {
+			return;
+		}
+		
 		Assert.notNull(email, "Email object cannot be null");
 		
 		try {
@@ -72,5 +80,9 @@ public class DefaultEmailSenderAdapter implements EmailSenderAdapter {
 		
 		return set.toArray(new String[set.size()]);
 	}
- 
+
+	public void setEnabled(final Boolean enabled) {
+		this.enabled = enabled;
+	}
+	
 }

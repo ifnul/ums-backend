@@ -79,15 +79,13 @@
 		<integration.successtests.percent>100</integration.successtests.percent>
 		
 		<!-- Mail related properties -->
+		<mail.enabled>true</mail.enabled>
 		<mail.environment.active>dev</mail.environment.active>
-		
         <mail.from>info@franko.edu.ua</mail.from>
-
         <mail.host>localhost</mail.host>
         <mail.port>3025</mail.port>
         <mail.username>test</mail.username>
         <mail.password>xxxx</mail.password>
-        
         <mail.debug>false</mail.debug>
         <mail.transport.protocol>smtp</mail.transport.protocol>
         <mail.smtp.user>test@mail.extern</mail.smtp.user>

@@ -6,8 +6,11 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 ">
 
 	<context:component-scan base-package="org.lnu.is.mailing" />
-
 	<import resource="mail-context-${mail.environment.active}.xml"/>
+
+	<bean id="mailEnabled" class="java.lang.Boolean">
+    	<constructor-arg value="${mail.enabled}"/>
+	</bean>
 	
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="${mail.host}" />
@@ -35,5 +38,5 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean id="handlebars" class="com.github.jknack.handlebars.Handlebars" >
 		<constructor-arg ref="handleBarTemplateLoader"/>
 	</bean>
-
+	
 </beans>
