@@ -39,6 +39,12 @@
 		<property name="service" ref="assetService" />
 	</bean>
 
+	<bean id="assetAddressFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="assetAddressResourceConverter" />
+		<property name="entityConverter" ref="assetAddressConverter" />
+		<property name="service" ref="assetAddressService" />
+	</bean>
+
 	<bean id="assetStateFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="assetStateResourceConverter" />
 		<property name="entityConverter" ref="assetStateConverter" />

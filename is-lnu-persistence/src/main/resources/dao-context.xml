@@ -20,6 +20,11 @@
 		<property name="entityClass" value="org.lnu.is.domain.asset.Asset" />
 		<property name="queryBuilder" ref="assetQueryBuilder" />		
 	</bean>
+	
+	<bean id="assetAddressDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.asset.address.AssetAddress" />
+		<property name="queryBuilder" ref="assetAddressQueryBuilder" />		
+	</bean>
 
 	<bean id="assetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.asset.type.AssetType" />
