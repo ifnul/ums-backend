@@ -37,6 +37,10 @@
     <include file="data/rf_specialtytype/db.rf_specialtytype.xml" relativeToChangelogFile="true"/>
     <include file="data/rf_benefittype/db.rf_benefittype.xml" relativeToChangelogFile="true"/>
     <include file="data/ob_benefit/db.ob_benefit.xml" relativeToChangelogFile="true"/>
+    <include file="data/ob_timeperiod/db.ob_timeperiod.xml" relativeToChangelogFile="true"/>
+    <include file="data/ob_publicactivity/db.ob_publicactivity.xml" relativeToChangelogFile="true"/>
+    <include file="data/od_publicactivityaward/db.od_publicactivityaward.xml" relativeToChangelogFile="true"/>
+    
 
 	<!-- Security related dataserts -->
     <include file="data/op_user/db.op_user.xml" relativeToChangelogFile="true"/>
