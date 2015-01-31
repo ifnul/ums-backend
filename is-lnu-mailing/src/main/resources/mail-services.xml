@@ -8,6 +8,10 @@
 	http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd
 	">
 
+	<bean id="defaultMailService" class="org.lnu.is.mailing.service.DefaultMailService">
+		<property name="mailSenderAdapter" ref="emailSenderAdapter"/>
+	</bean>
+
 	<bean id="noGroupExceptionHandlerMail" class="org.lnu.is.mailing.model.SimpleEmail">
 		<constructor-arg name="ccRecipients">
 			<util:list>

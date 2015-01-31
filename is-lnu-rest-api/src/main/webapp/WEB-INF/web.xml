@@ -5,6 +5,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
+			/WEB-INF/main-context.xml
 			classpath*:persistence-context.xml
 			classpath*:service-context.xml
 			classpath*:content-context.xml

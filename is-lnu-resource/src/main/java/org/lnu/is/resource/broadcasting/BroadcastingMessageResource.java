@@ -21,12 +21,24 @@ public class BroadcastingMessageResource extends ApiResource {
 	private String topic;
 	
 	@NotNull
+	private Boolean isHtml;
+	
+	@NotNull
 	private List<Long> groups;
-	private List<String> recipient;
+	private List<String> recipients;
+	
 	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/broadcastings/{0}", getId());
+	}
+
+	public Boolean getIsHtml() {
+		return isHtml;
+	}
+
+	public void setIsHtml(final Boolean isHtml) {
+		this.isHtml = isHtml;
 	}
 
 	@Override
@@ -42,12 +54,12 @@ public class BroadcastingMessageResource extends ApiResource {
 		this.groups = groups;
 	}
 
-	public List<String> getRecipient() {
-		return recipient;
+	public List<String> getRecipients() {
+		return recipients;
 	}
 
-	public void setRecipient(final List<String> recipient) {
-		this.recipient = recipient;
+	public void setRecipients(final List<String> recipient) {
+		this.recipients = recipient;
 	}
 
 	public String getContent() {
@@ -72,8 +84,9 @@ public class BroadcastingMessageResource extends ApiResource {
 		int result = super.hashCode();
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + ((groups == null) ? 0 : groups.hashCode());
+		result = prime * result + ((isHtml == null) ? 0 : isHtml.hashCode());
 		result = prime * result
-				+ ((recipient == null) ? 0 : recipient.hashCode());
+				+ ((recipients == null) ? 0 : recipients.hashCode());
 		result = prime * result + ((topic == null) ? 0 : topic.hashCode());
 		return result;
 	}
@@ -104,11 +117,18 @@ public class BroadcastingMessageResource extends ApiResource {
 		} else if (!groups.equals(other.groups)) {
 			return false;
 		}
-		if (recipient == null) {
-			if (other.recipient != null) {
+		if (isHtml == null) {
+			if (other.isHtml != null) {
 				return false;
 			}
-		} else if (!recipient.equals(other.recipient)) {
+		} else if (!isHtml.equals(other.isHtml)) {
+			return false;
+		}
+		if (recipients == null) {
+			if (other.recipients != null) {
+				return false;
+			}
+		} else if (!recipients.equals(other.recipients)) {
 			return false;
 		}
 		if (topic == null) {
@@ -123,8 +143,9 @@ public class BroadcastingMessageResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "BroadcastingMessage [groups=" + groups + ", recipient="
-				+ recipient + ", content=" + content + ", topic=" + topic + "]";
+		return "BroadcastingMessageResource [content=" + content + ", topic="
+				+ topic + ", isHtml=" + isHtml + ", groups=" + groups
+				+ ", recipients=" + recipients + "]";
 	}
 
 }

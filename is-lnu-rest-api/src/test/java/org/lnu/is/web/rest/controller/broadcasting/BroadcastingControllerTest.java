@@ -62,7 +62,7 @@ public class BroadcastingControllerTest extends AbstractControllerTest {
     	BroadcastingMessageResource resource = new BroadcastingMessageResource();
 		resource.setContent(content);
 		resource.setTopic(topic);
-		resource.setRecipient(recipient);
+		resource.setRecipients(recipient);
 		resource.setGroups(groups);
 		
 		// When
@@ -98,7 +98,7 @@ public class BroadcastingControllerTest extends AbstractControllerTest {
     	BroadcastingMessageResource resource = new BroadcastingMessageResource();
 		resource.setContent(content);
 		resource.setTopic(topic);
-		resource.setRecipient(recipient);
+		resource.setRecipients(recipient);
 		resource.setGroups(groups);
     	resource.setId(id);
 		
@@ -136,7 +136,7 @@ public class BroadcastingControllerTest extends AbstractControllerTest {
     	BroadcastingMessageResource resource = new BroadcastingMessageResource();
 		resource.setContent(content);
 		resource.setTopic(topic);
-		resource.setRecipient(recipient);
+		resource.setRecipients(recipient);
 		resource.setGroups(groups);
     	resource.setId(id);
 
@@ -182,7 +182,7 @@ public class BroadcastingControllerTest extends AbstractControllerTest {
     	BroadcastingMessageResource resource = new BroadcastingMessageResource();
 		resource.setContent(content);
 		resource.setTopic(topic);
-		resource.setRecipient(recipient);
+		resource.setRecipients(recipient);
 		resource.setGroups(groups);
     	resource.setId(id);
 

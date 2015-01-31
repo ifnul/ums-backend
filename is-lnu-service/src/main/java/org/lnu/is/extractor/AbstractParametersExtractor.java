@@ -19,6 +19,7 @@ import org.lnu.is.security.service.SessionService;
  */
 public abstract class AbstractParametersExtractor<T> implements ParametersExtractor<T> {
 
+	//TODO : Change to @Value annotation and remove bean from context.
 	@Resource(name = "sessionService")
 	private SessionService sessionService;
 

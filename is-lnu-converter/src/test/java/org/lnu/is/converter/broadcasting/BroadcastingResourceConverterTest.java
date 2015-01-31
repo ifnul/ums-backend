@@ -37,7 +37,7 @@ public class BroadcastingResourceConverterTest {
 		BroadcastingMessageResource source = new BroadcastingMessageResource();
 		source.setContent(content);
 		source.setTopic(topic);
-		source.setRecipient(recipient);
+		source.setRecipients(recipient);
 		source.setGroups(groupIds);
 		
 		BroadcastingMessage expected = new BroadcastingMessage();
@@ -89,7 +89,7 @@ public class BroadcastingResourceConverterTest {
 		BroadcastingMessageResource source = new BroadcastingMessageResource();
 		source.setContent(content);
 		source.setTopic(topic);
-		source.setRecipient(recipient);
+		source.setRecipients(recipient);
 		source.setGroups(groupIds);
 		List<BroadcastingMessageResource> sources = Arrays.asList(source);
 		

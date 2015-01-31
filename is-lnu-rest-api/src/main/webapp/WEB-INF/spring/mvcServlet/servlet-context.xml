@@ -27,15 +27,6 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
-	<bean id="applicationConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-		<property name="locations">
-			<list>
-				<value>classpath:application.properties</value>
-			</list>
-		</property>
-		<property name="ignoreResourceNotFound" value="false" />
-	</bean>	
-	
 	<!-- Bean, that gives information about system -->
 	<bean id="systemResource" class="org.lnu.is.resource.system.SystemResource">
 		<property name="developers" value="#{T(java.util.Arrays).asList('${developers}')}"/> 

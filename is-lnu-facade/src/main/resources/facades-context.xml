@@ -19,7 +19,8 @@
 		<property name="resourceConverter" ref="broadcastingResourceConverter" />
 		<property name="entityConverter" ref="broadcastingConverter" />
 		<property name="service" ref="broadcastingService" />
-		<!-- TODO: Add broadcastingConverter and mailService -->
+		<property name="broadcastResourceEmailConverter" ref="broadcastingEmailConverter"/>
+		<property name="mailService" ref="defaultMailService"/>
 	</bean>
 	
 	<bean id="operationTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">

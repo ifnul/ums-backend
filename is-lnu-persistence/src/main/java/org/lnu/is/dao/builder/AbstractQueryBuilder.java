@@ -23,6 +23,7 @@ public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuil
 	private static final String STATUS_CONDITION = "e.status=:status ";
 	private static final String GROUP_CONDITION = "e.crtUserGroup IN (:userGroups) ";
 
+	//TODO: Change to @Value annotation and remove bean from context.
 	@Resource(name = "activeFiltering")
 	private Boolean active;
 	

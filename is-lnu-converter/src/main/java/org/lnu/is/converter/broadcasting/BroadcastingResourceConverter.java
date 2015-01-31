@@ -22,7 +22,7 @@ public class BroadcastingResourceConverter extends AbstractConverter<Broadcastin
 		
 		target.setContent(source.getContent());
 		target.setTopic(source.getTopic());
-		target.setRecipients(source.getRecipient());
+		target.setRecipients(source.getRecipients());
  		
 		if (source.getGroups() != null) {
 			List<Group> groups = convertGroups(source);
