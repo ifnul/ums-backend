@@ -5602,4 +5602,109 @@
 		</createView>
 	</changeSet>
     
+    <changeSet id="add some comments to columns (2015-01-31-09-30)" author="OlehZanevych">
+	
+		<dropColumn tableName="q_dc_enrolment" columnName="begdate"/>
+		<addColumn tableName="q_dc_enrolment">
+			<column name="begdate" remarks="Дата вступання документу в дію, для заяви ця дата співпадає з датою подачі заяви" type="TIMESTAMP"/>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_orderemployee" columnName="employeestatus_id"/>
+		<addColumn tableName="q_dt_orderemployee">
+			<column name="employeestatus_id" remarks="Ідентифікатор статусу працівника" type = "BIGINT"></column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="employeestatus_id" baseTableName="q_dt_orderemployee" constraintName="fk_q_rf_employeestatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_employeestatus"/>
+		
+		<dropColumn tableName="q_dt_orderemployee" columnName="optype_id"/>
+		<addColumn tableName="q_dt_orderemployee">
+			<column name="optype_id" remarks="Ідентифікатор типу операцій над основними засобами" type="BIGINT"></column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="optype_id" baseTableName="q_dt_orderemployee" constraintName="fk_q_rf_optype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_optype"/>
+		
+		<dropColumn tableName="q_dt_orderemployee" columnName="begdate"/>
+		<addColumn tableName="q_dt_orderemployee">
+			<column name="begdate" remarks="Дата виконання наказу" type="TIMESTAMP"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_orderemployee" columnName="enddate"/>
+		<addColumn tableName="q_dt_orderemployee">
+			<column name="enddate" remarks="Дата закриття наказу" type="TIMESTAMP"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_orderduty" columnName="dutytype_id"/>
+		<addColumn tableName="q_dt_orderduty">
+			<column name="dutytype_id" type="BIGINT" remarks="Ідентифікатор відповідального за підписання наказу"></column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="dutytype_id" baseTableName="q_dt_orderduty" constraintName="fk_q_rf_dutytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_dutytype"/>
+		
+		<dropColumn tableName="q_dt_orderduty" columnName="begdate"/>
+		<addColumn tableName="q_dt_orderduty">
+			<column name="begdate" type="TIMESTAMP" remarks="Дата виконання наказу"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_orderduty" columnName="enddate"/>
+		<addColumn tableName="q_dt_orderduty">
+			<column name="enddate" type="TIMESTAMP" remarks="Дата закриття наказу"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_orderemployeetimesheet" columnName="timesheettype_id"/>
+		<addColumn tableName="q_dt_orderemployeetimesheet">
+			<column name="timesheettype_id" remarks="Ідентифікатор довідника обліку робочого часу (табеля)" type="BIGINT"></column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="timesheettype_id" baseTableName="q_dt_orderemployeetimesheet" constraintName="fk_q_rf_timesheettype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_timesheettype"/>
+		
+		<dropColumn tableName="q_dt_orderemployeetimesheet" columnName="dayamount"/>
+		<addColumn tableName="q_dt_orderemployeetimesheet">
+			<column name="dayamount" remarks="Кількість днів" type="TIMESTAMP"/>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_orderemployeetimesheet" columnName="houramount"/>
+		<addColumn tableName="q_dt_orderemployeetimesheet">
+			<column name="houramount" remarks="Кількість годин" type="TIMESTAMP"/>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_orderemployeetimesheet" columnName="begdate"/>
+		<addColumn tableName="q_dt_orderemployeetimesheet">
+			<column name="begdate" remarks="Дата виконання наказу" type="TIMESTAMP"/>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_orderemployeetimesheet" columnName="enddate"/>
+		<addColumn tableName="q_dt_orderemployeetimesheet">
+			<column name="enddate" remarks="Дата закриття наказу" type="TIMESTAMP"/>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_ordernewemployee" columnName="post_id"/>
+		<addColumn tableName="q_dt_ordernewemployee">
+			<column name="post_id" remarks="Ідентифікатор посади" type="BIGINT"/>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="post_id" baseTableName="q_dt_ordernewemployee" constraintName="fk_q_ob_post_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_post"/>
+		
+		<dropColumn tableName="q_dt_ordernewemployee" columnName="jobtype_id"/>
+		<addColumn tableName="q_dt_ordernewemployee">
+			<column name="jobtype_id" remarks="Ідентифікатор типу роботи" type="BIGINT"/>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="jobtype_id" baseTableName="q_dt_ordernewemployee" constraintName="fk_q_rf_jobtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_jobtype"/>
+		
+		<dropColumn tableName="q_dt_ordernewemployee" columnName="isplurality"/>
+		<addColumn tableName="q_dt_ordernewemployee">
+			<column name="isplurality" remarks="Працює за сумісництвом" type="INTEGER"/>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_ordernewemployee" columnName="rate"/>
+		<addColumn tableName="q_dt_ordernewemployee">
+			<column name="rate" remarks="Ставка" type="DOUBLE"/>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_ordernewemployee" columnName="begdate"/>
+		<addColumn tableName="q_dt_ordernewemployee">
+			<column name="begdate" remarks="Дата виконання наказу" type="TIMESTAMP"/>
+		</addColumn>
+		
+		<dropColumn tableName="q_dt_ordernewemployee" columnName="enddate"/>
+		<addColumn tableName="q_dt_ordernewemployee">
+			<column name="enddate" remarks="Дата закриття наказу" type="TIMESTAMP"/>
+		</addColumn>
+		
+	</changeSet>
+	
 </databaseChangeLog>
