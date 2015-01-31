@@ -17,6 +17,7 @@
 			
 			
             <column name="login">admin</column>
+            <column name="email">admin@franko.edu.lviv.ua</column>
             <column name="password">nimda</column>
             <column name="title">Adminenko Admin Adminovich</column>
             <column name="begdate">2013-01-01</column>
@@ -34,7 +35,7 @@
             <column name="create_date">now()</column>
             <column name="update_date">now()</column>
 			
-			
+			<column name="email">nevdaha@franko.edu.lviv.ua</column>
             <column name="login">broken_student</column>
             <column name="password">nevdaha</column>
             <column name="title">Muzichuk Anatoliy Omelyanovich</column>

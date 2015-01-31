@@ -5581,5 +5581,25 @@
 		
 		<modifyDataType tableName="q_ob_benefit" columnName="name" newDataType="VARCHAR(500)"/>	
 	</changeSet>
+	
+	<changeSet id="add email field into q_op_user" author="ivanursul">
+		<addColumn tableName="q_op_user">
+			<column name="email" type="varchar(255)"/>
+		</addColumn>	
+	</changeSet>
+	
+	<changeSet id="adding_view_for_getting_groups_users" author="">
+		<createView viewName="v_op_user_groups"
+			replaceIfExists="true">
+			SELECT 
+				gr.id as group_id, 
+				gr.title as group_title, 
+				usr.id as user_id,
+				usr.email as user_email 
+			FROM q_op_usergroup usergroup
+			INNER JOIN q_op_group gr ON gr.id=usergroup.group_id 
+			INNER JOIN q_op_user usr ON usr.id=usergroup.user_id		
+		</createView>
+	</changeSet>
     
 </databaseChangeLog>

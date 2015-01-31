@@ -41,6 +41,9 @@ public class User extends Model implements Serializable {
     @Column(name = "begdate")
     private Date begDate;
     
+    @Column(name = "email")
+    private String email;
+    
     @Column(name = "enddate")
     private Date endDate;
 
@@ -56,6 +59,14 @@ public class User extends Model implements Serializable {
 		inverseJoinColumns = { @JoinColumn(name = "group_id") })
     private List<Group> groups;
     
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(final String email) {
+		this.email = email;
+	}
+
 	public List<Group> getGroups() {
 		return groups;
 	}
@@ -123,12 +134,14 @@ public class User extends Model implements Serializable {
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result
 				+ ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
 
@@ -137,7 +150,7 @@ public class User extends Model implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (obj == null) {
+		if (!super.equals(obj)) {
 			return false;
 		}
 		if (getClass() != obj.getClass()) {
@@ -149,6 +162,13 @@ public class User extends Model implements Serializable {
 				return false;
 			}
 		} else if (!begDate.equals(other.begDate)) {
+			return false;
+		}
+		if (email == null) {
+			if (other.email != null) {
+				return false;
+			}
+		} else if (!email.equals(other.email)) {
 			return false;
 		}
 		if (endDate == null) {
@@ -172,12 +192,22 @@ public class User extends Model implements Serializable {
 		} else if (!password.equals(other.password)) {
 			return false;
 		}
+		if (title == null) {
+			if (other.title != null) {
+				return false;
+			}
+		} else if (!title.equals(other.title)) {
+			return false;
+		}
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "User [login=" + login + ", begDate=" + begDate + ", endDate=" + endDate + "]";
+		return "User [login=" + login + ", title=" + title + ", password="
+				+ password + ", begDate=" + begDate + ", email=" + email
+				+ ", endDate=" + endDate + ", userGroups=" + userGroups
+				+ ", userRoles=" + userRoles + ", groups=" + groups + "]";
 	}
 
 }
