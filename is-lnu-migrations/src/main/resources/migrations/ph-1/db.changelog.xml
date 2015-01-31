@@ -5528,5 +5528,41 @@
 		<dropForeignKeyConstraint baseTableName="q_od_specofferwave" constraintName="fk_q_ob_person_id"/>
 		<dropColumn tableName="q_od_specofferwave" columnName="person_id"/>
 	</changeSet>
+	
+	<changeSet id="add_broadcasting_table" author="ivanursul">
+		<createTable tableName="q_rp_broadcasting">
+    		<!-- Common fields -> Model -->
+    		<column name="id" type="BIGINT" autoIncrement="true">
+    			<constraints nullable="false" primaryKey="true" />
+    		</column>
+    		<column name="status" type="varchar(50)">
+    			<constraints nullable="false"/>
+    		</column>
+            <column name="actual" remarks="Status of row" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="varchar(255)" />
+            <column name="crtuser" type="varchar(50)" remarks="User, that made changes">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" type="varchar(50)" remarks="User group(user, that made changes)" >
+                <constraints nullable="false"/>
+            </column>
+           <column name="update_date" type="timestamp" remarks="Update date" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="timestamp" remarks="Date of row creation" >
+            	<constraints nullable="false"/>
+        	</column>            
+			
+			<!-- Table related columns -->
+			<column name="content" type="text" remarks="content">
+				<constraints nullable="false"/>
+			</column>
+			<column name="topic" type="varchar(255)" remarks="topic">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>	
+	</changeSet>
     
 </databaseChangeLog>

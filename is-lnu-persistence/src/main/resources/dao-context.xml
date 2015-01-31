@@ -11,6 +11,11 @@
 		<property name="persistenceManager" ref="persistenceManager" />
 	</bean>
 	
+	<bean id="broadcastingDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.broadcasting.BroadcastingMessage" />
+		<property name="queryBuilder" ref="broadcastingQueryBuilder" />		
+	</bean>
+	
 	<bean id="operationTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.optype.OperationType" />
 		<property name="queryBuilder" ref="operationTypeQueryBuilder" />		

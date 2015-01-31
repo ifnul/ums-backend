@@ -6,6 +6,11 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	default-autowire="byName">
 	
+	<bean id="broadcastingService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="broadcastingParametersExtractor"/>
+		<property name="dao" ref="broadcastingDao"/>
+	</bean>
+	
 	<bean id="operationTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="operationTypeParametersExtractor"/>
 		<property name="dao" ref="operationTypeDao"/>

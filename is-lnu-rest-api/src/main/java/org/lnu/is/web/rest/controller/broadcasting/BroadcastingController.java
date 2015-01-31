@@ -1,11 +1,10 @@
-package org.lnu.is.web.rest.controller.benefit;
-
+package org.lnu.is.web.rest.controller.broadcasting;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.resource.benefit.BenefitResource;
+import org.lnu.is.resource.broadcasting.BroadcastingMessageResource;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
 import org.lnu.is.resource.search.PagedRequest;
@@ -24,59 +23,59 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Benefit controller. 
+ * Controller for broadcasting.
+ * This methods allows you to 
  * @author ivanursul
  *
  */
 @RestController
-@RequestMapping("/benefits")
-public class BenefitController extends BaseController implements CrudController<BenefitResource> {
-	private static final Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
+@RequestMapping("/broadcastings")
+public class BroadcastingController extends BaseController implements CrudController<BroadcastingMessageResource> {
+	private static final Logger LOG = LoggerFactory.getLogger(BroadcastingController.class);
 	
-	@Resource(name = "benefitFacade")
-	private Facade<BenefitResource, Long> facade;
+	@Resource(name = "broadcastingFacade")
+	private Facade<BroadcastingMessageResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
-	public PagedResultResource<BenefitResource> getPagedResource(final PagedRequest<BenefitResource> request) {
-		LOGGER.info("Getting paged result for benefits:{}", request);
+	public PagedResultResource<BroadcastingMessageResource> getPagedResource(final PagedRequest<BroadcastingMessageResource> request) {
+		LOG.info("Getting broadcasting messages: {}", request);
 		return facade.getResources(request);
 	}
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
-	public BenefitResource getResource(@PathVariable("id") final Long id) {
-		LOGGER.info("Getting benefit by id: {}", id);
+	public BroadcastingMessageResource getResource(@PathVariable("id") final Long id) {
+		LOG.info("Getting Broadcast message by id : {}", id);
 		return facade.getResource(id);
 	}
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(method = RequestMethod.POST)
-	public BenefitResource createResource(@Valid @RequestBody final BenefitResource resource) {
-		LOGGER.info("Creating new benefit:{}", resource);
+	public BroadcastingMessageResource createResource(@Valid @RequestBody final BroadcastingMessageResource resource) {
+		LOG.info("Creating new broadcast: {}", resource);
 		return facade.createResource(resource);
 	}
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.PUT)
-	public MessageResource updateResource(@PathVariable("id") final Long id,
-			@Valid @RequestBody final BenefitResource resource) {
-		LOGGER.info("Updating new resource, id:{}, resource:{}", id, resource);
+	public MessageResource updateResource(@PathVariable("id") final Long id, 
+			@Valid @RequestBody final BroadcastingMessageResource resource) {
+		LOG.info("Updating resource: {},{}", id, resource);
 		facade.updateResource(id, resource);
-		return new MessageResource(MessageType.INFO, "Benefit updated");
+		return new MessageResource(MessageType.INFO);
 	}
 
 	@Override
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = Request.ID, method = RequestMethod.DELETE)
 	public MessageResource removeResource(@PathVariable("id") final Long id) {
-		LOGGER.info("Removing benefit:{}", id);
 		facade.removeResource(id);
-		return new MessageResource(MessageType.INFO, "Benefit removed");
+		return new MessageResource(MessageType.INFO);
 	}
 
 }

@@ -15,6 +15,12 @@
 		<property name="entityDetailsConverter" ref="entityDetailsConverter"/>
 	</bean>
 
+	<bean id="broadcastingFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="broadcastingResourceConverter" />
+		<property name="entityConverter" ref="broadcastingConverter" />
+		<property name="service" ref="broadcastingService" />
+	</bean>
+	
 	<bean id="operationTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="operationTypeResourceConverter" />
 		<property name="entityConverter" ref="operationTypeConverter" />

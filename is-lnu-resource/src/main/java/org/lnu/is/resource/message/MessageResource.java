@@ -28,6 +28,15 @@ public class MessageResource {
 		this.messageType = messageType;
 		this.message = message;
 	}
+
+	/**
+	 * Constructor with parameters and without message.
+	 * @param messageType message Type.
+	 */
+	public MessageResource(final MessageType messageType) {
+		super();
+		this.messageType = messageType;
+	}
 	
 	/**
 	 * Constructor with all fields.
