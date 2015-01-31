@@ -16,13 +16,13 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DefaultMailServiceTest {
+public class SimpleMailServiceTest {
 
 	@Mock
 	private EmailSenderAdapter mailSenderAdapter;
 
 	@InjectMocks
-	private DefaultMailService<String> unit;
+	private SimpleMailService<String> unit;
 
 	private SimpleEmail mail = new SimpleEmail();
 	

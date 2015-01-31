@@ -9,7 +9,7 @@ import org.lnu.is.mailing.model.Email;
  *
  * @param <T> resource.
  */
-public class DefaultMailService<T> extends AbstractMailService<T> {
+public class SimpleMailService<T> extends AbstractMailService<T> {
 
 	@Override
 	public void send(final T content) {

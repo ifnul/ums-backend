@@ -15,10 +15,11 @@
 		<property name="entityDetailsConverter" ref="entityDetailsConverter"/>
 	</bean>
 
-	<bean id="broadcastingFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+	<bean id="broadcastingFacade" class="org.lnu.is.facade.facade.broadcasting.BroadcastingFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="broadcastingResourceConverter" />
 		<property name="entityConverter" ref="broadcastingConverter" />
 		<property name="service" ref="broadcastingService" />
+		<!-- TODO: Add broadcastingConverter and mailService -->
 	</bean>
 	
 	<bean id="operationTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
