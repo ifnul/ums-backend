@@ -56,4 +56,9 @@ FAQ:
 TODO Integration tests:
 Specialty
 Degree test
-Broadcastings -> Email sending
+Broadcastings -> Email sending:
+1)Send broadcast with group and independant emails
+2)Send broadcast with no groups and independant emails
+3)Send broadcast with only group
+4)Add non-allowed group in request - expect exception with 400 + status
+5)For future - if there is no rights for user to send independant emails - expect exception with 400+ status

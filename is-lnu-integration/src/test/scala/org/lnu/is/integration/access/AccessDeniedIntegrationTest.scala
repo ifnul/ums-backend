@@ -52,7 +52,7 @@ object AccessDeniedIntegrationTest {
                         session.set("resourceId", resourceId)
                     })
                     .exec(
-                        http("Access Denied Request}")
+                        http("Access Denied Request")
                           .get("${url}/${resourceId}")
                           .basicAuth("broken_student", "nevdaha")
                           .check(status.is(403))
