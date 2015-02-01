@@ -16,9 +16,13 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gatling.version>2.1.2</gatling.version>
+
+		<simulation.class>org.lnu.is.integration.IntegrationTest</simulation.class>
+		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
+		<integration.successtests.percent>100</integration.successtests.percent>
+
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>
-		<simulation.class>org.lnu.is.integration.IntegrationTest</simulation.class>
 	</properties>
 
 	<dependencies>

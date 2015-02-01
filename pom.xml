@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 
 	<name>is-lnu</name>
-	<url>http://maven.apache.org</url>
+	<url>http://lnu.edu.ua/</url>
 
 	<modules>
     	<module>is-lnu-common</module>
@@ -29,8 +29,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<developers>Ivan Ursul, Illay Mazuriak, Yura Kushnir, Bohdan Yaremtso, Roman Pelipets, Oleh Zanevich</developers>
 		<batch.limit>20</batch.limit>	
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 						
 		<!-- Version properties -->
+		<java-version>1.7</java-version>
 		<spring.version>4.1.0.RELEASE</spring.version>
 		<spring.test.version>4.0.0.RELEASE</spring.test.version>
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
@@ -43,30 +45,11 @@
 		<surefire.version>2.12</surefire.version>
 		
 		<!-- Project specific properties -->
-		<java-version>1.7</java-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<api.output.json.pretty>true</api.output.json.pretty>
 		<max.pagination.count>500</max.pagination.count>
 		<environment.active>dev</environment.active>
 
-		<!-- Migrations properties -->
-		<migration.changelog.name>db.changelog.xml</migration.changelog.name>
-		<migrations.location>src/main/resources/migrations/${migration.changelog.name}</migrations.location>
-
-		<!-- Database properties -->
-		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-		<jdbc.host>localhost</jdbc.host>
-		<jdbc.port>5432</jdbc.port>
-		<jdbc.databasename>lnu</jdbc.databasename>
-		<jdbc.databaseurl>jdbc:postgresql://${jdbc.host}:${jdbc.port}/${jdbc.databasename}</jdbc.databaseurl>
-		<jdbc.username>postgres</jdbc.username>
-		<jdbc.password>postgres</jdbc.password>
-		
-		<!-- JPA Properties -->
-		<jpa.database>POSTGRESQL</jpa.database>
-		<jpa.showSql>true</jpa.showSql>
-		
-		<!-- Data filtering properties -->
+		<!-- Filtering properties -->
 		<active.filtering>true</active.filtering>
 		<security.filtering>true</security.filtering>
 		
@@ -75,24 +58,6 @@
 		<checkstyleDir>${basedir}/checks</checkstyleDir>
 		<findBugsDir>${basedir}/findbugs</findBugsDir>
 		
-		<!-- Gatling properties -->
-		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
-		<integration.successtests.percent>100</integration.successtests.percent>
-		
-		<!-- Mail related properties -->
-		<mail.enabled>true</mail.enabled>
-		<mail.environment.active>dev</mail.environment.active>
-        <mail.from>info@franko.edu.ua</mail.from>
-        <mail.host>localhost</mail.host>
-        <mail.port>3025</mail.port>
-        <mail.username>test</mail.username>
-        <mail.password>xxxx</mail.password>
-        <mail.debug>false</mail.debug>
-        <mail.transport.protocol>smtp</mail.transport.protocol>
-        <mail.smtp.user>test@mail.extern</mail.smtp.user>
-		<mail.smtp.auth>true</mail.smtp.auth>
-		<mail.smtp.starttls.enable>true</mail.smtp.starttls.enable>
-		<mail.smtp.ssl.trust>smtp.gmail.com</mail.smtp.ssl.trust> 
 	</properties>
 
 	<dependencyManagement>

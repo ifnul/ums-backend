@@ -17,6 +17,21 @@
 		<handlebars.version>2.0.0</handlebars.version>
 		<greenmail.version>1.4.0</greenmail.version>
 
+		<!-- Mail related properties -->
+		<mail.enabled>true</mail.enabled>
+		<mail.environment.active>dev</mail.environment.active>
+        <mail.from>info@franko.edu.ua</mail.from>
+        <mail.host>localhost</mail.host>
+        <mail.port>3025</mail.port>
+        <mail.username>test</mail.username>
+        <mail.password>xxxx</mail.password>
+        <mail.debug>false</mail.debug>
+        <mail.transport.protocol>smtp</mail.transport.protocol>
+        <mail.smtp.user>test@mail.extern</mail.smtp.user>
+		<mail.smtp.auth>true</mail.smtp.auth>
+		<mail.smtp.starttls.enable>true</mail.smtp.starttls.enable>
+		<mail.smtp.ssl.trust>smtp.gmail.com</mail.smtp.ssl.trust> 
+
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>		
 	</properties>
