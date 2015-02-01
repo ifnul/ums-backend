@@ -45,7 +45,7 @@ public class Enrolment extends InformationModel {
 	private Department department;
 	
 	@ManyToOne
-	@JoinColumn(name = "personpapper_id")
+	@JoinColumn(name = "personpaper_id")
 	private PersonPaper personPaper;
 	
 	@ManyToOne
@@ -77,7 +77,7 @@ public class Enrolment extends InformationModel {
 	@Column(name = "doctext")
 	private String docText;
 	
-	@Column(name = "issate")
+	@Column(name = "isstate")
 	private Integer isState;
 	
 	@Column(name = "iscontract")
@@ -98,6 +98,9 @@ public class Enrolment extends InformationModel {
 	@Column(name = "enddate")
 	private Date endDate;
 
+	@Column(name = "priority")
+	private Integer priority;
+	
 	public Person getPerson() {
 		return person;
 	}
@@ -233,6 +236,14 @@ public class Enrolment extends InformationModel {
 	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
 	}
+	
+	public Integer getPriority() {
+		return priority;
+	}
+
+	public void setPriority(final Integer priority) {
+		this.priority = priority;
+	}
 
 	public List<EnrolmentBenefit> getBenefits() {
 		return benefits;
@@ -277,6 +288,7 @@ public class Enrolment extends InformationModel {
 				+ ((isPrivilege == null) ? 0 : isPrivilege.hashCode());
 		result = prime * result + ((isState == null) ? 0 : isState.hashCode());
 		result = prime * result + ((mark == null) ? 0 : mark.hashCode());
+		result = prime * result + ((priority == null) ? 0 : priority.hashCode());
 		return result;
 	}
 
@@ -369,6 +381,13 @@ public class Enrolment extends InformationModel {
 		} else if (!mark.equals(other.mark)) {
 			return false;
 		}
+		if (mark == null) {
+			if (other.mark != null) {
+				return false;
+			}
+		} else if (!priority.equals(other.priority)) {
+			return false;
+		}
 		return true;
 	}
 
@@ -378,7 +397,7 @@ public class Enrolment extends InformationModel {
 				+ ", docNum=" + docNum + ", docText=" + docText + ", isState="
 				+ isState + ", isContract=" + isContract + ", isPrivilege="
 				+ isPrivilege + ", isHostel=" + isHostel + ", evDate=" + evDate
-				+ ", begDate=" + begDate + ", endDate=" + endDate + "]";
+				+ ", begDate=" + begDate + ", endDate=" + endDate + ", priority=" + priority + "]";
 	}
 	
 }

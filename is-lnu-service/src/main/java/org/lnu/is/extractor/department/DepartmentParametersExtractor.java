@@ -38,8 +38,6 @@ public class DepartmentParametersExtractor extends AbstractParametersExtractor<D
 		addParameter(entity.getAbbrName(), "abbrName", parameters);
 		addParameter(entity.getName(), "name", parameters);
 		addParameter(entity.getManager(), "manager", parameters);
-		addParameter(entity.getPhone(), "phone", parameters);
-		addParameter(entity.getEmail(), "email", parameters);
 		addParameter(entity.getBegDate(), "begDate", parameters);
 		addParameter(entity.getEndDate(), "endDate", parameters);
 		

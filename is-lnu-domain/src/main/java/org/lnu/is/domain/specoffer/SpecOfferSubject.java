@@ -38,6 +38,9 @@ public class SpecOfferSubject extends InformationModel {
 	@Column(name = "mark")
 	private Double mark;
 
+	@Column(name = "weightsubject")
+	private Double weightSubject;
+		
 	public SpecOffer getSpecOffer() {
 		return specOffer;
 	}
@@ -76,6 +79,14 @@ public class SpecOfferSubject extends InformationModel {
 
 	public void setMark(final Double mark) {
 		this.mark = mark;
+	}
+	
+	public Double getWeightSubject() {
+		return weightSubject;
+	}
+
+	public void setWeightSubject(final Double weightSubject) {
+		this.weightSubject = weightSubject;
 	}
 
 	@Override

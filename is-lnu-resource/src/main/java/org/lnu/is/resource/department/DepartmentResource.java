@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Email;
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -34,13 +33,6 @@ public class DepartmentResource extends ApiResource {
 	
 	@NotNull(message = "Field required")
 	private String manager;
-	
-	@NotNull(message = "Field required")
-	private String phone;
-	
-	@NotNull(message = "Field required")
-	@Email
-	private String email;
 	
 	@NotNull(message = "Field required")
 	private Date begDate;
@@ -105,23 +97,7 @@ public class DepartmentResource extends ApiResource {
 	public void setManager(final String manager) {
 		this.manager = manager;
 	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(final String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(final String email) {
-		this.email = email;
-	}
-
+	
 	public Date getBegDate() {
 		return begDate;
 	}
@@ -158,7 +134,6 @@ public class DepartmentResource extends ApiResource {
 		result = prime
 				* result
 				+ ((departmentTypeId == null) ? 0 : departmentTypeId.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((manager == null) ? 0 : manager.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -166,7 +141,6 @@ public class DepartmentResource extends ApiResource {
 		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
 		result = prime * result
 				+ ((parentId == null) ? 0 : parentId.hashCode());
-		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		return result;
 	}
 
@@ -201,13 +175,6 @@ public class DepartmentResource extends ApiResource {
 				return false;
 			}
 		} else if (!departmentTypeId.equals(other.departmentTypeId)) {
-			return false;
-		}
-		if (email == null) {
-			if (other.email != null) {
-				return false;
-			}
-		} else if (!email.equals(other.email)) {
 			return false;
 		}
 		if (endDate == null) {
@@ -252,13 +219,6 @@ public class DepartmentResource extends ApiResource {
 		} else if (!parentId.equals(other.parentId)) {
 			return false;
 		}
-		if (phone == null) {
-			if (other.phone != null) {
-				return false;
-			}
-		} else if (!phone.equals(other.phone)) {
-			return false;
-		}
 		return true;
 	}
 
@@ -267,8 +227,7 @@ public class DepartmentResource extends ApiResource {
 		return "DepartmentResource [parentId=" + parentId
 				+ ", departmentTypeId=" + departmentTypeId + ", orderId="
 				+ orderId + ", abbrName=" + abbrName + ", name=" + name
-				+ ", manager=" + manager + ", phone=" + phone + ", email="
-				+ email + ", begDate=" + begDate + ", endDate=" + endDate
+				+ ", manager=" + manager + ", begDate=" + begDate + ", endDate=" + endDate
 				+ ", note=" + note + "]";
 	}
 

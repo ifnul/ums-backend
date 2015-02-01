@@ -62,7 +62,8 @@ public class EnrolmentParametersExtractor extends AbstractParametersExtractor<En
 		addParameter(entity.getEvDate(), "evDate", parameters);
 		addParameter(entity.getBegDate(), "begDate", parameters);
 		addParameter(entity.getEndDate(), "endDate", parameters);
-
+		addParameter(entity.getPriority(), "priority", parameters);
+		
 		return parameters;
 
 	}

@@ -7,7 +7,7 @@
         <class>org.lnu.is.domain.asset.Asset</class>
         <class>org.lnu.is.domain.asset.address.AssetAddress</class>
         <class>org.lnu.is.domain.asset.property.AssetProperty</class>
-        <class>org.lnu.is.domain.asset.ref.AssetRef</class>
+        <class>org.lnu.is.domain.asset.rel.AssetRel</class>
         <class>org.lnu.is.domain.asset.state.AssetState</class> 
         <class>org.lnu.is.domain.asset.status.AssetStatus</class> 
         <class>org.lnu.is.domain.asset.type.AssetType</class> 

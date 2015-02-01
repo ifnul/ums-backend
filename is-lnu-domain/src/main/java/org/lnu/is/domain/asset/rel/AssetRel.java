@@ -1,4 +1,4 @@
-package org.lnu.is.domain.asset.ref;
+package org.lnu.is.domain.asset.rel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,14 +10,14 @@ import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.asset.Asset;
 /***
- * AssetRef entity.
+ * AssetRel entity.
  * @author illay
  *
  */
 @OD
 @Entity
-@Table(name = "q_od_assetref")
-public class AssetRef extends InformationModel {
+@Table(name = "q_od_assetrel")
+public class AssetRel extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -33,7 +33,7 @@ public class AssetRef extends InformationModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
-	private AssetRef assetRef;
+	private AssetRel assetRef;
 
 	public Asset getAsset() {
 		return asset;
@@ -59,11 +59,11 @@ public class AssetRef extends InformationModel {
 		this.amount = amount;
 	}
 
-	public AssetRef getAssetRef() {
+	public AssetRel getAssetRef() {
 		return assetRef;
 	}
 
-	public void setAssetRef(final AssetRef assetRef) {
+	public void setAssetRef(final AssetRel assetRef) {
 		this.assetRef = assetRef;
 	}
 
@@ -88,7 +88,7 @@ public class AssetRef extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		AssetRef other = (AssetRef) obj;
+		AssetRel other = (AssetRel) obj;
 		if (amount == null) {
 			if (other.amount != null) {
 				return false;

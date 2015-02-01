@@ -38,8 +38,8 @@ public class Error extends InformationModel {
 	@Column(name = "clientversion")
 	private String clientVersion;
 	
-	@Column(name = "clienttip")
-	private String clientTip;
+	@Column(name = "clientip")
+	private String clientIp;
 
 	public String getName() {
 		return name;
@@ -89,12 +89,12 @@ public class Error extends InformationModel {
 		this.clientVersion = clientVersion;
 	}
 
-	public String getClientTip() {
-		return clientTip;
+	public String getClientIp() {
+		return clientIp;
 	}
 
-	public void setClientTip(final String clientTip) {
-		this.clientTip = clientTip;
+	public void setClientIp(final String clientIp) {
+		this.clientIp = clientIp;
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class Error extends InformationModel {
 		result = prime * result
 				+ ((clientName == null) ? 0 : clientName.hashCode());
 		result = prime * result
-				+ ((clientTip == null) ? 0 : clientTip.hashCode());
+				+ ((clientIp == null) ? 0 : clientIp.hashCode());
 		result = prime * result
 				+ ((clientVersion == null) ? 0 : clientVersion.hashCode());
 		result = prime * result
@@ -135,11 +135,11 @@ public class Error extends InformationModel {
 		} else if (!clientName.equals(other.clientName)) {
 			return false;
 		}
-		if (clientTip == null) {
-			if (other.clientTip != null) {
+		if (clientIp == null) {
+			if (other.clientIp != null) {
 				return false;
 			}
-		} else if (!clientTip.equals(other.clientTip)) {
+		} else if (!clientIp.equals(other.clientIp)) {
 			return false;
 		}
 		if (clientVersion == null) {
@@ -185,7 +185,7 @@ public class Error extends InformationModel {
 		return "Error [name=" + name + ", invNum=" + invNum + ", description="
 				+ description + ", clientos=" + clientos + ", clientName="
 				+ clientName + ", clientVersion=" + clientVersion
-				+ ", clientTip=" + clientTip + "]";
+				+ ", clientIp=" + clientIp + "]";
 	}
 	
 }

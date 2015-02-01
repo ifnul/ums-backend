@@ -27,8 +27,8 @@ public class EmployeeSchedule extends InformationModel {
 	@JoinColumn(name = "employee_id")
 	private Employee employee;
 	
-	@Column(name = "evdate")
-	private Date evdate;
+	@Column(name = "evday")
+	private Date evday;
 	
 	@Column(name = "begdate")
 	private Date begDate;
@@ -44,12 +44,12 @@ public class EmployeeSchedule extends InformationModel {
 		this.employee = employee;
 	}
 
-	public Date getEvdate() {
-		return evdate;
+	public Date getEvday() {
+		return evday;
 	}
 
-	public void setEvdate(final Date evdate) {
-		this.evdate = evdate;
+	public void setEvday(final Date evdate) {
+		this.evday = evdate;
 	}
 
 	public Date getBegDate() {
@@ -74,7 +74,7 @@ public class EmployeeSchedule extends InformationModel {
 		int result = super.hashCode();
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
-		result = prime * result + ((evdate == null) ? 0 : evdate.hashCode());
+		result = prime * result + ((evday == null) ? 0 : evday.hashCode());
 		return result;
 	}
 
@@ -104,11 +104,11 @@ public class EmployeeSchedule extends InformationModel {
 		} else if (!endDate.equals(other.endDate)) {
 			return false;
 		}
-		if (evdate == null) {
-			if (other.evdate != null) {
+		if (evday == null) {
+			if (other.evday != null) {
 				return false;
 			}
-		} else if (!evdate.equals(other.evdate)) {
+		} else if (!evday.equals(other.evday)) {
 			return false;
 		}
 		return true;
@@ -116,7 +116,7 @@ public class EmployeeSchedule extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "EmployeeSchedule [evdate=" + evdate + ", begDate=" + begDate
+		return "EmployeeSchedule [evdate=" + evday + ", begDate=" + begDate
 				+ ", endDate=" + endDate + "]";
 	}
 	

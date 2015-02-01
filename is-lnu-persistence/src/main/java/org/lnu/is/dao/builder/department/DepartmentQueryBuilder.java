@@ -18,8 +18,6 @@ public class DepartmentQueryBuilder extends AbstractQueryBuilder<Department> {
 	private static final String ORDER_CONDITION = "e.order = :order ";
 	private static final String ABBRNAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 	private static final String MANAGER_CONDITION = "e.manager LIKE CONCAT('%',:manager,'%') ";
-	private static final String PHONE_CONDITION = "e.phone LIKE CONCAT('%',:phone,'%') ";
-	private static final String EMAIL_CONDITION = "e.email LIKE CONCAT('%',:email,'%') ";
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
 	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate";
 
@@ -39,8 +37,6 @@ public class DepartmentQueryBuilder extends AbstractQueryBuilder<Department> {
 				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
 				.addOrCondition(NAME_CONDITION, context.getName())
 				.addOrCondition(MANAGER_CONDITION, context.getManager())
-				.addOrCondition(PHONE_CONDITION, context.getPhone())
-				.addOrCondition(EMAIL_CONDITION, context.getEmail())
 				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
 				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();

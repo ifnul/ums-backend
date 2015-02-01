@@ -32,6 +32,7 @@ public class SpecOfferSubjectParametersExtractor extends AbstractParametersExtra
 		addParameter(entity.getEnrolmentSubject(), enrolmenntSubjectDao, "enrolmentSubject", parameters);
 		addParameter(entity.getIsMajor(), "isMajor", parameters);
 		addParameter(entity.getAlternative(), "alternative", parameters);
+		addParameter(entity.getWeightSubject(), "weightSubject", parameters);
 		
 		return parameters;
 	}

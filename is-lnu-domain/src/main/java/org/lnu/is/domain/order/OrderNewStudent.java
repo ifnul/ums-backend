@@ -12,7 +12,7 @@ import org.lnu.is.domain.coursetype.CourseType;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.specialty.Specialty;
+import org.lnu.is.domain.specoffer.SpecOffer;
 
 /**
  * Order new student entity.
@@ -21,7 +21,7 @@ import org.lnu.is.domain.specialty.Specialty;
  */
 @DT
 @Entity
-@Table(name = "q_dt_ordernewstudent")
+@Table(name = "q_dt_ordernewstudentitem")
 public class OrderNewStudent extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
@@ -42,8 +42,8 @@ public class OrderNewStudent extends InformationModel {
 	private CourseType courseType;
 	
 	@ManyToOne
-	@JoinColumn(name = "specialty_id")
-	private Specialty specialty;
+	@JoinColumn(name = "specoffer_id")
+	private SpecOffer specoffer;
 	
 	@ManyToOne
 	@JoinColumn(name = "eduformtype_id")
@@ -57,6 +57,17 @@ public class OrderNewStudent extends InformationModel {
 	
 	@Column(name = "iscontract")
 	private Integer isContract;
+
+	@Column(name = "isstate")
+	private Integer isState;
+	
+	public Integer getIsState() {
+		return isState;
+	}
+
+	public void setIsState(final Integer isState) {
+		this.isState = isState;
+	}
 
 	public Order getOrder() {
 		return order;
@@ -90,12 +101,12 @@ public class OrderNewStudent extends InformationModel {
 		this.courseType = courseType;
 	}
 
-	public Specialty getSpecialty() {
-		return specialty;
+	public SpecOffer getSpecoffer() {
+		return specoffer;
 	}
 
-	public void setSpecialty(final Specialty specialty) {
-		this.specialty = specialty;
+	public void setSpecoffer(final SpecOffer specoffer) {
+		this.specoffer = specoffer;
 	}
 
 	public EduFormType getEduFormType() {
@@ -184,13 +195,20 @@ public class OrderNewStudent extends InformationModel {
 		} else if (!isContract.equals(other.isContract)) {
 			return false;
 		}
+		if (isState == null) {
+			if (other.isState != null) {
+				return false;
+			}
+		} else if (!isState.equals(other.isState)) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "OrderNewStudent [docSeries=" + docSeries + ", docNum=" + docNum
-				+ ", isContract=" + isContract + "]";
+				+ ", isContract=" + isContract + ", isState=" + isState + "]";
 	}
 	
 }

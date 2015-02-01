@@ -9,6 +9,7 @@ import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.enrolment.Enrolment;
+import org.lnu.is.domain.person.PersonPaper;
 
 /**
  * Enrolment benefit entity.
@@ -28,6 +29,18 @@ public class EnrolmentBenefit extends InformationModel {
 	@ManyToOne
 	@JoinColumn(name = "benefit_id")
 	private Benefit benefit;
+	
+	@ManyToOne
+	@JoinColumn(name = "personpaper_id")
+	private PersonPaper personpaper;
+	
+	public PersonPaper getPersonpaper() {
+		return personpaper;
+	}
+
+	public void setPersonpaper(final PersonPaper personpaper) {
+		this.personpaper = personpaper;
+	}
 
 	public Enrolment getEnrolment() {
 		return enrolment;

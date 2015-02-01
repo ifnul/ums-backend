@@ -31,6 +31,7 @@ public class EnrolmentResourceConverterTest {
 		Integer isPrivilege = 3;
 		Integer isState = 4;
 		Double mark = 2.5;
+		Integer priority = 5;
 
 		Long personId = 2L;
 		Person person = new Person();
@@ -74,7 +75,8 @@ public class EnrolmentResourceConverterTest {
 		expected.setPersonPaper(personPaper);
 		expected.setEnrolmentType(enrolmentType);
 		expected.setParent(parent);
-
+		expected.setPriority(priority);
+		
 		EnrolmentResource source = new EnrolmentResource();
 		source.setDocNum(docNum);
 		source.setBegDate(begDate);
@@ -93,7 +95,8 @@ public class EnrolmentResourceConverterTest {
 		source.setPersonPaperId(personPaperId);
 		source.setEnrolmentTypeId(enrolmentTypeId);
 		source.setParentId(parentId);
-
+		source.setPriority(priority);
+		
 		// When
 		Enrolment actual = unit.convert(source);
 
@@ -115,6 +118,7 @@ public class EnrolmentResourceConverterTest {
 		Integer isPrivilege = 3;
 		Integer isState = 4;
 		Double mark = 2.5;
+		Integer priority = 5;
 		
 		Enrolment expected = new Enrolment();
 		expected.setDocNum(docNum);
@@ -128,6 +132,7 @@ public class EnrolmentResourceConverterTest {
 		expected.setIsPrivilege(isPrivilege);
 		expected.setIsState(isState);
 		expected.setMark(mark);
+		expected.setPriority(priority);
 		
 		EnrolmentResource source = new EnrolmentResource();
 		source.setDocNum(docNum);
@@ -141,6 +146,7 @@ public class EnrolmentResourceConverterTest {
 		source.setIsPrivilege(isPrivilege);
 		source.setIsState(isState);
 		source.setMark(mark);
+		source.setPriority(priority);
 		
 		// When
 		Enrolment actual = unit.convert(source);

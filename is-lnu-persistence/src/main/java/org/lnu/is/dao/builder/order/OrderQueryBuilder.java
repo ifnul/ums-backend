@@ -27,7 +27,10 @@ public class OrderQueryBuilder extends AbstractQueryBuilder<Order> {
 	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
 	private static final String DOCISSUED_CONDITION = "e.docIssued LIKE CONCAT('%',:docIssued,'%') ";
 	private static final String EVDATE_CONDITION = "e.evDate = :evDate ";
-
+	private static final String TITLE_CONDITION = "e.title = :title";
+	private static final String DESCRIPTION_CONDITION = "e.description = :description";
+	private static final String TIMEPERIOD_CONDITION = "e.timePeriod = :timePeriod";
+	
 	@Override
 	protected String getBaseQuery() {
 		return "SELECT e FROM Order e %s";
@@ -52,6 +55,9 @@ public class OrderQueryBuilder extends AbstractQueryBuilder<Order> {
 				.addOrCondition(DOCDATE_CONDITION, context.getDocDate())
 				.addOrCondition(DOCISSUED_CONDITION, context.getDocIssued())
 				.addOrCondition(EVDATE_CONDITION, context.getEvDate())
+				.addOrCondition(TITLE_CONDITION, context.getTitle())
+				.addOrCondition(DESCRIPTION_CONDITION, context.getDescription())
+				.addOrCondition(TIMEPERIOD_CONDITION, context.getTimePeriod())
 				.closeBracket();
 	}
 }

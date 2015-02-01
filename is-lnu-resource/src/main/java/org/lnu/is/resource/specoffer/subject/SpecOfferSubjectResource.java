@@ -30,6 +30,9 @@ public class SpecOfferSubjectResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Double mark;
 	
+	@NotNull(message = "Field required")
+	private Double weightSubject;
+	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/specoffers/{0}/subjects/{1}", specOfferId, getId());
@@ -80,6 +83,14 @@ public class SpecOfferSubjectResource extends ApiResource {
 		this.mark = mark;
 	}
 
+	public Double getWeightSubject() {
+		return weightSubject;
+	}
+
+	public void setWeightSubject(final Double weightSubject) {
+		this.weightSubject = weightSubject;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -94,6 +105,7 @@ public class SpecOfferSubjectResource extends ApiResource {
 		result = prime * result + ((mark == null) ? 0 : mark.hashCode());
 		result = prime * result
 				+ ((specOfferId == null) ? 0 : specOfferId.hashCode());
+		result = prime * result + ((weightSubject == null) ? 0 : weightSubject.hashCode());
 		return result;
 	}
 
@@ -144,6 +156,13 @@ public class SpecOfferSubjectResource extends ApiResource {
 		} else if (!specOfferId.equals(other.specOfferId)) {
 			return false;
 		}
+		if (weightSubject == null) {
+			if (other.weightSubject != null) {
+				return false;
+			}
+		} else if (!weightSubject.equals(other.weightSubject)) {
+			return false;
+		}
 		return true;
 	}
 
@@ -152,7 +171,7 @@ public class SpecOfferSubjectResource extends ApiResource {
 		return "SpecOfferSubjectResource [specOfferId=" + specOfferId
 				+ ", enrolmentSubjectId=" + enrolmentSubjectId + ", isMajor="
 				+ isMajor + ", alternative=" + alternative + ", mark=" + mark
-				+ "]";
+				+ ", weightSubject=" + weightSubject + "]";
 	}
 
 }

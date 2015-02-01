@@ -16,7 +16,8 @@ public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecOffer
 	private static final String ENROLMENTSUBJECT_CONDITION = "e.enrolmentSubject = :enrolmentSubject ";
 	private static final String ISMAJOR_CONDITION = "e.isMajor = :isMajor ";
 	private static final String ALTERNATIVE_CONDITION = "e.alternative = :alternative ";
-
+	private static final String WEIGHTSUBJECT_CONDITION = "e.weightsubject = :weightsubject ";
+	
 	@Override
 	protected String getBaseQuery() {
 		return "SELECT e FROM SpecofferSubject e %s";
@@ -31,6 +32,7 @@ public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecOffer
 				.addOrCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
 				.addOrCondition(ISMAJOR_CONDITION, context.getIsMajor())
 				.addOrCondition(ALTERNATIVE_CONDITION, context.getAlternative())
+				.addOrCondition(WEIGHTSUBJECT_CONDITION, context.getWeightSubject())
 				.closeBracket();
 	}
 

@@ -18,13 +18,11 @@ public class DepartmentConverter extends AbstractConverter<Department, Departmen
 		
 		target.setAbbrName(source.getAbbrName());
 		target.setBegDate(source.getBegDate());
-		target.setEmail(source.getEmail());
 		target.setEndDate(source.getEndDate());
 		target.setId(source.getId());
 		target.setManager(source.getManager());
 		target.setName(source.getName());
 		target.setNote(source.getNote());
-		target.setPhone(source.getPhone());
 		
 		if (source.getOrder() != null) {
 			target.setOrderId(source.getOrder().getId());

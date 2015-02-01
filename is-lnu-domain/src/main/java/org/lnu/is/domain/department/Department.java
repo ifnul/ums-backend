@@ -52,12 +52,6 @@ public class Department extends InformationModel {
 	@Column(name = "manager")
 	private String manager;
 	
-	@Column(name = "phone")
-	private String phone;
-	
-	@Column(name = "email")
-	private String email;
-	
 	@Column(name = "begdate")
 	private Date begDate;
 	
@@ -126,23 +120,7 @@ public class Department extends InformationModel {
 	public void setManager(final String manager) {
 		this.manager = manager;
 	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(final String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(final String email) {
-		this.email = email;
-	}
-
+	
 	public Date getBegDate() {
 		return begDate;
 	}
@@ -198,11 +176,9 @@ public class Department extends InformationModel {
 		result = prime * result
 				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((manager == null) ? 0 : manager.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		return result;
 	}
 
@@ -232,13 +208,6 @@ public class Department extends InformationModel {
 		} else if (!begDate.equals(other.begDate)) {
 			return false;
 		}
-		if (email == null) {
-			if (other.email != null) {
-				return false;
-			}
-		} else if (!email.equals(other.email)) {
-			return false;
-		}
 		if (endDate == null) {
 			if (other.endDate != null) {
 				return false;
@@ -260,21 +229,13 @@ public class Department extends InformationModel {
 		} else if (!name.equals(other.name)) {
 			return false;
 		}
-		if (phone == null) {
-			if (other.phone != null) {
-				return false;
-			}
-		} else if (!phone.equals(other.phone)) {
-			return false;
-		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "Department [abbrName=" + abbrName
-				+ ", name=" + name + ", manager=" + manager + ", phone="
-				+ phone + ", email=" + email + ", begDate=" + begDate
+				+ ", name=" + name + ", manager=" + manager + ", begDate=" + begDate
 				+ ", endDate=" + endDate + "]";
 	}
 

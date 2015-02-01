@@ -14,7 +14,7 @@ import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.asset.address.AssetAddress;
 import org.lnu.is.domain.asset.property.AssetProperty;
-import org.lnu.is.domain.asset.ref.AssetRef;
+import org.lnu.is.domain.asset.rel.AssetRel;
 import org.lnu.is.domain.asset.state.AssetState;
 import org.lnu.is.domain.asset.status.AssetStatus;
 import org.lnu.is.domain.asset.type.AssetType;
@@ -73,7 +73,7 @@ public class Asset extends InformationModel {
 	private List<AssetProperty> properties;
 	
 	@OneToMany(mappedBy = "asset")
-	private List<AssetRef> references;
+	private List<AssetRel> references;
 	
 	@Column(name = "name")
 	private String name;
@@ -265,11 +265,11 @@ public class Asset extends InformationModel {
 		this.properties = properties;
 	}
 
-	public List<AssetRef> getReferences() {
+	public List<AssetRel> getReferences() {
 		return references;
 	}
 
-	public void setReferences(final List<AssetRef> references) {
+	public void setReferences(final List<AssetRel> references) {
 		this.references = references;
 	}
 

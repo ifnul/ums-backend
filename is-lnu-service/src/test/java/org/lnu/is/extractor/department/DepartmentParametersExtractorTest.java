@@ -76,8 +76,6 @@ public class DepartmentParametersExtractorTest {
 		String abbrName = "abbr name";
 		String name = "name1";
 		String manager = "manager1";
-		String phone = "542534534";
-		String email = "email@email.emao;";
 		Date begDate = new Date();
 		Date endDate = new Date();
 
@@ -89,8 +87,6 @@ public class DepartmentParametersExtractorTest {
 		entity.setAbbrName(abbrName);
 		entity.setName(name);
 		entity.setManager(manager);
-		entity.setPhone(phone);
-		entity.setEmail(email);
 		entity.setBegDate(begDate);
 		entity.setEndDate(endDate);
 		
@@ -101,8 +97,6 @@ public class DepartmentParametersExtractorTest {
 		expected.put("abbrName", abbrName);
 		expected.put("name", name);
 		expected.put("manager", manager);
-		expected.put("phone", phone);
-		expected.put("email", email);
 		expected.put("begDate", begDate);
 		expected.put("endDate", endDate);
 		expected.put("status", RowStatus.ACTIVE);
@@ -143,8 +137,6 @@ public class DepartmentParametersExtractorTest {
 		String abbrName = "abbr name";
 		String name = "name1";
 		String manager = "manager1";
-		String phone = "542534534";
-		String email = "email@email.emao;";
 		Date begDate = new Date();
 		Date endDate = new Date();
 		
@@ -156,8 +148,6 @@ public class DepartmentParametersExtractorTest {
 		entity.setAbbrName(abbrName);
 		entity.setName(name);
 		entity.setManager(manager);
-		entity.setPhone(phone);
-		entity.setEmail(email);
 		entity.setBegDate(begDate);
 		entity.setEndDate(endDate);
 		
@@ -168,8 +158,6 @@ public class DepartmentParametersExtractorTest {
 		expected.put("abbrName", abbrName);
 		expected.put("name", name);
 		expected.put("manager", manager);
-		expected.put("phone", phone);
-		expected.put("email", email);
 		expected.put("begDate", begDate);
 		expected.put("endDate", endDate);
 		

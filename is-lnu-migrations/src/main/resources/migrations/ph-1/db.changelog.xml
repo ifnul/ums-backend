@@ -5845,5 +5845,58 @@
 		</addColumn>
 		
 	</changeSet>
+		
+	<changeSet id="change db to 30.12.2014" author="illay">
 	
+		<dropColumn tableName="q_od_employeeschedule" columnName="evdate"/>
+		<addColumn tableName="q_od_employeeschedule">
+			<column name="evday" type="TIMESTAMP" remarks="Кількість днів"></column>
+		</addColumn>
+		
+		<renameTable newTableName="q_od_assetrel" oldTableName="q_od_assetref"/>
+		
+		<renameTable newTableName="q_dt_ordernewstudentitem" oldTableName="q_dt_ordernewstudent"/>
+		
+		<dropColumn tableName="q_dt_ordernewstudentitem" columnName="specialty_id"/>
+		<addColumn tableName="q_dt_ordernewstudentitem">
+			<column name="specoffer_id" type="BIGINT" remarks="Ідентифікатор пропозицій по напрямах/спеціальностях"></column>
+			<column name="isstate" type="INTEGER" remarks="Бюджет" />
+		</addColumn>
+		
+		<addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dt_ordernewstudentitem" constraintName="fk_q_dt_ordernewstudentitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
+		
+		<dropColumn tableName="q_ob_specoffer" columnName="crtdate"/>
+		<renameColumn tableName="q_lg_error" oldColumnName="clienttip" newColumnName="clientip"/>
+		<renameColumn tableName="q_lg_importexport" oldColumnName="clienttip" newColumnName="clientip"/>
+		<renameColumn tableName="q_dc_enrolment" oldColumnName="issate" newColumnName="isstate"/>
+		<renameColumn tableName="q_dc_enrolment" oldColumnName="personpapper_id" newColumnName="personpaper_id"/>
+		
+		<addColumn tableName="q_dt_enrolmentstatus">
+			<column name="isoriginal" type="BIGINT" remarks="Відмітка про подачу оригіналу до заяви абітурієнта (відмітка супроводжуватиметься статусом)"></column>
+		</addColumn>
+		
+		<addColumn tableName="q_dt_enrolmentbenefit">
+			<column name="personpaper_id" type="BIGINT" remarks="Ідентифікатор документу"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_ob_department" columnName="email"/>	
+		<dropColumn tableName="q_ob_department" columnName="phone"/>
+		
+		<addColumn tableName="q_dc_enrolment">
+			<column name="priority" type="INTEGER" remarks="Пріоритет заяви (значення повинні бути від 1 до 15)"></column>
+		</addColumn>
+		
+		<addColumn tableName="q_od_specoffersubject">
+			<column name="weightsubject" type="DOUBLE" remarks="Вага предмету - коефіцієнт (для кожного із предметів, які абітурієнт здаватиме на ЗНО, повинен встановити відповідний коефіцієнт від 0,2 до 0,5. Цифра залежить від пріоритетності предмета на тому чи іншому напрямі. Загальна сума коефіцієнтів із трьох предметів має становити 0,9)"></column>
+		</addColumn>
+		
+		<addColumn tableName="q_dc_order">
+			<column name="title" type="VARCHAR(200)" remarks="Назва наказу"></column>
+			<column name="description" type="VARCHAR(250)" remarks="Зміст наказу, деталький опис"></column>
+			<column name="timeperiod_id" type="BIGINT" remarks="Ідентифікатор часового періоду (використ. при відправленні в ЄДЕБО)"></column>
+		</addColumn>
+		
+		<addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_order" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
+	
+	</changeSet>
 </databaseChangeLog>

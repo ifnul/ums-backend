@@ -41,11 +41,9 @@ public class DepartmentResourceConverter extends AbstractConverter<DepartmentRes
 		target.setEndDate(source.getEndDate());
 		target.setBegDate(source.getBegDate());
 		target.setAbbrName(source.getAbbrName());
-		target.setEmail(source.getEmail());
 		target.setManager(source.getManager());
 		target.setName(source.getName());
 		target.setNote(source.getNote());
-		target.setPhone(source.getPhone());
 		
 		return target;
 	}

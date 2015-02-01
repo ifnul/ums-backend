@@ -22,8 +22,6 @@ object DepartmentContactIntegrationTest {
       session
         .set("departmentAbbrName", UUID.randomUUID())
         .set("departmentName", UUID.randomUUID())
-        .set("departmentPhone", UUID.randomUUID())
-        .set("departmentEmail", UUID.randomUUID())
         .set("departmentManager", UUID.randomUUID())
     })
   .exec(http("Post Department")

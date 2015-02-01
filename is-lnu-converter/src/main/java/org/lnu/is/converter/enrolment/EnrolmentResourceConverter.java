@@ -32,7 +32,7 @@ public class EnrolmentResourceConverter extends AbstractConverter<EnrolmentResou
 		target.setIsPrivilege(source.getIsPrivilege());
 		target.setIsState(source.getIsState());
 		target.setMark(source.getMark());
-
+		target.setPriority(source.getPriority());
 		if (source.getPersonId() != null) {
 			Person person = new Person();
 			person.setId(source.getPersonId());

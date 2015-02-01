@@ -52,18 +52,14 @@ public class DepartmentControllerTest extends AbstractControllerTest {
 		// Given
     	String name = "fsd department";
     	String abbrName = "fds";
-    	String email = "email";
     	String manager = "manager";
-    	String phone = "phone";
     	
     	DepartmentResource departmentResource = new DepartmentResource();
     	departmentResource.setBegDate(new Date());
     	departmentResource.setEndDate(new Date());
 		departmentResource.setAbbrName(abbrName );
 		departmentResource.setName(name);
-		departmentResource.setEmail(email);
 		departmentResource.setManager(manager);
-		departmentResource.setPhone(phone);
 		
 		// When
     	String request = getJson(departmentResource, true);
@@ -87,9 +83,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     	Long id = 1L;
     	String name = "fsd department";
     	String abbrName = "fds";
-    	String email = "email";
     	String manager = "manager";
-    	String phone = "phone";
     	
     	DepartmentResource departmentResource = new DepartmentResource();
     	departmentResource.setId(id);
@@ -97,9 +91,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     	departmentResource.setEndDate(new Date());
 		departmentResource.setAbbrName(abbrName );
 		departmentResource.setName(name);
-		departmentResource.setEmail(email);
 		departmentResource.setManager(manager);
-		departmentResource.setPhone(phone);
 		
 		MessageResource responseResource = new MessageResource(MessageType.INFO, "Department Updated");
 		
@@ -124,9 +116,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     	Long id = 1L;
     	String name = "fsd department";
     	String abbrName = "fds";
-    	String email = "email";
     	String manager = "manager";
-    	String phone = "phone";
     	
     	DepartmentResource departmentResource = new DepartmentResource();
     	departmentResource.setId(id);
@@ -134,10 +124,8 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     	departmentResource.setEndDate(new Date());
 		departmentResource.setAbbrName(abbrName );
 		departmentResource.setName(name);
-		departmentResource.setEmail(email);
 		departmentResource.setManager(manager);
-		departmentResource.setPhone(phone);
-
+		
 		// When
 		String response = getJson(departmentResource, false);
 		
@@ -171,9 +159,7 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     	Long id = 1L;
     	String name = "fsd department";
     	String abbrName = "fds";
-    	String email = "email";
     	String manager = "manager";
-    	String phone = "phone";
     	
     	DepartmentResource departmentResource = new DepartmentResource();
     	departmentResource.setId(id);
@@ -181,10 +167,8 @@ public class DepartmentControllerTest extends AbstractControllerTest {
     	departmentResource.setEndDate(new Date());
 		departmentResource.setAbbrName(abbrName );
 		departmentResource.setName(name);
-		departmentResource.setEmail(email);
 		departmentResource.setManager(manager);
-		departmentResource.setPhone(phone);
-
+		
     	long count = 100;
     	int limit = 25;
     	Integer offset = 10;

@@ -18,6 +18,7 @@ import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.optype.OperationType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 
 /**
  * Order entity.
@@ -62,6 +63,10 @@ public class Order extends InformationModel {
 	@JoinColumn(name = "parent_id")
 	private Order parent;
 	
+	@ManyToOne
+	@JoinColumn(name = "timeperiod_id")
+	private TimePeriod timePeriod;
+
 	@OneToMany(mappedBy = "order")
 	private List<OrderAssetTransfer> assetTransfers;
 	
@@ -101,6 +106,12 @@ public class Order extends InformationModel {
 	@Column(name = "evdate")
 	private Date evDate;
 
+	@Column(name = "title")
+	private String title;
+	
+	@Column(name = "description")
+	private String description;
+	
 	public OrderType getOrderType() {
 		return orderType;
 	}
@@ -269,6 +280,29 @@ public class Order extends InformationModel {
 	public void setNewStudents(final List<OrderNewStudent> newStudents) {
 		this.newStudents = newStudents;
 	}
+	public TimePeriod getTimePeriod() {
+		return timePeriod;
+	}
+
+	public void setTimePeriod(final TimePeriod timeperiod) {
+		this.timePeriod = timeperiod;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(final String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(final String description) {
+		this.description = description;
+	}
 
 	@Override
 	public int hashCode() {
@@ -283,6 +317,8 @@ public class Order extends InformationModel {
 		result = prime * result + ((evDate == null) ? 0 : evDate.hashCode());
 		result = prime * result
 				+ ((reasonText == null) ? 0 : reasonText.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		return result;
 	}
 
@@ -340,6 +376,20 @@ public class Order extends InformationModel {
 		} else if (!reasonText.equals(other.reasonText)) {
 			return false;
 		}
+		if (title == null) {
+			if (other.title != null) {
+				return false;
+			}
+		} else if (!title.equals(other.title)) {
+			return false;
+		}
+		if (description == null) {
+			if (other.description != null) {
+				return false;
+			}
+		} else if (!description.equals(other.description)) {
+			return false;
+		}
 		return true;
 	}
 
@@ -347,7 +397,7 @@ public class Order extends InformationModel {
 	public String toString() {
 		return "Order [reasonText=" + reasonText + ", docSeries=" + docSeries
 				+ ", docNum=" + docNum + ", docDate=" + docDate
-				+ ", docIssued=" + docIssued + ", evDate=" + evDate + "]";
+				+ ", docIssued=" + docIssued + ", evDate=" + evDate + ", description=" + description + "]";
 	}
 	
 }

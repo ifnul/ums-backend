@@ -67,6 +67,9 @@ public class EnrolmentResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Date endDate;
 
+	@NotNull(message = "Field required")
+	private Integer priority;
+	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/enrolments/{0}", getId());
@@ -212,6 +215,14 @@ public class EnrolmentResource extends ApiResource {
 	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
 	}
+	
+	public Integer getPriority() {
+		return priority;
+	}
+
+	public void setPriority(final Integer priority) {
+		this.priority = priority;
+	}
 
 	@Override
 	public int hashCode() {
@@ -234,6 +245,7 @@ public class EnrolmentResource extends ApiResource {
 		result = prime * result + ((personId == null) ? 0 : personId.hashCode());
 		result = prime * result + ((personPaperId == null) ? 0 : personPaperId.hashCode());
 		result = prime * result + ((specofferId == null) ? 0 : specofferId.hashCode());
+		result = prime * result + ((priority == null) ? 0 : priority.hashCode());
 		return result;
 	}
 
@@ -368,6 +380,13 @@ public class EnrolmentResource extends ApiResource {
 		} else if (!specofferId.equals(other.specofferId)) {
 			return false;
 		}
+		if (priority == null) {
+			if (other.priority != null) {
+				return false;
+			}
+		} else if (!priority.equals(other.priority)) {
+			return false;
+		}
 		return true;
 	}
 
@@ -376,7 +395,7 @@ public class EnrolmentResource extends ApiResource {
 		return "EnrolmentResource [personId=" + personId + ", specofferId=" + specofferId + ", departmentId=" + departmentId + ", personPaperId="
 				+ personPaperId + ", enrolmentTypeId=" + enrolmentTypeId + ", parentId=" + parentId + ", mark=" + mark + ", docSeries=" + docSeries
 				+ ", docNum=" + docNum + ", docText=" + docText + ", isState=" + isState + ", isContract=" + isContract + ", isPrivilege=" + isPrivilege
-				+ ", isHostel=" + isHostel + ", evDate=" + evDate + ", begDate=" + begDate + ", endDate=" + endDate + "]";
+				+ ", isHostel=" + isHostel + ", evDate=" + evDate + ", begDate=" + begDate + ", endDate=" + endDate + ", priority=" + priority + "]";
 	}
 
 }

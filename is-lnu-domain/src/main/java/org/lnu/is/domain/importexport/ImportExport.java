@@ -36,8 +36,8 @@ public class ImportExport extends InformationModel {
 	@Column(name = "clientversion")
 	private String clientVersion;
 	
-	@Column(name = "clienttip")
-	private String clientTip;
+	@Column(name = "clientip")
+	private String clientIp;
 
 	public String getName() {
 		return name;
@@ -78,6 +78,14 @@ public class ImportExport extends InformationModel {
 	public void setClientName(final String clientName) {
 		this.clientName = clientName;
 	}
+	
+	public String getClientIp() {
+		return clientIp;
+	}
+
+	public void setClientIp(final String clientIp) {
+		this.clientIp = clientIp;
+	}
 
 	public String getClientVersion() {
 		return clientVersion;
@@ -87,14 +95,6 @@ public class ImportExport extends InformationModel {
 		this.clientVersion = clientVersion;
 	}
 
-	public String getClientTip() {
-		return clientTip;
-	}
-
-	public void setClientTip(final String clientTip) {
-		this.clientTip = clientTip;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -102,7 +102,7 @@ public class ImportExport extends InformationModel {
 		result = prime * result
 				+ ((clientName == null) ? 0 : clientName.hashCode());
 		result = prime * result
-				+ ((clientTip == null) ? 0 : clientTip.hashCode());
+				+ ((clientIp == null) ? 0 : clientIp.hashCode());
 		result = prime * result
 				+ ((clientVersion == null) ? 0 : clientVersion.hashCode());
 		result = prime * result
@@ -133,11 +133,11 @@ public class ImportExport extends InformationModel {
 		} else if (!clientName.equals(other.clientName)) {
 			return false;
 		}
-		if (clientTip == null) {
-			if (other.clientTip != null) {
+		if (clientIp == null) {
+			if (other.clientIp != null) {
 				return false;
 			}
-		} else if (!clientTip.equals(other.clientTip)) {
+		} else if (!clientIp.equals(other.clientIp)) {
 			return false;
 		}
 		if (clientVersion == null) {
@@ -183,7 +183,7 @@ public class ImportExport extends InformationModel {
 		return "ImportExport [name=" + name + ", invNum=" + invNum + ", description="
 				+ description + ", clientos=" + clientos + ", clientName="
 				+ clientName + ", clientVersion=" + clientVersion
-				+ ", clientTip=" + clientTip + "]";
+				+ ", clientIp=" + clientIp + "]";
 	}
 	
 }

@@ -13,6 +13,7 @@ import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.order.OrderType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**
@@ -44,6 +45,9 @@ public class OrderParametersExtractor extends AbstractParametersExtractor<Order>
 	@Resource(name = "orderDao")
 	private Dao<Order, Long> orderDao;
 	
+	@Resource(name = "timePeriodDao")
+	private Dao<TimePeriod, Long> timePeriodDao;
+	
 	@Override
 	public Map<String, Object> getParameters(final Order entity, final Map<String, Object> parameters) {
 		
@@ -54,6 +58,7 @@ public class OrderParametersExtractor extends AbstractParametersExtractor<Order>
 		addParameter(entity.getOpType(), operationTypeDao, "opType", parameters);
 		addParameter(entity.getReason(), reasonDao, "reason", parameters);
 		addParameter(entity.getParent(), orderDao, "parent", parameters);
+		addParameter(entity.getTimePeriod(), timePeriodDao, "timePeriod", parameters);
 		
 		addParameter(entity.getReasonText(), "reasonText", parameters);
 		addParameter(entity.getDocSeries(), "docSeries", parameters);
@@ -61,7 +66,8 @@ public class OrderParametersExtractor extends AbstractParametersExtractor<Order>
 		addParameter(entity.getDocDate(), "docDate", parameters);
 		addParameter(entity.getDocIssued(), "docIssued", parameters);
 		addParameter(entity.getEvDate(), "evDate", parameters);
-		
+		addParameter(entity.getTitle(), "title", parameters);
+		addParameter(entity.getDescription(), "description", parameters);
 		return parameters;
 	}
 

@@ -19,6 +19,7 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 	private static final String PERSONPAPER_CONDITION = "e.personPaper = :personPaper ";
 	private static final String ENROLMENTTYPE_CONDITION = "e.enrolmentType = :enrolmentType ";
 	private static final String PARENT_CONDITION = "e.parent = :parent ";
+	private static final String PRIORITY_CONDITION = "e.priority = :priority ";
 
 	private static final String MARK_CONDITION = "e.mark LIKE CONCAT('%',:mark,'%') ";
 	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
@@ -50,6 +51,7 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 				.addOrCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
 				.addOrCondition(ENROLMENTTYPE_CONDITION, context.getEnrolmentType())
 				.addOrCondition(PARENT_CONDITION, context.getParent())
+				.addOrCondition(PRIORITY_CONDITION, context.getPriority())
 				.addOrCondition(MARK_CONDITION, context.getMark())
 				.addOrCondition(DOCSERIES_CONDITION, context.getDocSeries())
 				.addOrCondition(DOCNUM_CONDITION, context.getDocNum())

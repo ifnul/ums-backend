@@ -37,6 +37,9 @@ public class OrderResource extends ApiResource {
 	private Long departmentId;
 	
 	@NotNull(message = "Field required")
+	private Long timePeriodId;
+	
+	@NotNull(message = "Field required")
 	private Long reasonId;
 	
 	@NotNull(message = "Field required")
@@ -56,7 +59,14 @@ public class OrderResource extends ApiResource {
 
 	@NotNull(message = "Field required")
 	private String docIssued;
-
+	
+	@NotNull(message = "Field required")
+	private String title;
+	
+	@NotNull(message = "Field required")
+	private String description;
+	 
+	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/orders/{0}", getId());
@@ -178,6 +188,30 @@ public class OrderResource extends ApiResource {
 	public void setEvDate(final Date evDate) {
 		this.evDate = evDate;
 	}
+	
+	public Long getTimePeriodId() {
+		return timePeriodId;
+	}
+
+	public void setTimePeriodId(final Long timePeriodId) {
+		this.timePeriodId = timePeriodId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(final String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(final String description) {
+		this.description = description;
+	}
 
 	@Override
 	public int hashCode() {
@@ -207,6 +241,9 @@ public class OrderResource extends ApiResource {
 				+ ((reasonId == null) ? 0 : reasonId.hashCode());
 		result = prime * result
 				+ ((reasonText == null) ? 0 : reasonText.hashCode());
+		result = prime * result + ((timePeriodId == null) ? 0 : timePeriodId.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		return result;
 	}
 
@@ -320,18 +357,41 @@ public class OrderResource extends ApiResource {
 		} else if (!reasonText.equals(other.reasonText)) {
 			return false;
 		}
+		if (timePeriodId == null) {
+			if (other.timePeriodId != null) {
+				return false;
+			}
+		} else if (!timePeriodId.equals(other.timePeriodId)) {
+			return false;
+		}
+		if (title == null) {
+			if (other.title != null) {
+				return false;
+			}
+		} else if (!title.equals(other.title)) {
+			return false;
+		}
+		if (description == null) {
+			if (other.description != null) {
+				return false;
+			}
+		} else if (!description.equals(other.description)) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "OrderResource [orderTypeId=" + orderTypeId + ", employeeId="
-				+ employeeId + ", assetId=" + assetId + ", partnerId="
-				+ partnerId + ", opTypeId=" + operationTypeId + ", departmentId="
-				+ departmentId + ", reasonId=" + reasonId + ", parentId="
-				+ parentId + ", reasonText=" + reasonText + ", docSeries="
-				+ docSeries + ", docNum=" + docNum + ", docDate=" + docDate
-				+ ", docIssued=" + docIssued + ", evDate=" + evDate + "]";
+		return "OrderResource [parentId=" + parentId + ", orderTypeId="
+				+ orderTypeId + ", employeeId=" + employeeId + ", assetId="
+				+ assetId + ", partnerId=" + partnerId + ", operationTypeId="
+				+ operationTypeId + ", departmentId=" + departmentId
+				+ ", timePeriodId=" + timePeriodId + ", reasonId=" + reasonId
+				+ ", reasonText=" + reasonText + ", docSeries=" + docSeries
+				+ ", docNum=" + docNum + ", docDate=" + docDate + ", evDate="
+				+ evDate + ", docIssued=" + docIssued + ", title=" + title
+				+ ", description=" + description + "]";
 	}
 
 }
