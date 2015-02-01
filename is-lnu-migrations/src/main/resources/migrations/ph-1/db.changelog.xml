@@ -5719,4 +5719,131 @@
 		
 	</changeSet>
 	
+	<changeSet id="add some comments to columns (2015-02-01-17-25)" author="OlehZanevych">
+	
+		<dropColumn tableName="q_od_absence" columnName="person_id"/>
+		<addColumn tableName="q_od_absence">
+			<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони"></column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_absence" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
+		
+		<dropColumn tableName="q_od_absence" columnName="absencetype_id"/>
+		<addColumn tableName="q_od_absence">
+			<column name="absencetype_id" type="BIGINT" remarks="Ідентифікатор довідника типів &quot;прогулів&quot; (відсутності на робочому місці)"></column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="absencetype_id" baseTableName="q_od_absence" constraintName="fk_q_rf_absencetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_absencetype"/>
+		
+		<dropColumn tableName="q_od_absence" columnName="begdate"/>
+		<addColumn tableName="q_od_absence">
+			<column name="begdate" type="TIMESTAMP" remarks="Дата початку відсутності на роботі"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_od_absence" columnName="enddate"/>
+		<addColumn tableName="q_od_absence">
+			<column name="enddate" type="TIMESTAMP" remarks="Дата закінчення відсутності на роботі"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_od_employeeprofession" columnName="post_id"/>
+		<addColumn tableName="q_od_employeeprofession">
+			<column name="post_id" type="BIGINT" remarks="Ідентифікатор посади">
+    			<constraints nullable="false"/>
+    		</column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="post_id" baseTableName="q_od_employeeprofession" constraintName="fk_q_ob_post_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_post"/>
+		
+		<dropColumn tableName="q_od_employeeprofession" columnName="begdate"/>
+		<addColumn tableName="q_od_employeeprofession">
+			<column name="begdate" type="TIMESTAMP" remarks="Дата початку професії працівника"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_od_employeeprofession" columnName="enddate"/>
+		<addColumn tableName="q_od_employeeprofession">
+			<column name="enddate" type="TIMESTAMP" remarks="Дата закінчення професії працівника"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_ob_publicactivity" columnName="name"/>
+		<addColumn tableName="q_ob_publicactivity">
+			<column name="name" type="VARCHAR(200)" remarks="Назва активності">
+    			<constraints nullable="false"/>
+    		</column>
+		</addColumn>
+		
+		<dropColumn tableName="q_ob_publicactivity" columnName="begdate"/>
+		<addColumn tableName="q_ob_publicactivity">
+			<column name="begdate" type="TIMESTAMP" remarks="Дата початку"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_ob_publicactivity" columnName="enddate"/>
+		<addColumn tableName="q_ob_publicactivity">
+			<column name="enddate" type="TIMESTAMP" remarks="Дата закінчення"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_od_personpension" columnName="pensiontype_id"/>
+		<addColumn tableName="q_od_personpension">
+			<column name="pensiontype_id" type="BIGINT" remarks="Ідентифікатор довідника типу пенсій">
+    			<constraints nullable="false"/>
+    		</column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="pensiontype_id" baseTableName="q_od_personpension" constraintName="fk_q_rf_pensiontype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_pensiontype"/>
+		
+		<dropColumn tableName="q_od_personpension" columnName="begdate"/>
+		<addColumn tableName="q_od_personpension">
+			<column name="begdate" type="TIMESTAMP" remarks="Дата початку"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_od_personpension" columnName="enddate"/>
+		<addColumn tableName="q_od_personpension">
+			<column name="enddate" type="TIMESTAMP" remarks="Дата закінчення"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_od_publicactivityaward" columnName="enrolsubject_id"/>
+		<addColumn tableName="q_od_publicactivityaward">
+			<column name="enrolsubject_id" type="BIGINT" remarks="Ідентифікатор дисципліни ЗНО абітурієнта">
+    			<constraints nullable="false"/>
+    		</column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="enrolsubject_id" baseTableName="q_od_publicactivityaward" constraintName="fk_q_rf_enrolsubject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_enrolsubject"/>
+		
+		<dropColumn tableName="q_od_personaward" columnName="bonus"/>
+		<addColumn tableName="q_od_personaward">
+			<column name="bonus" type="DOUBLE" remarks="Бонус (додаткові бали)"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_od_employeeschedule" columnName="employee_id"/>
+		<addColumn tableName="q_od_employeeschedule">
+			<column name="employee_id" type="BIGINT" remarks="Ідентифікатор працівника">
+            	<constraints nullable="false"/>
+            </column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_od_employeeschedule" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
+		
+		<dropColumn tableName="q_od_employeeschedule" columnName="evdate"/>
+		<addColumn tableName="q_od_employeeschedule">
+			<column name="evdate" type="TIMESTAMP" remarks="Кількість днів"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_od_personfamily" columnName="person_id"/>
+		<addColumn tableName="q_od_personfamily">
+			<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони"></column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_od_personfamily" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
+		
+		<dropColumn tableName="q_od_personfamily" columnName="familytype_id"/>
+		<addColumn tableName="q_od_personfamily">
+			<column name="familytype_id" type="BIGINT" remarks="Ідентифікатор типу родинних зв'язків"></column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="familytype_id" baseTableName="q_od_personfamily" constraintName="fk_q_rf_familytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_familytype"/>
+		
+		<dropColumn tableName="q_od_personfamily" columnName="name"/>
+		<addColumn tableName="q_od_personfamily">
+			<column name="name" type="VARCHAR(200)" remarks="Повна назва члена сім'ї"></column>
+		</addColumn>
+		
+		<dropColumn tableName="q_od_personfamily" columnName="birthdate"/>
+		<addColumn tableName="q_od_personfamily">
+			<column name="birthdate" type="TIMESTAMP" remarks="Дата народження члена сім'ї"></column>
+		</addColumn>
+		
+	</changeSet>
+	
 </databaseChangeLog>
