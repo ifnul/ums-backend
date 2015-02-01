@@ -10,6 +10,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.security.service.SessionService;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * Abstract parameters extractor with some operations.
@@ -22,11 +23,10 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	@Resource(name = "sessionService")
 	private SessionService sessionService;
 
-	//TODO : Change to @Value annotation and remove bean from context.
-	@Resource(name = "activeFiltering")
+	@Value("${active.filtering}")
 	private Boolean active;
 	
-	@Resource(name = "securityFiltering")
+	@Value("${security.filtering}")
 	private Boolean security;
 	
 	@Override

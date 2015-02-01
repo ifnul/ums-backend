@@ -9,19 +9,6 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<!-- Database properties -->
-		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-		<jdbc.host>localhost</jdbc.host>
-		<jdbc.port>5432</jdbc.port>
-		<jdbc.databasename>lnu</jdbc.databasename>
-		<jdbc.databaseurl>jdbc:postgresql://${jdbc.host}:${jdbc.port}/${jdbc.databasename}</jdbc.databaseurl>
-		<jdbc.username>postgres</jdbc.username>
-		<jdbc.password>postgres</jdbc.password>
-		
-		<!-- JPA Properties -->
-		<jpa.database>POSTGRESQL</jpa.database>
-		<jpa.showSql>true</jpa.showSql>
-
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>
 	</properties>

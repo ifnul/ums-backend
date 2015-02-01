@@ -16,10 +16,6 @@
 	</parent>
 
 	<properties>
-		<!-- Migrations properties -->
-		<migration.changelog.name>db.changelog.xml</migration.changelog.name>
-		<migrations.location>src/main/resources/migrations/${migration.changelog.name}</migrations.location>
-
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>
 	</properties>

@@ -49,7 +49,6 @@ public class BroadcastingEmailConverter extends AbstractConverter<BroadcastingMe
 
 	/**
 	 * Methods gets recipients by groups and separate recipients.
-	 * TODO: Retrieve Recipients from groups.
 	 * @param source
 	 * @return List of recipients.
 	 */

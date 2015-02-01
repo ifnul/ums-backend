@@ -14,14 +14,6 @@
 	<import resource="verifier-context.xml"/>
 	<import resource="enhancers-context.xml"/>
 
-	<bean id="activeFiltering" class="java.lang.Boolean">
-    	<constructor-arg value="${active.filtering}"/>
-	</bean>
-
-	<bean id="securityFiltering" class="java.lang.Boolean">
-    	<constructor-arg value="${security.filtering}"/>
-	</bean>
-
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

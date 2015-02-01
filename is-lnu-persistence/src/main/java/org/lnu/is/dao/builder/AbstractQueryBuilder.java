@@ -1,8 +1,7 @@
 package org.lnu.is.dao.builder;
 
-import javax.annotation.Resource;
-
 import org.lnu.is.domain.common.RowStatus;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * Abstract query builder.
@@ -22,11 +21,10 @@ public abstract class AbstractQueryBuilder<E> implements QueryBuilder<E> {
 	private static final String STATUS_CONDITION = "e.status=:status ";
 	private static final String GROUP_CONDITION = "e.crtUserGroup IN (:userGroups) ";
 
-	//TODO: Change to @Value annotation and remove bean from context.
-	@Resource(name = "activeFiltering")
+	@Value("${active.filtering}")
 	private Boolean active;
-	
-	@Resource(name = "securityFiltering")
+
+	@Value("${security.filtering}")
 	private Boolean security;
 	
 	/**
