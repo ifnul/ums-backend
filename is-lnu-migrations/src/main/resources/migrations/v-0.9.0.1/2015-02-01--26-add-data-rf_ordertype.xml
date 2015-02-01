@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="add data rf_ordertype rows[1,9]" author="illay">
+        <insert tableName="q_rf_ordertype">
+            <column name="abbrname">ABITUR</column>
+            <column name="name">Протоколи та накази на зарахування</column>
+            <column name="parent_id"></column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_ordertype">
+            <column name="abbrname"></column>
+            <column name="name">Протокол основний</column>
+            <column name="parent_id">1</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_ordertype">
+            <column name="abbrname"></column>
+            <column name="name">Протокол додатковий</column>
+            <column name="parent_id">1</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_ordertype">
+            <column name="abbrname"></column>
+            <column name="name">Протокол на поновлення</column>
+            <column name="parent_id">1</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_ordertype">
+            <column name="abbrname"></column>
+            <column name="name">Протокол - іноземці</column>
+            <column name="parent_id">1</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_ordertype">
+            <column name="abbrname"></column>
+            <column name="name">Наказ основний</column>
+            <column name="parent_id">1</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_ordertype">
+            <column name="abbrname"></column>
+            <column name="name">Наказ додатковий</column>
+            <column name="parent_id">1</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_ordertype">
+            <column name="abbrname"></column>
+            <column name="name">Наказ на поновлення</column>
+            <column name="parent_id">1</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_ordertype">
+            <column name="abbrname"></column>
+            <column name="name">Наказ  іноземці</column>
+            <column name="parent_id">1</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

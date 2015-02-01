@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="add data rf_timeperiodtype rows[1,8]" author="illay">
+        <insert tableName="q_rf_timeperiodtype">
+            <column name="abbrname">Вст. к.</column>
+            <column name="name">Вступна кампанія</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_timeperiodtype">
+            <column name="abbrname">eduyear</column>
+            <column name="name">навчальний рік</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_timeperiodtype">
+            <column name="abbrname">calendaryear</column>
+            <column name="name">календарний рік</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_timeperiodtype">
+            <column name="abbrname">course</column>
+            <column name="name">курс</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_timeperiodtype">
+            <column name="abbrname">semestr</column>
+            <column name="name">семестр</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_timeperiodtype">
+            <column name="abbrname">month</column>
+            <column name="name">місяць</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_timeperiodtype">
+            <column name="abbrname">week</column>
+            <column name="name">тиждень</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_timeperiodtype">
+            <column name="abbrname">weekday</column>
+            <column name="name">день тижня</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

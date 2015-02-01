@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="add data rf_paperusage rows[1,6]" author="illay">
+        <insert tableName="q_rf_paperusage">
+            <column name="abbrname">різне</column>
+            <column name="name">різне</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_paperusage">
+            <column name="abbrname">атестати</column>
+            <column name="name">документи про освіту- підстави для вступу</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_paperusage">
+            <column name="abbrname">посвідчення</column>
+            <column name="name">посвідчення особи- підстави для вступу</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_paperusage">
+            <column name="abbrname">заохочення</column>
+            <column name="name">документи про заохочення та нагороди</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_paperusage">
+            <column name="abbrname">пільги</column>
+            <column name="name">документи про пільги</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_paperusage">
+            <column name="abbrname">оцінки</column>
+            <column name="name">документи з оцінками для вступу</column>
+            <column name="uid"></column>
+            <column name="utid"></column>
+            <column name="uapp"></column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
