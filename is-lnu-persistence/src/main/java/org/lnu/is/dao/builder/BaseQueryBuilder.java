@@ -90,6 +90,22 @@ public class BaseQueryBuilder {
 	 * @param parameter
 	 * @return this.
 	 */
+	public BaseQueryBuilder addAndCondition(final String condition, final List<?> parameter) {
+		
+		if (parameter != null && !parameter.isEmpty()) {
+			and();
+			getConditions().add(condition);
+		}
+		
+		return this;
+	}
+
+	/**
+	 * Method for adding and conditions.
+	 * @param condition
+	 * @param parameter
+	 * @return this.
+	 */
 	public BaseQueryBuilder addAndCondition(final String condition) {
 		and();
 		getConditions().add(condition);

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.resource.search.PagedRequest;
 
 public class PagedRequestConverterTest {
@@ -21,13 +21,13 @@ public class PagedRequestConverterTest {
 		source.setLimit(limit);
 		source.setOffset(offset);
 		
-		PagedSearch<Department> expected = new PagedSearch<Department>();
+		MultiplePagedSearch<Department> expected = new MultiplePagedSearch<Department>();
 		expected.setLimit(limit);
 		expected.setOffset(offset);
 
 		
 		// When
-		PagedSearch<Department> actual = unit.convert(source);
+		MultiplePagedSearch<Department> actual = unit.convert(source);
 
 		// Then
 		assertEquals(expected, actual);

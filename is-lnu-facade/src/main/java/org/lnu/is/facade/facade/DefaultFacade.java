@@ -5,7 +5,7 @@ import java.util.List;
 import org.lnu.is.converter.Converter;
 import org.lnu.is.domain.Model;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.resource.ApiResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
@@ -32,7 +32,7 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends ApiResource, S
 
 	private Converter<ENTITY, RESOURCE> entityConverter;
 
-	private Converter<PagedRequest<RESOURCE>, PagedSearch<ENTITY>> pagedRequestConverter;
+	private Converter<PagedRequest<RESOURCE>, MultiplePagedSearch<ENTITY>> pagedRequestConverter;
 
 	private Converter<PagedResult<ENTITY>, PagedResultResource<RESOURCE>> pagedResultConverter;
 	
@@ -93,7 +93,7 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends ApiResource, S
 	public PagedResultResource<RESOURCE> getResources(final PagedRequest<RESOURCE> request) {
 		LOG.info("Getting paged result resource for {0}: {1}", request.getResource().getClass().getSimpleName(), request);
 
-		PagedSearch<ENTITY> pagedSearch = pagedRequestConverter.convert(request);
+		MultiplePagedSearch<ENTITY> pagedSearch = pagedRequestConverter.convert(request);
 		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
 
 		PagedResult<ENTITY> pagedResult = service.getEntities(pagedSearch);
@@ -123,7 +123,7 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends ApiResource, S
 	}
 	
 	@Required
-	public void setPagedRequestConverter(final Converter<PagedRequest<RESOURCE>, PagedSearch<ENTITY>> pagedRequestConverter) {
+	public void setPagedRequestConverter(final Converter<PagedRequest<RESOURCE>, MultiplePagedSearch<ENTITY>> pagedRequestConverter) {
 		this.pagedRequestConverter = pagedRequestConverter;
 	}
 	
@@ -163,7 +163,7 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends ApiResource, S
 		return entityConverter;
 	}
 
-	public Converter<PagedRequest<RESOURCE>, PagedSearch<ENTITY>> getPagedRequestConverter() {
+	public Converter<PagedRequest<RESOURCE>, MultiplePagedSearch<ENTITY>> getPagedRequestConverter() {
 		return pagedRequestConverter;
 	}
 

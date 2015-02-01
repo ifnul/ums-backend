@@ -16,6 +16,7 @@ public class BroadcastingConverter extends AbstractConverter<BroadcastingMessage
 	@Override
 	public BroadcastingMessageResource convert(final BroadcastingMessage source, final BroadcastingMessageResource target) {
 		
+		target.setId(source.getId());
 		target.setContent(source.getContent());
 		target.setTopic(source.getTopic());
 		

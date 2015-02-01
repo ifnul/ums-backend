@@ -1,7 +1,7 @@
 package org.lnu.is.service;
 
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 /**
  * Common interface for all services.
@@ -42,6 +42,6 @@ public interface Service<ENTITY, KEY> {
 	 * @param search
 	 * @return paged result with ready entities.
 	 */
-	PagedResult<ENTITY> getEntities(PagedSearch<ENTITY> search);
+	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITY> search);
 
 }

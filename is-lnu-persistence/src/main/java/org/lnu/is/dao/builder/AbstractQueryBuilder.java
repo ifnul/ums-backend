@@ -2,7 +2,6 @@ package org.lnu.is.dao.builder;
 
 import javax.annotation.Resource;
 
-import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
 
 /**
@@ -19,7 +18,7 @@ import org.lnu.is.domain.common.RowStatus;
  *
  * @param <E>
  */
-public abstract class AbstractQueryBuilder<E extends Model> implements QueryBuilder<E> {
+public abstract class AbstractQueryBuilder<E> implements QueryBuilder<E> {
 	private static final String STATUS_CONDITION = "e.status=:status ";
 	private static final String GROUP_CONDITION = "e.crtUserGroup IN (:userGroups) ";
 

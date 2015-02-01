@@ -17,7 +17,7 @@ import org.lnu.is.dao.dao.DefaultDao;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
@@ -114,7 +114,7 @@ public class DefaultServiceTest {
 		Department entity1 = new Department();
 		Map<String, Object> parameters = Collections.<String, Object>singletonMap("some key", "some value");
 		Class<Department> clazz = Department.class;
-		PagedSearch<Department> search = new PagedSearch<Department>(offset, limit, null, clazz);
+		MultiplePagedSearch<Department> search = new MultiplePagedSearch<Department>(offset, limit, null, clazz);
 		search.setEntity(entity1);
 
 		long count = 100;
@@ -123,7 +123,7 @@ public class DefaultServiceTest {
 		
 		// When
 		when(parametersExtractor.getParameters(any(Department.class))).thenReturn(parameters);
-		when(defaultDao.getEntities(Matchers.<PagedSearch<Department>>any())).thenReturn(expected);
+		when(defaultDao.getEntities(Matchers.<MultiplePagedSearch<Department>>any())).thenReturn(expected);
 		
 		PagedResult<Department> actual = unit.getEntities(search);
 

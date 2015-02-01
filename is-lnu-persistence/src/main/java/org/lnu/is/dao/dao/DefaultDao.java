@@ -3,9 +3,9 @@ package org.lnu.is.dao.dao;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.Model;
-import org.lnu.is.pagination.PagedQuerySearch;
+import org.lnu.is.pagination.MultiplePagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.queries.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,13 +53,13 @@ public class DefaultDao<ENTITY extends Model, KEY> implements Dao<ENTITY, KEY> {
 	}
 
 	@Override
-	public PagedResult<ENTITY> getEntities(final PagedSearch<ENTITY> pagedSearch) {
+	public PagedResult<ENTITY> getEntities(final MultiplePagedSearch<ENTITY> pagedSearch) {
 		LOG.info("Getting paged result for {}: {}", getEntityClass().getSimpleName(), pagedSearch);
 		
 		String querySql = queryBuilder.build(pagedSearch.getEntity());
 		Query<ENTITY> queries = new Query<ENTITY>(getEntityClass(), querySql);
 		
-		PagedQuerySearch<ENTITY> pagedQuerySearch = new PagedQuerySearch<ENTITY>(queries, pagedSearch.getOffset(), 
+		MultiplePagedQuerySearch<ENTITY> pagedQuerySearch = new MultiplePagedQuerySearch<ENTITY>(queries, pagedSearch.getOffset(), 
 				pagedSearch.getLimit(), pagedSearch.getParameters(), getEntityClass());
 		
 		return persistenceManager.search(pagedQuerySearch);

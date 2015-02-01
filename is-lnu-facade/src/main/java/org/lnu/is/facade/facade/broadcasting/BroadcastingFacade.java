@@ -19,17 +19,24 @@ import org.springframework.transaction.annotation.Transactional;
 public class BroadcastingFacade extends DefaultFacade<BroadcastingMessage, BroadcastingMessageResource, DefaultService<BroadcastingMessage, Long, Dao<BroadcastingMessage, Long>>, Long> {
 
 	private Converter<BroadcastingMessageResource, Email> broadcastResourceEmailConverter;
+
+	private Converter<Email, BroadcastingMessageResource> emailBroadcastingConverter;
+
+	private Converter<BroadcastingMessageResource, BroadcastingMessageResource> broadcastingConverter;
 	
 	private MailService<Email> mailService;
-	
+
 	@Override
 	public BroadcastingMessageResource createResource(final BroadcastingMessageResource resource) {
+		BroadcastingMessageResource createdResource = super.createResource(resource);
 		Email email = broadcastResourceEmailConverter.convert(resource);
 		mailService.send(email);
-		BroadcastingMessageResource createdResource = super.createResource(resource);
-		// TODO: Retrieve email results, how much messages was send and enhance response 
-		// with stat
-		return createdResource;
+		
+		BroadcastingMessageResource result = new BroadcastingMessageResource();
+		emailBroadcastingConverter.convert(email, result);
+		broadcastingConverter.convert(createdResource, result);
+		
+		return result;
 	}
 
 	public void setBroadcastResourceEmailConverter(final Converter<BroadcastingMessageResource, Email> broadcastResourceEmailConverter) {
@@ -38,6 +45,14 @@ public class BroadcastingFacade extends DefaultFacade<BroadcastingMessage, Broad
 
 	public void setMailService(final MailService<Email> mailService) {
 		this.mailService = mailService;
+	}
+
+	public void setEmailBroadcastingConverter(final Converter<Email, BroadcastingMessageResource> emailBroadcastingConverter) {
+		this.emailBroadcastingConverter = emailBroadcastingConverter;
+	}
+
+	public void setBroadcastinConverter(final Converter<BroadcastingMessageResource, BroadcastingMessageResource> broadcastinConverter) {
+		this.broadcastingConverter = broadcastinConverter;
 	}
 
 }

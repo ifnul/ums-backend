@@ -5,7 +5,7 @@ import java.util.Map;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.springframework.beans.factory.annotation.Required;
 
 /**
@@ -48,7 +48,7 @@ public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implement
 	}
 
 	@Override
-	public PagedResult<ENTITY> getEntities(final PagedSearch<ENTITY> search) {
+	public PagedResult<ENTITY> getEntities(final MultiplePagedSearch<ENTITY> search) {
 		Map<String, Object> parameters = parametersExtractor.getParameters(search.getEntity());
 		search.setParameters(parameters);
 		

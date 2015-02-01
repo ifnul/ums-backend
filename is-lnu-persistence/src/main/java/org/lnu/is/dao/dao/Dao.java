@@ -1,7 +1,7 @@
 package org.lnu.is.dao.dao;
 
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 /**
  * Interface, that has all methods, that are needed 
@@ -43,6 +43,6 @@ public interface Dao<ENTITY, KEY> {
 	 * @param pagedSearch
 	 * @return paged result.
 	 */
-	PagedResult<ENTITY> getEntities(PagedSearch<ENTITY> pagedSearch);
+	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITY> pagedSearch);
 }
 

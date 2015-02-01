@@ -1,7 +1,7 @@
 package org.lnu.is.converter.search;
 
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.resource.search.PagedRequest;
 import org.springframework.stereotype.Component;
 
@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
  * @param <T> Entity class.
  */
 @Component("pagedRequestConverter")
-public class PagedRequestConverter<T> extends AbstractConverter<PagedRequest<?>, PagedSearch<T>> {
+public class PagedRequestConverter<T> extends AbstractConverter<PagedRequest<?>, MultiplePagedSearch<T>> {
 
 	@Override
-	public PagedSearch<T> convert(final PagedRequest<?> source, final PagedSearch<T> target) {
+	public MultiplePagedSearch<T> convert(final PagedRequest<?> source, final MultiplePagedSearch<T> target) {
 		
 		target.setOffset(source.getOffset());
 		target.setLimit(source.getLimit());
@@ -26,8 +26,8 @@ public class PagedRequestConverter<T> extends AbstractConverter<PagedRequest<?>,
 	}
 
 	@Override
-	public PagedSearch<T> convert(final PagedRequest<?> source) {
-		return convert(source, new PagedSearch<T>());
+	public MultiplePagedSearch<T> convert(final PagedRequest<?> source) {
+		return convert(source, new MultiplePagedSearch<T>());
 	}
 
 }

@@ -15,8 +15,8 @@ import org.lnu.is.domain.broadcasting.BroadcastingMessage;
 import org.lnu.is.mailing.exception.MailException;
 import org.lnu.is.mailing.model.Email;
 import org.lnu.is.mailing.service.MailService;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
 import org.lnu.is.resource.broadcasting.BroadcastingMessageResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
@@ -44,7 +44,7 @@ public class BroadcastingFacadeTest {
 	private DefaultService<BroadcastingMessage, Long, Dao<BroadcastingMessage, Long>> service;
 
 	@Mock
-	private Converter<PagedRequest<BroadcastingMessageResource>, PagedSearch<BroadcastingMessage>> pagedRequestConverter;
+	private Converter<PagedRequest<BroadcastingMessageResource>, MultiplePagedSearch<BroadcastingMessage>> pagedRequestConverter;
 
 	@Mock
 	private Converter<BroadcastingMessage, BroadcastingMessageResource> entityDetailsConverter;
@@ -54,6 +54,12 @@ public class BroadcastingFacadeTest {
 
 	@Mock
 	private Converter<BroadcastingMessageResource, Email> broadcastResourceEmailConverter;
+	
+	@Mock
+	private Converter<Email, BroadcastingMessageResource> emailBroadcastingConverter;
+
+	@Mock
+	private Converter<BroadcastingMessageResource, BroadcastingMessageResource> broadcastingConverter;
 	
 	@Mock
 	private MailService<Email> mailService;
@@ -86,11 +92,11 @@ public class BroadcastingFacadeTest {
 		when(resourceConverter.convert(any(BroadcastingMessageResource.class))).thenReturn(broadcastingMessage);
 		when(entityConverter.convert(any(BroadcastingMessage.class))).thenReturn(expected);
 		when(broadcastResourceEmailConverter.convert(any(BroadcastingMessageResource.class))).thenReturn(email);
-		
 		BroadcastingMessageResource actual = unit.createResource(expected);
 
 		// Then
-		verify(broadcastResourceEmailConverter).convert(expected);
+		verify(emailBroadcastingConverter).convert(any(Email.class), any(BroadcastingMessageResource.class));
+		verify(broadcastingConverter).convert(any(BroadcastingMessageResource.class), any(BroadcastingMessageResource.class));
 		verify(mailService).send(email);
 		
 		assertEquals(expected, actual);

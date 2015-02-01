@@ -29,7 +29,7 @@ import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.User;
-import org.lnu.is.pagination.PagedQuerySearch;
+import org.lnu.is.pagination.MultiplePagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
 import org.lnu.is.security.exception.AccessDeniedException;
@@ -313,7 +313,7 @@ public class DefaultPersistenceManagerTest {
 		Integer limit = 20;
 		Map<String, Object> parameters = Collections.emptyMap();
 		Class<Department> clazz = Department.class;
-		PagedQuerySearch<Department> request = new PagedQuerySearch<Department>(query, offset, limit, parameters, clazz);
+		MultiplePagedQuerySearch<Department> request = new MultiplePagedQuerySearch<Department>(query, offset, limit, parameters, clazz);
 		
 		long count = 100L;
 		Department entity1 = new Department();
@@ -352,7 +352,7 @@ public class DefaultPersistenceManagerTest {
 		parameters.put("parameter2", new Object());
 		
 		Class<Department> clazz = Department.class;
-		PagedQuerySearch<Department> request = new PagedQuerySearch<Department>(query, offset, limit, parameters, clazz);
+		MultiplePagedQuerySearch<Department> request = new MultiplePagedQuerySearch<Department>(query, offset, limit, parameters, clazz);
 		
 		long count = 100L;
 		Department entity1 = new Department();
@@ -397,6 +397,29 @@ public class DefaultPersistenceManagerTest {
 		// Then
 		verify(entityManager).createQuery(querySql, query.getClazz());
 		verify(typedQuery).getSingleResult();
+		verify(typedQuery).setParameter("abbrName", abbrName);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetMultipleResult() throws Exception {
+		String querySql = "SELECT d FROM Department d WHERE d.abbrName = :abbrName";
+		String abbrName = "abbr name";
+		Map<String, Object> parameters = Collections.<String, Object>singletonMap("abbrName", abbrName);
+		// Given
+		Query<Department> query = new Query<Department>(Department.class, querySql, parameters);
+		
+		Department department = new Department();
+		List<Department> expected = Arrays.asList(department);
+		
+		// When
+		when(entityManager.createQuery(anyString(), Matchers.<Class<Department>>any())).thenReturn(typedQuery);
+		when(typedQuery.getResultList()).thenReturn(expected);
+		List<Department> actual = unit.getMultipleResult(query);
+		
+		// Then
+		verify(entityManager).createQuery(querySql, query.getClazz());
+		verify(typedQuery).getResultList();
 		verify(typedQuery).setParameter("abbrName", abbrName);
 		assertEquals(expected, actual);
 	}

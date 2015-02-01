@@ -1,5 +1,6 @@
 package org.lnu.is.dao.persistence;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -12,7 +13,7 @@ import org.lnu.is.dao.enhancers.Enhancer;
 import org.lnu.is.dao.model.DaoMethod;
 import org.lnu.is.dao.verifier.VerifierChainLink;
 import org.lnu.is.domain.Model;
-import org.lnu.is.pagination.PagedQuerySearch;
+import org.lnu.is.pagination.MultiplePagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
 import org.slf4j.Logger;
@@ -74,7 +75,7 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     }
 
     @Override
-    public PagedResult<T> search(final PagedQuerySearch<T> request) {
+    public PagedResult<T> search(final MultiplePagedQuerySearch<T> request) {
     	verify(DaoMethod.MULTIPLE_GET, request);
     	
     	TypedQuery<T> typedQuery = createQuery(request.getQuery().getQuery(), request.getParameters(), request.getClazz());
@@ -94,6 +95,14 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
 		TypedQuery<T> typedQuery = createQuery(finalQuery.getQuery(), finalQuery.getParameters(), finalQuery.getClazz());
 
 		return typedQuery.getSingleResult();
+	}    
+
+	@Override
+	public <E> List<E> getMultipleResult(final Query<E> query) {
+		Query<E> finalQuery = query;
+		TypedQuery<E> typedQuery = createQuery(finalQuery.getQuery(), finalQuery.getParameters(), finalQuery.getClazz());
+		
+		return typedQuery.getResultList();
 	}    
     
 

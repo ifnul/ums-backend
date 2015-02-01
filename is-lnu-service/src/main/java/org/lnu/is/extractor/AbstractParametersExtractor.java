@@ -19,10 +19,10 @@ import org.lnu.is.security.service.SessionService;
  */
 public abstract class AbstractParametersExtractor<T> implements ParametersExtractor<T> {
 
-	//TODO : Change to @Value annotation and remove bean from context.
 	@Resource(name = "sessionService")
 	private SessionService sessionService;
 
+	//TODO : Change to @Value annotation and remove bean from context.
 	@Resource(name = "activeFiltering")
 	private Boolean active;
 	
@@ -79,6 +79,20 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	protected void addParameter(final Object entity, final String parameterName, final Map<String, Object> parameters) {
 		
 		if (entity != null) {
+			parameters.put(parameterName, entity);
+		}
+		
+	}
+
+	/**
+	 * Method for simple fields.
+	 * @param entity
+	 * @param parameterName
+	 * @param parameters
+	 */
+	protected void addParameter(final List<?> entity, final String parameterName, final Map<String, Object> parameters) {
+		
+		if (entity != null && !entity.isEmpty()) {
 			parameters.put(parameterName, entity);
 		}
 		

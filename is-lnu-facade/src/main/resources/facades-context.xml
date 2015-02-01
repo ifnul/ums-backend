@@ -20,6 +20,8 @@
 		<property name="entityConverter" ref="broadcastingConverter" />
 		<property name="service" ref="broadcastingService" />
 		<property name="broadcastResourceEmailConverter" ref="broadcastingEmailConverter"/>
+		<property name="emailBroadcastingConverter" ref="emailBroadcastingConverter"/>
+		<property name="broadcastinConverter" ref="broadcastingBroadcastingConverter"/>
 		<property name="mailService" ref="defaultMailService"/>
 	</bean>
 	

@@ -21,7 +21,7 @@ import org.lnu.is.dao.dao.DefaultDao;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonType;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.resource.person.PersonResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
@@ -48,7 +48,7 @@ public class DefaultFacadeTest {
 	private DefaultService<Person, Long, DefaultDao<Person, Long>> service;
 
 	@Mock
-	private Converter<PagedRequest<PersonResource>, PagedSearch<Person>> pagedRequestConverter;
+	private Converter<PagedRequest<PersonResource>, MultiplePagedSearch<Person>> pagedRequestConverter;
 
 	@Mock
 	private Converter<Person, PersonResource> entityDetailsConverter;
@@ -203,13 +203,13 @@ public class DefaultFacadeTest {
 		int limit = 3;
 		int count = 100;
 
-		PagedSearch<Person> pagedSearch = new PagedSearch<Person>(offset, limit, Collections.<String, Object> emptyMap(), Person.class);
+		MultiplePagedSearch<Person> pagedSearch = new MultiplePagedSearch<Person>(offset, limit, Collections.<String, Object> emptyMap(), Person.class);
 		List<Person> entities = Arrays.asList(new Person());
 		PagedResult<Person> pagedResult = new PagedResult<Person>(offset, limit, count, entities);
 
 		// When
 		when(pagedRequestConverter.convert(Matchers.<PagedRequest<PersonResource>> any())).thenReturn(pagedSearch);
-		when(service.getEntities(Matchers.<PagedSearch<Person>> any())).thenReturn(pagedResult);
+		when(service.getEntities(Matchers.<MultiplePagedSearch<Person>> any())).thenReturn(pagedResult);
 		when(entityConverter.convertAll(anyListOf(Person.class))).thenReturn(resources);
 
 		PagedResultResource<PersonResource> actualFunnies = unit.getResources(pagedRequest);

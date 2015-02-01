@@ -17,9 +17,9 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.pagination.PagedQuerySearch;
+import org.lnu.is.pagination.MultiplePagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.pagination.PagedSearch;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.queries.Query;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
@@ -130,7 +130,7 @@ public class DefaultDaoTest {
 		Class<Department> clazz = Department.class;
 		Department entity1 = new Department();
 		
-		PagedSearch<Department> pagedSearch = new PagedSearch<Department>(offset, limit, parameters, clazz);
+		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<Department>(offset, limit, parameters, clazz);
 		pagedSearch.setEntity(entity1);
 		long count = 100;
 		List<Department> entities = Arrays.asList(entity1);
@@ -138,12 +138,12 @@ public class DefaultDaoTest {
 		
 		String querySql = "query Sql";
 		Query<Department> queries = new Query<Department>(Department.class, querySql);
-		PagedQuerySearch<Department> pagedQuerySearch = new PagedQuerySearch<Department>(queries, pagedSearch.getOffset(), 
+		MultiplePagedQuerySearch<Department> pagedQuerySearch = new MultiplePagedQuerySearch<Department>(queries, pagedSearch.getOffset(), 
 				pagedSearch.getLimit(), pagedSearch.getParameters(), Department.class);
 		
 		// When
 		when(queryBuilder.build(any(Department.class))).thenReturn(querySql);
-		when(persistenceManager.search(Matchers.<PagedQuerySearch<Department>>any())).thenReturn(expected);
+		when(persistenceManager.search(Matchers.<MultiplePagedQuerySearch<Department>>any())).thenReturn(expected);
 		PagedResult<Department> actual = unit.getEntities(pagedSearch);
 
 		// Then

@@ -339,4 +339,10 @@
 		<property name="entityClass" value="org.lnu.is.domain.user.User" />
 	</bean>
 	
+	<bean id="userGroupDao" class="org.lnu.is.dao.dao.user.group.DefaultUserGroupDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.user.group.UserGroup" />
+		<property name="userGroupViewQueryBuilder" ref="userGroupViewQueryBuilder"/>
+	</bean>
+	
+	
 </beans>

@@ -7,6 +7,7 @@
         ">
 
     <context:component-scan base-package="org.lnu.is.converter" />
+    <context:component-scan base-package="org.lnu.is.populator" />
 	<context:property-placeholder properties-ref="applicationConfiguration" />
 	
 </beans>

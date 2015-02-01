@@ -10,14 +10,14 @@ import org.lnu.is.queries.Query;
  *
  * @param <E> Entity.
  */
-public class PagedQuerySearch<E> extends PagedSearch<E> {
+public class MultiplePagedQuerySearch<E> extends MultiplePagedSearch<E> {
 
 	private Query<E> query;
 
 	/**
 	 * Constructor with no parameters.
 	 */
-	public PagedQuerySearch() {
+	public MultiplePagedQuerySearch() {
 		super();
 	}
 
@@ -29,7 +29,7 @@ public class PagedQuerySearch<E> extends PagedSearch<E> {
 	 * @param parameters
 	 * @param clazz
 	 */
-	public PagedQuerySearch(final Query<E> query, final Integer offset, final Integer limit, final Map<String, Object> parameters, final Class<E> clazz) {
+	public MultiplePagedQuerySearch(final Query<E> query, final Integer offset, final Integer limit, final Map<String, Object> parameters, final Class<E> clazz) {
 		super(offset, limit, parameters, clazz);
 		this.query = query;
 	}
@@ -61,7 +61,7 @@ public class PagedQuerySearch<E> extends PagedSearch<E> {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		PagedQuerySearch<?> other = (PagedQuerySearch<?>) obj;
+		MultiplePagedQuerySearch<?> other = (MultiplePagedQuerySearch<?>) obj;
 		if (query == null) {
 			if (other.query != null) {
 				return false;

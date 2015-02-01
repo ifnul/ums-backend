@@ -324,6 +324,10 @@
 	<bean id="userService" class="org.lnu.is.service.user.DefaultUserService">
 		<property name="dao" ref="userDao"/>
 	</bean>
-	
+
+	<bean id="userGroupService" class="org.lnu.is.service.user.group.DefaultUserGroupService">
+		<property name="dao" ref="userGroupDao"/>
+		<property name="userGroupViewsParametersExtractor" ref="userGroupViewsParametersExtractor"/>
+	</bean>
 	
 </beans>

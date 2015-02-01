@@ -1,6 +1,8 @@
 package org.lnu.is.dao.persistence;
 
-import org.lnu.is.pagination.PagedQuerySearch;
+import java.util.List;
+
+import org.lnu.is.pagination.MultiplePagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
 
@@ -50,7 +52,7 @@ public interface PersistenceManager<T, I> {
      * @param searchRequest request.
      * @return PagedResult with "part" result.
      */
-    PagedResult<T> search(PagedQuerySearch<T> searchRequest);
+    PagedResult<T> search(MultiplePagedQuerySearch<T> searchRequest);
 
     /**
      * Method for getting single result.
@@ -58,4 +60,11 @@ public interface PersistenceManager<T, I> {
      * @return single result.
      */
 	T getSingleResult(Query<T> query);
+
+	/**
+	 * Method for getting multiple result.
+	 * @param query
+	 * @return multiple result.
+	 */
+	<E> List<E> getMultipleResult(Query<E> query);
 }

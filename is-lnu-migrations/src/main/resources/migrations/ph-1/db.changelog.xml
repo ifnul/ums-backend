@@ -5588,17 +5588,29 @@
 		</addColumn>	
 	</changeSet>
 	
+	<!-- TODO: Add usergroup.id to have primary key -->
 	<changeSet id="adding_view_for_getting_groups_users" author="">
 		<createView viewName="v_op_user_groups"
 			replaceIfExists="true">
 			SELECT 
+				usergroup.id as id, 
+				usergroup.status as status, 
+				usergroup.actual as actual, 
+				usergroup.note as note, 
+				usergroup.crtuser as crtuser, 
+				usergroup.crtusergroup as crtusergroup, 
+				usergroup.update_date as update_date, 
+		        usergroup.create_date as create_date, 
+		        usergroup.major as major, 
+		        usergroup.title as title, 
+		        usergroup.description as description,	
 				gr.id as group_id, 
 				gr.title as group_title, 
 				usr.id as user_id,
 				usr.email as user_email 
 			FROM q_op_usergroup usergroup
 			INNER JOIN q_op_group gr ON gr.id=usergroup.group_id 
-			INNER JOIN q_op_user usr ON usr.id=usergroup.user_id		
+			INNER JOIN q_op_user usr ON usr.id=usergroup.user_id	
 		</createView>
 	</changeSet>
     

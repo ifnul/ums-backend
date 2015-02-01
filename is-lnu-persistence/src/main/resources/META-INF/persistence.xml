@@ -156,7 +156,11 @@
         <class>org.lnu.is.domain.role.Role</class>
         <class>org.lnu.is.domain.group.Group</class>
         <class>org.lnu.is.domain.user.group.UserGroup</class>
+        <class>org.lnu.is.domain.user.group.UserGroupView</class>
         <class>org.lnu.is.domain.user.role.UserRole</class>
+        
+        <!-- Reporting entities -->
+        <class>org.lnu.is.domain.broadcasting.BroadcastingMessage</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
