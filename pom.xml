@@ -291,7 +291,7 @@
 			<dependency>
 			    <groupId>com.mangofactory</groupId>
 			    <artifactId>swagger-springmvc</artifactId>
-			    <version>0.9.5</version>
+			    <version>0.9.1</version>
 			</dependency>
 
 			<!-- Hibernate -->
