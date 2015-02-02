@@ -9,7 +9,23 @@
 	<name>is-lnu-rest-api Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+	<scm>
+		<developerConnection>scm:git:${scm.developer.connection}</developerConnection>
+ 	  	<tag>HEAD</tag>
+  	</scm>
+  	
+	<distributionManagement>
+		<repository>
+			<id>maven-repository</id>
+			<url>${github.maven.repository}</url>
+		</repository>
+	</distributionManagement>
+	
 	<properties>
+		<maven.release.plugin.version>2.3.2</maven.release.plugin.version>
+		<scm.developer.connection>git@bitbucket.org:illay1994/is-lnu.git</scm.developer.connection>
+		<github.maven.repository>file:///home/jenkins/.build-artifacts</github.maven.repository>	
+		
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>
 	</properties>
@@ -140,6 +156,19 @@
 	<build>
 		<finalName>is-lnu-rest-api</finalName>
 		<plugins>
+			<!-- Plugin for making releases -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${maven.release.plugin.version}</version>
+				<configuration>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+					<pushChanges>false</pushChanges>
+					<localCheckout>true</localCheckout>
+					<goals>clean install</goals>
+				</configuration>
+			</plugin>
+					
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
