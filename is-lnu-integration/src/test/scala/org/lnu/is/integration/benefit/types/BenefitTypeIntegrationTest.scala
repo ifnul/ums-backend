@@ -11,7 +11,7 @@ import io.gatling.http.request.RawFileBody
 
 object BenefitTypeIntegrationTest {
 
-  val response = RawFileBody("data/benefit/type/expected.json")
+  val response = RawFileBody("data/benefit/type/response.json")
   
   val testCase = exec(http("Benefit Type Get Paged Result")
       .get("/benefits/types")
