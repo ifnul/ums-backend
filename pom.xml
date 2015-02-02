@@ -11,8 +11,9 @@
 	<url>http://lnu.edu.ua/</url>
 
 	<scm>
+		<connection>scm:git:ssh://git@bitbucket.org/illay1994/is-lnu.git</connection>
 		<developerConnection>scm:git:${scm.developer.connection}</developerConnection>
- 	  	<tag>HEAD</tag>
+		<url>scm:git:ssh://git@bitbucket.org/illay1994/is-lnu.git</url>
   	</scm>
   	
 	<distributionManagement>
