@@ -343,18 +343,18 @@
 	</dependencyManagement>
 	<build>
 		<plugins>
-			<!-- Plugin for making releases -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>${maven.release.plugin.version}</version>
-				<configuration>
-					<tagNameFormat>v@{project.version}</tagNameFormat>
-					<pushChanges>false</pushChanges>
-					<localCheckout>true</localCheckout>
-					<goals>clean install</goals>
-				</configuration>
-			</plugin>		
+		<!-- Plugin for making releases -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-release-plugin</artifactId>
+			<version>${maven.release.plugin.version}</version>
+			<configuration>
+				<tagNameFormat>v${project.version}</tagNameFormat>
+				<pushChanges>false</pushChanges>
+				<localCheckout>true</localCheckout>
+				<goals>clean install</goals>
+			</configuration>
+		</plugin>		
 		</plugins>
 		<pluginManagement>
 			<plugins>
