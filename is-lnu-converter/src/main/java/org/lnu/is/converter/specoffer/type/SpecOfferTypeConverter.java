@@ -20,8 +20,8 @@ public class SpecOfferTypeConverter extends AbstractConverter<SpecOfferType, Spe
 		target.setId(source.getId());
 		target.setName(source.getName());
 		
-		if (source.getSpecialtyType() != null) {
-			target.setSpecialtyTypeId(source.getSpecialtyType().getId());
+		if (source.getTimePeriod() != null) {
+			target.setTimePeriodId(source.getTimePeriod().getId());
 		}
 		
 		return target;

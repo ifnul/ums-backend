@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.domain.specoffer.SpecOfferType;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.resource.specoffer.type.SpecOfferTypeResource;
 
 public class SpecOfferTypeResourceConverterTest {
@@ -21,20 +21,20 @@ public class SpecOfferTypeResourceConverterTest {
 		String abbrName = "fb";
 
 		Long id = 1L;
-		Long specialtyTypeId = 2L;
-		SpecialtyType specialType = new SpecialtyType();
-		specialType.setId(specialtyTypeId);
+		Long timePeriodId = 2L;
+		TimePeriod timePeriod = new TimePeriod();
+		timePeriod.setId(timePeriodId);
 		
 		SpecOfferType expected = new SpecOfferType();
 		expected.setName(name);
 		expected.setAbbrName(abbrName);
 		expected.setId(id);
-		expected.setSpecialtyType(specialType);
+		expected.setTimePeriod(timePeriod);
 
 		SpecOfferTypeResource source = new SpecOfferTypeResource();
 		source.setName(name);
 		source.setAbbrName(abbrName);
-		source.setSpecialtyTypeId(specialtyTypeId);
+		source.setTimePeriodId(timePeriodId);
 		source.setId(id);
 		
 		// When
@@ -76,20 +76,20 @@ public class SpecOfferTypeResourceConverterTest {
 		String abbrName = "fb";
 
 		Long id = 1L;
-		Long specialtyTypeId = 2L;
-		SpecialtyType specialType = new SpecialtyType();
-		specialType.setId(specialtyTypeId);
+		Long timePeriodId = 2L;
+		TimePeriod timePeriod = new TimePeriod();
+		timePeriod.setId(timePeriodId);
 		
 		SpecOfferType expected = new SpecOfferType();
 		expected.setName(name);
 		expected.setAbbrName(abbrName);
 		expected.setId(id);
-		expected.setSpecialtyType(specialType);
+		expected.setTimePeriod(timePeriod);
 
 		SpecOfferTypeResource source = new SpecOfferTypeResource();
 		source.setName(name);
 		source.setAbbrName(abbrName);
-		source.setSpecialtyTypeId(specialtyTypeId);
+		source.setTimePeriodId(timePeriodId);
 		source.setId(id);
 		
 		List<SpecOfferType> expecteds = Arrays.asList(expected);

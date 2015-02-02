@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.domain.specoffer.SpecOfferType;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**
@@ -18,16 +18,16 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 @ParametersExtractor("specOfferTypeParametersExtractor")
 public class SpecOfferTypeParametersExtractor extends AbstractParametersExtractor<SpecOfferType> {
 
-	@Resource(name = "specialtyTypeDao")
-	private Dao<SpecialtyType, Long> specialtyTypeDao;
+	@Resource(name = "timePeriodDao")
+	private Dao<TimePeriod, Long> timePeriodDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final SpecOfferType entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getAbbrName(), "abbrName", parameters);
 		addParameter(entity.getName(), "name", parameters);
-
-		addParameter(entity.getSpecialtyType(), specialtyTypeDao, "specialtyType", parameters);
+		
+		addParameter(entity.getTimePeriod(), timePeriodDao, "timePeriod", parameters);
 		
 		return parameters;
 	}

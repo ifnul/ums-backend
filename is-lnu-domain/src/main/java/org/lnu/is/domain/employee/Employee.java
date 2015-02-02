@@ -105,7 +105,7 @@ public class Employee extends InformationModel {
 	@Column(name = "isplurality")
 	private Integer isPlurality;
 	
-	@Column(name = "ispansioner")
+	@Column(name = "ispensioner")
 	private Integer isPensioner;
 	
 	@Column(name = "begdate")

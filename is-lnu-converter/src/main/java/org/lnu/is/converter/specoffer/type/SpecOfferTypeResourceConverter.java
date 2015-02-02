@@ -2,8 +2,8 @@ package org.lnu.is.converter.specoffer.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.domain.specoffer.SpecOfferType;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.resource.specoffer.type.SpecOfferTypeResource;
 
 /**
@@ -21,11 +21,11 @@ public class SpecOfferTypeResourceConverter extends AbstractConverter<SpecOfferT
 		target.setId(source.getId());
 		target.setName(source.getName());
 		
-		if (source.getSpecialtyTypeId() != null) {
-			SpecialtyType specialtyType = new SpecialtyType();
-			specialtyType.setId(source.getSpecialtyTypeId());
+		if (source.getTimePeriodId() != null) {
+			TimePeriod timePeriod = new TimePeriod();
+			timePeriod.setId(source.getTimePeriodId());
 			
-			target.setSpecialtyType(specialtyType);
+			target.setTimePeriod(timePeriod);
 		}
 		
 		return target;
