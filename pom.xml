@@ -4,7 +4,7 @@
 
 	<groupId>is-lnu</groupId>
 	<artifactId>is-lnu</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>is-lnu</name>
@@ -14,7 +14,6 @@
 		<connection>scm:git:ssh://git@bit-infosystemlnu/illay1994/is-lnu.git</connection>
 		<developerConnection>scm:git:git@bit-infosystemlnu:illay1994/is-lnu.git</developerConnection>
 		<url>scm:git:ssh://git@bit-infosystemlnu/illay1994/is-lnu.git</url>
-  	  <tag>v0.0.1-SNAPSHOT</tag>
   </scm>
   	
 	<distributionManagement>
@@ -67,10 +66,6 @@
 		<max.pagination.count>500</max.pagination.count>
 		<environment.active>dev</environment.active>
 
-		<!-- Migrations properties -->
-		<migration.changelog.name>db.changelog.xml</migration.changelog.name>
-		<migrations.location>src/main/resources/migrations/${migration.changelog.name}</migrations.location>
-
 		<!-- Database properties -->
 		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
 		<jdbc.host>localhost</jdbc.host>
@@ -92,11 +87,7 @@
 		<findbugs.skip>false</findbugs.skip>
 		<checkstyleDir>${basedir}/checks</checkstyleDir>
 		<findBugsDir>${basedir}/findbugs</findBugsDir>
-		
-		<!-- Gatling properties -->
-		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
-		<integration.successtests.percent>100</integration.successtests.percent>
-		
+
 		<!-- Mail related properties -->
 		<mail.enabled>true</mail.enabled>
 		<mail.environment.active>dev</mail.environment.active>

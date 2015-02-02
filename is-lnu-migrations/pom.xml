@@ -7,17 +7,24 @@
 	<groupId>is-lnu-migrations</groupId>
 	<artifactId>is-lnu-migrations</artifactId>
 	<name>is-lnu-migrations</name>
-	<url>http://maven.apache.org</url>
-
-	<parent>
-		<groupId>is-lnu</groupId>
-		<artifactId>is-lnu</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>
+
+		<!-- Migrations properties -->
+		<migration.changelog.name>db.changelog.xml</migration.changelog.name>
+		<migrations.location>src/main/resources/migrations/${migration.changelog.name}</migrations.location>
+		
+		<!-- Database properties -->
+		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
+		<jdbc.host>localhost</jdbc.host>
+		<jdbc.port>5432</jdbc.port>
+		<jdbc.databasename>lnu</jdbc.databasename>
+		<jdbc.databaseurl>jdbc:postgresql://${jdbc.host}:${jdbc.port}/${jdbc.databasename}</jdbc.databaseurl>
+		<jdbc.username>postgres</jdbc.username>
+		<jdbc.password>postgres</jdbc.password>		
 	</properties>
 
 	<dependencies>

@@ -4,18 +4,17 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>is-lnu</groupId>
-		<artifactId>is-lnu</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-
 	<groupId>is-lnu-integration</groupId>
 	<artifactId>is-lnu-integration</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gatling.version>2.1.2</gatling.version>
+		
+		<!-- Gatling properties -->
+		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
+		<integration.successtests.percent>100</integration.successtests.percent>
 
 		<simulation.class>org.lnu.is.integration.IntegrationTest</simulation.class>
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
