@@ -13,7 +13,7 @@ import org.lnu.is.resource.ApiResource;
 @ReferenceResource
 public class SpecOfferTypeResource extends ApiResource {
 	
-	private Long specialtyTypeId;
+	private Long timePeriodId;
 	
 	private String abbrName;
 	
@@ -29,12 +29,12 @@ public class SpecOfferTypeResource extends ApiResource {
 		return "/specoffers/types";
 	}
 
-	public Long getSpecialtyTypeId() {
-		return specialtyTypeId;
+	public Long getTimePeriodId() {
+		return timePeriodId;
 	}
 
-	public void setSpecialtyTypeId(final Long specialtyTypeId) {
-		this.specialtyTypeId = specialtyTypeId;
+	public void setTimePeriodId(final Long timePeriodId) {
+		this.timePeriodId = timePeriodId;
 	}
 
 	public String getAbbrName() {
@@ -61,7 +61,7 @@ public class SpecOfferTypeResource extends ApiResource {
 				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result
-				+ ((specialtyTypeId == null) ? 0 : specialtyTypeId.hashCode());
+				+ ((timePeriodId == null) ? 0 : timePeriodId.hashCode());
 		return result;
 	}
 
@@ -91,11 +91,11 @@ public class SpecOfferTypeResource extends ApiResource {
 		} else if (!name.equals(other.name)) {
 			return false;
 		}
-		if (specialtyTypeId == null) {
-			if (other.specialtyTypeId != null) {
+		if (timePeriodId == null) {
+			if (other.timePeriodId != null) {
 				return false;
 			}
-		} else if (!specialtyTypeId.equals(other.specialtyTypeId)) {
+		} else if (!timePeriodId.equals(other.timePeriodId)) {
 			return false;
 		}
 		return true;
@@ -103,7 +103,7 @@ public class SpecOfferTypeResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "SpecOfferTypeResource [specialtyTypeId=" + specialtyTypeId
+		return "SpecOfferTypeResource [timePeriodId=" + timePeriodId
 				+ ", abbrName=" + abbrName + ", name=" + name + "]";
 	}
 

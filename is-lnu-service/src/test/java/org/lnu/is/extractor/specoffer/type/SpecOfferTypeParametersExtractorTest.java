@@ -14,8 +14,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.domain.specoffer.SpecOfferType;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -28,7 +28,7 @@ public class SpecOfferTypeParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<SpecialtyType, Long> specialtyTypeDao;
+	private Dao<TimePeriod, Long> timePeriodDao;
 	
 	@InjectMocks
 	private SpecOfferTypeParametersExtractor unit;
@@ -53,25 +53,25 @@ public class SpecOfferTypeParametersExtractorTest {
 	public void testGetParameters() throws Exception {
 		// Given
 		Long specialTypeId = 2L;
-		SpecialtyType specialType = new SpecialtyType();
-		specialType.setId(specialTypeId);
+		TimePeriod timePeriod = new TimePeriod();
+		timePeriod.setId(specialTypeId);
 		String name = "name";
 		String abbrName = "abbr name";
 		
 		SpecOfferType entity = new SpecOfferType();
-		entity.setSpecialtyType(specialType);
+		entity.setTimePeriod(timePeriod);
 		entity.setName(name);
 		entity.setAbbrName(abbrName);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
 		expected.put("abbrName", abbrName);
-		expected.put("specialtyType", specialType);
+		expected.put("timePeriod", timePeriod);
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
 		
 		// When
-		when(specialtyTypeDao.getEntityById(anyLong())).thenReturn(specialType);
+		when(timePeriodDao.getEntityById(anyLong())).thenReturn(timePeriod);
 		
 		Map<String, Object> actual = unit.getParameters(entity);
 
@@ -85,24 +85,24 @@ public class SpecOfferTypeParametersExtractorTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		Long specialTypeId = 2L;
-		SpecialtyType specialType = new SpecialtyType();
-		specialType.setId(specialTypeId);
+		Long timePeriodId = 2L;
+		TimePeriod timePeriod = new TimePeriod();
+		timePeriod.setId(timePeriodId);
 		String name = "name";
 		String abbrName = "abbr name";
 		
 		SpecOfferType entity = new SpecOfferType();
-		entity.setSpecialtyType(specialType);
+		entity.setTimePeriod(timePeriod);
 		entity.setName(name);
 		entity.setAbbrName(abbrName);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
 		expected.put("abbrName", abbrName);
-		expected.put("specialtyType", specialType);
+		expected.put("timePeriod", timePeriod);
 		
 		// When
-		when(specialtyTypeDao.getEntityById(anyLong())).thenReturn(specialType);
+		when(timePeriodDao.getEntityById(anyLong())).thenReturn(timePeriod);
 		
 		Map<String, Object> actual = unit.getParameters(entity);
 		

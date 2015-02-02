@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.specialty.SpecialtyType;
 import org.lnu.is.domain.specoffer.SpecOfferType;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 
 public class SpecOfferTypeQueryBuilderTest {
 
@@ -100,14 +100,14 @@ public class SpecOfferTypeQueryBuilderTest {
 	@Test
 	public void testBuildEmptyParameters() throws Exception {
 		// Given
-		SpecialtyType specialType = new SpecialtyType();
+		TimePeriod timePeriod = new TimePeriod();
 		String abbrName = "abbrName";
 		
 		SpecOfferType context = new SpecOfferType();
 		context.setAbbrName(abbrName);
-		context.setSpecialtyType(specialType);
+		context.setTimePeriod(timePeriod);
 		
-		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.specialtyType = :specialtyType) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.timePeriod = :timePeriod) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -122,14 +122,14 @@ public class SpecOfferTypeQueryBuilderTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		SpecialtyType specialType = new SpecialtyType();
+		TimePeriod timePeriod = new TimePeriod();
 		String abbrName = "abbrName";
 		
 		SpecOfferType context = new SpecOfferType();
 		context.setAbbrName(abbrName);
-		context.setSpecialtyType(specialType);
+		context.setTimePeriod(timePeriod);
 		
-		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.specialtyType = :specialtyType) ";
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.timePeriod = :timePeriod) ";
 		
 		// When
 		String actualQuery = unit.build(context);

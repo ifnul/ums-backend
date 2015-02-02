@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    
+    <changeSet id="rename q_rf_specoffertype column specilitytype_id to timeperiod_id" author="illay">
+    	
+    	<dropColumn tableName="q_rf_specoffertype" columnName="specialtytype_id"/>
+    	
+    	<addColumn tableName="q_rf_specoffertype">
+    		<column name="timeperiod_id" type="BIGINT" remarks="Ідентифікатор часового періоду (курсу навчання)"></column>
+    	</addColumn>
+    	
+    	<addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_rf_specoffertype" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
+    </changeSet>
+    
+    <changeSet id="reneme column ispansioner to ispensioner tables q_ob_employee" author="illay">
+    	<renameColumn tableName="q_ob_employee" oldColumnName="ispansioner" newColumnName="ispensioner"/>
+    </changeSet>
+    
+</databaseChangeLog>

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.specialty.SpecialtyType;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 
 /**
  * Entity, that describes type of specoffer.
@@ -22,8 +22,8 @@ public class SpecOfferType extends InformationModel {
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
-	@JoinColumn(name = "specialtytype_id")
-	private SpecialtyType specialtyType;
+	@JoinColumn(name = "timeperiod_id")
+	private TimePeriod timePeriod;
 	
 	@Column(name = "abbrname")
 	private String abbrName;
@@ -31,12 +31,13 @@ public class SpecOfferType extends InformationModel {
 	@Column(name = "name")
 	private String name;
 
-	public SpecialtyType getSpecialtyType() {
-		return specialtyType;
+
+	public TimePeriod getTimePeriod() {
+	    return timePeriod;
 	}
 
-	public void setSpecialtyType(final SpecialtyType specialType) {
-		this.specialtyType = specialType;
+	public void setTimePeriod(final TimePeriod timePeriod) {
+	    this.timePeriod = timePeriod;
 	}
 
 	public String getAbbrName() {

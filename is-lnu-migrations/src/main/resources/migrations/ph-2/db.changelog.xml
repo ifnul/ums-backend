@@ -499,7 +499,9 @@
             <column name="uid" type="bigint" />
             <column name="utid" type="character varying" />
             <column name="uapp" type="character varying" />
-            <column name="processing" type="integer" />
+            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+                <constraints nullable="false"/>
+            </column>
             <column name="actual" type="integer" remarks="Актуальність даних" >
                 <constraints nullable="false"/>
             </column>
@@ -1608,64 +1610,6 @@
 
         <addForeignKeyConstraint baseColumnNames="departmenttype_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_rf_departmenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_departmenttype"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_ordernewstudentitem">
-        <createTable tableName="q_dt_ordernewstudentitem" remarks="Накази на зарахування абітурієнтів" >
-            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-            <column name="order_id" type="bigint" remarks="Ідентифікатор наказу" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="enrolment_id" type="bigint" remarks="Ідентифікатор заяви" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="person_id" type="bigint" remarks="Ідентифікатор пермони" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="docseries" type="character varying" />
-            <column name="docnum" type="character varying" />
-            <column name="isstate" type="integer" />
-            <column name="iscontract" type="integer" />
-            <column name="coursetype_id" type="bigint" />
-            <column name="specoffer_id" type="bigint" remarks="Ідентифікатор пропозицій по напрямах/спеціальностях" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="eduformtype_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_ordernewstudentitem" tableName="q_dt_ordernewstudentitem"/>
-
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dt_ordernewstudentitem" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
-
-        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_dt_ordernewstudentitem" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
-
-        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_ordernewstudentitem" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
-
-        <addForeignKeyConstraint baseColumnNames="enrolment_id" baseTableName="q_dt_ordernewstudentitem" constraintName="fk_q_dc_enrolment_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_enrolment"/>
-
-        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_dt_ordernewstudentitem" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
-
-        <addForeignKeyConstraint baseColumnNames="coursetype_id" baseTableName="q_dt_ordernewstudentitem" constraintName="fk_q_rf_coursetype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_coursetype"/>
     </changeSet>
     <changeSet author="illay" id="add q_dt_orderstudenttransfer">
         <createTable tableName="q_dt_orderstudenttransfer" remarks="Накази на переведення та зміну статусу студента" >
