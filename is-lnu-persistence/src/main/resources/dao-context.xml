@@ -220,6 +220,11 @@
 		<property name="entityClass" value="org.lnu.is.domain.post.Post" />
 	</bean>
 
+	<bean id="publicActivityTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.publicactivity.PublicActivityType" />
+		<property name="queryBuilder" ref="publicActivityTypeQueryBuilder" />
+	</bean>
+
 	<bean id="orderDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.order.Order" />
 		<property name="queryBuilder" ref="orderQueryBuilder"/>

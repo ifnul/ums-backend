@@ -1,0 +1,27 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 4,
+  "resources" : [ {
+    "id" : 1,
+    "abbrName" : "Олімпіади",
+    "name" : "Всеукраїнські учнівські олімпіади із базових предметів (IV етап)",
+    "uri" : "publicactivities/types/1"
+  }, {
+    "id" : 2,
+    "abbrName" : "МАНи",
+    "name" : "Всеукраїнські конкурси — захисти науково-дослідницьких робіт учнів - членів Малої академії наук України",
+    "uri" : "publicactivities/types/2"
+  }, {
+    "id" : 3,
+    "abbrName" : "Курси",
+    "name" : "Курси підготовки",
+    "uri" : "publicactivities/types/3"
+  }, {
+    "id" : 4,
+    "abbrName" : "наука",
+    "name" : "Наукові та навчальні досягнення",
+    "uri" : "publicactivities/types/4"
+  } ],
+  "uri" : "publicactivities/types"
+}

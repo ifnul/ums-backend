@@ -289,6 +289,12 @@
 		<property name="service" ref="personTypeService" />
 	</bean>
 
+	<bean id="publicActivityTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="publicActivityTypeResourceConverter" />
+		<property name="entityConverter" ref="publicActivityTypeConverter" />
+		<property name="service" ref="publicActivityTypeService" />
+	</bean>
+
 	<bean id="reasonFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="reasonResourceConverter" />
 		<property name="entityConverter" ref="reasonConverter" />

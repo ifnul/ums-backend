@@ -231,6 +231,11 @@
 		<property name="parametersExtractor" ref="personParametersExtractor" />
 	</bean>
 
+	<bean id="publicActivityTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="publicActivityTypeParametersExtractor" />
+		<property name="dao" ref="publicActivityTypeDao" />
+	</bean>
+
 	<bean id="reasonService" class="org.lnu.is.service.DefaultService">
 		<property name="dao" ref="reasonDao" />
 		<property name="parametersExtractor" ref="reasonParametersExtractor" />

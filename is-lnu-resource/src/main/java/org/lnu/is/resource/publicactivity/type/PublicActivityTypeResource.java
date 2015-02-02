@@ -1,28 +1,31 @@
-package org.lnu.is.domain.publicactivity;
+package org.lnu.is.resource.publicactivity.type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.text.MessageFormat;
 
-import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.InformationModel;
+import org.lnu.is.annotation.ReferenceResource;
+import org.lnu.is.resource.ApiResource;
+
 /**
- * Public Activity Type entity.
- * @author illay
+ * Public activity type Resource.
+ * @author ivanursul
  *
  */
-@RF
-@Entity
-@Table(name = "q_rf_publicactivitytype")
-public class PublicActivityType extends InformationModel {
-
-	private static final long serialVersionUID = 1L;
+@ReferenceResource
+public class PublicActivityTypeResource extends ApiResource {
 	
-	@Column(name = "abbrname")
 	private String abbrName;
 	
-	@Column(name = "name")
 	private String name;
+
+	@Override
+	public String getUri() {
+		return MessageFormat.format("publicactivities/types/{0}", getId());
+	}
+
+	@Override
+	public String getRootUri() {
+		return "publicactivities/types";
+	}
 
 	public String getAbbrName() {
 		return abbrName;
@@ -61,7 +64,7 @@ public class PublicActivityType extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		PublicActivityType other = (PublicActivityType) obj;
+		PublicActivityTypeResource other = (PublicActivityTypeResource) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -81,9 +84,8 @@ public class PublicActivityType extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "PublicActivityType [abbrname=" + abbrName + ", name=" + name
-				+ "]";
+		return "PublicActivityTypeResource [abbrName=" + abbrName + ", name="
+				+ name + "]";
 	}
-	
 	
 }
