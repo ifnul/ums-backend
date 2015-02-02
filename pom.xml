@@ -351,17 +351,10 @@
 		<version>${maven.release.plugin.version}</version>
 		<configuration>
 			<tagNameFormat>v${project.version}</tagNameFormat>
-			<pushChanges>false</pushChanges>
+			<pushChanges>true</pushChanges>
 			<localCheckout>true</localCheckout>
 			<!-- <goals>clean install</goals> -->
 		</configuration>
-		<dependencies>
-			<dependency>
-				<groupId>org.apache.maven.scm</groupId>
-				<artifactId>maven-scm-provider-gitexe</artifactId>
-				<version>1.8.1</version>
-			</dependency>
-		</dependencies>
 	</plugin>		
 		</plugins>
 		<pluginManagement>
