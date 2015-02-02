@@ -21,7 +21,7 @@ import org.lnu.is.domain.user.role.UserRole;
 /**
  * User entity.
  *
- * @author 
+ * @author ivanursul
  */
 @OP
 @Entity

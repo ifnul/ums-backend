@@ -23,7 +23,6 @@ public class PagedRequest<R> {
 
 	/**
 	 * Default constructor.
-	 * @author ivanursul
 	 */
     public PagedRequest() {
 		super();
