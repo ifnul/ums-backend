@@ -43,7 +43,7 @@
 		<batch.limit>20</batch.limit>
 		
 		<!-- Release properties -->
-		<maven.release.plugin.version>2.3.2</maven.release.plugin.version>
+		<maven.release.plugin.version>2.5.1</maven.release.plugin.version>
 		<scm.developer.connection>git@bitbucket.org:illay1994/is-lnu.git</scm.developer.connection>
 		<github.maven.repository>file:///home/jenkins/.build-artifacts</github.maven.repository>				
 						
