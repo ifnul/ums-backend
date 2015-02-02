@@ -5,45 +5,6 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     
     <include file="2015-02-01--01-initial-schema-import.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--02-add-data-op_group.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--03-add-data-op_role.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--04-add-data-op_user.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--05-add-data-op_usergroup.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--06-add-data-op_userrole.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--07-add-data-rf_addresstype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--08-add-data-rf_adminunittype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--09-add-data-rf_assetstate.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--10-add-data-rf_assetstatus.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--11-add-data-rf_assettype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--12-add-data-rf_benefittype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--13-add-data-rf_contacttype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--14-add-data-rf_coursetype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--15-add-data-rf_departmenttype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--16-add-data-rf_educationtype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--17-add-data-rf_eduformtype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--18-add-data-rf_enrolmentstatustype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--19-add-data-rf_enrolmenttype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--20-add-data-rf_enrolsubject.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--21-add-data-rf_gendertype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--22-add-data-rf_honorstype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--23-add-data-rf_language.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--24-add-data-rf_languagelevel.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--25-add-data-rf_marriedtype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--26-add-data-rf_ordertype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--27-add-data-rf_persontype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--28-add-data-rf_posttype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--29-add-data-rf_propertytype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--30-add-data-rf_publicactivitytype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--31-add-data-rf_specialtytype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--32-add-data-rf_streettype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--33-add-data-rf_timeperiodtype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--34-add-data-rf_wavetype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--35-add-data-rf_paperusage.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--36-add-data-rf_papertype.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--37-add-data-ob_adminunit.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--38-add-data-ob_benefit.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--39-add-data-ob_department.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--40-add-data-ob_timeperiod.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--41-add-data-ob_publicactivity.xml" relativeToChangelogFile="true"/>
-	<include file="2015-02-01--42-add-data-od_publicactivityaward.xml" relativeToChangelogFile="true"/>
+    <include file="2015-02-01-01-core-data.xml" relativeToChangelogFile="true"/>
+    
 </databaseChangeLog>
