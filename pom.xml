@@ -45,7 +45,7 @@
 		
 		<!-- Release properties -->
 		<maven.release.plugin.version>2.5.1</maven.release.plugin.version>
-		<scm.developer.connection>http://iursul@bitbucket.org/illay1994/is-lnu.git</scm.developer.connection>
+		<scm.developer.connection>git@bitbucket.org:illay1994/is-lnu.git</scm.developer.connection>
 		<github.maven.repository>file:///home/jenkins/.build-artifacts</github.maven.repository>				
 						
 		<!-- Version properties -->
