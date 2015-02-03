@@ -23,7 +23,6 @@ public class MultiplePagedSearch<T> extends MultipleSearch<T> {
 
     /**
      * Constructor for all fields.
-     * @author ivanursul
      * @param offset
      * @param limit
      * @param parameters

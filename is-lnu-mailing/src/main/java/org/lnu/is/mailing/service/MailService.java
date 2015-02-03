@@ -10,7 +10,7 @@ public interface MailService<T> {
 
 	/**
 	 * Method for sending mail.
-	 * @param content
+	 * @param resource
 	 */
 	void send(T resource);
 }

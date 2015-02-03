@@ -346,6 +346,7 @@
 				<arguments>${release.arguments}</arguments>
 				<tagNameFormat>v${project.version}</tagNameFormat>
 				<pushChanges>true</pushChanges>
+				<updateBranchVersions>true</updateBranchVersions>
 				<localCheckout>true</localCheckout>
 				<!-- <goals>clean install</goals> -->
 			</configuration>
