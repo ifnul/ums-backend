@@ -52,6 +52,7 @@
 		<!-- Release properties -->
 		<maven.release.plugin.version>2.5.1</maven.release.plugin.version>
 		<github.maven.repository>file:///home/jenkins/.build-artifacts</github.maven.repository>				
+		<release.arguments></release.arguments>
 						
 		<!-- Version properties -->
 		<spring.version>4.1.0.RELEASE</spring.version>
@@ -341,18 +342,19 @@
 	</dependencyManagement>
 	<build>
 		<plugins>
-			<!-- Plugin for making releases -->
-	<plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-release-plugin</artifactId>
-		<version>${maven.release.plugin.version}</version>
-		<configuration>
-			<tagNameFormat>v${project.version}</tagNameFormat>
-			<pushChanges>true</pushChanges>
-			<localCheckout>true</localCheckout>
-			<!-- <goals>clean install</goals> -->
-		</configuration>
-	</plugin>		
+		<!-- Plugin for making releases -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-release-plugin</artifactId>
+			<version>${maven.release.plugin.version}</version>
+			<configuration>
+				<arguments>${release.arguments}</arguments>
+				<tagNameFormat>v${project.version}</tagNameFormat>
+				<pushChanges>true</pushChanges>
+				<localCheckout>true</localCheckout>
+				<!-- <goals>clean install</goals> -->
+			</configuration>
+		</plugin>		
 		</plugins>
 		<pluginManagement>
 			<plugins>
