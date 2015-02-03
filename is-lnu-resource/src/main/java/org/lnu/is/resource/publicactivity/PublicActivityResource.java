@@ -12,7 +12,7 @@ import org.lnu.is.resource.ApiResource;
  */
 public class PublicActivityResource extends ApiResource {
 
-	private Long publicActiveTypeId;
+	private Long publicActivityTypeId;
 	
 	private Long timePeriodId;
 	
@@ -32,12 +32,12 @@ public class PublicActivityResource extends ApiResource {
 		return "/publicactivities";
 	}
 
-	public Long getPublicActiveTypeId() {
-		return publicActiveTypeId;
+	public Long getPublicActivityTypeId() {
+		return publicActivityTypeId;
 	}
 
-	public void setPublicActiveTypeId(final Long publicActiveTypeId) {
-		this.publicActiveTypeId = publicActiveTypeId;
+	public void setPublicActivityTypeId(final Long publicActiveTypeId) {
+		this.publicActivityTypeId = publicActiveTypeId;
 	}
 
 	public Long getTimePeriodId() {
@@ -81,7 +81,7 @@ public class PublicActivityResource extends ApiResource {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime
 				* result
-				+ ((publicActiveTypeId == null) ? 0 : publicActiveTypeId
+				+ ((publicActivityTypeId == null) ? 0 : publicActivityTypeId
 						.hashCode());
 		result = prime * result
 				+ ((timePeriodId == null) ? 0 : timePeriodId.hashCode());
@@ -121,11 +121,11 @@ public class PublicActivityResource extends ApiResource {
 		} else if (!name.equals(other.name)) {
 			return false;
 		}
-		if (publicActiveTypeId == null) {
-			if (other.publicActiveTypeId != null) {
+		if (publicActivityTypeId == null) {
+			if (other.publicActivityTypeId != null) {
 				return false;
 			}
-		} else if (!publicActiveTypeId.equals(other.publicActiveTypeId)) {
+		} else if (!publicActivityTypeId.equals(other.publicActivityTypeId)) {
 			return false;
 		}
 		if (timePeriodId == null) {
@@ -141,7 +141,7 @@ public class PublicActivityResource extends ApiResource {
 	@Override
 	public String toString() {
 		return "PublicActivityResource [publicActiveTypeId="
-				+ publicActiveTypeId + ", timePeriodId=" + timePeriodId
+				+ publicActivityTypeId + ", timePeriodId=" + timePeriodId
 				+ ", name=" + name + ", begDate=" + begDate + ", endDate="
 				+ endDate + "]";
 	}

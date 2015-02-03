@@ -55,6 +55,7 @@ import org.lnu.is.integration.department.specialty.DepartmentSpecialtyIntegratio
 import org.lnu.is.integration.timesheet.types.TimeSheetTypeIntegrationTest
 import org.lnu.is.integration.publicactivity.types.PublicActivityTypeIntegrationTest
 import org.lnu.is.integration.benefit.types.BenefitTypeIntegrationTest
+import org.lnu.is.integration.publicactivity.PublicActivityIntegrationTest
 
 /**
  * All Test cases, that are in system.
@@ -106,6 +107,7 @@ object TestCases {
                     TimePeriodIntegrationTest.testCase,
                     TimePeriodTypeIntegrationTest.testCase,
                     PartnerIntegrationTest.testCase,
+                    PublicActivityIntegrationTest.testCase,
                     PublicActivityTypeIntegrationTest.testCase,
                     ReasonIntegrationTest.testCase,
                     HonorTypeIntegrationTest.testCase,

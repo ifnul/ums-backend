@@ -21,7 +21,6 @@ object PersonIntegrationTest {
   val testCase = exec(session => {
       session
       	.set("idnum", UUID.randomUUID())
-      	.set("other_value_example", "value")
     })
     .exec(http("Post Person")
   		.post("/persons")

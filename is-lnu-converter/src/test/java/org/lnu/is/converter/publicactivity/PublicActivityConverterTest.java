@@ -45,7 +45,7 @@ public class PublicActivityConverterTest {
 		expected.setName(name);
 		expected.setBegDate(begDate);
 		expected.setEndDate(endDate);
-		expected.setPublicActiveTypeId(publicActiveTypeId);
+		expected.setPublicActivityTypeId(publicActiveTypeId);
 		expected.setTimePeriodId(timePeriodId);
 		
 		// When
@@ -98,7 +98,7 @@ public class PublicActivityConverterTest {
 		expected.setName(name);
 		expected.setBegDate(begDate);
 		expected.setEndDate(endDate);
-		expected.setPublicActiveTypeId(publicActiveTypeId);
+		expected.setPublicActivityTypeId(publicActiveTypeId);
 		expected.setTimePeriodId(timePeriodId);
 		List<PublicActivityResource> expecteds = Arrays.asList(expected);
 		

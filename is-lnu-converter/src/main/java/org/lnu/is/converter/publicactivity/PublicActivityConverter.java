@@ -22,7 +22,7 @@ public class PublicActivityConverter extends AbstractConverter<PublicActivity, P
 		target.setEndDate(source.getEndDate());
 		
 		if (source.getPublicActiveType() != null) {
-			target.setPublicActiveTypeId(source.getPublicActiveType().getId());
+			target.setPublicActivityTypeId(source.getPublicActiveType().getId());
 		}
 		
 		if (source.getTimePeriod() != null) {

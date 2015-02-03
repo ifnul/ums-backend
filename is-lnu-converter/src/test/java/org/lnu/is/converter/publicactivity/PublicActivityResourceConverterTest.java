@@ -45,7 +45,7 @@ public class PublicActivityResourceConverterTest {
 		source.setName(name);
 		source.setBegDate(begDate);
 		source.setEndDate(endDate);
-		source.setPublicActiveTypeId(publicActiveTypeId);
+		source.setPublicActivityTypeId(publicActiveTypeId);
 		source.setTimePeriodId(timePeriodId);
 		
 		// When
@@ -98,7 +98,7 @@ public class PublicActivityResourceConverterTest {
 		source.setName(name);
 		source.setBegDate(begDate);
 		source.setEndDate(endDate);
-		source.setPublicActiveTypeId(publicActiveTypeId);
+		source.setPublicActivityTypeId(publicActiveTypeId);
 		source.setTimePeriodId(timePeriodId);
 		List<PublicActivityResource> sources = Arrays.asList(source);
 		

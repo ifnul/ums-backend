@@ -1,0 +1,7 @@
+{
+	"publicActivityTypeId": 1,
+	"timePeriodId" : ${timePeriodId},
+	"name" : "Public Activity1",
+	"begDate": "2014-01-01",
+	"endDate": "2015-01-01"
+}
