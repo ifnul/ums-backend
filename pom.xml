@@ -4,7 +4,7 @@
 
 	<groupId>is-lnu</groupId>
 	<artifactId>is-lnu</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>is-lnu</name>
@@ -40,7 +40,7 @@
 	</modules>
 
 	<properties>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${project.version}</version>
 		<developers>IvanUrsul, Illay Mazuriak, Yura Kushnir, Bohdan Yaremtso, Roman Pelipets, Oleh Zanevich</developers>
 		<batch.limit>20</batch.limit>
 		
