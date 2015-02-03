@@ -4,7 +4,7 @@
 
 	<groupId>is-lnu</groupId>
 	<artifactId>is-lnu</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>pom</packaging>
 
 	<name>is-lnu</name>
@@ -19,7 +19,8 @@
 		<connection>scm:git:ssh://git@bit-infosystemlnu/illay1994/is-lnu.git</connection>
 		<developerConnection>scm:git:git@bit-infosystemlnu:illay1994/is-lnu.git</developerConnection>
 		<url>scm:git:ssh://git@bit-infosystemlnu/illay1994/is-lnu.git</url>
-  	</scm>
+  	  <tag>v0.0.1-SNAPSHOT</tag>
+  </scm>
   	
 	<distributionManagement>
 		<repository>
@@ -51,7 +52,7 @@
 		<!-- Release properties -->
 		<maven.release.plugin.version>2.5.1</maven.release.plugin.version>
 		<github.maven.repository>file:///home/jenkins/.build-artifacts</github.maven.repository>				
-		<release.arguments></release.arguments>
+		<release.arguments />
 						
 		<!-- Version properties -->
 		<spring.version>4.1.0.RELEASE</spring.version>
