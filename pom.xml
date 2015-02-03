@@ -4,18 +4,13 @@
 
 	<groupId>is-lnu</groupId>
 	<artifactId>is-lnu</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>pom</packaging>
 
 	<name>is-lnu</name>
 	<url>http://lnu.edu.ua/</url>
 
 	<scm>
-<!-- 	
-		TODO: Find out what connection belongs to what situation:
-		1)When incrementing new version and making release
-		2)When adding a snapshot to new version 
--->
 		<connection>scm:git:ssh://git@bit-infosystemlnu/illay1994/is-lnu.git</connection>
 		<developerConnection>scm:git:git@bit-infosystemlnu:illay1994/is-lnu.git</developerConnection>
 		<url>scm:git:ssh://git@bit-infosystemlnu/illay1994/is-lnu.git</url>
