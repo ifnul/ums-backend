@@ -12,4 +12,5 @@ target
 .idea
 /target
 */bin/*
+*.cache
 
