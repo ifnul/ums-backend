@@ -12,7 +12,7 @@ import io.gatling.http.request.RawFileBody
 
 object SubjectTypeIntegrationTest {
 
-  val response = RawFileBody("data/subject/types/expected.json")
+  val response = RawFileBody("data/subject/types/response.json")
   
   val testCase = exec(http("Subject Type Get Paged Result")
       .get("/subjects/types")

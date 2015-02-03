@@ -12,7 +12,7 @@ import io.gatling.http.request.RawFileBody
 
 object ReasonIntegrationTest {
 
-  val response = RawFileBody("data/reason/expected.json")
+  val response = RawFileBody("data/reason/response.json")
   
   val testCase = exec(http("Reasons Get Paged Result")
       .get("/reasons")

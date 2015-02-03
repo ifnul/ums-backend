@@ -11,7 +11,7 @@ import io.gatling.http.request.RawFileBody
 
 object StreetTypeIntegrationTest {
 
-  val response = RawFileBody("data/street/type/expected.json")
+  val response = RawFileBody("data/street/type/response.json")
   
   val testCase = exec(http("Street Type Get Paged Result")
       .get("/streets/types")
