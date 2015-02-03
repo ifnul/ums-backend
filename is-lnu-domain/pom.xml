@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>is-lnu</groupId>
 		<artifactId>is-lnu</artifactId>
-		<version>0.0.2</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
 
 
