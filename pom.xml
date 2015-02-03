@@ -4,7 +4,7 @@
 
 	<groupId>is-lnu</groupId>
 	<artifactId>is-lnu</artifactId>
-	<version>0.0.3</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>is-lnu</name>
@@ -14,7 +14,7 @@
 		<connection>scm:git:ssh://git@bit-infosystemlnu/illay1994/is-lnu.git</connection>
 		<developerConnection>scm:git:git@bit-infosystemlnu:illay1994/is-lnu.git</developerConnection>
 		<url>scm:git:ssh://git@bit-infosystemlnu/illay1994/is-lnu.git</url>
-  	  <tag>v0.0.3-SNAPSHOT</tag>
+  	  <tag>HEAD</tag>
   </scm>
   	
 	<distributionManagement>
