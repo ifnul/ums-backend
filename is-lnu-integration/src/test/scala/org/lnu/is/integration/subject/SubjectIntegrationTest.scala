@@ -10,7 +10,7 @@ import io.gatling.http.request.RawFileBody
 
 object SubjectIntegrationTest {
 
-  val response = RawFileBody("data/subject/expected.json")
+  val response = RawFileBody("data/subject/response.json")
   
   val testCase = exec(http("Subject Get Paged Result")
       .get("/subjects")

@@ -11,7 +11,7 @@ import io.gatling.http.request.RawFileBody
 
 object PersonTypeIntegrationTest {
 
-  val response = RawFileBody("data/person/type/expected.json")
+  val response = RawFileBody("data/person/type/response.json")
   
   val testCase = exec(http("Person Type Get Paged Result")
       .get("/persons/types")
