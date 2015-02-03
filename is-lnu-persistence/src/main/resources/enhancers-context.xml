@@ -10,13 +10,13 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
        default-autowire="byName">
 
-	<bean id="createEnhancer" class="org.lnu.is.dao.enhancers.user.SessionUserEnhancer" >
+	<bean id="createEnhancer" class="org.lnu.is.dao.persistence.enhancers.user.SessionUserEnhancer" >
 		<property name="nextEnhancer">
-			<bean class="org.lnu.is.dao.enhancers.group.DefaultGroupEnhancer" />		
+			<bean class="org.lnu.is.dao.persistence.enhancers.group.DefaultGroupEnhancer" />		
 		</property>
 	</bean>
 	
-	<bean id="deleteEnhancer" class="org.lnu.is.dao.enhancers.removal.RemovalEnhancer" />
+	<bean id="deleteEnhancer" class="org.lnu.is.dao.persistence.enhancers.removal.RemovalEnhancer" />
 	
 	<util:map id="persistenceEnhancers">
 		<entry key="CREATE" value-ref="createEnhancer"/>

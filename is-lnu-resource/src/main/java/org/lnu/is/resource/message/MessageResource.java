@@ -20,6 +20,7 @@ public class MessageResource {
 
 	/**
 	 * Constructor with parameters.
+	 * TODO: Remove this constructir from all controllers PUT and DELETE methods.
 	 * @param messageType message Type.
 	 * @param message message.
 	 */

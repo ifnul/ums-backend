@@ -44,7 +44,7 @@ public class PublicActivity extends InformationModel {
 	private Date begDate;
 	
 	@Column(name = "enddate")
-	private Date enbDate;
+	private Date endDate;
 
 	public PublicActivityType getPublicActiveType() {
 		return publicActiveType;
@@ -78,12 +78,12 @@ public class PublicActivity extends InformationModel {
 		this.begDate = begDate;
 	}
 
-	public Date getEnbDate() {
-		return enbDate;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setEnbDate(final Date enbDate) {
-		this.enbDate = enbDate;
+	public void setEndDate(final Date endDate) {
+		this.endDate = endDate;
 	}
 
 	public List<PublicActivityAward> getAwards() {
@@ -99,7 +99,7 @@ public class PublicActivity extends InformationModel {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
-		result = prime * result + ((enbDate == null) ? 0 : enbDate.hashCode());
+		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -123,11 +123,11 @@ public class PublicActivity extends InformationModel {
 		} else if (!begDate.equals(other.begDate)) {
 			return false;
 		}
-		if (enbDate == null) {
-			if (other.enbDate != null) {
+		if (endDate == null) {
+			if (other.endDate != null) {
 				return false;
 			}
-		} else if (!enbDate.equals(other.enbDate)) {
+		} else if (!endDate.equals(other.endDate)) {
 			return false;
 		}
 		if (name == null) {
@@ -143,7 +143,7 @@ public class PublicActivity extends InformationModel {
 	@Override
 	public String toString() {
 		return "PublicActivity [name=" + name + ", begDate=" + begDate
-				+ ", enbDate=" + enbDate + "]";
+				+ ", enbDate=" + endDate + "]";
 	}
 	
 }

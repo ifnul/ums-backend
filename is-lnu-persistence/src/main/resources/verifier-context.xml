@@ -10,19 +10,19 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
        default-autowire="byName">
 
-	<bean id="singleGetVerifier" class="org.lnu.is.dao.verifier.entity.ValidEntityVerifier">
+	<bean id="singleGetVerifier" class="org.lnu.is.dao.persistence.verifier.entity.ValidEntityVerifier">
 		<property name="nextVerifier">
-			<bean class="org.lnu.is.dao.verifier.group.GroupExistanceVerifierChainLink">
+			<bean class="org.lnu.is.dao.persistence.verifier.group.GroupExistanceVerifierChainLink">
 				<property name="nextVerifier">
-					<bean class="org.lnu.is.dao.verifier.group.GroupVerifierChainLink" />
+					<bean class="org.lnu.is.dao.persistence.verifier.group.GroupVerifierChainLink" />
 				</property>
 			</bean>		
 		</property>
 	</bean>
 	
-	<bean id="createVerifier" class="org.lnu.is.dao.verifier.group.GroupExistanceVerifierChainLink" />
-	<bean id="updateVerifier" class="org.lnu.is.dao.verifier.group.GroupVerifierChainLink" />
-	<bean id="multipleGetVerifier" class="org.lnu.is.dao.verifier.group.GroupExistanceVerifierChainLink" />
+	<bean id="createVerifier" class="org.lnu.is.dao.persistence.verifier.group.GroupExistanceVerifierChainLink" />
+	<bean id="updateVerifier" class="org.lnu.is.dao.persistence.verifier.group.GroupVerifierChainLink" />
+	<bean id="multipleGetVerifier" class="org.lnu.is.dao.persistence.verifier.group.GroupExistanceVerifierChainLink" />
 	
 	<util:map id="persistenceChains">
 		<entry key="SINGLE_GET" value-ref="singleGetVerifier"/>
