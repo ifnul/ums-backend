@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet author="illay" id="add q_rf_studyplancycle">
+    
+    <changeSet id="Деякі таблиці (2015-02-04-18-00)" author="OlehZanevych">
+        
         <createTable tableName="q_rf_studyplancycle" remarks="Довідник циклів навчальних дисциплін: гуманітарний та соціально-економічний, природничо-науковий, професійно-орієнтований, фізично-рекреаційний" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура циклу"/>
             <column name="name" type="character varying" remarks="Цикл дисципліни" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplancycle" tableName="q_rf_studyplancycle"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_ob_calcrule">
+        
+        
         <createTable tableName="q_ob_calcrule" remarks="Правила підрахунку сумарної оцінки в додатку до диплома" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -40,30 +45,33 @@
             <column name="name" type="character varying" remarks="Назва" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_ob_calcrule" tableName="q_ob_calcrule"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_diplomasupplementitemtype">
+        
+        
         <createTable tableName="q_rf_diplomasupplementitemtype" remarks="Довідник типів записів у додатку до диплома (звичайний запис на зворотній стороні, державний екзамен і т.д.)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -71,158 +79,173 @@
             <column name="name" type="character varying" remarks="Назва" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_diplomasupplementitemtype" tableName="q_rf_diplomasupplementitemtype"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_enrolmentforeigntype">
+        
+        
         <createTable tableName="q_rf_enrolmentforeigntype" remarks="Довідник типів заяв іноземних студентів" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура"/>
             <column name="name" type="character varying" remarks="Тип заяви для іноземців" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolmentforeigntype" tableName="q_rf_enrolmentforeigntype"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_markscaletype">
+        
+        
         <createTable tableName="q_rf_markscaletype" remarks="Довідник типу шкали оцінювання (наприклад: шкала оцінювання для вступників, шкала оцінювання для студентів - модульний контроль і т.д.)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Скорочена назва (абревіатура)"/>
             <column name="name" type="character varying" remarks="Повна (текстова) назва типу шкали оцінювання" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="integer" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_markscaletype" tableName="q_rf_markscaletype"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_studentratingtype">
+        
+        
         <createTable tableName="q_rf_studentratingtype" remarks="Довідників типів рейтингів студента (рейтинг за 1 семестр, рейтинг за 2 семестр, рейтинг за ККР, рейтингн за ДА, сумарний семестровий рейтинг і т.д.)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура типу рейтингу"/>
             <column name="name" type="character varying" remarks="Назва типу рейтингу" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studentratingtype" tableName="q_rf_studentratingtype"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_studycontroltype">
+        
+        
         <createTable tableName="q_rf_studycontroltype" remarks="Довідник типів контрольних заходів" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура"/>
             <column name="name" type="character varying" remarks="Тип контролю" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studycontroltype" tableName="q_rf_studycontroltype"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_markrolltype">
+        
+        
         <createTable tableName="q_rf_markrolltype" remarks="Типи документів з оцінками (відомостей, талонів і т.д.)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -230,197 +253,214 @@
             <column name="name" type="character varying" remarks="Назва документу" >
                 <constraints nullable="false"/>
             </column>
-            <column name="parent_id" type="integer" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="parent_id" type="integer" remarks="Ієрархічний ідентифікатор - ієрархія (відомість, тип відомості або талон, тип талону)"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_markrolltype" tableName="q_rf_markrolltype"/>
 
         <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_markrolltype" constraintName="fk_q_rf_markrolltype_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_markrolltype"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_studyplantype">
+    
         <createTable tableName="q_rf_studyplantype" remarks="Довідник типів навчальних компонент (навчальна програма, навчальний план, альтернанивний-вибірковий блок та ін.)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура типу властивості"/>
             <column name="name" type="character varying" remarks="Тип властивості" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplantype" tableName="q_rf_studyplantype"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_studyplanvariant">
+        
+        
         <createTable tableName="q_rf_studyplanvariant" remarks="Довідник варіантів навчального плану: основний, для іноземних студентів, ......" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура варіанту навчального плану"/>
             <column name="name" type="character varying" remarks="Варіант навчального плану" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplanvariant" tableName="q_rf_studyplanvariant"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_studenttype">
+        
+        
         <createTable tableName="q_rf_studenttype" remarks="Довідник типів студентів: студенти, аспіранти, слухачі курсів, тощо" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура типу студента"/>
             <column name="name" type="character varying" remarks="Тип студента (наприклад: працівник, що проходить курси підвищення кваліфікації, аспірант чи інше)" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studenttype" tableName="q_rf_studenttype"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_studytype">
+        
+        
         <createTable tableName="q_rf_studytype" remarks="Довідник типів навчання: теоретичний курс, практика, курсова робота, курсовий проект, виконання ДКР,..." >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура типу навчання"/>
             <column name="name" type="character varying" remarks="Тип навчання: теоретичний курс, практика, курсова робота,....." >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studytype" tableName="q_rf_studytype"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_ob_studygroup">
+        
+    
         <createTable tableName="q_ob_studygroup" remarks="Інформація про академічну групу " >
-            <column name="id" type="bigint" remarks="ідентифікатор академічної групи студентів"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор академічної групи студентів"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="name" type="character varying" remarks="назва академічної групи" >
+            <column name="name" type="character varying" remarks="Назва академічної групи" >
                 <constraints nullable="false"/>
             </column>
             <column name="department_id" type="bigint" remarks="Ідентифікатор підрозділу (інститутут), до якого відноситься академічна група" >
                 <constraints nullable="false"/>
             </column>
             <!-- FK -->
-            <column name="studydepartment_id" type="bigint" />
-            <column name="employee_id" type="bigint" />
+            <column name="studydepartment_id" type="bigint" remarks="Ідентифікатор підрозділу (кафедри), до якого відноситься академічна група"/>
+            <column name="employee_id" type="bigint" remarks="Ідентифікатор працівника (куратор групи)"/>
             <column name="timeperiod_id" type="bigint" remarks="Ідентифікатор часового періоду" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_ob_studygroup" tableName="q_ob_studygroup"/>
@@ -431,40 +471,42 @@
 
         <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_ob_studygroup" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_studentstatus">
+        
         <createTable tableName="q_rf_studentstatus" remarks="Довідник статусів студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура"/>
             <column name="name" type="character varying" remarks="Назва статусу студента" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуалність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studentstatus" tableName="q_rf_studentstatus"/>
-    </changeSet>
-     <changeSet author="illay" id="add q_dc_studyplan">
+        
+        
         <createTable tableName="q_dc_studyplan" remarks="Інформація про заголовок навчального плану" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -481,40 +523,43 @@
             <column name="studyplantype_id" type="bigint" remarks="Ідентифікатор довідника типів навчальних компонент" >
                 <constraints nullable="false"/>
             </column>
-            <column name="title" type="character varying" />
+            <column name="title" type="character varying" remarks="Заголовок навчального плану"/>
             <column name="timeperiod_id" type="bigint" remarks="Навчальний рік плану" >
                 <constraints nullable="false"/>
             </column>
             <column name="eduformtype_id" type="bigint" remarks="Ідентифікатор форми навчання" >
                 <constraints nullable="false"/>
             </column>
-            <column name="docseries" type="character varying" />
-            <column name="docnum" type="character varying" />
-            <column name="docdate" type="timestamp without time zone" />
-            <column name="docissued" type="character varying" />
+            <column name="docseries" type="character varying" remarks="Серія плану"/>
+            <column name="docnum" type="character varying" remarks="Номер плану"/>
+            <column name="docdate" type="timestamp without time zone" remarks="Дата плану"/>
+            <column name="docissued" type="character varying" remarks="Ким видано план та номер протоколу"/>
             <column name="department_id" type="bigint" remarks="Ідентифікатор підрозділу" >
                 <constraints nullable="false"/>
             </column>
-            <column name="parent_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="parent_id" type="bigint" remarks="Ідентифікатор батьківського заголовку навчального плану. Новий рівень ієрархії виникає при: 1)створенні нової редакції базового плану; 2)створеннні індивідуального базового плану на основі базового; 3)створенні нового індивідуального по існуючому індивідуальному в разі створення нового студента (наприклад якщо студент змінив прізвище)."/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dc_studyplan" tableName="q_dc_studyplan"/>
@@ -533,8 +578,7 @@
 
         <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_dc_studyplan" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dc_diplomasupplement">
+    
         <createTable tableName="q_dc_diplomasupplement" remarks="Додаток до диплома" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -554,7 +598,7 @@
             <column name="hourstotal" type="integer" remarks="Сума годин по всіх дисциплінах, що увійли в додаток" >
                 <constraints nullable="false"/>
             </column>
-            <column name="qualificationwork" type="character varying" />
+            <column name="qualificationwork" type="character varying" remarks="Текст поля : Письмова кваліфікаційна робота"/>
             <column name="secdecision" type="character varying" remarks="Рішення ДЕК" >
                 <constraints nullable="false"/>
             </column>
@@ -564,7 +608,7 @@
             <column name="adminunit_id" type="bigint" remarks="Ідентифікатор адміністративно-територіальної одиниці, де видано диплом" >
                 <constraints nullable="false"/>
             </column>
-            <column name="regnumber" type="character varying" />
+            <column name="regnumber" type="character varying" remarks="Реєстраційний номер додатку до диплома"/>
             <column name="eduinstitutiontype" type="character varying" remarks="Тип закладу освіти" >
                 <constraints nullable="false"/>
             </column>
@@ -583,8 +627,8 @@
             <column name="ratingscale" type="character varying" remarks="Шкала оцінок" >
                 <constraints nullable="false"/>
             </column>
-            <column name="docseries" type="character varying" />
-            <column name="docnum" type="character varying" />
+            <column name="docseries" type="character varying" remarks="Серія"/>
+            <column name="docnum" type="character varying" remarks="Номер"/>
             <column name="docdate" type="timestamp without time zone" remarks="Дата видачі диплома" >
                 <constraints nullable="false"/>
             </column>
@@ -606,7 +650,7 @@
             <column name="specoffer_id" type="bigint" remarks="Ідентифікатор пропозиції напрямів та спеціальностей (напрям, спеціальність)" >
                 <constraints nullable="false"/>
             </column>
-            <column name="specialty_id" type="bigint" />
+            <column name="specialty_id" type="bigint" remarks="Ідентифікатор пропозиції напярмів та спеціальностей (спеціалізація)"/>
             <column name="practiceperiod" type="character varying" remarks="Період практики " >
                 <constraints nullable="false"/>
             </column>
@@ -622,26 +666,29 @@
             <column name="enddate" type="timestamp without time zone" remarks="Дата випуску" >
                 <constraints nullable="false"/>
             </column>
-            <column name="parent_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="parent_id" type="bigint" remarks="Ієрархічний ідентифікатор. Новий рівень ієрархії виникає, якщо додаток вже існує, а в таблиці студент виникає новий рівень ієрархії (наприклад внаслідок зміни прізвища студента)."/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dc_diplomasupplement" tableName="q_dc_diplomasupplement"/>
@@ -658,8 +705,7 @@
 
         <addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
         
-    </changeSet>
-    <changeSet author="illay" id="add q_ob_student">
+        
         <createTable tableName="q_ob_student" remarks="Інформація про студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор студента"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -673,9 +719,9 @@
             <column name="name" type="character varying" remarks="Повна назва персони – прізвище, ім’я та по-батькові" >
                 <constraints nullable="false"/>
             </column>
-            <column name="firstname" type="character varying" />
-            <column name="fathername" type="character varying" />
-            <column name="surname" type="character varying" />
+            <column name="firstname" type="character varying" remarks="Ім’я"/>
+            <column name="fathername" type="character varying" remarks="По-батькові"/>
+            <column name="surname" type="character varying" remarks="Прізвище"/>
             <column name="eduformtype_id" type="bigint" remarks="Ідентифікатор форми навчання" >
                 <constraints nullable="false"/>
             </column>
@@ -691,40 +737,43 @@
             <column name="timeperiod_id" type="bigint" remarks="Ідентифікатор часових періодів (вказує курс навчання)" >
                 <constraints nullable="false"/>
             </column>
-            <column name="isstate" type="integer" />
-            <column name="iscontract" type="integer" />
-            <column name="invnum" type="character varying" />
+            <column name="isstate" type="integer" remarks="форма навчання - бюджет"/>
+            <column name="iscontract" type="integer" remarks="форма навчання  - комерція"/>
+            <column name="invnum" type="character varying" remarks="Інвентарний номер"/>
             <column name="gendertype_id" type="bigint" remarks="Ідентифікатор статі студента" >
                 <constraints nullable="false"/>
             </column>
-            <column name="begdate" type="timestamp without time zone" />
-            <column name="enddate" type="timestamp without time zone" />
+            <column name="begdate" type="timestamp without time zone" remarks="Дата зарахування"/>
+            <column name="enddate" type="timestamp without time zone" remarks="Дата завершення навчання; дата відрахування"/>
             <column name="order_id" type="bigint" remarks="Ідентифікатор наказу, на підставі якого виник студент " >
                 <constraints nullable="false"/>
             </column>
             <column name="studentstatus_id" type="bigint" remarks="Ідентифікатор статусу студента (навчається, відрахований і т.д.)" >
                 <constraints nullable="false"/>
             </column>
-            <column name="parent_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="parent_id" type="bigint" remarks="Ієрархічий ідентифікатор"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуалність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_ob_student" tableName="q_ob_student"/>
@@ -751,124 +800,123 @@
 
         <addForeignKeyConstraint baseColumnNames="studentstatus_id" baseTableName="q_ob_student" constraintName="fk_q_rf_studentstatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studentstatus"/>
 
-
-
         <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_studyplan" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
-
 
         <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dc_diplomasupplementname">
-        <createTable tableName="q_dc_diplomasupplementname" remarks=" " >
-            <column name="id" type="bigint"  autoIncrement="true">
+        
+        <createTable tableName="q_dc_diplomasupplementname" remarks="Додатки до диплома на іноземних мовах" >
+            <column name="id" type="bigint"  autoIncrement="true" remarks="Ідентифікатор">
                 <constraints nullable="false"/>
             </column>
-            <column name="department_id" type="bigint" >
+            <column name="department_id" type="bigint" remarks="Ідентифікатор підрозділу (інституту) до якого відноситься додаток">
                 <constraints nullable="false"/>
             </column>
-            <column name="studyplan_id" type="bigint" >
+            <column name="studyplan_id" type="bigint" remarks="Ідентифікатор загаловку індивідуального навчального плану">
                 <constraints nullable="false"/>
             </column>
-            <column name="student_id" type="bigint" >
+            <column name="student_id" type="bigint" remarks="Ідентифікатор студента">
                 <constraints nullable="false"/>
             </column>
-            <column name="parent_id" type="bigint" remarks="" />
-            <column name="printed" type="integer" >
+            <column name="parent_id" type="bigint" remarks="Ієрархічний ідентифікатор" />
+            <column name="isprinted" type="integer" remarks="1 - видрукований на бланку, 0 - не видрукований на бланку">
                 <constraints nullable="false"/>
             </column>
-            <column name="hourstotal" type="integer" >
+            <column name="hourstotal" type="integer" remarks="Сума годин по всіх дисциплінах, що увійли в додаток">
                 <constraints nullable="false"/>
             </column>
-            <column name="qualificationwork" type="character varying" remarks="" />
-            <column name="secdecision" type="character varying" >
+            <column name="qualificationwork" type="character varying" remarks="Текст поля : Письмова кваліфікаційна робота" />
+            <column name="secdecision" type="character varying" remarks="Рішення ДЕК">
                 <constraints nullable="false"/>
             </column>
-            <column name="secdecisiondate" type="timestamp without time zone" >
+            <column name="secdecisiondate" type="timestamp without time zone" remarks="Дата рішення ДЕК">
                 <constraints nullable="false"/>
             </column>
-            <column name="city" type="character varying" >
+            <column name="city" type="character varying" remarks="Адміністративно-територіальна одиниця, де видано диплом">
                 <constraints nullable="false"/>
             </column>
-            <column name="_date" type="timestamp without time zone" >
+            <column name="_date" type="timestamp without time zone" remarks="Дата">
                 <constraints nullable="false"/>
             </column>
-            <column name="regnumber" type="character varying" remarks="" />
-            <column name="eduinstitutiontype" type="character varying" >
+            <column name="regnumber" type="character varying" remarks="Реєстраційний номер додатку до диплома" />
+            <column name="eduinstitutiontype" type="character varying" remarks="Тип закладу освіти">
                 <constraints nullable="false"/>
             </column>
-            <column name="entranceconditions" type="character varying" >
+            <column name="entranceconditions" type="character varying" remarks="Умови вступу">
                 <constraints nullable="false"/>
             </column>
-            <column name="programrequirement" type="character varying" >
+            <column name="programrequirement" type="character varying" remarks="Вимоги програми навчання">
                 <constraints nullable="false"/>
             </column>
-            <column name="workload" type="character varying" >
+            <column name="workload" type="character varying" remarks="Навчальне навантаження">
                 <constraints nullable="false"/>
             </column>
-            <column name="testsystem" type="character varying" >
+            <column name="testsystem" type="character varying" remarks="Система іспитів">
                 <constraints nullable="false"/>
             </column>
-            <column name="ratingscale" type="character varying" >
+            <column name="ratingscale" type="character varying" remarks="Шкала оцінок">
                 <constraints nullable="false"/>
             </column>
-            <column name="series" type="character varying" remarks="" />
-            <column name="number" type="character varying" remarks="" />
-            <column name="eduinstitutionfullname" type="character varying" >
+            <column name="series" type="character varying" remarks="Серія" />
+            <column name="number" type="character varying" remarks="Номер" />
+            <column name="eduinstitutionfullname" type="character varying" remarks="Повна назва вищого навчального закладу">
                 <constraints nullable="false"/>
             </column>
-            <column name="diplomaname" type="character varying" >
+            <column name="diplomaname" type="character varying" remarks="Назва диплома">
                 <constraints nullable="false"/>
             </column>
-            <column name="programtype" type="character varying" >
+            <column name="programtype" type="character varying" remarks="Тип програми">
                 <constraints nullable="false"/>
             </column>
-            <column name="studyperiod" type="character varying" >
+            <column name="studyperiod" type="character varying" remarks="Період навчання">
                 <constraints nullable="false"/>
             </column>
-            <column name="studyform" type="character varying" >
-                <constraints nullable="false"/>
-            </column>
-            <!-- FK -->
-            <column name="specoffer_id_specialty" type="bigint" >
+            <column name="studyform" type="character varying" remarks="Форма навчання">
                 <constraints nullable="false"/>
             </column>
             <!-- FK -->
-            <column name="specoffer_id_specialization" type="bigint" remarks="" />
+            <column name="specoffer_id_specialty" type="bigint" remarks="Ідентифікатор пропозиції напрямів та спеціальностей (напрям, спеціальність)">
+                <constraints nullable="false"/>
+            </column>
+            <!-- FK -->
+            <column name="specoffer_id_specialization" type="bigint" remarks="Ідентифікатор пропозиції напярмів та спеціальностей (спеціалізація)" />
             <column name="practiceperiod" type="character varying" >
                 <constraints nullable="false"/>
             </column>
-            <column name="academicrights" type="character varying" >
+            <column name="academicrights" type="character varying" remarks="Академічні права">
                 <constraints nullable="false"/>
             </column>
-            <column name="professionalrights" type="character varying" >
+            <column name="professionalrights" type="character varying" remarks="Професійні права">
                 <constraints nullable="false"/>
             </column>
-            <column name="entrancedate" type="timestamp without time zone" >
+            <column name="entrancedate" type="timestamp without time zone" remarks="Дата вступу">
                 <constraints nullable="false"/>
             </column>
-            <column name="issuedate" type="timestamp without time zone" >
+            <column name="issuedate" type="timestamp without time zone" remarks="Дата випуску">
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" remarks="" />
-            <column name="utid" type="character varying" remarks="" />
-            <column name="uapp" type="character varying" remarks="" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" remarks="" />
-            <column name="crtuser" type="character varying" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dc_diplomasupplementname" tableName="q_dc_diplomasupplementname"/>
@@ -881,9 +929,8 @@
 
         <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_dc_diplomasupplementname_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_diplomasupplementname"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dc_markroll">
-        <createTable tableName="q_dc_markroll" remarks="Інформація про документ з оцінками (відомість, талон і т.д. ) " >
+        
+        <createTable tableName="q_dc_markroll" remarks="Інформація про документ з оцінками (відомість, талон і т.д. )" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
@@ -896,44 +943,47 @@
             <column name="studyplan_id" type="bigint" remarks="Ідентифікатор базового навчального плану для якого створено відомість " >
                 <constraints nullable="false"/>
             </column>
-            <column name="docseries" type="character varying" />
-            <column name="docnum" type="character varying" />
+            <column name="docseries" type="character varying" remarks="Серія відомості"/>
+            <column name="docnum" type="character varying" remarks="Номер відомості"/>
             <column name="timeperiod_id" type="bigint" remarks="Ідентифікатор екзаменаційної сесії" >
                 <constraints nullable="false"/>
             </column>
             <column name="department_id" type="bigint" remarks="Ідентифікатор підрозділу (інституту) до якого відноситься відомість" >
                 <constraints nullable="false"/>
             </column>
-            <column name="rangework1" type="double precision" />
-            <column name="rangework2" type="double precision" />
-            <column name="rangeexam1" type="double precision" />
-            <column name="rangeexam2" type="double precision" />
-            <column name="rangeexam" type="double precision" />
-            <column name="range" type="double precision" />
-            <column name="evdate1" type="timestamp without time zone" />
-            <column name="evdate2" type="timestamp without time zone" />
-            <column name="evdate3" type="timestamp without time zone" />
-            <column name="begdate" type="timestamp without time zone" />
-            <column name="enddate" type="timestamp without time zone" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="rangework1" type="double precision" remarks="Граничне значення для поточки 1"/>
+            <column name="rangework2" type="double precision" remarks="Граничне значення для поточки 2"/>
+            <column name="rangeexam1" type="double precision" remarks="Граничне значення для контрольного заходу 1"/>
+            <column name="rangeexam2" type="double precision" remarks="Граничне значення для контрольного заходу 2"/>
+            <column name="rangeexam" type="double precision" remarks="Граничне значення для екзамену"/>
+            <column name="range" type="double precision" remarks="Сумарне граничне значення"/>
+            <column name="evdate1" type="timestamp without time zone" remarks="Дата проведення першого контрольного заходу"/>
+            <column name="evdate2" type="timestamp without time zone" remarks="Дата проведення другого контрольного заходу"/>
+            <column name="evdate3" type="timestamp without time zone" remarks="Дата проведення результуючого (третього контрольного заходу)"/>
+            <column name="begdate" type="timestamp without time zone" remarks="Початкова дата доступності відомості для редагування (Дата відкриття відомості)"/>
+            <column name="enddate" type="timestamp without time zone" remarks="Дата закриття відомості"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dc_markroll" tableName="q_dc_markroll"/>
@@ -948,8 +998,7 @@
         
         <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_markroll" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dc_studentestimate">
+        
         <createTable tableName="q_dc_studentestimate" remarks="Кошториси для студентів" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -976,25 +1025,28 @@
             <column name="suma" type="numeric" remarks="Сума оплати за надані послуги" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dc_studentestimate" tableName="q_dc_studentestimate"/>
@@ -1007,9 +1059,8 @@
 
         <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_diplomasupplementitem">
-        <createTable tableName="q_dt_diplomasupplementitem" remarks="Інформація про контент додатку до доплома " >
+        
+        <createTable tableName="q_dt_diplomasupplementitem" remarks="Інформація про контент додатку до доплома" >
             <column name="id" type="bigint" remarks="Ідентифікатор навчального плану "  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
@@ -1038,25 +1089,28 @@
             <column name="hours" type="integer" remarks="Кількість годин для дисципліни у додаку" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_diplomasupplementitem" tableName="q_dt_diplomasupplementitem"/>
@@ -1067,114 +1121,116 @@
 
         <addForeignKeyConstraint baseColumnNames="calcrule_id" baseTableName="q_dt_diplomasupplementitem" constraintName="fk_q_ob_calcrule_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_calcrule"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_diplomasupplementname">
-        <createTable tableName="q_dt_diplomasupplementname" remarks="Додатки до диплома на іноземних мовах " >
+        
+        <createTable tableName="q_dt_diplomasupplementname" remarks="Додатки до диплома на іноземних мовах" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="diplomasupplement_id" type="bigint" remarks="Ідентифікатор додатку до диплома " >
+            <column name="diplomasupplement_id" type="bigint" remarks="Ідентифікатор додатку до диплома" >
                 <constraints nullable="false"/>
             </column>
             <column name="language_id" type="bigint" remarks="Ідентифікатор іноземної мови" >
                 <constraints nullable="false"/>
             </column>
-            <column name="parent_id" type="bigint" remarks="" />
-            <column name="printed" type="integer" >
+            <column name="parent_id" type="bigint" remarks="Ієрархічий ідентифікатор" />
+            <column name="isprinted" type="integer" remarks="1 - видрукований на бланку; 0 - не видрукований на бланку">
                 <constraints nullable="false"/>
             </column>
-            <column name="hourstotal" type="integer" >
+            <column name="hourstotal" type="integer" remarks="Сума годин по  всіх дисциплінах, що увійли в додаток">
                 <constraints nullable="false"/>
             </column>
-            <column name="qualificationwork" type="character varying" remarks="" />
-            <column name="secdecision" type="character varying" >
+            <column name="qualificationwork" type="character varying" remarks="екст поля : Письмова кваліфікаційна робота" />
+            <column name="secdecision" type="character varying" remarks="Рішення ДЕК">
                 <constraints nullable="false"/>
             </column>
-            <column name="secdecisiondate" type="timestamp without time zone" >
+            <column name="secdecisiondate" type="timestamp without time zone" remarks="Дата рішення ДЕК">
                 <constraints nullable="false"/>
             </column>
-            <column name="city" type="character varying" >
+            <column name="city" type="character varying" remarks="Адміністративно-територіальна одиниця, де видано диплом">
                 <constraints nullable="false"/>
             </column>
-            <column name="_date" type="timestamp without time zone" >
+            <column name="_date" type="timestamp without time zone" remarks="Дата">
                 <constraints nullable="false"/>
             </column>
-            <column name="regnumber" type="character varying" remarks="" />
+            <column name="regnumber" type="character varying" remarks="Реєстраційний номер додатку до диплома" />
             <column name="eduinstitutiontype" type="character varying" >
                 <constraints nullable="false"/>
             </column>
-            <column name="entranceconditions" type="character varying" >
+            <column name="entranceconditions" type="character varying" remarks="Умови вступу">
                 <constraints nullable="false"/>
             </column>
-            <column name="programrequirement" type="character varying" >
+            <column name="programrequirement" type="character varying" remarks="Вимоги програми навчання">
                 <constraints nullable="false"/>
             </column>
-            <column name="workload" type="character varying" >
+            <column name="workload" type="character varying" remarks="Навчальне навантаження">
                 <constraints nullable="false"/>
             </column>
-            <column name="testsystem" type="character varying" >
+            <column name="testsystem" type="character varying" remarks="Система іспитів">
                 <constraints nullable="false"/>
             </column>
-            <column name="ratingscale" type="character varying" >
+            <column name="ratingscale" type="character varying" remarks="Шкала оцінок">
                 <constraints nullable="false"/>
             </column>
-            <column name="series" type="character varying" remarks="" />
-            <column name="number" type="character varying" remarks="" />
-            <column name="eduinstitutionfullname" type="character varying" >
+            <column name="series" type="character varying" remarks="Серія" />
+            <column name="number" type="character varying" remarks="Номер" />
+            <column name="eduinstitutionfullname" type="character varying" remarks="Повна назва вищого навчального закладу">
                 <constraints nullable="false"/>
             </column>
-            <column name="diplomaname" type="character varying" >
+            <column name="diplomaname" type="character varying" remarks="Назва диплома">
                 <constraints nullable="false"/>
             </column>
-            <column name="programtype" type="character varying" >
+            <column name="programtype" type="character varying" remarks="Тип програми">
                 <constraints nullable="false"/>
             </column>
-            <column name="studyperiod" type="character varying" >
+            <column name="studyperiod" type="character varying" remarks="Період навчання">
                 <constraints nullable="false"/>
             </column>
-            <column name="studyform" type="character varying" >
-                <constraints nullable="false"/>
-            </column>
-            <!-- FK -->
-            <column name="specoffer_id_specialty" type="bigint" >
+            <column name="studyform" type="character varying" remarks="Форма навчання">
                 <constraints nullable="false"/>
             </column>
             <!-- FK -->
-            <column name="specoffer_id_specialization" type="bigint" remarks="" />
-            <column name="practiceperiod" type="character varying" >
+            <column name="specoffer_id_specialty" type="bigint" remarks="Ідентифікатор пропозиції напрямів та спеціальностей (напрям, спеціальність)">
                 <constraints nullable="false"/>
             </column>
-            <column name="academicrights" type="character varying" >
+            <!-- FK -->
+            <column name="specoffer_id_specialization" type="bigint" remarks="Ідентифікатор пропозиції напярмів та спеціальностей (спеціалізація)" />
+            <column name="practiceperiod" type="character varying" remarks="Період практики">
                 <constraints nullable="false"/>
             </column>
-            <column name="professionalrights" type="character varying" >
+            <column name="academicrights" type="character varying" remarks="Академічні права">
                 <constraints nullable="false"/>
             </column>
-            <column name="entrancedate" type="timestamp without time zone" >
+            <column name="professionalrights" type="character varying" remarks="Професійні права">
                 <constraints nullable="false"/>
             </column>
-            <column name="issuedate" type="timestamp without time zone" >
+            <column name="entrancedate" type="timestamp without time zone" remarks="Дата вступу">
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" remarks="" />
-            <column name="utid" type="character varying" remarks="" />
-            <column name="uapp" type="character varying" remarks="" />
-            <column name="status" type="character varying" >
+            <column name="issuedate" type="timestamp without time zone" remarks="Дата випуску">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" remarks="" />
-            <column name="crtuser" type="character varying" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_diplomasupplementname" tableName="q_dt_diplomasupplementname"/>
@@ -1185,8 +1241,7 @@
 
         <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_dt_diplomasupplementname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
 
-    </changeSet>
-     <changeSet author="illay" id="add q_ob_markscale">
+        
         <createTable tableName="q_ob_markscale" remarks="Шкала оцінювання" >
             <column name="id" type="bigint" remarks="Ідентифікатор шкали оцінювання (оцінок)"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1194,39 +1249,41 @@
             <column name="markscaletype_id" type="bigint" remarks="Ідентифікатор типу шкали" >
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Скорочена назва (абревіатура)"/>
             <column name="name" type="character varying" remarks="Назва шкали оцінювання" >
                 <constraints nullable="false"/>
             </column>
             <column name="markmin" type="double precision" />
             <column name="markmax" type="double precision" />
-            <column name="uid" type="integer" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_ob_markscale" tableName="q_ob_markscale"/>
 
         <addForeignKeyConstraint baseColumnNames="markscaletype_id" baseTableName="q_ob_markscale" constraintName="fk_q_rf_markscaletype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_markscaletype"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_markrollduty">
+        
         <createTable tableName="q_dt_markrollduty" remarks="Тіло докуметна з оцінками (відомості, талона). Відповідальні особи за заповнення відомості (талона)." >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1243,25 +1300,28 @@
             <column name="post_id" type="bigint" remarks="Ідентифікатор посади" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actul" type="integer" remarks="Актуалність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_markrollduty" tableName="q_dt_markrollduty"/>
@@ -1274,44 +1334,45 @@
         
         <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_ob_post_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_post"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_studyplanpart">
-        <createTable tableName="q_rf_studyplanpart" remarks="Довідник розділів (частин) навчального плану: обов''язкові дисципліни, вибіркові дисципліни ВНЗ, дисципліни за вибором студента, факультативні дисципліни" >
+        
+        <createTable tableName="q_rf_studyplanpart" remarks="Довідник розділів (частин) навчального плану: обов'язкові дисципліни, вибіркові дисципліни ВНЗ, дисципліни за вибором студента, факультативні дисципліни" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="abbrname" type="character varying" />
+            <column name="abbrname" type="character varying" remarks="Абревіатура розділу (частини) навчального плану"/>
             <column name="name" type="character varying" remarks="Назва розділу (частини) навчального плану" >
                 <constraints nullable="false"/>
             </column>
-            <column name="parent_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="parent_id" type="bigint" remarks="Ієрархічний ідентифікатор (ієрархія розділів плану)"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplanpart" tableName="q_rf_studyplanpart"/>
 
         <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_studyplanpart" constraintName="fk_q_rf_studyplanpart_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplanpart"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_studyplanitem">
+        
         <createTable tableName="q_dt_studyplanitem" remarks="Інформація про контент навчального плану" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1319,29 +1380,29 @@
             <column name="studyplan_id" type="bigint" remarks="Ідентифікатор заголовку навчального плану" >
                 <constraints nullable="false"/>
             </column>
-            <column name="studyplanpart_id" type="bigint" />
-            <column name="studyplanvariant_id" type="bigint" />
-            <column name="studyplancycle_id" type="bigint" />
-            <column name="markrollitem_id" type="bigint" />
+            <column name="studyplanpart_id" type="bigint" remarks="Ідентифікатор довідника розділів (частин) навчального плану"/>
+            <column name="studyplanvariant_id" type="bigint" remarks="Ідентифікатор довідника варіантів  навчального плану"/>
+            <column name="studyplancycle_id" type="bigint" remarks="Ідентифікатор довідника циклів навчальних дисциплін"/>
+            <column name="markrollitem_id" type="bigint" remarks="Ідентифікатор контенту документа з оцінками (відомості, талона) на підставі якого встановлено оцінку по дисципліні"/>
             <column name="department_id" type="bigint" remarks="Ідентифікатор підрозділу, який забезпечує навчальний процес по дисципліні" >
                 <constraints nullable="false"/>
             </column>
-            <column name="mark" type="double precision" />
-            <column name="markscale_id" type="bigint" />
-            <column name="markstate" type="double precision" />
+            <column name="mark" type="double precision" remarks="Кінцева оцінка у 100-бальній шкалі (по всіх відомостях і талонах не враховуючи перездачу на червоний диплом)"/>
+            <column name="markscale_id" type="bigint" remarks="Ідентифікатор шкали оцінювання (оцінка - 100 бальна)"/>
+            <column name="markstate" type="double precision" remarks="Кінцева оцінка у 5-бальній шкалі (по всіх відомостях і талонах не враховуючи перездачу на червоний диплом)"/>
             <!-- FK -->
-            <column name="markscalestate_id" type="bigint" />
-            <column name="markects" type="character varying" />
+            <column name="markscalestate_id" type="bigint" remarks="Ідентифікатор шкали оцінювання (система оцінювання країни - 5 бальна шкала)"/>
+            <column name="markects" type="character varying" remarks="Кінцева оцінка у шкалі ECTS (по всіх відомостях і талонах не враховуючи перездачу на червоний диплом)"/>
             <!-- FK -->
-            <column name="markscaleects_id" type="bigint" />
-            <column name="attestationnum" type="integer" />
+            <column name="markscaleects_id" type="bigint" remarks="Ідентифікатор шкали оцінювання (ects система оцінювання)"/>
+            <column name="attestationnum" type="integer" remarks="Номер атестації, по якій отримано кінцеву оцінку"/>
             <!-- FK -->
             <column name="destsemestrtimeperiod_id" type="bigint" remarks="Семестр, до якого відноситься дисципліна згідно з навчальними планами" >
                 <constraints nullable="false"/>
             </column>
             <!-- FK -->
-            <column name="semestrtimeperiod_id" type="bigint" />
-            <column name="diplomasupplementitem_id" type="bigint" />
+            <column name="semestrtimeperiod_id" type="bigint" remarks="Семестр, у якому студент насправді здає дисципліну (може відрізнятися від semestrdestination якщо дисципліна здається за повторкою)"/>
+            <column name="diplomasupplementitem_id" type="bigint" remarks="Ідентифікатор запису у додатку до диплома"/>
             <column name="subject_id" type="bigint" remarks="Ідентифікатор назви дисципліни" >
                 <constraints nullable="false"/>
             </column>
@@ -1378,27 +1439,30 @@
             <column name="krr" type="integer" remarks="Кількість комплексних розрахункових робіт" >
                 <constraints nullable="false"/>
             </column>
-            <column name="qualificationworkthema" type="character varying" />
-            <column name="parent_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="qualificationworkthema" type="character varying" remarks="Тема кваліфікаційної роботи"/>
+            <column name="parent_id" type="bigint" remarks="Ідентифікатор батьківського навчального плану. Новий рівень ієрархії виникає якщо: 1)сворюється індивідуальний навчальний план на основі базового; 2)в разі створення нового студента створюється новий індивідуальний навчальний план на основі існуючого індивідуального (наприклад внаслідок зміни прізвища студентом)."/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studyplanitem" tableName="q_dt_studyplanitem"/>
@@ -1429,9 +1493,9 @@
 
         <addForeignKeyConstraint baseColumnNames="studycontroltype_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studycontroltype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studycontroltype"/> 
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/> 
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_markrollitem">
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
+        
+        
         <createTable tableName="q_dt_markrollitem" remarks="Контент документа з оцінками (відомості або талона)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1448,49 +1512,56 @@
             <column name="attestationnum" type="integer" remarks="Номер атестації, по якій отримано оцінку" >
                 <constraints nullable="false"/>
             </column>
-            <column name="markwork1" type="double precision" />
-            <column name="markwork2" type="double precision" />
-            <column name="markexam1" type="double precision" />
-            <column name="markexam2" type="double precision" />
-            <column name="markexam" type="double precision" />
-            <column name="markpart1" type="double precision" />
-            <column name="markpart2" type="double precision" />
-            <column name="markpart" type="double precision" />
-            <column name="mark_p1_p2_k3" type="double precision" />
-            <column name="mark" type="double precision" />
+            <column name="markwork1" type="double precision" remarks="Бал за поточку 1"/>
+            <column name="markwork2" type="double precision" remarks="Бал за поточку 2"/>
+            <column name="markexam1" type="double precision" remarks="Бал за контрольний захід 1"/>
+            <column name="markexam2" type="double precision" remarks="Бал за контрольний захід 2"/>
+            <column name="markexam" type="double precision" remarks="Бал за контрольний захід 3"/>
+            <column name="markpart1" type="double precision" remarks="Сумарний бал за поточку1 та контрольний захід 1"/>
+            <column name="markpart2" type="double precision" remarks="Сумарний бал за поточку2 та контрольний захід 2"/>
+            <column name="markpart" type="double precision" remarks="Сумарний бал за поточку1, поточку2, контрольний захід 1 та контрольний захід 2"/>
+            <column name="mark_p1_p2_k3" type="double precision" remarks="Сумарний бал за поточку1, поточку2 та контрольний захід 3"/>
+            <column name="mark" type="double precision" remarks="Кінцевий сумарний бал по відомості (талону) (100-бальна шкала)"/>
             <column name="markscale_id" type="bigint" remarks="Ідентифікатор шкали оцінювання для кінцевого сумарного балу по відомості (талону)" >
                 <constraints nullable="false"/>
             </column>
-            <column name="markstate" type="double precision" />
+            <column name="markstate" type="double precision" remarks="Кінцевий сумарний бал по відомості (талону) (5-бальна шкала)"/>
             <!-- FK -->
             <column name="markscalestate_id" type="bigint" remarks="Ідентифікатор шкали оцінювання для кінцевого сумарного балу по відомості (талону)" >
                 <constraints nullable="false"/>
             </column>
-            <column name="markects" type="double precision" />
+            <column name="markects" type="double precision" remarks="Кінцевий сумарний бал по відомості (талону) (шкала ECTS)"/>
             <!-- FK -->
             <column name="markscaleects_id" type="bigint" remarks="Ідентифікатор шкали оцінювання для кінцевого сумарного балу по відомості (талону)" >
                 <constraints nullable="false"/>
             </column>
-            <column name="absentreason_id" type="bigint" />
-            <column name="markcontrol" type="double precision" />
+            <column name="absentreason_id" type="bigint" remarks="Ідентифікатор причини неявки студента на іспит (застосовується для визначення номера атестації студента)"/>
+            <column name="markcontrol" type="double precision" remarks="Бал останнього попереднього семестрового контролю (для відомостей ККР)"/>
             <!-- FK -->
-            <column name="markscalecontrol_id" type="bigint" />
-            <column name="parent_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="markscalecontrol_id" type="bigint" remarks="Ідентифікатор шкали оцінювання для останнього (попереднього) семестрового контролю (для відомостей ККР)"/>
+            <column name="parent_id" type="bigint" remarks="Ієрархічний ідентифікатор (ієрархія - створення нової відомості для наступного номеру атетації студента)"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" />
-            <column name="crtdate" type="timestamp without time zone" />
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_markrollitem" tableName="q_dt_markrollitem"/>
@@ -1506,10 +1577,10 @@
         <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
 
 
-        <addForeignKeyConstraint baseColumnNames="markrollitem_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_markrollitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_markrollitem"/> 
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_orderfinancial">
-        <createTable tableName="q_dt_orderfinancial" remarks="Накази пов''язані із фінансами для студентів " >
+        <addForeignKeyConstraint baseColumnNames="markrollitem_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_markrollitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_markrollitem"/>
+        
+        
+        <createTable tableName="q_dt_orderfinancial" remarks="Накази пов'язані із фінансами для студентів " >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
@@ -1519,36 +1590,39 @@
             <column name="student_id" type="bigint" remarks="Ідентифікатор студента" >
                 <constraints nullable="false"/>
             </column>
-            <column name="employee_id" type="bigint" />
-            <column name="asset_id" type="bigint" />
-            <column name="studygroup_id" type="bigint" />
-            <column name="studyplanitem_id" type="bigint" />
-            <column name="hours" type="integer" />
-            <column name="timenorma" type="integer" />
-            <column name="price" type="numeric" />
-            <column name="amount" type="integer" />
-            <column name="rate" type="double precision" />
-            <column name="suma" type="numeric" />
-            <column name="parent_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="employee_id" type="bigint" remarks="Ідентифікатор працівника"/>
+            <column name="asset_id" type="bigint" remarks="Ідентифікатор основних засобів"/>
+            <column name="studygroup_id" type="bigint" remarks="Ідентифікатор академічної групи"/>
+            <column name="studyplanitem_id" type="bigint" remarks="Ідентифікатор контенту навчального плану"/>
+            <column name="hours" type="integer" remarks="Кількість годин (на  повторне вивчення дисципліни)"/>
+            <column name="timenorma" type="integer" remarks="Норма часу на один захід (повторного вивчення)"/>
+            <column name="price" type="numeric" remarks="Вартість 1 заходу (повторного вивчення)"/>
+            <column name="amount" type="integer" remarks="Кількість заходів згідно з навчальним планом (на повторне вивчення)"/>
+            <column name="rate" type="double precision" remarks="Коефіцієнт з яким вираховується сума оплати по дисципліні"/>
+            <column name="suma" type="numeric" remarks="Сума грошей, з якою щось робиться відповідно до типу наказу (виплата стипендії, оплата по одному положенню в кошторисі, оплата по квитанції)"/>
+            <column name="parent_id" type="bigint" remarks="Ієрархічний ідентифікатор. Новий рівень ієрархії виникає якщо в сума оплати по котрих є залежна від суми оплати по батьківському записі (Наприклад: Матеріальні та інші витрати 25 % від загальної суми)."/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderfinancial" tableName="q_dt_orderfinancial"/>
@@ -1567,39 +1641,41 @@
 
         <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_ordernewdepartment">
+    
         <createTable tableName="q_dt_ordernewdepartment" remarks="Тіло наказу на зарахування працівника на роботу" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="order_id" type="bigint" />
-            <column name="departmenttype_id" type="bigint" remarks="" />
-            <column name="abbrname" type="character varying" remarks="" />
-            <column name="name" type="character varying" remarks="" />
-            <column name="manager" type="character varying" remarks="" />
-            <column name="department_id" type="bigint" remarks="" />
-            <column name="begdate" type="timestamp without time zone" remarks="" />
-            <column name="enddate" type="timestamp without time zone" remarks="" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="order_id" type="bigint" remarks="Ідентифікатор наказу"/>
+            <column name="departmenttype_id" type="bigint" remarks="Ідентифікатор типу підрозділу" />
+            <column name="abbrname" type="character varying" remarks="Скорочена назва (абревіатура)" />
+            <column name="name" type="character varying" remarks="Назва підрозділу" />
+            <column name="manager" type="character varying" remarks="Керівник підрозділу" />
+            <column name="department_id" type="bigint" remarks="Ідентифікатор підрозділу" />
+            <column name="begdate" type="timestamp without time zone" remarks="Дата прийняття на роботу" />
+            <column name="enddate" type="timestamp without time zone" remarks="Дата закінчення строкової угоди/контракту" />
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_ordernewdepartment" tableName="q_dt_ordernewdepartment"/>
@@ -1610,8 +1686,7 @@
 
         <addForeignKeyConstraint baseColumnNames="departmenttype_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_rf_departmenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_departmenttype"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_orderstudenttransfer">
+        
         <createTable tableName="q_dt_orderstudenttransfer" remarks="Накази на переведення та зміну статусу студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1622,38 +1697,41 @@
             <column name="student_id" type="bigint" remarks="Ідентифікатор студента (того студента, для якого створено наказ)" >
                 <constraints nullable="false"/>
             </column>
-            <column name="studygroup_id" type="bigint" />
-            <column name="studentstatus_id" type="bigint" />
-            <column name="specialtytype_id" type="bigint" />
-            <column name="specoffer_id" type="bigint" />
-            <column name="eduformtype_id" type="bigint" />
-            <column name="timeperiod_id" type="bigint" />
-            <column name="isstate" type="integer" remarks="б''юджет" >
+            <column name="studygroup_id" type="bigint" remarks="Ідентифікатор академічної групи"/>
+            <column name="studentstatus_id" type="bigint" remarks="Ідентифікатор статусу студента"/>
+            <column name="specialtytype_id" type="bigint" remarks="Ідентифікатор типу спеціальності (ОКР)"/>
+            <column name="specoffer_id" type="bigint" remarks="Ідентифікатор пропозиції напрямів та спеціальностей"/>
+            <column name="eduformtype_id" type="bigint" remarks="Ідентифікатор форми навчання"/>
+            <column name="timeperiod_id" type="bigint" remarks="Курс навчання"/>
+            <column name="isstate" type="integer" remarks="Бюджет" >
                 <constraints nullable="false"/>
             </column>
-            <column name="iscontract" type="integer" remarks="комерція" >
+            <column name="iscontract" type="integer" remarks="Комерція" >
                 <constraints nullable="false"/>
             </column>
-            <column name="renamingname" type="character varying" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="renamingname" type="character varying" remarks="Нове прізвище студента"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderstudenttransfer" tableName="q_dt_orderstudenttransfer"/>
@@ -1673,8 +1751,8 @@
         <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
 
         <addForeignKeyConstraint baseColumnNames="studentstatus_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_rf_studentstatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studentstatus"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_studentestimateitem">
+        
+        
         <createTable tableName="q_dt_studentestimateitem" remarks="Контент кошторису" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1700,26 +1778,29 @@
             <column name="pricekoef" type="double precision" remarks="Коефіцієнт з яким враховуються сума оплати по дисципліні " >
                 <constraints nullable="false"/>
             </column>
-            <column name="parent_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="parent_id" type="bigint" remarks="Ієрархічний ідентифікатор. Новий рівень ієрархії виникає якщо в кошторисі на оплату є складові, сума оплати по котрих є залежна від суми оплати по батьківському записі (Наприклад: Матеріальні та інші витрати 25 % від загальної суми)."/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studentestimateitem" tableName="q_dt_studentestimateitem"/>
@@ -1729,8 +1810,8 @@
         <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
 
         <addForeignKeyConstraint baseColumnNames="studentestimate_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dc_studentestimate_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studentestimate"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_dt_studyplanduty">
+        
+        
         <createTable tableName="q_dt_studyplanduty" remarks="Тіло навчального плану. Відповідальні особи за затвердження." >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1738,31 +1819,34 @@
             <column name="studyplan_id" type="bigint" remarks="Ідентифікатор заголовку навчального плану" >
                 <constraints nullable="false"/>
             </column>
-            <column name="dutytype_id" type="bigint" >
+            <column name="dutytype_id" type="bigint" remarks="Ідентифікатор відповідального за підписання">
                 <constraints nullable="false"/>
             </column>
             <column name="employee_id" type="bigint" remarks="Ідентифікатор працівника" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуалність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studyplanduty" tableName="q_dt_studyplanduty"/>
@@ -1773,9 +1857,8 @@
 
         <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dt_studyplanduty" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_ob_studentrating">
-        <createTable tableName="q_ob_studentrating" remarks="Інформація про рейтинги студента " >
+        
+        <createTable tableName="q_ob_studentrating" remarks="Інформація про рейтинги студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
@@ -1785,26 +1868,29 @@
             <column name="studentratingtype_id" type="bigint" remarks="Ідентифікатор типу рейтингу" >
                 <constraints nullable="false"/>
             </column>
-            <column name="rating" type="double precision" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="rating" type="double precision" remarks="Рейтинг студента"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_ob_studentrating" tableName="q_ob_studentrating"/>
@@ -1813,8 +1899,7 @@
 
         <addForeignKeyConstraint baseColumnNames="studentratingtype_id" baseTableName="q_ob_studentrating" constraintName="fk_q_rf_studentratingtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studentratingtype"/>
 
-    </changeSet>
-    <changeSet author="illay" id="add q_od_markscalevalue">
+        
         <createTable tableName="q_od_markscalevalue" remarks="Інформація про шкалу переведення оцінок в системі ECTS" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1825,32 +1910,35 @@
             <column name="strvalue" type="character varying" remarks="Стрічкове позначення школи ECTS" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_od_markscalevalue" tableName="q_od_markscalevalue"/>
 
         <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_od_markscalevalue" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_od_markscaleexchange">
+        
+        
         <createTable tableName="q_od_markscaleexchange" remarks="Інформація про шкалу переведення оцінок" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1858,32 +1946,35 @@
             <column name="markscale_id" type="bigint" remarks="Ідентифікатор шкали оцінювання з якої буде переводитися оцінка" >
                 <constraints nullable="false"/>
             </column>
-            <column name="markmin" type="double precision" />
-            <column name="markmax" type="double precision" />
-            <column name="markscalevalue_id" type="bigint" />
-            <column name="markscaleexchange_id" type="bigint" />
-            <column name="markexchange" type="double precision" />
+            <column name="markmin" type="double precision" remarks="Мінімальна оцінка"/>
+            <column name="markmax" type="double precision" remarks="Максимальна оцінка"/>
+            <column name="markscalevalue_id" type="bigint" remarks="Ідентифікатор шкали оцінювання ECTS з якої буде переводитися"/>
+            <column name="markscaleexchange_id" type="bigint" remarks="Ідентифікатор шкали оцінювання при переведенні (в яку шкалу буде переводитися оцінка)"/>
+            <column name="markexchange" type="double precision" remarks="Оцінка у яку переведено по шкалі оцінювання"/>
             <!-- FK -->
-            <column name="markscaleexchangevalue_id" type="bigint" />
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="markscaleexchangevalue_id" type="bigint" remarks="Ідентифікатор шкали оцінювання ECTS у яку переводиться"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_od_markscaleexchange" tableName="q_od_markscaleexchange"/>
@@ -1892,9 +1983,9 @@
 
         <addForeignKeyConstraint baseColumnNames="markscalevalue_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscalevalue_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_markscalevalue"/>
 
-        <addForeignKeyConstraint baseColumnNames="markscaleexchange_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscaleexchange_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_markscaleexchange"/>        
-    </changeSet>
-    <changeSet author="illay" id="add q_od_studentcontact">
+        <addForeignKeyConstraint baseColumnNames="markscaleexchange_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscaleexchange_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_markscaleexchange"/>
+        
+        
         <createTable tableName="q_od_studentcontact" remarks="Контакти студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1908,25 +1999,28 @@
             <column name="strvalue" type="character varying" remarks="Значення контакту" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_od_studentcontact" tableName="q_od_studentcontact"/>
@@ -1934,8 +2028,8 @@
         <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_od_studentcontact" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
         <addForeignKeyConstraint baseColumnNames="contacttype_id" baseTableName="q_od_studentcontact" constraintName="fk_q_rf_contacttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_contacttype"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_od_subjectname">
+        
+        
         <createTable tableName="q_od_subjectname" remarks="Довідник назв навчальних дисциплін на іноземній мові" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1943,29 +2037,32 @@
             <column name="subject_id" type="bigint" remarks="Ідентифікатор назви дисципліни" >
                 <constraints nullable="false"/>
             </column>
-            <column name="language_id" type="bigint" />
+            <column name="language_id" type="bigint" remarks="Ідентифікатор іноземної мови"/>
             <column name="name" type="character varying" remarks="Назва дисципліни на іноземній мові" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_od_subjectname" tableName="q_od_subjectname"/>
@@ -1973,8 +2070,8 @@
         <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_subjectname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
 
         <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="q_od_subjectname" constraintName="fk_q_ob_subject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_subject"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_op_markscale">
+        
+        
         <createTable tableName="q_op_markscale" remarks="Довідник позначень специфічних оцінок (НЗ, НД, НА)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1991,30 +2088,33 @@
             <column name="abbrname" type="character varying" remarks="Абревіатура, що застовується під час друку відомостей" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_op_markscale" tableName="q_op_markscale"/>
-    </changeSet>
-    <changeSet author="illay" id="add q_rf_studygroupnamerules">
+        
+    
         <createTable tableName="q_rf_studygroupnamerules" remarks="Правила (пропозиції) іменування академічних груп" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -2022,30 +2122,33 @@
             <column name="specoffer_id" type="bigint" remarks="Ідентифікатор пропозиції напрямів та спеціальностей" >
                 <constraints nullable="false"/>
             </column>
-            <column name="language_id" type="bigint" />
-            <column name="abbrname" type="character varying" />
+            <column name="language_id" type="bigint" remarks="Ідентифікатор мови (використовується при транслітерації)"/>
+            <column name="abbrname" type="character varying" remarks="Пропонована згідно з правилами абревіатура у назві групи"/>
             <column name="name" type="character varying" remarks="Пропонована згідно з правилами абревіатура у назві групи" >
                 <constraints nullable="false"/>
             </column>
-            <column name="uid" type="bigint" />
-            <column name="utid" type="character varying" />
-            <column name="uapp" type="character varying" />
-            <column name="status" type="character varying" remarks="Ознака статусу запису (-11 - прихований або видалений (hidden, скорочення для views - hidd), -10 - шаблон (template, скорочення для views - tmpl), -1 - відхилений (reject, скорочення для views - rejc), 0 - новий (blank, скорочення для views - blnk), 1 - прийнятий (submited, скорочення для views - subm), 10 - затверджений (accepted, скорочення для views - accp), 11 - опублікований (published, скорочення для views - publ))" >
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="actual" type="integer" remarks="Актуальність даних" >
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="note" type="character varying" />
-            <column name="crtuser" type="character varying" remarks="Користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtusergroup" type="character varying" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" >
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="crtdate" type="timestamp without time zone" remarks="Дата внесення змін (значення за замовчуванням)" >
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studygroupnamerules" tableName="q_rf_studygroupnamerules"/>
@@ -2055,4 +2158,5 @@
         <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_rf_studygroupnamerules" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
 
     </changeSet>
+    
 </databaseChangeLog>
