@@ -237,6 +237,12 @@
 		<property name="dao" ref="personAwardDao" />
 	</bean>
 
+	<bean id="personContactService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="personContactParametersExtractor" />
+		<property name="dao" ref="personContactDao" />
+	</bean>
+
+	
 	<bean id="personNameService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="personNameParametersExtractor" />
 		<property name="dao" ref="personNameDao" />
