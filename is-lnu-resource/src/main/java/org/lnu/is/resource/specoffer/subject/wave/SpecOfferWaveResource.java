@@ -1,60 +1,60 @@
-package org.lnu.is.domain.specoffer;
+package org.lnu.is.resource.specoffer.subject.wave;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.text.MessageFormat;
 
-import org.lnu.is.annotation.dbtable.OD;
-import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.wave.type.WaveType;
+import javax.validation.constraints.NotNull;
+
+import org.lnu.is.resource.ApiResource;
 
 /**
- * SpecOffer Wave entity.
+ * Spec Offer Wave Resource.
  * @author ivanursul
  *
  */
-@OD
-@Entity
-@Table(name = "q_od_specofferwave")
-public class SpecOfferWave extends InformationModel {
-	private static final long serialVersionUID = 1L;
+public class SpecOfferWaveResource extends ApiResource {
 
-	@ManyToOne
-	@JoinColumn(name = "specoffer_id")
-	private SpecOffer specOffer;
+	@NotNull
+	private Long specOfferId;
 
-	@ManyToOne
-	@JoinColumn(name = "wavetype_id")
-	private WaveType waveType;
+	@NotNull
+	private Long waveTypeId;
 	
-	@Column(name = "liccount")
+	@NotNull
 	private Integer licCount;
 	
-	@Column(name = "statecount")
+	@NotNull
 	private Integer stateCount;
 	
-	@Column(name = "benefitcount")
+	@NotNull
 	private Integer benefitCount;
 	
-	@Column(name = "targetcount")
+	@NotNull
 	private Integer targetCount;
-
-	public WaveType getWaveType() {
-		return waveType;
+	
+	@Override
+	public String getUri() {
+		return MessageFormat.format("/specoffers/{0}/waves/{1}", specOfferId, getId());
 	}
 
-	public void setWaveType(final WaveType waveType) {
-		this.waveType = waveType;
+	@Override
+	public String getRootUri() {
+		return MessageFormat.format("/specoffers/{0}/waves", specOfferId);
 	}
 
-	public SpecOffer getSpecOffer() {
-		return specOffer;
+	public Long getSpecOfferId() {
+		return specOfferId;
 	}
 
-	public void setSpecOffer(final SpecOffer specOffer) {
-		this.specOffer = specOffer;
+	public void setSpecOfferId(final Long specOfferId) {
+		this.specOfferId = specOfferId;
+	}
+
+	public Long getWaveTypeId() {
+		return waveTypeId;
+	}
+
+	public void setWaveTypeId(final Long waveTypeId) {
+		this.waveTypeId = waveTypeId;
 	}
 
 	public Integer getLicCount() {
@@ -98,9 +98,13 @@ public class SpecOfferWave extends InformationModel {
 		result = prime * result
 				+ ((licCount == null) ? 0 : licCount.hashCode());
 		result = prime * result
+				+ ((specOfferId == null) ? 0 : specOfferId.hashCode());
+		result = prime * result
 				+ ((stateCount == null) ? 0 : stateCount.hashCode());
 		result = prime * result
 				+ ((targetCount == null) ? 0 : targetCount.hashCode());
+		result = prime * result
+				+ ((waveTypeId == null) ? 0 : waveTypeId.hashCode());
 		return result;
 	}
 
@@ -115,7 +119,7 @@ public class SpecOfferWave extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		SpecOfferWave other = (SpecOfferWave) obj;
+		SpecOfferWaveResource other = (SpecOfferWaveResource) obj;
 		if (benefitCount == null) {
 			if (other.benefitCount != null) {
 				return false;
@@ -128,6 +132,13 @@ public class SpecOfferWave extends InformationModel {
 				return false;
 			}
 		} else if (!licCount.equals(other.licCount)) {
+			return false;
+		}
+		if (specOfferId == null) {
+			if (other.specOfferId != null) {
+				return false;
+			}
+		} else if (!specOfferId.equals(other.specOfferId)) {
 			return false;
 		}
 		if (stateCount == null) {
@@ -144,14 +155,22 @@ public class SpecOfferWave extends InformationModel {
 		} else if (!targetCount.equals(other.targetCount)) {
 			return false;
 		}
+		if (waveTypeId == null) {
+			if (other.waveTypeId != null) {
+				return false;
+			}
+		} else if (!waveTypeId.equals(other.waveTypeId)) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "SpecOfferWave [licCount=" + licCount + ", stateCount="
-				+ stateCount + ", benefitCount=" + benefitCount
-				+ ", targetCount=" + targetCount + "]";
+		return "SpecOfferWaveResource [specOfferId=" + specOfferId
+				+ ", waveTypeId=" + waveTypeId + ", licCount=" + licCount
+				+ ", stateCount=" + stateCount + ", benefitCount="
+				+ benefitCount + ", targetCount=" + targetCount + "]";
 	}
-	
+
 }
