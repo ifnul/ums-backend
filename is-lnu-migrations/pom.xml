@@ -16,13 +16,13 @@
 		<migrations.location>src/main/resources/migrations/${migration.changelog.name}</migrations.location>
 		
 		<!-- Database properties -->
-		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-		<jdbc.host>localhost</jdbc.host>
-		<jdbc.port>5432</jdbc.port>
-		<jdbc.databasename>lnu</jdbc.databasename>
-		<jdbc.databaseurl>jdbc:postgresql://${jdbc.host}:${jdbc.port}/${jdbc.databasename}</jdbc.databaseurl>
-		<jdbc.username>postgres</jdbc.username>
-		<jdbc.password>postgres</jdbc.password>		
+		<migrations.jdbc.driverClassName>org.postgresql.Driver</migrations.jdbc.driverClassName>
+		<migrations.jdbc.host>localhost</migrations.jdbc.host>
+		<migrations.jdbc.port>5432</migrations.jdbc.port>
+		<migrations.jdbc.databasename>lnu</migrations.jdbc.databasename>
+		<migrations.jdbc.databaseurl>jdbc:postgresql://${migrations.jdbc.host}:${migrations.jdbc.port}/${migrations.jdbc.databasename}</migrations.jdbc.databaseurl>
+		<migrations.jdbc.username>postgres</migrations.jdbc.username>
+		<migrations.jdbc.password>postgres</migrations.jdbc.password>		
 	</properties>
 
 	<parent>
@@ -47,10 +47,10 @@
 				</executions>
 				<configuration>
 					<changeLogFile>${migrations.location}</changeLogFile>
-					<driver>${jdbc.driverClassName}</driver>
-					<url>${jdbc.databaseurl}</url>
-					<username>${jdbc.username}</username>
-					<password>${jdbc.password}</password>
+					<driver>${migrations.jdbc.driverClassName}</driver>
+					<url>${migrations.jdbc.databaseurl}</url>
+					<username>${migrations.jdbc.username}</username>
+					<password>${migrations.jdbc.password}</password>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
 				</configuration>
 				<dependencies>
