@@ -16,13 +16,13 @@
 		<migrations.location>src/main/resources/migrations/${migration.changelog.name}</migrations.location>
 		
 		<!-- Database properties -->
-		<migrations.jdbc.driverClassName>org.postgresql.Driver</migrations.jdbc.driverClassName>
-		<migrations.jdbc.host>localhost</migrations.jdbc.host>
-		<migrations.jdbc.port>5432</migrations.jdbc.port>
-		<migrations.jdbc.databasename>lnu</migrations.jdbc.databasename>
+		<migrations.jdbc.driverClassName>${jdbc.driverClassName}</migrations.jdbc.driverClassName>
+		<migrations.jdbc.host>${jdbc.host}</migrations.jdbc.host>
+		<migrations.jdbc.port>${jdbc.port}</migrations.jdbc.port>
+		<migrations.jdbc.databasename>${jdbc.databasename}</migrations.jdbc.databasename>
 		<migrations.jdbc.databaseurl>jdbc:postgresql://${migrations.jdbc.host}:${migrations.jdbc.port}/${migrations.jdbc.databasename}</migrations.jdbc.databaseurl>
-		<migrations.jdbc.username>postgres</migrations.jdbc.username>
-		<migrations.jdbc.password>postgres</migrations.jdbc.password>		
+		<migrations.jdbc.username>${jdbc.username}</migrations.jdbc.username>
+		<migrations.jdbc.password>${jdbc.password}</migrations.jdbc.password>		
 	</properties>
 
 	<parent>
