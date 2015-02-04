@@ -31,14 +31,6 @@
 		<version>0.0.5-SNAPSHOT</version>
 	</parent>
 
-<!-- 	<dependencies>
-		<dependency>
-			<groupId>org.liquibase</groupId>
-			<artifactId>liquibase-maven-plugin</artifactId>
-			<version>3.2.2</version>
-		</dependency>
-	</dependencies> -->
-
 	<build>
 		<plugins>
 			<plugin>
