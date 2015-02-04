@@ -5,6 +5,9 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 	<changeSet id="deleta all data from ob_specialty" author="illay">
 		<sql>
+			DELETE FROM "q_od_departmentspecialty"
+		</sql>
+		<sql>
 			DELETE FROM "q_ob_specialty"
 		</sql>
 	</changeSet>
