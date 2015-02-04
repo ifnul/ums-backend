@@ -4,10 +4,8 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>is-lnu-migrations</groupId>
 	<artifactId>is-lnu-migrations</artifactId>
 	<name>is-lnu-migrations</name>
-	<version>0.0.1</version>
 
 	<properties>
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
@@ -27,13 +25,19 @@
 		<jdbc.password>postgres</jdbc.password>		
 	</properties>
 
-	<dependencies>
+	<parent>
+		<groupId>is-lnu</groupId>
+		<artifactId>is-lnu</artifactId>
+		<version>0.0.5-SNAPSHOT</version>
+	</parent>
+
+<!-- 	<dependencies>
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-maven-plugin</artifactId>
 			<version>3.2.2</version>
 		</dependency>
-	</dependencies>
+	</dependencies> -->
 
 	<build>
 		<plugins>
@@ -43,8 +47,9 @@
 				<version>3.2.2</version>
 				<executions>
 					<execution>
+						<phase>process-resources</phase>
 						<goals>
-							<goal>status</goal>
+							<goal>update</goal>
 						</goals>
 					</execution>
 				</executions>

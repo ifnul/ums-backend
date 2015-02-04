@@ -40,7 +40,7 @@ object AccessDeniedIntegrationTest {
         session.set("urls", urls);
       })
       .foreach("${urls}", "url") {
-          exec(http("Getting First Paged Result for ${url}")
+          exec(http("Getting First Paged Result")
             .get("${url}")
             .basicAuth("admin", "nimda")
             .check(status.is(200))
