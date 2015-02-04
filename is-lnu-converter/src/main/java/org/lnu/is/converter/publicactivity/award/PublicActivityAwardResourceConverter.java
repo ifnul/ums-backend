@@ -18,7 +18,6 @@ public class PublicActivityAwardResourceConverter extends AbstractConverter<Publ
 	@Override
 	public PublicActivityAward convert(final PublicActivityAwardResource source, final PublicActivityAward target) {
 
-		target.setId(source.getId());
 		target.setAwardName(source.getAwardName());
 		target.setBonus(source.getBonus());
 		target.setBegDate(source.getBegDate());

@@ -57,6 +57,7 @@ import org.lnu.is.integration.course.types.CourseTypeIntegrationTest
 import org.lnu.is.integration.paper.types.PaperTypeIntegrationTest
 import org.lnu.is.integration.publicactivity.PublicActivityIntegrationTest
 import org.lnu.is.integration.paper.types.PaperUsageIntegrationTest
+import org.lnu.is.integration.publicactivity.award.PublicActivityAwardIntegrationTest
 
 
 /**
@@ -103,6 +104,7 @@ object TestCases {
                     PersonPaperIntegrationTest.testCase,
                     PersonTypeIntegrationTest.testCase,
                     PublicActivityIntegrationTest.testCase,
+                    PublicActivityAwardIntegrationTest.testCase,
                     PublicActivityTypeIntegrationTest.testCase,
                     ReasonIntegrationTest.testCase,
                     SallaryTypeIntegrationTest.testCase,
