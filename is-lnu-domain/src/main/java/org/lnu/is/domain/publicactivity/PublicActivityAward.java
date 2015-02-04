@@ -32,7 +32,7 @@ public class PublicActivityAward extends InformationModel {
 	private EnrolmentSubject enrolmentSubject;
 	
 	@Column(name = "awardname")
-	private String awardname;
+	private String awardName;
 	
 	@Column(name = "bonus")
 	private Double bonus;
@@ -59,12 +59,12 @@ public class PublicActivityAward extends InformationModel {
 		this.enrolmentSubject = enrolmentSubject;
 	}
 
-	public String getAwardname() {
-		return awardname;
+	public String getAwardName() {
+		return awardName;
 	}
 
-	public void setAwardname(final String awardname) {
-		this.awardname = awardname;
+	public void setAwardName(final String awardname) {
+		this.awardName = awardname;
 	}
 
 	public Double getBonus() {
@@ -96,7 +96,7 @@ public class PublicActivityAward extends InformationModel {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result
-				+ ((awardname == null) ? 0 : awardname.hashCode());
+				+ ((awardName == null) ? 0 : awardName.hashCode());
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
 		result = prime * result + ((bonus == null) ? 0 : bonus.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
@@ -115,11 +115,11 @@ public class PublicActivityAward extends InformationModel {
 			return false;
 		}
 		PublicActivityAward other = (PublicActivityAward) obj;
-		if (awardname == null) {
-			if (other.awardname != null) {
+		if (awardName == null) {
+			if (other.awardName != null) {
 				return false;
 			}
-		} else if (!awardname.equals(other.awardname)) {
+		} else if (!awardName.equals(other.awardName)) {
 			return false;
 		}
 		if (begDate == null) {
@@ -148,7 +148,7 @@ public class PublicActivityAward extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "PublicActivityAward [awardname=" + awardname + ", bonus="
+		return "PublicActivityAward [awardname=" + awardName + ", bonus="
 				+ bonus + ", begDate=" + begDate + ", endDate=" + endDate + "]";
 	}
 	

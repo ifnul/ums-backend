@@ -3,6 +3,8 @@ package org.lnu.is.resource.publicactivity;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -12,14 +14,19 @@ import org.lnu.is.resource.ApiResource;
  */
 public class PublicActivityResource extends ApiResource {
 
+	@NotNull
 	private Long publicActivityTypeId;
 	
+	@NotNull
 	private Long timePeriodId;
 	
+	@NotNull
 	private String name;
 	
+	@NotNull
 	private Date begDate;
 	
+	@NotNull
 	private Date endDate;
 
 	@Override

@@ -1,4 +1,4 @@
-package org.lnu.is.dao.model;
+package org.lnu.is.dao.persistence.model;
 
 /**
  * Enum for storing methods.

@@ -10,7 +10,7 @@ import org.lnu.is.domain.publicactivity.PublicActivity;
  * @author ivanursul
  *
  */
-@QBuilder
+@QBuilder("publicActivityQueryBuilder")
 public class PublicActivityQueryBuilder extends AbstractQueryBuilder<PublicActivity> {
 	private static final String PUBLICACTIVITYTYPE_CONDITION = "e.publicActivityType=:publicActivityType ";
 	private static final String TIMEPERIOD_CONDITION = "e.timePeriod=:timePeriod ";

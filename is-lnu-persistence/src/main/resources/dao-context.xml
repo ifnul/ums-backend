@@ -266,6 +266,11 @@
 		<property name="queryBuilder" ref="publicActivityQueryBuilder" />
 	</bean>
 
+	<bean id="publicActivityAwardDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.publicactivity.PublicActivityAward" />
+		<property name="queryBuilder" ref="publicActivityAwardQueryBuilder" />
+	</bean>
+
 	<bean id="publicActivityTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.publicactivity.PublicActivityType" />
 		<property name="queryBuilder" ref="publicActivityTypeQueryBuilder" />

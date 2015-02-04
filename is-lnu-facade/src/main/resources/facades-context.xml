@@ -301,6 +301,12 @@
 		<property name="service" ref="publicActivityService" />
 	</bean>
 
+	<bean id="publicActivityAwardFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="publicActivityAwardResourceConverter" />
+		<property name="entityConverter" ref="publicActivityAwardConverter" />
+		<property name="service" ref="publicActivityAwardService" />
+	</bean>
+
 	<bean id="publicActivityTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="publicActivityTypeResourceConverter" />
 		<property name="entityConverter" ref="publicActivityTypeConverter" />

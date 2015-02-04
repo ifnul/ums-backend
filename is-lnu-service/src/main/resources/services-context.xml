@@ -257,6 +257,11 @@
 		<property name="dao" ref="publicActivityDao" />
 	</bean>
 
+	<bean id="publicActivityAwardService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="publicActivityAwardParametersExtractor" />
+		<property name="dao" ref="publicActivityAwardDao" />
+	</bean>
+
 	<bean id="publicActivityTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="publicActivityTypeParametersExtractor" />
 		<property name="dao" ref="publicActivityTypeDao" />

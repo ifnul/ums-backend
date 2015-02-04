@@ -9,8 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.lnu.is.dao.model.DaoMethod;
 import org.lnu.is.dao.persistence.enhancers.Enhancer;
+import org.lnu.is.dao.persistence.model.DaoMethod;
 import org.lnu.is.dao.persistence.verifier.VerifierChainLink;
 import org.lnu.is.domain.Model;
 import org.lnu.is.pagination.MultiplePagedQuerySearch;
