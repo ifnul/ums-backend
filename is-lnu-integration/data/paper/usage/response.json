@@ -1,0 +1,37 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 6,
+  "resources" : [ {
+    "id" : 1,
+    "abbrName" : "різне",
+    "name" : "різне",
+    "uri" : "/papers/usages/1"
+  }, {
+    "id" : 2,
+    "abbrName" : "атестати",
+    "name" : "документи про освіту- підстави для вступу",
+    "uri" : "/papers/usages/2"
+  }, {
+    "id" : 3,
+    "abbrName" : "посвідчення",
+    "name" : "посвідчення особи- підстави для вступу",
+    "uri" : "/papers/usages/3"
+  }, {
+    "id" : 4,
+    "abbrName" : "заохочення",
+    "name" : "документи про заохочення та нагороди",
+    "uri" : "/papers/usages/4"
+  }, {
+    "id" : 5,
+    "abbrName" : "пільги",
+    "name" : "документи про пільги",
+    "uri" : "/papers/usages/5"
+  }, {
+    "id" : 6,
+    "abbrName" : "оцінки",
+    "name" : "документи з оцінками для вступу",
+    "uri" : "/papers/usages/6"
+  } ],
+  "uri" : "/papers/usages"
+}

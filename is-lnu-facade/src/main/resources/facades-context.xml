@@ -246,6 +246,12 @@
 		<property name="entityConverter" ref="paperTypeConverter" />
 		<property name="service" ref="paperTypeService" />
 	</bean>
+	
+	<bean id="paperUsageFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="paperUsageResourceConverter" />
+		<property name="entityConverter" ref="paperUsageConverter" />
+		<property name="service" ref="paperUsageService" />
+	</bean>
 
 	<bean id="partnerFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="partnerResourceConverter" />

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.honorstype.HonorType;
-import org.lnu.is.domain.papertype.PaperType;
+import org.lnu.is.domain.paper.type.PaperType;
 
 /**
  * Person Paper entity.

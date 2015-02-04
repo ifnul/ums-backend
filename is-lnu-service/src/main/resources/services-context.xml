@@ -6,16 +6,12 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	default-autowire="byName">
 	
-	<bean id="broadcastingService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="broadcastingParametersExtractor"/>
-		<property name="dao" ref="broadcastingDao"/>
-	</bean>
 	
-	<bean id="operationTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="operationTypeParametersExtractor"/>
-		<property name="dao" ref="operationTypeDao"/>
+	<bean id="addressTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="addressTypeParametersExtractor" />
+		<property name="dao" ref="addressTypeDao" />
 	</bean>
-	
+
 	<bean id="adminUnitService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="adminUnitParametersExtractor"/>
 		<property name="dao" ref="adminUnitDao"/>
@@ -61,6 +57,11 @@
 		<property name="dao" ref="benefitTypeDao"/>
 	</bean>
 
+	<bean id="broadcastingService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="broadcastingParametersExtractor"/>
+		<property name="dao" ref="broadcastingDao"/>
+	</bean>
+	
 	<bean id="contactTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="contactTypeParametersExtractor"/>
 		<property name="dao" ref="contactTypeDao"/>
@@ -71,41 +72,6 @@
 		<property name="dao" ref="courseTypeDao"/>
 	</bean>
 	
-	<bean id="employeeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="employeeParametersExtractor"/>
-		<property name="dao" ref="employeeDao"/>
-	</bean>
-
-	<bean id="employeeTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="employeeTypeParametersExtractor"/>
-		<property name="dao" ref="employeeTypeDao"/>
-	</bean>
-
-	<bean id="employeeStatusService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="employeeStatusParametersExtractor"/>
-		<property name="dao" ref="employeeStatusDao"/>
-	</bean>
-	
-	<bean id="enrolmentTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="enrolmentTypeParametersExtractor" />
-		<property name="dao" ref="enrolmentTypeDao" />
-	</bean>
-
-	<bean id="enrolmentService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="enrolmentParametersExtractor" />
-		<property name="dao" ref="enrolmentDao" />
-	</bean>
-
-	<bean id="honorTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="honorTypeParametersExtractor" />
-		<property name="dao" ref="honorsTypeDao" />
-	</bean>
-
-	<bean id="addressTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="addressTypeParametersExtractor" />
-		<property name="dao" ref="addressTypeDao" />
-	</bean>
-
 	<bean id="departmentService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="departmentParametersExtractor" />
 		<property name="dao" ref="departmentDao" />
@@ -161,6 +127,21 @@
 		<property name="dao" ref="eduFormTypeDao" />
 	</bean>
 
+	<bean id="employeeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="employeeParametersExtractor"/>
+		<property name="dao" ref="employeeDao"/>
+	</bean>
+
+	<bean id="employeeTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="employeeTypeParametersExtractor"/>
+		<property name="dao" ref="employeeTypeDao"/>
+	</bean>
+
+	<bean id="employeeStatusService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="employeeStatusParametersExtractor"/>
+		<property name="dao" ref="employeeStatusDao"/>
+	</bean>
+	
 	<bean id="enrolmentStatusTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="enrolmentStatusTypeParametersExtractor" />
 		<property name="dao" ref="enrolmentStatusTypeDao" />
@@ -171,11 +152,31 @@
 		<property name="dao" ref="enrolmentSubjectDao" />
 	</bean>
 
+	<bean id="enrolmentTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="enrolmentTypeParametersExtractor" />
+		<property name="dao" ref="enrolmentTypeDao" />
+	</bean>
+
+	<bean id="enrolmentService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="enrolmentParametersExtractor" />
+		<property name="dao" ref="enrolmentDao" />
+	</bean>
+
+	<bean id="familyTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="familyTypeParametersExtractor" />
+		<property name="dao" ref="familyTypeDao" />
+	</bean>
+	
 	<bean id="genderTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="genderTypeParametersExtractor" />
 		<property name="dao" ref="genderTypeDao" />
 	</bean>
 
+	<bean id="honorTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="honorTypeParametersExtractor" />
+		<property name="dao" ref="honorsTypeDao" />
+	</bean>
+	
 	<bean id="jobTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="jobTypeParametersExtractor" />
 		<property name="dao" ref="jobTypeDao" />
@@ -191,14 +192,39 @@
 		<property name="dao" ref="marriedTypeDao" />
 	</bean>
 
+	<bean id="operationTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="operationTypeParametersExtractor"/>
+		<property name="dao" ref="operationTypeDao"/>
+	</bean>
+	
+	<bean id="orderService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="orderParametersExtractor"/>
+		<property name="dao" ref="orderDao"/>
+	</bean>
+
+	<bean id="orderTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="orderTypeParametersExtractor"/>
+		<property name="dao" ref="orderTypeDao"/>
+	</bean>
+	
 	<bean id="paperTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="paperTypeParametersExtractor" />
 		<property name="dao" ref="paperTypeDao" />
+	</bean>
+	
+	<bean id="paperUsageService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="paperUsageParametersExtractor" />
+		<property name="dao" ref="paperUsageDao" />
 	</bean>
 
 	<bean id="partnerService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="partnerParametersExtractor" />
 		<property name="dao" ref="partnerDao" />
+	</bean>
+
+	<bean id="personService" class="org.lnu.is.service.DefaultService">
+		<property name="dao" ref="personDao" />
+		<property name="parametersExtractor" ref="personParametersExtractor" />
 	</bean>
 
 	<bean id="personAddressService" class="org.lnu.is.service.DefaultService">
@@ -211,24 +237,19 @@
 		<property name="dao" ref="personAwardDao" />
 	</bean>
 
-	<bean id="personPaperService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="personPaperParametersExtractor" />
-		<property name="dao" ref="personPaperDao" />
-	</bean>
-
 	<bean id="personNameService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="personNameParametersExtractor" />
 		<property name="dao" ref="personNameDao" />
 	</bean>
 
+	<bean id="personPaperService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="personPaperParametersExtractor" />
+		<property name="dao" ref="personPaperDao" />
+	</bean>
+
 	<bean id="personTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="personTypeParametersExtractor" />
 		<property name="dao" ref="personTypeDao" />
-	</bean>
-
-	<bean id="personService" class="org.lnu.is.service.DefaultService">
-		<property name="dao" ref="personDao" />
-		<property name="parametersExtractor" ref="personParametersExtractor" />
 	</bean>
 
 	<bean id="publicActivityService" class="org.lnu.is.service.DefaultService">
@@ -266,6 +287,16 @@
 		<property name="dao" ref="specialtyTypeDao" />
 	</bean>
 
+	<bean id="specOfferService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="specOfferParametersExtractor" />
+		<property name="dao" ref="specOfferDao" />
+	</bean>
+
+	<bean id="specOfferBenefitService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="specOfferBenefitParametersExtractor" />
+		<property name="dao" ref="specOfferBenefitDao" />
+	</bean>
+
 	<bean id="specOfferSubjectService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specOfferSubjectParametersExtractor" />
 		<property name="dao" ref="specOfferDao" />
@@ -274,11 +305,6 @@
 	<bean id="specOfferTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specOfferTypeParametersExtractor" />
 		<property name="dao" ref="specOfferTypeDao" />
-	</bean>
-
-	<bean id="specOfferService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="specOfferParametersExtractor" />
-		<property name="dao" ref="specOfferDao" />
 	</bean>
 
 	<bean id="subjectService" class="org.lnu.is.service.DefaultService">
@@ -291,10 +317,6 @@
 		<property name="dao" ref="subjectTypeDao" />
 	</bean>
 
-	<bean id="familyTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="familyTypeParametersExtractor" />
-		<property name="dao" ref="familyTypeDao" />
-	</bean>
 
 	<bean id="timePeriodService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="timePeriodParametersExtractor" />
@@ -311,26 +333,6 @@
 		<property name="dao" ref="timeSheetTypeDao" />
 	</bean>
 
-	<bean id="specOfferBenefitService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="specOfferBenefitParametersExtractor" />
-		<property name="dao" ref="specOfferBenefitDao" />
-	</bean>
-	
-	<bean id="orderService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="orderParametersExtractor"/>
-		<property name="dao" ref="orderDao"/>
-	</bean>
-
-	<bean id="orderTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="orderTypeParametersExtractor"/>
-		<property name="dao" ref="orderTypeDao"/>
-	</bean>
-	
-	<bean id="waveTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="waveTypeParametersExtractor" />
-		<property name="dao" ref="waveTypeDao" />
-	</bean>
-	
 	<bean id="userService" class="org.lnu.is.service.user.DefaultUserService">
 		<property name="dao" ref="userDao"/>
 	</bean>
@@ -339,5 +341,11 @@
 		<property name="dao" ref="userGroupDao"/>
 		<property name="userGroupViewsParametersExtractor" ref="userGroupViewsParametersExtractor"/>
 	</bean>
-	
+
+
+	<bean id="waveTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="waveTypeParametersExtractor" />
+		<property name="dao" ref="waveTypeDao" />
+	</bean>
+		
 </beans>

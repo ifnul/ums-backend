@@ -11,16 +11,21 @@
 		<property name="persistenceManager" ref="persistenceManager" />
 	</bean>
 	
-	<bean id="broadcastingDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.broadcasting.BroadcastingMessage" />
-		<property name="queryBuilder" ref="broadcastingQueryBuilder" />		
+	<bean id="addressTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.addresstype.AddressType" />
+		<property name="queryBuilder" ref="addressTypeQueryBuilder" />
 	</bean>
 	
-	<bean id="operationTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.optype.OperationType" />
-		<property name="queryBuilder" ref="operationTypeQueryBuilder" />		
+	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.adminunit.AdminUnit" />
+		<property name="queryBuilder" ref="adminUnitQueryBuilder" />		
 	</bean>
-	
+
+	<bean id="adminUnitTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.adminunit.type.AdminUnitType" />
+		<property name="queryBuilder" ref="adminUnitTypeQueryBuilder" />
+	</bean>
+
 	<bean id="assetDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.asset.Asset" />
 		<property name="queryBuilder" ref="assetQueryBuilder" />		
@@ -56,6 +61,11 @@
 		<property name="queryBuilder" ref="benefitTypeQueryBuilder"/>
 	</bean>
 	
+	<bean id="broadcastingDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.broadcasting.BroadcastingMessage" />
+		<property name="queryBuilder" ref="broadcastingQueryBuilder" />		
+	</bean>
+	
 	<bean id="contactTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.contacttype.ContactType" />
 		<property name="queryBuilder" ref="contactTypeQueryBuilder"/>
@@ -66,26 +76,6 @@
 		<property name="queryBuilder" ref="courseTypeQueryBuilder"/>
 	</bean>
 	
-	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.partner.Partner" />
-		<property name="queryBuilder" ref="partnerQueryBuilder"/>
-	</bean>
-	
-	<bean id="employeeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.employee.Employee" />
-		<property name="queryBuilder" ref="employeeQueryBuilder"/>
-	</bean>
-
-	<bean id="employeeTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.employee.type.EmployeeType" />
-		<property name="queryBuilder" ref="employeeTypeQueryBuilder"/>
-	</bean>
-
-	<bean id="employeeStatusDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.employee.status.EmployeeStatus" />
-		<property name="queryBuilder" ref="employeeStatusQueryBuilder" />
-	</bean>
-
 	<bean id="degreeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.degree.Degree"/>
 		<property name="queryBuilder" ref="degreeQueryBuilder"/>
@@ -94,195 +84,6 @@
 	<bean id="degreeTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.degree.DegreeType"/>
 		<property name="queryBuilder" ref="degreeTypeQueryBuilder"/>
-	</bean>
-
-	<bean id="dutyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.dutytype.DutyType"/>
-		<property name="queryBuilder" ref="dutyTypeQueryBuilder"/>
-	</bean>
-
-	
-	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.enrolment.type.EnrolmentType" />
-		<property name="queryBuilder" ref="enrolmentTypeQueryBuilder" />
-	</bean>
-
-	<bean id="enrolmentDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.enrolment.Enrolment" />
-		<property name="queryBuilder" ref="enrolmentQueryBuilder" />
-	</bean>
-
-	<bean id="addressTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.addresstype.AddressType" />
-		<property name="queryBuilder" ref="addressTypeQueryBuilder" />
-	</bean>
-
-	<bean id="timePeriodDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.timeperiod.TimePeriod" />
-		<property name="queryBuilder" ref="timePeriodQueryBuilder" />
-	</bean>
-
-	<bean id="timePeriodTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.timeperiod.TimePeriodType" />
-		<property name="queryBuilder" ref="timePeriodTypeQueryBuilder" />
-	</bean>
-
-	<bean id="sallaryTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.salarytype.SallaryType" />
-		<property name="queryBuilder" ref="sallaryTypeQueryBuilder" />
-	</bean>
-
-	<bean id="streetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.streettype.StreetType" />
-		<property name="queryBuilder" ref="streetTypeQueryBuilder" />
-	</bean>
-
-	<bean id="specOfferDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOffer" />
-		<property name="queryBuilder" ref="specOfferQueryBuilder" />
-	</bean>
-
-	<bean id="specOfferTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOfferType" />
-		<property name="queryBuilder" ref="specOfferTypeQueryBuilder" />
-	</bean>
-
-	<bean id="specOfferSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOfferSubject" />
-		<property name="queryBuilder" ref="specOfferSubjectQueryBuilder" />
-	</bean>
-
-	<bean id="specOfferBenefitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOfferBenefit" />
-		<property name="queryBuilder" ref="specOfferBenefitQueryBuilder" />
-	</bean>
-
-	<bean id="specialtyDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.specialty.Specialty" />
-		<property name="queryBuilder" ref="specialtyQueryBuilder" />
-	</bean>
-
-	<bean id="specialtyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.specialty.SpecialtyType" />
-		<property name="queryBuilder" ref="specialtyTypeQueryBuilder" />
-	</bean>
-
-	<bean id="subjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.subject.Subject" />
-		<property name="queryBuilder" ref="subjectQueryBuilder" />
-	</bean>
-
-	<bean id="subjectTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.subject.SubjectType" />
-		<property name="queryBuilder" ref="subjectTypeQueryBuilder" />
-	</bean>
-
-	<bean id="personDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.Person" />
-		<property name="queryBuilder" ref="personQueryBuilder" />
-	</bean>
-
-	<bean id="personPaperDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonPaper" />
-		<property name="queryBuilder" ref="personPaperQueryBuilder" />
-	</bean>
-
-	<bean id="personNameDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonName" />
-		<property name="queryBuilder" ref="personNameQueryBuilder" />
-	</bean>
-
-	<bean id="personTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonType" />
-		<property name="queryBuilder" ref="personTypeQueryBuilder" />
-	</bean>
-
-	<bean id="personAwardDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonAward" />
-		<property name="queryBuilder" ref="personAwardQueryBuilder" />
-	</bean>
-
-	<bean id="personAddressDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonAddress" />
-		<property name="queryBuilder" ref="personAddressQueryBuilder" />
-	</bean>
-
-	<bean id="paperTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.papertype.PaperType" />
-		<property name="queryBuilder" ref="paperTypeQueryBuilder"/>
-	</bean>
-	
-	<bean id="paperUsageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.paperusage.PaperUsage" />
-	</bean>
-
-	<bean id="postDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.post.Post" />
-	</bean>
-
-	<bean id="publicActivityDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.publicactivity.PublicActivity" />
-		<property name="queryBuilder" ref="publicActivityQueryBuilder" />
-	</bean>
-
-	<bean id="publicActivityTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.publicactivity.PublicActivityType" />
-		<property name="queryBuilder" ref="publicActivityTypeQueryBuilder" />
-	</bean>
-
-	<bean id="orderDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.order.Order" />
-		<property name="queryBuilder" ref="orderQueryBuilder"/>
-	</bean>
-
-	<bean id="orderTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.order.OrderType" />
-		<property name="queryBuilder" ref="orderTypeQueryBuilder" />
-	</bean>
-
-	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.marriedtype.MarriedType" />
-		<property name="queryBuilder" ref="marriedTypeQueryBuilder" />
-	</bean>
-
-	<bean id="honorsTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.honorstype.HonorType" />
-		<property name="queryBuilder" ref="honorTypeQueryBuilder" />
-	</bean>
-
-	<bean id="jobTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.jobtype.JobType" />
-		<property name="queryBuilder" ref="jobTypeQueryBuilder" />
-	</bean>
-
-	<bean id="genderTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.gendertype.GenderType" />
-		<property name="queryBuilder" ref="genderTypeQueryBuilder" />
-	</bean>
-
-	<bean id="enrolmentStatusTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType" />
-		<property name="queryBuilder" ref="enrolmentStatusTypeQueryBuilder" />
-	</bean>
-
-	<bean id="enrolmentSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.enrolment.subject.EnrolmentSubject" />
-		<property name="queryBuilder" ref="enrolmentSubjectQueryBuilder" />
-	</bean>
-
-	<bean id="educationTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.educationtype.EducationType" />
-		<property name="queryBuilder" ref="educationTypeQueryBuilder" />
-	</bean>
-
-	<bean id="eduFormTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.eduformtype.EduFormType" />
-		<property name="queryBuilder" ref="eduFormTypeQueryBuilder" />
-	</bean>
-
-	<bean id="reasonDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.reason.Reason" />
-		<property name="queryBuilder" ref="reasonQueryBuilder"/>
 	</bean>
 
 	<bean id="departmentDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
@@ -315,34 +116,229 @@
 		<property name="queryBuilder" ref="departmentTypeQueryBuilder" />
 	</bean>
 
-	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.adminunit.AdminUnit" />
-		<property name="queryBuilder" ref="adminUnitQueryBuilder" />		
+	<bean id="dutyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.dutytype.DutyType"/>
+		<property name="queryBuilder" ref="dutyTypeQueryBuilder"/>
 	</bean>
 
-	<bean id="adminUnitTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.adminunit.type.AdminUnitType" />
-		<property name="queryBuilder" ref="adminUnitTypeQueryBuilder" />
+	<bean id="educationTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.educationtype.EducationType" />
+		<property name="queryBuilder" ref="educationTypeQueryBuilder" />
 	</bean>
 
+	<bean id="eduFormTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.eduformtype.EduFormType" />
+		<property name="queryBuilder" ref="eduFormTypeQueryBuilder" />
+	</bean>
+
+	<bean id="employeeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.employee.Employee" />
+		<property name="queryBuilder" ref="employeeQueryBuilder"/>
+	</bean>
+
+	<bean id="employeeStatusDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.employee.status.EmployeeStatus" />
+		<property name="queryBuilder" ref="employeeStatusQueryBuilder" />
+	</bean>
+
+	<bean id="employeeTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.employee.type.EmployeeType" />
+		<property name="queryBuilder" ref="employeeTypeQueryBuilder"/>
+	</bean>
+
+	<bean id="enrolmentDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.Enrolment" />
+		<property name="queryBuilder" ref="enrolmentQueryBuilder" />
+	</bean>
+
+	<bean id="enrolmentStatusTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType" />
+		<property name="queryBuilder" ref="enrolmentStatusTypeQueryBuilder" />
+	</bean>
+
+	<bean id="enrolmentSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.subject.EnrolmentSubject" />
+		<property name="queryBuilder" ref="enrolmentSubjectQueryBuilder" />
+	</bean>
+
+	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.type.EnrolmentType" />
+		<property name="queryBuilder" ref="enrolmentTypeQueryBuilder" />
+	</bean>
+
+	<bean id="familyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.familytype.FamilyType" />
+		<property name="queryBuilder" ref="familyTypeQueryBuilder"/>
+	</bean>
+
+	<bean id="genderTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.gendertype.GenderType" />
+		<property name="queryBuilder" ref="genderTypeQueryBuilder" />
+	</bean>
+
+	<bean id="honorsTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.honorstype.HonorType" />
+		<property name="queryBuilder" ref="honorTypeQueryBuilder" />
+	</bean>
+
+	<bean id="jobTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.jobtype.JobType" />
+		<property name="queryBuilder" ref="jobTypeQueryBuilder" />
+	</bean>
+
+		
 	<bean id="languageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.language.Language" />
 		<property name="queryBuilder" ref="languageQueryBuilder"/>
 	</bean>
 	
-	<bean id="familyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.familytype.FamilyType" />
-		<property name="queryBuilder" ref="familyTypeQueryBuilder"/>
+	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.marriedtype.MarriedType" />
+		<property name="queryBuilder" ref="marriedTypeQueryBuilder" />
+	</bean>
+
+	<bean id="operationTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.optype.OperationType" />
+		<property name="queryBuilder" ref="operationTypeQueryBuilder" />		
+	</bean>
+
+	<bean id="orderDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.order.Order" />
+		<property name="queryBuilder" ref="orderQueryBuilder"/>
+	</bean>
+
+	<bean id="orderTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.order.OrderType" />
+		<property name="queryBuilder" ref="orderTypeQueryBuilder" />
+	</bean>
+
+	<bean id="paperTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.paper.type.PaperType" />
+		<property name="queryBuilder" ref="paperTypeQueryBuilder"/>
+	</bean>
+	
+	<bean id="paperUsageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.paper.usage.PaperUsage" />
+		<property name="queryBuilder" ref="paperUsageQueryBuilder"/>
+	</bean>
+	
+	<bean id="partnerDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.partner.Partner" />
+		<property name="queryBuilder" ref="partnerQueryBuilder"/>
+	</bean>
+
+	<bean id="personDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.Person" />
+		<property name="queryBuilder" ref="personQueryBuilder" />
+	</bean>
+
+	<bean id="personAddressDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.PersonAddress" />
+		<property name="queryBuilder" ref="personAddressQueryBuilder" />
+	</bean>
+
+	<bean id="personAwardDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.PersonAward" />
+		<property name="queryBuilder" ref="personAwardQueryBuilder" />
+	</bean>
+
+	<bean id="personNameDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.PersonName" />
+		<property name="queryBuilder" ref="personNameQueryBuilder" />
+	</bean>
+
+	<bean id="personPaperDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.PersonPaper" />
+		<property name="queryBuilder" ref="personPaperQueryBuilder" />
+	</bean>
+
+	<bean id="personTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.PersonType" />
+		<property name="queryBuilder" ref="personTypeQueryBuilder" />
+	</bean>
+
+	<bean id="postDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.post.Post" />
+	</bean>
+
+	<bean id="publicActivityDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.publicactivity.PublicActivity" />
+		<property name="queryBuilder" ref="publicActivityQueryBuilder" />
+	</bean>
+
+	<bean id="publicActivityTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.publicactivity.PublicActivityType" />
+		<property name="queryBuilder" ref="publicActivityTypeQueryBuilder" />
+	</bean>
+
+	<bean id="reasonDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.reason.Reason" />
+		<property name="queryBuilder" ref="reasonQueryBuilder"/>
+	</bean>
+
+	<bean id="sallaryTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.salarytype.SallaryType" />
+		<property name="queryBuilder" ref="sallaryTypeQueryBuilder" />
+	</bean>
+	
+	<bean id="specOfferDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOffer" />
+		<property name="queryBuilder" ref="specOfferQueryBuilder" />
+	</bean>
+
+	<bean id="specOfferBenefitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOfferBenefit" />
+		<property name="queryBuilder" ref="specOfferBenefitQueryBuilder" />
+	</bean>
+	
+	<bean id="specOfferSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOfferSubject" />
+		<property name="queryBuilder" ref="specOfferSubjectQueryBuilder" />
+	</bean>
+
+	<bean id="specOfferTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOfferType" />
+		<property name="queryBuilder" ref="specOfferTypeQueryBuilder" />
+	</bean>
+
+	<bean id="specialtyDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.specialty.Specialty" />
+		<property name="queryBuilder" ref="specialtyQueryBuilder" />
+	</bean>
+
+	<bean id="specialtyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.specialty.SpecialtyType" />
+		<property name="queryBuilder" ref="specialtyTypeQueryBuilder" />
+	</bean>
+
+	<bean id="streetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.streettype.StreetType" />
+		<property name="queryBuilder" ref="streetTypeQueryBuilder" />
+	</bean>
+
+	<bean id="subjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.subject.Subject" />
+		<property name="queryBuilder" ref="subjectQueryBuilder" />
+	</bean>
+
+	<bean id="subjectTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.subject.SubjectType" />
+		<property name="queryBuilder" ref="subjectTypeQueryBuilder" />
+	</bean>
+	
+	<bean id="timePeriodDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.timeperiod.TimePeriod" />
+		<property name="queryBuilder" ref="timePeriodQueryBuilder" />
+	</bean>
+
+	<bean id="timePeriodTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.timeperiod.TimePeriodType" />
+		<property name="queryBuilder" ref="timePeriodTypeQueryBuilder" />
 	</bean>
 	
 	<bean id="timeSheetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.timesheettype.TimeSheetType" />
 		<property name="queryBuilder" ref="timeSheetTypeQueryBuilder" />
-	</bean>
-	
-	<bean id="waveTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.wave.type.WaveType" />
-		<property name="queryBuilder" ref="waveTypeQueryBuilder" />
 	</bean>
 
 	<bean id="userDao" class="org.lnu.is.dao.dao.user.DefaultUserDao" parent="abstractDao">
@@ -353,6 +349,10 @@
 		<property name="entityClass" value="org.lnu.is.domain.user.group.UserGroup" />
 		<property name="userGroupViewQueryBuilder" ref="userGroupViewQueryBuilder"/>
 	</bean>
-	
-	
+
+	<bean id="waveTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.wave.type.WaveType" />
+		<property name="queryBuilder" ref="waveTypeQueryBuilder" />
+	</bean>
+
 </beans>

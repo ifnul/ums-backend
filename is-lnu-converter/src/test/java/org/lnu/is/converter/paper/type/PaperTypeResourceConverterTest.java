@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.papertype.PaperType;
-import org.lnu.is.domain.paperusage.PaperUsage;
+import org.lnu.is.domain.paper.type.PaperType;
+import org.lnu.is.domain.paper.usage.PaperUsage;
 import org.lnu.is.resource.paper.type.PaperTypeResource;
 
 public class PaperTypeResourceConverterTest {

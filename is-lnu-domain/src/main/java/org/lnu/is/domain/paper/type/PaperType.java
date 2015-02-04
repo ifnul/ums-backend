@@ -1,4 +1,4 @@
-package org.lnu.is.domain.papertype;
+package org.lnu.is.domain.paper.type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.RF;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.paperusage.PaperUsage;
+import org.lnu.is.domain.paper.usage.PaperUsage;
 
 /**
  * Paper Type entity.

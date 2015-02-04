@@ -19,4 +19,9 @@
             <column name="update_date">now()</column>
         </insert>
     </changeSet>
+    <changeSet id="remove item абітурієнт" author="illay">
+    	<delete tableName="q_rf_persontype">
+    		<where>name='абітурієнт' and abbrname is null</where>
+    	</delete>
+    </changeSet>
 </databaseChangeLog>

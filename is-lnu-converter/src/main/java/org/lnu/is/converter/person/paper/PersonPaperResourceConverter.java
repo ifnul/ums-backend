@@ -3,7 +3,7 @@ package org.lnu.is.converter.person.paper;
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.honorstype.HonorType;
-import org.lnu.is.domain.papertype.PaperType;
+import org.lnu.is.domain.paper.type.PaperType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.PersonPaper;
 import org.lnu.is.resource.person.paper.PersonPaperResource;

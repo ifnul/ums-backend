@@ -1,7 +1,6 @@
-package org.lnu.is.extractor.paper.type;
+package org.lnu.is.extractor.paper.usage;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -12,9 +11,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.paper.type.PaperType;
 import org.lnu.is.domain.paper.usage.PaperUsage;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
@@ -22,16 +19,12 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PaperTypeParametersExtractorTest {
+public class PaperUsageParametersExtractorTest {
 
 	@Mock
-	private SessionService sessionService;
-	
-	@Mock
-	private Dao<PaperUsage, Long> paperUsageDao;
-	
+	private SessionService sessionService;	
 	@InjectMocks
-	private PaperTypeParametersExtractor unit = new PaperTypeParametersExtractor();
+	private PaperUsageParametersExtractor unit;
 
 	private Boolean active = true;
 	private Boolean security = true;
@@ -52,25 +45,21 @@ public class PaperTypeParametersExtractorTest {
 	@Test
 	public void testGetParameters() throws Exception {
 		// Given
-		PaperUsage paperUsage = new PaperUsage();
-		PaperType entity = new PaperType();
+		PaperUsage entity = new PaperUsage();
 		String name = "first blood";
 		String abbrName = "fb";
 
 		entity.setName(name);
 		entity.setAbbrName(abbrName);
-		entity.setPaperUsage(paperUsage);
-
+		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
 		expected.put("abbrName", abbrName);
-		expected.put("paperUsage", paperUsage);
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
 		
 		// When
-		when(paperUsageDao.getEntityById(anyLong())).thenReturn(paperUsage);
-		
+				
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then
@@ -83,23 +72,19 @@ public class PaperTypeParametersExtractorTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		PaperUsage paperUsage = new PaperUsage();
-		PaperType entity = new PaperType();
+		PaperUsage entity = new PaperUsage();
 		String name = "first blood";
 		String abbrName = "fb";
 		
 		entity.setName(name);
 		entity.setAbbrName(abbrName);
-		entity.setPaperUsage(paperUsage);
-		
+				
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
 		expected.put("abbrName", abbrName);
-		expected.put("paperUsage", paperUsage);
 		
 		// When
-		when(paperUsageDao.getEntityById(anyLong())).thenReturn(paperUsage);
-		
+				
 		Map<String, Object> actual = unit.getParameters(entity);
 		
 		// Then
@@ -109,7 +94,7 @@ public class PaperTypeParametersExtractorTest {
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		PaperType entity = new PaperType();
+		PaperUsage entity = new PaperUsage();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
@@ -126,7 +111,7 @@ public class PaperTypeParametersExtractorTest {
 		// Given
 		unit.setSecurity(false);
 		
-		PaperType entity = new PaperType();
+		PaperUsage entity = new PaperUsage();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
 		
@@ -142,7 +127,7 @@ public class PaperTypeParametersExtractorTest {
 		// Given
 		unit.setActive(false);
 		
-		PaperType entity = new PaperType();
+		PaperUsage entity = new PaperUsage();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("userGroups", groups);
 		
@@ -159,7 +144,7 @@ public class PaperTypeParametersExtractorTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		PaperType entity = new PaperType();
+		PaperUsage entity = new PaperUsage();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		
 		// When

@@ -1,4 +1,4 @@
-package org.lnu.is.domain.paperusage;
+package org.lnu.is.domain.paper.usage;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import org.lnu.is.domain.InformationModel;
 
 /**
  * Paper Usage entity.
- * @author ivanursul
+ * @author illay
  *
  */
 @RF

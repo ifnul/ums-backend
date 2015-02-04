@@ -1,15 +1,14 @@
-package org.lnu.is.dao.builder.paper.type;
+package org.lnu.is.dao.builder.paper.usage;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.paper.type.PaperType;
 import org.lnu.is.domain.paper.usage.PaperUsage;
 
-public class PaperTypeQueryBuilderTest {
+public class PaperUsageQueryBuilderTest {
 
-	private PaperTypeQueryBuilder unit = new PaperTypeQueryBuilder();
+	private PaperUsageQueryBuilder unit = new PaperUsageQueryBuilder();
 	
 	private Boolean active = true;
 	private Boolean security = true;
@@ -23,9 +22,9 @@ public class PaperTypeQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
-		PaperType context = new PaperType();
+		PaperUsage context = new PaperUsage();
 		
-		String expectedQuery = "SELECT e FROM PaperType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PaperUsage e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -38,9 +37,9 @@ public class PaperTypeQueryBuilderTest {
 	public void testBuildWithDisabledSecurityConstraint() throws Exception {
 		// Given
 		unit.setSecurity(false);
-		PaperType context = new PaperType();
+		PaperUsage context = new PaperUsage();
 		
-		String expectedQuery = "SELECT e FROM PaperType e WHERE e.status=:status ";
+		String expectedQuery = "SELECT e FROM PaperUsage e WHERE e.status=:status ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -53,9 +52,9 @@ public class PaperTypeQueryBuilderTest {
 	public void testBuildWithDisabledStatusConstraint() throws Exception {
 		// Given
 		unit.setActive(false);
-		PaperType context = new PaperType();
+		PaperUsage context = new PaperUsage();
 		
-		String expectedQuery = "SELECT e FROM PaperType e WHERE e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PaperUsage e WHERE e.crtUserGroup IN (:userGroups) ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -70,9 +69,9 @@ public class PaperTypeQueryBuilderTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		PaperType context = new PaperType();
+		PaperUsage context = new PaperUsage();
 		
-		String expectedQuery = "SELECT e FROM PaperType e ";
+		String expectedQuery = "SELECT e FROM PaperUsage e ";
 		
 		// When
 		String actualQuery = unit.build(context);
@@ -86,14 +85,12 @@ public class PaperTypeQueryBuilderTest {
 		// Given
 		String abbrName = "abbrname";
 		String name = "fdsfds";
-		PaperUsage paperUsage = new PaperUsage();
-
-		PaperType context = new PaperType();
+		
+		PaperUsage context = new PaperUsage();
 		context.setAbbrName(abbrName);
 		context.setName(name);
-		context.setPaperUsage(paperUsage);
-
-		String expectedQuery = "SELECT e FROM PaperType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.paperUsage = :paperUsage ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		
+		String expectedQuery = "SELECT e FROM PaperUsage e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 
 		// When
 		String actualQuery = unit.build(context);
@@ -110,14 +107,12 @@ public class PaperTypeQueryBuilderTest {
 		
 		String abbrName = "abbrname";
 		String name = "fdsfds";
-		PaperUsage paperUsage = new PaperUsage();
 		
-		PaperType context = new PaperType();
+		PaperUsage context = new PaperUsage();
 		context.setAbbrName(abbrName);
 		context.setName(name);
-		context.setPaperUsage(paperUsage);
 		
-		String expectedQuery = "SELECT e FROM PaperType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.paperUsage = :paperUsage ) ";
+		String expectedQuery = "SELECT e FROM PaperUsage e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
 		
 		// When
 		String actualQuery = unit.build(context);
