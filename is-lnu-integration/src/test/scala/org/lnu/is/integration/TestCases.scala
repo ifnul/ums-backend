@@ -56,7 +56,7 @@ import org.lnu.is.integration.department.name.DepartmentNameIntegrationTest
 import org.lnu.is.integration.course.types.CourseTypeIntegrationTest
 import org.lnu.is.integration.paper.types.PaperTypeIntegrationTest
 import org.lnu.is.integration.publicactivity.PublicActivityIntegrationTest
-import org.lnu.is.integration.paper.types.PaperUsageIntegrationTest
+import org.lnu.is.integration.paper.usage.PaperUsageIntegrationTest
 import org.lnu.is.integration.publicactivity.award.PublicActivityAwardIntegrationTest
 
 

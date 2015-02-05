@@ -1,4 +1,4 @@
-package org.lnu.is.integration.paper.types
+package org.lnu.is.integration.paper.usage
 
 import io.gatling.core.Predef.checkBuilder2Check
 import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
@@ -15,7 +15,7 @@ object PaperUsageIntegrationTest {
   
   val testCase = exec(http("Paper Usage Get Paged Result")
       .get("/papers/usages")
-      .basicAuth("admin", "nimda")
+      .basicAuth("admin","nimda")
       .check(bodyString.is(response))
     )
 }

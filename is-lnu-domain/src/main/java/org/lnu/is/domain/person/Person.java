@@ -15,6 +15,7 @@ import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
+import org.lnu.is.domain.person.contact.PersonContact;
 
 /**
  * Person entity.

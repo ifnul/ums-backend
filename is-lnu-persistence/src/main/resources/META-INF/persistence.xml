@@ -74,7 +74,7 @@
         <class>org.lnu.is.domain.person.Person</class> 
         <class>org.lnu.is.domain.person.PersonAddress</class>
         <class>org.lnu.is.domain.person.PersonAward</class>
-        <class>org.lnu.is.domain.person.PersonContact</class>
+        <class>org.lnu.is.domain.person.contact.PersonContact</class>
         <class>org.lnu.is.domain.person.PersonEducation</class>
         <class>org.lnu.is.domain.person.PersonEnrolmentSubject</class>
         <class>org.lnu.is.domain.person.PersonFamily</class>

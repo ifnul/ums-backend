@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+	<changeSet id="deleta all data from ob_specialty" author="illay">
+		<sql>
+			DELETE FROM "q_od_departmentspecialty"
+		</sql>
+		<sql>
+			DELETE FROM "q_ob_specialty"
+		</sql>
+	</changeSet>
+    <changeSet id="add data rf_specialtytype rows[1,5]" author="illay">
+    	<sql>
+    		 DELETE FROM "q_rf_specialtytype"
+    	</sql>
+        <insert tableName="q_rf_specialtytype">
+            <column name="abbrname"></column>
+            <column name="name">Бакалавр</column>
+            <column name="uid">1</column>
+            <column name="utid"></column>
+            <column name="uapp">edbo</column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_specialtytype">
+            <column name="abbrname"></column>
+            <column name="name">Магістр</column>
+            <column name="uid">2</column>
+            <column name="utid"></column>
+            <column name="uapp">edbo</column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_specialtytype">
+            <column name="abbrname"></column>
+            <column name="name">Спеціаліст</column>
+            <column name="uid">3</column>
+            <column name="utid"></column>
+            <column name="uapp">edbo</column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_specialtytype">
+            <column name="abbrname"></column>
+            <column name="name">Молодший спеціаліст</column>
+            <column name="uid">4</column>
+            <column name="utid"></column>
+            <column name="uapp">edbo</column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+        <insert tableName="q_rf_specialtytype">
+            <column name="abbrname"></column>
+            <column name="name">Кваліфікаваний робітник</column>
+            <column name="uid">5</column>
+            <column name="utid"></column>
+            <column name="uapp">edbo</column>
+            <column name="status">ACTIVE</column>
+            <column name="actual">1</column>
+            <column name="note"></column>
+            <column name="crtuser">illay</column>
+            <column name="crtusergroup">public</column>
+            <column name="create_date">now()</column>
+            <column name="update_date">now()</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,5 @@
+{
+	"personId" : ${personId},
+	"contactTypeId" : 1,
+	"value" : "value"
+}
