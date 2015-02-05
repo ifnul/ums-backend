@@ -3,25 +3,25 @@
   "limit" : 20,
   "count" : 5,
   "resources" : [ {
-    "id" : 34,
+    "id" : 1,
     "name" : "Бакалавр",
-    "uri" : "/specialties/types/34"
+    "uri" : "/specialties/types/1"
   }, {
-    "id" : 35,
+    "id" : 2,
     "name" : "Магістр",
-    "uri" : "/specialties/types/35"
+    "uri" : "/specialties/types/2"
   }, {
-    "id" : 36,
+    "id" : 3,
     "name" : "Спеціаліст",
-    "uri" : "/specialties/types/36"
+    "uri" : "/specialties/types/3"
   }, {
-    "id" : 37,
+    "id" : 4,
     "name" : "Молодший спеціаліст",
-    "uri" : "/specialties/types/37"
+    "uri" : "/specialties/types/4"
   }, {
-    "id" : 38,
+    "id" : 5,
     "name" : "Кваліфікаваний робітник",
-    "uri" : "/specialties/types/38"
+    "uri" : "/specialties/types/5"
   } ],
   "uri" : "/specialties/types"
 }
