@@ -4,9 +4,8 @@ import java.util.Map;
 
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.extractor.ParametersExtractor;
-import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.MultiplePagedSearch;
-import org.springframework.beans.factory.annotation.Required;
+import org.lnu.is.pagination.PagedResult;
 
 /**
  * 
@@ -55,7 +54,6 @@ public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implement
 		return dao.getEntities(search);
 	}
 
-	@Required
 	public void setDao(final DAO defaultDao) {
 		this.dao = defaultDao;
 	}

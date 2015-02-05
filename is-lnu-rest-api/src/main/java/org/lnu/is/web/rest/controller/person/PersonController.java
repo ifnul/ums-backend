@@ -57,7 +57,7 @@ public class PersonController extends BaseController implements CrudController<P
 			@Valid @RequestBody final PersonResource personResource) {
 		LOG.info("Updating person with id: {}, {}", id, personResource);
 		facade.updateResource(id, personResource);
-		return new MessageResource(MessageType.INFO, "Person Updated");
+		return new MessageResource(MessageType.INFO);
 	}
 
 	@Override

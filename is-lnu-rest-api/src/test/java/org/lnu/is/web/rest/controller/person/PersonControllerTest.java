@@ -83,7 +83,7 @@ public class PersonControllerTest extends AbstractControllerTest {
     	personResource.setBegDate(new Date());
 		personResource.setDocNum(docNum);
 		
-		MessageResource responseResource = new MessageResource(MessageType.INFO, "Person Updated");
+		MessageResource responseResource = new MessageResource(MessageType.INFO);
 		
 		// When
     	String request = getJson(personResource, true);
