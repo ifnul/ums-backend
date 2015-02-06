@@ -38,7 +38,6 @@ public class PersonContactResourceConverter extends AbstractConverter<PersonCont
 	@Override
 	public PersonContact convert(final PersonContactResource source) {
 		return convert(source, new PersonContact());
-	}
-
+    }
 
 }

@@ -27,141 +27,142 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class PersonContactParametersExtractorTest {
 
-	@Mock
-	private Dao<Person, Long> personDao;
-	
-	@Mock
-	private Dao<ContactType, Long> contactTypeDao;
-	
-	@InjectMocks
-	private PersonContactParametersExtractor unit;
+    @Mock
+    private Dao<Person, Long> personDao;
 
-	@Mock
-	private SessionService sessionService;
+    @Mock
+    private Dao<ContactType, Long> contactTypeDao;
 
-	private Boolean active = true;
-	private Boolean security = true;
+    @InjectMocks
+    private PersonContactParametersExtractor unit;
 
-	private String group1 = "developers";
-	private String group2 = "students";
-	
-	private List<String> groups = Arrays.asList(group1, group2);
-	
-	@Before
-	public void setup() {
-		unit.setActive(active);
-		unit.setSecurity(security);
-		
-		when(sessionService.getGroups()).thenReturn(groups);
-	}
-	
-	@Test
-	public void testGetParameters() throws Exception {
-		// Given
-		Long personId = 1L;
-		Person person = new Person();
-		person.setId(personId);
-		
-		Long contactTypeId = 2L;
-		ContactType contactType = new ContactType();
-		contactType.setId(contactTypeId);
-		
-		String value = "value";
+    @Mock
+    private SessionService sessionService;
 
-		PersonContact entity = new PersonContact();
-		entity.setPerson(person);
-		entity.setContactType(contactType);
-		entity.setValue(value);
-		
-		Map<String, Object> expected = new HashMap<String, Object>();
-		expected.put("status", RowStatus.ACTIVE);
-		expected.put("userGroups", groups);
-		expected.put("person", person);
-		expected.put("contactType", contactType);
-		expected.put("value", value);
-		
-		// When
-		when(personDao.getEntityById(anyLong())).thenReturn(person);
-		when(contactTypeDao.getEntityById(anyLong())).thenReturn(contactType);
-		Map<String, Object> actual = unit.getParameters(entity);
+    private Boolean active = true;
+    private Boolean security = true;
 
-		// Then
-		verify(personDao).getEntityById(personId);
-		verify(contactTypeDao).getEntityById(contactTypeId);
-		assertEquals(expected, actual);
-	}
-	
-	@Test
-	public void testGetParametersWithEmptyFields() throws Exception {
-		// Given
-		PersonContact entity = new PersonContact();
+    private String group1 = "developers";
+    private String group2 = "students";
 
-		Map<String, Object> expected = new HashMap<String, Object>();
-		expected.put("status", RowStatus.ACTIVE);
-		expected.put("userGroups", groups);
+    private List<String> groups = Arrays.asList(group1, group2);
 
-		// When
-		Map<String, Object> actual = unit.getParameters(entity);
-		
-		// Then
-		verify(personDao, times(0)).getEntityById(anyLong());
-		verify(contactTypeDao, times(0)).getEntityById(anyLong());
-		assertEquals(expected, actual);
-	}
-	
-	@Test
-	public void testGetParametersWithEmptyFieldsAndWithoutDefaults() throws Exception {
-		// Given
-		unit.setActive(false);
-		unit.setSecurity(false);
-		
-		PersonContact entity = new PersonContact();
-		Map<String, Object> expected = new HashMap<String, Object>();
-		
-		// When
-		Map<String, Object> actual = unit.getParameters(entity);
-		
-		// Then
-		verify(personDao, times(0)).getEntityById(anyLong());
-		verify(contactTypeDao, times(0)).getEntityById(anyLong());
-		assertEquals(expected, actual);
-	}
-	
-	@Test
-	public void testGetParamteresWithoutSecurity() throws Exception {
-		// Given
-		unit.setSecurity(false);
-		
-		Long personId = 1L;
-		Person person = new Person();
-		person.setId(personId);
-		
-		Long contactTypeId = 2L;
-		ContactType contactType = new ContactType();
-		contactType.setId(contactTypeId);
-		
-		String value = "value";
-		
-		PersonContact entity = new PersonContact();
-		entity.setPerson(person);
-		entity.setContactType(contactType);
-		entity.setValue(value);
-		
-		Map<String, Object> expected = new HashMap<String, Object>();
-		expected.put("status", RowStatus.ACTIVE);
-		expected.put("person", person);
-		expected.put("contactType", contactType);
-		expected.put("value", value);
-		
-		// When
-		when(personDao.getEntityById(anyLong())).thenReturn(person);
-		when(contactTypeDao.getEntityById(anyLong())).thenReturn(contactType);
-		Map<String, Object> actual = unit.getParameters(entity);
-		
-		// Then
-		verify(personDao).getEntityById(personId);
-		verify(contactTypeDao).getEntityById(contactTypeId);
-		verify(sessionService, times(0)).getGroups();
-		assertEquals(expected, actual);
-	}
+    @Before
+    public void setup() {
+	unit.setActive(active);
+	unit.setSecurity(security);
+
+	when(sessionService.getGroups()).thenReturn(groups);
+    }
+
+    @Test
+    public void testGetParameters() throws Exception {
+	// Given
+	Long personId = 1L;
+	Person person = new Person();
+	person.setId(personId);
+
+	Long contactTypeId = 2L;
+	ContactType contactType = new ContactType();
+	contactType.setId(contactTypeId);
+
+	String value = "value";
+
+	PersonContact entity = new PersonContact();
+	entity.setPerson(person);
+	entity.setContactType(contactType);
+	entity.setValue(value);
+
+	Map<String, Object> expected = new HashMap<String, Object>();
+	expected.put("status", RowStatus.ACTIVE);
+	expected.put("userGroups", groups);
+	expected.put("person", person);
+	expected.put("contactType", contactType);
+	expected.put("value", value);
+
+	// When
+	when(personDao.getEntityById(anyLong())).thenReturn(person);
+	when(contactTypeDao.getEntityById(anyLong())).thenReturn(contactType);
+	Map<String, Object> actual = unit.getParameters(entity);
+
+	// Then
+	verify(personDao).getEntityById(personId);
+	verify(contactTypeDao).getEntityById(contactTypeId);
+	assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetParametersWithEmptyFields() throws Exception {
+	// Given
+	PersonContact entity = new PersonContact();
+
+	Map<String, Object> expected = new HashMap<String, Object>();
+	expected.put("status", RowStatus.ACTIVE);
+	expected.put("userGroups", groups);
+
+	// When
+	Map<String, Object> actual = unit.getParameters(entity);
+
+	// Then
+	verify(personDao, times(0)).getEntityById(anyLong());
+	verify(contactTypeDao, times(0)).getEntityById(anyLong());
+	assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetParametersWithEmptyFieldsAndWithoutDefaults()
+	    throws Exception {
+	// Given
+	unit.setActive(false);
+	unit.setSecurity(false);
+
+	PersonContact entity = new PersonContact();
+	Map<String, Object> expected = new HashMap<String, Object>();
+
+	// When
+	Map<String, Object> actual = unit.getParameters(entity);
+
+	// Then
+	verify(personDao, times(0)).getEntityById(anyLong());
+	verify(contactTypeDao, times(0)).getEntityById(anyLong());
+	assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetParamteresWithoutSecurity() throws Exception {
+	// Given
+	unit.setSecurity(false);
+
+	Long personId = 1L;
+	Person person = new Person();
+	person.setId(personId);
+
+	Long contactTypeId = 2L;
+	ContactType contactType = new ContactType();
+	contactType.setId(contactTypeId);
+
+	String value = "value";
+
+	PersonContact entity = new PersonContact();
+	entity.setPerson(person);
+	entity.setContactType(contactType);
+	entity.setValue(value);
+
+	Map<String, Object> expected = new HashMap<String, Object>();
+	expected.put("status", RowStatus.ACTIVE);
+	expected.put("person", person);
+	expected.put("contactType", contactType);
+	expected.put("value", value);
+
+	// When
+	when(personDao.getEntityById(anyLong())).thenReturn(person);
+	when(contactTypeDao.getEntityById(anyLong())).thenReturn(contactType);
+	Map<String, Object> actual = unit.getParameters(entity);
+
+	// Then
+	verify(personDao).getEntityById(personId);
+	verify(contactTypeDao).getEntityById(contactTypeId);
+	verify(sessionService, times(0)).getGroups();
+	assertEquals(expected, actual);
+    }
 }

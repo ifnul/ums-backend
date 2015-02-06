@@ -13,25 +13,29 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**
  * Department Contact parameters parameters extractor.
+ * 
  * @author illay
  *
  */
 @ParametersExtractor("personContactParametersExtractor")
-public class PersonContactParametersExtractor extends AbstractParametersExtractor<PersonContact> {
+public class PersonContactParametersExtractor extends
+	AbstractParametersExtractor<PersonContact> {
 
-	@Resource(name = "personDao")
-	private Dao<Person, Long> personDao;
-	
-	@Resource(name = "contactTypeDao")
-	private Dao<ContactType, Long> contactTypeDao;
-	
-	@Override
-	protected Map<String, Object> getParameters(final PersonContact entity, final Map<String, Object> parameters) {
-		addParameter(entity.getPerson(), personDao, "person", parameters);
-		addParameter(entity.getContactType(), contactTypeDao, "contactType", parameters);
-		addParameter(entity.getValue(), "value", parameters);
-		
-		return parameters;
-	}
+    @Resource(name = "personDao")
+    private Dao<Person, Long> personDao;
+
+    @Resource(name = "contactTypeDao")
+    private Dao<ContactType, Long> contactTypeDao;
+
+    @Override
+    protected Map<String, Object> getParameters(final PersonContact entity,
+	    final Map<String, Object> parameters) {
+	addParameter(entity.getPerson(), personDao, "person", parameters);
+	addParameter(entity.getContactType(), contactTypeDao, "contactType",
+		parameters);
+	addParameter(entity.getValue(), "value", parameters);
+
+	return parameters;
+    }
 
 }

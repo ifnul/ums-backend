@@ -16,6 +16,11 @@
 		<property name="queryBuilder" ref="addressTypeQueryBuilder" />
 	</bean>
 	
+	<bean id="personEnrolmentSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.PersonEnrolmentSubject" />
+		<property name="queryBuilder" ref="personEnrolmentSubjectQueryBuilder" />		
+	</bean>	
+	
 	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.adminunit.AdminUnit" />
 		<property name="queryBuilder" ref="adminUnitQueryBuilder" />		

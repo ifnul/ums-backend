@@ -1,0 +1,47 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 8,
+  "resources" : [ {
+    "id" : 1,
+    "abbrName" : "р-н",
+    "name" : "Район",
+    "uri" : "/adminunits/types/1"
+  }, {
+    "id" : 2,
+    "abbrName" : "м.",
+    "name" : "Місто",
+    "uri" : "/adminunits/types/2"
+  }, {
+    "id" : 3,
+    "abbrName" : "с.м.т.",
+    "name" : "Селище міського типу",
+    "uri" : "/adminunits/types/3"
+  }, {
+    "id" : 4,
+    "abbrName" : "с.",
+    "name" : "Село",
+    "uri" : "/adminunits/types/4"
+  }, {
+    "id" : 5,
+    "abbrName" : "с-ще",
+    "name" : "Селище",
+    "uri" : "/adminunits/types/5"
+  }, {
+    "id" : 6,
+    "abbrName" : "кр.",
+    "name" : "Країна",
+    "uri" : "/adminunits/types/6"
+  }, {
+    "id" : 7,
+    "abbrName" : "ср.",
+    "name" : "Сільрада",
+    "uri" : "/adminunits/types/7"
+  }, {
+    "id" : 8,
+    "abbrName" : "нерезид.",
+    "name" : "Для не резидентів",
+    "uri" : "/adminunits/types/8"
+  } ],
+  "uri" : "/adminunits/types"
+}
