@@ -156,6 +156,11 @@
 		<property name="queryBuilder" ref="enrolmentStatusTypeQueryBuilder" />
 	</bean>
 
+	<bean id="enrolmentStatusDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.status.EnrolmentStatus" />
+		<property name="queryBuilder" ref="enrolmentStatusQueryBuilder" />
+	</bean>
+
 	<bean id="enrolmentSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.enrolment.subject.EnrolmentSubject" />
 		<property name="queryBuilder" ref="enrolmentSubjectQueryBuilder" />

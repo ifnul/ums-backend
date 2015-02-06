@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.controller.specoffer.wave;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
@@ -30,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SpecOfferWaveController extends BaseController implements CrudController<SpecOfferWaveResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOfferWaveController.class);
 	
-	//@Resource(name = "specOfferWaveFacade")
+	@Resource(name = "specOfferWaveFacade")
 	private Facade<SpecOfferWaveResource, Long> facade;
 
 	@Override
