@@ -7,6 +7,12 @@
 	default-autowire="byName">
 	
 	
+	<bean id="personEnrolmentSubjectService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="personEnrolmentSubjectParametersExtractor" />
+		<property name="dao" ref="personEnrolmentSubjectDao" />
+	</bean>
+	
+	
 	<bean id="addressTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="addressTypeParametersExtractor" />
 		<property name="dao" ref="addressTypeDao" />
