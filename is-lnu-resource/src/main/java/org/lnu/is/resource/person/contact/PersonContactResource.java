@@ -8,6 +8,7 @@ import org.lnu.is.resource.ApiResource;
 
 /**
  * Person Contact Resource.
+ * 
  * @author illay
  *
  */
