@@ -13,6 +13,7 @@ import org.lnu.is.domain.person.Person;
 
 /**
  * Person Contact entity.
+ * 
  * @author illay
  *
  */
@@ -21,77 +22,75 @@ import org.lnu.is.domain.person.Person;
 @Table(name = "q_od_personcontact")
 public class PersonContact extends InformationModel {
 
-	private static final long serialVersionUID = 1L;
-	
-	@ManyToOne
-	@JoinColumn(name = "person_id")
-	private Person person;
-	
-	@ManyToOne
-	@JoinColumn(name = "contacttype_id")
-	private ContactType contactType;
-	
-	@Column(name = "strvalue")
-	private String value;
+    private static final long serialVersionUID = 1L;
 
-	public Person getPerson() {
-		return person;
-	}
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    private Person person;
 
-	public void setPerson(final Person person) {
-		this.person = person;
-	}
+    @ManyToOne
+    @JoinColumn(name = "contacttype_id")
+    private ContactType contactType;
 
-	public ContactType getContactType() {
-		return contactType;
-	}
+    @Column(name = "strvalue")
+    private String value;
 
-	public void setContactType(final ContactType contactType) {
-		this.contactType = contactType;
-	}
+    public Person getPerson() {
+	return person;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    public void setPerson(final Person person) {
+	this.person = person;
+    }
 
-	public void setValue(final String value) {
-		this.value = value;
-	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((value == null) ? 0 : value.hashCode());
-		return result;
-	}
+    public ContactType getContactType() {
+	return contactType;
+    }
 
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!super.equals(obj)) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		PersonContact other = (PersonContact) obj;
-		if (value == null) {
-			if (other.value != null) {
-				return false;
-			}
-		} else if (!value.equals(other.value)) {
-			return false;
-		}
-		return true;
-	}
+    public void setContactType(final ContactType contactType) {
+	this.contactType = contactType;
+    }
 
-	@Override
-	public String toString() {
-		return "ParsonContact [value=" + value + "]";
+    public String getValue() {
+	return value;
+    }
+
+    public void setValue(final String value) {
+	this.value = value;
+    }
+
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = super.hashCode();
+	result = prime * result + ((value == null) ? 0 : value.hashCode());
+	return result;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+	if (this == obj) {
+	    return true;
 	}
-	
-	
+	if (!super.equals(obj)) {
+	    return false;
+	}
+	if (getClass() != obj.getClass()) {
+	    return false;
+	}
+	PersonContact other = (PersonContact) obj;
+	if (value == null) {
+	    if (other.value != null) {
+		return false;
+	    }
+	} else if (!value.equals(other.value)) {
+	    return false;
+	}
+	return true;
+    }
+
+    @Override
+    public String toString() {
+	return "ParsonContact [value=" + value + "]";
+    }
 }
