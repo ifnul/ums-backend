@@ -319,6 +319,8 @@
 	</bean>
 
 	<bean id="specOfferWaveService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="specOfferWaveParametersExtractor" />
+		<property name="dao" ref="specOfferWaveDao" />	
 	</bean>
 
 	<bean id="subjectService" class="org.lnu.is.service.DefaultService">

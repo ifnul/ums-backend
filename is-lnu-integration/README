@@ -54,8 +54,15 @@ FAQ:
 	відправити запит на видалення персони.
 	
 TODO Integration tests:
+SpecOffer
+SpecOfferType
+SpecOfferWave
+SpecOfferSubject
 Specialty
 Degree test
+
+
+
 Broadcastings -> Email sending:
 1)Send broadcast with group and independant emails
 2)Send broadcast with no groups and independant emails

@@ -311,6 +311,11 @@
 		<property name="queryBuilder" ref="specOfferTypeQueryBuilder" />
 	</bean>
 
+	<bean id="specOfferWaveDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.specoffer.SpecOfferWave" />
+		<property name="queryBuilder" ref="specOfferWaveQueryBuilder" />
+	</bean>
+
 	<bean id="specialtyDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.specialty.Specialty" />
 		<property name="queryBuilder" ref="specialtyQueryBuilder" />

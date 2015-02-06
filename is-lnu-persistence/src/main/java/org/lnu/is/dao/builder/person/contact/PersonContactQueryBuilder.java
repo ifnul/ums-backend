@@ -27,9 +27,9 @@ public class PersonContactQueryBuilder extends AbstractQueryBuilder<PersonContac
 		return builder	
 				.where()
 				.openBracket()
-				.addOrCondition(PERSON_CONDITION, context.getPerson())
-				.addOrCondition(CONTACTTYPE_CONDITION, context.getContactType())
-				.addOrCondition(VALUE_CONDITION, context.getValue())
+					.addOrCondition(PERSON_CONDITION, context.getPerson())
+					.addOrCondition(CONTACTTYPE_CONDITION, context.getContactType())
+					.addOrCondition(VALUE_CONDITION, context.getValue())
 				.closeBracket();
 	}
 

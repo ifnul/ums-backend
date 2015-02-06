@@ -72,7 +72,7 @@ public class PersonContactController extends BaseController implements CrudContr
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{personId}/contacts", method = RequestMethod.GET)
+	@RequestMapping(value = { "/{personId}/contacts", "/contans" }, method = RequestMethod.GET)
 	public PagedResultResource<PersonContactResource> getPagedResource(final PagedRequest<PersonContactResource> request) {
 		LOG.info("Retrieving PagedResultResource for PersonContact Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
