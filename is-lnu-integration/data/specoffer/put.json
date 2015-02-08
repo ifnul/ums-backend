@@ -1,4 +1,5 @@
 {
+  "id": ${specofferId},
   "timePeriodId": ${timePeriodId},
   "eduFormTypeId": 2,
   "specofferTypeId": 2,
@@ -10,5 +11,5 @@
   "stateCount": 4,
   "departmentId": ${departmentId},
   "specialtyId": ${specialtyId},
-  "note": "new note"
+  "note": "${newNote}"
 }

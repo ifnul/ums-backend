@@ -60,6 +60,7 @@ import org.lnu.is.integration.paper.usage.PaperUsageIntegrationTest
 import org.lnu.is.integration.publicactivity.award.PublicActivityAwardIntegrationTest
 import org.lnu.is.integration.adminunit.types.AdminUnitTypeIntegrationTest
 import org.lnu.is.integration.specoffer.SpecofferIntegrationTest
+import org.lnu.is.integration.assets.AssetIntegrationTest
 
 
 /**
@@ -123,6 +124,7 @@ object TestCases {
                     WaveTypeIntegrationTest.testCase,
                     AdminUnitTypeIntegrationTest.testCase,
                     SpecofferIntegrationTest.testCase,
+                    AssetIntegrationTest.testCase,
                     
                     AccessDeniedIntegrationTest.testCase,
                     InvalidRequestBodyIntegrationTest.testCase
