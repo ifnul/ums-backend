@@ -23,7 +23,6 @@ public class AssetResourceConverter extends AbstractConverter<AssetResource, Ass
 	@Override
 	public Asset convert(final AssetResource source, final Asset target) {
 		
-		target.setId(source.getId());
 		target.setAmount(source.getAmount());
 		target.setBegDate(source.getBegDate());
 		target.setDescription(source.getDescription());

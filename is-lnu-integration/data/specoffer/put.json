@@ -1,5 +1,4 @@
 {
-  "id": ${specofferId},
   "timePeriodId": ${timePeriodId},
   "eduFormTypeId": 2,
   "specofferTypeId": 2,

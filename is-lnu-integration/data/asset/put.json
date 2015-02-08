@@ -1,5 +1,4 @@
 {
-  "id": ${assetId},
   "invNum": "${newInvNum}",
   "prodDate": "2015-02-07",
   "endDate": "2015-02-07",
