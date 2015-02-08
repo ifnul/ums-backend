@@ -10,5 +10,5 @@
   "stateCount": 4,
   "departmentId": ${departmentId},
   "specialtyId": ${specialtyId},
-  "note": "new note"
+  "note": "${newNote}"
 }

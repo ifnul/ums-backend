@@ -29,13 +29,10 @@ public class AssetResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Long assetStatusId;
 	
-	@NotNull(message = "Field required")
 	private Long departmentId;
 	
-	@NotNull(message = "Field required")
 	private Long employeeId;
 	
-	@NotNull(message = "Field required")
 	private Long orderId;
 
 	@NotNull(message = "Field required")

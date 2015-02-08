@@ -60,7 +60,6 @@ public class SpecOfferResourceConverter extends AbstractConverter<SpecOfferResou
 		target.setDocNum(source.getDocNum());
 		target.setDocSeries(source.getDocSeries());
 		target.setEndDate(source.getEndDate());
-		target.setId(source.getId());
 		target.setLicCount(source.getLicCount());
 		target.setNote(source.getNote());
 		target.setStateCount(source.getStateCount());
