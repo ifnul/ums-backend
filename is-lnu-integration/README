@@ -54,13 +54,16 @@ FAQ:
 	відправити запит на видалення персони.
 	
 TODO Integration tests:
+
+Enrolment
+EnrolmentStatus
+
 SpecOffer
 SpecOfferType
 SpecOfferWave
 SpecOfferSubject
 Specialty
 Degree test
-
 
 
 Broadcastings -> Email sending:
