@@ -1,0 +1,107 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 33,
+  "resources" : [ {
+    "id" : 1,
+    "timePeriodId" : 1,
+    "name" : "Молодший спеціаліст на основі базової загальної середньої освіти",
+    "uri" : "/specoffers/types/1"
+  }, {
+    "id" : 2,
+    "timePeriodId" : 1,
+    "name" : "Молодший спеціаліст на основі повної загальної середньої освіти",
+    "uri" : "/specoffers/types/2"
+  }, {
+    "id" : 3,
+    "timePeriodId" : 1,
+    "name" : "Молодший спеціаліст (зі скороченим терміном навчання)",
+    "uri" : "/specoffers/types/3"
+  }, {
+    "id" : 4,
+    "timePeriodId" : 1,
+    "name" : "Молодший спеціаліст (зі скороченим терміном навчання, на 2 курс)",
+    "uri" : "/specoffers/types/4"
+  }, {
+    "id" : 5,
+    "timePeriodId" : 1,
+    "name" : "Молодший спеціаліст (з нормативним терміном навчання, на 2 курс)",
+    "uri" : "/specoffers/types/5"
+  }, {
+    "id" : 6,
+    "timePeriodId" : 1,
+    "name" : "Молодший спеціаліст (з нормативним терміном навчання, на 3 курс)",
+    "uri" : "/specoffers/types/6"
+  }, {
+    "id" : 7,
+    "timePeriodId" : 1,
+    "name" : "Молодший спеціаліст (з нормативним терміном навчання, на 4 курс)",
+    "uri" : "/specoffers/types/7"
+  }, {
+    "id" : 8,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр",
+    "uri" : "/specoffers/types/8"
+  }, {
+    "id" : 9,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр (зі скороченим терміном навчання)",
+    "uri" : "/specoffers/types/9"
+  }, {
+    "id" : 10,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр (зі скороченим терміном навчання, на 2 курс)",
+    "uri" : "/specoffers/types/10"
+  }, {
+    "id" : 11,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр (зі скороченим терміном навчання, на 3 курс)",
+    "uri" : "/specoffers/types/11"
+  }, {
+    "id" : 12,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр (з нормативним терміном навчання, на 2 курс)",
+    "uri" : "/specoffers/types/12"
+  }, {
+    "id" : 13,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр (з нормативним терміном навчання, на 3 курс)",
+    "uri" : "/specoffers/types/13"
+  }, {
+    "id" : 14,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр (з нормативним терміном навчання, на 4 курс)",
+    "uri" : "/specoffers/types/14"
+  }, {
+    "id" : 15,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр (з нормативним терміном навчання, на 5 курс)",
+    "uri" : "/specoffers/types/15"
+  }, {
+    "id" : 16,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр (зі скороченим терміном навчання, термін навчання - 2 роки)",
+    "uri" : "/specoffers/types/16"
+  }, {
+    "id" : 17,
+    "timePeriodId" : 1,
+    "name" : "Бакалавр (зі скороченим терміном навчання, термін навчання - 3 роки)",
+    "uri" : "/specoffers/types/17"
+  }, {
+    "id" : 18,
+    "timePeriodId" : 1,
+    "name" : "Спеціаліст",
+    "uri" : "/specoffers/types/18"
+  }, {
+    "id" : 19,
+    "timePeriodId" : 1,
+    "name" : "Магістр",
+    "uri" : "/specoffers/types/19"
+  }, {
+    "id" : 20,
+    "timePeriodId" : 1,
+    "name" : "Спеціаліст на основі повної загальної середньої освіти",
+    "uri" : "/specoffers/types/20"
+  } ],
+  "uri" : "/specoffers/types"
+}
