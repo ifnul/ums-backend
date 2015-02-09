@@ -32,14 +32,14 @@ public class EnrolmentBenefit extends InformationModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "personpaper_id")
-	private PersonPaper personpaper;
+	private PersonPaper personPaper;
 	
-	public PersonPaper getPersonpaper() {
-		return personpaper;
+	public PersonPaper getPersonPaper() {
+		return personPaper;
 	}
 
-	public void setPersonpaper(final PersonPaper personpaper) {
-		this.personpaper = personpaper;
+	public void setPersonPaper(final PersonPaper personpaper) {
+		this.personPaper = personpaper;
 	}
 
 	public Enrolment getEnrolment() {
