@@ -57,6 +57,7 @@ TODO Integration tests:
 
 Enrolment
 EnrolmentStatus
+EnrolmentBenefit
 
 SpecOffer
 SpecOfferType

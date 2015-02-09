@@ -153,6 +153,11 @@
 		<property name="dao" ref="enrolmentStatusDao" />
 	</bean>
 	
+	<bean id="enrolmentBenefitService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="enrolmentBenefitParametersExtractor" />
+		<property name="dao" ref="enrolmentBenefitDao" />
+	</bean>
+	
 	<bean id="enrolmentStatusTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="enrolmentStatusTypeParametersExtractor" />
 		<property name="dao" ref="enrolmentStatusTypeDao" />
