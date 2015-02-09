@@ -1,0 +1,5 @@
+{
+	"enrolmentId" : ${enrolmentId},
+	"personPaperId" : ${personPaperId},
+	"benefitId": 2
+}
