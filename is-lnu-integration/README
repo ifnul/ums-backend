@@ -56,15 +56,8 @@ FAQ:
 TODO Integration tests:
 
 EnrolmentStatus
-EnrolmentBenefit
-
-SpecOffer
-SpecOfferType
-SpecOfferWave
 SpecOfferSubject
-Specialty
-Degree test
-
+Degree
 
 Broadcastings -> Email sending:
 1)Send broadcast with group and independant emails
