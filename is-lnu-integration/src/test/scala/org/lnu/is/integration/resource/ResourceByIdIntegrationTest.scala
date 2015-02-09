@@ -25,7 +25,8 @@ object ResourceByIdIntegrationTest {
         "/enrolments/types", "/enrolments/subjects", "/enrolments/statustypes",
         "/eduformtypes", "/educations/types", "/departments/types", "/courses/types",
         "/contacts/types", "/assets/types", "/assets/statuses", "/assets/states", 
-        "/adminunits", "/addresstypes")
+        "/adminunits", "/addresstypes",
+        "/departments", "/timeperiods")
     
     val testCase = 
       exec(session => {

@@ -88,7 +88,7 @@ public class EnrolmentConverterTest {
 		expected.setIsState(isState);
 		expected.setMark(mark);
 		expected.setPersonId(personId);
-		expected.setSpecofferId(specOfferId);
+		expected.setSpecOfferId(specOfferId);
 		expected.setDepartmentId(departmentId);
 		expected.setPersonPaperId(personPaperId);
 		expected.setEnrolmentTypeId(enrolmentTypeId);

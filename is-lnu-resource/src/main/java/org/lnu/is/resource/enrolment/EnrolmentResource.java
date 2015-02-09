@@ -23,7 +23,7 @@ public class EnrolmentResource extends ApiResource {
 	private Long personId;
 
 	@NotNull(message = "Field required")
-	private Long specofferId;
+	private Long specOfferId;
 
 	@NotNull(message = "Field required")
 	private Long departmentId;
@@ -88,12 +88,12 @@ public class EnrolmentResource extends ApiResource {
 		this.personId = personId;
 	}
 
-	public Long getSpecofferId() {
-		return specofferId;
+	public Long getSpecOfferId() {
+		return specOfferId;
 	}
 
-	public void setSpecofferId(final Long specofferId) {
-		this.specofferId = specofferId;
+	public void setSpecOfferId(final Long specofferId) {
+		this.specOfferId = specofferId;
 	}
 
 	public Long getDepartmentId() {
@@ -244,7 +244,7 @@ public class EnrolmentResource extends ApiResource {
 		result = prime * result + ((parentId == null) ? 0 : parentId.hashCode());
 		result = prime * result + ((personId == null) ? 0 : personId.hashCode());
 		result = prime * result + ((personPaperId == null) ? 0 : personPaperId.hashCode());
-		result = prime * result + ((specofferId == null) ? 0 : specofferId.hashCode());
+		result = prime * result + ((specOfferId == null) ? 0 : specOfferId.hashCode());
 		result = prime * result + ((priority == null) ? 0 : priority.hashCode());
 		return result;
 	}
@@ -373,11 +373,11 @@ public class EnrolmentResource extends ApiResource {
 		} else if (!personPaperId.equals(other.personPaperId)) {
 			return false;
 		}
-		if (specofferId == null) {
-			if (other.specofferId != null) {
+		if (specOfferId == null) {
+			if (other.specOfferId != null) {
 				return false;
 			}
-		} else if (!specofferId.equals(other.specofferId)) {
+		} else if (!specOfferId.equals(other.specOfferId)) {
 			return false;
 		}
 		if (priority == null) {
@@ -392,7 +392,7 @@ public class EnrolmentResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "EnrolmentResource [personId=" + personId + ", specofferId=" + specofferId + ", departmentId=" + departmentId + ", personPaperId="
+		return "EnrolmentResource [personId=" + personId + ", specofferId=" + specOfferId + ", departmentId=" + departmentId + ", personPaperId="
 				+ personPaperId + ", enrolmentTypeId=" + enrolmentTypeId + ", parentId=" + parentId + ", mark=" + mark + ", docSeries=" + docSeries
 				+ ", docNum=" + docNum + ", docText=" + docText + ", isState=" + isState + ", isContract=" + isContract + ", isPrivilege=" + isPrivilege
 				+ ", isHostel=" + isHostel + ", evDate=" + evDate + ", begDate=" + begDate + ", endDate=" + endDate + ", priority=" + priority + "]";

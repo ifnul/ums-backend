@@ -16,6 +16,7 @@ public class EnrolmentConverter extends AbstractConverter<Enrolment, EnrolmentRe
 
 	@Override
 	public EnrolmentResource convert(final Enrolment source, final EnrolmentResource target) {
+		
 		target.setId(source.getId());
 		target.setBegDate(source.getBegDate());
 		target.setDocNum(source.getDocNum());
@@ -29,12 +30,13 @@ public class EnrolmentConverter extends AbstractConverter<Enrolment, EnrolmentRe
 		target.setIsState(source.getIsState());
 		target.setMark(source.getMark());
 		target.setPriority(source.getPriority());
+		
 		if (source.getPerson() != null) {
 			target.setPersonId(source.getPerson().getId());
 		}
 
 		if (source.getSpecOffer() != null) {
-			target.setSpecofferId(source.getSpecOffer().getId());
+			target.setSpecOfferId(source.getSpecOffer().getId());
 		}
 
 		if (source.getDepartment() != null) {

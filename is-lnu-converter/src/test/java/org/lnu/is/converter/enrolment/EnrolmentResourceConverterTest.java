@@ -90,7 +90,7 @@ public class EnrolmentResourceConverterTest {
 		source.setIsState(isState);
 		source.setMark(mark);
 		source.setPersonId(personId);
-		source.setSpecofferId(specOfferId);
+		source.setSpecOfferId(specOfferId);
 		source.setDepartmentId(departmentId);
 		source.setPersonPaperId(personPaperId);
 		source.setEnrolmentTypeId(enrolmentTypeId);

@@ -39,9 +39,9 @@ public class EnrolmentResourceConverter extends AbstractConverter<EnrolmentResou
 			target.setPerson(person);
 		}
 
-		if (source.getSpecofferId() != null) {
+		if (source.getSpecOfferId() != null) {
 			SpecOffer specOffer = new SpecOffer();
-			specOffer.setId(source.getSpecofferId());
+			specOffer.setId(source.getSpecOfferId());
 			target.setSpecOffer(specOffer);
 		}
 

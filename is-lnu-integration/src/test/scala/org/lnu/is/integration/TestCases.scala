@@ -61,8 +61,8 @@ import org.lnu.is.integration.publicactivity.award.PublicActivityAwardIntegratio
 import org.lnu.is.integration.adminunit.types.AdminUnitTypeIntegrationTest
 import org.lnu.is.integration.specoffer.SpecofferIntegrationTest
 import org.lnu.is.integration.assets.AssetIntegrationTest
-//import org.lnu.is.integration.assets.address.AssetAddressIntegrationTest
 import org.lnu.is.integration.specoffer.types.SpecofferTypeIntegrationTest
+import org.lnu.is.integration.enrolment.EnrolmentIntegrationTest
 
 
 /**
@@ -85,6 +85,7 @@ object TestCases {
                     EducationTypeIntegrationTest.testCase,
                     EmployeeStatusIntegrationTest.testCase,
                     EmployeeTypeIntegrationTest.testCase,
+                    EnrolmentIntegrationTest.testCase,
                     EnrolmentStatusTypeIntegrationTest.testCase,
                     EnrolmentSubjectIntegrationTest.testCase,
                     EnrolmentTypeIntegrationTest.testCase,
