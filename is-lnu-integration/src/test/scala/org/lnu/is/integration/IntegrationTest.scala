@@ -19,6 +19,7 @@ class IntegrationTest extends Simulation {
   
 	val httpConf = http
 			.baseURL(host)
+      .header("Content-Type", "application/json") // Instead of adding this header in all test cases.
 			.acceptHeader("application/json")
 	
 	val injectStep = atOnceUsers(1);
