@@ -36,8 +36,8 @@ object EnrolmentIntegrationTest extends ComplexTest {
   val personPaper = new ApiHelper("person/paper", "Person Paper")
 
   val testCase = 
-     exec(init()) 
-    .exec(before()) 
+     exec(init) 
+    .exec(before) 
     .exec(http("Post Enrolment")
       .post("/enrolments")
       .basicAuth(username, password)
@@ -70,7 +70,7 @@ object EnrolmentIntegrationTest extends ComplexTest {
       .get("/enrolments/${enrolmentId}")
       .basicAuth(username, password)
       .check(status.is(404)))
-    .exec(after()) 
+    .exec(after) 
 
   def init(): ChainBuilder = {
     exec(session => {
