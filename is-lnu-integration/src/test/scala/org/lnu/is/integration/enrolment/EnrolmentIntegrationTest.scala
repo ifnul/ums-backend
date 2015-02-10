@@ -28,17 +28,16 @@ object EnrolmentIntegrationTest extends ComplexTest {
   val username = "admin"
   val password = "nimda"
 
-  val timePeriod = new ApiHelper("TimePeriod")
-  val department = new ApiHelper("Department")
-  val specialty = new ApiHelper("Specialty")
-  val specoffer = new ApiHelper("SpecOffer")
-  val person = new ApiHelper("Person")
-  val personPaper = new ApiHelper("Person Paper")
+  val timePeriod = new ApiHelper("timeperiod", "Time Period")
+  val department = new ApiHelper("department", "Department")
+  val specialty = new ApiHelper("specialty", "Specialty")
+  val specoffer = new ApiHelper("specoffer", "Spec Offer")
+  val person = new ApiHelper("person", "Person")
+  val personPaper = new ApiHelper("person/paper", "Person Paper")
 
   val testCase = 
-     exec(init()) // Initializing session parameters
-    .exec(before()) // Before method - Calling foreign entities
-    // Test Case - Start
+     exec(init()) 
+    .exec(before()) 
     .exec(http("Post Enrolment")
       .post("/enrolments")
       .basicAuth(username, password)
@@ -71,8 +70,7 @@ object EnrolmentIntegrationTest extends ComplexTest {
       .get("/enrolments/${enrolmentId}")
       .basicAuth(username, password)
       .check(status.is(404)))
-    // Test Case - End
-    .exec(after()) // Deleting foreign entities
+    .exec(after()) 
 
   def init(): ChainBuilder = {
     exec(session => {
@@ -92,22 +90,22 @@ object EnrolmentIntegrationTest extends ComplexTest {
   }      
   
   def before():ChainBuilder = {
-    exec(timePeriod.create(username, password, "/timeperiods", "data/timeperiod/post.json")
+    exec(timePeriod.create(username, password, "/timeperiods")
       .check(status.is(201))
       .check(jsonPath("$.id").find.saveAs("timePeriodId")))
-    .exec(department.create(username, password, "/departments", "data/department/post.json")
+    .exec(department.create(username, password, "/departments")
       .check(status.is(201))
       .check(jsonPath("$.id").find.saveAs("departmentId")))
-    .exec(specialty.create(username, password, "/specialties", "data/specialty/post.json")
+    .exec(specialty.create(username, password, "/specialties")
       .check(status.is(201))
       .check(jsonPath("$.id").find.saveAs("specialtyId")))
-    .exec(specoffer.create(username, password, "/specoffers", "data/specoffer/post.json")
+    .exec(specoffer.create(username, password, "/specoffers")
       .check(status.is(201))
       .check(jsonPath("$.id").find.saveAs("specofferId")))
-    .exec(person.create(username, password, "/persons", "data/person/post.json")
+    .exec(person.create(username, password, "/persons")
       .check(status.is(201))
       .check(jsonPath("$.id").find.saveAs("personId")))
-    .exec(personPaper.create(username, password, "/persons/${personId}/papers", "data/person/paper/post.json")
+    .exec(personPaper.create(username, password, "/persons/${personId}/papers")
       .check(status.is(201))
       .check(jsonPath("$.id").find.saveAs("personPaperId")))
   }
