@@ -14,6 +14,7 @@ import org.lnu.is.domain.specoffer.SpecOfferSubject;
 public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecOfferSubject> {
 	private static final String SPECOFFER_CONDITION = "e.specOffer = :specOffer ";
 	private static final String ENROLMENTSUBJECT_CONDITION = "e.enrolmentSubject = :enrolmentSubject ";
+	private static final String MARK_CONDITION = "e.mark = :mark ";
 	private static final String ISMAJOR_CONDITION = "e.isMajor = :isMajor ";
 	private static final String ALTERNATIVE_CONDITION = "e.alternative = :alternative ";
 	private static final String WEIGHTSUBJECT_CONDITION = "e.weightsubject = :weightsubject ";
@@ -30,6 +31,7 @@ public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecOffer
 				.openBracket()
 				.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
 				.addOrCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
+				.addOrCondition(MARK_CONDITION, context.getMark())
 				.addOrCondition(ISMAJOR_CONDITION, context.getIsMajor())
 				.addOrCondition(ALTERNATIVE_CONDITION, context.getAlternative())
 				.addOrCondition(WEIGHTSUBJECT_CONDITION, context.getWeightSubject())
