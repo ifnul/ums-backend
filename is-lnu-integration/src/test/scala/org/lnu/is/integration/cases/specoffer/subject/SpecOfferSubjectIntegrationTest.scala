@@ -13,51 +13,13 @@ import io.gatling.http.Predef.ELFileBody
 import io.gatling.http.Predef.http
 import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
+import org.lnu.is.integration.config.ComplexTest
+import io.gatling.core.structure.ChainBuilder
 
-object SpecOfferSubjectIntegrationTest {
+object SpecOfferSubjectIntegrationTest extends ComplexTest {
 
-  val testCase = exec(session => {
-      session
-        .set("departmentAbbrName", UUID.randomUUID())
-        .set("departmentName", UUID.randomUUID())
-        .set("departmentManager", UUID.randomUUID())
-        .set("idnum", UUID.randomUUID())
-        .set("note", UUID.randomUUID())
-        .set("newNote", UUID.randomUUID())
-    })
-    .exec(http("Post TimePeriod")
-        .post("/timeperiods")
-        .basicAuth("admin", "nimda")
-        .header("Content-Type", "application/json")
-        .body(ELFileBody("data/timeperiod/post.json"))
-        .asJSON
-        .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("timePeriodId")))
-    .exec(http("Post Department")
-        .post("/departments")
-        .basicAuth("admin", "nimda")
-        .header("Content-Type", "application/json")
-        .body(ELFileBody("data/department/post.json"))
-        .asJSON
-        .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("departmentId")))
-    .exec(http("Post Specialty")
-        .post("/specialties")
-        .basicAuth("admin", "nimda")
-        .header("Content-Type", "application/json")
-        .body(ELFileBody("data/specialty/post.json"))
-        .asJSON
-        .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specialtyId")))
-    .exec(http("Post Specoffer")
-    		.post("/specoffers")
-    		.basicAuth("admin", "nimda")
-    		.header("Content-Type", "application/json")
-    		.body(ELFileBody("data/specoffer/post.json"))
-    		.asJSON
-    		.check(status.is(201))
-    		.check(jsonPath("$.id").find.saveAs("specofferId")))
-    // Test case - start.    
+  val testCase = exec(init)
+    .exec(before)
     .exec(http("Post Specoffer Subject")
         .post("/specoffers/${specofferId}/subjects")
         .basicAuth("admin", "nimda")
@@ -90,8 +52,57 @@ object SpecOfferSubjectIntegrationTest {
         .get("/specoffers/${specofferId}/subjects/${specofferSubjectId}")
         .basicAuth("admin", "nimda")
         .check(status.is(404)))
-    // Test case - end.
-    .exec(http("Delete Specoffer")
+    .exec(after)
+
+  def init(): ChainBuilder = {
+    exec(session => {
+          session
+            .set("departmentAbbrName", UUID.randomUUID())
+            .set("departmentName", UUID.randomUUID())
+            .set("departmentManager", UUID.randomUUID())
+            .set("idnum", UUID.randomUUID())
+            .set("note", UUID.randomUUID())
+            .set("newNote", UUID.randomUUID())
+        })    
+  }
+  
+  def before(): ChainBuilder = {
+    exec(http("Post TimePeriod")
+        .post("/timeperiods")
+        .basicAuth("admin", "nimda")
+        .header("Content-Type", "application/json")
+        .body(ELFileBody("data/timeperiod/post.json"))
+        .asJSON
+        .check(status.is(201))
+        .check(jsonPath("$.id").find.saveAs("timePeriodId")))
+    .exec(http("Post Department")
+        .post("/departments")
+        .basicAuth("admin", "nimda")
+        .header("Content-Type", "application/json")
+        .body(ELFileBody("data/department/post.json"))
+        .asJSON
+        .check(status.is(201))
+        .check(jsonPath("$.id").find.saveAs("departmentId")))
+    .exec(http("Post Specialty")
+        .post("/specialties")
+        .basicAuth("admin", "nimda")
+        .header("Content-Type", "application/json")
+        .body(ELFileBody("data/specialty/post.json"))
+        .asJSON
+        .check(status.is(201))
+        .check(jsonPath("$.id").find.saveAs("specialtyId")))
+    .exec(http("Post Specoffer")
+        .post("/specoffers")
+        .basicAuth("admin", "nimda")
+        .header("Content-Type", "application/json")
+        .body(ELFileBody("data/specoffer/post.json"))
+        .asJSON
+        .check(status.is(201))
+        .check(jsonPath("$.id").find.saveAs("specofferId")))    
+  }
+  
+  def after(): ChainBuilder = {
+    exec(http("Delete Specoffer")
         .delete("/specoffers/${specofferId}")
         .basicAuth("admin", "nimda")
         .check(status.is(204)))
@@ -106,5 +117,7 @@ object SpecOfferSubjectIntegrationTest {
     .exec(http("Delete TimePeriod")
         .delete("/timeperiods/${timePeriodId}")
         .basicAuth("admin", "nimda")
-        .check(status.is(204)))
+        .check(status.is(204)))    
+  }
+
 }
