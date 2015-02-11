@@ -41,6 +41,7 @@
 
 	<properties>
 		<version>${project.version}</version>
+		<application.version>${project.version}</application.version>
 		<developers>Ivan Ursul, Illay Mazuriak, Yura Kushnir, Bohdan Yaremtso, Roman Pelipets, Oleh Zanevich</developers>
 		<batch.limit>20</batch.limit>
 		

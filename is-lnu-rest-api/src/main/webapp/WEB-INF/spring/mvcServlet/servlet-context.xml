@@ -30,6 +30,7 @@
 	<!-- Bean, that gives information about system -->
 	<bean id="systemResource" class="org.lnu.is.resource.system.SystemResource">
 		<property name="developers" value="#{T(java.util.Arrays).asList('${developers}')}"/> 
+		<property name="version" value="${application.version}"/>
 	</bean>
 	
 </beans>
