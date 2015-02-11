@@ -21,6 +21,8 @@ public class SpecOfferSubjectResourceConverter extends AbstractConverter<SpecOff
 		target.setAlternative(source.getAlternative());
 		target.setIsMajor(source.getIsMajor());
 		target.setMark(source.getMark());
+		target.setNote(source.getNote());
+		target.setWeightSubject(source.getWeightSubject());
 		
 		if (source.getSpecOfferId() != null) {
 			SpecOffer specOffer = new SpecOffer();

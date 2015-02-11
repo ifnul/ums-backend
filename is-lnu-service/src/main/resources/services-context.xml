@@ -326,7 +326,7 @@
 
 	<bean id="specOfferSubjectService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specOfferSubjectParametersExtractor" />
-		<property name="dao" ref="specOfferDao" />
+		<property name="dao" ref="specOfferSubjectDao" />
 	</bean>
 
 	<bean id="specOfferTypeService" class="org.lnu.is.service.DefaultService">
