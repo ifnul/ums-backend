@@ -9,14 +9,16 @@ import io.gatling.http.Predef.bodyString
 import io.gatling.http.Predef.http
 import io.gatling.http.request.RawFileBody
 
-//TODO:Add to case
 object TimeSheetTypeIntegrationTest {
 
   val response = RawFileBody("data/timesheet/type/response.json")
+  val url = "/timesheets/types"
+  val username = "admin"
+  val password = "nimda"
   
   val testCase = exec(http("Timesheet Type Get Paged Result")
-      .get("/timesheets/types")
-      .basicAuth("admin", "nimda")
+      .get(url)
+      .basicAuth(username, password)
       .check(bodyString.is(response))
     )
 }

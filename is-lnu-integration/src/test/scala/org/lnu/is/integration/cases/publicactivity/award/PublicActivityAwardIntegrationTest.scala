@@ -13,27 +13,13 @@ import io.gatling.http.Predef.ELFileBody
 import io.gatling.http.Predef.http
 import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
+import org.lnu.is.integration.config.ComplexTest
+import io.gatling.core.structure.ChainBuilder
 
-object PublicActivityAwardIntegrationTest {
+object PublicActivityAwardIntegrationTest extends ComplexTest {
   
   val testCase = 
-    // Before
-    exec(http("Post TimePeriod")
-        .post("/timeperiods")
-        .basicAuth("admin", "nimda")
-        .header("Content-Type", "application/json")
-        .body(ELFileBody("data/timeperiod/post.json"))
-        .asJSON
-        .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("timePeriodId")))    
-    .exec(http("Post Public Activity")
-        .post("/publicactivities")
-        .basicAuth("admin", "nimda")
-        .header("Content-Type", "application/json")
-        .body(ELFileBody("data/publicactivity/post.json"))
-        .asJSON
-        .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("publicActivityId")))
+    exec(before)
     // Start scenario
     .exec(http("Post Public Activity Award")
         .post("/publicactivities/{publicActivityId}/awards")
@@ -72,14 +58,42 @@ object PublicActivityAwardIntegrationTest {
         .basicAuth("admin", "nimda")
         .check(status.is(404)))
     // End Scenario
-    // After
-    .exec(http("Delete Public Activity")
+    .exec(after)       
+
+  def after(): ChainBuilder = {
+    exec(http("Delete Public Activity")
         .delete("/publicactivities/${publicActivityId}")
         .basicAuth("admin", "nimda")
         .check(status.is(204)))
     .exec(http("Delete TimePeriod")
         .delete("/timeperiods/${timePeriodId}")
         .basicAuth("admin", "nimda")
-        .check(status.is(204)))       
+        .check(status.is(204)))     
+  }
+
+  def before(): ChainBuilder = {
+    exec(http("Post TimePeriod")
+        .post("/timeperiods")
+        .basicAuth("admin", "nimda")
+        .header("Content-Type", "application/json")
+        .body(ELFileBody("data/timeperiod/post.json"))
+        .asJSON
+        .check(status.is(201))
+        .check(jsonPath("$.id").find.saveAs("timePeriodId")))    
+    .exec(http("Post Public Activity")
+        .post("/publicactivities")
+        .basicAuth("admin", "nimda")
+        .header("Content-Type", "application/json")
+        .body(ELFileBody("data/publicactivity/post.json"))
+        .asJSON
+        .check(status.is(201))
+        .check(jsonPath("$.id").find.saveAs("publicActivityId")))
+  }
+
+  def init(): ChainBuilder = {
+    exec(session => {
+      session
+    })
+  }
         
 }

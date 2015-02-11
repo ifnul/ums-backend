@@ -15,12 +15,18 @@ import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
 import org.lnu.is.integration.config.ComplexTest
 import io.gatling.core.structure.ChainBuilder
+import org.lnu.is.integration.config.helper.FirstName
+import org.lnu.is.integration.config.helper.FatherName
+import org.lnu.is.integration.config.helper.LastName
+import org.lnu.is.integration.config.helper.Photo
+import org.lnu.is.integration.config.helper.BirthPlace
+import scala.util.Random
+import org.lnu.is.integration.config.helper.DocSeries
 
 object EnrolmentStatusIntegrationTest extends ComplexTest {
   
     val testCase = exec(init)
     .exec(before)
-    // -------------------------------------------------------------------------------------------- 
     // Test case - start
     .exec(http("Post Enrolment Status")
         .post("/enrolments/${enrolmentId}/statuses")
@@ -58,47 +64,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .basicAuth("admin", "nimda")
         .check(status.is(404)))
     // Test case - end
-    // --------------------------------------------------------------------------------------------    
-    // Delete Spec Offer Wave
-    .exec(http("Delete Specoffer Wave")
-        .delete("/specoffers/${specofferId}/waves/${specofferWaveId}")
-        .basicAuth("admin", "nimda")
-        .check(status.is(204)))    
-    // Delete Enrolment
-    .exec(http("Delete Enrolment")
-        .delete("/enrolments/${enrolmentId}")
-        .basicAuth("admin", "nimda")
-        .check(status.is(204)))    
-    // Deleting person
-    .exec(http("Delete Person Paper")
-        .delete("/persons/${personId}/papers/${personPaperId}")
-        .basicAuth("admin", "nimda")
-        .check(status.is(204)))
-    // Deleting Person
-    .exec(http("Delete Person")
-        .delete("/persons/${personId}")
-        .basicAuth("admin", "nimda")
-        .check(status.is(204)))
-    // Deleting specoffer
-    .exec(http("Delete Specoffer")
-        .delete("/specoffers/${specofferId}")
-        .basicAuth("admin", "nimda")
-        .check(status.is(204)))
-    // Deleting Specialty
-    .exec(http("Delete Specialty")
-        .delete("/specialties/${specialtyId}")
-        .basicAuth("admin", "nimda")
-        .check(status.is(204)))
-    // Deleting department
-    .exec(http("Delete Department")
-        .delete("/departments/${departmentId}")
-        .basicAuth("admin", "nimda")
-        .check(status.is(204)))
-    // Deleting Time Period
-    .exec(http("Delete TimePeriod")
-        .delete("/timeperiods/${timePeriodId}")
-        .basicAuth("admin", "nimda")
-        .check(status.is(204)))
+    .exec(after)
 
   def after(): ChainBuilder = {
     // Delete Spec Offer Wave
@@ -221,7 +187,15 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
   def init(): ChainBuilder = {
     exec(session => {
           session
-            .set("idnum", UUID.randomUUID())
+            .set("person_idnum", UUID.randomUUID())
+            .set("person_firstname", FirstName.generate())
+            .set("person_fathername", FatherName.generate())
+            .set("person_lastname", LastName.generate())
+            .set("person_photo", Photo.generate())
+            .set("person_birthplace", BirthPlace.generate())
+            .set("person_docnum", new Random().nextLong())
+            .set("person_docseries", DocSeries.generate())
+            
             //Department session fields
             .set("departmentAbbrName", UUID.randomUUID())
             .set("departmentName", UUID.randomUUID())

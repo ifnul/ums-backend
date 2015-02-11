@@ -13,21 +13,13 @@ import io.gatling.http.Predef.ELFileBody
 import io.gatling.http.Predef.http
 import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
+import org.lnu.is.integration.config.ComplexTest
+import io.gatling.core.structure.ChainBuilder
 
-object DegreeIntegrationTest {
+object DegreeIntegrationTest extends ComplexTest {
 
-  val testCase = exec(session => {
-      session
-        .set("idnum", UUID.randomUUID())
-    })
-    .exec(http("Post Person")
-    		.post("/persons")
-    		.basicAuth("admin", "nimda")
-    		.header("Content-Type", "application/json")
-    		.body(ELFileBody("data/person/post.json"))
-    		.asJSON
-    		.check(status.is(201))
-    		.check(jsonPath("$.id").find.saveAs("personId")))
+  val testCase = exec(init)
+    .exec(before)
     .exec(http("Post Degree")
         .post("/degrees")
         .basicAuth("admin", "nimda")
@@ -36,21 +28,18 @@ object DegreeIntegrationTest {
         .asJSON
         .check(status.is(201))
         .check(jsonPath("$.id").find.saveAs("degreeId")))
-    .exec(
-      http("Get Degree")
+    .exec(http("Get Degree")
         .get("/degrees/${degreeId}")
         .basicAuth("admin", "nimda")
         .check(status.is(200)))
-    .exec(
-      http("Update Degree")
+    .exec(http("Update Degree")
         .put("/degrees/${degreeId}")
         .basicAuth("admin", "nimda")
         .header("Content-Type", "application/json")
         .body(ELFileBody("data/degree/put.json"))
         .asJSON
         .check(status.is(200)))
-    .exec(
-      http("Get Degree")
+    .exec(http("Get Degree")
         .get("/degrees/${degreeId}")
         .basicAuth("admin", "nimda")
         .check(status.is(200))
@@ -59,9 +48,31 @@ object DegreeIntegrationTest {
         .delete("/degrees/${degreeId}")
         .basicAuth("admin", "nimda")
         .check(status.is(204)))
-    .exec(http("Delete Person")
-  		  .delete("/persons/${personId}")
-  		  .basicAuth("admin", "nimda")
-  		  .check(status.is(204)))
+    .exec(after)
+
+  def after(): ChainBuilder = {
+    exec(http("Delete Person")
+        .delete("/persons/${personId}")
+        .basicAuth("admin", "nimda")
+        .check(status.is(204)))
+  }
+
+  def before(): ChainBuilder = {
+    exec(http("Post Person")
+        .post("/persons")
+        .basicAuth("admin", "nimda")
+        .header("Content-Type", "application/json")
+        .body(ELFileBody("data/person/post.json"))
+        .asJSON
+        .check(status.is(201))
+        .check(jsonPath("$.id").find.saveAs("personId")))
+  }
+
+  def init(): ChainBuilder = {
+    exec(session => {
+          session
+            .set("idnum", UUID.randomUUID())
+        })
+  }
 
 }

@@ -13,10 +13,13 @@ import io.gatling.http.request.RawFileBody
 object WaveTypeIntegrationTest {
 
   val response = RawFileBody("data/wave/type/response.json")
+  val url = "/wave/types"
+  val username = "admin"
+  val password = "nimda"
   
   val testCase = exec(http("Wave Type Get Paged Result")
       .get("/wave/types")
-      .basicAuth("admin", "nimda")
+      .basicAuth(username, password)
       .check(bodyString.is(response))
     )
 }

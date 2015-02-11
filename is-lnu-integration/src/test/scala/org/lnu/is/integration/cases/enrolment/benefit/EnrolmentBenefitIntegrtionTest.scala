@@ -15,6 +15,13 @@ import io.gatling.http.Predef.http
 import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
 import org.lnu.is.integration.config.ComplexTest
+import org.lnu.is.integration.config.helper.FirstName
+import org.lnu.is.integration.config.helper.FatherName
+import org.lnu.is.integration.config.helper.LastName
+import org.lnu.is.integration.config.helper.Photo
+import org.lnu.is.integration.config.helper.BirthPlace
+import scala.util.Random
+import org.lnu.is.integration.config.helper.DocSeries
 
 object EnrolmentBenefitIntegrtionTest extends ComplexTest {
 
@@ -61,7 +68,15 @@ object EnrolmentBenefitIntegrtionTest extends ComplexTest {
   def init(): ChainBuilder = {
     exec(session => {
       session
-        .set("idnum", UUID.randomUUID())
+        .set("person_idnum", UUID.randomUUID())
+        .set("person_firstname", FirstName.generate())
+        .set("person_fathername", FatherName.generate())
+        .set("person_lastname", LastName.generate())
+        .set("person_photo", Photo.generate())
+        .set("person_birthplace", BirthPlace.generate())
+        .set("person_docnum", new Random().nextLong())
+        .set("person_docseries", DocSeries.generate())
+            
         .set("departmentAbbrName", UUID.randomUUID())
         .set("departmentName", UUID.randomUUID())
         .set("departmentManager", UUID.randomUUID())

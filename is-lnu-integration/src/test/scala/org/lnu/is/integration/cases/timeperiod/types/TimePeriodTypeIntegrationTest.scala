@@ -12,10 +12,13 @@ import io.gatling.http.request.RawFileBody
 object TimePeriodTypeIntegrationTest {
 
   val response = RawFileBody("data/timeperiod/type/response.json")
+  val url = "/timeperiods/types"
+  val username = "admin"
+  val password = "nimda"
   
   val testCase = exec(http("Time Period Type Get Paged Result")
-      .get("/timeperiods/types")
-      .basicAuth("admin", "nimda")
+      .get(url)
+      .basicAuth(username, password)
       .check(bodyString.is(response))
     )
 }

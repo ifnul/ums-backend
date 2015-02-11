@@ -13,23 +13,13 @@ import io.gatling.http.Predef.ELFileBody
 import io.gatling.http.Predef.http
 import io.gatling.http.Predef.jsonPath
 import io.gatling.http.Predef.status
+import io.gatling.core.structure.ChainBuilder
+import org.lnu.is.integration.config.ComplexTest
 
-object DepartmentNameIntegrationTest {
+object DepartmentNameIntegrationTest extends ComplexTest {
 
-  val testCase = exec(session => {
-      session
-        .set("departmentAbbrName", UUID.randomUUID())
-        .set("departmentName", UUID.randomUUID())
-        .set("departmentManager", UUID.randomUUID())
-    })
-  .exec(http("Post Department")
-    .post("/departments")
-    .basicAuth("admin", "nimda")
-    .header("Content-Type", "application/json")
-    .body(ELFileBody("data/department/post.json"))
-    .asJSON
-    .check(status.is(201))
-    .check(jsonPath("$.id").find.saveAs("departmentId")))
+  val testCase = exec(init)
+  .exec(before)
   .exec(http("Post Department Name")
       .post("/departments/${departmentId}/names")
       .basicAuth("admin", "nimda")
@@ -58,8 +48,33 @@ object DepartmentNameIntegrationTest {
       .delete("/departments/${departmentId}/names/${departmentNametId}")
       .basicAuth("admin", "nimda")
       .check(status.is(204)))
-  .exec(http("Delete Department")
-    .delete("/departments/${departmentId}")
-    .basicAuth("admin", "nimda")
-    .check(status.is(204)))
+  .exec(after)
+    
+  def after(): ChainBuilder = {
+    exec(http("Delete Department")
+      .delete("/departments/${departmentId}")
+      .basicAuth("admin", "nimda")
+      .check(status.is(204)))
+  }
+
+  def before(): ChainBuilder = {
+    exec(http("Post Department")
+      .post("/departments")
+      .basicAuth("admin", "nimda")
+      .header("Content-Type", "application/json")
+      .body(ELFileBody("data/department/post.json"))
+      .asJSON
+      .check(status.is(201))
+      .check(jsonPath("$.id").find.saveAs("departmentId")))
+  }
+
+  def init(): ChainBuilder = {
+    exec(session => {
+          session
+            .set("departmentAbbrName", UUID.randomUUID())
+            .set("departmentName", UUID.randomUUID())
+            .set("departmentManager", UUID.randomUUID())
+        })
+  }    
+    
 }
