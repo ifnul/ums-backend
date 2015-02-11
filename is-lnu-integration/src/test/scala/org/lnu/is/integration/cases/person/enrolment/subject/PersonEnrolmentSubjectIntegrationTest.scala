@@ -40,7 +40,7 @@ object PersonEnrolmentSubjectIntegrationTest {
       .basicAuth("admin", "nimda")
       .check(status.is(200)))
   .exec(http("Update Person Enrolment Subject")
-      .put("/person/${personId}/enrolmentsubjects/${personEnrolmentSubjectId}")
+      .put("/persons/${personId}/enrolmentsubjects/${personEnrolmentSubjectId}")
       .basicAuth("admin", "nimda")
       .header("Content-Type", "application/json")
       .body(ELFileBody("data/person/enrolment/subject/put.json"))

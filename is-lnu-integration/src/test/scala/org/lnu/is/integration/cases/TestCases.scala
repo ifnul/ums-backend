@@ -116,6 +116,7 @@ object TestCases {
                     PersonNameIntegrationTest.testCase,
                     PersonPaperIntegrationTest.testCase,
                     PersonTypeIntegrationTest.testCase,
+                    PersonEnrolmentSubjectIntegrationTest.testCase,
                     PublicActivityIntegrationTest.testCase,
                     PublicActivityAwardIntegrationTest.testCase,
                     PublicActivityTypeIntegrationTest.testCase,
