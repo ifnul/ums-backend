@@ -11,7 +11,7 @@ import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonAddress;
+import org.lnu.is.domain.person.address.PersonAddress;
 import org.lnu.is.domain.streettype.StreetType;
 import org.lnu.is.resource.person.address.PersonAddressResource;
 

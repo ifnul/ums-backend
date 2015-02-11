@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.person.PersonType;
+import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.resource.person.type.PersonTypeResource;
 
 public class PersonTypeResourceConverterTest {

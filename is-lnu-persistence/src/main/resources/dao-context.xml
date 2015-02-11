@@ -17,7 +17,7 @@
 	</bean>
 	
 	<bean id="personEnrolmentSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonEnrolmentSubject" />
+		<property name="entityClass" value="org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject" />
 		<property name="queryBuilder" ref="personEnrolmentSubjectQueryBuilder" />		
 	</bean>	
 	
@@ -248,12 +248,12 @@
 	</bean>
 
 	<bean id="personAddressDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonAddress" />
+		<property name="entityClass" value="org.lnu.is.domain.person.address.PersonAddress" />
 		<property name="queryBuilder" ref="personAddressQueryBuilder" />
 	</bean>
 
 	<bean id="personAwardDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonAward" />
+		<property name="entityClass" value="org.lnu.is.domain.person.award.PersonAward" />
 		<property name="queryBuilder" ref="personAwardQueryBuilder" />
 	</bean>
 
@@ -263,17 +263,17 @@
 	</bean>
 	
 	<bean id="personNameDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonName" />
+		<property name="entityClass" value="org.lnu.is.domain.person.name.PersonName" />
 		<property name="queryBuilder" ref="personNameQueryBuilder" />
 	</bean>
 
 	<bean id="personPaperDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonPaper" />
+		<property name="entityClass" value="org.lnu.is.domain.person.paper.PersonPaper" />
 		<property name="queryBuilder" ref="personPaperQueryBuilder" />
 	</bean>
 
 	<bean id="personTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.person.PersonType" />
+		<property name="entityClass" value="org.lnu.is.domain.person.type.PersonType" />
 		<property name="queryBuilder" ref="personTypeQueryBuilder" />
 	</bean>
 

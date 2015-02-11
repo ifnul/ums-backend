@@ -18,7 +18,7 @@ import org.lnu.is.domain.enrolment.enrolsubject.EnrolmentEnrolSubject;
 import org.lnu.is.domain.enrolment.status.EnrolmentStatus;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonPaper;
+import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
 
 /**

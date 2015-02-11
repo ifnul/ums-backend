@@ -4,7 +4,7 @@ import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonName;
+import org.lnu.is.domain.person.name.PersonName;
 import org.lnu.is.resource.person.name.PersonNameResource;
 
 /**

@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.benefit.EnrolmentBenefit;
-import org.lnu.is.domain.person.PersonPaper;
+import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.resource.enrolment.benefit.EnrolmentBenefitResource;
 
 public class EnrolmentBenefitResourceConverterTest {

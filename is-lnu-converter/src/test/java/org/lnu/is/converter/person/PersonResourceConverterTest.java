@@ -9,7 +9,7 @@ import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonType;
+import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.resource.person.PersonResource;
 
 public class PersonResourceConverterTest {

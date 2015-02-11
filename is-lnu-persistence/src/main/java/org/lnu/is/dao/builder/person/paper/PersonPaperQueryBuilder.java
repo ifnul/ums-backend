@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.person.paper;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.person.PersonPaper;
+import org.lnu.is.domain.person.paper.PersonPaper;
 
 /**
  * Person Paper Query builder.

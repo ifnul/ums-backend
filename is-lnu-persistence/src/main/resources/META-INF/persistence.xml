@@ -72,18 +72,18 @@
 
         <!-- Person related entities -->
         <class>org.lnu.is.domain.person.Person</class> 
-        <class>org.lnu.is.domain.person.PersonAddress</class>
-        <class>org.lnu.is.domain.person.PersonAward</class>
+        <class>org.lnu.is.domain.person.address.PersonAddress</class>
+        <class>org.lnu.is.domain.person.award.PersonAward</class>
         <class>org.lnu.is.domain.person.contact.PersonContact</class>
-        <class>org.lnu.is.domain.person.PersonEducation</class>
-        <class>org.lnu.is.domain.person.PersonEnrolmentSubject</class>
-        <class>org.lnu.is.domain.person.PersonFamily</class>
-        <class>org.lnu.is.domain.person.PersonLanguage</class>
-        <class>org.lnu.is.domain.person.PersonName</class>
-        <class>org.lnu.is.domain.person.PersonPaper</class>
-        <class>org.lnu.is.domain.person.PersonPension</class>
-        <class>org.lnu.is.domain.person.PersonType</class> 
-        <class>org.lnu.is.domain.person.PersonWork</class>
+        <class>org.lnu.is.domain.person.education.PersonEducation</class>
+        <class>org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject</class>
+        <class>org.lnu.is.domain.person.family.PersonFamily</class>
+        <class>org.lnu.is.domain.person.language.PersonLanguage</class>
+        <class>org.lnu.is.domain.person.name.PersonName</class>
+        <class>org.lnu.is.domain.person.paper.PersonPaper</class>
+        <class>org.lnu.is.domain.person.pension.PersonPension</class>
+        <class>org.lnu.is.domain.person.type.PersonType</class> 
+        <class>org.lnu.is.domain.person.work.PersonWork</class>
         
         <!-- Spec offer related entities -->
         <class>org.lnu.is.domain.specoffer.SpecOffer</class>

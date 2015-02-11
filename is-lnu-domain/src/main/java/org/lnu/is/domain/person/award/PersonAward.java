@@ -1,4 +1,4 @@
-package org.lnu.is.domain.person;
+package org.lnu.is.domain.person.award;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.person.Person;
+import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.publicactivity.PublicActivityAward;
 /**
  * Person Award entity.

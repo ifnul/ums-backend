@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonName;
+import org.lnu.is.domain.person.name.PersonName;
 import org.lnu.is.resource.person.name.PersonNameResource;
 
 

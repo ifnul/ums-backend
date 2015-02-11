@@ -2,7 +2,7 @@ package org.lnu.is.converter.person.address;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.person.PersonAddress;
+import org.lnu.is.domain.person.address.PersonAddress;
 import org.lnu.is.resource.person.address.PersonAddressResource;
 
 /**

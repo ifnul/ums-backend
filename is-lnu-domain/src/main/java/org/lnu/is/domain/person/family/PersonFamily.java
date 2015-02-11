@@ -1,4 +1,4 @@
-package org.lnu.is.domain.person;
+package org.lnu.is.domain.person.family;
 
 import java.util.Date;
 
@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.familytype.FamilyType;
+import org.lnu.is.domain.person.Person;
 /**
  * Person Family entity.
  * @author illay

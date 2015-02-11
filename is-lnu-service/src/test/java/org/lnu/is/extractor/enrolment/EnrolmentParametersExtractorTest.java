@@ -20,7 +20,7 @@ import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonPaper;
+import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;

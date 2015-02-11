@@ -1,4 +1,4 @@
-package org.lnu.is.domain.person;
+package org.lnu.is.domain.person.type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonType;
+import org.lnu.is.domain.person.type.PersonType;
 
 public class PersonQueryBuilderTest {
 

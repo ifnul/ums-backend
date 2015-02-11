@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.person.enrolmentsubject;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.person.PersonEnrolmentSubject;
+import org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject;
 
 /**
  * Person Enrolment Subject Query Builder.

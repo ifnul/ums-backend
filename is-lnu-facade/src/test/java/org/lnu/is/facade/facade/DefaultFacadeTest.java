@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.converter.Converter;
 import org.lnu.is.dao.dao.DefaultDao;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonType;
+import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.resource.person.PersonResource;

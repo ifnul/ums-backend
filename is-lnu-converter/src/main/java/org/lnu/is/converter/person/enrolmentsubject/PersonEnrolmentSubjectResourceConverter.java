@@ -4,8 +4,8 @@ import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonEnrolmentSubject;
-import org.lnu.is.domain.person.PersonPaper;
+import org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject;
+import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.resource.person.enrolmentsubject.PersonEnrolmentSubjectResource;
 
 /**

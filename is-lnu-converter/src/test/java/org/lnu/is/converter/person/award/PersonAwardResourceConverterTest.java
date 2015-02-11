@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonAward;
-import org.lnu.is.domain.person.PersonPaper;
+import org.lnu.is.domain.person.award.PersonAward;
+import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.publicactivity.PublicActivityAward;
 import org.lnu.is.resource.person.award.PersonAwardResource;
 

@@ -10,7 +10,7 @@ import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
-import org.lnu.is.domain.person.PersonEnrolmentSubject;
+import org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject;
 
 /**
  * Enrolment Subject entity.

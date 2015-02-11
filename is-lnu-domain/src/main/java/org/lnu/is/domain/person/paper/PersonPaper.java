@@ -1,4 +1,4 @@
-package org.lnu.is.domain.person;
+package org.lnu.is.domain.person.paper;
 
 import java.util.Date;
 
@@ -12,6 +12,7 @@ import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.honorstype.HonorType;
 import org.lnu.is.domain.paper.type.PaperType;
+import org.lnu.is.domain.person.Person;
 
 /**
  * Person Paper entity.

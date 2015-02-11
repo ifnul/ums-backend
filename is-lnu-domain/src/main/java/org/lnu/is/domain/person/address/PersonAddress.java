@@ -1,4 +1,4 @@
-package org.lnu.is.domain.person;
+package org.lnu.is.domain.person.address;
 
 import java.util.Date;
 
@@ -13,6 +13,7 @@ import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.asset.Asset;
+import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.streettype.StreetType;
 /**
  * Person Address entity.

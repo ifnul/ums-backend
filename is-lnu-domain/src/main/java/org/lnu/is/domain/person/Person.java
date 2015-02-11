@@ -15,7 +15,17 @@ import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
+import org.lnu.is.domain.person.address.PersonAddress;
+import org.lnu.is.domain.person.award.PersonAward;
 import org.lnu.is.domain.person.contact.PersonContact;
+import org.lnu.is.domain.person.education.PersonEducation;
+import org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject;
+import org.lnu.is.domain.person.family.PersonFamily;
+import org.lnu.is.domain.person.language.PersonLanguage;
+import org.lnu.is.domain.person.name.PersonName;
+import org.lnu.is.domain.person.paper.PersonPaper;
+import org.lnu.is.domain.person.pension.PersonPension;
+import org.lnu.is.domain.person.type.PersonType;
 
 /**
  * Person entity.

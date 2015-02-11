@@ -8,7 +8,7 @@ import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonName;
+import org.lnu.is.domain.person.name.PersonName;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

@@ -17,7 +17,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonName;
+import org.lnu.is.domain.person.name.PersonName;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

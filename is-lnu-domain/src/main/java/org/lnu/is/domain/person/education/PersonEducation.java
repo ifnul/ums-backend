@@ -1,4 +1,4 @@
-package org.lnu.is.domain.person;
+package org.lnu.is.domain.person.education;
 
 import java.util.Date;
 
@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.educationtype.EducationType;
+import org.lnu.is.domain.person.Person;
+import org.lnu.is.domain.person.paper.PersonPaper;
 /**
  * Persoon Education entity.
  * @author illay

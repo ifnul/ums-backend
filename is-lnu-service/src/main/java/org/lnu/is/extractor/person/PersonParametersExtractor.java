@@ -9,7 +9,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonType;
+import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

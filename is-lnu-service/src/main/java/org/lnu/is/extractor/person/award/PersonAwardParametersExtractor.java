@@ -7,8 +7,8 @@ import javax.annotation.Resource;
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonAward;
-import org.lnu.is.domain.person.PersonPaper;
+import org.lnu.is.domain.person.award.PersonAward;
+import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

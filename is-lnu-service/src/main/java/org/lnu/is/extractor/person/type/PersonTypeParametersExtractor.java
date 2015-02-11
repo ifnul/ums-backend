@@ -3,7 +3,7 @@ package org.lnu.is.extractor.person.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.person.PersonType;
+import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

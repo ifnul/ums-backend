@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.person.address;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.person.PersonAddress;
+import org.lnu.is.domain.person.address.PersonAddress;
 
 /**
  * Person Address Query Builder.

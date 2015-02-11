@@ -9,7 +9,7 @@ import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.enrolment.Enrolment;
-import org.lnu.is.domain.person.PersonPaper;
+import org.lnu.is.domain.person.paper.PersonPaper;
 
 /**
  * Enrolment benefit entity.

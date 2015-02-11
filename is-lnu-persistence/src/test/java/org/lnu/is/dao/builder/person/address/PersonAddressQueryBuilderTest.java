@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.PersonAddress;
+import org.lnu.is.domain.person.address.PersonAddress;
 import org.lnu.is.domain.streettype.StreetType;
 
 public class PersonAddressQueryBuilderTest {

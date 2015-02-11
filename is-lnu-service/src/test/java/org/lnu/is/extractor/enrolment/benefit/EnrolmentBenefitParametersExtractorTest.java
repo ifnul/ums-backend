@@ -18,7 +18,7 @@ import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.benefit.EnrolmentBenefit;
-import org.lnu.is.domain.person.PersonPaper;
+import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

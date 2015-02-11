@@ -3,7 +3,7 @@ package org.lnu.is.web.rest.controller.person.enrolmentsubject;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
-import org.lnu.is.domain.person.PersonEnrolmentSubject;
+import org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
