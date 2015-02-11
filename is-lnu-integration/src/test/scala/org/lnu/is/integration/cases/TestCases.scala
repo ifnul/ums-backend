@@ -67,6 +67,7 @@ import org.lnu.is.integration.cases.enrolment.benefit.EnrolmentBenefitIntegrtion
 import org.lnu.is.integration.cases.specoffer.wave.SpecOfferWaveIntegrationTest
 import org.lnu.is.integration.cases.enrolment.statuses.EnrolmentStatusIntegrationTest
 import org.lnu.is.integration.cases.specoffer.subject.SpecOfferSubjectIntegrationTest
+import org.lnu.is.integration.cases.person.enrolment.subject.PersonEnrolmentSubjectIntegrationTest
 
 
 /**

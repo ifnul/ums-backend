@@ -29,7 +29,7 @@ public class PersonEnrolmentSubjectResourceConverter extends AbstractConverter<P
 
 		if (source.getPersonPaperId() != null) {
 			PersonPaper personPaper = new PersonPaper();
-			personPaper.setId(source.getPersonId());
+			personPaper.setId(source.getPersonPaperId());
 			target.setPersonPaper(personPaper);
 		}
 
