@@ -1,4 +1,4 @@
-package org.lnu.is.domain.order;
+package org.lnu.is.domain.order.student;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +11,7 @@ import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.coursetype.CourseType;
 import org.lnu.is.domain.eduformtype.EduFormType;
 import org.lnu.is.domain.enrolment.Enrolment;
+import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.specoffer.SpecOffer;
 

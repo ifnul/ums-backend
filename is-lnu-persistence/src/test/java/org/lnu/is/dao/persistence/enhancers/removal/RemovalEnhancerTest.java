@@ -8,7 +8,6 @@ import static org.mockito.Mockito.verify;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.persistence.enhancers.Enhancer;
-import org.lnu.is.dao.persistence.enhancers.removal.RemovalEnhancer;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.mockito.InjectMocks;

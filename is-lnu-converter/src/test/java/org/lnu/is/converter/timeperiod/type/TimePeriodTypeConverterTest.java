@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.timeperiod.type.TimePeriodTypeConverter;
 import org.lnu.is.domain.timeperiod.TimePeriodType;
 import org.lnu.is.resource.timeperiod.type.TimePeriodTypeResource;
 

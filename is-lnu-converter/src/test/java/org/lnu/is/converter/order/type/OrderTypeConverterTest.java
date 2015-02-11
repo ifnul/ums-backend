@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.order.OrderType;
+import org.lnu.is.domain.order.type.OrderType;
 import org.lnu.is.resource.order.type.OrderTypeResource;
 
 public class OrderTypeConverterTest {

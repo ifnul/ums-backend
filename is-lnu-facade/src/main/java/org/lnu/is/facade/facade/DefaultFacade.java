@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.lnu.is.converter.Converter;
 import org.lnu.is.domain.Model;
-import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.MultiplePagedSearch;
+import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.resource.ApiResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;

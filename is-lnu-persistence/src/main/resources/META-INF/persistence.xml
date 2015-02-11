@@ -60,15 +60,15 @@
         
         <!-- Order related entities -->
         <class>org.lnu.is.domain.order.Order</class>
-        <class>org.lnu.is.domain.order.OrderAssetPassport</class>
-        <class>org.lnu.is.domain.order.OrderAssetTransfer</class>
-        <class>org.lnu.is.domain.order.OrderDuty</class>
-        <class>org.lnu.is.domain.order.OrderType</class>
-        <class>org.lnu.is.domain.order.OrderEmployee</class>
-        <class>org.lnu.is.domain.order.OrderEmployeeTimeSheet</class>
-        <class>org.lnu.is.domain.order.OrderNewAsset</class>
-        <class>org.lnu.is.domain.order.OrderNewEmployee</class>
-        <class>org.lnu.is.domain.order.OrderNewStudent</class>
+        <class>org.lnu.is.domain.order.asset.passport.OrderAssetPassport</class>
+        <class>org.lnu.is.domain.order.asset.transfer.OrderAssetTransfer</class>
+        <class>org.lnu.is.domain.order.duty.OrderDuty</class>
+        <class>org.lnu.is.domain.order.type.OrderType</class>
+        <class>org.lnu.is.domain.order.employee.OrderEmployee</class>
+        <class>org.lnu.is.domain.order.employee.timesheet.OrderEmployeeTimeSheet</class>
+        <class>org.lnu.is.domain.order.asset.OrderNewAsset</class>
+        <class>org.lnu.is.domain.order.employee.OrderNewEmployee</class>
+        <class>org.lnu.is.domain.order.student.OrderNewStudent</class>
 
         <!-- Person related entities -->
         <class>org.lnu.is.domain.person.Person</class> 

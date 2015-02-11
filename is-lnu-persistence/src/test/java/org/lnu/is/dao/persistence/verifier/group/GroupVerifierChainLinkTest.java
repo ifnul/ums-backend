@@ -9,7 +9,6 @@ import static org.mockito.Mockito.verify;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.persistence.verifier.VerifierChainLink;
-import org.lnu.is.dao.persistence.verifier.group.GroupVerifierChainLink;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.security.exception.AccessDeniedException;
 import org.lnu.is.security.service.SessionService;

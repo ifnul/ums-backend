@@ -1,4 +1,4 @@
-package org.lnu.is.domain.order;
+package org.lnu.is.domain.order.employee;
 
 import java.util.Date;
 
@@ -11,18 +11,20 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.employee.Employee;
-import org.lnu.is.domain.timesheettype.TimeSheetType;
+import org.lnu.is.domain.employee.status.EmployeeStatus;
+import org.lnu.is.domain.optype.OperationType;
+import org.lnu.is.domain.order.Order;
 
 /**
- * Order Employee Time Sheet entity.
+ * Order Employee entity.
  * 
  * @author kushnir
  *
  */
 @DT
 @Entity
-@Table(name = "q_dt_orderemployeetimesheet")
-public class OrderEmployeeTimeSheet extends InformationModel {
+@Table(name = "q_dt_orderemployee")
+public class OrderEmployee extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne
@@ -34,20 +36,21 @@ public class OrderEmployeeTimeSheet extends InformationModel {
 	private Employee employee;
 
 	@ManyToOne
-	@JoinColumn(name = "timesheettype_id")
-	private TimeSheetType timeSheetType;
+	@JoinColumn(name = "employeestatus_id")
+	private EmployeeStatus employeeStatus;
 
-	@Column(name = "dayamount")
-	private Date dayAmount;
+	@ManyToOne
+	@JoinColumn(name = "optype_id")
+	private OperationType opType;
 
-	@Column(name = "houramount")
-	private Date hourAmount;
-
-	@Column(name = "enddate")
-	private Date endDate;
+	@Column(name = "rate")
+	private long rate;
 
 	@Column(name = "begdate")
 	private Date begDate;
+
+	@Column(name = "enddate")
+	private Date endDate;
 
 	public Order getOrder() {
 		return order;
@@ -65,36 +68,28 @@ public class OrderEmployeeTimeSheet extends InformationModel {
 		this.employee = employee;
 	}
 
-	public TimeSheetType getTimeSheetType() {
-		return timeSheetType;
+	public EmployeeStatus getEmployeeStatus() {
+		return employeeStatus;
 	}
 
-	public void setTimeSheetType(final TimeSheetType timeSheetType) {
-		this.timeSheetType = timeSheetType;
+	public void setEmployeeStatus(final EmployeeStatus employeeStatus) {
+		this.employeeStatus = employeeStatus;
 	}
 
-	public Date getDayAmount() {
-		return dayAmount;
+	public OperationType getOpType() {
+		return opType;
 	}
 
-	public void setDayAmount(final Date dayAmount) {
-		this.dayAmount = dayAmount;
+	public void setOpType(final OperationType opType) {
+		this.opType = opType;
 	}
 
-	public Date getHourAmount() {
-		return hourAmount;
+	public long getRate() {
+		return rate;
 	}
 
-	public void setHourAmount(final Date hourAmount) {
-		this.hourAmount = hourAmount;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(final Date endDate) {
-		this.endDate = endDate;
+	public void setRate(final long rate) {
+		this.rate = rate;
 	}
 
 	public Date getBegDate() {
@@ -105,16 +100,21 @@ public class OrderEmployeeTimeSheet extends InformationModel {
 		this.begDate = begDate;
 	}
 
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(final Date endDate) {
+		this.endDate = endDate;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
-		result = prime * result
-				+ ((dayAmount == null) ? 0 : dayAmount.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
-		result = prime * result
-				+ ((hourAmount == null) ? 0 : hourAmount.hashCode());
+		result = prime * result + (int) (rate ^ (rate >>> 32));
 		return result;
 	}
 
@@ -129,19 +129,12 @@ public class OrderEmployeeTimeSheet extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		OrderEmployeeTimeSheet other = (OrderEmployeeTimeSheet) obj;
+		OrderEmployee other = (OrderEmployee) obj;
 		if (begDate == null) {
 			if (other.begDate != null) {
 				return false;
 			}
 		} else if (!begDate.equals(other.begDate)) {
-			return false;
-		}
-		if (dayAmount == null) {
-			if (other.dayAmount != null) {
-				return false;
-			}
-		} else if (!dayAmount.equals(other.dayAmount)) {
 			return false;
 		}
 		if (endDate == null) {
@@ -151,11 +144,7 @@ public class OrderEmployeeTimeSheet extends InformationModel {
 		} else if (!endDate.equals(other.endDate)) {
 			return false;
 		}
-		if (hourAmount == null) {
-			if (other.hourAmount != null) {
-				return false;
-			}
-		} else if (!hourAmount.equals(other.hourAmount)) {
+		if (rate != other.rate) {
 			return false;
 		}
 		return true;
@@ -163,9 +152,8 @@ public class OrderEmployeeTimeSheet extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "OrderEmployeeTimeSheet [dayAmount=" + dayAmount
-				+ ", hourAmount=" + hourAmount + ", endDate=" + endDate
-				+ ", begDate=" + begDate + "]";
+		return "OrderEmployee [rate=" + rate + ", begDate=" + begDate
+				+ ", endDate=" + endDate + "]";
 	}
 
 }

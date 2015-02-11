@@ -223,7 +223,7 @@
 	</bean>
 
 	<bean id="orderTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.order.OrderType" />
+		<property name="entityClass" value="org.lnu.is.domain.order.type.OrderType" />
 		<property name="queryBuilder" ref="orderTypeQueryBuilder" />
 	</bean>
 

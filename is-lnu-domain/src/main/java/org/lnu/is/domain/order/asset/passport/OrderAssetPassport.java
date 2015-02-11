@@ -1,4 +1,4 @@
-package org.lnu.is.domain.order;
+package org.lnu.is.domain.order.asset.passport;
 
 import java.util.Date;
 

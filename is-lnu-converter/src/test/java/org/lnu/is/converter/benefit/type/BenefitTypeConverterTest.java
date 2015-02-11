@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.benefit.type.BenefitTypeConverter;
 import org.lnu.is.domain.benefit.BenefitType;
 import org.lnu.is.resource.benefit.type.BenefitTypeResource;
 

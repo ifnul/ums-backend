@@ -1,4 +1,4 @@
-package org.lnu.is.domain.order;
+package org.lnu.is.domain.order.asset;
 
 import java.util.Date;
 
@@ -14,6 +14,7 @@ import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.asset.state.AssetState;
 import org.lnu.is.domain.asset.status.AssetStatus;
 import org.lnu.is.domain.asset.type.AssetType;
+import org.lnu.is.domain.order.Order;
 
 /**
  * Order New Asset entity.

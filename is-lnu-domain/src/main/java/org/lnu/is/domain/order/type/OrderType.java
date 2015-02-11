@@ -1,4 +1,4 @@
-package org.lnu.is.domain.order;
+package org.lnu.is.domain.order.type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

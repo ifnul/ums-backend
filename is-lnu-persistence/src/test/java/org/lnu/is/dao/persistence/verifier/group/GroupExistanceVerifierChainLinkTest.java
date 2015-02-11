@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.exception.NoGroupForUserException;
 import org.lnu.is.dao.persistence.verifier.VerifierChainLink;
-import org.lnu.is.dao.persistence.verifier.group.GroupExistanceVerifierChainLink;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.security.service.SessionService;

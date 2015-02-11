@@ -1,4 +1,4 @@
-package org.lnu.is.domain.order;
+package org.lnu.is.domain.order.duty;
 
 import java.util.Date;
 
@@ -12,6 +12,7 @@ import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.dutytype.DutyType;
 import org.lnu.is.domain.employee.Employee;
+import org.lnu.is.domain.order.Order;
 /**
  * Order Duty entity.
  * @author illay

@@ -1,7 +1,7 @@
 package org.lnu.is.service;
 
-import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.MultiplePagedSearch;
+import org.lnu.is.pagination.PagedResult;
 
 /**
  * Common interface for all services.

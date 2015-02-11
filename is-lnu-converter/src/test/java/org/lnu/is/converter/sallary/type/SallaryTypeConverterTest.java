@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.sallary.type.SallaryTypeConverter;
 import org.lnu.is.domain.salarytype.SallaryType;
 import org.lnu.is.resource.sallary.type.SallaryTypeResource;
 

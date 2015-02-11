@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.operationtype.OperationTypeConverter;
 import org.lnu.is.domain.optype.OperationType;
 import org.lnu.is.resource.operationtype.OperationTypeResource;
 

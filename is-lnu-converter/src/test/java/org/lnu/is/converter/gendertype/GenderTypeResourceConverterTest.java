@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.gendertype.GenderTypeResourceConverter;
 import org.lnu.is.domain.gendertype.GenderType;
 import org.lnu.is.resource.gendertype.GenderTypeResource;
 

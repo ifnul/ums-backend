@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.dao.persistence.verifier.VerifierChainLink;
-import org.lnu.is.dao.persistence.verifier.entity.ValidEntityVerifier;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.mockito.InjectMocks;

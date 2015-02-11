@@ -9,7 +9,6 @@ import static org.mockito.Mockito.when;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.persistence.enhancers.Enhancer;
-import org.lnu.is.dao.persistence.enhancers.group.DefaultGroupEnhancer;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.security.service.SessionService;

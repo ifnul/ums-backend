@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.order.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.order.OrderType;
+import org.lnu.is.domain.order.type.OrderType;
 
 /**
  * OrderType Query Builder.

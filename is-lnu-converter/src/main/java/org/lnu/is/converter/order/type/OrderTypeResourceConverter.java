@@ -2,7 +2,7 @@ package org.lnu.is.converter.order.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.order.OrderType;
+import org.lnu.is.domain.order.type.OrderType;
 import org.lnu.is.resource.order.type.OrderTypeResource;
 
 /**

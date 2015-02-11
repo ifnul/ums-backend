@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.marriedtype.MarriedTypeResourceConverter;
 import org.lnu.is.domain.marriedtype.MarriedType;
 import org.lnu.is.resource.marriedtype.MarriedTypeResource;
 

@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.asset.type.AssetTypeConverter;
 import org.lnu.is.domain.asset.type.AssetType;
 import org.lnu.is.resource.asset.type.AssetTypeResource;
 

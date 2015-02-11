@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.jobtype.JobTypeResourceConverter;
 import org.lnu.is.domain.jobtype.JobType;
 import org.lnu.is.resource.jobtype.JobTypeResource;
 

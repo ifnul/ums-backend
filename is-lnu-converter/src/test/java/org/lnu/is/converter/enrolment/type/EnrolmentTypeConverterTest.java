@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.enrolment.type.EnrolmentTypeConverter;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
 import org.lnu.is.resource.enrolment.type.EnrolmentTypeResource;
 

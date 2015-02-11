@@ -1,4 +1,4 @@
-package org.lnu.is.domain.order;
+package org.lnu.is.domain.order.employee;
 
 import java.util.Date;
 
@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.jobtype.JobType;
+import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.post.Post;
 

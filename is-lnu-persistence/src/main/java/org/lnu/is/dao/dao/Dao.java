@@ -1,7 +1,7 @@
 package org.lnu.is.dao.dao;
 
-import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.pagination.MultiplePagedSearch;
+import org.lnu.is.pagination.PagedResult;
 
 /**
  * Interface, that has all methods, that are needed 

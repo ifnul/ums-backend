@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.addresstype.AddressTypeResourceConverter;
 import org.lnu.is.domain.addresstype.AddressType;
 import org.lnu.is.resource.addresstype.AddressTypeResource;
 

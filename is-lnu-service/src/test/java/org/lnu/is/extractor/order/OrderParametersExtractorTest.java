@@ -20,7 +20,7 @@ import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.optype.OperationType;
 import org.lnu.is.domain.order.Order;
-import org.lnu.is.domain.order.OrderType;
+import org.lnu.is.domain.order.type.OrderType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
 import org.lnu.is.security.service.SessionService;

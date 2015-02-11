@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.contact.type.ContactTypeResourceConverter;
 import org.lnu.is.domain.contacttype.ContactType;
 import org.lnu.is.resource.contact.type.ContactTypeResource;
 

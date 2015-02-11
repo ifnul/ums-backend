@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.department.type.DepartmentTypeConverter;
 import org.lnu.is.domain.department.type.DepartmentType;
 import org.lnu.is.resource.department.type.DepartmentTypeResource;
 
