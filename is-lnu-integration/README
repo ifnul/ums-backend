@@ -55,7 +55,15 @@ FAQ:
 	
 TODO Integration tests:
 
-SpecOfferSubject
+PersonAward
+PersonEducation
+PersonEnrolmentSubject
+PersonFamily
+PersonLanguage
+PersonName
+PersonPension
+PersonWork
+
 Degree
 
 Broadcastings -> Email sending:
