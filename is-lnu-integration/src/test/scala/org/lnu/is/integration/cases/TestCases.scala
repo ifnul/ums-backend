@@ -68,6 +68,8 @@ import org.lnu.is.integration.cases.specoffer.wave.SpecOfferWaveIntegrationTest
 import org.lnu.is.integration.cases.enrolment.statuses.EnrolmentStatusIntegrationTest
 import org.lnu.is.integration.cases.specoffer.subject.SpecOfferSubjectIntegrationTest
 import org.lnu.is.integration.cases.person.enrolment.subject.PersonEnrolmentSubjectIntegrationTest
+import org.lnu.is.integration.cases.person.education.PersonEducationIntegrationTest
+import org.lnu.is.integration.cases.person.contact.PersonContactIntegrationTest
 
 
 /**
@@ -80,8 +82,10 @@ object TestCases {
               .exec(
                     AddressTypeIntegrationTest.testCase,
                     AdminUnitIntegrationTest.testCase,
+                    
                     AssetTypeIntegrationTest.testCase,
                     AssetStatusIntegrationTest.testCase,
+                    
                     AssetStateIntegrationTest.testCase,
                     BenefitTypeIntegrationTest.testCase,
                     ContactTypeIntegrationTest.testCase,
@@ -90,18 +94,21 @@ object TestCases {
                     EducationTypeIntegrationTest.testCase,
                     EmployeeStatusIntegrationTest.testCase,
                     EmployeeTypeIntegrationTest.testCase,
+                    
                     EnrolmentIntegrationTest.testCase,
                     EnrolmentBenefitIntegrtionTest.testCase,
                     EnrolmentStatusIntegrationTest.testCase,
                     EnrolmentStatusTypeIntegrationTest.testCase,
                     EnrolmentSubjectIntegrationTest.testCase,
                     EnrolmentTypeIntegrationTest.testCase,
+                    
                     DepartmentIntegrationTest.testCase,
                     DepartmentAddressIntegrationTest.testCase,
                     DepartmentContactIntegrationTest.testCase,
                     DepartmentNameIntegrationTest.testCase,
                     DepartmentSpecialtyIntegrationTest.testCase,
                     DepartmentTypeIntegrationTest.testCase,
+                    
                     DegreeTypeIntegrationTest.testCase,
                     DutyTypeIntegrationTest.testCase,
                     FamilyTypeIntegrationTest.testCase,
@@ -110,20 +117,28 @@ object TestCases {
                     LanguageIntegrationTest.testCase,
                     PaperTypeIntegrationTest.testCase,
                     PaperUsageIntegrationTest.testCase,
+                    
                     PartnerIntegrationTest.testCase,
+                    
                     PersonIntegrationTest.testCase,
                     PersonAddressIntegrationTest.testCase,
+                    PersonContactIntegrationTest.testCase,
                     PersonNameIntegrationTest.testCase,
                     PersonPaperIntegrationTest.testCase,
                     PersonTypeIntegrationTest.testCase,
                     PersonEnrolmentSubjectIntegrationTest.testCase,
+                    PersonEducationIntegrationTest.testCase,
+                                        
                     PublicActivityIntegrationTest.testCase,
                     PublicActivityAwardIntegrationTest.testCase,
                     PublicActivityTypeIntegrationTest.testCase,
+                    
                     ReasonIntegrationTest.testCase,
                     SallaryTypeIntegrationTest.testCase,
+                    
                     SpecialtyIntegrationTest.testCase,
                     SpecialtyTypeIntegrationTest.testCase,
+                    
                     StreetTypeIntegrationTest.testCase,
                     SubjectIntegrationTest.testCase,
                     SubjectTypeIntegrationTest.testCase,

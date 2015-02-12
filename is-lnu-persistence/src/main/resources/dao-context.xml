@@ -261,6 +261,11 @@
 		<property name="entityClass" value="org.lnu.is.domain.person.contact.PersonContact" />
 		<property name="queryBuilder" ref="personContactQueryBuilder" />
 	</bean>
+
+	<bean id="personEducationDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.education.PersonEducation" />
+		<property name="queryBuilder" ref="personEducationQueryBuilder" />
+	</bean>
 	
 	<bean id="personNameDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.name.PersonName" />

@@ -40,7 +40,7 @@ object PersonContactIntegrationTest extends ComplexTest {
       .basicAuth("admin", "nimda")
       .check(status.is(200)))
   .exec(http("Update Person Contact")
-      .put("/person/${personId}/contacts/${personContactId}")
+      .put("/persons/${personId}/contacts/${personContactId}")
       .basicAuth("admin", "nimda")
       .header("Content-Type", "application/json")
       .body(ELFileBody("data/person/contact/put.json"))

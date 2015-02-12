@@ -10,125 +10,125 @@ import org.lnu.is.domain.person.contact.PersonContact;
 
 public class PersonContactQueryBuilderTest {
 
-    private PersonContactQueryBuilder unit = new PersonContactQueryBuilder();
+	private PersonContactQueryBuilder unit = new PersonContactQueryBuilder();
 
-    private Boolean active = true;
-    private Boolean security = true;
+	private Boolean active = true;
+	private Boolean security = true;
 
-    @Before
-    public void setup() {
-	unit.setActive(active);
-	unit.setSecurity(security);
-    }
+	@Before
+	public void setup() {
+		unit.setActive(active);
+		unit.setSecurity(security);
+	}
 
-    @Test
-    public void testBuild() throws Exception {
-	// Given
-	PersonContact context = new PersonContact();
+	@Test
+	public void testBuild() throws Exception {
+		// Given
+		PersonContact context = new PersonContact();
 
-	String expectedQuery = "SELECT e FROM PersonContact e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonContact e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 
-	// When
-	String actualQuery = unit.build(context);
+		// When
+		String actualQuery = unit.build(context);
 
-	// Then
-	assertEquals(expectedQuery, actualQuery);
-    }
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
-    @Test
-    public void testBuildWithDisabledSecurityConstraint() throws Exception {
-	// Given
-	unit.setSecurity(false);
+	@Test
+	public void testBuildWithDisabledSecurityConstraint() throws Exception {
+		// Given
+		unit.setSecurity(false);
 
-	PersonContact context = new PersonContact();
+		PersonContact context = new PersonContact();
 
-	String expectedQuery = "SELECT e FROM PersonContact e WHERE e.status=:status ";
+		String expectedQuery = "SELECT e FROM PersonContact e WHERE e.status=:status ";
 
-	// When
-	String actualQuery = unit.build(context);
+		// When
+		String actualQuery = unit.build(context);
 
-	// Then
-	assertEquals(expectedQuery, actualQuery);
-    }
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
-    @Test
-    public void testBuildWithDisabledStatusConstraint() throws Exception {
-	// Given
-	unit.setActive(false);
+	@Test
+	public void testBuildWithDisabledStatusConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
 
-	PersonContact context = new PersonContact();
+		PersonContact context = new PersonContact();
 
-	String expectedQuery = "SELECT e FROM PersonContact e WHERE e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonContact e WHERE e.crtUserGroup IN (:userGroups) ";
 
-	// When
-	String actualQuery = unit.build(context);
+		// When
+		String actualQuery = unit.build(context);
 
-	// Then
-	assertEquals(expectedQuery, actualQuery);
-    }
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
-    @Test
-    public void testBuildWithDisabledDefaultConstraint() throws Exception {
-	// Given
-	unit.setActive(false);
-	unit.setSecurity(false);
+	@Test
+	public void testBuildWithDisabledDefaultConstraint() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
 
-	PersonContact context = new PersonContact();
+		PersonContact context = new PersonContact();
 
-	String expectedQuery = "SELECT e FROM PersonContact e ";
+		String expectedQuery = "SELECT e FROM PersonContact e ";
 
-	// When
-	String actualQuery = unit.build(context);
+		// When
+		String actualQuery = unit.build(context);
 
-	// Then
-	assertEquals(expectedQuery, actualQuery);
-    }
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
-    @Test
-    public void testBuildWithParameters() throws Exception {
-	// Given
+	@Test
+	public void testBuildWithParameters() throws Exception {
+		// Given
 
-	Person person = new Person();
-	ContactType addressType = new ContactType();
-	String value = "fasd";
+		Person person = new Person();
+		ContactType addressType = new ContactType();
+		String value = "fasd";
 
-	PersonContact context = new PersonContact();
-	context.setPerson(person);
-	context.setContactType(addressType);
-	context.setValue(value);
+		PersonContact context = new PersonContact();
+		context.setPerson(person);
+		context.setContactType(addressType);
+		context.setValue(value);
 
-	String expectedQuery = "SELECT e FROM PersonContact e WHERE ( e.person = :person OR e.contactType = :addressType OR e.value LIKE CONCAT('%',:value,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonContact e WHERE ( e.person = :person OR e.contactType = :addressType OR e.value LIKE CONCAT('%',:value,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 
-	// When
-	String actualQuery = unit.build(context);
+		// When
+		String actualQuery = unit.build(context);
 
-	// Then
-	assertEquals(expectedQuery, actualQuery);
-    }
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
-    @Test
-    public void testBuildWithParametersAndDisabledDefaults() throws Exception {
-	// Given
-	unit.setActive(false);
-	unit.setSecurity(false);
+	@Test
+	public void testBuildWithParametersAndDisabledDefaults() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
 
-	Person person = new Person();
-	ContactType addressType = new ContactType();
-	String value = "fasd";
+		Person person = new Person();
+		ContactType addressType = new ContactType();
+		String value = "fasd";
 
-	PersonContact context = new PersonContact();
-	context.setPerson(person);
-	;
-	context.setContactType(addressType);
-	context.setValue(value);
+		PersonContact context = new PersonContact();
+		context.setPerson(person);
+		;
+		context.setContactType(addressType);
+		context.setValue(value);
 
-	String expectedQuery = "SELECT e FROM PersonContact e WHERE ( e.person = :person OR e.contactType = :addressType OR e.value LIKE CONCAT('%',:value,'%') ) ";
+		String expectedQuery = "SELECT e FROM PersonContact e WHERE ( e.person = :person OR e.contactType = :addressType OR e.value LIKE CONCAT('%',:value,'%') ) ";
 
-	// When
-	String actualQuery = unit.build(context);
+		// When
+		String actualQuery = unit.build(context);
 
-	// Then
-	assertEquals(expectedQuery, actualQuery);
-    }
+		// Then
+		assertEquals(expectedQuery, actualQuery);
+	}
 
 }

@@ -31,12 +31,6 @@
 		<property name="service" ref="operationTypeService" />
 	</bean>
 	
-	<bean id="personEnrolmentSubjectFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
-		<property name="resourceConverter" ref="personEnrolmentSubjectResourceConverter" />
-		<property name="entityConverter" ref="personEnrolmentSubjectConverter" />
-		<property name="service" ref="personEnrolmentSubjectService" />
-	</bean>
-	
 	<bean id="adminUnitFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="adminUnitResourceConverter" />
 		<property name="entityConverter" ref="adminUnitConverter" />
@@ -293,6 +287,18 @@
 		<property name="resourceConverter" ref="personAwardResourceConverter" />
 		<property name="entityConverter" ref="personAwardConverter" />
 		<property name="service" ref="personAwardService" />
+	</bean>
+
+	<bean id="personEducationFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="personEducationResourceConverter" />
+		<property name="entityConverter" ref="personEducationConverter" />
+		<property name="service" ref="personEducationService" />
+	</bean>
+
+	<bean id="personEnrolmentSubjectFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="personEnrolmentSubjectResourceConverter" />
+		<property name="entityConverter" ref="personEnrolmentSubjectConverter" />
+		<property name="service" ref="personEnrolmentSubjectService" />
 	</bean>
 
 	<bean id="personContactFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">

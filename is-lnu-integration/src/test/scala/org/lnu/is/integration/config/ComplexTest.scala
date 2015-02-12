@@ -5,7 +5,7 @@ import io.gatling.core.structure.ChainBuilder
 
 trait ComplexTest {
 
+	protected def after():ChainBuilder
   protected def before():ChainBuilder
   protected def init():ChainBuilder
-  protected def after():ChainBuilder
 }

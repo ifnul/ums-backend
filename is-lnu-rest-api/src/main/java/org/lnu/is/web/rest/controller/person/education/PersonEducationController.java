@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.controller.person.education;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
@@ -31,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonEducationController extends BaseController implements CrudController<PersonEducationResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonEducationController.class);
 	
-	//@Resource(name = "personEducationFacade")
+	@Resource(name = "personEducationFacade")
 	private Facade<PersonEducationResource, Long> facade;
 
 	@Override
