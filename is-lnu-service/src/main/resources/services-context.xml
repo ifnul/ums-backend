@@ -258,6 +258,11 @@
 		<property name="dao" ref="personEducationDao" />
 	</bean>
 
+	<bean id="personLanguageService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="personLanguageParametersExtractor" />
+		<property name="dao" ref="personLanguageDao" />
+	</bean>
+
 	<bean id="personContactService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="personContactParametersExtractor" />
 		<property name="dao" ref="personContactDao" />

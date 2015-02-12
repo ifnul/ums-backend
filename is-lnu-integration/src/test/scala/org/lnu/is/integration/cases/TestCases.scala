@@ -66,8 +66,8 @@ import org.lnu.is.integration.cases.timeperiod.TimePeriodIntegrationTest
 import org.lnu.is.integration.cases.timeperiod.types.TimePeriodTypeIntegrationTest
 import org.lnu.is.integration.cases.timesheet.types.TimeSheetTypeIntegrationTest
 import org.lnu.is.integration.cases.wave.types.WaveTypeIntegrationTest
-
 import io.gatling.core.Predef.scenario
+import org.lnu.is.integration.cases.person.language.PersonLanguageIntegrationTest
 
 
 /**
@@ -125,6 +125,7 @@ object TestCases {
                     PersonNameIntegrationTest.testCase,
                     PersonPaperIntegrationTest.testCase,
                     PersonTypeIntegrationTest.testCase,
+                    PersonLanguageIntegrationTest.testCase,
                     PersonEnrolmentSubjectIntegrationTest.testCase,
                     PersonEducationIntegrationTest.testCase,
                                         

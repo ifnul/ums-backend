@@ -27,7 +27,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 /**
  * Person Enrolment Subject Controller.
  * TODO: Think about rewriting this API /{personId}/enrolment/{enrolmentId}/subjects
- * @author kushnir
+ * @author ivanursul
  *
  */
 @RestController

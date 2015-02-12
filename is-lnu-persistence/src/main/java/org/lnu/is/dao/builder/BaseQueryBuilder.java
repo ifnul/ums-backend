@@ -10,7 +10,6 @@ import java.util.List;
  *
  */
 public class BaseQueryBuilder {
-	
 	private static final String WHERE = "WHERE ";
 	private static final String OPEN_BRACKET = "( ";
 	private static final String CLOSE_BRACKET = ") ";

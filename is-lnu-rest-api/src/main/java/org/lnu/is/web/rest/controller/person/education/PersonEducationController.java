@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * Controller for Person Educations.
- * @author illay
+ * Controller for Person languages.
+ * @author ivanursul
  *
  */
 @RestController
@@ -39,7 +39,7 @@ public class PersonEducationController extends BaseController implements CrudCon
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/{personId}/educations", method = RequestMethod.POST)
 	public PersonEducationResource createResource(@Valid @RequestBody final PersonEducationResource resource) {
-		LOG.info("Creating person education: {}", resource);
+		LOG.info("Creating person language: {}", resource);
 		return facade.createResource(resource);
 	}
 	
@@ -48,7 +48,7 @@ public class PersonEducationController extends BaseController implements CrudCon
 	@RequestMapping(value = "/{personId}/educations/{id}", method = RequestMethod.PUT)
 	public MessageResource updateResource(@PathVariable("id") final Long id,
 			@Valid @RequestBody final PersonEducationResource resource) {
-		LOG.info("Updated person education with id: {}, {}", id, resource);
+		LOG.info("Updated person language with id: {}, {}", id, resource);
 		facade.updateResource(id, resource);
 		return new MessageResource(MessageType.INFO, "PersonEducation Updated");
 	}
@@ -65,16 +65,16 @@ public class PersonEducationController extends BaseController implements CrudCon
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/{personId}/educations/{id}", method = RequestMethod.DELETE)
 	public MessageResource removeResource(@PathVariable("id") final Long id) {
-		LOG.info("Removing person education with id: {}", id);
+		LOG.info("Removing person language with id: {}", id);
 		facade.removeResource(id);
 		return new MessageResource(MessageType.INFO, "PersonEducation removed");
 	}
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{personId}/educations", "/contans" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/{personId}/educations", "/educations" }, method = RequestMethod.GET)
 	public PagedResultResource<PersonEducationResource> getPagedResource(final PagedRequest<PersonEducationResource> request) {
-		LOG.info("Retrieving PagedResultResource for PersonEducation Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
+		LOG.info("Retrieving PagedResultResource for Person language Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
 	}	
 }

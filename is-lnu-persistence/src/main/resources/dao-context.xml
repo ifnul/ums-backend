@@ -201,10 +201,13 @@
 		<property name="queryBuilder" ref="jobTypeQueryBuilder" />
 	</bean>
 
-		
 	<bean id="languageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.language.Language" />
 		<property name="queryBuilder" ref="languageQueryBuilder"/>
+	</bean>
+
+	<bean id="languageLevelDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.language.LanguageLevel" />
 	</bean>
 	
 	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
@@ -260,6 +263,11 @@
 	<bean id="personContactDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.contact.PersonContact" />
 		<property name="queryBuilder" ref="personContactQueryBuilder" />
+	</bean>
+
+	<bean id="personLanguageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.language.PersonLanguage" />
+		<property name="queryBuilder" ref="personLanguageQueryBuilder" />
 	</bean>
 
 	<bean id="personEducationDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">

@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Controller for Person Contacts.
- * @author illay
+ * @author ivanursul
  *
  */
 @RestController
@@ -72,7 +72,7 @@ public class PersonContactController extends BaseController implements CrudContr
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{personId}/contacts", "/contans" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/{personId}/contacts", "/contacts" }, method = RequestMethod.GET)
 	public PagedResultResource<PersonContactResource> getPagedResource(final PagedRequest<PersonContactResource> request) {
 		LOG.info("Retrieving PagedResultResource for PersonContact Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
