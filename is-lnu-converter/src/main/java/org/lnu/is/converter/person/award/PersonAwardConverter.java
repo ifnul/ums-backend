@@ -18,6 +18,7 @@ public class PersonAwardConverter extends AbstractConverter<PersonAward, PersonA
 		
 		target.setBonus(source.getBonus());
 		target.setId(source.getId());
+		target.setNote(source.getNote());
 		
 		if (source.getPerson() != null) {
 			target.setPersonId(source.getPerson().getId());

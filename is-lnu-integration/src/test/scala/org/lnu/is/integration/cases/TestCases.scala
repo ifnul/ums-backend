@@ -68,8 +68,12 @@ import org.lnu.is.integration.cases.specoffer.wave.SpecOfferWaveIntegrationTest
 import org.lnu.is.integration.cases.enrolment.statuses.EnrolmentStatusIntegrationTest
 import org.lnu.is.integration.cases.specoffer.subject.SpecOfferSubjectIntegrationTest
 import org.lnu.is.integration.cases.person.enrolment.subject.PersonEnrolmentSubjectIntegrationTest
+<<<<<<< HEAD
 import org.lnu.is.integration.cases.person.education.PersonEducationIntegrationTest
 import org.lnu.is.integration.cases.person.contact.PersonContactIntegrationTest
+=======
+import org.lnu.is.integration.cases.person.award.PersonAwardIntegrationTest
+>>>>>>> branch 'master' of git@bitbucket.org:illay1994/is-lnu.git
 
 
 /**
@@ -123,6 +127,7 @@ object TestCases {
                     PersonIntegrationTest.testCase,
                     PersonAddressIntegrationTest.testCase,
                     PersonContactIntegrationTest.testCase,
+                    PersonAwardIntegrationTest.testCase,
                     PersonNameIntegrationTest.testCase,
                     PersonPaperIntegrationTest.testCase,
                     PersonTypeIntegrationTest.testCase,
