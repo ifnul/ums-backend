@@ -68,6 +68,7 @@ import org.lnu.is.integration.cases.specoffer.wave.SpecOfferWaveIntegrationTest
 import org.lnu.is.integration.cases.enrolment.statuses.EnrolmentStatusIntegrationTest
 import org.lnu.is.integration.cases.specoffer.subject.SpecOfferSubjectIntegrationTest
 import org.lnu.is.integration.cases.person.enrolment.subject.PersonEnrolmentSubjectIntegrationTest
+import org.lnu.is.integration.cases.person.award.PersonAwardIntegrationTest
 
 
 /**
@@ -113,6 +114,7 @@ object TestCases {
                     PartnerIntegrationTest.testCase,
                     PersonIntegrationTest.testCase,
                     PersonAddressIntegrationTest.testCase,
+                    PersonAwardIntegrationTest.testCase,
                     PersonNameIntegrationTest.testCase,
                     PersonPaperIntegrationTest.testCase,
                     PersonTypeIntegrationTest.testCase,

@@ -41,6 +41,7 @@ public class PersonAwardResourceConverter extends AbstractConverter<PersonAwardR
 		}
 		
 		target.setBonus(source.getBonus());
+		target.setNote(source.getNote());
 		
 		return target;
 	}
