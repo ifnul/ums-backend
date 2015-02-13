@@ -30,6 +30,8 @@ public class SpecOfferBenefitResourceConverter extends AbstractConverter<SpecOff
 			target.setSpecOffer(specOffer);
 		}
 		
+		target.setNote(source.getNote());
+		
 		return target;
 	}
 
