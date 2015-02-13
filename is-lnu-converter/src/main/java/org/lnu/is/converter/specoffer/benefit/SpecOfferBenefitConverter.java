@@ -25,6 +25,7 @@ public class SpecOfferBenefitConverter extends AbstractConverter<SpecOfferBenefi
 		}
 		
 		target.setId(source.getId());
+		target.setNote(source.getNote());
 		
 		return target;
 	}

@@ -1,0 +1,5 @@
+{
+  "benefitId": ${benefitId},
+  "specOfferId": ${specofferId},
+  "note": "${note}"
+}

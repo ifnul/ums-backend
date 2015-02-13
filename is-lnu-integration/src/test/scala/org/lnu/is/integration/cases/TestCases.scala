@@ -56,6 +56,7 @@ import org.lnu.is.integration.cases.sallary.types.SallaryTypeIntegrationTest
 import org.lnu.is.integration.cases.specialty.SpecialtyIntegrationTest
 import org.lnu.is.integration.cases.specialty.types.SpecialtyTypeIntegrationTest
 import org.lnu.is.integration.cases.specoffer.SpecofferIntegrationTest
+import org.lnu.is.integration.cases.specoffer.benefit.SpecOfferBenefitIntegrationTest
 import org.lnu.is.integration.cases.specoffer.subject.SpecOfferSubjectIntegrationTest
 import org.lnu.is.integration.cases.specoffer.types.SpecofferTypeIntegrationTest
 import org.lnu.is.integration.cases.specoffer.wave.SpecOfferWaveIntegrationTest
@@ -151,6 +152,7 @@ object TestCases {
                     WaveTypeIntegrationTest.testCase,
                     AdminUnitTypeIntegrationTest.testCase,
                     SpecofferIntegrationTest.testCase,
+                    SpecOfferBenefitIntegrationTest.testCase,
                     SpecOfferSubjectIntegrationTest.testCase,
                     SpecOfferWaveIntegrationTest.testCase,
                     SpecofferTypeIntegrationTest.testCase,
