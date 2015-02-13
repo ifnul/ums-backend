@@ -55,15 +55,9 @@ FAQ:
 	
 TODO Integration tests:
 
-PersonAward
-PersonEducation
-PersonEnrolmentSubject
 PersonFamily
-PersonLanguage
-PersonName
 PersonPension
 PersonWork
-
 Degree
 
 Broadcastings -> Email sending:

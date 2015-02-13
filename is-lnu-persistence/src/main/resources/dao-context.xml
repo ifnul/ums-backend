@@ -265,6 +265,11 @@
 		<property name="queryBuilder" ref="personContactQueryBuilder" />
 	</bean>
 
+	<bean id="personFamilyDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.family.PersonFamily" />
+		<property name="queryBuilder" ref="personFamilyQueryBuilder" />
+	</bean>
+
 	<bean id="personLanguageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.language.PersonLanguage" />
 		<property name="queryBuilder" ref="personLanguageQueryBuilder" />

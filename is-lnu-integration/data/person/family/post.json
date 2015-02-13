@@ -1,0 +1,6 @@
+{
+  "personId": ${personId},
+  "familyTypeId": 1,
+  "name" : "Family Related Name",
+  "birthDate" : "2014-01-01"
+}

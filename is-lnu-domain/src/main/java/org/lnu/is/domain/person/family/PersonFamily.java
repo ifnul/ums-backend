@@ -36,7 +36,7 @@ public class PersonFamily extends InformationModel {
 	private String name;
 	
 	@Column(name = "birthdate")
-	private Date birthdate;
+	private Date birthDate;
 
 	public Person getPerson() {
 		return person;
@@ -62,12 +62,12 @@ public class PersonFamily extends InformationModel {
 		this.name = name;
 	}
 
-	public Date getBirthdate() {
-		return birthdate;
+	public Date getBirthDate() {
+		return birthDate;
 	}
 
-	public void setBirthdate(final Date birthdate) {
-		this.birthdate = birthdate;
+	public void setBirthDate(final Date birthdate) {
+		this.birthDate = birthdate;
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class PersonFamily extends InformationModel {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result
-				+ ((birthdate == null) ? 0 : birthdate.hashCode());
+				+ ((birthDate == null) ? 0 : birthDate.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -92,11 +92,11 @@ public class PersonFamily extends InformationModel {
 			return false;
 		}
 		PersonFamily other = (PersonFamily) obj;
-		if (birthdate == null) {
-			if (other.birthdate != null) {
+		if (birthDate == null) {
+			if (other.birthDate != null) {
 				return false;
 			}
-		} else if (!birthdate.equals(other.birthdate)) {
+		} else if (!birthDate.equals(other.birthDate)) {
 			return false;
 		}
 		if (name == null) {
@@ -111,7 +111,7 @@ public class PersonFamily extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "PersonFamily [name=" + name + ", birthdate=" + birthdate + "]";
+		return "PersonFamily [name=" + name + ", birthdate=" + birthDate + "]";
 	}
 	
 	

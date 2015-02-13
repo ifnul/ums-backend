@@ -1,4 +1,4 @@
-package org.lnu.is.web.rest.controller.person.contact;
+package org.lnu.is.web.rest.controller.person.family;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
@@ -22,7 +22,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
-import org.lnu.is.resource.person.contact.PersonContactResource;
+import org.lnu.is.resource.person.family.PersonFamilyResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
@@ -34,13 +34,13 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PersonContactControllerTest extends AbstractControllerTest {
+public class PersonFamilyControllerTest extends AbstractControllerTest {
 
     @Mock
-    private Facade<PersonContactResource, Long> facade;
+    private Facade<PersonFamilyResource, Long> facade;
 
     @InjectMocks
-    private PersonContactController unit;
+    private PersonFamilyController unit;
 
     @Override
     protected BaseController getUnit() {
@@ -48,59 +48,59 @@ public class PersonContactControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    public void testCreatePersonContact() throws Exception {
+    public void testCreatePersonFamily() throws Exception {
 		// Given
 		Long personId = 1L;
 		Long id = 2L;
-		PersonContactResource personContactResource = new PersonContactResource();
-		personContactResource.setId(id);
+		PersonFamilyResource personFamilyResource = new PersonFamilyResource();
+		personFamilyResource.setId(id);
 	
 		// When
-		String request = getJson(personContactResource, true);
-		String response = getJson(personContactResource, false);
+		String request = getJson(personFamilyResource, true);
+		String response = getJson(personFamilyResource, false);
 	
-		when(facade.createResource(any(PersonContactResource.class)))
-			.thenReturn(personContactResource);
+		when(facade.createResource(any(PersonFamilyResource.class)))
+			.thenReturn(personFamilyResource);
 	
 		// Then
 		mockMvc.perform(
-			post("/persons/{personId}/contacts", personId).contentType(
+			post("/persons/{personId}/families", personId).contentType(
 				MediaType.APPLICATION_JSON).content(request))
 			.andExpect(status().isCreated())
 			.andExpect(content().string(response));
 	
-		verify(facade).createResource(personContactResource);
+		verify(facade).createResource(personFamilyResource);
     }
 
     @Test
-    public void testUpdatePersonContact() throws Exception {
+    public void testUpdatePersonFamily() throws Exception {
 		// Given
 		Long personId = 2L;
 		Long id = 1L;
 	
-		PersonContactResource personContactResource = new PersonContactResource();
-		personContactResource.setId(id);
-		personContactResource.setPersonId(personId);
+		PersonFamilyResource personFamilyResource = new PersonFamilyResource();
+		personFamilyResource.setId(id);
+		personFamilyResource.setPersonId(personId);
 	
 		MessageResource responseResource = new MessageResource(
-			MessageType.INFO, "PersonContact Updated");
+			MessageType.INFO, "PersonFamily Updated");
 	
 		// When
-		String request = getJson(personContactResource, true);
+		String request = getJson(personFamilyResource, true);
 		String response = getJson(responseResource, false);
 	
 		// Then
-		mockMvc.perform(put("/persons/{personId}/contacts/{contactId}", personId, id)
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(request))
-				.andExpect(status().isOk())
-				.andExpect(content().string(response));
+		mockMvc.perform(
+			put("/persons/{personId}/families/{contactId}", personId, id)
+				.contentType(MediaType.APPLICATION_JSON).content(
+					request)).andExpect(status().isOk())
+			.andExpect(content().string(response));
 	
-		verify(facade).updateResource(id, personContactResource);
+		verify(facade).updateResource(id, personFamilyResource);
     }
 
     @Test
-    public void testDeleteDepatmentContact() throws Exception {
+    public void testDeleteDepatmentFamily() throws Exception {
 		// Given
 		Long personId = 2L;
 		Long contactId = 1L;
@@ -109,31 +109,31 @@ public class PersonContactControllerTest extends AbstractControllerTest {
 	
 		// Then
 		mockMvc.perform(
-			delete("/persons/{personId}/contacts/{contactId}",
+			delete("/persons/{personId}/families/{contactId}",
 				personId, contactId)).andExpect(status().is(204));
 	
 		verify(facade).removeResource(contactId);
     }
 
     @Test
-    public void testGetContact() throws Exception {
+    public void testGetFamily() throws Exception {
 		// Given
 		Long personId = 1L;
 		Long id = 2L;
 	
-		PersonContactResource personContactResource = new PersonContactResource();
-		personContactResource.setId(id);
-		personContactResource.setPersonId(personId);
+		PersonFamilyResource personFamilyResource = new PersonFamilyResource();
+		personFamilyResource.setId(id);
+		personFamilyResource.setPersonId(personId);
 	
 		// When
-		String response = getJson(personContactResource, false);
+		String response = getJson(personFamilyResource, false);
 	
 		when(facade.getResource(anyLong())).thenReturn(
-			personContactResource);
+			personFamilyResource);
 	
 		// Then
 		mockMvc.perform(
-			get("/persons/{personId}/contacts/{contactId}",
+			get("/persons/{personId}/families/{contactId}",
 				personId, id)).andExpect(status().isOk())
 			.andExpect(content().string(response));
 	
@@ -146,39 +146,39 @@ public class PersonContactControllerTest extends AbstractControllerTest {
 		Long id = 1L;
 		Long personId = 2L;
 	
-		PersonContactResource departmentPaperResource = new PersonContactResource();
+		PersonFamilyResource departmentPaperResource = new PersonFamilyResource();
 		departmentPaperResource.setId(id);
 		departmentPaperResource.setPersonId(personId);
 	
 		long count = 100;
 		int limit = 25;
 		Integer offset = 10;
-		String uri = MessageFormat.format("/persons/{0}/contacts",
+		String uri = MessageFormat.format("/persons/{0}/families",
 			personId);
-		List<PersonContactResource> entities = Arrays
+		List<PersonFamilyResource> entities = Arrays
 			.asList(departmentPaperResource);
-		PagedResultResource<PersonContactResource> expectedResource = new PagedResultResource<>();
+		PagedResultResource<PersonFamilyResource> expectedResource = new PagedResultResource<>();
 		expectedResource.setCount(count);
 		expectedResource.setLimit(limit);
 		expectedResource.setOffset(offset);
 		expectedResource.setUri(uri);
 		expectedResource.setResources(entities);
 	
-		PersonContactResource resource = new PersonContactResource();
+		PersonFamilyResource resource = new PersonFamilyResource();
 		resource.setPersonId(personId);
-		PagedRequest<PersonContactResource> pagedRequest = new PagedRequest<PersonContactResource>(
+		PagedRequest<PersonFamilyResource> pagedRequest = new PagedRequest<PersonFamilyResource>(
 			resource, offset, limit);
 	
 		// When
 		when(
 			facade.getResources(Matchers
-				.<PagedRequest<PersonContactResource>> any()))
+				.<PagedRequest<PersonFamilyResource>> any()))
 			.thenReturn(expectedResource);
 		String response = getJson(expectedResource, false);
 	
 		// Then
 		mockMvc.perform(
-			get("/persons/{personId}/contacts", personId)
+			get("/persons/{personId}/families", personId)
 				.param("offset", String.valueOf(offset)).param("limit",
 					String.valueOf(limit)))
 			.andExpect(status().isOk())
@@ -198,7 +198,7 @@ public class PersonContactControllerTest extends AbstractControllerTest {
 			.getResource(anyLong());
 	
 		// Then
-		mockMvc.perform(get("/persons/{personId}/contacts/{id}",
+		mockMvc.perform(get("/persons/{personId}/families/{id}",
 			personId, id));
 	
 		verify(facade).getResource(id);

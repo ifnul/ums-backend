@@ -277,6 +277,12 @@
 		<property name="service" ref="personService" />
 	</bean>
 
+	<bean id="personFamilyFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="personFamilyResourceConverter" />
+		<property name="entityConverter" ref="personFamilyConverter" />
+		<property name="service" ref="personFamilyService" />
+	</bean>
+
 	<bean id="personAddressFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="personAddressResourceConverter" />
 		<property name="entityConverter" ref="personAddressConverter" />
