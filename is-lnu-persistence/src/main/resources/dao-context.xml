@@ -245,6 +245,10 @@
 		<property name="queryBuilder" ref="partnerQueryBuilder"/>
 	</bean>
 
+	<bean id="pensionTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.pensiontype.PensionType" />
+	</bean>
+
 	<bean id="personDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.Person" />
 		<property name="queryBuilder" ref="personQueryBuilder" />
@@ -288,6 +292,11 @@
 	<bean id="personPaperDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.paper.PersonPaper" />
 		<property name="queryBuilder" ref="personPaperQueryBuilder" />
+	</bean>
+
+	<bean id="personPensionDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.pension.PersonPension" />
+		<property name="queryBuilder" ref="personPensionQueryBuilder" />
 	</bean>
 
 	<bean id="personTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">

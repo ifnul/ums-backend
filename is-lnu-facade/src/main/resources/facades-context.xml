@@ -318,6 +318,12 @@
 		<property name="entityConverter" ref="personPaperConverter" />
 		<property name="service" ref="personPaperService" />
 	</bean>
+	
+	<bean id="personPensionFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="personPensionResourceConverter" />
+		<property name="entityConverter" ref="personPensionConverter" />
+		<property name="service" ref="personPensionService" />
+	</bean>
 
 	<bean id="personNameFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="personNameResourceConverter" />

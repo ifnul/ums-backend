@@ -283,6 +283,11 @@
 		<property name="dao" ref="personPaperDao" />
 	</bean>
 
+	<bean id="personPensionService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="personPensionParametersExtractor" />
+		<property name="dao" ref="personPensionDao" />
+	</bean>
+
 	<bean id="personTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="personTypeParametersExtractor" />
 		<property name="dao" ref="personTypeDao" />

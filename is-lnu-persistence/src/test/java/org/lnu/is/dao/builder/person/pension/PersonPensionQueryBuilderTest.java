@@ -1,16 +1,18 @@
-package org.lnu.is.dao.builder.person.contact;
+package org.lnu.is.dao.builder.person.pension;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.contacttype.ContactType;
+import org.lnu.is.domain.pensiontype.PensionType;
 import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.contact.PersonContact;
+import org.lnu.is.domain.person.pension.PersonPension;
 
-public class PersonContactQueryBuilderTest {
+public class PersonPensionQueryBuilderTest {
 
-	private PersonContactQueryBuilder unit = new PersonContactQueryBuilder();
+	private PersonPensionQueryBuilder unit = new PersonPensionQueryBuilder();
 
 	private Boolean active = true;
 	private Boolean security = true;
@@ -24,9 +26,9 @@ public class PersonContactQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
-		PersonContact context = new PersonContact();
+		PersonPension context = new PersonPension();
 
-		String expectedQuery = "SELECT e FROM PersonContact e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonPension e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 
 		// When
 		String actualQuery = unit.build(context);
@@ -40,9 +42,9 @@ public class PersonContactQueryBuilderTest {
 		// Given
 		unit.setSecurity(false);
 
-		PersonContact context = new PersonContact();
+		PersonPension context = new PersonPension();
 
-		String expectedQuery = "SELECT e FROM PersonContact e WHERE e.status=:status ";
+		String expectedQuery = "SELECT e FROM PersonPension e WHERE e.status=:status ";
 
 		// When
 		String actualQuery = unit.build(context);
@@ -56,9 +58,9 @@ public class PersonContactQueryBuilderTest {
 		// Given
 		unit.setActive(false);
 
-		PersonContact context = new PersonContact();
+		PersonPension context = new PersonPension();
 
-		String expectedQuery = "SELECT e FROM PersonContact e WHERE e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonPension e WHERE e.crtUserGroup IN (:userGroups) ";
 
 		// When
 		String actualQuery = unit.build(context);
@@ -73,9 +75,9 @@ public class PersonContactQueryBuilderTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 
-		PersonContact context = new PersonContact();
+		PersonPension context = new PersonPension();
 
-		String expectedQuery = "SELECT e FROM PersonContact e ";
+		String expectedQuery = "SELECT e FROM PersonPension e ";
 
 		// When
 		String actualQuery = unit.build(context);
@@ -87,17 +89,18 @@ public class PersonContactQueryBuilderTest {
 	@Test
 	public void testBuildWithParameters() throws Exception {
 		// Given
-
 		Person person = new Person();
-		ContactType addressType = new ContactType();
-		String value = "fasd";
+		PensionType addressType = new PensionType();
+		Date begDate = new Date();
+		Date endDate = new Date();
 
-		PersonContact context = new PersonContact();
+		PersonPension context = new PersonPension();
 		context.setPerson(person);
-		context.setContactType(addressType);
-		context.setValue(value);
+		context.setPensionType(addressType);
+		context.setBegDate(begDate);
+		context.setEndDate(endDate);
 
-		String expectedQuery = "SELECT e FROM PersonContact e WHERE ( e.person = :person OR e.contactType = :addressType OR e.value LIKE CONCAT('%',:value,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonPension e WHERE ( e.person = :person OR e.contactType = :addressType OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 
 		// When
 		String actualQuery = unit.build(context);
@@ -113,16 +116,17 @@ public class PersonContactQueryBuilderTest {
 		unit.setSecurity(false);
 
 		Person person = new Person();
-		ContactType addressType = new ContactType();
-		String value = "fasd";
+		PensionType addressType = new PensionType();
+		Date begDate = new Date();
+		Date endDate = new Date();
 
-		PersonContact context = new PersonContact();
+		PersonPension context = new PersonPension();
 		context.setPerson(person);
+		context.setPensionType(addressType);
+		context.setBegDate(begDate);
+		context.setEndDate(endDate);
 
-		context.setContactType(addressType);
-		context.setValue(value);
-
-		String expectedQuery = "SELECT e FROM PersonContact e WHERE ( e.person = :person OR e.contactType = :addressType OR e.value LIKE CONCAT('%',:value,'%') ) ";
+		String expectedQuery = "SELECT e FROM PersonPension e WHERE ( e.person = :person OR e.contactType = :addressType OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
 
 		// When
 		String actualQuery = unit.build(context);
