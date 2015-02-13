@@ -283,6 +283,11 @@
 		<property name="dao" ref="personTypeDao" />
 	</bean>
 
+	<bean id="personWorkService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="personWorkParametersExtractor" />
+		<property name="dao" ref="personWorkDao" />
+	</bean>
+
 	<bean id="publicActivityService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="publicActivityParametersExtractor" />
 		<property name="dao" ref="publicActivityDao" />

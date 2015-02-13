@@ -331,6 +331,12 @@
 		<property name="service" ref="personLanguageService" />
 	</bean>
 
+	<bean id="personWorkFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="personWorkResourceConverter" />
+		<property name="entityConverter" ref="personWorkConverter" />
+		<property name="service" ref="personWorkService" />
+	</bean>
+
 	<bean id="publicActivityFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="publicActivityResourceConverter" />
 		<property name="entityConverter" ref="publicActivityConverter" />

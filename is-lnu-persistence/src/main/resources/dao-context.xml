@@ -290,6 +290,11 @@
 		<property name="queryBuilder" ref="personTypeQueryBuilder" />
 	</bean>
 
+	<bean id="personWorkDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.work.PersonWork" />
+		<property name="queryBuilder" ref="personWorkQueryBuilder" />
+	</bean>
+
 	<bean id="postDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.post.Post" />
 	</bean>
@@ -352,6 +357,10 @@
 	<bean id="specialtyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.specialty.SpecialtyType" />
 		<property name="queryBuilder" ref="specialtyTypeQueryBuilder" />
+	</bean>
+
+	<bean id="specStageTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.specstagetype.SpecStageType" />
 	</bean>
 
 	<bean id="streetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">

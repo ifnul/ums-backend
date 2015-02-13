@@ -29,12 +29,6 @@ public class PersonWork extends InformationModel {
 	@JoinColumn(name  = "person_id")
 	private Person person;
 	
-	@Column(name = "organizationname")
-	private String organizationName;
-	
-	@Column(name = "postname")
-	private String postName;
-	
 	@ManyToOne()
 	@JoinColumn(name = "jobtype_id")
 	private JobType jobType;
@@ -42,6 +36,12 @@ public class PersonWork extends InformationModel {
 	@ManyToOne
 	@JoinColumn(name = "specstagetype_id")
 	private SpecStageType specStageType;
+
+	@Column(name = "organizationname")
+	private String organizationName;
+	
+	@Column(name = "postname")
+	private String postName;
 	
 	@Column(name = "description")
 	private String description;
@@ -92,11 +92,11 @@ public class PersonWork extends InformationModel {
 		this.specStageType = specStageType;
 	}
 
-	public String getDiscription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDiscription(final String description) {
+	public void setDescription(final String description) {
 		this.description = description;
 	}
 
