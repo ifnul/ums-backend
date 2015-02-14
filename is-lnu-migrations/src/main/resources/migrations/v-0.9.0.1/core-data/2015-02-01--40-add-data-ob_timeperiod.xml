@@ -14,7 +14,7 @@
             <column name="uid">4</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>

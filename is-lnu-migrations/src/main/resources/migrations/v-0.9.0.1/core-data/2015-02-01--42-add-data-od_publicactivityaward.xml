@@ -14,7 +14,7 @@
             <column name="uid">382</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -33,7 +33,7 @@
             <column name="uid">383</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -52,7 +52,7 @@
             <column name="uid">384</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -71,7 +71,7 @@
             <column name="uid">400</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -90,7 +90,7 @@
             <column name="uid">401</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -109,7 +109,7 @@
             <column name="uid">402</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -128,7 +128,7 @@
             <column name="uid">361</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -147,7 +147,7 @@
             <column name="uid">362</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -166,7 +166,7 @@
             <column name="uid">363</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -185,7 +185,7 @@
             <column name="uid">364</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -204,7 +204,7 @@
             <column name="uid">365</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -223,7 +223,7 @@
             <column name="uid">366</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -242,7 +242,7 @@
             <column name="uid">397</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -261,7 +261,7 @@
             <column name="uid">398</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -280,7 +280,7 @@
             <column name="uid">399</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -299,7 +299,7 @@
             <column name="uid">355</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -318,7 +318,7 @@
             <column name="uid">356</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -337,7 +337,7 @@
             <column name="uid">357</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -356,7 +356,7 @@
             <column name="uid">376</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -375,7 +375,7 @@
             <column name="uid">377</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -394,7 +394,7 @@
             <column name="uid">378</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -413,7 +413,7 @@
             <column name="uid">373</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -432,7 +432,7 @@
             <column name="uid">374</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -451,7 +451,7 @@
             <column name="uid">375</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -470,7 +470,7 @@
             <column name="uid">391</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -489,7 +489,7 @@
             <column name="uid">392</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -508,7 +508,7 @@
             <column name="uid">393</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -527,7 +527,7 @@
             <column name="uid">349</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -546,7 +546,7 @@
             <column name="uid">350</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -565,7 +565,7 @@
             <column name="uid">351</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -584,7 +584,7 @@
             <column name="uid">358</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -603,7 +603,7 @@
             <column name="uid">359</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -622,7 +622,7 @@
             <column name="uid">360</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -641,7 +641,7 @@
             <column name="uid">388</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -660,7 +660,7 @@
             <column name="uid">389</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -679,7 +679,7 @@
             <column name="uid">390</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -698,7 +698,7 @@
             <column name="uid">406</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -717,7 +717,7 @@
             <column name="uid">407</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -736,7 +736,7 @@
             <column name="uid">408</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -755,7 +755,7 @@
             <column name="uid">352</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -774,7 +774,7 @@
             <column name="uid">353</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -793,7 +793,7 @@
             <column name="uid">354</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -812,7 +812,7 @@
             <column name="uid">394</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -831,7 +831,7 @@
             <column name="uid">395</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -850,7 +850,7 @@
             <column name="uid">396</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -869,7 +869,7 @@
             <column name="uid">403</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -888,7 +888,7 @@
             <column name="uid">404</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -907,7 +907,7 @@
             <column name="uid">405</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -926,7 +926,7 @@
             <column name="uid">379</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -945,7 +945,7 @@
             <column name="uid">380</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -964,7 +964,7 @@
             <column name="uid">381</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -983,7 +983,7 @@
             <column name="uid">367</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1002,7 +1002,7 @@
             <column name="uid">368</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1021,7 +1021,7 @@
             <column name="uid">369</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1040,7 +1040,7 @@
             <column name="uid">409</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1059,7 +1059,7 @@
             <column name="uid">410</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1078,7 +1078,7 @@
             <column name="uid">411</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1097,7 +1097,7 @@
             <column name="uid">385</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1116,7 +1116,7 @@
             <column name="uid">386</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1135,7 +1135,7 @@
             <column name="uid">387</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1154,7 +1154,7 @@
             <column name="uid">370</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1173,7 +1173,7 @@
             <column name="uid">371</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1192,7 +1192,7 @@
             <column name="uid">372</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1211,7 +1211,7 @@
             <column name="uid">445</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1230,7 +1230,7 @@
             <column name="uid">446</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1249,7 +1249,7 @@
             <column name="uid">447</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1268,7 +1268,7 @@
             <column name="uid">463</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1287,7 +1287,7 @@
             <column name="uid">464</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1306,7 +1306,7 @@
             <column name="uid">465</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1325,7 +1325,7 @@
             <column name="uid">424</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1344,7 +1344,7 @@
             <column name="uid">425</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1363,7 +1363,7 @@
             <column name="uid">426</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1382,7 +1382,7 @@
             <column name="uid">427</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1401,7 +1401,7 @@
             <column name="uid">428</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1420,7 +1420,7 @@
             <column name="uid">429</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1439,7 +1439,7 @@
             <column name="uid">460</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1458,7 +1458,7 @@
             <column name="uid">461</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1477,7 +1477,7 @@
             <column name="uid">462</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1496,7 +1496,7 @@
             <column name="uid">418</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1515,7 +1515,7 @@
             <column name="uid">419</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1534,7 +1534,7 @@
             <column name="uid">420</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1553,7 +1553,7 @@
             <column name="uid">439</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1572,7 +1572,7 @@
             <column name="uid">440</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1591,7 +1591,7 @@
             <column name="uid">441</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1610,7 +1610,7 @@
             <column name="uid">437</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1629,7 +1629,7 @@
             <column name="uid">438</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1648,7 +1648,7 @@
             <column name="uid">454</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1667,7 +1667,7 @@
             <column name="uid">455</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1686,7 +1686,7 @@
             <column name="uid">456</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1705,7 +1705,7 @@
             <column name="uid">412</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1724,7 +1724,7 @@
             <column name="uid">413</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1743,7 +1743,7 @@
             <column name="uid">414</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1762,7 +1762,7 @@
             <column name="uid">475</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1781,7 +1781,7 @@
             <column name="uid">476</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1800,7 +1800,7 @@
             <column name="uid">477</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1819,7 +1819,7 @@
             <column name="uid">421</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1838,7 +1838,7 @@
             <column name="uid">422</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1857,7 +1857,7 @@
             <column name="uid">423</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1876,7 +1876,7 @@
             <column name="uid">451</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1895,7 +1895,7 @@
             <column name="uid">452</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1914,7 +1914,7 @@
             <column name="uid">453</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1933,7 +1933,7 @@
             <column name="uid">469</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1952,7 +1952,7 @@
             <column name="uid">470</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1971,7 +1971,7 @@
             <column name="uid">471</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -1990,7 +1990,7 @@
             <column name="uid">415</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2009,7 +2009,7 @@
             <column name="uid">416</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2028,7 +2028,7 @@
             <column name="uid">417</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2047,7 +2047,7 @@
             <column name="uid">457</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2066,7 +2066,7 @@
             <column name="uid">458</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2085,7 +2085,7 @@
             <column name="uid">459</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2104,7 +2104,7 @@
             <column name="uid">472</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2123,7 +2123,7 @@
             <column name="uid">473</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2142,7 +2142,7 @@
             <column name="uid">474</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2161,7 +2161,7 @@
             <column name="uid">436</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2180,7 +2180,7 @@
             <column name="uid">466</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2199,7 +2199,7 @@
             <column name="uid">467</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2218,7 +2218,7 @@
             <column name="uid">468</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2237,7 +2237,7 @@
             <column name="uid">442</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2256,7 +2256,7 @@
             <column name="uid">443</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2275,7 +2275,7 @@
             <column name="uid">444</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2294,7 +2294,7 @@
             <column name="uid">430</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2313,7 +2313,7 @@
             <column name="uid">431</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2332,7 +2332,7 @@
             <column name="uid">432</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2351,7 +2351,7 @@
             <column name="uid">479</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2370,7 +2370,7 @@
             <column name="uid">480</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2389,7 +2389,7 @@
             <column name="uid">478</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2408,7 +2408,7 @@
             <column name="uid">448</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2427,7 +2427,7 @@
             <column name="uid">449</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2446,7 +2446,7 @@
             <column name="uid">450</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2465,7 +2465,7 @@
             <column name="uid">433</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2484,7 +2484,7 @@
             <column name="uid">434</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -2503,7 +2503,7 @@
             <column name="uid">435</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>

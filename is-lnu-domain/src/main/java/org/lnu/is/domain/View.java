@@ -21,7 +21,7 @@ public class View {
 	@Id
 	private Long id;
 	
-	@Column(name = "status")
+	@Column(name = "status", columnDefinition = "q_en_row_status")
 	@Enumerated(EnumType.STRING)
 	private RowStatus status;
 	

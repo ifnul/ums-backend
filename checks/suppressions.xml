@@ -7,5 +7,6 @@
     <suppress checks="JavadocMethod" files="[/\\]Test[/\\]java[/\\].*"/>
     <suppress checks="." files="BaseFacade.java" />
     <suppress checks="." files="CustomObjectMapper.java" />
+    <suppress files="PGEnumUserType\.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>
 

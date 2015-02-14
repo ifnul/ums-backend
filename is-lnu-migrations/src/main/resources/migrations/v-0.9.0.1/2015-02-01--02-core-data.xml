@@ -45,5 +45,6 @@
 	<include file="core-data/2015-02-01--40-add-data-ob_timeperiod.xml" relativeToChangelogFile="true"/>
 	<include file="core-data/2015-02-01--41-add-data-ob_publicactivity.xml" relativeToChangelogFile="true"/>
 	<include file="core-data/2015-02-01--42-add-data-od_publicactivityaward.xml" relativeToChangelogFile="true"/>
+	<include file="core-data/2015-02-02--03-add-data-rf_specoffertype.xml" relativeToChangelogFile="true"/>
 	
 </databaseChangeLog>

@@ -7,6 +7,4 @@
     <include file="2015-02-01--01-initial-schema-import.xml" relativeToChangelogFile="true"/>
     <include file="2015-02-01--02-core-data.xml" relativeToChangelogFile="true"/>
     
-    <include file="2015-02-02--01-change-struct-schema.xml" relativeToChangelogFile="true"/>
-    <include file="2015-02-02--02-data.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

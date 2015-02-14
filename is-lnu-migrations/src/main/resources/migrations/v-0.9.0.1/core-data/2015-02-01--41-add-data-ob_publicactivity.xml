@@ -13,7 +13,7 @@
             <column name="uid">9</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
@@ -31,7 +31,7 @@
             <column name="uid">10</column>
             <column name="utid"></column>
             <column name="uapp">edbo</column>
-            <column name="status">0</column>
+            <column name="status">ACTIVE</column>
             <column name="actual">1</column>
             <column name="note"></column>
             <column name="crtuser">illay</column>
