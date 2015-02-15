@@ -384,6 +384,12 @@
 		<property name="entityConverter" ref="streetTypeConverter" />
 		<property name="service" ref="streetTypeService" />
 	</bean>
+	
+	<bean id="studyPlanCycleFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="studyPlanCycleResourceConverter" />
+		<property name="entityConverter" ref="studyPlanCycleConverter" />
+		<property name="service" ref="studyPlanCycleService" />
+	</bean>
 
 	<bean id="specialtyFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="specialtyResourceConverter" />

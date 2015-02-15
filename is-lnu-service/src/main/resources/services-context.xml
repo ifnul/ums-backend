@@ -327,6 +327,11 @@
 		<property name="parametersExtractor" ref="streetTypeParametersExtractor" />
 		<property name="dao" ref="streetTypeDao" />
 	</bean>
+	
+	<bean id="studyPlanCycleService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="studyPlanCycleParametersExtractor" />
+		<property name="dao" ref="studyPlanCycleDao" />
+	</bean>
 
 	<bean id="specialtyService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="specialtyParametersExtractor" />

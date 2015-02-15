@@ -121,6 +121,9 @@
 		<!-- Time period related entities -->
         <class>org.lnu.is.domain.timeperiod.TimePeriod</class> 
         <class>org.lnu.is.domain.timeperiod.TimePeriodType</class>
+        
+        <!-- StudyPlan related entities -->
+        <class>org.lnu.is.domain.studyplan.cycle.StudyPlanCycle</class>
 
         <!-- Types - references -->
         <class>org.lnu.is.domain.familytype.FamilyType</class>

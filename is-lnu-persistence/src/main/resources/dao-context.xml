@@ -381,6 +381,11 @@
 		<property name="entityClass" value="org.lnu.is.domain.streettype.StreetType" />
 		<property name="queryBuilder" ref="streetTypeQueryBuilder" />
 	</bean>
+	
+	<bean id="studyPlanCycleDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.studyplan.cycle.StudyPlanCycle" />
+		<property name="queryBuilder" ref="studyPlanCycleQueryBuilder" />
+	</bean>
 
 	<bean id="subjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.subject.Subject" />
