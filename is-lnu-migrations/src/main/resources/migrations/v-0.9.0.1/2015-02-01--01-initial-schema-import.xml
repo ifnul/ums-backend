@@ -7296,5 +7296,39 @@
 		<renameColumn tableName="q_ob_employee" oldColumnName="ispansioner"
 			newColumnName="ispensioner" />
 	</changeSet>
+	
+	<changeSet id="create table q_rf_studyplancycle" author="OlehZanevych">
+		<createTable tableName="q_rf_studyplancycle" remarks="Довідник циклів навчальних дисциплін: гуманітарний та соціально-економічний, природничо-науковий, професійно-орієнтований, фізично-рекреаційний" >
+            <column name="id" type="bigint" autoIncrement="true" remarks="Ідентифікатор">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="abbrname" type="character varying" remarks="Абревіатура циклу"/>
+            <column name="name" type="character varying" remarks="Цикл дисципліни" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="q_en_row_status">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+	</changeSet>
 
 </databaseChangeLog>
