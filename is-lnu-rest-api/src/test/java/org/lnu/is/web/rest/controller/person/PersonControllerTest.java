@@ -101,7 +101,7 @@ public class PersonControllerTest extends AbstractControllerTest {
 	}
     
     @Test
-	public void testGetSpecoffer() throws Exception {
+	public void testGetResource() throws Exception {
 		// Given
     	Long id = 1L;
     	String docNum = "docNum";

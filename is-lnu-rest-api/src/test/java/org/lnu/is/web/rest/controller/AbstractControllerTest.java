@@ -28,7 +28,7 @@ public abstract class AbstractControllerTest {
 				.setCustomArgumentResolvers(pagedRequestArgumentResolver)
 				.build();
 	}
-
+	
     private LocalValidatorFactoryBean getValidator() {
         return new LocalValidatorFactoryBean();
     }
