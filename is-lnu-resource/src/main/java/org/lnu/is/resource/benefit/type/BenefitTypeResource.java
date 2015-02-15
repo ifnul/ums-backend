@@ -1,5 +1,7 @@
 package org.lnu.is.resource.benefit.type;
 
+import java.text.MessageFormat;
+
 import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -17,7 +19,7 @@ public class BenefitTypeResource extends ApiResource {
 	
 	@Override
 	public String getUri() {
-		return "/benefits/types/";
+		return MessageFormat.format("/benefits/types/{0}", getId());
 	}
 
 	@Override
