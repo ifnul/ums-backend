@@ -202,6 +202,11 @@
 		<property name="parametersExtractor" ref="languageParametersExtractor" />
 		<property name="dao" ref="languageDao" />
 	</bean>
+	
+	<bean id="markscaleTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="markscaleTypeParametersExtractor"/>
+		<property name="dao" ref="markscaleTypeDao"/>
+	</bean>
 
 	<bean id="marriedTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="marriedTypeParametersExtractor" />

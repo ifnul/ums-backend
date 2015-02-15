@@ -246,6 +246,12 @@
 		<property name="entityConverter" ref="languageConverter" />
 		<property name="service" ref="languageService" />
 	</bean>
+	
+	<bean id="markscaleTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="markscaleTypeResourceConverter" />
+		<property name="entityConverter" ref="markscaleTypeConverter" />
+		<property name="service" ref="markscaleTypeService" />
+	</bean>
 
 	<bean id="marriedTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="marriedTypeResourceConverter" />

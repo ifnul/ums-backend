@@ -210,6 +210,11 @@
 		<property name="entityClass" value="org.lnu.is.domain.language.LanguageLevel" />
 	</bean>
 	
+	<bean id="markscaleTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.markscale.type.MarkscaleType" />
+		<property name="queryBuilder" ref="markscaleTypeQueryBuilder"/>
+	</bean>
+	
 	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.marriedtype.MarriedType" />
 		<property name="queryBuilder" ref="marriedTypeQueryBuilder" />
