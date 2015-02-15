@@ -3,41 +3,6 @@
     
     <changeSet id="Деякі таблиці (2015-02-04-18-00)" author="OlehZanevych">
         
-        <createTable tableName="q_rf_studyplancycle" remarks="Довідник циклів навчальних дисциплін: гуманітарний та соціально-економічний, природничо-науковий, професійно-орієнтований, фізично-рекреаційний" >
-            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-            <column name="abbrname" type="character varying" remarks="Абревіатура циклу"/>
-            <column name="name" type="character varying" remarks="Цикл дисципліни" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplancycle" tableName="q_rf_studyplancycle"/>
-        
-        
         <createTable tableName="q_ob_calcrule" remarks="Правила підрахунку сумарної оцінки в додатку до диплома" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -106,74 +71,7 @@
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_diplomasupplementitemtype" tableName="q_rf_diplomasupplementitemtype"/>
         
         
-        <createTable tableName="q_rf_enrolmentforeigntype" remarks="Довідник типів заяв іноземних студентів" >
-            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-            <column name="abbrname" type="character varying" remarks="Абревіатура"/>
-            <column name="name" type="character varying" remarks="Тип заяви для іноземців" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_enrolmentforeigntype" tableName="q_rf_enrolmentforeigntype"/>
         
-        
-        <createTable tableName="q_rf_markscaletype" remarks="Довідник типу шкали оцінювання (наприклад: шкала оцінювання для вступників, шкала оцінювання для студентів - модульний контроль і т.д.)" >
-            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-            <column name="abbrname" type="character varying" remarks="Скорочена назва (абревіатура)"/>
-            <column name="name" type="character varying" remarks="Повна (текстова) назва типу шкали оцінювання" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-
-        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_markscaletype" tableName="q_rf_markscaletype"/>
         
         
         <createTable tableName="q_rf_studentratingtype" remarks="Довідників типів рейтингів студента (рейтинг за 1 семестр, рейтинг за 2 семестр, рейтинг за ККР, рейтингн за ДА, сумарний семестровий рейтинг і т.д.)" >
@@ -209,8 +107,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studentratingtype" tableName="q_rf_studentratingtype"/>
-        
-        
+                
         <createTable tableName="q_rf_studycontroltype" remarks="Довідник типів контрольних заходів" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -244,8 +141,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studycontroltype" tableName="q_rf_studycontroltype"/>
-        
-        
+                
         <createTable tableName="q_rf_markrolltype" remarks="Типи документів з оцінками (відомостей, талонів і т.д.)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -316,8 +212,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplantype" tableName="q_rf_studyplantype"/>
-        
-        
+                
         <createTable tableName="q_rf_studyplanvariant" remarks="Довідник варіантів навчального плану: основний, для іноземних студентів, ......" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -352,7 +247,6 @@
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplanvariant" tableName="q_rf_studyplanvariant"/>
         
-        
         <createTable tableName="q_rf_studenttype" remarks="Довідник типів студентів: студенти, аспіранти, слухачі курсів, тощо" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -386,8 +280,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studenttype" tableName="q_rf_studenttype"/>
-        
-        
+                
         <createTable tableName="q_rf_studytype" remarks="Довідник типів навчання: теоретичний курс, практика, курсова робота, курсовий проект, виконання ДКР,..." >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -421,8 +314,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studytype" tableName="q_rf_studytype"/>
-        
-    
+            
         <createTable tableName="q_ob_studygroup" remarks="Інформація про академічну групу " >
             <column name="id" type="bigint" remarks="Ідентифікатор академічної групи студентів"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -470,7 +362,6 @@
         <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_ob_studygroup" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
 
         <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_ob_studygroup" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
-
         
         <createTable tableName="q_rf_studentstatus" remarks="Довідник статусів студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -505,8 +396,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studentstatus" tableName="q_rf_studentstatus"/>
-        
-        
+                
         <createTable tableName="q_dc_studyplan" remarks="Інформація про заголовок навчального плану" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -577,7 +467,6 @@
         <addForeignKeyConstraint baseColumnNames="studyplantype_id" baseTableName="q_dc_studyplan" constraintName="fk_q_rf_studyplantype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplantype"/>
 
         <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_dc_studyplan" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
-
     
         <createTable tableName="q_dc_diplomasupplement" remarks="Додаток до диплома" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -704,8 +593,7 @@
         <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
 
         <addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
-        
-        
+                
         <createTable tableName="q_ob_student" remarks="Інформація про студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор студента"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -803,7 +691,6 @@
         <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_studyplan" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
         <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
-
         
         <createTable tableName="q_dc_diplomasupplementname" remarks="Додатки до диплома на іноземних мовах" >
             <column name="id" type="bigint"  autoIncrement="true" remarks="Ідентифікатор">
@@ -928,7 +815,6 @@
         <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
         <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_dc_diplomasupplementname_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_diplomasupplementname"/>
-
         
         <createTable tableName="q_dc_markroll" remarks="Інформація про документ з оцінками (відомість, талон і т.д. )" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -997,7 +883,6 @@
         <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_dc_markroll" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_studygroup"/>
         
         <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_markroll" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
-
         
         <createTable tableName="q_dc_studentestimate" remarks="Кошториси для студентів" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -1059,7 +944,6 @@
 
         <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
 
-        
         <createTable tableName="q_dt_diplomasupplementitem" remarks="Інформація про контент додатку до доплома" >
             <column name="id" type="bigint" remarks="Ідентифікатор навчального плану "  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1120,7 +1004,6 @@
         <addForeignKeyConstraint baseColumnNames="diplomasupplementitemtype_id" baseTableName="q_dt_diplomasupplementitem" constraintName="fk_q_rf_diplomasupplementitemtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_diplomasupplementitemtype"/>
 
         <addForeignKeyConstraint baseColumnNames="calcrule_id" baseTableName="q_dt_diplomasupplementitem" constraintName="fk_q_ob_calcrule_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_calcrule"/>
-
         
         <createTable tableName="q_dt_diplomasupplementname" remarks="Додатки до диплома на іноземних мовах" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -1240,50 +1123,7 @@
         <addForeignKeyConstraint baseColumnNames="diplomasupplement_id" baseTableName="q_dt_diplomasupplementname" constraintName="fk_q_dc_diplomasupplement_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_diplomasupplement"/>
 
         <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_dt_diplomasupplementname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
-
-        
-        <createTable tableName="q_ob_markscale" remarks="Шкала оцінювання" >
-            <column name="id" type="bigint" remarks="Ідентифікатор шкали оцінювання (оцінок)"  autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-            <column name="markscaletype_id" type="bigint" remarks="Ідентифікатор типу шкали" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="abbrname" type="character varying" remarks="Скорочена назва (абревіатура)"/>
-            <column name="name" type="character varying" remarks="Назва шкали оцінювання" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="markmin" type="double precision" />
-            <column name="markmax" type="double precision" />
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-
-        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_markscale" tableName="q_ob_markscale"/>
-
-        <addForeignKeyConstraint baseColumnNames="markscaletype_id" baseTableName="q_ob_markscale" constraintName="fk_q_rf_markscaletype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_markscaletype"/>
-
-        
+                
         <createTable tableName="q_dt_markrollduty" remarks="Тіло докуметна з оцінками (відомості, талона). Відповідальні особи за заповнення відомості (талона)." >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1333,7 +1173,6 @@
         <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
         
         <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_ob_post_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_post"/>
-
         
         <createTable tableName="q_rf_studyplanpart" remarks="Довідник розділів (частин) навчального плану: обов'язкові дисципліни, вибіркові дисципліни ВНЗ, дисципліни за вибором студента, факультативні дисципліни" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -1371,7 +1210,6 @@
         <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplanpart" tableName="q_rf_studyplanpart"/>
 
         <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_studyplanpart" constraintName="fk_q_rf_studyplanpart_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplanpart"/>
-
         
         <createTable tableName="q_dt_studyplanitem" remarks="Інформація про контент навчального плану" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -1494,8 +1332,7 @@
         <addForeignKeyConstraint baseColumnNames="studycontroltype_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studycontroltype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studycontroltype"/> 
 
         <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
-        
-        
+                
         <createTable tableName="q_dt_markrollitem" remarks="Контент документа з оцінками (відомості або талона)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1578,8 +1415,7 @@
 
 
         <addForeignKeyConstraint baseColumnNames="markrollitem_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_markrollitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_markrollitem"/>
-        
-        
+                
         <createTable tableName="q_dt_orderfinancial" remarks="Накази пов'язані із фінансами для студентів " >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1640,7 +1476,6 @@
         <addForeignKeyConstraint baseColumnNames="asset_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_ob_asset_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_asset"/>
 
         <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
-
     
         <createTable tableName="q_dt_ordernewdepartment" remarks="Тіло наказу на зарахування працівника на роботу" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -1685,7 +1520,6 @@
         <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
 
         <addForeignKeyConstraint baseColumnNames="departmenttype_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_rf_departmenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_departmenttype"/>
-
         
         <createTable tableName="q_dt_orderstudenttransfer" remarks="Накази на переведення та зміну статусу студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -1751,8 +1585,7 @@
         <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
 
         <addForeignKeyConstraint baseColumnNames="studentstatus_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_rf_studentstatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studentstatus"/>
-        
-        
+                
         <createTable tableName="q_dt_studentestimateitem" remarks="Контент кошторису" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1810,8 +1643,7 @@
         <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
 
         <addForeignKeyConstraint baseColumnNames="studentestimate_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dc_studentestimate_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studentestimate"/>
-        
-        
+                
         <createTable tableName="q_dt_studyplanduty" remarks="Тіло навчального плану. Відповідальні особи за затвердження." >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -1856,7 +1688,6 @@
         <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_studyplanduty" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
 
         <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dt_studyplanduty" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
-
         
         <createTable tableName="q_ob_studentrating" remarks="Інформація про рейтинги студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -1898,93 +1729,6 @@
         <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_ob_studentrating" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
 
         <addForeignKeyConstraint baseColumnNames="studentratingtype_id" baseTableName="q_ob_studentrating" constraintName="fk_q_rf_studentratingtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studentratingtype"/>
-
-        
-        <createTable tableName="q_od_markscalevalue" remarks="Інформація про шкалу переведення оцінок в системі ECTS" >
-            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-            <column name="markscale_id" type="bigint" remarks="Ідентифікатор шкали оцінювання" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="strvalue" type="character varying" remarks="Стрічкове позначення школи ECTS" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-
-        <addPrimaryKey columnNames="id" constraintName="pk_q_od_markscalevalue" tableName="q_od_markscalevalue"/>
-
-        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_od_markscalevalue" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
-        
-        
-        <createTable tableName="q_od_markscaleexchange" remarks="Інформація про шкалу переведення оцінок" >
-            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
-                <constraints nullable="false"/>
-            </column>
-            <column name="markscale_id" type="bigint" remarks="Ідентифікатор шкали оцінювання з якої буде переводитися оцінка" >
-                <constraints nullable="false"/>
-            </column>
-            <column name="markmin" type="double precision" remarks="Мінімальна оцінка"/>
-            <column name="markmax" type="double precision" remarks="Максимальна оцінка"/>
-            <column name="markscalevalue_id" type="bigint" remarks="Ідентифікатор шкали оцінювання ECTS з якої буде переводитися"/>
-            <column name="markscaleexchange_id" type="bigint" remarks="Ідентифікатор шкали оцінювання при переведенні (в яку шкалу буде переводитися оцінка)"/>
-            <column name="markexchange" type="double precision" remarks="Оцінка у яку переведено по шкалі оцінювання"/>
-            <!-- FK -->
-            <column name="markscaleexchangevalue_id" type="bigint" remarks="Ідентифікатор шкали оцінювання ECTS у яку переводиться"/>
-            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
-            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
-            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
-            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actual" remarks="Актуальність даних" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
-            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
-            	<constraints nullable="false"/>
-        	</column>
-        </createTable>
-
-        <addPrimaryKey columnNames="id" constraintName="pk_q_od_markscaleexchange" tableName="q_od_markscaleexchange"/>
-
-        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
-
-        <addForeignKeyConstraint baseColumnNames="markscalevalue_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscalevalue_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_markscalevalue"/>
-
-        <addForeignKeyConstraint baseColumnNames="markscaleexchange_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscaleexchange_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_markscaleexchange"/>
-        
         
         <createTable tableName="q_od_studentcontact" remarks="Контакти студента" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
@@ -2029,7 +1773,6 @@
 
         <addForeignKeyConstraint baseColumnNames="contacttype_id" baseTableName="q_od_studentcontact" constraintName="fk_q_rf_contacttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_contacttype"/>
         
-        
         <createTable tableName="q_od_subjectname" remarks="Довідник назв навчальних дисциплін на іноземній мові" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -2070,8 +1813,7 @@
         <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_subjectname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
 
         <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="q_od_subjectname" constraintName="fk_q_ob_subject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_subject"/>
-        
-        
+                
         <createTable tableName="q_op_markscale" remarks="Довідник позначень специфічних оцінок (НЗ, НД, НА)" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
@@ -2113,8 +1855,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_op_markscale" tableName="q_op_markscale"/>
-        
-    
+            
         <createTable tableName="q_rf_studygroupnamerules" remarks="Правила (пропозиції) іменування академічних груп" >
             <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>

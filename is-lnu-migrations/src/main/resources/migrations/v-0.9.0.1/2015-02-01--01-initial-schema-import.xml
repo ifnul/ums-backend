@@ -7330,5 +7330,247 @@
         	</column>
         </createTable>
 	</changeSet>
+	
+	<changeSet id="create table q_rf_markscaletype" author="illay">
+		<createTable tableName="q_rf_markscaletype" remarks="Довідник типу шкали оцінювання (наприклад: шкала оцінювання для вступників, шкала оцінювання для студентів - модульний контроль і т.д.)" >
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="abbrname" type="character varying" remarks="Скорочена назва (абревіатура)"/>
+            <column name="name" type="character varying" remarks="Повна (текстова) назва типу шкали оцінювання" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+	
+	</changeSet>	
+	
+	<changeSet id="create table q_ob_markscale" author="illay">
+		<createTable tableName="q_ob_markscale" remarks="Шкала оцінювання" >
+            <column name="id" type="bigint" remarks="Ідентифікатор шкали оцінювання (оцінок)"  autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="markscaletype_id" type="bigint" remarks="Ідентифікатор типу шкали" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbrname" type="character varying" remarks="Скорочена назва (абревіатура)"/>
+            <column name="name" type="character varying" remarks="Назва шкали оцінювання" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="markmin" type="double precision" />
+            <column name="markmax" type="double precision" />
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
 
+        <addForeignKeyConstraint baseColumnNames="markscaletype_id" baseTableName="q_ob_markscale" constraintName="fk_q_rf_markscaletype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_markscaletype"/>
+	</changeSet>
+	
+	<changeSet id="create table q_od_markscalevalue" author="illay">
+	 	<createTable tableName="q_od_markscalevalue" remarks="Інформація про шкалу переведення оцінок в системі ECTS" >
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="markscale_id" type="bigint" remarks="Ідентифікатор шкали оцінювання" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="strvalue" type="character varying" remarks="Стрічкове позначення школи ECTS" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_od_markscalevalue" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+	</changeSet>
+	
+	<changeSet id="create table q_od_markscaleexchange" author="illay">
+		<createTable tableName="q_od_markscaleexchange" remarks="Інформація про шкалу переведення оцінок" >
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="markscale_id" type="bigint" remarks="Ідентифікатор шкали оцінювання з якої буде переводитися оцінка" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="markmin" type="double precision" remarks="Мінімальна оцінка"/>
+            <column name="markmax" type="double precision" remarks="Максимальна оцінка"/>
+            <column name="markscalevalue_id" type="bigint" remarks="Ідентифікатор шкали оцінювання ECTS з якої буде переводитися"/>
+            <column name="markscaleexchange_id" type="bigint" remarks="Ідентифікатор шкали оцінювання при переведенні (в яку шкалу буде переводитися оцінка)"/>
+            <column name="markexchange" type="double precision" remarks="Оцінка у яку переведено по шкалі оцінювання"/>
+            <column name="markscaleexchangevalue_id" type="bigint" remarks="Ідентифікатор шкали оцінювання ECTS у яку переводиться"/>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+
+        <addForeignKeyConstraint baseColumnNames="markscalevalue_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscalevalue_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_markscalevalue"/>
+
+        <addForeignKeyConstraint baseColumnNames="markscaleexchange_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscale_id1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+        
+        <addForeignKeyConstraint baseColumnNames="markscaleexchangevalue_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscalevalue_id1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_markscalevalue"/>	
+	</changeSet>
+
+	<changeSet id="create table q_rf_enrolmentforeigntype" author="illay">
+		<createTable tableName="q_rf_enrolmentforeigntype" remarks="Довідник типів заяв іноземних студентів" >
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="abbrname" type="character varying" remarks="Абревіатура"/>
+            <column name="name" type="character varying" remarks="Тип заяви для іноземців" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        </createTable>
+	</changeSet>
+
+	<changeSet id="add column istrainingcourses in table q_od_specoffersubject" author="illay">
+		<addColumn tableName="q_od_specoffersubject">
+			<column name="istrainingcourses" type="integer" remarks="Відмітка про проходження підготовчих курсів у ВУЗі (за замовчуванням 0)"/>
+		</addColumn>	
+	</changeSet>
+	
+	<changeSet id="add columns in table q_od_personpaper" author="illay">
+		<addColumn tableName="q_od_personpaper">
+			<column name="markscale_id" type="BIGINT" remarks="Ідентифікатор шкала оцінювання"></column>
+			<column name="specialty_id" type="BIGINT" remarks="Ідентифікатор спеціальності (спеціальність, яка є зазначена (вказана) у документі про освіту персони)"></column>
+			<column name="asset_id" type="BIGINT" remarks="Ідентифікатор приміщення (кімнати), де здається вступний іспит абітурієнтом"></column>
+		</addColumn>
+		
+		<addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_od_personpaper" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+	
+		<addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_od_personpaper" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
+		
+		<addForeignKeyConstraint baseColumnNames="asset_id" baseTableName="q_od_personpaper" constraintName="fk_q_ob_asset_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_asset"/>
+	</changeSet>
+	
+	<changeSet id="add column markscale_id in table q_od_personenrolsubject" author="illay">
+		<addColumn tableName="q_od_personenrolsubject">
+			<column name="markscale_id" type="BIGINT" remarks="Ідентифікатор шкала оцінювання"></column>
+		</addColumn>
+
+		<addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_od_personenrolsubject" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+	</changeSet>
+	
+	<changeSet id="add columns in table q_dt_enrolmentenrolsubject" author="illay">
+		<addColumn tableName="q_dt_enrolmentenrolsubject">
+			<column name="markscale_id" type="BIGINT" remarks="Ідентифікатор шкала оцінювання"></column>
+			<column name="personaward_id" type="BIGINT" remarks="Ідентифікатор "></column>
+		</addColumn>
+		
+		<addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dt_enrolmentenrolsubject" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+		
+		<addForeignKeyConstraint baseColumnNames="personaward_id" baseTableName="q_dt_enrolmentenrolsubject" constraintName="fk_q_od_personaward_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_personaward"/>
+	</changeSet>
+	
+	<changeSet id="add column markscale_id in table q_dc_enrolment" author="illay">
+		<addColumn tableName="q_dc_enrolment">
+			<column name="markscale_id" type="BIGINT" remarks="Ідентифікатор шкала оцінювання"></column>
+		</addColumn>
+	
+		<addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dc_enrolment" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+	</changeSet>
+	
 </databaseChangeLog>
