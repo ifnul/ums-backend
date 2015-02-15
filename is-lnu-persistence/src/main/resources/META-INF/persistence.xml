@@ -131,6 +131,7 @@
         <class>org.lnu.is.domain.honorstype.HonorType</class>
         <class>org.lnu.is.domain.addresstype.AddressType</class>
         <class>org.lnu.is.domain.contacttype.ContactType</class>
+        <class>org.lnu.is.domain.markscale.type.MarkscaleType</class>
         <class>org.lnu.is.domain.marriedtype.MarriedType</class> 
         <class>org.lnu.is.domain.jobtype.JobType</class> 
         <class>org.lnu.is.domain.posttype.PostType</class> 
