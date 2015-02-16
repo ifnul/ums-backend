@@ -1,6 +1,8 @@
 package org.lnu.is.web.rest.controller;
 
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 import org.junit.Before;
 import org.lnu.is.web.rest.processor.resolver.PagedRequestHandlerMethodArgumentResolver;
 import org.springframework.test.web.servlet.MockMvc;
@@ -26,6 +28,7 @@ public abstract class AbstractControllerTest {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
 				.setValidator(getValidator())
 				.setCustomArgumentResolvers(pagedRequestArgumentResolver)
+				.alwaysDo(print())
 				.build();
 	}
 	

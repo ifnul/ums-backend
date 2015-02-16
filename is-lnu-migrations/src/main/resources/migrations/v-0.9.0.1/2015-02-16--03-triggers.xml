@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+	
+	<changeSet id="0.9.0.1.create_process_person function" author="ivaursul">
+		<sql splitStatements="false">
+			create or replace function process_person() returns trigger as $$
+				begin
+					if new.parent_id is not null then
+						update q_ob_person set status = 'DELETED'
+						where id = new.parent_id;
+					end if;
+					return new;
+				end
+			$$ language plpgsql;		
+		</sql>
+		<rollback>
+			drop function if exists process_person()
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="0.9.0.1.create_person_trigger" author="ivanursul">
+		<sql>
+			create trigger q_ob_person_iutrig before insert or update on q_ob_person for each row execute procedure process_person();
+		</sql>
+		<rollback>
+			drop trigger if exists q_ob_person_iutrig on q_ob_person
+		</rollback>
+	</changeSet>
+	
+</databaseChangeLog>
