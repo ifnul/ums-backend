@@ -1,4 +1,4 @@
-package org.lnu.is.resource.markscale.type;
+package org.lnu.is.resource.enrolmentforeign.type;
 
 import java.text.MessageFormat;
 
@@ -8,12 +8,12 @@ import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
 /**
- * Markscale Type Resource.
+ * EnrolmentForeign Type Resource.
  * @author OlehZanevych
  *
  */
 @ReferenceResource
-public class MarkscaleTypeResource extends ApiResource {
+public class EnrolmentForeignTypeResource extends ApiResource {
 
 	@NotNull(message = "Field required")
 	private String name;
@@ -22,12 +22,12 @@ public class MarkscaleTypeResource extends ApiResource {
 
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/markscales/types/{0}", getId());
+		return MessageFormat.format("/enrolmentforeignes/types/{0}", getId());
 	}
 
 	@Override
 	public String getRootUri() {
-		return "/markscales/types";
+		return "/enrolmentforeignes/types";
 	}
 
 	public String getName() {
@@ -69,7 +69,7 @@ public class MarkscaleTypeResource extends ApiResource {
 
 			return false;
 		}
-		MarkscaleTypeResource other = (MarkscaleTypeResource) obj;
+		EnrolmentForeignTypeResource other = (EnrolmentForeignTypeResource) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -89,7 +89,7 @@ public class MarkscaleTypeResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "MarkscaleTypeResouce [name=" + name + ", abbrName=" + abbrName
+		return "EnrolmentForeignTypeResouce [name=" + name + ", abbrName=" + abbrName
 				+ "]";
 	}
 

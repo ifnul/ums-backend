@@ -1,33 +1,36 @@
-package org.lnu.is.resource.markscale.type;
+package org.lnu.is.domain.enrolmentforeign.type;
 
-import java.text.MessageFormat;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-import javax.validation.constraints.NotNull;
-
-import org.lnu.is.annotation.ReferenceResource;
-import org.lnu.is.resource.ApiResource;
+import org.lnu.is.annotation.dbtable.RF;
+import org.lnu.is.domain.InformationModel;
 
 /**
- * Markscale Type Resource.
+ * EnrolmentForeign Type entity.
  * @author OlehZanevych
  *
  */
-@ReferenceResource
-public class MarkscaleTypeResource extends ApiResource {
+@RF
+@Entity
+@Table(name = "q_rf_enrolmentforeigntype")
+public class EnrolmentForeignType extends InformationModel {
+	
+	private static final long serialVersionUID = 1L;
 
-	@NotNull(message = "Field required")
+	@Column(name = "abbrname")
+	private String abbrName;
+	
+	@Column(name = "name")
 	private String name;
 
-	private String abbrName;
-
-	@Override
-	public String getUri() {
-		return MessageFormat.format("/markscales/types/{0}", getId());
+	public String getAbbrName() {
+		return abbrName;
 	}
 
-	@Override
-	public String getRootUri() {
-		return "/markscales/types";
+	public void setAbbrName(final String abbrName) {
+		this.abbrName = abbrName;
 	}
 
 	public String getName() {
@@ -36,14 +39,6 @@ public class MarkscaleTypeResource extends ApiResource {
 
 	public void setName(final String name) {
 		this.name = name;
-	}
-
-	public String getAbbrName() {
-		return abbrName;
-	}
-
-	public void setAbbrName(final String abbrName) {
-		this.abbrName = abbrName;
 	}
 
 	@Override
@@ -62,14 +57,12 @@ public class MarkscaleTypeResource extends ApiResource {
 			return true;
 		}
 		if (!super.equals(obj)) {
-
 			return false;
 		}
 		if (getClass() != obj.getClass()) {
-
 			return false;
 		}
-		MarkscaleTypeResource other = (MarkscaleTypeResource) obj;
+		EnrolmentForeignType other = (EnrolmentForeignType) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;
@@ -89,8 +82,7 @@ public class MarkscaleTypeResource extends ApiResource {
 
 	@Override
 	public String toString() {
-		return "MarkscaleTypeResouce [name=" + name + ", abbrName=" + abbrName
-				+ "]";
+		return "EnrolmentForeignType [abbrName=" + abbrName + ", name=" + name + "]";
 	}
 
 }

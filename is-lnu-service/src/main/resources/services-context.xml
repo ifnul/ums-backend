@@ -172,6 +172,11 @@
 		<property name="parametersExtractor" ref="enrolmentTypeParametersExtractor" />
 		<property name="dao" ref="enrolmentTypeDao" />
 	</bean>
+	
+	<bean id="enrolmentForeignTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="enrolmentForeignTypeParametersExtractor"/>
+		<property name="dao" ref="enrolmentForeignTypeDao"/>
+	</bean>
 
 	<bean id="enrolmentService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="enrolmentParametersExtractor" />

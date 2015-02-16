@@ -228,6 +228,12 @@
 		<property name="entityConverter" ref="enrolmentSubjectConverter" />
 		<property name="service" ref="enrolmentSubjectService" />
 	</bean>
+	
+	<bean id="enrolmentForeignTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="enrolmentForeignTypeResourceConverter" />
+		<property name="entityConverter" ref="enrolmentForeignTypeConverter" />
+		<property name="service" ref="enrolmentForeignTypeService" />
+	</bean>
 
 	<bean id="genderTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="genderTypeResourceConverter" />

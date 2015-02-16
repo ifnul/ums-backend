@@ -1,4 +1,4 @@
-package org.lnu.is.web.rest.controller.markscale.type;
+package org.lnu.is.web.rest.controller.enrolmentforeign.type;
 
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.doThrow;
@@ -15,7 +15,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.resource.markscale.type.MarkscaleTypeResource;
+import org.lnu.is.resource.enrolmentforeign.type.EnrolmentForeignTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
@@ -26,13 +26,13 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MarkscaleTypeControllerTest extends AbstractControllerTest {
+public class EnrolmentForeignTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<MarkscaleTypeResource, Long> facade;
+	private Facade<EnrolmentForeignTypeResource, Long> facade;
 
 	@InjectMocks
-	private MarkscaleTypeController unit;
+	private EnrolmentForeignTypeController unit;
 	
 	@Override
 	protected BaseController getUnit() {
@@ -40,35 +40,35 @@ public class MarkscaleTypeControllerTest extends AbstractControllerTest {
 	}
 	
 	@Test
-	public void testGetMarkscaleTypes() throws Exception {
+	public void testGetEnrolmentForeignTypes() throws Exception {
 		// Given
 		String name = "AddressN";
 		Integer offset = 0;
 		Integer limit = 20;
 		long count = 1;
 
-		MarkscaleTypeResource resource = new MarkscaleTypeResource();
+		EnrolmentForeignTypeResource resource = new EnrolmentForeignTypeResource();
 		resource.setName(name);
 
-		List<MarkscaleTypeResource> entities = Arrays.asList(resource);
-		PagedResultResource<MarkscaleTypeResource> expected = new PagedResultResource<>("/markscales/types");
+		List<EnrolmentForeignTypeResource> entities = Arrays.asList(resource);
+		PagedResultResource<EnrolmentForeignTypeResource> expected = new PagedResultResource<>("/enrolmentforeignes/types");
 		expected.setResources(entities);
 		expected.setCount(count);
 		expected.setLimit(limit);
 		expected.setOffset(offset);
 
-		MarkscaleTypeResource paramResource = new MarkscaleTypeResource();
+		EnrolmentForeignTypeResource paramResource = new EnrolmentForeignTypeResource();
 		paramResource.setName(name);
 
-		PagedRequest<MarkscaleTypeResource> request = new PagedRequest<MarkscaleTypeResource>(
+		PagedRequest<EnrolmentForeignTypeResource> request = new PagedRequest<EnrolmentForeignTypeResource>(
 				paramResource, offset, limit);
 
 		// When
-		when(facade.getResources(Matchers.<PagedRequest<MarkscaleTypeResource>> any())).thenReturn(expected);
+		when(facade.getResources(Matchers.<PagedRequest<EnrolmentForeignTypeResource>> any())).thenReturn(expected);
 		String response = getJson(expected, false);
 
 		// Then
-		mockMvc.perform(get("/markscales/types").param("name", name))
+		mockMvc.perform(get("/enrolmentforeignes/types").param("name", name))
 				.andExpect(status().isOk())
 				.andExpect(content().string(response));
 
@@ -82,7 +82,7 @@ public class MarkscaleTypeControllerTest extends AbstractControllerTest {
 		Long id = 1L;
 		String name = "all difficult";
 		String abbrName = "ad";
-		MarkscaleTypeResource expected = new MarkscaleTypeResource();
+		EnrolmentForeignTypeResource expected = new EnrolmentForeignTypeResource();
 		expected.setName(name);
 		expected.setAbbrName(abbrName);
 		expected.setId(id);
@@ -92,7 +92,7 @@ public class MarkscaleTypeControllerTest extends AbstractControllerTest {
 		String response = getJson(expected, false);
 
 		// Then
-		mockMvc.perform(get("/markscales/types/{id}", id))
+		mockMvc.perform(get("/enrolmentforeignes/types/{id}", id))
 			.andExpect(status().isOk())
 			.andExpect(content().string(response));
 		
@@ -108,7 +108,7 @@ public class MarkscaleTypeControllerTest extends AbstractControllerTest {
 		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
 		
 		// Then
-		mockMvc.perform(get("/markscales/types/{id}", id));
+		mockMvc.perform(get("/enrolmentforeignes/types/{id}", id));
 		
 		verify(facade).getResource(id);
 	}

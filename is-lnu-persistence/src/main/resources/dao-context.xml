@@ -180,6 +180,11 @@
 		<property name="entityClass" value="org.lnu.is.domain.enrolment.type.EnrolmentType" />
 		<property name="queryBuilder" ref="enrolmentTypeQueryBuilder" />
 	</bean>
+	
+	<bean id="enrolmentForeignTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.enrolmentforeign.type.EnrolmentForeignType" />
+		<property name="queryBuilder" ref="enrolmentForeignTypeQueryBuilder"/>
+	</bean>
 
 	<bean id="familyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.familytype.FamilyType" />
