@@ -7,5 +7,6 @@ package org.lnu.is.domain.common;
  */
 public enum RowStatus {
 	ACTIVE, 
+	REATTACHED,
 	DELETED;
 }
