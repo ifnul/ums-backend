@@ -59,6 +59,9 @@ PersonFamily
 PersonPension
 PersonWork
 Degree
+StudyPlanCycle (потрібно поправити і підключити)
+MarkscaleType
+EnrolmentForeignType
 
 Broadcastings -> Email sending:
 1)Send broadcast with group and independant emails
