@@ -45,16 +45,239 @@
 		</rollback>
 	</changeSet>
 	
-<!-- 	
-	<changeSet id="0.9.0.1.map_update" author="ivanursul">
+	<changeSet id="0.9.0.1.map_update_date_trigger" author="ivanursul">
 		<sql>
+			create trigger update_date_trigger before insert or update on q_rf_propertytype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_language for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_contacttype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_streettype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_paperusage for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_coursetype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_reason for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_papertype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_eduformtype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_enrolmentstatustype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_benefittype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_honorstype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_enrolsubject for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_addresstype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_persontype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_wavetype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_enrolmenttype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_specoffertype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_posttype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_departmenttype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_adminunittype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_gendertype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_marriedtype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_specialty for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_timeperiodtype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_jobtype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_specialtytype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_employeestatus for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_timeperiod for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personpaper for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_adminunit for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personenrolsubject for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_benefit for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_employeetype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_post for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_ordertype for each row execute procedure update_date();
 			create trigger update_date_trigger before insert or update on q_ob_person for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_optype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_assettype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_assetstate for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_assetstatus for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_employee for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_department for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dc_order for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dc_enrolment for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_partner for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_specoffer for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_departmentaddress for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_lg_error for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_lg_importexport for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_asset for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_specofferbenefit for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personaddress for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_enrolmentstatus for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_enrolmentbenefit for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_specoffersubject for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_enrolmentenrolsubject for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_specofferwave for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_property for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_orderassetpassport for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personname for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_ordernewstudentitem for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personcontact for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_orderassettransfer for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_departmentcontact for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_departmentname for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_languagelevel for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personlanguage for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_departmentspecialty for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_dutytype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_orderduty for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_ordernewasset for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_orderemployee for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_timesheettype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_orderemployeetimesheet for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_degreetype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_degree for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_dt_ordernewemployee for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_profession for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_subjecttype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_subject for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_assetaddress for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_specstagetype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_educationtype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_partneraddress for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_salarytype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_familytype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_pensiontype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_absencetype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_tdcf_enrolmentedbo for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_op_application for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_assetproperty for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_postname for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_absence for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_employeecontact for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_publicactivitytype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_publicactivity for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_assetrel for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_employeeprofession for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_employeesalary for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personeducation for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personpension for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_propertyvalue for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_publicactivityaward for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personaward for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_employeeschedule for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personwork for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_personfamily for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_op_role for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_op_usergroup for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_op_userrole for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_op_group for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rp_broadcasting for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_op_user for each row execute procedure update_date();
 		</sql>
 		<rollback>
+			drop trigger if exists update_date_trigger on q_rf_propertytype
+			drop trigger if exists update_date_trigger on q_rf_language
+			drop trigger if exists update_date_trigger on q_rf_contacttype
+			drop trigger if exists update_date_trigger on q_rf_streettype
+			drop trigger if exists update_date_trigger on q_rf_paperusage
+			drop trigger if exists update_date_trigger on q_rf_coursetype
+			drop trigger if exists update_date_trigger on q_rf_reason
+			drop trigger if exists update_date_trigger on q_rf_papertype
+			drop trigger if exists update_date_trigger on q_rf_eduformtype
+			drop trigger if exists update_date_trigger on q_rf_enrolmentstatustype
+			drop trigger if exists update_date_trigger on q_rf_benefittype
+			drop trigger if exists update_date_trigger on q_rf_honorstype
+			drop trigger if exists update_date_trigger on q_rf_enrolsubject
+			drop trigger if exists update_date_trigger on q_rf_addresstype
+			drop trigger if exists update_date_trigger on q_rf_persontype
+			drop trigger if exists update_date_trigger on q_rf_wavetype
+			drop trigger if exists update_date_trigger on q_rf_enrolmenttype
+			drop trigger if exists update_date_trigger on q_rf_specoffertype
+			drop trigger if exists update_date_trigger on q_rf_posttype
+			drop trigger if exists update_date_trigger on q_rf_departmenttype
+			drop trigger if exists update_date_trigger on q_rf_adminunittype
+			drop trigger if exists update_date_trigger on q_rf_gendertype
+			drop trigger if exists update_date_trigger on q_rf_marriedtype
+			drop trigger if exists update_date_trigger on q_ob_specialty
+			drop trigger if exists update_date_trigger on q_rf_timeperiodtype
+			drop trigger if exists update_date_trigger on q_rf_jobtype
+			drop trigger if exists update_date_trigger on q_rf_specialtytype
+			drop trigger if exists update_date_trigger on q_rf_employeestatus
+			drop trigger if exists update_date_trigger on q_ob_timeperiod
+			drop trigger if exists update_date_trigger on q_od_personpaper
+			drop trigger if exists update_date_trigger on q_ob_adminunit
+			drop trigger if exists update_date_trigger on q_od_personenrolsubject
+			drop trigger if exists update_date_trigger on q_ob_benefit
+			drop trigger if exists update_date_trigger on q_rf_employeetype
+			drop trigger if exists update_date_trigger on q_ob_post
+			drop trigger if exists update_date_trigger on q_rf_ordertype
 			drop trigger if exists update_date_trigger on q_ob_person
+			drop trigger if exists update_date_trigger on q_rf_optype
+			drop trigger if exists update_date_trigger on q_rf_assettype
+			drop trigger if exists update_date_trigger on q_rf_assetstate
+			drop trigger if exists update_date_trigger on q_rf_assetstatus
+			drop trigger if exists update_date_trigger on q_ob_employee
+			drop trigger if exists update_date_trigger on q_ob_department
+			drop trigger if exists update_date_trigger on q_dc_order
+			drop trigger if exists update_date_trigger on q_dc_enrolment
+			drop trigger if exists update_date_trigger on q_ob_partner
+			drop trigger if exists update_date_trigger on q_ob_specoffer
+			drop trigger if exists update_date_trigger on q_od_departmentaddress
+			drop trigger if exists update_date_trigger on q_lg_error
+			drop trigger if exists update_date_trigger on q_lg_importexport
+			drop trigger if exists update_date_trigger on q_ob_asset
+			drop trigger if exists update_date_trigger on q_od_specofferbenefit
+			drop trigger if exists update_date_trigger on q_od_personaddress
+			drop trigger if exists update_date_trigger on q_dt_enrolmentstatus
+			drop trigger if exists update_date_trigger on q_dt_enrolmentbenefit
+			drop trigger if exists update_date_trigger on q_od_specoffersubject
+			drop trigger if exists update_date_trigger on q_dt_enrolmentenrolsubject
+			drop trigger if exists update_date_trigger on q_od_specofferwave
+			drop trigger if exists update_date_trigger on q_ob_property
+			drop trigger if exists update_date_trigger on q_dt_orderassetpassport
+			drop trigger if exists update_date_trigger on q_od_personname
+			drop trigger if exists update_date_trigger on q_dt_ordernewstudentitem
+			drop trigger if exists update_date_trigger on q_od_personcontact
+			drop trigger if exists update_date_trigger on q_dt_orderassettransfer
+			drop trigger if exists update_date_trigger on q_od_departmentcontact
+			drop trigger if exists update_date_trigger on q_od_departmentname
+			drop trigger if exists update_date_trigger on q_rf_languagelevel
+			drop trigger if exists update_date_trigger on q_od_personlanguage
+			drop trigger if exists update_date_trigger on q_od_departmentspecialty
+			drop trigger if exists update_date_trigger on q_rf_dutytype
+			drop trigger if exists update_date_trigger on q_dt_orderduty
+			drop trigger if exists update_date_trigger on q_dt_ordernewasset
+			drop trigger if exists update_date_trigger on q_dt_orderemployee
+			drop trigger if exists update_date_trigger on q_rf_timesheettype
+			drop trigger if exists update_date_trigger on q_dt_orderemployeetimesheet
+			drop trigger if exists update_date_trigger on q_rf_degreetype
+			drop trigger if exists update_date_trigger on q_ob_degree
+			drop trigger if exists update_date_trigger on q_dt_ordernewemployee
+			drop trigger if exists update_date_trigger on q_ob_profession
+			drop trigger if exists update_date_trigger on q_rf_subjecttype
+			drop trigger if exists update_date_trigger on q_ob_subject
+			drop trigger if exists update_date_trigger on q_od_assetaddress
+			drop trigger if exists update_date_trigger on q_rf_specstagetype
+			drop trigger if exists update_date_trigger on q_rf_educationtype
+			drop trigger if exists update_date_trigger on q_od_partneraddress
+			drop trigger if exists update_date_trigger on q_rf_salarytype
+			drop trigger if exists update_date_trigger on q_rf_familytype
+			drop trigger if exists update_date_trigger on q_rf_pensiontype
+			drop trigger if exists update_date_trigger on q_rf_absencetype
+			drop trigger if exists update_date_trigger on q_tdcf_enrolmentedbo
+			drop trigger if exists update_date_trigger on q_op_application
+			drop trigger if exists update_date_trigger on q_od_assetproperty
+			drop trigger if exists update_date_trigger on q_od_postname
+			drop trigger if exists update_date_trigger on q_od_absence
+			drop trigger if exists update_date_trigger on q_od_employeecontact
+			drop trigger if exists update_date_trigger on q_rf_publicactivitytype
+			drop trigger if exists update_date_trigger on q_ob_publicactivity
+			drop trigger if exists update_date_trigger on q_od_assetrel
+			drop trigger if exists update_date_trigger on q_od_employeeprofession
+			drop trigger if exists update_date_trigger on q_od_employeesalary
+			drop trigger if exists update_date_trigger on q_od_personeducation
+			drop trigger if exists update_date_trigger on q_od_personpension
+			drop trigger if exists update_date_trigger on q_od_propertyvalue
+			drop trigger if exists update_date_trigger on q_od_publicactivityaward
+			drop trigger if exists update_date_trigger on q_od_personaward
+			drop trigger if exists update_date_trigger on q_od_employeeschedule
+			drop trigger if exists update_date_trigger on q_od_personwork
+			drop trigger if exists update_date_trigger on q_od_personfamily
+			drop trigger if exists update_date_trigger on q_op_role
+			drop trigger if exists update_date_trigger on q_op_usergroup
+			drop trigger if exists update_date_trigger on q_op_userrole
+			drop trigger if exists update_date_trigger on q_op_group
+			drop trigger if exists update_date_trigger on q_rp_broadcasting
+			drop trigger if exists update_date_trigger on q_op_user
 		</rollback>
 	</changeSet> 
--->
-	
 	
 </databaseChangeLog>
