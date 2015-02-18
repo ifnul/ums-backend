@@ -1,0 +1,196 @@
+package org.lnu.is.web.rest.controller.markscale;
+
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.nio.file.AccessDeniedException;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.lnu.is.facade.facade.Facade;
+import org.lnu.is.resource.markscale.MarkscaleResource;
+import org.lnu.is.resource.message.MessageResource;
+import org.lnu.is.resource.message.MessageType;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
+import org.lnu.is.web.rest.controller.AbstractControllerTest;
+import org.lnu.is.web.rest.controller.BaseController;
+import org.mockito.InjectMocks;
+import org.mockito.Matchers;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.http.MediaType;
+
+@RunWith(MockitoJUnitRunner.class)
+public class MarkscaleControllerTest extends AbstractControllerTest {
+
+	@Mock
+	private Facade<MarkscaleResource, Long> facade;
+	
+	@InjectMocks
+	private MarkscaleController unit;
+	
+	@Override
+	protected BaseController getUnit() {
+		return unit;
+	}
+
+    @Test
+	public void testCreateMarkscale() throws Exception {
+		// Given
+    	String abbrName = "abbrName";
+		String name = "name";
+    	
+    	MarkscaleResource markscaleResource = new MarkscaleResource();
+    	markscaleResource.setAbbrName(abbrName);
+    	markscaleResource.setName(name);
+		
+		// When
+    	String request = getJson(markscaleResource, true);
+		String response = getJson(markscaleResource, false);
+    	
+		when(facade.createResource(any(MarkscaleResource.class))).thenReturn(markscaleResource);
+		
+    	// Then
+		mockMvc.perform(post("/markscales")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().isCreated())
+				.andExpect(content().string(response));
+		
+		verify(facade).createResource(markscaleResource);
+	}
+    
+    @Test
+	public void testUpdateMarkscale() throws Exception {
+		// Given
+    	Long id = 1L;
+    	String abbrName = "abbrName";
+		String name = "name";
+    	
+    	MarkscaleResource markscaleResource = new MarkscaleResource();
+    	markscaleResource.setId(id);
+    	markscaleResource.setAbbrName(abbrName);
+    	markscaleResource.setName(name);
+		
+		MessageResource responseResource = new MessageResource(MessageType.INFO, "Markscale Updated");
+		
+		// When
+    	String request = getJson(markscaleResource, true);
+		String response = getJson(responseResource, false);
+    	
+		
+    	// Then
+		mockMvc.perform(put("/markscales/{id}", id)
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(request))
+				.andExpect(status().isOk())
+				.andExpect(content().string(response));
+		
+		verify(facade).updateResource(id, markscaleResource);
+	}
+    
+    @Test
+	public void testGetMarkscale() throws Exception {
+		// Given
+    	Long id = 1L;
+    	String abbrName = "abbrName";
+    	String name = "name";
+    	
+    	MarkscaleResource markscaleResource = new MarkscaleResource();
+    	markscaleResource.setId(id);
+    	markscaleResource.setAbbrName(abbrName);
+    	markscaleResource.setName(name);
+
+		// When
+		String response = getJson(markscaleResource, false);
+		
+		when(facade.getResource(anyLong())).thenReturn(markscaleResource);
+		
+		// Then
+    	mockMvc.perform(get("/markscales/{id}", id))
+    		.andExpect(status().isOk())
+    		.andExpect(content().string(response));
+    	
+    	verify(facade).getResource(id);
+	}
+    
+    @Test
+	public void testDeleteMarkscale() throws Exception {
+		// Given
+    	Long id = 1L;
+    	
+		// When
+
+		// Then
+    	mockMvc.perform(delete("/markscales/{id}", id))
+    		.andExpect(status().is(204));
+    	
+    	verify(facade).removeResource(id);
+	}
+    
+    @Test
+	public void testGetMarkscales() throws Exception {
+		// Given
+    	Long id = 1L;
+    	String abbrName = "abbrName";
+    	String name = "name";
+    	
+    	MarkscaleResource markscaleResource = new MarkscaleResource();
+    	markscaleResource.setId(id);
+    	markscaleResource.setAbbrName(abbrName);
+    	markscaleResource.setName(name);
+
+    	long count = 100;
+    	int limit = 25;
+    	Integer offset = 10;
+    	String uri = "/markscales";
+		List<MarkscaleResource> entities = Arrays.asList(markscaleResource);
+    	PagedResultResource<MarkscaleResource> expectedResource = new PagedResultResource<>();
+		expectedResource.setCount(count);
+		expectedResource.setLimit(limit);
+		expectedResource.setOffset(offset);
+		expectedResource.setUri(uri);
+		expectedResource.setResources(entities);
+		
+		PagedRequest<MarkscaleResource> pagedRequest = new PagedRequest<MarkscaleResource>(new MarkscaleResource(), offset, limit);
+		
+		// When
+		when(facade.getResources(Matchers.<PagedRequest<MarkscaleResource>>any())).thenReturn(expectedResource);
+    	String response = getJson(expectedResource, false);
+
+		// Then
+    	mockMvc.perform(get("/markscales")
+    			.param("offset", String.valueOf(offset))
+    			.param("limit", String.valueOf(limit)))
+    		.andExpect(status().isOk())
+    		.andExpect(content().string(response));
+    	
+		verify(facade).getResources(pagedRequest);
+	}
+
+	@Test(expected = AccessDeniedException.class)
+	public void testGetResourceWithAccessDeniedException() throws Exception {
+		// Given
+		Long id = 1L;
+		
+		// When
+		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+		
+		// Then
+		mockMvc.perform(get("/markscales/{id}", id));
+		
+		verify(facade).getResource(id);
+	}
+}

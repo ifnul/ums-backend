@@ -60,6 +60,7 @@ PersonPension
 PersonWork
 Degree
 StudyPlanCycle (потрібно поправити і підключити)
+Markscale
 MarkscaleType
 EnrolmentForeignType
 

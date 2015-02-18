@@ -48,6 +48,10 @@
 		<!-- Language related entities -->
         <class>org.lnu.is.domain.language.Language</class>
         <class>org.lnu.is.domain.language.LanguageLevel</class>
+        
+        <!-- Markscale entities -->
+        <class>org.lnu.is.domain.markscale.Markscale</class>
+        <class>org.lnu.is.domain.markscale.type.MarkscaleType</class>
 
 		<!-- Enrolment related entities -->
         <class>org.lnu.is.domain.enrolment.Enrolment</class>
@@ -131,7 +135,6 @@
         <class>org.lnu.is.domain.honorstype.HonorType</class>
         <class>org.lnu.is.domain.addresstype.AddressType</class>
         <class>org.lnu.is.domain.contacttype.ContactType</class>
-        <class>org.lnu.is.domain.markscale.type.MarkscaleType</class>
         <class>org.lnu.is.domain.marriedtype.MarriedType</class> 
         <class>org.lnu.is.domain.jobtype.JobType</class> 
         <class>org.lnu.is.domain.posttype.PostType</class> 
