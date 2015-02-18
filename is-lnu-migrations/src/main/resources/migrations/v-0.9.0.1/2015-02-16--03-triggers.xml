@@ -315,6 +315,25 @@
 			drop trigger if exists update_date_trigger on q_rp_broadcasting
 			drop trigger if exists update_date_trigger on q_op_user
 		</rollback>
-	</changeSet> 
+	</changeSet>
+	
+	<changeSet id="0.9.0.1.map_update_date_trigger_to_new_fields" author="ivanursul">
+		<sql>
+			create trigger update_date_trigger before insert or update on q_rf_studyplancycle for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_markscaletype for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_ob_markscale for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_markscalevalue for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_od_markscaleexchange for each row execute procedure update_date();
+			create trigger update_date_trigger before insert or update on q_rf_enrolmentforeigntype for each row execute procedure update_date();
+		</sql>
+		<rollback>
+			drop trigger if exists update_date_trigger on q_rf_studyplancycle	
+			drop trigger if exists update_date_trigger on q_rf_markscaletype	
+			drop trigger if exists update_date_trigger on q_ob_markscale	
+			drop trigger if exists update_date_trigger on q_od_markscalevalue	
+			drop trigger if exists update_date_trigger on q_od_markscaleexchange	
+			drop trigger if exists update_date_trigger on q_rf_enrolmentforeigntype	
+		</rollback>
+	</changeSet>
 	
 </databaseChangeLog>
