@@ -7,5 +7,5 @@ object WaveTypeIntegrationTest extends BaseIntegrationTest {
   val url = "/wave/types"
   val title = "Wave Type Get Paged Result"
 
-  val testCase = buildTestCase(url, title, List("id", "name", "uri"))
+  val testCase = buildTestCaseToCheckFieldsExistence(url, title, List("id", "name", "uri"))
 }

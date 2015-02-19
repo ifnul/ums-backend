@@ -108,9 +108,9 @@ object TestCases {
                     DepartmentNameIntegrationTest.testCase,
                     DepartmentSpecialtyIntegrationTest.testCase,
                     DepartmentTypeIntegrationTest.testCase,
-                    
-                    DegreeTypeIntegrationTest.testCase,
-                    DutyTypeIntegrationTest.testCase,
+
+                    //DegreeTypeIntegrationTest.testCase,
+                    //DutyTypeIntegrationTest.testCase,
                     FamilyTypeIntegrationTest.testCase,
                     GenderTypeIntegrationTest.testCase,
                     HonorTypeIntegrationTest.testCase,

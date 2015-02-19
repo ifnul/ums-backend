@@ -18,3 +18,5 @@
 	* q_rf_studyplancycle
 	* q_rf_markscaletype
 	* q_rf_enrolmentforeigntype
+	* q_rf_degreetype
+	* q_rf_dutytype

@@ -1,22 +1,12 @@
 package org.lnu.is.integration.cases.department.types
 
-import io.gatling.core.Predef.checkBuilder2Check
-import io.gatling.core.Predef.findCheckBuilder2ValidatorCheckBuilder
-import io.gatling.core.Predef.jsonFile
-import io.gatling.core.Predef.exec
-import io.gatling.core.Predef.stringToExpression
-import io.gatling.core.json.Jackson
-import io.gatling.http.Predef.bodyString
-import io.gatling.http.Predef.http
-import io.gatling.http.request.RawFileBody
+import org.lnu.is.integration.cases.BaseIntegrationTest
 
-object DepartmentTypeIntegrationTest {
+object DepartmentTypeIntegrationTest extends BaseIntegrationTest {
 
-  val response = RawFileBody("data/department/type/response.json")
-  
-  val testCase = exec(http("Department Type Get Paged Result")
-      .get("/departments/types")
-      .basicAuth("admin", "nimda")
-      .check(bodyString.is(response))
-    )
+  val url = "/departments/types"
+  val title = "Department Type Get Paged Result"
+
+  val testCase = buildTestCaseToCheckFieldsExistence(url, title, List("id", "name", "uri"))
+
 }
