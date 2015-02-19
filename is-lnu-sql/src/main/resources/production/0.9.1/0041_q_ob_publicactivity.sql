@@ -1,0 +1,3 @@
+INSERT INTO q_ob_publicactivity(publicactivitytype_id, timeperiod_id, name, begdate, enddate, uid, utid, uapp, status, actual, note, crtuser, crtusergroup, update_date, create_date ) VALUES 
+	(1, 1, 'Всеукраїнські учнівські олімпіади із базових предметів (IV етап)', '2014-07-11T00:00:00', '2014-07-31T23:59:59', 9, null, 'edbo', 'ACTIVE', 1, null, 'illay', 'public', null, now()), 
+	(2, 1, 'Всеукраїнські конкурси — захисти науково-дослідницьких робіт учнів - членів Малої академії наук України', '2014-07-11T00:00:00', '2014-07-31T23:59:59', 10, null, 'edbo', 'ACTIVE', 1, null, 'illay', 'public', null, now())

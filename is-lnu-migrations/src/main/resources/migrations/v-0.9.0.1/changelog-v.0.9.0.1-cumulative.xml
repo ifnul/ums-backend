@@ -6,6 +6,5 @@
     
     <include file="2015-02-01--01-initial-schema-import.xml" relativeToChangelogFile="true"/>
     <include file="2015-02-16--03-triggers.xml" relativeToChangelogFile="true"/>
-    <include file="2015-02-01--02-core-data.xml" relativeToChangelogFile="true"/>
     
 </databaseChangeLog>

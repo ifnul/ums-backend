@@ -1,0 +1,17 @@
+INSERT INTO q_rf_streettype(abbrname, name, uid, utid, uapp, status, actual, note, crtuser, crtusergroup, create_date, update_date ) VALUES 
+	('вул.', 'вулиця', 1, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('бульв.', 'бульвар', 2, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('пл.', 'площа', 3, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('пров.', 'провулок', 4, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('просп.', 'проспект', 5, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('кв-л', 'квартал', 6, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('майд.', 'майдан', 7, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('м-р', 'мікрорайон', 8, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('тупик', 'тупик', 9, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('дільниця', 'дільниця', 10, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('проїзд', 'проїзд', 11, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('узвіз', 'узвіз', 12, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('шосе', 'шосе', 13, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('набережна', 'набережна', 100, null, 'edbo/StreetTypesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('алея', 'алея', null, null, null, 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+	('лінія', 'лінія', null, null, null, 'ACTIVE', 1, null, 'illay', 'public', now(), now())
