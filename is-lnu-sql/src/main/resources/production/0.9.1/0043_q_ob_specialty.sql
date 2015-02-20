@@ -996,6 +996,7 @@ INSERT INTO q_ob_specialty(specialtytype_id, abbrname, name, cipher, begdate, en
 	(5, null, 'комплекси пілотажно-навігаційного обладнання', '8.05110301', null, null, 154, null, '4783032c-f440-4f4a-a28b-ca204237da0c', 'edbo/SpecSpecialitiesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
 	(5, null, 'системи керування літальними апаратами та комплексами', '8.05110302', null, null, 154, null, '37d118a7-5804-48ee-8016-ca67e9a2d271', 'edbo/SpecSpecialitiesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
 	(5, null, 'кораблі та океанотехніка', '8.05120101', null, null, 155, null, '951dd4ff-ad58-4096-981c-65b82b2c6e6e', 'edbo/SpecSpecialitiesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
+INSERT INTO q_ob_specialty(specialtytype_id, abbrname, name, cipher, begdate, enddate, parent_id, uid, utid, uapp, status, actual, note, crtuser, crtusergroup, create_date, update_date ) VALUES 
 	(5, null, 'суднокорпусобудування', '8.05120102', null, null, 155, null, '8c80f9b5-cd5e-435a-8424-6f740d93696e', 'edbo/SpecSpecialitiesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
 	(5, null, 'суднові енергетичні установки та устаткування', '8.05120103', null, null, 155, null, 'c4813dbc-593a-494e-aca6-3afb10dddf57', 'edbo/SpecSpecialitiesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
 	(5, null, 'системи електроенергетики і автоматизації суден', '8.05120104', null, null, 155, null, 'e8335643-6c37-470f-9e7b-34b2dca43d0d', 'edbo/SpecSpecialitiesGet', 'ACTIVE', 1, null, 'illay', 'public', now(), now()), 
