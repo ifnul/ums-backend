@@ -2,6 +2,7 @@ package org.lnu.is.web.rest.controller.specoffer.type;
 
 import javax.annotation.Resource;
 
+import org.lnu.is.annotations.Limit;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
@@ -37,7 +38,7 @@ public class SpecOffetTypeController extends BaseController implements PagedCont
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get's All SpecOfferTypes", position = 5)
-	public PagedResultResource<SpecOfferTypeResource> getPagedResource(final PagedRequest<SpecOfferTypeResource> request) {
+	public PagedResultResource<SpecOfferTypeResource> getPagedResource(@Limit(defaultValue = "40") final PagedRequest<SpecOfferTypeResource> request) {
 		LOG.info("Retrieving PagedResultResource for Spec Offer Type Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
 	}

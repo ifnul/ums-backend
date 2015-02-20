@@ -50,7 +50,7 @@ public class SpecOffetTypeControllerTest extends AbstractControllerTest {
 
 		Integer offset = 0;
 		long count = 1;
-		Integer limit = 20;
+		Integer limit = 40;
 		PagedResultResource<SpecOfferTypeResource> expected = new PagedResultResource<>("/specoffers/types");
 		expected.setResources(entities);
 		expected.setCount(count);

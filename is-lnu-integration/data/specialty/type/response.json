@@ -1,27 +1,39 @@
 {
   "offset" : 0,
   "limit" : 20,
-  "count" : 5,
+  "count" : 7,
   "resources" : [ {
     "id" : 1,
-    "name" : "Бакалавр",
+    "name" : "Галузь знань",
     "uri" : "/specialties/types/1"
   }, {
     "id" : 2,
-    "name" : "Магістр",
+    "name" : "Молодший спеціаліст",
+    "abbrName" : "5",
     "uri" : "/specialties/types/2"
   }, {
     "id" : 3,
-    "name" : "Спеціаліст",
+    "name" : "Бакалавр",
+    "abbrName" : "6",
     "uri" : "/specialties/types/3"
   }, {
     "id" : 4,
-    "name" : "Молодший спеціаліст",
+    "name" : "Спеціаліст",
+    "abbrName" : "7",
     "uri" : "/specialties/types/4"
   }, {
     "id" : 5,
-    "name" : "Кваліфікаваний робітник",
+    "name" : "Магістр",
+    "abbrName" : "8",
     "uri" : "/specialties/types/5"
+  }, {
+    "id" : 6,
+    "name" : "Кваліфікований робітник",
+    "uri" : "/specialties/types/6"
+  }, {
+    "id" : 7,
+    "name" : "Спеціалізація",
+    "uri" : "/specialties/types/7"
   } ],
   "uri" : "/specialties/types"
 }
