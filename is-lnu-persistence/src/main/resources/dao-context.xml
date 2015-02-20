@@ -225,6 +225,11 @@
 		<property name="queryBuilder" ref="markscaleTypeQueryBuilder"/>
 	</bean>
 	
+	<bean id="markscaleValueDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.markscale.value.MarkscaleValue" />
+		<property name="queryBuilder" ref="markscaleValueQueryBuilder"/>
+	</bean>
+	
 	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.marriedtype.MarriedType" />
 		<property name="queryBuilder" ref="marriedTypeQueryBuilder" />

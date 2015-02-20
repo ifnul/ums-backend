@@ -62,6 +62,7 @@ Degree
 StudyPlanCycle (потрібно поправити і підключити)
 Markscale
 MarkscaleType
+MarkscaleValue
 EnrolmentForeignType
 
 Broadcastings -> Email sending:
