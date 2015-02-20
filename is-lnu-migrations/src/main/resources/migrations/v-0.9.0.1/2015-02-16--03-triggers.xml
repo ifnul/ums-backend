@@ -7,46 +7,44 @@
 	<changeSet id="0.9.0.1.create_process_person function" author="ivaursul">
 		<sql splitStatements="false">
 			<![CDATA[
-				create or replace function process_person() returns trigger as $$
+			create or replace function process_person() returns trigger as $$
 					declare n_person_id bigint;
 					begin
-					if new.status <> 'DELETED' and TG_OP ='UPDATE' then
-						if old.persontype_id <> new.persontype_id then
-				
-							insert into q_ob_person(persontype_id, name, firstname, fathername, surname, photo, 
-								    gendertype_id, marriedtype_id, citizencountry_id, docseries, 
-								    docnum, identifier, resident, birthplace, begdate, enddate, ismilitary, 
-								    ishostel, parent_id, uid, utid, uapp, status, actual, note, crtuser, 
-								    crtusergroup, update_date, create_date)
-							values (new.persontype_id, new.name, new.firstname, new.fathername, new.surname, new.photo, 
-								    new.gendertype_id, new.gendertype_id, new.citizencountry_id, new.docseries, 
-								    new.docnum, new.identifier, new.resident, new.birthplace, new.begdate, new.enddate, 
-								    new.ismilitary, new.ishostel, new.id, new.uid, new.utid, new.uapp, new.status, new.actual,
-								    new.note, new.crtuser, new.crtusergroup, new.update_date, new.create_date)
-						        returning id into n_person_id;
-				
-							update q_ob_person set status='REATTACHED' where id=old.id;
-				
-							update q_dt_ordernewemployee set person_id=n_person_id where person_id=old.id;
-							update q_dt_ordernewstudentitem set person_id=n_person_id where person_id=old.id;
-							update q_ob_degree set person_id=n_person_id where person_id=old.id;
-							update q_ob_employee set person_id=n_person_id where person_id=old.id;
-							update q_od_absence set person_id=n_person_id where person_id=old.id;
-							update q_od_employeeprofession set person_id=n_person_id where person_id=old.id;		
-							update q_od_personaddress set person_id=n_person_id where person_id=old.id;
-							update q_od_personaward set person_id=n_person_id where person_id=old.id;
-							update q_od_personcontact set person_id=n_person_id where person_id=old.id;
-							update q_od_personeducation set person_id=n_person_id where person_id=old.id;
-							update q_od_personenrolsubject set person_id=n_person_id where person_id=old.id;
-							update q_od_personfamily set person_id=n_person_id where person_id=old.id;
-							update q_od_personlanguage set person_id=n_person_id where person_id=old.id;
-							update q_od_personname set person_id=n_person_id where person_id=old.id;
-							update q_od_personpaper set person_id=n_person_id where person_id=old.id;
-							update q_od_personpension set person_id=n_person_id where person_id=old.id;
-							update q_od_personwork set person_id=n_person_id where person_id=old.id;
-							
-							return old;
-						end if;
+					if old.persontype_id <> new.persontype_id then
+			
+						insert into q_ob_person(persontype_id, name, firstname, fathername, surname, photo, 
+							    gendertype_id, marriedtype_id, citizencountry_id, docseries, 
+							    docnum, identifier, resident, birthplace, begdate, enddate, ismilitary, 
+							    ishostel, parent_id, uid, utid, uapp, status, actual, note, crtuser, 
+							    crtusergroup, update_date, create_date)
+						values (new.persontype_id, new.name, new.firstname, new.fathername, new.surname, new.photo, 
+							    new.gendertype_id, new.gendertype_id, new.citizencountry_id, new.docseries, 
+							    new.docnum, new.identifier, new.resident, new.birthplace, new.begdate, new.enddate, 
+							    new.ismilitary, new.ishostel, new.id, new.uid, new.utid, new.uapp, new.status, new.actual,
+							    new.note, new.crtuser, new.crtusergroup, new.update_date, new.create_date)
+						returning id into n_person_id;
+			
+						update q_ob_person set status='REATTACHED' where id=old.id;
+			
+						update q_dt_ordernewemployee set person_id=n_person_id where person_id=old.id;
+						update q_dt_ordernewstudentitem set person_id=n_person_id where person_id=old.id;
+						update q_ob_degree set person_id=n_person_id where person_id=old.id;
+						update q_ob_employee set person_id=n_person_id where person_id=old.id;
+						update q_od_absence set person_id=n_person_id where person_id=old.id;
+						update q_od_employeeprofession set person_id=n_person_id where person_id=old.id;		
+						update q_od_personaddress set person_id=n_person_id where person_id=old.id;
+						update q_od_personaward set person_id=n_person_id where person_id=old.id;
+						update q_od_personcontact set person_id=n_person_id where person_id=old.id;
+						update q_od_personeducation set person_id=n_person_id where person_id=old.id;
+						update q_od_personenrolsubject set person_id=n_person_id where person_id=old.id;
+						update q_od_personfamily set person_id=n_person_id where person_id=old.id;
+						update q_od_personlanguage set person_id=n_person_id where person_id=old.id;
+						update q_od_personname set person_id=n_person_id where person_id=old.id;
+						update q_od_personpaper set person_id=n_person_id where person_id=old.id;
+						update q_od_personpension set person_id=n_person_id where person_id=old.id;
+						update q_od_personwork set person_id=n_person_id where person_id=old.id;
+						
+						return old;
 					end if;
 					return new;
 				end
@@ -60,7 +58,7 @@
 	
 	<changeSet id="0.9.0.1.create_person_trigger" author="ivanursul">
 		<sql>
-			create trigger q_ob_person_iutrig before insert or update on q_ob_person for each row execute procedure process_person();
+			create trigger q_ob_person_iutrig before update on q_ob_person for each row execute procedure process_person();
 		</sql>
 		<rollback>
 			drop trigger if exists q_ob_person_iutrig on q_ob_person
