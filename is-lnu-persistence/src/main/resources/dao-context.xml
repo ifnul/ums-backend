@@ -220,6 +220,11 @@
 		<property name="queryBuilder" ref="markscaleQueryBuilder"/>
 	</bean>
 	
+	<bean id="markscaleExchangeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.markscale.exchange.MarkscaleExchange" />
+		<property name="queryBuilder" ref="markscaleExchangeQueryBuilder"/>
+	</bean>
+	
 	<bean id="markscaleTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.markscale.type.MarkscaleType" />
 		<property name="queryBuilder" ref="markscaleTypeQueryBuilder"/>

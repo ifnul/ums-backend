@@ -213,6 +213,11 @@
 		<property name="dao" ref="markscaleDao"/>
 	</bean>
 	
+	<bean id="markscaleExchangeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="markscaleExchangeParametersExtractor"/>
+		<property name="dao" ref="markscaleExchangeDao"/>
+	</bean>
+	
 	<bean id="markscaleTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="markscaleTypeParametersExtractor"/>
 		<property name="dao" ref="markscaleTypeDao"/>

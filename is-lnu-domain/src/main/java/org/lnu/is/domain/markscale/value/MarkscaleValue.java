@@ -76,5 +76,10 @@ public class MarkscaleValue extends InformationModel {
 		}
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "MarkscaleValue [strValue=" + strValue + "]";
+	}
 	
 }

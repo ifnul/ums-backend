@@ -61,6 +61,7 @@ PersonWork
 Degree
 StudyPlanCycle (потрібно поправити і підключити)
 Markscale
+MarkscaleExchange
 MarkscaleType
 MarkscaleValue
 EnrolmentForeignType

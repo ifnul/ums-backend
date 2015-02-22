@@ -51,6 +51,7 @@
         
         <!-- Markscale entities -->
         <class>org.lnu.is.domain.markscale.Markscale</class>
+        <class>org.lnu.is.domain.markscale.exchange.MarkscaleExchange</class>
         <class>org.lnu.is.domain.markscale.type.MarkscaleType</class>
         <class>org.lnu.is.domain.markscale.value.MarkscaleValue</class>
 
