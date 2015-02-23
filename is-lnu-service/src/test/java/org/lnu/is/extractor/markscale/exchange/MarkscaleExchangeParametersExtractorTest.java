@@ -1,7 +1,7 @@
 package org.lnu.is.extractor.markscale.exchange;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -53,25 +53,29 @@ public class MarkscaleExchangeParametersExtractorTest {
 		when(sessionService.getGroups()).thenReturn(groups);
 	}
 		
-	//@Test
+	@Test
 	public void testGetParameters() throws Exception {
 		// Given
 		Double markMin = 0.0;
 		Double markMax = 10.0;
 		Double markExchange = 5.0;
 		//String note = "note";
+		Long markscaleId = 1L;
+		Long markscaleValueId = 1L;
+		Long markscaleExchangeId = 2L;
+		Long markscaleExchangeValueId = 2L;
 
 		Markscale markscale = new Markscale();
-		markscale.setId(1L);
+		markscale.setId(markscaleId);
 		
 		MarkscaleValue markscaleValue = new MarkscaleValue();
-		markscaleValue.setId(1L);
+		markscaleValue.setId(markscaleValueId);
 		
 		Markscale markscaleExchange = new Markscale();
-		markscaleExchange.setId(2L);
+		markscaleExchange.setId(markscaleExchangeId);
 		
 		MarkscaleValue markscaleExchangeValue = new MarkscaleValue();
-		markscaleExchangeValue.setId(2L);
+		markscaleExchangeValue.setId(markscaleExchangeValueId);
 		
 		MarkscaleExchange entity = new MarkscaleExchange();
 		entity.setMarkMin(markMin);
@@ -94,17 +98,24 @@ public class MarkscaleExchangeParametersExtractorTest {
 		expected.put("markscaleExchangeValue", markscaleExchangeValue);
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
-		
+	
 		// When
-		when(markscaleDao.getEntityById(anyLong())).thenReturn(markscale);
-		
+		when(markscaleDao.getEntityById(markscaleId)).thenReturn(markscale);
+		when(markscaleDao.getEntityById(markscaleExchangeId)).thenReturn(markscaleExchange);
+		when(markscaleValueDao.getEntityById(markscaleValueId)).thenReturn(markscaleValue);
+		when(markscaleValueDao.getEntityById(markscaleExchangeValueId)).thenReturn(markscaleExchangeValue);
+	
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then
+		verify(markscaleDao).getEntityById(markscaleId);
+		verify(markscaleDao).getEntityById(markscaleExchangeId);
+		verify(markscaleValueDao).getEntityById(markscaleValueId);
+		verify(markscaleValueDao).getEntityById(markscaleExchangeValueId);
 		assertEquals(expected, actual);
 	}
 
-	//@Test
+	@Test
 	public void testGetParametersWithDisabledDefaults() throws Exception {
 		// Given
 		unit.setActive(false);
@@ -148,11 +159,19 @@ public class MarkscaleExchangeParametersExtractorTest {
 		expected.put("markscaleExchangeValue", markscaleExchangeValue);
 		
 		// When
-		when(markscaleDao.getEntityById(anyLong())).thenReturn(markscale);
+		when(markscaleDao.getEntityById(1l)).thenReturn(markscale);
+		when(markscaleDao.getEntityById(2l)).thenReturn(markscaleExchange);
+		when(markscaleValueDao.getEntityById(1l)).thenReturn(markscaleValue);
+		when(markscaleValueDao.getEntityById(2l)).thenReturn(markscaleExchangeValue);
 		
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then
+		verify(markscaleDao).getEntityById(1L);
+		verify(markscaleDao).getEntityById(2L);
+		verify(markscaleValueDao).getEntityById(1L);
+		verify(markscaleValueDao).getEntityById(2L);
+		
 		assertEquals(expected, actual);
 	}
 	
