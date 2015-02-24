@@ -18,6 +18,7 @@ import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.security.exception.AccessDeniedException;
+import org.lnu.is.security.service.DefaultSessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;

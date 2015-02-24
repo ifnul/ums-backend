@@ -68,4 +68,15 @@ public abstract class AbstractControllerTest {
 		return objectMapper.writeValueAsString(object);
 	}
 
+	/**
+	 * Method for getting json using getters
+	 * @param object
+	 * @return
+	 * @throws Exception
+	 */
+	protected String getJson(final Object object) throws Exception {
+		writeFromFields(false);
+		return objectMapper.writeValueAsString(object);
+	}
+
 }

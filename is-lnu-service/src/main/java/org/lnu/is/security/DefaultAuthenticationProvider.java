@@ -71,6 +71,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
      */
     private void loadLazyFields(final User user) {
     	Hibernate.initialize(user.getGroups());
+    	Hibernate.initialize(user.getRoles());
         Hibernate.initialize(user.getUserGroups());
         
         for (UserGroup userGroup : user.getUserGroups()) {

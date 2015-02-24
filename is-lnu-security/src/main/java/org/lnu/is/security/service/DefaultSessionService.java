@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.lnu.is.domain.group.Group;
+import org.lnu.is.domain.session.Session;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.security.exception.AccessDeniedException;
@@ -34,7 +35,7 @@ public class DefaultSessionService implements SessionService {
 	public List<String> getRoles() {
 		Collection<? extends GrantedAuthority> authorities = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 		List<String> roles = new ArrayList<String>();
-
+		
 		for (GrantedAuthority grantedAuthority : authorities) {
 			roles.add(grantedAuthority.getAuthority());
 		}
@@ -86,6 +87,18 @@ public class DefaultSessionService implements SessionService {
 			throw new AccessDeniedException("Access to appropriate group is denied to current user");
 		}
 		
+	}
+
+	@Override
+	public Session getSession() {
+		User user = getUser();
+		Session session = new Session();
+		
+		session.setUser(user);
+		session.setGroups(user.getGroups());
+		session.setRoles(user.getRoles());
+		
+		return session;
 	}
 	
 

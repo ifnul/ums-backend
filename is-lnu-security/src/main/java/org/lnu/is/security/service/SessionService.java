@@ -3,6 +3,7 @@ package org.lnu.is.security.service;
 import java.util.List;
 
 import org.lnu.is.domain.group.Group;
+import org.lnu.is.domain.session.Session;
 import org.lnu.is.domain.user.User;
 
 /**
@@ -12,6 +13,13 @@ import org.lnu.is.domain.user.User;
  */
 public interface SessionService {
 
+	
+	/**
+	 * Method for getting session details.
+	 * @return session.
+	 */
+	Session getSession();
+	
 	/**
 	 * Method for getting authorized user.
 	 * @return session.

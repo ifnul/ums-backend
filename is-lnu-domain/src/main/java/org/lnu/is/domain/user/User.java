@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.OP;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.group.Group;
+import org.lnu.is.domain.role.Role;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.role.UserRole;
 
@@ -58,6 +59,12 @@ public class User extends Model implements Serializable {
 		joinColumns = { @JoinColumn(name = "user_id") },
 		inverseJoinColumns = { @JoinColumn(name = "group_id") })
     private List<Group> groups;
+    
+    @ManyToMany
+    @JoinTable(name = "q_op_userrole",
+    joinColumns = { @JoinColumn(name = "user_id") },
+    inverseJoinColumns = { @JoinColumn(name = "role_id") })
+    private List<Role> roles;
     
 	public String getEmail() {
 		return email;
@@ -130,6 +137,14 @@ public class User extends Model implements Serializable {
     public void setPassword(final String password) {
         this.password = password;
     }
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(final List<Role> roles) {
+		this.roles = roles;
+	}
 
 	@Override
 	public int hashCode() {
