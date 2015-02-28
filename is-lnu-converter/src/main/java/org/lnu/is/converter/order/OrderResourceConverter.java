@@ -9,6 +9,7 @@ import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.order.type.OrderType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
+import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.resource.order.OrderResource;
 import org.springframework.stereotype.Component;
 
@@ -71,12 +72,21 @@ public class OrderResourceConverter extends AbstractConverter<OrderResource, Ord
 			target.setParent(parent);
 		}
 		
+		if (source.getTimePeriodId() != null) {
+			TimePeriod timePeriod = new TimePeriod();
+			timePeriod.setId(source.getTimePeriodId());
+			target.setTimePeriod(timePeriod);
+		}
+		
 		target.setReasonText(source.getReasonText());
 		target.setDocSeries(source.getDocSeries());
 		target.setDocNum(source.getDocNum());
 		target.setDocDate(source.getDocDate());
 		target.setDocIssued(source.getDocIssued());
 		target.setEvDate(source.getEvDate());
+		target.setDescription(source.getDescription());
+		target.setTitle(source.getTitle());
+		target.setNote(source.getNote());
 		
 		return target;
 	}

@@ -7573,4 +7573,11 @@
 		<addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dc_enrolment" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
 	</changeSet>
 	
+	<changeSet id="drop not null constraint for parent_id, employee_id, reasonId and optype_id in q_dc_order" author="OlehZanevych">
+		<dropNotNullConstraint tableName="q_dc_order" columnName="parent_id"/>
+		<dropNotNullConstraint tableName="q_dc_order" columnName="employee_id"/>
+		<dropNotNullConstraint tableName="q_dc_order" columnName="reason_id"/>
+		<dropNotNullConstraint tableName="q_dc_order" columnName="optype_id"/>
+	</changeSet>
+	
 </databaseChangeLog>

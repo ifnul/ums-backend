@@ -36,6 +36,7 @@ import org.lnu.is.integration.cases.honor.types.HonorTypeIntegrationTest
 import org.lnu.is.integration.cases.invalid.InvalidRequestBodyIntegrationTest
 import org.lnu.is.integration.cases.language.LanguageIntegrationTest
 import org.lnu.is.integration.cases.operation.types.OperationTypeIntegrationTest
+import org.lnu.is.integration.cases.order.OrderIntegrationTest
 import org.lnu.is.integration.cases.order.types.OrderTypeIntegrationTest
 import org.lnu.is.integration.cases.paper.types.PaperTypeIntegrationTest
 import org.lnu.is.integration.cases.paper.usage.PaperUsageIntegrationTest
@@ -82,19 +83,26 @@ object TestCases {
     val scn = scenario("Integration test scenario")
               .exec(
                     AddressTypeIntegrationTest.testCase,
+                    
                     AdminUnitIntegrationTest.testCase,
+                    AdminUnitTypeIntegrationTest.testCase,
                     
                     AssetIntegrationTest.testCase,
                     AssetAddressIntegrationTest.testCase,
                     AssetTypeIntegrationTest.testCase,
                     AssetStatusIntegrationTest.testCase,
-                    
                     AssetStateIntegrationTest.testCase,
+                    
                     BenefitTypeIntegrationTest.testCase,
+                    
                     ContactTypeIntegrationTest.testCase,
+                    
                     CourseTypeIntegrationTest.testCase,
+                    
                     EduFormTypeIntegrationTest.testCase,
+                    
                     EducationTypeIntegrationTest.testCase,
+                    
                     EmployeeStatusIntegrationTest.testCase,
                     EmployeeTypeIntegrationTest.testCase,
                     
@@ -111,13 +119,18 @@ object TestCases {
                     DepartmentNameIntegrationTest.testCase,
                     DepartmentSpecialtyIntegrationTest.testCase,
                     DepartmentTypeIntegrationTest.testCase,
-
+                    
                     //DegreeTypeIntegrationTest.testCase,
                     //DutyTypeIntegrationTest.testCase,
+                    
                     FamilyTypeIntegrationTest.testCase,
+                    
                     GenderTypeIntegrationTest.testCase,
+                    
                     HonorTypeIntegrationTest.testCase,
+                    
                     LanguageIntegrationTest.testCase,
+                    
                     PaperTypeIntegrationTest.testCase,
                     PaperUsageIntegrationTest.testCase,
                     
@@ -139,26 +152,33 @@ object TestCases {
                     PublicActivityTypeIntegrationTest.testCase,
                     
                     ReasonIntegrationTest.testCase,
+                    
                     SallaryTypeIntegrationTest.testCase,
                     
                     SpecialtyIntegrationTest.testCase,
                     SpecialtyTypeIntegrationTest.testCase,
                     
-                    StreetTypeIntegrationTest.testCase,
-                    SubjectIntegrationTest.testCase,
-                    SubjectTypeIntegrationTest.testCase,
-                    OrderTypeIntegrationTest.testCase,
-                    OperationTypeIntegrationTest.testCase,
-                    TimePeriodIntegrationTest.testCase,
-                    TimePeriodTypeIntegrationTest.testCase,
-                    TimeSheetTypeIntegrationTest.testCase,
-                    WaveTypeIntegrationTest.testCase,
-                    AdminUnitTypeIntegrationTest.testCase,
                     SpecofferIntegrationTest.testCase,
                     SpecOfferBenefitIntegrationTest.testCase,
                     SpecOfferSubjectIntegrationTest.testCase,
                     SpecOfferWaveIntegrationTest.testCase,
                     SpecofferTypeIntegrationTest.testCase,
+                    
+                    StreetTypeIntegrationTest.testCase,
+                    
+                    SubjectIntegrationTest.testCase,
+                    SubjectTypeIntegrationTest.testCase,
+                    
+                    OrderIntegrationTest.testCase,
+                    OrderTypeIntegrationTest.testCase,
+                    
+                    OperationTypeIntegrationTest.testCase,
+                    
+                    TimePeriodIntegrationTest.testCase,
+                    TimePeriodTypeIntegrationTest.testCase,
+                    TimeSheetTypeIntegrationTest.testCase,
+                    
+                    WaveTypeIntegrationTest.testCase,
                     
                     AccessDeniedIntegrationTest.testCase,
                     InvalidRequestBodyIntegrationTest.testCase

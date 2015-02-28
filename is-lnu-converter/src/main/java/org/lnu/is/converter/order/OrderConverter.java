@@ -48,12 +48,20 @@ public class OrderConverter extends AbstractConverter<Order, OrderResource> {
 			target.setParentId(source.getParent().getId());
 		}
 		
+		if (source.getTimePeriod() != null) {
+			target.setTimePeriodId(source.getTimePeriod().getId());
+		}
+		
 		target.setReasonText(source.getReasonText());
 		target.setDocSeries(source.getDocSeries());
 		target.setDocNum(source.getDocNum());
 		target.setDocDate(source.getDocDate());
 		target.setDocIssued(source.getDocIssued());
 		target.setEvDate(source.getEvDate());
+		target.setDescription(source.getDescription());
+		target.setTitle(source.getTitle());
+		target.setNote(source.getNote());
+		target.setId(source.getId());
 		
 		return target;
 	}
