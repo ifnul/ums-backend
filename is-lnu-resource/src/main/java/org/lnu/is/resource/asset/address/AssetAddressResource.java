@@ -2,6 +2,8 @@ package org.lnu.is.resource.asset.address;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.NotNull;
+
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -11,12 +13,16 @@ import org.lnu.is.resource.ApiResource;
  */
 public class AssetAddressResource extends ApiResource {
 
+	@NotNull(message = "Field required")
 	private Long adminUnitId;
 
+	@NotNull(message = "Field required")
 	private Long assetId;
 
+	@NotNull(message = "Field required")
 	private Long addressTypeId;
 
+	@NotNull(message = "Field required")
 	private Long streetTypeId;
 
 	private String zipCode;

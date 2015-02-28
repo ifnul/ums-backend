@@ -5,6 +5,7 @@ import org.lnu.is.integration.cases.address.types.AddressTypeIntegrationTest
 import org.lnu.is.integration.cases.adminunit.AdminUnitIntegrationTest
 import org.lnu.is.integration.cases.adminunit.types.AdminUnitTypeIntegrationTest
 import org.lnu.is.integration.cases.assets.AssetIntegrationTest
+import org.lnu.is.integration.cases.assets.address.AssetAddressIntegrationTest
 import org.lnu.is.integration.cases.assets.state.AssetStateIntegrationTest
 import org.lnu.is.integration.cases.assets.statuses.AssetStatusIntegrationTest
 import org.lnu.is.integration.cases.assets.types.AssetTypeIntegrationTest
@@ -83,6 +84,8 @@ object TestCases {
                     AddressTypeIntegrationTest.testCase,
                     AdminUnitIntegrationTest.testCase,
                     
+                    AssetIntegrationTest.testCase,
+                    AssetAddressIntegrationTest.testCase,
                     AssetTypeIntegrationTest.testCase,
                     AssetStatusIntegrationTest.testCase,
                     
@@ -156,8 +159,6 @@ object TestCases {
                     SpecOfferSubjectIntegrationTest.testCase,
                     SpecOfferWaveIntegrationTest.testCase,
                     SpecofferTypeIntegrationTest.testCase,
-                    AssetIntegrationTest.testCase,
-                    //AssetAddressIntegrationTest.testCase,
                     
                     AccessDeniedIntegrationTest.testCase,
                     InvalidRequestBodyIntegrationTest.testCase

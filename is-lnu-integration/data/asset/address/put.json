@@ -1,0 +1,11 @@
+{
+  "zipCode": "79007",
+  "street": "Gorodotcka",
+  "house": "4",
+  "apartment": "11",
+  "addressTypeId": 2,
+  "streetTypeId": 2,
+  "adminUnitId": 2,
+  "assetId": ${assetId},
+  "note": "${newNote}"
+}
