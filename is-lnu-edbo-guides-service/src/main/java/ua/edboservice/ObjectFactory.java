@@ -5118,11 +5118,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityFacultetSpecialitiesEntranceExaminationСhange }
+     * Create an instance of {@link UniversityFacultetSpecialitiesEntranceExaminationChange }
      * 
      */
-    public UniversityFacultetSpecialitiesEntranceExaminationСhange createUniversityFacultetSpecialitiesEntranceExaminationСhange() {
-        return new UniversityFacultetSpecialitiesEntranceExaminationСhange();
+    public UniversityFacultetSpecialitiesEntranceExaminationChange createUniversityFacultetSpecialitiesEntranceExaminationСhange() {
+        return new UniversityFacultetSpecialitiesEntranceExaminationChange();
     }
 
     /**
@@ -8374,11 +8374,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityFacultetSpecialitiesEntranceExaminationСhangeResponse }
+     * Create an instance of {@link UniversityFacultetSpecialitiesEntranceExaminationChangeResponse }
      * 
      */
-    public UniversityFacultetSpecialitiesEntranceExaminationСhangeResponse createUniversityFacultetSpecialitiesEntranceExaminationСhangeResponse() {
-        return new UniversityFacultetSpecialitiesEntranceExaminationСhangeResponse();
+    public UniversityFacultetSpecialitiesEntranceExaminationChangeResponse createUniversityFacultetSpecialitiesEntranceExaminationСhangeResponse() {
+        return new UniversityFacultetSpecialitiesEntranceExaminationChangeResponse();
     }
 
     /**
