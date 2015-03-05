@@ -19,6 +19,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<cxf.version>2.7.3</cxf.version>
 		<wsdl.location>EDBOPerson.wsdl</wsdl.location>
+		
+		<maven.test.skip>true</maven.test.skip>
+		<cobertura.skip>true</cobertura.skip>
+		<maven.javadoc.skip>true</maven.javadoc.skip>
+		<findbugs.skip>true</findbugs.skip>
+		<skipAnalyses>true</skipAnalyses>
+		<checkstyle.skip>true</checkstyle.skip>		
 	</properties>
 
 	<dependencies>
