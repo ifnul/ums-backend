@@ -31,8 +31,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "personEducationsStatusChange\u0422echnicalMoveResult"
 })
-@XmlRootElement(name = "PersonEducationsStatusChange\u0422echnicalMoveResponse")
-public class PersonEducationsStatusChangeТechnicalMoveResponse {
+@XmlRootElement(name = "PersonEducationsStatusChangeTechnicalMoveResponse")
+public class PersonEducationsStatusChangeTechnicalMoveResponse {
 
     @XmlElement(name = "PersonEducationsStatusChange\u0422echnicalMoveResult")
     protected String personEducationsStatusChangeТechnicalMoveResult;
@@ -57,7 +57,7 @@ public class PersonEducationsStatusChangeТechnicalMoveResponse {
      *     {@link String }
      *     
      */
-    public void setPersonEducationsStatusChangeТechnicalMoveResult(String value) {
+    public void setPersonEducationsStatusChangeТechnicalMoveResult(final String value) {
         this.personEducationsStatusChangeТechnicalMoveResult = value;
     }
 

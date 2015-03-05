@@ -3638,11 +3638,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonEducationsStatusChangeТechnicalMoveResponse }
+     * Create an instance of {@link PersonEducationsStatusChangeTechnicalMoveResponse }
      * 
      */
-    public PersonEducationsStatusChangeТechnicalMoveResponse createPersonEducationsStatusChangeТechnicalMoveResponse() {
-        return new PersonEducationsStatusChangeТechnicalMoveResponse();
+    public PersonEducationsStatusChangeTechnicalMoveResponse createPersonEducationsStatusChangeТechnicalMoveResponse() {
+        return new PersonEducationsStatusChangeTechnicalMoveResponse();
     }
 
     /**
