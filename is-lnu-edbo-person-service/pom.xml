@@ -56,6 +56,7 @@
 								<wsdlOptions>
 									<wsdlOption>
 										<wsdl>${basedir}/src/main/resources/${wsdl.location}</wsdl>
+										<wsdlLocation>classpath:${wsdl.location}</wsdlLocation>
 										<extraargs>
 											<extraarg>-verbose</extraarg>
 											<extraarg>-client</extraarg>

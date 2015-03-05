@@ -34,8 +34,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "PersonEducationsStatusChangeTechnicalMoveResponse")
 public class PersonEducationsStatusChangeTechnicalMoveResponse {
 
-    @XmlElement(name = "PersonEducationsStatusChange\u0422echnicalMoveResult")
-    protected String personEducationsStatusChangeТechnicalMoveResult;
+    @XmlElement(name = "PersonEducationsStatusChangeTechnicalMoveResult")
+    protected String personEducationsStatusChangeTechnicalMoveResult;
 
     /**
      * Gets the value of the personEducationsStatusChangeТechnicalMoveResult property.
@@ -46,7 +46,7 @@ public class PersonEducationsStatusChangeTechnicalMoveResponse {
      *     
      */
     public String getPersonEducationsStatusChangeТechnicalMoveResult() {
-        return personEducationsStatusChangeТechnicalMoveResult;
+        return personEducationsStatusChangeTechnicalMoveResult;
     }
 
     /**
@@ -58,7 +58,7 @@ public class PersonEducationsStatusChangeTechnicalMoveResponse {
      *     
      */
     public void setPersonEducationsStatusChangeТechnicalMoveResult(final String value) {
-        this.personEducationsStatusChangeТechnicalMoveResult = value;
+        this.personEducationsStatusChangeTechnicalMoveResult = value;
     }
 
 }
