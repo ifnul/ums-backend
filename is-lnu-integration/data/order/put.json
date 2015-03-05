@@ -1,0 +1,16 @@
+{
+  "description": "new description",
+  "reasonText": "new reason text",
+  "docSeries": "dn",
+  "docNum": "1234567",
+  "docDate": "2015-03-01",
+  "docIssued": "Ivan",
+  "evDate": "2015-03-01",
+  "partnerId": ${partnerId},
+  "departmentId": ${departmentId},
+  "orderTypeId": 2,
+  "assetId": ${assetId},
+  "timePeriodId": ${timePeriodId},
+  "title": "new title",
+  "note": "${newNote}"
+}

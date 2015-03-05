@@ -21,7 +21,6 @@ public class OrderResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Long orderTypeId;
 
-	@NotNull(message = "Field required")
 	private Long employeeId;
 	
 	@NotNull(message = "Field required")
@@ -30,7 +29,6 @@ public class OrderResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Long partnerId;
 	
-	@NotNull(message = "Field required")
 	private Long operationTypeId;
 
 	@NotNull(message = "Field required")
@@ -39,7 +37,6 @@ public class OrderResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Long timePeriodId;
 	
-	@NotNull(message = "Field required")
 	private Long reasonId;
 	
 	@NotNull(message = "Field required")
