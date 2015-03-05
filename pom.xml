@@ -35,8 +35,9 @@
 		<module>is-lnu-domain</module>
 		<module>is-lnu-security</module>
     	<module>is-lnu-edebo</module>
-   		<module>is-lnu-edebo-domain</module>
    		<module>is-lnu-mailing</module>
+    	<module>is-lnu-edbo-person-service</module>
+    	<module>is-lnu-edbo-guides-service</module>
   </modules>
 
 	<properties>
