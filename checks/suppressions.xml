@@ -8,5 +8,6 @@
     <suppress checks="." files="BaseFacade.java" />
     <suppress checks="." files="CustomObjectMapper.java" />
     <suppress files="PGEnumUserType\.java" checks="[a-zA-Z0-9]*"/>
+    <suppress checks="." files="ua[\\/]edboservice[\\/]"/>
 </suppressions>
 
