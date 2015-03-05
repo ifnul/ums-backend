@@ -8,7 +8,7 @@
 		<version>0.0.5-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>is-lnu-edebo</artifactId>
+	<artifactId>is-lnu-edbo</artifactId>
 	<name>is-lnu-edebo</name>
 	<description>
   		Module for e-government database for education system.
@@ -22,6 +22,7 @@
 		<camel-version>2.14.0</camel-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>is-lnu</groupId>

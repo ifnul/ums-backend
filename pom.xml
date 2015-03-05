@@ -34,8 +34,10 @@
 		<module>is-lnu-persistence</module>
 		<module>is-lnu-domain</module>
 		<module>is-lnu-security</module>
-    	<module>is-lnu-edebo</module>
    		<module>is-lnu-mailing</module>
+   		
+   		<!-- EDBO Modules -->
+    	<module>is-lnu-edbo</module>
     	<module>is-lnu-edbo-person-service</module>
     	<module>is-lnu-edbo-guides-service</module>
   </modules>
