@@ -53176,10 +53176,10 @@
   </wsdl:binding>
   <wsdl:service name="EDBOGuides">
     <wsdl:port name="EDBOGuidesSoap" binding="tns:EDBOGuidesSoap">
-      <soap:address location="http://194.44.198.43:8080/EDBOGuides/EDBOGuides.asmx" />
+      <soap:address location="http://194.44.198.43:8081/EDBOGuides/EDBOGuides.asmx" />
     </wsdl:port>
     <wsdl:port name="EDBOGuidesSoap12" binding="tns:EDBOGuidesSoap12">
-      <soap12:address location="http://194.44.198.43:8080/EDBOGuides/EDBOGuides.asmx" />
+      <soap12:address location="http://194.44.198.43:8081/EDBOGuides/EDBOGuides.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
