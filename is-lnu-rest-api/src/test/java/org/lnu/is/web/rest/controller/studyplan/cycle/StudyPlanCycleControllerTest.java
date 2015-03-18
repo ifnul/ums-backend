@@ -10,14 +10,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.resource.studyplan.cycle.StudyPlanCycleResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
+import org.lnu.is.resource.studyplan.cycle.StudyPlanCycleResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.mockito.InjectMocks;
@@ -60,7 +62,7 @@ public class StudyPlanCycleControllerTest extends AbstractControllerTest {
 
 		StudyPlanCycleResource paramResource = new StudyPlanCycleResource();
 		paramResource.setName(name);
-		PagedRequest<StudyPlanCycleResource> request = new PagedRequest<StudyPlanCycleResource>(paramResource, offset, limit);
+		PagedRequest<StudyPlanCycleResource> request = new PagedRequest<StudyPlanCycleResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
 
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<StudyPlanCycleResource>> any())).thenReturn(expected);

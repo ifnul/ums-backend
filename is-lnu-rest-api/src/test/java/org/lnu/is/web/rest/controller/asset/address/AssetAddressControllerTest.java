@@ -14,10 +14,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.asset.address.AssetAddressResource;
 import org.lnu.is.resource.message.MessageResource;
@@ -147,7 +149,7 @@ public class AssetAddressControllerTest extends AbstractControllerTest {
 		Long assetId = 5L;
 		AssetAddressResource resource = new AssetAddressResource();
 		resource.setAssetId(assetId);
-		PagedRequest<AssetAddressResource> pagedRequest = new PagedRequest<AssetAddressResource>(resource, offset, limit);
+		PagedRequest<AssetAddressResource> pagedRequest = new PagedRequest<AssetAddressResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<AssetAddressResource>>any())).thenReturn(expectedResource);
@@ -183,7 +185,7 @@ public class AssetAddressControllerTest extends AbstractControllerTest {
     	expectedResource.setResources(entities);
     	
     	AssetAddressResource resource = new AssetAddressResource();
-    	PagedRequest<AssetAddressResource> pagedRequest = new PagedRequest<AssetAddressResource>(resource, offset, limit);
+    	PagedRequest<AssetAddressResource> pagedRequest = new PagedRequest<AssetAddressResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
     	
     	// When
     	when(facade.getResources(Matchers.<PagedRequest<AssetAddressResource>>any())).thenReturn(expectedResource);

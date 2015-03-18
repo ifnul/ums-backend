@@ -3,8 +3,10 @@ package org.lnu.is.web.rest.processor.resolver;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -17,6 +19,7 @@ import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.beanutils.converters.DateTimeConverter;
 import org.lnu.is.annotations.Limit;
 import org.lnu.is.annotations.Offset;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.web.rest.constant.Constants;
 import org.springframework.core.MethodParameter;
@@ -58,15 +61,25 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 			final WebDataBinderFactory binderFactory) throws Exception {
 		
 		
-		HttpServletRequest httprequest = (HttpServletRequest) webRequest.getNativeRequest();
+		HttpServletRequest httpRequest = (HttpServletRequest) webRequest.getNativeRequest();
 		Map<String, String> parameters = getRequestParameters(webRequest);
         Object resource = getResource(param, parameters);
-        Integer limit = getLimit(param, httprequest);
-        Integer offset = getOffset(param, httprequest);
-        //TODO: IU - Handle List of order by fields
+        Integer limit = getLimit(param, httpRequest);
+        Integer offset = getOffset(param, httpRequest);
+        List<OrderBy> orders = getOrders(param, httpRequest);
 		
-        PagedRequest<Object> pagedRequest = new PagedRequest<Object>(resource, offset, limit);
+        PagedRequest<Object> pagedRequest = new PagedRequest<Object>(resource, offset, limit, orders);
 		return pagedRequest;
+	}
+
+	/**
+	 * Method for counting all order by fields.
+	 * @param param
+	 * @param httpRequest
+	 * @return List of order by fields.
+	 */
+	private List<OrderBy> getOrders(final MethodParameter param, final HttpServletRequest httpRequest) {
+		return Collections.emptyList();
 	}
 
 	/**

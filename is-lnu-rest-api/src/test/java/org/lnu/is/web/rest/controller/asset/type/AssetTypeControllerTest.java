@@ -10,10 +10,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.asset.type.AssetTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
@@ -61,8 +63,7 @@ public class AssetTypeControllerTest extends AbstractControllerTest {
 		AssetTypeResource paramResource = new AssetTypeResource();
 		paramResource.setName(name);
 
-		PagedRequest<AssetTypeResource> request = new PagedRequest<AssetTypeResource>(
-				paramResource, offset, limit);
+		PagedRequest<AssetTypeResource> request = new PagedRequest<AssetTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
 
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<AssetTypeResource>> any())).thenReturn(expected);

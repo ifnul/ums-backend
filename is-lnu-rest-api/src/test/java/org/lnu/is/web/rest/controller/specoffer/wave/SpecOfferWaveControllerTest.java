@@ -15,10 +15,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.nio.file.AccessDeniedException;
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
@@ -154,7 +156,7 @@ public class SpecOfferWaveControllerTest extends AbstractControllerTest {
 		
 		SpecOfferWaveResource resource = new SpecOfferWaveResource();
 		resource.setSpecOfferId(specOfferId);
-		PagedRequest<SpecOfferWaveResource> pagedRequest = new PagedRequest<SpecOfferWaveResource>(resource, offset, limit);
+		PagedRequest<SpecOfferWaveResource> pagedRequest = new PagedRequest<SpecOfferWaveResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<SpecOfferWaveResource>>any())).thenReturn(expectedResource);
@@ -192,7 +194,7 @@ public class SpecOfferWaveControllerTest extends AbstractControllerTest {
     	expectedResource.setResources(entities);
     	
     	SpecOfferWaveResource resource = new SpecOfferWaveResource();
-    	PagedRequest<SpecOfferWaveResource> pagedRequest = new PagedRequest<SpecOfferWaveResource>(resource, offset, limit);
+    	PagedRequest<SpecOfferWaveResource> pagedRequest = new PagedRequest<SpecOfferWaveResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
     	
     	// When
     	when(facade.getResources(Matchers.<PagedRequest<SpecOfferWaveResource>>any())).thenReturn(expectedResource);

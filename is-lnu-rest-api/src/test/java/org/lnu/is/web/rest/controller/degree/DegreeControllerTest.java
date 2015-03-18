@@ -14,10 +14,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.degree.DegreeResource;
 import org.lnu.is.resource.message.MessageResource;
@@ -144,7 +146,7 @@ public class DegreeControllerTest extends AbstractControllerTest {
 		expectedResource.setUri(uri);
 		expectedResource.setResources(entities);
 		
-		PagedRequest<DegreeResource> pagedRequest = new PagedRequest<DegreeResource>(new DegreeResource(), offset, limit);
+		PagedRequest<DegreeResource> pagedRequest = new PagedRequest<DegreeResource>(new DegreeResource(), offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<DegreeResource>>any())).thenReturn(expectedResource);
@@ -182,7 +184,7 @@ public class DegreeControllerTest extends AbstractControllerTest {
     	
     	DegreeResource resource = new DegreeResource();
     	resource.setPersonId(personId);
-		PagedRequest<DegreeResource> pagedRequest = new PagedRequest<DegreeResource>(resource, offset, limit);
+		PagedRequest<DegreeResource> pagedRequest = new PagedRequest<DegreeResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
     	
     	// When
     	when(facade.getResources(Matchers.<PagedRequest<DegreeResource>>any())).thenReturn(expectedResource);

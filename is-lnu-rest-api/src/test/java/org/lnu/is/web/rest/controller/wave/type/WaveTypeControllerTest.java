@@ -10,10 +10,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
@@ -60,7 +62,7 @@ public class WaveTypeControllerTest extends AbstractControllerTest {
 		WaveTypeResource paramResource = new WaveTypeResource();
 		paramResource.setName(name);
 		
-		PagedRequest<WaveTypeResource> request = new PagedRequest<WaveTypeResource>(paramResource, offset, limit);
+		PagedRequest<WaveTypeResource> request = new PagedRequest<WaveTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<WaveTypeResource>> any())).thenReturn(expected);

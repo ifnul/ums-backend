@@ -1,4 +1,4 @@
-package org.lnu.is.web.rest.controller.timesheet.type;
+	package org.lnu.is.web.rest.controller.timesheet.type;
 
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.doThrow;
@@ -10,10 +10,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
@@ -63,7 +65,7 @@ public class TimeSheetTypeControllerTest extends AbstractControllerTest {
 		paramResource.setName(name);
 		paramResource.setAbbrName(abbrName);		
 		
-		PagedRequest<TimeSheetTypeResource> request = new PagedRequest<TimeSheetTypeResource>(paramResource, offset, limit);
+		PagedRequest<TimeSheetTypeResource> request = new PagedRequest<TimeSheetTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<TimeSheetTypeResource>> any())).thenReturn(expected);

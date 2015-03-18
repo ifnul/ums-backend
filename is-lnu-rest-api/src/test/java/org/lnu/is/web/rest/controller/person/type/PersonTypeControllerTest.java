@@ -10,10 +10,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.person.type.PersonTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
@@ -63,7 +65,7 @@ public class PersonTypeControllerTest extends AbstractControllerTest {
 		expectedResource.setUri(uri);
 		expectedResource.setResources(entities);
 
-		PagedRequest<PersonTypeResource> pagedRequest = new PagedRequest<PersonTypeResource>(new PersonTypeResource(), offset, limit);
+		PagedRequest<PersonTypeResource> pagedRequest = new PagedRequest<PersonTypeResource>(new PersonTypeResource(), offset, limit, Collections.<OrderBy>emptyList());
 
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<PersonTypeResource>> any())).thenReturn(expectedResource);

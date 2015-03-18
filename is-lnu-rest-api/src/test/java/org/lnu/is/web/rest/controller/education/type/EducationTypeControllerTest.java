@@ -10,10 +10,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.education.type.EducationTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
@@ -60,7 +62,7 @@ public class EducationTypeControllerTest extends AbstractControllerTest {
 
 		EducationTypeResource paramResource = new EducationTypeResource();
 		paramResource.setName(name);
-		PagedRequest<EducationTypeResource> request = new PagedRequest<EducationTypeResource>(paramResource, offset, limit);
+		PagedRequest<EducationTypeResource> request = new PagedRequest<EducationTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<EducationTypeResource>>any())).thenReturn(expected);

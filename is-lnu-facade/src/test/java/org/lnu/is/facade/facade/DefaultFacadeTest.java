@@ -18,6 +18,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.converter.Converter;
 import org.lnu.is.dao.dao.DefaultDao;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.pagination.MultiplePagedSearch;
@@ -194,7 +195,7 @@ public class DefaultFacadeTest {
 	@Test
 	public void testGetEntities() throws Exception {
 		// Given
-		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), 10, 10);
+		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), 10, 10, Collections.<OrderBy>emptyList());
 		List<PersonResource> resources = Collections.singletonList(new PersonResource());
 		PagedResultResource<PersonResource> expectedPagedResultResource = new PagedResultResource<>(pagedRequest.getResource().getRootUri());
 		expectedPagedResultResource.setResources(resources);

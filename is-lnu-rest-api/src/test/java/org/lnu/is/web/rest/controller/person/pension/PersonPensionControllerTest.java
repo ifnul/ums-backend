@@ -15,10 +15,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.nio.file.AccessDeniedException;
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
@@ -165,8 +167,7 @@ public class PersonPensionControllerTest extends AbstractControllerTest {
 	
 		PersonPensionResource resource = new PersonPensionResource();
 		resource.setPersonId(personId);
-		PagedRequest<PersonPensionResource> pagedRequest = new PagedRequest<PersonPensionResource>(
-			resource, offset, limit);
+		PagedRequest<PersonPensionResource> pagedRequest = new PagedRequest<PersonPensionResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
 	
 		// When
 		when(

@@ -10,10 +10,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.adminunit.AdminUnitResource;
 import org.lnu.is.resource.search.PagedRequest;
@@ -60,7 +62,7 @@ public class AdminUnitControllerTest extends AbstractControllerTest {
 		AdminUnitResource paramResource = new AdminUnitResource();
 		paramResource.setName(name);
 		
-		PagedRequest<AdminUnitResource> request = new PagedRequest<AdminUnitResource>(paramResource, offset, limit);
+		PagedRequest<AdminUnitResource> request = new PagedRequest<AdminUnitResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<AdminUnitResource>> any())).thenReturn(expected);

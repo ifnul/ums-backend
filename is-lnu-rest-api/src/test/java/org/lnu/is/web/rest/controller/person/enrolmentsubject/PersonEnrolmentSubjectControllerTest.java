@@ -15,10 +15,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.nio.file.AccessDeniedException;
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
@@ -153,7 +155,7 @@ public class PersonEnrolmentSubjectControllerTest extends AbstractControllerTest
 
 		PersonEnrolmentSubjectResource resource = new PersonEnrolmentSubjectResource();
 		resource.setPersonId(personId);
-		PagedRequest<PersonEnrolmentSubjectResource> pagedRequest = new PagedRequest<PersonEnrolmentSubjectResource>(resource, offset, limit);
+		PagedRequest<PersonEnrolmentSubjectResource> pagedRequest = new PagedRequest<PersonEnrolmentSubjectResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
 
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<PersonEnrolmentSubjectResource>> any())).thenReturn(expectedResource);

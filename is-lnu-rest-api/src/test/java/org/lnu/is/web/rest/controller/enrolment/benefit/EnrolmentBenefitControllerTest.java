@@ -14,10 +14,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.enrolment.benefit.EnrolmentBenefitResource;
 import org.lnu.is.resource.message.MessageResource;
@@ -169,7 +171,7 @@ public class EnrolmentBenefitControllerTest extends AbstractControllerTest {
 		
 		EnrolmentBenefitResource pagedResource = new EnrolmentBenefitResource();
 		pagedResource.setEnrolmentId(enrolmentId);
-		PagedRequest<EnrolmentBenefitResource> pagedRequest = new PagedRequest<EnrolmentBenefitResource>(pagedResource, offset, limit);
+		PagedRequest<EnrolmentBenefitResource> pagedRequest = new PagedRequest<EnrolmentBenefitResource>(pagedResource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<EnrolmentBenefitResource>>any())).thenReturn(expectedResource);
@@ -210,7 +212,7 @@ public class EnrolmentBenefitControllerTest extends AbstractControllerTest {
     	expectedResource.setResources(entities);
     	
     	EnrolmentBenefitResource pagedResource = new EnrolmentBenefitResource();
-    	PagedRequest<EnrolmentBenefitResource> pagedRequest = new PagedRequest<EnrolmentBenefitResource>(pagedResource, offset, limit);
+    	PagedRequest<EnrolmentBenefitResource> pagedRequest = new PagedRequest<EnrolmentBenefitResource>(pagedResource, offset, limit, Collections.<OrderBy>emptyList());
     	
     	// When
     	when(facade.getResources(Matchers.<PagedRequest<EnrolmentBenefitResource>>any())).thenReturn(expectedResource);

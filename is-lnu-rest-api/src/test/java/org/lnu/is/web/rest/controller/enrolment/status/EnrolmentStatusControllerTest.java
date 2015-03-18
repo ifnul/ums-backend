@@ -14,10 +14,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.enrolment.status.EnrolmentStatusResource;
 import org.lnu.is.resource.message.MessageResource;
@@ -162,7 +164,7 @@ public class EnrolmentStatusControllerTest extends AbstractControllerTest {
 		
 		EnrolmentStatusResource resource = new EnrolmentStatusResource();
 		resource.setEnrolmentId(enrolmentId);
-		PagedRequest<EnrolmentStatusResource> pagedRequest = new PagedRequest<EnrolmentStatusResource>(resource, offset, limit);
+		PagedRequest<EnrolmentStatusResource> pagedRequest = new PagedRequest<EnrolmentStatusResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<EnrolmentStatusResource>>any())).thenReturn(expectedResource);
@@ -201,7 +203,7 @@ public class EnrolmentStatusControllerTest extends AbstractControllerTest {
     	expectedResource.setResources(entities);
     	
     	EnrolmentStatusResource resource = new EnrolmentStatusResource();
-    	PagedRequest<EnrolmentStatusResource> pagedRequest = new PagedRequest<EnrolmentStatusResource>(resource, offset, limit);
+    	PagedRequest<EnrolmentStatusResource> pagedRequest = new PagedRequest<EnrolmentStatusResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
     	
     	// When
     	when(facade.getResources(Matchers.<PagedRequest<EnrolmentStatusResource>>any())).thenReturn(expectedResource);

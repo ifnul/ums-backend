@@ -10,10 +10,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.asset.state.AssetStateResource;
 import org.lnu.is.resource.search.PagedRequest;
@@ -60,7 +62,7 @@ public class AssetStateControllerTest extends AbstractControllerTest {
 		AssetStateResource paramResource = new AssetStateResource();
 		paramResource.setName(name);
 		
-		PagedRequest<AssetStateResource> request = new PagedRequest<AssetStateResource>(paramResource, offset, limit);
+		PagedRequest<AssetStateResource> request = new PagedRequest<AssetStateResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<AssetStateResource>> any())).thenReturn(expected);

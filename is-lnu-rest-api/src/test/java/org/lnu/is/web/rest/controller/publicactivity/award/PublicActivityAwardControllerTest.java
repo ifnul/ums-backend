@@ -14,11 +14,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
@@ -159,7 +161,7 @@ public class PublicActivityAwardControllerTest extends AbstractControllerTest {
 		
 		PublicActivityAwardResource parameters = new PublicActivityAwardResource();
 		parameters.setPublicActivityId(publicActivityId);
-		PagedRequest<PublicActivityAwardResource> pagedRequest = new PagedRequest<PublicActivityAwardResource>(parameters, offset, limit);
+		PagedRequest<PublicActivityAwardResource> pagedRequest = new PagedRequest<PublicActivityAwardResource>(parameters, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<PublicActivityAwardResource>>any())).thenReturn(expectedResource);
@@ -196,7 +198,7 @@ public class PublicActivityAwardControllerTest extends AbstractControllerTest {
     	expectedResource.setUri(uri);
     	expectedResource.setResources(entities);
     	
-    	PagedRequest<PublicActivityAwardResource> pagedRequest = new PagedRequest<PublicActivityAwardResource>(new PublicActivityAwardResource(), offset, limit);
+    	PagedRequest<PublicActivityAwardResource> pagedRequest = new PagedRequest<PublicActivityAwardResource>(new PublicActivityAwardResource(), offset, limit, Collections.<OrderBy>emptyList());
     	
     	// When
     	when(facade.getResources(Matchers.<PagedRequest<PublicActivityAwardResource>>any())).thenReturn(expectedResource);

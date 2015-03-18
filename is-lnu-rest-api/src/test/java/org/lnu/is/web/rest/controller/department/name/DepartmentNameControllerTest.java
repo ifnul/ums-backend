@@ -15,10 +15,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.nio.file.AccessDeniedException;
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.department.name.DepartmentNameResource;
 import org.lnu.is.resource.message.MessageResource;
@@ -161,7 +163,7 @@ public class DepartmentNameControllerTest extends AbstractControllerTest {
 		
 		DepartmentNameResource resource = new DepartmentNameResource();
 		resource.setDepartmentId(departmentId);
-		PagedRequest<DepartmentNameResource> pagedRequest = new PagedRequest<DepartmentNameResource>(resource, offset, limit);
+		PagedRequest<DepartmentNameResource> pagedRequest = new PagedRequest<DepartmentNameResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<DepartmentNameResource>>any())).thenReturn(expectedResource);

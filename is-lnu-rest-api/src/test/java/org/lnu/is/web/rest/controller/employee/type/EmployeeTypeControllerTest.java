@@ -10,10 +10,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.resource.employee.type.EmployeeTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
@@ -61,8 +63,7 @@ public class EmployeeTypeControllerTest extends AbstractControllerTest {
 		EmployeeTypeResource paramResource = new EmployeeTypeResource();
 		paramResource.setName(name);
 
-		PagedRequest<EmployeeTypeResource> request = new PagedRequest<EmployeeTypeResource>(
-				paramResource, offset, limit);
+		PagedRequest<EmployeeTypeResource> request = new PagedRequest<EmployeeTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
 
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<EmployeeTypeResource>> any())).thenReturn(expected);
