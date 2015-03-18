@@ -1,7 +1,7 @@
 package org.is.lnu.edbo.service.login;
 
 /**
- * Interface for declaring 
+ * Interface for declaring.
  * @author ivanursul
  *
  */
