@@ -10,10 +10,8 @@
 		<version>0.0.5-SNAPSHOT</version>
 	</parent>
 
-	<groupId>is-lnu-edbo-person-service</groupId>
 	<artifactId>is-lnu-edbo-person-service</artifactId>
 	<name>is-lnu-edbo-person-service</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

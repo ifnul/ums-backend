@@ -107,7 +107,13 @@
         <mail.smtp.user>test@mail.extern</mail.smtp.user>
 		<mail.smtp.auth>true</mail.smtp.auth>
 		<mail.smtp.starttls.enable>true</mail.smtp.starttls.enable>
-		<mail.smtp.ssl.trust>smtp.gmail.com</mail.smtp.ssl.trust>	
+		<mail.smtp.ssl.trust>smtp.gmail.com</mail.smtp.ssl.trust>
+		
+		<!-- edbo related dependencies -->
+		<edbo.login>edbo.login</edbo.login>
+		<edbo.password>edbo.password</edbo.password>
+		<edbo.application.key>edbo.application.key</edbo.application.key>
+		<edbo.clear.previous.session>1</edbo.clear.previous.session>
 	</properties>
 
 	<dependencyManagement>
@@ -152,21 +158,32 @@
 				<artifactId>is-lnu-security</artifactId>
 				<version>${version}</version>
 			</dependency>
+			
+			<!-- EDBO Specific modules -->
 			<dependency>
 				<groupId>is-lnu</groupId>
-				<artifactId>is-lnu-edebo</artifactId>
+				<artifactId>is-lnu-edbo</artifactId>
 				<version>${version}</version>
 			</dependency>
 			<dependency>
 				<groupId>is-lnu</groupId>
-				<artifactId>is-lnu-edebo-domain</artifactId>
+				<artifactId>is-lnu-edbo-guides-service</artifactId>
 				<version>${version}</version>
 			</dependency>
+			<dependency>
+				<groupId>is-lnu</groupId>
+				<artifactId>is-lnu-edbo-person-service</artifactId>
+				<version>${version}</version>
+			</dependency>
+			
+			<!-- Mailing -->
 			<dependency>
 				<groupId>is-lnu</groupId>
 				<artifactId>is-lnu-mailing</artifactId>
 				<version>${version}</version>
 			</dependency>
+			
+			<!-- Common module -->
 			<dependency>
 				<groupId>is-lnu</groupId>
 				<artifactId>is-lnu-common</artifactId>

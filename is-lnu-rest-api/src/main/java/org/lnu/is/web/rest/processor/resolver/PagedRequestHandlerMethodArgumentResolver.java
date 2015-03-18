@@ -63,6 +63,7 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
         Object resource = getResource(param, parameters);
         Integer limit = getLimit(param, httprequest);
         Integer offset = getOffset(param, httprequest);
+        //TODO: IU - Handle List of order by fields
 		
         PagedRequest<Object> pagedRequest = new PagedRequest<Object>(resource, offset, limit);
 		return pagedRequest;

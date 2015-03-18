@@ -10,7 +10,6 @@
 		<version>0.0.5-SNAPSHOT</version>
 	</parent>
 
-	<groupId>is-lnu-edbo-guides-service</groupId>
 	<artifactId>is-lnu-edbo-guides-service</artifactId>
 	<name>is-lnu-edbo-guides-service</name>
 
@@ -39,6 +38,26 @@
 			<version>${cxf.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<!-- LOGGING -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
 		<!-- jUnit + Mockito -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -47,8 +66,7 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
-		</dependency>		
-		
+		</dependency>
 	</dependencies>
 	<build>
 		<pluginManagement>

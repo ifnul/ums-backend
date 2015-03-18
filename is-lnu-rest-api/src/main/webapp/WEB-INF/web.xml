@@ -13,6 +13,10 @@
 			classpath*:converters-context.xml
 			classpath*:security-context.xml
 			classpath*:mail-context.xml
+			
+			<!-- EDBO specific contexts -->
+<!-- 		classpath*:edbo-guides-service.xml
+			classpath*:edbo-person-service.xml -->
 		</param-value>
 	</context-param>
 	

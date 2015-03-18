@@ -8,7 +8,7 @@
 	<bean id="applicationConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="locations">
 			<list>
-				<value>classpath:edebo.properties</value>
+				<value>classpath:edbo.properties</value>
 			</list>
 		</property>
 		<property name="ignoreResourceNotFound" value="false" />

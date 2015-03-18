@@ -9,7 +9,8 @@
 	</parent>
 
 	<artifactId>is-lnu-edbo</artifactId>
-	<name>is-lnu-edebo</name>
+	<name>is-lnu-edbo</name>
+	
 	<description>
   		Module for e-government database for education system.
   	</description>

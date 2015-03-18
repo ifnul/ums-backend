@@ -28,10 +28,10 @@ public class DepartmentNameQueryBuilder extends AbstractQueryBuilder<DepartmentN
 		return builder	
 				.where()
 				.openBracket()
-				.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
-				.addOrCondition(LANGUAGE_CONDITION, context.getLanguage())
-				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
-				.addOrCondition(NAME_CONDITION, context.getName())
+					.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
+					.addOrCondition(LANGUAGE_CONDITION, context.getLanguage())
+					.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
+					.addOrCondition(NAME_CONDITION, context.getName())
 				.closeBracket();
 	}
 
