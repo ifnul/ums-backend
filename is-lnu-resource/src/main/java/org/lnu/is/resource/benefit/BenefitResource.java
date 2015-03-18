@@ -24,16 +24,12 @@ public class BenefitResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private String name;
 
-	@NotNull(message = "Field required")
 	private String abbrName;
 	
-	@NotNull(message = "Field required")
 	private String description;
 
-	@NotNull(message = "Field required")
 	private Date begDate;
 	
-	@NotNull(message = "Field required")
 	private Date endDate;
 	
 	@Override
