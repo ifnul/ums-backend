@@ -10,5 +10,14 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
-
+	
+	<!-- Order By Pattern validator -->
+	<bean id="orderByRegex" class="java.lang.String">
+		<constructor-arg value="^[a-zA-Z]+-([aA][sS][cC]|[dD][eE][sS][cC])(,\\s?[a-zA-Z]+-([aA][sS][cC]|[dD][eE][sS][cC]))*$"/>
+	</bean>
+	
+	<bean id="orderByPattern" class="java.util.regex.Pattern" factory-method="compile">
+		<constructor-arg ref="orderByRegex"/>
+	</bean>
+	
 </beans>

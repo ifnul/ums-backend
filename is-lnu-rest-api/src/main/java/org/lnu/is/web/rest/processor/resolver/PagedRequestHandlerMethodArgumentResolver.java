@@ -3,14 +3,16 @@ package org.lnu.is.web.rest.processor.resolver;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.regex.Pattern;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -20,7 +22,9 @@ import org.apache.commons.beanutils.converters.DateTimeConverter;
 import org.lnu.is.annotations.Limit;
 import org.lnu.is.annotations.Offset;
 import org.lnu.is.pagination.OrderBy;
+import org.lnu.is.pagination.OrderByType;
 import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.web.exception.InvalidOrderByException;
 import org.lnu.is.web.rest.constant.Constants;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
@@ -40,6 +44,9 @@ import org.springframework.web.servlet.HandlerMapping;
 @Component("pagedRequestHandlerMethodArgumentResolver")
 public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
 
+	@Resource(name = "orderByPattern")
+	private Pattern pattern;
+	
 	/**
 	 * Method for initializing required staff for commons-beanutils classes.
 	 */
@@ -60,7 +67,6 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 			final ModelAndViewContainer mavContainer, final NativeWebRequest webRequest,
 			final WebDataBinderFactory binderFactory) throws Exception {
 		
-		
 		HttpServletRequest httpRequest = (HttpServletRequest) webRequest.getNativeRequest();
 		Map<String, String> parameters = getRequestParameters(webRequest);
         Object resource = getResource(param, parameters);
@@ -79,7 +85,32 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 	 * @return List of order by fields.
 	 */
 	private List<OrderBy> getOrders(final MethodParameter param, final HttpServletRequest httpRequest) {
-		return Collections.emptyList();
+		List<OrderBy> orders = new ArrayList<>();
+		String orderByParameter = httpRequest.getParameter("orderBy");
+		
+		
+		if (orderByParameter != null  && !orderByParameter.isEmpty()) {
+			orderByParameter = orderByParameter.replaceAll("\\s", "");
+			if (!pattern.matcher(orderByParameter).matches()) {
+				throw new InvalidOrderByException(orderByParameter);
+			}
+			
+			String[] ordersBy = orderByParameter.split(",");
+			
+			for (String order: ordersBy) {
+				String[] orderByParts = order.split("-");
+				
+				// Splitting parts of order
+				String fieldName = orderByParts[0];
+				OrderByType type = OrderByType.resolve(orderByParts[1]);
+				
+				// Constructing new order
+				OrderBy orderBy = new OrderBy(fieldName, type);
+				orders.add(orderBy);
+			}
+		}
+		
+		return orders;
 	}
 
 	/**
@@ -213,6 +244,10 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 	 */
 	protected void raiseMissingParameterException(final String paramName, final Class<?> paramType) throws Exception {
 		throw new IllegalStateException("Missing parameter '" + paramName + "' of type [" + paramType.getName() + "]");
+	}
+
+	public void setPattern(final Pattern pattern) {
+		this.pattern = pattern;
 	}
 	
 }
