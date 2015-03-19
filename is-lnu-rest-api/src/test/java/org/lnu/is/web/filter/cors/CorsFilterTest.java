@@ -32,7 +32,7 @@ public class CorsFilterTest {
 
 		// Then
 	    verify(response).setHeader("Access-Control-Allow-Origin", "*");
-	    verify(response).setHeader("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
+	    verify(response).setHeader("Access-Control-Allow-Headers", "origin, content-type, accept, authorization, x-requested-with");
 	    verify(response).setHeader("Access-Control-Allow-Credentials", "true");
 	    verify(response).setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
 	    verify(response).setHeader("Access-Control-Max-Age", "1209600");
