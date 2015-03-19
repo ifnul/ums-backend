@@ -9,6 +9,7 @@ import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.address.DepartmentAddress;
 import org.lnu.is.domain.streettype.StreetType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class DepartmentAddressQueryBuilderTest {
 
@@ -29,9 +30,11 @@ public class DepartmentAddressQueryBuilderTest {
 		DepartmentAddress context = new DepartmentAddress();
 
 		String expectedQuery = "SELECT e FROM DepartmentAddress e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<DepartmentAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -45,9 +48,11 @@ public class DepartmentAddressQueryBuilderTest {
 		DepartmentAddress context = new DepartmentAddress();
 		
 		String expectedQuery = "SELECT e FROM DepartmentAddress e WHERE e.status=:status ";
+		MultiplePagedSearch<DepartmentAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -61,9 +66,11 @@ public class DepartmentAddressQueryBuilderTest {
 		DepartmentAddress context = new DepartmentAddress();
 		
 		String expectedQuery = "SELECT e FROM DepartmentAddress e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<DepartmentAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -78,9 +85,11 @@ public class DepartmentAddressQueryBuilderTest {
 		DepartmentAddress context = new DepartmentAddress();
 		
 		String expectedQuery = "SELECT e FROM DepartmentAddress e ";
+		MultiplePagedSearch<DepartmentAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -109,9 +118,11 @@ public class DepartmentAddressQueryBuilderTest {
 		context.setApartment(apartment);
 		
 		String expectedQuery = "SELECT e FROM DepartmentAddress e WHERE ( e.department = :department OR e.addressType = :addressType OR e.adminUnit = :adminUnit OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<DepartmentAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -143,9 +154,11 @@ public class DepartmentAddressQueryBuilderTest {
 		context.setApartment(apartment);
 		
 		String expectedQuery = "SELECT e FROM DepartmentAddress e WHERE ( e.department = :department OR e.addressType = :addressType OR e.adminUnit = :adminUnit OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) ";
+		MultiplePagedSearch<DepartmentAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

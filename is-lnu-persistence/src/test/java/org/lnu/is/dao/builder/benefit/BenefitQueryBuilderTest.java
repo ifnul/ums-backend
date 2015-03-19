@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.benefit.BenefitType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class BenefitQueryBuilderTest {
 
@@ -28,12 +29,14 @@ public class BenefitQueryBuilderTest {
 		Benefit context = new Benefit();
 		
 		String expected = "SELECT e FROM Benefit e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -44,12 +47,14 @@ public class BenefitQueryBuilderTest {
 		Benefit context = new Benefit();
 		
 		String expected = "SELECT e FROM Benefit e WHERE e.status=:status ";
+		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -60,12 +65,14 @@ public class BenefitQueryBuilderTest {
 		Benefit context = new Benefit();
 		
 		String expected = "SELECT e FROM Benefit e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -77,12 +84,14 @@ public class BenefitQueryBuilderTest {
 		Benefit context = new Benefit();
 		
 		String expected = "SELECT e FROM Benefit e ";
+		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -108,12 +117,14 @@ public class BenefitQueryBuilderTest {
 		
 		
 		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -142,11 +153,13 @@ public class BenefitQueryBuilderTest {
 		
 		
 		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

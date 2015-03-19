@@ -1,7 +1,6 @@
 package org.lnu.is.dao.dao.user.group;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyListOf;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -17,6 +16,7 @@ import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.group.UserGroupView;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.MultipleSearch;
 import org.lnu.is.queries.Query;
 import org.mockito.InjectMocks;
@@ -48,15 +48,17 @@ public class DefaultUserGroupDaoTest {
 		List<UserGroupView> expected = Arrays.asList(userGroupView1);
 		String querySql = "query SQL";
 		Query<UserGroupView> query = new Query<UserGroupView>(UserGroupView.class, querySql, parameters);
+		MultiplePagedSearch<List<Long>> search = new MultiplePagedSearch<>();
+		search.setEntity(groupsIds);
 
 		// When
-		when(userGroupViewQueryBuilder.build(anyListOf(Long.class))).thenReturn(querySql);
+		when(userGroupViewQueryBuilder.build(Matchers.<MultiplePagedSearch<List<Long>>>any())).thenReturn(querySql);
 		when(persistenceManager.getMultipleResult(Matchers.<Query<UserGroupView>>any())).thenReturn(expected);
 		List<UserGroupView> actual = unit.getUserGroupViews(request, groupsIds);
 
 		// Then
 		verify(persistenceManager).getMultipleResult(query);
-		verify(userGroupViewQueryBuilder).build(groupsIds);
+		verify(userGroupViewQueryBuilder).build(search);
 		assertEquals(expected, actual);
 	}
 }

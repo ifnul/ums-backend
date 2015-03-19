@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.timesheettype.TimeSheetType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class TimesheetTypeQueryBuilderTest {
 
@@ -25,9 +26,11 @@ public class TimesheetTypeQueryBuilderTest {
 		TimeSheetType context = new TimeSheetType();
 		
 		String expectedQuery = "SELECT e FROM TimeSheetType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<TimeSheetType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -42,9 +45,11 @@ public class TimesheetTypeQueryBuilderTest {
 		TimeSheetType context = new TimeSheetType();
 		
 		String expectedQuery = "SELECT e FROM TimeSheetType e ";
+		MultiplePagedSearch<TimeSheetType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -57,9 +62,11 @@ public class TimesheetTypeQueryBuilderTest {
 		TimeSheetType context = new TimeSheetType();
 		
 		String expectedQuery = "SELECT e FROM TimeSheetType e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<TimeSheetType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -72,9 +79,11 @@ public class TimesheetTypeQueryBuilderTest {
 		TimeSheetType context = new TimeSheetType();
 		
 		String expectedQuery = "SELECT e FROM TimeSheetType e WHERE e.status=:status ";
+		MultiplePagedSearch<TimeSheetType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -91,8 +100,11 @@ public class TimesheetTypeQueryBuilderTest {
 		context.setName(name);
 
 		String expectedQuery = "SELECT e FROM TimeSheetType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<TimeSheetType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -112,8 +124,11 @@ public class TimesheetTypeQueryBuilderTest {
 		context.setName(name);
 		
 		String expectedQuery = "SELECT e FROM TimeSheetType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		MultiplePagedSearch<TimeSheetType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

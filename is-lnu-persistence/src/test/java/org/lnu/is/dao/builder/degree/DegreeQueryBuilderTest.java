@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.lnu.is.domain.degree.Degree;
 import org.lnu.is.domain.degree.DegreeType;
 import org.lnu.is.domain.person.Person;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class DegreeQueryBuilderTest {
 
@@ -27,9 +28,11 @@ public class DegreeQueryBuilderTest {
 		Degree context = new Degree();
 
 		String expectedQuery = "SELECT e FROM Degree e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -43,9 +46,11 @@ public class DegreeQueryBuilderTest {
 		Degree context = new Degree();
 		
 		String expectedQuery = "SELECT e FROM Degree e WHERE e.status=:status ";
+		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -58,9 +63,11 @@ public class DegreeQueryBuilderTest {
 		Degree context = new Degree();
 		
 		String expectedQuery = "SELECT e FROM Degree e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -75,9 +82,11 @@ public class DegreeQueryBuilderTest {
 		Degree context = new Degree();
 		
 		String expectedQuery = "SELECT e FROM Degree e ";
+		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -93,9 +102,11 @@ public class DegreeQueryBuilderTest {
 		context.setDegreeType(degreeType);
 		
 		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person OR e.degreeType=:degreeType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -114,9 +125,11 @@ public class DegreeQueryBuilderTest {
 		context.setDegreeType(degreeType);
 		
 		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person OR e.degreeType=:degreeType ) ";
+		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

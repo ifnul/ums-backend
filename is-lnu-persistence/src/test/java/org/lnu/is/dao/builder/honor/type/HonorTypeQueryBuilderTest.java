@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.honorstype.HonorType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class HonorTypeQueryBuilderTest {
 
@@ -25,9 +26,11 @@ public class HonorTypeQueryBuilderTest {
 		HonorType context = new HonorType();
 
 		String expectedQuery = "SELECT e FROM HonorType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<HonorType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -41,9 +44,11 @@ public class HonorTypeQueryBuilderTest {
 		HonorType context = new HonorType();
 		
 		String expectedQuery = "SELECT e FROM HonorType e WHERE e.status=:status ";
+		MultiplePagedSearch<HonorType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -57,9 +62,11 @@ public class HonorTypeQueryBuilderTest {
 		HonorType context = new HonorType();
 		
 		String expectedQuery = "SELECT e FROM HonorType e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<HonorType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -74,9 +81,11 @@ public class HonorTypeQueryBuilderTest {
 		HonorType context = new HonorType();
 		
 		String expectedQuery = "SELECT e FROM HonorType e ";
+		MultiplePagedSearch<HonorType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -92,9 +101,11 @@ public class HonorTypeQueryBuilderTest {
 		context.setName(name);
 		
 		String expectedQuery = "SELECT e FROM HonorType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<HonorType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -113,9 +124,11 @@ public class HonorTypeQueryBuilderTest {
 		context.setName(name);
 		
 		String expectedQuery = "SELECT e FROM HonorType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		MultiplePagedSearch<HonorType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

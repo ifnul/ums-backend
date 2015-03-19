@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 import org.lnu.is.domain.timeperiod.TimePeriodType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class TimePeriodQueryBuilderTest {
 
@@ -28,10 +29,11 @@ public class TimePeriodQueryBuilderTest {
 		TimePeriod context = new TimePeriod();
 		
 		String expectedQuery = "SELECT e FROM TimePeriod e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<TimePeriod> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
-		
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -45,9 +47,11 @@ public class TimePeriodQueryBuilderTest {
 		TimePeriod context = new TimePeriod();
 		
 		String expectedQuery = "SELECT e FROM TimePeriod e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<TimePeriod> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		
 		// Then
@@ -62,9 +66,11 @@ public class TimePeriodQueryBuilderTest {
 		TimePeriod context = new TimePeriod();
 		
 		String expectedQuery = "SELECT e FROM TimePeriod e WHERE e.status=:status ";
+		MultiplePagedSearch<TimePeriod> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		
 		// Then
@@ -83,10 +89,11 @@ public class TimePeriodQueryBuilderTest {
 		context.setNumValue(numValue);
 
 		String expectedQuery = "SELECT e FROM TimePeriod e WHERE ( e.timePeriodType = :timePeriodType OR e.numValue = :numValue OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<TimePeriod> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
-
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -107,10 +114,11 @@ public class TimePeriodQueryBuilderTest {
 		context.setNumValue(numValue);
 		
 		String expectedQuery = "SELECT e FROM TimePeriod e WHERE ( e.timePeriodType = :timePeriodType OR e.numValue = :numValue OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		MultiplePagedSearch<TimePeriod> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
-		
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

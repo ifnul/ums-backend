@@ -8,6 +8,7 @@ import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.language.LanguageLevel;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.language.PersonLanguage;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class PersonLanguageQueryBuilderTest {
 
@@ -28,9 +29,11 @@ public class PersonLanguageQueryBuilderTest {
 		PersonLanguage context = new PersonLanguage();
 
 		String expectedQuery = "SELECT e FROM PersonLanguage e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<PersonLanguage> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -44,9 +47,11 @@ public class PersonLanguageQueryBuilderTest {
 		PersonLanguage context = new PersonLanguage();
 
 		String expectedQuery = "SELECT e FROM PersonLanguage e WHERE e.status=:status ";
-
+		MultiplePagedSearch<PersonLanguage> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -60,9 +65,11 @@ public class PersonLanguageQueryBuilderTest {
 		PersonLanguage context = new PersonLanguage();
 
 		String expectedQuery = "SELECT e FROM PersonLanguage e WHERE e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<PersonLanguage> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -77,9 +84,11 @@ public class PersonLanguageQueryBuilderTest {
 		PersonLanguage context = new PersonLanguage();
 
 		String expectedQuery = "SELECT e FROM PersonLanguage e ";
-
+		MultiplePagedSearch<PersonLanguage> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -99,9 +108,11 @@ public class PersonLanguageQueryBuilderTest {
 		context.setLanguageLevel(languageLevel);
 
 		String expectedQuery = "SELECT e FROM PersonLanguage e WHERE ( e.person = :person OR e.language = :language OR e.languageLevel = :languageLevel ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<PersonLanguage> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -123,9 +134,11 @@ public class PersonLanguageQueryBuilderTest {
 		context.setLanguageLevel(languageLevel);
 
 		String expectedQuery = "SELECT e FROM PersonLanguage e WHERE ( e.person = :person OR e.language = :language OR e.languageLevel = :languageLevel ) ";
-
+		MultiplePagedSearch<PersonLanguage> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);

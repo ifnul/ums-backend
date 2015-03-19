@@ -8,6 +8,7 @@ import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.status.EnrolmentStatus;
 import org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class EnrolmentStatusQueryBuilderTest {
 
@@ -28,9 +29,11 @@ public class EnrolmentStatusQueryBuilderTest {
 		EnrolmentStatus context = new EnrolmentStatus();
 		
 		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<EnrolmentStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -44,9 +47,11 @@ public class EnrolmentStatusQueryBuilderTest {
 		EnrolmentStatus context = new EnrolmentStatus();
 		
 		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE e.status=:status ";
+		MultiplePagedSearch<EnrolmentStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -60,9 +65,11 @@ public class EnrolmentStatusQueryBuilderTest {
 		EnrolmentStatus context = new EnrolmentStatus();
 		
 		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<EnrolmentStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -77,9 +84,11 @@ public class EnrolmentStatusQueryBuilderTest {
 		EnrolmentStatus context = new EnrolmentStatus();
 		
 		String expectedQuery = "SELECT e FROM EnrolmentStatus e ";
+		MultiplePagedSearch<EnrolmentStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -98,9 +107,11 @@ public class EnrolmentStatusQueryBuilderTest {
 		context.setEnrolmentStatusType(enrolmentStatusType);
 
 		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE ( e.enrolment = :enrolment OR e.specOfferWave =:specOfferWave OR e.enrolmentStatusType =:enrolmentStatusType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<EnrolmentStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -122,9 +133,11 @@ public class EnrolmentStatusQueryBuilderTest {
 		context.setEnrolmentStatusType(enrolmentStatusType);
 		
 		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE ( e.enrolment = :enrolment OR e.specOfferWave =:specOfferWave OR e.enrolmentStatusType =:enrolmentStatusType ) ";
+		MultiplePagedSearch<EnrolmentStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

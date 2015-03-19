@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.specoffer.SpecOfferType;
 import org.lnu.is.domain.timeperiod.TimePeriod;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class SpecOfferTypeQueryBuilderTest {
 
@@ -26,9 +27,11 @@ public class SpecOfferTypeQueryBuilderTest {
 		SpecOfferType context = new SpecOfferType();
 
 		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<SpecOfferType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -41,9 +44,11 @@ public class SpecOfferTypeQueryBuilderTest {
 		SpecOfferType context = new SpecOfferType();
 		
 		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE e.status=:status ";
+		MultiplePagedSearch<SpecOfferType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -56,9 +61,11 @@ public class SpecOfferTypeQueryBuilderTest {
 		SpecOfferType context = new SpecOfferType();
 		
 		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<SpecOfferType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -72,9 +79,11 @@ public class SpecOfferTypeQueryBuilderTest {
 		SpecOfferType context = new SpecOfferType();
 		
 		String expectedQuery = "SELECT e FROM SpecOfferType e ";
+		MultiplePagedSearch<SpecOfferType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -89,9 +98,11 @@ public class SpecOfferTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		
 		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<SpecOfferType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -108,9 +119,11 @@ public class SpecOfferTypeQueryBuilderTest {
 		context.setTimePeriod(timePeriod);
 		
 		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.timePeriod = :timePeriod) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<SpecOfferType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -130,9 +143,11 @@ public class SpecOfferTypeQueryBuilderTest {
 		context.setTimePeriod(timePeriod);
 		
 		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.timePeriod = :timePeriod) ";
+		MultiplePagedSearch<SpecOfferType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

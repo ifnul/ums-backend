@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.timeperiod.TimePeriodType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class TimePeriodTypeQueryBuilderTest {
 
@@ -25,11 +26,14 @@ public class TimePeriodTypeQueryBuilderTest {
 		TimePeriodType context = new TimePeriodType();
 
 		String expected = "SELECT e FROM TimePeriodType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<TimePeriodType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -39,11 +43,14 @@ public class TimePeriodTypeQueryBuilderTest {
 		TimePeriodType context = new TimePeriodType();
 		
 		String expected = "SELECT e FROM TimePeriodType e WHERE e.status=:status ";
+		MultiplePagedSearch<TimePeriodType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -53,11 +60,14 @@ public class TimePeriodTypeQueryBuilderTest {
 		TimePeriodType context = new TimePeriodType();
 		
 		String expected = "SELECT e FROM TimePeriodType e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<TimePeriodType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -69,11 +79,14 @@ public class TimePeriodTypeQueryBuilderTest {
 		TimePeriodType context = new TimePeriodType();
 		
 		String expected = "SELECT e FROM TimePeriodType e ";
+		MultiplePagedSearch<TimePeriodType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -86,11 +99,14 @@ public class TimePeriodTypeQueryBuilderTest {
 		context.setName(name);
 		
 		String expected = "SELECT e FROM TimePeriodType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";;
+		MultiplePagedSearch<TimePeriodType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -106,10 +122,13 @@ public class TimePeriodTypeQueryBuilderTest {
 		context.setName(name);
 		
 		String expected = "SELECT e FROM TimePeriodType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";;
+		MultiplePagedSearch<TimePeriodType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

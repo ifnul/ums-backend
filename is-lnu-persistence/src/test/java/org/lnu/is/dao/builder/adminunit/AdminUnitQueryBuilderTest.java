@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.adminunit.type.AdminUnitType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class AdminUnitQueryBuilderTest {
 
@@ -28,11 +29,14 @@ public class AdminUnitQueryBuilderTest {
 		AdminUnit context = new AdminUnit();
 		
 		String expected = "SELECT e FROM AdminUnit e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -43,11 +47,14 @@ public class AdminUnitQueryBuilderTest {
 		AdminUnit context = new AdminUnit();
 		
 		String expected = "SELECT e FROM AdminUnit e WHERE e.status=:status ";
+		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -58,11 +65,14 @@ public class AdminUnitQueryBuilderTest {
 		AdminUnit context = new AdminUnit();
 		
 		String expected = "SELECT e FROM AdminUnit e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -74,11 +84,14 @@ public class AdminUnitQueryBuilderTest {
 		AdminUnit context = new AdminUnit();
 		
 		String expected = "SELECT e FROM AdminUnit e ";
+		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -107,12 +120,14 @@ public class AdminUnitQueryBuilderTest {
 		
 		
 		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -144,11 +159,13 @@ public class AdminUnitQueryBuilderTest {
 		
 		
 		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

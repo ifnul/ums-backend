@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
 import org.lnu.is.domain.wave.type.WaveType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class SpecOfferWaveQueryBuilderTest {
 
@@ -27,9 +28,11 @@ public class SpecOfferWaveQueryBuilderTest {
 		SpecOfferWave context = new SpecOfferWave();
 
 		String expectedQuery = "SELECT e FROM SpecOfferWave e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<SpecOfferWave> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -42,9 +45,11 @@ public class SpecOfferWaveQueryBuilderTest {
 		SpecOfferWave context = new SpecOfferWave();
 		
 		String expectedQuery = "SELECT e FROM SpecOfferWave e WHERE e.status=:status ";
+		MultiplePagedSearch<SpecOfferWave> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -57,9 +62,11 @@ public class SpecOfferWaveQueryBuilderTest {
 		SpecOfferWave context = new SpecOfferWave();
 		
 		String expectedQuery = "SELECT e FROM SpecOfferWave e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<SpecOfferWave> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -73,9 +80,11 @@ public class SpecOfferWaveQueryBuilderTest {
 		SpecOfferWave context = new SpecOfferWave();
 		
 		String expectedQuery = "SELECT e FROM SpecOfferWave e ";
+		MultiplePagedSearch<SpecOfferWave> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -100,9 +109,11 @@ public class SpecOfferWaveQueryBuilderTest {
 		context.setBenefitCount(benefitCount);
 		
 		String expectedQuery = "SELECT e FROM SpecOfferWave e WHERE ( e.specOffer = :specOffer OR e.waveType = :waveType OR e.licCount =:licCountOR e.stateCount =:stateCountOR e.benefitCount =:benefitCountOR e.targetCount =:targetCount) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<SpecOfferWave> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -130,9 +141,11 @@ public class SpecOfferWaveQueryBuilderTest {
 		context.setBenefitCount(benefitCount);
 		
 		String expectedQuery = "SELECT e FROM SpecOfferWave e WHERE ( e.specOffer = :specOffer OR e.waveType = :waveType OR e.licCount =:licCountOR e.stateCount =:stateCountOR e.benefitCount =:benefitCountOR e.targetCount =:targetCount) ";
+		MultiplePagedSearch<SpecOfferWave> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

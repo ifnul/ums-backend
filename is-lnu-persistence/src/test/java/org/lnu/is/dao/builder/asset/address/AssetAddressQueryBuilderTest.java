@@ -9,6 +9,7 @@ import org.lnu.is.domain.adminunit.AdminUnit;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.asset.address.AssetAddress;
 import org.lnu.is.domain.streettype.StreetType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class AssetAddressQueryBuilderTest {
 
@@ -47,12 +48,14 @@ public class AssetAddressQueryBuilderTest {
 		context.setApartment(apartment);
 
 		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -61,12 +64,14 @@ public class AssetAddressQueryBuilderTest {
 		AssetAddress context = new AssetAddress();
 		
 		String expected = "SELECT e FROM AssetAddress e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -78,12 +83,14 @@ public class AssetAddressQueryBuilderTest {
 		AssetAddress context = new AssetAddress();
 		
 		String expected = "SELECT e FROM AssetAddress e ";
+		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -113,12 +120,14 @@ public class AssetAddressQueryBuilderTest {
 		context.setApartment(apartment);
 		
 		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) ";
+		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -147,12 +156,14 @@ public class AssetAddressQueryBuilderTest {
 		context.setApartment(apartment);
 		
 		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -181,11 +192,13 @@ public class AssetAddressQueryBuilderTest {
 		context.setApartment(apartment);
 		
 		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status ";
+		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

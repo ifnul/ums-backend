@@ -8,6 +8,7 @@ import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject;
 import org.lnu.is.domain.person.paper.PersonPaper;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class PersonEnrolmentSubjectQueryBuilderTest {
 
@@ -27,9 +28,11 @@ public class PersonEnrolmentSubjectQueryBuilderTest {
 		// Given
 		PersonEnrolmentSubject context = new PersonEnrolmentSubject();
 		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<PersonEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -42,9 +45,11 @@ public class PersonEnrolmentSubjectQueryBuilderTest {
 
 		PersonEnrolmentSubject context = new PersonEnrolmentSubject();
 		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e WHERE e.status=:status ";
-
+		MultiplePagedSearch<PersonEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -57,9 +62,11 @@ public class PersonEnrolmentSubjectQueryBuilderTest {
 
 		PersonEnrolmentSubject context = new PersonEnrolmentSubject();
 		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e WHERE e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<PersonEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -73,9 +80,11 @@ public class PersonEnrolmentSubjectQueryBuilderTest {
 
 		PersonEnrolmentSubject context = new PersonEnrolmentSubject();
 		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e ";
-
+		MultiplePagedSearch<PersonEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -96,9 +105,11 @@ public class PersonEnrolmentSubjectQueryBuilderTest {
 		context.setMark(mark);
 
 		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e WHERE ( e.person = :person OR e.personPaper = :personPaper OR e.enrolmentSubject = :enrolmentSubject OR e.mark = :mark ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<PersonEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -121,9 +132,11 @@ public class PersonEnrolmentSubjectQueryBuilderTest {
 		context.setMark(mark);
 
 		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e WHERE ( e.person = :person OR e.personPaper = :personPaper OR e.enrolmentSubject = :enrolmentSubject OR e.mark = :mark ) ";
-
+		MultiplePagedSearch<PersonEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);

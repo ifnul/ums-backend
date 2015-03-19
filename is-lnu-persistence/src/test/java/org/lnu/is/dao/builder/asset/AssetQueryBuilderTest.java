@@ -12,6 +12,7 @@ import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.partner.Partner;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class AssetQueryBuilderTest {
 
@@ -33,12 +34,14 @@ public class AssetQueryBuilderTest {
 		Asset context = new Asset();
 
 		String expectedSql = "SELECT e FROM Asset e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualSql = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expectedSql, actualSql);
+		assertEquals(expectedSql, actualQuery);
 	}
 	
 	@Test
@@ -49,12 +52,14 @@ public class AssetQueryBuilderTest {
 		Asset context = new Asset();
 		
 		String expectedSql = "SELECT e FROM Asset e WHERE e.status=:status ";
+		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualSql = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expectedSql, actualSql);
+		assertEquals(expectedSql, actualQuery);
 	}
 	
 	@Test
@@ -65,12 +70,14 @@ public class AssetQueryBuilderTest {
 		Asset context = new Asset();
 		
 		String expectedSql = "SELECT e FROM Asset e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualSql = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expectedSql, actualSql);
+		assertEquals(expectedSql, actualQuery);
 	}
 	
 	@Test
@@ -82,12 +89,14 @@ public class AssetQueryBuilderTest {
 		Asset context = new Asset();
 		
 		String expectedSql = "SELECT e FROM Asset e ";
+		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualSql = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expectedSql, actualSql);
+		assertEquals(expectedSql, actualQuery);
 	}
 
 	@Test
@@ -111,12 +120,14 @@ public class AssetQueryBuilderTest {
 		context.setOrder(order);
 		
 		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualSql = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expectedSql, actualSql);
+		assertEquals(expectedSql, actualQuery);
 	}
 	
 	@Test
@@ -143,11 +154,13 @@ public class AssetQueryBuilderTest {
 		context.setOrder(order);
 		
 		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) ";
+		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualSql = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expectedSql, actualSql);
+		assertEquals(expectedSql, actualQuery);
 	}
 }

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.studyplan.cycle.StudyPlanCycle;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class StudyPlanCycleQueryBuilderTest {
 
@@ -25,11 +26,14 @@ public class StudyPlanCycleQueryBuilderTest {
 		StudyPlanCycle context = new StudyPlanCycle();
 		
 		String expected = "SELECT e FROM StudyPlanCycle e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<StudyPlanCycle> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -40,11 +44,14 @@ public class StudyPlanCycleQueryBuilderTest {
 		StudyPlanCycle context = new StudyPlanCycle();
 		
 		String expected = "SELECT e FROM StudyPlanCycle e WHERE e.status=:status ";
+		MultiplePagedSearch<StudyPlanCycle> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -55,11 +62,14 @@ public class StudyPlanCycleQueryBuilderTest {
 		StudyPlanCycle context = new StudyPlanCycle();
 		
 		String expected = "SELECT e FROM StudyPlanCycle e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<StudyPlanCycle> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -71,11 +81,14 @@ public class StudyPlanCycleQueryBuilderTest {
 		StudyPlanCycle context = new StudyPlanCycle();
 		
 		String expected = "SELECT e FROM StudyPlanCycle e ";
+		MultiplePagedSearch<StudyPlanCycle> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -88,11 +101,14 @@ public class StudyPlanCycleQueryBuilderTest {
 		context.setName(name);
 
 		String expected = "SELECT e FROM StudyPlanCycle e WHERE ( d.name LIKE CONCAT('%',:name,'%') OR d.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<StudyPlanCycle> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -108,10 +124,13 @@ public class StudyPlanCycleQueryBuilderTest {
 		context.setName(name);
 		
 		String expected = "SELECT e FROM StudyPlanCycle e WHERE ( d.name LIKE CONCAT('%',:name,'%') OR d.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		MultiplePagedSearch<StudyPlanCycle> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class UserGroupViewQueryBuilderTest {
 
@@ -30,9 +31,11 @@ public class UserGroupViewQueryBuilderTest {
 		List<Long> context = Arrays.asList(group1, group2);
 		
 		String expectedQuery = "SELECT e FROM UserGroupView e WHERE ( e.groupId IN (:groupIds)) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<List<Long>> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -48,9 +51,11 @@ public class UserGroupViewQueryBuilderTest {
 		List<Long> context = Arrays.asList(group1, group2);
 		
 		String expectedQuery = "SELECT e FROM UserGroupView e WHERE ( e.groupId IN (:groupIds)) AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<List<Long>> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -67,9 +72,11 @@ public class UserGroupViewQueryBuilderTest {
 		List<Long> context = Arrays.asList(group1, group2);
 		
 		String expectedQuery = "SELECT e FROM UserGroupView e WHERE ( e.groupId IN (:groupIds)) ";
+		MultiplePagedSearch<List<Long>> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -85,9 +92,11 @@ public class UserGroupViewQueryBuilderTest {
 		List<Long> context = Arrays.asList(group1, group2);
 		
 		String expectedQuery = "SELECT e FROM UserGroupView e WHERE ( e.groupId IN (:groupIds)) AND e.status=:status ";
+		MultiplePagedSearch<List<Long>> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -99,9 +108,11 @@ public class UserGroupViewQueryBuilderTest {
 		List<Long> context = Collections.emptyList();
 		
 		String expectedQuery = "SELECT e FROM UserGroupView e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<List<Long>> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -113,9 +124,11 @@ public class UserGroupViewQueryBuilderTest {
 		List<Long> context = null;
 		
 		String expectedQuery = "SELECT e FROM UserGroupView e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<List<Long>> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
