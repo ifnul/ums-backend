@@ -21,6 +21,7 @@ public class PagedRequestConverter<T> extends AbstractConverter<PagedRequest<?>,
 		
 		target.setOffset(source.getOffset());
 		target.setLimit(source.getLimit());
+		target.setOrders(source.getOrders());
 		
 		return target;
 	}

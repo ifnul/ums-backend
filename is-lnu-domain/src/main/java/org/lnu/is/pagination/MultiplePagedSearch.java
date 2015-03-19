@@ -28,9 +28,8 @@ public class MultiplePagedSearch<T> extends MultipleSearch<T> {
      * @param parameters
      * @param clazz
      */
-	public MultiplePagedSearch(final Integer offset, final Integer limit,
-			final Map<String, Object> parameters, final Class<T> clazz) {
-		super(parameters, clazz);
+	public MultiplePagedSearch(final Integer offset, final Integer limit, final Map<String, Object> parameters, final Class<T> clazz) {
+		super(parameters, clazz, null, null);
 		this.offset = offset;
 		this.limit = limit;
 	}

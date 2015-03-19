@@ -1,4 +1,4 @@
-package org.lnu.is.domain;
+package org.lnu.is.pagination;
 
 /**
  * Enum for storing order By types.

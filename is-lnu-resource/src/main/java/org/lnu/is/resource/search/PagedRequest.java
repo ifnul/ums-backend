@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.lnu.is.annotations.Limit;
 import org.lnu.is.annotations.Offset;
-import org.lnu.is.domain.OrderBy;
+import org.lnu.is.pagination.OrderBy;
 
 
 /**

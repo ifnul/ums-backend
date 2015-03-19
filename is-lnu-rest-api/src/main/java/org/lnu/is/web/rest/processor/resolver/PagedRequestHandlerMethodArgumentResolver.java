@@ -19,7 +19,7 @@ import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.beanutils.converters.DateTimeConverter;
 import org.lnu.is.annotations.Limit;
 import org.lnu.is.annotations.Offset;
-import org.lnu.is.domain.OrderBy;
+import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.web.rest.constant.Constants;
 import org.springframework.core.MethodParameter;

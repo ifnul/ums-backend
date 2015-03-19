@@ -15,8 +15,8 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.domain.OrderBy;
 import org.lnu.is.facade.facade.Facade;
+import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.resource.specoffer.type.SpecOfferTypeResource;

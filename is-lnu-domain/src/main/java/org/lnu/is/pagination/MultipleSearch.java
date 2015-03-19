@@ -1,5 +1,6 @@
 package org.lnu.is.pagination;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +16,7 @@ public class MultipleSearch<T> {
     private Map<String, Object> parameters;
     private Class<T> clazz;
     private T entity;
+    private List<OrderBy> orders;
 	
     /**
      * Constructor with no parameters.
@@ -27,7 +29,9 @@ public class MultipleSearch<T> {
      * Basic constructor for setting all required fields to PagedSearch.
      * @param parameters required parameters(can be empty)
      * @param clazz Class instance for mapping.
+     * @deprecated because there is constructor with all fields.
      */
+    @Deprecated
 	public MultipleSearch(final Map<String, Object> parameters, final Class<T> clazz) {
 		super();
 		this.parameters = parameters;
@@ -40,12 +44,38 @@ public class MultipleSearch<T> {
 	 * @param parameters
 	 * @param clazz
 	 * @param entity
+	 * @deprecated because there is constructor with all fields.
 	 */
+	@Deprecated
 	public MultipleSearch(final Map<String, Object> parameters, final Class<T> clazz, final T entity) {
 		super();
 		this.parameters = parameters;
 		this.clazz = clazz;
 		this.entity = entity;
+	}
+
+	/**
+	 * Constructor for all fields.
+	 * @author ivanursul
+	 * @param parameters
+	 * @param clazz
+	 * @param entity
+	 */	
+	public MultipleSearch(final Map<String, Object> parameters, final Class<T> clazz,
+			final T entity, final List<OrderBy> orders) {
+		super();
+		this.parameters = parameters;
+		this.clazz = clazz;
+		this.entity = entity;
+		this.orders = orders;
+	}
+
+	public List<OrderBy> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(final List<OrderBy> orders) {
+		this.orders = orders;
 	}
 
 	public Map<String, Object> getParameters() {
@@ -78,6 +108,7 @@ public class MultipleSearch<T> {
 		int result = 1;
 		result = prime * result + ((clazz == null) ? 0 : clazz.hashCode());
 		result = prime * result + ((entity == null) ? 0 : entity.hashCode());
+		result = prime * result + ((orders == null) ? 0 : orders.hashCode());
 		result = prime * result
 				+ ((parameters == null) ? 0 : parameters.hashCode());
 		return result;
@@ -109,7 +140,13 @@ public class MultipleSearch<T> {
 		} else if (!entity.equals(other.entity)) {
 			return false;
 		}
-
+		if (orders == null) {
+			if (other.orders != null) {
+				return false;
+			}
+		} else if (!orders.equals(other.orders)) {
+			return false;
+		}
 		if (parameters == null) {
 			if (other.parameters != null) {
 				return false;
@@ -122,8 +159,8 @@ public class MultipleSearch<T> {
 
 	@Override
 	public String toString() {
-		return "PagedSearch [parameters=" + parameters
-				+ ", clazz=" + clazz + ", entity=" + entity + "]";
+		return "MultipleSearch [parameters=" + parameters + ", clazz=" + clazz
+				+ ", entity=" + entity + ", orders=" + orders + "]";
 	}
-
+	
 }

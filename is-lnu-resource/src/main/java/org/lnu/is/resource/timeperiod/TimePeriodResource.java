@@ -18,6 +18,7 @@ public class TimePeriodResource extends ApiResource {
 
 	private Long parentId;
 
+	@NotNull(message = "Field required")
 	private Integer numValue;
 
 	@NotNull(message = "Field required")
