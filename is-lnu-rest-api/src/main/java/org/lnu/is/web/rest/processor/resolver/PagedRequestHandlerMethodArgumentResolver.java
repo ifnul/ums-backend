@@ -95,6 +95,7 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
  			if (!pattern.matcher(orderByParameter).matches()) {
 				throw new InvalidOrderByException(orderByParameter);
 			}
+			
 			*/
 			
 			String[] ordersBy = orderByParameter.split(",");
