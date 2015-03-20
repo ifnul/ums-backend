@@ -21,11 +21,10 @@
 	</description>
 
 	<properties>
-		<production.folder>production</production.folder>
-		<production.version>0.9.1</production.version>
+		<data.folder>production</data.folder>
+		<data.version>0.9.1</data.version>
 		
 		<cleaning.folder>cleaning</cleaning.folder>
-		<insert.scripts.folder>insert-data</insert.scripts.folder>
 	</properties>
 
 	<profiles>
@@ -76,7 +75,7 @@
 			</build>
 		</profile>	
 		<profile>
-			<id>production</id>
+			<id>data</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -109,7 +108,7 @@
 								<configuration>
 									<orderFile>ascending</orderFile>
 									<fileset>
-										<basedir>${basedir}/src/main/resources/${production.folder}/${production.version}</basedir>
+										<basedir>${basedir}/src/main/resources/${data.folder}/${data.version}</basedir>
 										<includes>
 											<include>**/*.sql</include>
 										</includes>
