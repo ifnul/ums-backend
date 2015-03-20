@@ -80,6 +80,7 @@ public class AddressTypeQueryBuilderTest {
 		assertEquals(expectedQuery, actualQuery);
 	}
 
+	@Test
 	public void testBuildWithDisabledDefaultConstraintWithOrderBy() throws Exception {
 		// Given
 		unit.setActive(false);

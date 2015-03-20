@@ -130,7 +130,9 @@ public class BaseQueryBuilder {
 	 * @return boolean value
 	 */
 	private boolean hasConditions() {
-		return WHERE_SINGLETON.equals(getConditions()) || WHERE_OPENBRAKCETSINGLETON.equals(getConditions());
+		boolean result = WHERE_SINGLETON.equals(getConditions()) 
+				|| WHERE_OPENBRAKCETSINGLETON.equals(getConditions());
+		return result;
 	}
 
 	/**
@@ -253,6 +255,8 @@ public class BaseQueryBuilder {
 	private String prepareConditions(final List<String> conditions) {
 		StringBuilder sb = new StringBuilder();
 		
+		prepareUnusedConditions(conditions);
+		
 		if (!hasConditions()) {
 			for (String condition: conditions) {
 				sb.append(condition);
@@ -260,6 +264,17 @@ public class BaseQueryBuilder {
 		}
 		
 		return sb.toString();
+	}
+
+	/**
+	 * Method for preparing conditions.
+	 * @param conds
+	 */
+	private void prepareUnusedConditions(final List<String> conds) {
+		// If there is where() method and no parameters and at the end we have orderBy();
+		if (conds.contains(WHERE) && conds.size() == 2 && conds.get(1).contains("ORDER BY")) {
+			conds.remove(WHERE);
+		}
 	}
 
 	/**
