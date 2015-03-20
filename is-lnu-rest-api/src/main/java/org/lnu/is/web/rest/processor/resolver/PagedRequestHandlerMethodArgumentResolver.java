@@ -24,7 +24,6 @@ import org.lnu.is.annotations.Offset;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.pagination.OrderByType;
 import org.lnu.is.resource.search.PagedRequest;
-import org.lnu.is.web.exception.InvalidOrderByException;
 import org.lnu.is.web.rest.constant.Constants;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
@@ -91,9 +90,12 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		
 		if (orderByParameter != null  && !orderByParameter.isEmpty()) {
 			orderByParameter = orderByParameter.replaceAll("\\s", "");
-			if (!pattern.matcher(orderByParameter).matches()) {
+			
+			/*			
+ 			if (!pattern.matcher(orderByParameter).matches()) {
 				throw new InvalidOrderByException(orderByParameter);
 			}
+			*/
 			
 			String[] ordersBy = orderByParameter.split(",");
 			
