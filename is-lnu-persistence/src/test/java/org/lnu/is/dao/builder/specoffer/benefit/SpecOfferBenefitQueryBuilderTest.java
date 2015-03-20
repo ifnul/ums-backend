@@ -27,7 +27,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		// Given
 		SpecOfferBenefit context = new SpecOfferBenefit();
 		
-		String expectedQuery = "SELECT s FROM SpecOfferBenefit s WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM SpecOfferBenefit e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<SpecOfferBenefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -44,7 +44,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		unit.setSecurity(false);
 		SpecOfferBenefit context = new SpecOfferBenefit();
 		
-		String expectedQuery = "SELECT s FROM SpecOfferBenefit s WHERE e.status=:status ";
+		String expectedQuery = "SELECT e FROM SpecOfferBenefit e WHERE e.status=:status ";
 		MultiplePagedSearch<SpecOfferBenefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -62,7 +62,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		
 		SpecOfferBenefit context = new SpecOfferBenefit();
 		
-		String expectedQuery = "SELECT s FROM SpecOfferBenefit s WHERE e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM SpecOfferBenefit e WHERE e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<SpecOfferBenefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -81,7 +81,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		
 		SpecOfferBenefit context = new SpecOfferBenefit();
 		
-		String expectedQuery = "SELECT s FROM SpecOfferBenefit s ";
+		String expectedQuery = "SELECT e FROM SpecOfferBenefit e ";
 		MultiplePagedSearch<SpecOfferBenefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -101,7 +101,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		context.setSpecOffer(specOffer);
 		context.setBenefit(benefit);
 
-		String expectedQuery = "SELECT s FROM SpecOfferBenefit s WHERE ( e.specOffer = :specOffer OR e.benefit = :benefit ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM SpecOfferBenefit e WHERE ( e.specOffer = :specOffer OR e.benefit = :benefit ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<SpecOfferBenefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -124,7 +124,7 @@ public class SpecOfferBenefitQueryBuilderTest {
 		context.setSpecOffer(specOffer);
 		context.setBenefit(benefit);
 		
-		String expectedQuery = "SELECT s FROM SpecOfferBenefit s WHERE ( e.specOffer = :specOffer OR e.benefit = :benefit ) ";
+		String expectedQuery = "SELECT e FROM SpecOfferBenefit e WHERE ( e.specOffer = :specOffer OR e.benefit = :benefit ) ";
 		MultiplePagedSearch<SpecOfferBenefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
