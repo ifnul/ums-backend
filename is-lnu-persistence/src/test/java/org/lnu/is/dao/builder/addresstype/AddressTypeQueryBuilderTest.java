@@ -45,6 +45,7 @@ public class AddressTypeQueryBuilderTest {
 	public void testBuildWithOrderBy() throws Exception {
 		// Given
 		AddressType context = new AddressType();
+		
 		OrderBy orderBy1 = new OrderBy("name", OrderByType.ASC);
 		OrderBy orderBy2 = new OrderBy("abbrName", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
