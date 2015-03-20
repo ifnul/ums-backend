@@ -12,6 +12,24 @@ public class Pair<TYPE, VALUE> {
 	private TYPE name;
 	private VALUE value;
 	
+	/**
+	 * Default constructor.
+	 */
+	public Pair() {
+		super();
+	}
+
+	/**
+	 * Constructor with all parameters.
+	 * @param name
+	 * @param value
+	 */
+	public Pair(final TYPE name, final VALUE value) {
+		super();
+		this.name = name;
+		this.value = value;
+	}
+	
 	public TYPE getName() {
 		return name;
 	}

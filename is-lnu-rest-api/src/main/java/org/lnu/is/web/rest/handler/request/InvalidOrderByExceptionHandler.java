@@ -1,11 +1,15 @@
 package org.lnu.is.web.rest.handler.request;
 
 import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
+import org.lnu.is.resource.message.Pair;
+import org.lnu.is.resource.message.validation.ValidationMessageResource;
 import org.lnu.is.web.exception.InvalidOrderByException;
 import org.lnu.is.web.rest.handler.BaseExceptionHandler;
 import org.slf4j.Logger;
@@ -35,8 +39,12 @@ public class InvalidOrderByExceptionHandler  implements BaseExceptionHandler<Inv
 	public MessageResource handle(final InvalidOrderByException e) throws Exception {
 		LOGGER.error("Handling Invalid order by exception", e);
 		
-		String message = MessageFormat.format("Failed validation for orderBy field. Required regex - {0} , actual : {1}",
-						orderByPattern, e.getValue());
-		return new MessageResource(MessageType.ERROR, message);
+		String message = MessageFormat.format("Failed validation for orderBy field : {0}", e.getValue());
+		
+		Pair<String, String> pair = new Pair<String, String>("orderBy", "Pattern: " + orderByPattern);
+		List<Pair<String, String>> fields = Arrays.asList(pair);
+		MessageResource messageResource = new ValidationMessageResource(MessageType.ERROR, message, fields);
+		
+		return messageResource;
 	}
 }

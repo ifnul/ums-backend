@@ -24,7 +24,10 @@ import org.lnu.is.annotations.Offset;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.pagination.OrderByType;
 import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.web.exception.InvalidOrderByException;
 import org.lnu.is.web.rest.constant.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -42,7 +45,8 @@ import org.springframework.web.servlet.HandlerMapping;
  */
 @Component("pagedRequestHandlerMethodArgumentResolver")
 public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
-
+	private static final Logger LOG = LoggerFactory.getLogger(PagedRequestHandlerMethodArgumentResolver.class);
+	
 	@Resource(name = "orderByPattern")
 	private Pattern pattern;
 	
@@ -65,6 +69,7 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 	public Object resolveArgument(final MethodParameter param,
 			final ModelAndViewContainer mavContainer, final NativeWebRequest webRequest,
 			final WebDataBinderFactory binderFactory) throws Exception {
+		LOG.debug("Debugging PagedRequest Parsing:");
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) webRequest.getNativeRequest();
 		Map<String, String> parameters = getRequestParameters(webRequest);
@@ -87,16 +92,12 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		List<OrderBy> orders = new ArrayList<>();
 		String orderByParameter = httpRequest.getParameter("orderBy");
 		
-		
 		if (orderByParameter != null  && !orderByParameter.isEmpty()) {
 			orderByParameter = orderByParameter.replaceAll("\\s", "");
-			
-			/*			
- 			if (!pattern.matcher(orderByParameter).matches()) {
+
+			if (!pattern.matcher(orderByParameter).matches()) {
 				throw new InvalidOrderByException(orderByParameter);
 			}
-			
-			*/
 			
 			String[] ordersBy = orderByParameter.split(",");
 			
@@ -115,7 +116,7 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		
 		return orders;
 	}
-
+	
 	/**
 	 * Method for getting request parameters.
 	 * Parameters include path variables + request parameters.
