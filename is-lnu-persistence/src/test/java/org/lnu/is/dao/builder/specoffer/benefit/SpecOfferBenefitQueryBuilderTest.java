@@ -134,4 +134,5 @@ public class SpecOfferBenefitQueryBuilderTest {
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}
+	
 }
