@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.marriedtype.MarriedType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class MarriedTypeQueryBuilderTest {
 	
@@ -25,9 +26,11 @@ public class MarriedTypeQueryBuilderTest {
 		MarriedType context = new MarriedType();
 		
 		String expectedQuery = "SELECT e FROM MarriedType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<MarriedType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -41,9 +44,11 @@ public class MarriedTypeQueryBuilderTest {
 		MarriedType context = new MarriedType();
 		
 		String expectedQuery = "SELECT e FROM MarriedType e WHERE e.status=:status ";
+		MultiplePagedSearch<MarriedType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -57,9 +62,11 @@ public class MarriedTypeQueryBuilderTest {
 		MarriedType context = new MarriedType();
 		
 		String expectedQuery = "SELECT e FROM MarriedType e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<MarriedType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -74,9 +81,11 @@ public class MarriedTypeQueryBuilderTest {
 		MarriedType context = new MarriedType();
 		
 		String expectedQuery = "SELECT e FROM MarriedType e ";
+		MultiplePagedSearch<MarriedType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -93,9 +102,11 @@ public class MarriedTypeQueryBuilderTest {
 		context.setName(name);
 		
 		String expectedQuery = "SELECT e FROM MarriedType e WHERE ( m.name LIKE CONCAT('%',:name,'%') OR m.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<MarriedType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -115,9 +126,11 @@ public class MarriedTypeQueryBuilderTest {
 		context.setName(name);
 		
 		String expectedQuery = "SELECT e FROM MarriedType e WHERE ( m.name LIKE CONCAT('%',:name,'%') OR m.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		MultiplePagedSearch<MarriedType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

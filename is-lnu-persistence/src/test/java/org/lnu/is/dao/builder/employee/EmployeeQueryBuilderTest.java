@@ -15,6 +15,7 @@ import org.lnu.is.domain.jobtype.JobType;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.post.Post;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class EmployeeQueryBuilderTest {
 
@@ -35,12 +36,14 @@ public class EmployeeQueryBuilderTest {
 		Employee context = new Employee();
 		
 		String expected = "SELECT e FROM Employee e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Employee> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -51,12 +54,14 @@ public class EmployeeQueryBuilderTest {
 		Employee context = new Employee();
 		
 		String expected = "SELECT e FROM Employee e WHERE e.status=:status ";
+		MultiplePagedSearch<Employee> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -67,12 +72,14 @@ public class EmployeeQueryBuilderTest {
 		Employee context = new Employee();
 		
 		String expected = "SELECT e FROM Employee e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Employee> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -84,12 +91,14 @@ public class EmployeeQueryBuilderTest {
 		Employee context = new Employee();
 		
 		String expected = "SELECT e FROM Employee e ";
+		MultiplePagedSearch<Employee> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -167,12 +176,14 @@ public class EmployeeQueryBuilderTest {
 		context.setEmail(email);
 
 		String expected = "SELECT e FROM Employee e WHERE ( e.employeeType = :employeeType OR e.person = :person OR e.genderType = :genderType OR e.department = :department OR e.post =:post OR e.jobType = :jobType OR e.employeeStatus = :employeeStatus OR e.order =:order OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:firstName,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') eOR e.birthDate = :birthDate OR e.invNum = :invNum OR e.rate = :rate OR e.isPlurality =:isPlurality OR e.isPensioner =:isPensioner OR e.begDate <= :begDate OR e.endDate >= :endDateOR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Employee> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -253,11 +264,13 @@ public class EmployeeQueryBuilderTest {
 		context.setEmail(email);
 		
 		String expected = "SELECT e FROM Employee e WHERE ( e.employeeType = :employeeType OR e.person = :person OR e.genderType = :genderType OR e.department = :department OR e.post =:post OR e.jobType = :jobType OR e.employeeStatus = :employeeStatus OR e.order =:order OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:firstName,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') eOR e.birthDate = :birthDate OR e.invNum = :invNum OR e.rate = :rate OR e.isPlurality =:isPlurality OR e.isPensioner =:isPensioner OR e.begDate <= :begDate OR e.endDate >= :endDateOR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') ) ";
+		MultiplePagedSearch<Employee> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

@@ -21,7 +21,7 @@ public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecOffer
 	
 	@Override
 	protected String getBaseQuery() {
-		return "SELECT e FROM SpecofferSubject e %s";
+		return "SELECT e FROM SpecOfferSubject e %s";
 	}
 
 	@Override
@@ -29,12 +29,12 @@ public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecOffer
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
-				.addOrCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
-				.addOrCondition(MARK_CONDITION, context.getMark())
-				.addOrCondition(ISMAJOR_CONDITION, context.getIsMajor())
-				.addOrCondition(ALTERNATIVE_CONDITION, context.getAlternative())
-				.addOrCondition(WEIGHTSUBJECT_CONDITION, context.getWeightSubject())
+					.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
+					.addOrCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
+					.addOrCondition(MARK_CONDITION, context.getMark())
+					.addOrCondition(ISMAJOR_CONDITION, context.getIsMajor())
+					.addOrCondition(ALTERNATIVE_CONDITION, context.getAlternative())
+					.addOrCondition(WEIGHTSUBJECT_CONDITION, context.getWeightSubject())
 				.closeBracket();
 	}
 

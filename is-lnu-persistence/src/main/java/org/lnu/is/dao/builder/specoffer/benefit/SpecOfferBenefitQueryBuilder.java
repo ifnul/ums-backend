@@ -17,7 +17,7 @@ public class SpecOfferBenefitQueryBuilder extends AbstractQueryBuilder<SpecOffer
 
 	@Override
 	protected String getBaseQuery() {
-		return "SELECT s FROM SpecofferBenefit s %s";
+		return "SELECT e FROM SpecOfferBenefit e %s";
 	}
 
 	@Override
@@ -25,8 +25,8 @@ public class SpecOfferBenefitQueryBuilder extends AbstractQueryBuilder<SpecOffer
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
-				.addOrCondition(BENEFIT_CONDITION, context.getBenefit())
+					.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
+					.addOrCondition(BENEFIT_CONDITION, context.getBenefit())
 				.closeBracket();
 	}
 

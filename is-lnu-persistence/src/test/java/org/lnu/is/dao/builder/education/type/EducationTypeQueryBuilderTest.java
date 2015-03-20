@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.educationtype.EducationType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class EducationTypeQueryBuilderTest {
 
@@ -25,11 +26,14 @@ public class EducationTypeQueryBuilderTest {
 		EducationType context = new EducationType();
 		
 		String expected = "SELECT e FROM EducationType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<EducationType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -40,11 +44,14 @@ public class EducationTypeQueryBuilderTest {
 		EducationType context = new EducationType();
 		
 		String expected = "SELECT e FROM EducationType e WHERE e.status=:status ";
+		MultiplePagedSearch<EducationType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -55,11 +62,14 @@ public class EducationTypeQueryBuilderTest {
 		EducationType context = new EducationType();
 		
 		String expected = "SELECT e FROM EducationType e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<EducationType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -71,11 +81,14 @@ public class EducationTypeQueryBuilderTest {
 		EducationType context = new EducationType();
 		
 		String expected = "SELECT e FROM EducationType e ";
+		MultiplePagedSearch<EducationType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -88,11 +101,14 @@ public class EducationTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 
 		String expected = "SELECT e FROM EducationType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<EducationType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -108,10 +124,13 @@ public class EducationTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		
 		String expected = "SELECT e FROM EducationType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		MultiplePagedSearch<EducationType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

@@ -14,6 +14,7 @@
 		<security:http-basic />
 		
 		<security:intercept-url pattern="/api/api-docs/**" access="permitAll" />
+		<security:intercept-url pattern="/**" method="OPTIONS" access="permitAll" />
 		<security:intercept-url pattern="/**" access="isAuthenticated()" />
 		<security:form-login 
 			authentication-success-handler-ref="customSuccessHandler"

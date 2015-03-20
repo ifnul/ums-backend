@@ -7,6 +7,7 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.partner.Partner;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class PartnerQueryBuilderTest {
 
@@ -27,11 +28,14 @@ public class PartnerQueryBuilderTest {
 		Partner context = new Partner();
 		
 		String expected = "SELECT e FROM Partner e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Partner> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -41,11 +45,14 @@ public class PartnerQueryBuilderTest {
 		Partner context = new Partner();
 		
 		String expected = "SELECT e FROM Partner e WHERE e.status=:status ";
+		MultiplePagedSearch<Partner> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -56,11 +63,14 @@ public class PartnerQueryBuilderTest {
 		Partner context = new Partner();
 		
 		String expected = "SELECT e FROM Partner e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Partner> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -72,11 +82,14 @@ public class PartnerQueryBuilderTest {
 		Partner context = new Partner();
 		
 		String expected = "SELECT e FROM Partner e ";
+		MultiplePagedSearch<Partner> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 	@Test
@@ -102,11 +115,14 @@ public class PartnerQueryBuilderTest {
 		context.setEndDate(endDate);
 		
 		String expected = "SELECT e FROM Partner e WHERE ( e.parent = :parent OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Partner> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -135,10 +151,13 @@ public class PartnerQueryBuilderTest {
 		context.setEndDate(endDate);
 		
 		String expected = "SELECT e FROM Partner e WHERE ( e.parent = :parent OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		MultiplePagedSearch<Partner> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

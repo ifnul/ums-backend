@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.lnu.is.domain.familytype.FamilyType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.family.PersonFamily;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class PersonFamilyQueryBuilderTest {
 
@@ -27,9 +28,11 @@ public class PersonFamilyQueryBuilderTest {
 		PersonFamily context = new PersonFamily();
 
 		String expectedQuery = "SELECT e FROM PersonFamily e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<PersonFamily> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -43,9 +46,11 @@ public class PersonFamilyQueryBuilderTest {
 		PersonFamily context = new PersonFamily();
 
 		String expectedQuery = "SELECT e FROM PersonFamily e WHERE e.status=:status ";
-
+		MultiplePagedSearch<PersonFamily> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -59,9 +64,11 @@ public class PersonFamilyQueryBuilderTest {
 		PersonFamily context = new PersonFamily();
 
 		String expectedQuery = "SELECT e FROM PersonFamily e WHERE e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<PersonFamily> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -76,9 +83,11 @@ public class PersonFamilyQueryBuilderTest {
 		PersonFamily context = new PersonFamily();
 
 		String expectedQuery = "SELECT e FROM PersonFamily e ";
-
+		MultiplePagedSearch<PersonFamily> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -98,10 +107,11 @@ public class PersonFamilyQueryBuilderTest {
 		context.setName(value);
 
 		String expectedQuery = "SELECT e FROM PersonFamily e WHERE ( e.person = :person OR e.familyType = :familyType OR e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<PersonFamily> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
-
+		String actualQuery = unit.build(pagedSearch);
 		// Then
 		assertEquals(expectedQuery, actualQuery);
 	}
@@ -123,9 +133,11 @@ public class PersonFamilyQueryBuilderTest {
 		context.setName(value);
 
 		String expectedQuery = "SELECT e FROM PersonFamily e WHERE ( e.person = :person OR e.familyType = :familyType OR e.name LIKE CONCAT('%',:name,'%') ) ";
-
+		MultiplePagedSearch<PersonFamily> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);

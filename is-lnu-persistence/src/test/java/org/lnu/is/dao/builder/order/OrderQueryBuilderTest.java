@@ -14,6 +14,7 @@ import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.order.type.OrderType;
 import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.domain.reason.Reason;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class OrderQueryBuilderTest {
 
@@ -34,11 +35,14 @@ public class OrderQueryBuilderTest {
 		Order context = new Order();
 
 		String expected = "SELECT e FROM Order e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Order> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -48,11 +52,14 @@ public class OrderQueryBuilderTest {
 		Order context = new Order();
 		
 		String expected = "SELECT e FROM Order e WHERE e.status=:status ";
+		MultiplePagedSearch<Order> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -63,11 +70,14 @@ public class OrderQueryBuilderTest {
 		Order context = new Order();
 		
 		String expected = "SELECT e FROM Order e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Order> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -79,11 +89,14 @@ public class OrderQueryBuilderTest {
 		Order context = new Order();
 		
 		String expected = "SELECT e FROM Order e ";
+		MultiplePagedSearch<Order> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -121,11 +134,14 @@ public class OrderQueryBuilderTest {
 		context.setEvDate(evDate);
 		
 		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Order> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -166,11 +182,14 @@ public class OrderQueryBuilderTest {
 		context.setEvDate(evDate);
 		
 		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ) ";
+		MultiplePagedSearch<Order> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 
 }

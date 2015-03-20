@@ -32,15 +32,15 @@ public class AdminUnitQueryBuilder extends AbstractQueryBuilder<AdminUnit> {
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(ADMINUNITTYPE_COND, context.getAdminUnitType())
-				.addOrCondition(PARENT_COND, context.getParent())
-				.addOrCondition(IDENTIFIER_COND, context.getIdentifier())
-				.addOrCondition(IDENTIFIER1_COND, context.getIdentifier1())
-				.addOrCondition(IDENTIFIER2_COND, context.getIdentifier2())
-				.addOrCondition(IDENTIFIER3_COND, context.getIdentifier3())
-				.addOrCondition(NAME_COND, context.getName())
-				.addOrCondition(BEGDATE_COND, context.getBegDate())
-				.addOrCondition(ENDDATE_COND, context.getEndDate())
+					.addOrCondition(ADMINUNITTYPE_COND, context.getAdminUnitType())
+					.addOrCondition(PARENT_COND, context.getParent())
+					.addOrCondition(IDENTIFIER_COND, context.getIdentifier())
+					.addOrCondition(IDENTIFIER1_COND, context.getIdentifier1())
+					.addOrCondition(IDENTIFIER2_COND, context.getIdentifier2())
+					.addOrCondition(IDENTIFIER3_COND, context.getIdentifier3())
+					.addOrCondition(NAME_COND, context.getName())
+					.addOrCondition(BEGDATE_COND, context.getBegDate())
+					.addOrCondition(ENDDATE_COND, context.getEndDate())
 				.closeBracket();
 	}
 

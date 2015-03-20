@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.lnu.is.domain.markscale.Markscale;
 import org.lnu.is.domain.markscale.exchange.MarkscaleExchange;
 import org.lnu.is.domain.markscale.value.MarkscaleValue;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class MarkscaleExchangeQueryBuilderTest {
 
@@ -27,12 +28,14 @@ public class MarkscaleExchangeQueryBuilderTest {
 		MarkscaleExchange context = new MarkscaleExchange();
 		
 		String expected = "SELECT e FROM MarkscaleExchange e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<MarkscaleExchange> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -43,12 +46,14 @@ public class MarkscaleExchangeQueryBuilderTest {
 		MarkscaleExchange context = new MarkscaleExchange();
 		
 		String expected = "SELECT e FROM MarkscaleExchange e WHERE e.status=:status ";
+		MultiplePagedSearch<MarkscaleExchange> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -59,12 +64,14 @@ public class MarkscaleExchangeQueryBuilderTest {
 		MarkscaleExchange context = new MarkscaleExchange();
 		
 		String expected = "SELECT e FROM MarkscaleExchange e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<MarkscaleExchange> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -76,12 +83,14 @@ public class MarkscaleExchangeQueryBuilderTest {
 		MarkscaleExchange context = new MarkscaleExchange();
 		
 		String expected = "SELECT e FROM MarkscaleExchange e ";
+		MultiplePagedSearch<MarkscaleExchange> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -112,12 +121,14 @@ public class MarkscaleExchangeQueryBuilderTest {
 		context.setMarkscaleExchangeValue(markscaleExchangeValue);
 
 		String expected = "SELECT e FROM MarkscaleExchange e WHERE ( e.markscale = :markscale OR e.markscaleValue = :markscaleValue OR e.markscaleExchange = :markscaleExchange OR e.markscaleExchangeValue = :markscaleExchangeValue OR e.markMin = :markMin OR e.markMax = :markMax OR e.markExchange = :markExchange ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<MarkscaleExchange> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -151,11 +162,13 @@ public class MarkscaleExchangeQueryBuilderTest {
 		context.setMarkscaleExchangeValue(markscaleExchangeValue);
 		
 		String expected = "SELECT e FROM MarkscaleExchange e WHERE ( e.markscale = :markscale OR e.markscaleValue = :markscaleValue OR e.markscaleExchange = :markscaleExchange OR e.markscaleExchangeValue = :markscaleExchangeValue OR e.markMin = :markMin OR e.markMax = :markMax OR e.markExchange = :markExchange ) ";
+		MultiplePagedSearch<MarkscaleExchange> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

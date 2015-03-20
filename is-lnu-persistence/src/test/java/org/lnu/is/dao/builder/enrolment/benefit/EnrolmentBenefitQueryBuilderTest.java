@@ -8,6 +8,7 @@ import org.lnu.is.domain.benefit.Benefit;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.benefit.EnrolmentBenefit;
 import org.lnu.is.domain.person.paper.PersonPaper;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class EnrolmentBenefitQueryBuilderTest {
 
@@ -28,9 +29,11 @@ public class EnrolmentBenefitQueryBuilderTest {
 		EnrolmentBenefit context = new EnrolmentBenefit();
 		
 		String expectedQuery = "SELECT e FROM EnrolmentBenefit e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<EnrolmentBenefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -44,9 +47,11 @@ public class EnrolmentBenefitQueryBuilderTest {
 		EnrolmentBenefit context = new EnrolmentBenefit();
 		
 		String expectedQuery = "SELECT e FROM EnrolmentBenefit e WHERE e.status=:status ";
+		MultiplePagedSearch<EnrolmentBenefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -60,9 +65,11 @@ public class EnrolmentBenefitQueryBuilderTest {
 		EnrolmentBenefit context = new EnrolmentBenefit();
 		
 		String expectedQuery = "SELECT e FROM EnrolmentBenefit e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<EnrolmentBenefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -77,9 +84,11 @@ public class EnrolmentBenefitQueryBuilderTest {
 		EnrolmentBenefit context = new EnrolmentBenefit();
 		
 		String expectedQuery = "SELECT e FROM EnrolmentBenefit e ";
+		MultiplePagedSearch<EnrolmentBenefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -98,9 +107,11 @@ public class EnrolmentBenefitQueryBuilderTest {
 		context.setPersonPaper(personpaper);
 
 		String expectedQuery = "SELECT e FROM EnrolmentBenefit e WHERE ( e.enrolment = :enrolment OR e.benefit =:benefit OR e.personPaper =:personPaper ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<EnrolmentBenefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -122,9 +133,11 @@ public class EnrolmentBenefitQueryBuilderTest {
 		context.setPersonPaper(personpaper);
 		
 		String expectedQuery = "SELECT e FROM EnrolmentBenefit e WHERE ( e.enrolment = :enrolment OR e.benefit =:benefit OR e.personPaper =:personPaper ) ";
+		MultiplePagedSearch<EnrolmentBenefit> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

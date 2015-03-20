@@ -2,7 +2,13 @@ package org.lnu.is.dao.builder;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import org.junit.Test;
+import org.lnu.is.pagination.OrderBy;
+import org.lnu.is.pagination.OrderByType;
 
 public class BaseQueryBuilderTest {
 
@@ -25,6 +31,86 @@ public class BaseQueryBuilderTest {
 			.addOrCondition(condition1, nullParameter)
 			.build();
 
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithOrderBy() throws Exception {
+		// Given
+		String query = "SELECT FROM SMTH %s";
+		String condition = "condition ";
+		Object parameter = new Object();
+		
+		String condition1 = "condition1 ";
+		Object nullParameter = null;
+		OrderBy orderBy1 = new OrderBy("name1", OrderByType.ASC);
+		OrderBy orderBy2 = new OrderBy("name2", OrderByType.DESC);
+		
+		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
+		
+		String expected = "SELECT FROM SMTH WHERE condition ORDER BY e.name1 ASC, e.name2 DESC";
+		
+		// When
+		String actual = BaseQueryBuilder.getInstance(query)
+				.where()
+					.addOrCondition(condition, parameter)
+					.addOrCondition(condition1, nullParameter)
+					.orderBy(orders)
+				.build();
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithSingleOrderBy() throws Exception {
+		// Given
+		String query = "SELECT FROM SMTH %s";
+		String condition = "condition ";
+		Object parameter = new Object();
+		
+		String condition1 = "condition1 ";
+		Object nullParameter = null;
+		OrderBy orderBy1 = new OrderBy("name1", OrderByType.ASC);
+		
+		List<OrderBy> orders = Arrays.asList(orderBy1);
+		
+		String expected = "SELECT FROM SMTH WHERE condition ORDER BY e.name1 ASC";
+		
+		// When
+		String actual = BaseQueryBuilder.getInstance(query)
+				.where()
+				.addOrCondition(condition, parameter)
+				.addOrCondition(condition1, nullParameter)
+				.orderBy(orders)
+				.build();
+		
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testBuildWithEmptyOrderBy() throws Exception {
+		// Given
+		String query = "SELECT FROM SMTH %s";
+		String condition = "condition ";
+		Object parameter = new Object();
+		
+		String condition1 = "condition1 ";
+		Object nullParameter = null;
+		List<OrderBy> orders = Collections.emptyList();
+		
+		String expected = "SELECT FROM SMTH WHERE condition ";
+		
+		// When
+		String actual = BaseQueryBuilder.getInstance(query)
+				.where()
+				.addOrCondition(condition, parameter)
+				.addOrCondition(condition1, nullParameter)
+				.orderBy(orders)
+				.build();
+		
 		// Then
 		assertEquals(expected, actual);
 	}

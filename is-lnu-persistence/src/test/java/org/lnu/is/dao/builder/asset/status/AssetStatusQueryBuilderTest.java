@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.asset.status.AssetStatus;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class AssetStatusQueryBuilderTest {
 	
@@ -25,12 +26,13 @@ public class AssetStatusQueryBuilderTest {
 		AssetStatus context = new AssetStatus();
 
 		String expected = "SELECT e FROM AssetStatus e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<AssetStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
-
+		String actualQuery = unit.build(pagedSearch);
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -40,12 +42,14 @@ public class AssetStatusQueryBuilderTest {
 		AssetStatus context = new AssetStatus();
 		
 		String expected = "SELECT e FROM AssetStatus e WHERE e.status=:status ";
+		MultiplePagedSearch<AssetStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -56,12 +60,14 @@ public class AssetStatusQueryBuilderTest {
 		AssetStatus context = new AssetStatus();
 		
 		String expected = "SELECT e FROM AssetStatus e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<AssetStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -73,12 +79,14 @@ public class AssetStatusQueryBuilderTest {
 		AssetStatus context = new AssetStatus();
 		
 		String expected = "SELECT e FROM AssetStatus e ";
+		MultiplePagedSearch<AssetStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -90,12 +98,14 @@ public class AssetStatusQueryBuilderTest {
 		context.setName(name);
 		
 		String expected = "SELECT e FROM AssetStatus e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<AssetStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -110,11 +120,13 @@ public class AssetStatusQueryBuilderTest {
 		context.setName(name);
 		
 		String expected = "SELECT e FROM AssetStatus e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) ";
+		MultiplePagedSearch<AssetStatus> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

@@ -9,10 +9,11 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
-	<bean id="entityNotFoundExceptionHandler" class="org.lnu.is.web.rest.handler.entity.EntityNotFoundExceptionHandler" />
-	<bean id="messageNotReadableExceptionHandler" class="org.lnu.is.web.rest.handler.request.MessageNotReadableExceptionHandler" />
-	<bean id="messageArgumentNotValidExceptionHandler" class="org.lnu.is.web.rest.handler.request.MethodArgumentNotValidExceptionHandler" />
-	<bean id="accessDeniedExceptionHandler" class="org.lnu.is.web.rest.handler.access.AccessDeniedExceptionHandler" />
-	<bean id="noGroupsForUserExceptionHandler" class="org.lnu.is.web.rest.handler.access.NoGroupForUserExceptionHandler" />
+	<bean class="org.lnu.is.web.rest.handler.entity.EntityNotFoundExceptionHandler" />
+	<bean class="org.lnu.is.web.rest.handler.request.MessageNotReadableExceptionHandler" />
+	<bean class="org.lnu.is.web.rest.handler.request.MethodArgumentNotValidExceptionHandler" />
+	<bean class="org.lnu.is.web.rest.handler.access.AccessDeniedExceptionHandler" />
+	<bean class="org.lnu.is.web.rest.handler.access.NoGroupForUserExceptionHandler" />
+	<bean class="org.lnu.is.web.rest.handler.request.InvalidOrderByExceptionHandler" />
 	
 </beans>

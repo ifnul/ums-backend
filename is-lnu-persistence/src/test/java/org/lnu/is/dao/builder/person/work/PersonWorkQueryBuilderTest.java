@@ -10,6 +10,7 @@ import org.lnu.is.domain.jobtype.JobType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.work.PersonWork;
 import org.lnu.is.domain.specstagetype.SpecStageType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class PersonWorkQueryBuilderTest {
 
@@ -30,9 +31,11 @@ public class PersonWorkQueryBuilderTest {
 		PersonWork context = new PersonWork();
 		
 		String expectedQuery = "SELECT e FROM PersonWork e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<PersonWork> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -45,9 +48,11 @@ public class PersonWorkQueryBuilderTest {
 		PersonWork context = new PersonWork();
 		
 		String expectedQuery = "SELECT e FROM PersonWork e WHERE e.status=:status ";
+		MultiplePagedSearch<PersonWork> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -60,9 +65,11 @@ public class PersonWorkQueryBuilderTest {
 		PersonWork context = new PersonWork();
 		
 		String expectedQuery = "SELECT e FROM PersonWork e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<PersonWork> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -77,9 +84,11 @@ public class PersonWorkQueryBuilderTest {
 		PersonWork context = new PersonWork();
 		
 		String expectedQuery = "SELECT e FROM PersonWork e ";
+		MultiplePagedSearch<PersonWork> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -108,9 +117,11 @@ public class PersonWorkQueryBuilderTest {
 		context.setEndDate(endDate);
 
 		String expectedQuery = "SELECT e FROM PersonWork e WHERE ( e.person = :person OR e.jobType = :jobType OR e.specStageType = :specStageType OR e.organizationName LIKE CONCAT('%',:organizationName,'%') OR e.postName LIKE CONCAT('%',:postName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<PersonWork> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -142,9 +153,11 @@ public class PersonWorkQueryBuilderTest {
 		context.setEndDate(endDate);
 		
 		String expectedQuery = "SELECT e FROM PersonWork e WHERE ( e.person = :person OR e.jobType = :jobType OR e.specStageType = :specStageType OR e.organizationName LIKE CONCAT('%',:organizationName,'%') OR e.postName LIKE CONCAT('%',:postName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		MultiplePagedSearch<PersonWork> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

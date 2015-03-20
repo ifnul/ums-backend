@@ -1,7 +1,6 @@
 package org.lnu.is.dao.dao;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -142,12 +141,12 @@ public class DefaultDaoTest {
 				pagedSearch.getLimit(), pagedSearch.getParameters(), Department.class);
 		
 		// When
-		when(queryBuilder.build(any(Department.class))).thenReturn(querySql);
+		when(queryBuilder.build(Matchers.<MultiplePagedSearch<Department>>any())).thenReturn(querySql);
 		when(persistenceManager.search(Matchers.<MultiplePagedQuerySearch<Department>>any())).thenReturn(expected);
 		PagedResult<Department> actual = unit.getEntities(pagedSearch);
 
 		// Then
-		verify(queryBuilder).build(entity1);
+		verify(queryBuilder).build(pagedSearch);
 		verify(persistenceManager).search(pagedQuerySearch);
 		assertEquals(expected, actual);
 	}

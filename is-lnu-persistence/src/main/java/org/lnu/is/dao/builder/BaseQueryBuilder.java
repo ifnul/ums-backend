@@ -1,8 +1,11 @@
 package org.lnu.is.dao.builder;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import org.lnu.is.pagination.OrderBy;
 
 /**
  * Base Query Builder.
@@ -77,9 +80,19 @@ public class BaseQueryBuilder {
 		
 		if (parameter != null) {
 			and();
-			getConditions().add(condition);
+			addCondition(condition);
 		}
 		
+		return this;
+	}
+
+	/**
+	 * Method for adding condition withous placeholder.
+	 * @param condition
+	 * @return Base Query Builder.
+	 */
+	public BaseQueryBuilder addCondition(final String condition) {
+		getConditions().add(condition);
 		return this;
 	}
 
@@ -117,7 +130,9 @@ public class BaseQueryBuilder {
 	 * @return boolean value
 	 */
 	private boolean hasConditions() {
-		return WHERE_SINGLETON.equals(getConditions()) || WHERE_OPENBRAKCETSINGLETON.equals(getConditions());
+		boolean result = WHERE_SINGLETON.equals(getConditions()) 
+				|| WHERE_OPENBRAKCETSINGLETON.equals(getConditions());
+		return result;
 	}
 
 	/**
@@ -186,6 +201,45 @@ public class BaseQueryBuilder {
 	}
 	
 	/**
+	 * Method for setting order by.
+	 * @param orders
+	 * @return base query builder.
+	 */
+	public BaseQueryBuilder orderBy(final List<OrderBy> orders) {
+		
+		if (orders != null && !orders.isEmpty()) {
+			String orderBy = getOrderBy(orders);
+			addCondition(orderBy);
+		}
+		
+		return this;
+	}
+	
+	/**
+	 * Internal method for getting order by.
+	 * @param orders
+	 * @return order by string.
+	 */
+	private String getOrderBy(final List<OrderBy> orders) {
+		StringBuilder builder = new StringBuilder("ORDER BY ");
+		
+		for (int i = 0; i < orders.size(); i++) {
+			
+			OrderBy orderBy = orders.get(i);
+			StringBuilder singleOrderBy = new StringBuilder(MessageFormat.format("e.{0} {1}", orderBy.getFieldName(), orderBy.getType().name()));
+			
+			// Check whether it is not the last element in the list
+			if (i != orders.size() - 1) {
+				singleOrderBy.append(", ");
+			}
+			
+			builder.append(singleOrderBy);
+		}
+		
+		return builder.toString();
+	}
+
+	/**
 	 * Method for building final query.
 	 * @return Final Query
 	 */
@@ -201,6 +255,8 @@ public class BaseQueryBuilder {
 	private String prepareConditions(final List<String> conditions) {
 		StringBuilder sb = new StringBuilder();
 		
+		prepareUnusedConditions(conditions);
+		
 		if (!hasConditions()) {
 			for (String condition: conditions) {
 				sb.append(condition);
@@ -211,10 +267,22 @@ public class BaseQueryBuilder {
 	}
 
 	/**
+	 * Method for preparing conditions.
+	 * @param conds
+	 */
+	private void prepareUnusedConditions(final List<String> conds) {
+		// If there is where() method and no parameters and at the end we have orderBy();
+		if (conds.contains(WHERE) && conds.size() == 2 && conds.get(1).contains("ORDER BY")) {
+			conds.remove(WHERE);
+		}
+	}
+
+	/**
 	 * Final method for builder - build query.
 	 * @return ready query.
 	 */
 	public String build() {
 		return getFinalQuery();
 	}
+
 }

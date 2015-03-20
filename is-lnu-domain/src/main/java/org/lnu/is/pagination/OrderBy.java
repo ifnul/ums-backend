@@ -11,6 +11,24 @@ public class OrderBy {
 	private String fieldName;
 	private OrderByType type;
 	
+	/**
+	 * Default constructor.
+	 */
+	public OrderBy() {
+		super();
+	}
+
+	/**
+	 * Constgructor with all parameters.
+	 * @param fieldName
+	 * @param type
+	 */
+	public OrderBy(final String fieldName, final OrderByType type) {
+		super();
+		this.fieldName = fieldName;
+		this.type = type;
+	}
+
 	public String getFieldName() {
 		return fieldName;
 	}

@@ -29,10 +29,10 @@ public class PersonEnrolmentSubjectQueryBuilder extends AbstractQueryBuilder<Per
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(PERSON_CONDITION, context.getPerson())
-				.addOrCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
-				.addOrCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
-				.addOrCondition(MARK_CONDITION, context.getMark())
+					.addOrCondition(PERSON_CONDITION, context.getPerson())
+					.addOrCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
+					.addOrCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
+					.addOrCondition(MARK_CONDITION, context.getMark())
 				.closeBracket();
 	}
 

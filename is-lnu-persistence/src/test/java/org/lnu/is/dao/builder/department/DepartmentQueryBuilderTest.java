@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.type.DepartmentType;
 import org.lnu.is.domain.order.Order;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class DepartmentQueryBuilderTest {
 
@@ -29,9 +30,11 @@ public class DepartmentQueryBuilderTest {
 		Department context = new Department();
 
 		String expectedQuery = "SELECT e FROM Department e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -45,9 +48,11 @@ public class DepartmentQueryBuilderTest {
 		Department context = new Department();
 		
 		String expectedQuery = "SELECT e FROM Department e WHERE e.status=:status ";
+		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -61,9 +66,11 @@ public class DepartmentQueryBuilderTest {
 		Department context = new Department();
 		
 		String expectedQuery = "SELECT e FROM Department e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -78,9 +85,11 @@ public class DepartmentQueryBuilderTest {
 		Department context = new Department();
 		
 		String expectedQuery = "SELECT e FROM Department e ";
+		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -110,9 +119,11 @@ public class DepartmentQueryBuilderTest {
 		context.setEndDate(endDate);
 		
 		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent OR e.departmentType = :departmentType OR e.order = :order OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -145,9 +156,11 @@ public class DepartmentQueryBuilderTest {
 		context.setEndDate(endDate);
 		
 		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent OR e.departmentType = :departmentType OR e.order = :order OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

@@ -6,6 +6,7 @@ import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.dao.DefaultDao;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.group.UserGroupView;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.MultipleSearch;
 import org.lnu.is.queries.Query;
 
@@ -20,7 +21,9 @@ public class DefaultUserGroupDao extends DefaultDao<UserGroup, Long> implements 
 	
 	@Override
 	public List<UserGroupView> getUserGroupViews(final MultipleSearch<UserGroupView> request, final List<Long> groupsIds) {
-		String querySql = userGroupViewQueryBuilder.build(groupsIds);
+		MultiplePagedSearch<List<Long>> search = new MultiplePagedSearch<>();
+		search.setEntity(groupsIds);
+		String querySql = userGroupViewQueryBuilder.build(search);
 		Query<UserGroupView> query = new Query<UserGroupView>(request.getClazz(), querySql, request.getParameters());
 		return getPersistenceManager().getMultipleResult(query);
 	}

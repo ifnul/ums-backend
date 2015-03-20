@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.markscale.Markscale;
 import org.lnu.is.domain.markscale.type.MarkscaleType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class MarkscaleQueryBuilderTest {
 
@@ -26,12 +27,14 @@ public class MarkscaleQueryBuilderTest {
 		Markscale context = new Markscale();
 		
 		String expected = "SELECT e FROM Markscale e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Markscale> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -42,12 +45,14 @@ public class MarkscaleQueryBuilderTest {
 		Markscale context = new Markscale();
 		
 		String expected = "SELECT e FROM Markscale e WHERE e.status=:status ";
+		MultiplePagedSearch<Markscale> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -58,12 +63,14 @@ public class MarkscaleQueryBuilderTest {
 		Markscale context = new Markscale();
 		
 		String expected = "SELECT e FROM Markscale e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Markscale> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -75,12 +82,14 @@ public class MarkscaleQueryBuilderTest {
 		Markscale context = new Markscale();
 		
 		String expected = "SELECT e FROM Markscale e ";
+		MultiplePagedSearch<Markscale> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -104,12 +113,14 @@ public class MarkscaleQueryBuilderTest {
 		context.setMarkscaleType(markscaleType);
 
 		String expected = "SELECT e FROM Markscale e WHERE ( e.markscaleType = :markscaleType OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.markMin = :markMin OR e.markMax = :markMax ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<Markscale> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 	
 	@Test
@@ -136,11 +147,13 @@ public class MarkscaleQueryBuilderTest {
 		context.setMarkscaleType(markscaleType);
 		
 		String expected = "SELECT e FROM Markscale e WHERE ( e.markscaleType = :markscaleType OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.markMin = :markMin OR e.markMax = :markMax ) ";
+		MultiplePagedSearch<Markscale> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actual = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected, actualQuery);
 	}
 }

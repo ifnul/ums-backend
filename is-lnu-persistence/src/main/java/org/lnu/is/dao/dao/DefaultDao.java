@@ -56,7 +56,7 @@ public class DefaultDao<ENTITY extends Model, KEY> implements Dao<ENTITY, KEY> {
 	public PagedResult<ENTITY> getEntities(final MultiplePagedSearch<ENTITY> pagedSearch) {
 		LOG.info("Getting paged result for {}: {}", getEntityClass().getSimpleName(), pagedSearch);
 		
-		String querySql = queryBuilder.build(pagedSearch.getEntity());
+		String querySql = queryBuilder.build(pagedSearch);
 		Query<ENTITY> queries = new Query<ENTITY>(getEntityClass(), querySql);
 		
 		MultiplePagedQuerySearch<ENTITY> pagedQuerySearch = new MultiplePagedQuerySearch<ENTITY>(queries, pagedSearch.getOffset(), 

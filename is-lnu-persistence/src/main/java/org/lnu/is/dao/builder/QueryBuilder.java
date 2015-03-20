@@ -1,5 +1,7 @@
 package org.lnu.is.dao.builder;
 
+import org.lnu.is.pagination.MultiplePagedSearch;
+
 
 /**
  * Base interface for all query builders.
@@ -11,8 +13,8 @@ public interface QueryBuilder<C> {
 
 	/**
 	 * Method for building query.
-	 * @param context
+	 * @param pagedSearch
 	 * @return Query instance.
 	 */
-	String build(C context);
+	String build(MultiplePagedSearch<C> pagedSearch);
 }

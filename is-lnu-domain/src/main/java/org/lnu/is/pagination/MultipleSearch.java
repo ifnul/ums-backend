@@ -29,9 +29,7 @@ public class MultipleSearch<T> {
      * Basic constructor for setting all required fields to PagedSearch.
      * @param parameters required parameters(can be empty)
      * @param clazz Class instance for mapping.
-     * @deprecated because there is constructor with all fields.
      */
-    @Deprecated
 	public MultipleSearch(final Map<String, Object> parameters, final Class<T> clazz) {
 		super();
 		this.parameters = parameters;
@@ -44,9 +42,7 @@ public class MultipleSearch<T> {
 	 * @param parameters
 	 * @param clazz
 	 * @param entity
-	 * @deprecated because there is constructor with all fields.
 	 */
-	@Deprecated
 	public MultipleSearch(final Map<String, Object> parameters, final Class<T> clazz, final T entity) {
 		super();
 		this.parameters = parameters;

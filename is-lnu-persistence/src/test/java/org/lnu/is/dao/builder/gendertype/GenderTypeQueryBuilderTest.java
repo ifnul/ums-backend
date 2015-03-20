@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.gendertype.GenderType;
+import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class GenderTypeQueryBuilderTest {
 
@@ -25,9 +26,11 @@ public class GenderTypeQueryBuilderTest {
 		GenderType context = new GenderType();
 		
 		String expectedQuery = "SELECT e FROM GenderType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<GenderType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -41,9 +44,11 @@ public class GenderTypeQueryBuilderTest {
 		GenderType context = new GenderType();
 		
 		String expectedQuery = "SELECT e FROM GenderType e WHERE e.status=:status ";
+		MultiplePagedSearch<GenderType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -57,9 +62,11 @@ public class GenderTypeQueryBuilderTest {
 		GenderType context = new GenderType();
 		
 		String expectedQuery = "SELECT e FROM GenderType e WHERE e.crtUserGroup IN (:userGroups) ";
+		MultiplePagedSearch<GenderType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -74,9 +81,11 @@ public class GenderTypeQueryBuilderTest {
 		GenderType context = new GenderType();
 		
 		String expectedQuery = "SELECT e FROM GenderType e ";
+		MultiplePagedSearch<GenderType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -90,9 +99,11 @@ public class GenderTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 
 		String expectedQuery = "SELECT e FROM GenderType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-
+		MultiplePagedSearch<GenderType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 
 		// Then
 		assertEquals(expectedQuery, actualQuery);
@@ -109,9 +120,11 @@ public class GenderTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		
 		String expectedQuery = "SELECT e FROM GenderType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		MultiplePagedSearch<GenderType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
 		
 		// When
-		String actualQuery = unit.build(context);
+		String actualQuery = unit.build(pagedSearch);
 		
 		// Then
 		assertEquals(expectedQuery, actualQuery);

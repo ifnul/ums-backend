@@ -1,6 +1,7 @@
 package org.lnu.is.dao.builder;
 
 import org.lnu.is.domain.common.RowStatus;
+import org.lnu.is.pagination.MultiplePagedSearch;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
@@ -43,8 +44,8 @@ public abstract class AbstractQueryBuilder<E> implements QueryBuilder<E> {
 	protected abstract BaseQueryBuilder build(final E context, BaseQueryBuilder builder);
 
 	@Override
-	public String build(final E context) {
-		BaseQueryBuilder builder = build(context, BaseQueryBuilder.getInstance(getBaseQuery()));
+	public String build(final MultiplePagedSearch<E> pagedSearch) {
+		BaseQueryBuilder builder = build(pagedSearch.getEntity(), BaseQueryBuilder.getInstance(getBaseQuery()));
 		
 		if (active) {
 			builder.addAndCondition(STATUS_CONDITION, RowStatus.ACTIVE);
@@ -53,6 +54,8 @@ public abstract class AbstractQueryBuilder<E> implements QueryBuilder<E> {
 		if (security) {
 			builder.addAndCondition(GROUP_CONDITION);
 		}
+		
+		builder.orderBy(pagedSearch.getOrders());
 		
 		return builder.build();
 	}
