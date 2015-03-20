@@ -25,8 +25,8 @@ public class AssetTypeQueryBuilder extends AbstractQueryBuilder<AssetType> {
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
+					.addOrCondition(NAME_CONDITION, context.getName())
+					.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
 				.closeBracket();
 	}
 }

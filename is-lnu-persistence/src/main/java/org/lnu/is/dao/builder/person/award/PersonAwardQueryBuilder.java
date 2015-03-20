@@ -24,8 +24,8 @@ public class PersonAwardQueryBuilder extends AbstractQueryBuilder<PersonAward> {
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(PERSON_CONDITION, context.getPerson())
-				.addOrCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
+					.addOrCondition(PERSON_CONDITION, context.getPerson())
+					.addOrCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
 				.closeBracket();
 	}
 }

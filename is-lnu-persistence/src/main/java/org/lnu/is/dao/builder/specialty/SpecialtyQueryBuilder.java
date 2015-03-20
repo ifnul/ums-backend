@@ -30,13 +30,13 @@ public class SpecialtyQueryBuilder extends AbstractQueryBuilder<Specialty> {
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(PARENT_CONDITION, context.getParent())
-				.addOrCondition(SPECIALTYTYPE_CONDITION, context.getSpecialtyType())
-				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
-				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(CIPHER_CONDITION, context.getCipher())
-				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addOrCondition(PARENT_CONDITION, context.getParent())
+					.addOrCondition(SPECIALTYTYPE_CONDITION, context.getSpecialtyType())
+					.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
+					.addOrCondition(NAME_CONDITION, context.getName())
+					.addOrCondition(CIPHER_CONDITION, context.getCipher())
+					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 

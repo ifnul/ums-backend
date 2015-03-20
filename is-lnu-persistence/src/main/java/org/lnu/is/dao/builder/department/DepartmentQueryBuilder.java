@@ -31,14 +31,14 @@ public class DepartmentQueryBuilder extends AbstractQueryBuilder<Department> {
 		return builder	
 				.where()
 				.openBracket()
-				.addOrCondition(PARENT_CONDITION, context.getParent())
-				.addOrCondition(DEPARTMENTTYPE_CONDITION, context.getDepartmentType())
-				.addOrCondition(ORDER_CONDITION, context.getOrder())
-				.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
-				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(MANAGER_CONDITION, context.getManager())
-				.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-				.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addOrCondition(PARENT_CONDITION, context.getParent())
+					.addOrCondition(DEPARTMENTTYPE_CONDITION, context.getDepartmentType())
+					.addOrCondition(ORDER_CONDITION, context.getOrder())
+					.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
+					.addOrCondition(NAME_CONDITION, context.getName())
+					.addOrCondition(MANAGER_CONDITION, context.getManager())
+					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 

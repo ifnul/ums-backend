@@ -27,9 +27,9 @@ public class DepartmentContactQueryBuilder extends AbstractQueryBuilder<Departme
 		return builder	
 				.where()
 				.openBracket()
-				.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
-				.addOrCondition(CONTACTTYPE_CONDITION, context.getContactType())
-				.addOrCondition(VALUE_CONDITION, context.getValue())
+					.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
+					.addOrCondition(CONTACTTYPE_CONDITION, context.getContactType())
+					.addOrCondition(VALUE_CONDITION, context.getValue())
 				.closeBracket();
 	}
 

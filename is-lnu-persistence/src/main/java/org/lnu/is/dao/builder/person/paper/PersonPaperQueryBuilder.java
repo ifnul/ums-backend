@@ -34,17 +34,17 @@ public class PersonPaperQueryBuilder extends AbstractQueryBuilder<PersonPaper> {
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(PERSON_CONDITION, context.getPerson())
-				.addOrCondition(PAPERTYPE_CONDITION, context.getPaperType())
-				.addOrCondition(HONORS_TYPE, context.getHonorsType())
-				.addOrCondition(DOC_DATE_CONDITION, context.getDocDate())
-				.addOrCondition(DOCSERIES_CONDITION, context.getDocSeries())
-				.addOrCondition(DOCNUM_CONDITION, context.getDocNum())
-				.addOrCondition(DOCISSUED_CONDITION, context.getDocIssued())
-				.addOrCondition(DOCPIN_CONDITION, context.getDocPin())
-				.addOrCondition(MARK_CONDITION, context.getMark())
-				.addOrCondition(ISCHECKED_CONDITION, context.getIsChecked())
-				.addOrCondition(ISFOREIGN_CONDITION, context.getIsForeign())
+					.addOrCondition(PERSON_CONDITION, context.getPerson())
+					.addOrCondition(PAPERTYPE_CONDITION, context.getPaperType())
+					.addOrCondition(HONORS_TYPE, context.getHonorsType())
+					.addOrCondition(DOC_DATE_CONDITION, context.getDocDate())
+					.addOrCondition(DOCSERIES_CONDITION, context.getDocSeries())
+					.addOrCondition(DOCNUM_CONDITION, context.getDocNum())
+					.addOrCondition(DOCISSUED_CONDITION, context.getDocIssued())
+					.addOrCondition(DOCPIN_CONDITION, context.getDocPin())
+					.addOrCondition(MARK_CONDITION, context.getMark())
+					.addOrCondition(ISCHECKED_CONDITION, context.getIsChecked())
+					.addOrCondition(ISFOREIGN_CONDITION, context.getIsForeign())
 				.closeBracket();
 	}
 

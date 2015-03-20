@@ -25,8 +25,8 @@ public class SpecOfferBenefitQueryBuilder extends AbstractQueryBuilder<SpecOffer
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
-				.addOrCondition(BENEFIT_CONDITION, context.getBenefit())
+					.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
+					.addOrCondition(BENEFIT_CONDITION, context.getBenefit())
 				.closeBracket();
 	}
 

@@ -25,8 +25,8 @@ public class StudyPlanCycleQueryBuilder extends AbstractQueryBuilder<StudyPlanCy
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
+					.addOrCondition(NAME_CONDITION, context.getName())
+					.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
 				.closeBracket();
 	}
 

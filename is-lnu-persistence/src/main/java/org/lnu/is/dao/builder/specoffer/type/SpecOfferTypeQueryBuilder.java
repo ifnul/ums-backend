@@ -26,9 +26,9 @@ public class SpecOfferTypeQueryBuilder extends AbstractQueryBuilder<SpecOfferTyp
 		return builder
 				.where()
 				.openBracket()
-				.addOrCondition(NAME_CONDITION, context.getName())
-				.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
-				.addOrCondition(TIME_PERIOD_CONDITION, context.getTimePeriod())
+					.addOrCondition(NAME_CONDITION, context.getName())
+					.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
+					.addOrCondition(TIME_PERIOD_CONDITION, context.getTimePeriod())
 				.closeBracket();
 	}
 
