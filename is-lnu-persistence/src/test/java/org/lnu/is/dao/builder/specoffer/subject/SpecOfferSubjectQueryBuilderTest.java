@@ -29,7 +29,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 
-		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM SpecOfferSubject e WHERE ( e.alternative = :alternative ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<SpecOfferSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -48,7 +48,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 		
-		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) AND e.status=:status ";
+		String expected = "SELECT e FROM SpecOfferSubject e WHERE ( e.alternative = :alternative ) AND e.status=:status ";
 		MultiplePagedSearch<SpecOfferSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -67,7 +67,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 		
-		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM SpecOfferSubject e WHERE ( e.alternative = :alternative ) AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<SpecOfferSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -88,7 +88,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		SpecOfferSubject context = new SpecOfferSubject();
 		context.setAlternative(alternative);
 		
-		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.alternative = :alternative ) ";
+		String expected = "SELECT e FROM SpecOfferSubject e WHERE ( e.alternative = :alternative ) ";
 		MultiplePagedSearch<SpecOfferSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -115,7 +115,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		context.setIsMajor(isMajor);
 		context.setMark(mark);
 		
-		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.specOffer = :specOffer OR e.enrolmentSubject = :enrolmentSubject OR e.mark = :mark OR e.isMajor = :isMajor OR e.alternative = :alternative ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM SpecOfferSubject e WHERE ( e.specOffer = :specOffer OR e.enrolmentSubject = :enrolmentSubject OR e.mark = :mark OR e.isMajor = :isMajor OR e.alternative = :alternative ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<SpecOfferSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -145,7 +145,7 @@ public class SpecOfferSubjectQueryBuilderTest {
 		context.setIsMajor(isMajor);
 		context.setMark(mark);
 		
-		String expected = "SELECT e FROM SpecofferSubject e WHERE ( e.specOffer = :specOffer OR e.enrolmentSubject = :enrolmentSubject OR e.mark = :mark OR e.isMajor = :isMajor OR e.alternative = :alternative ) ";
+		String expected = "SELECT e FROM SpecOfferSubject e WHERE ( e.specOffer = :specOffer OR e.enrolmentSubject = :enrolmentSubject OR e.mark = :mark OR e.isMajor = :isMajor OR e.alternative = :alternative ) ";
 		MultiplePagedSearch<SpecOfferSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

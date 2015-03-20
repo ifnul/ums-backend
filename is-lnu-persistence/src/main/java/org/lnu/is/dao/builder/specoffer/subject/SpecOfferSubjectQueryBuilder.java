@@ -21,7 +21,7 @@ public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecOffer
 	
 	@Override
 	protected String getBaseQuery() {
-		return "SELECT e FROM SpecofferSubject e %s";
+		return "SELECT e FROM SpecOfferSubject e %s";
 	}
 
 	@Override
