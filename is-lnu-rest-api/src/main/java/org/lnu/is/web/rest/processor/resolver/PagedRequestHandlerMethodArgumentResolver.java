@@ -40,6 +40,7 @@ import org.springframework.web.servlet.HandlerMapping;
 
 /**
  * Paged request argument resolver.
+ * TODO: Ivan Ursul - Split this class to three separated.
  * @author ivanursul
  *
  */
@@ -108,6 +109,8 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 				String fieldName = orderByParts[0];
 				OrderByType type = OrderByType.resolve(orderByParts[1]);
 				
+				validateOrderByField(fieldName);
+				
 				// Constructing new order
 				OrderBy orderBy = new OrderBy(fieldName, type);
 				orders.add(orderBy);
@@ -117,6 +120,16 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		return orders;
 	}
 	
+	/**
+	 * Method for validating orderBy Fields.
+	 * @param fieldName
+	 */
+	private void validateOrderByField(final String fieldName) {
+		if (fieldName.contains("Id")) {
+			throw new IllegalArgumentException("Fields that contains 'Id' are not supported for ordering");
+		}
+	}
+
 	/**
 	 * Method for getting request parameters.
 	 * Parameters include path variables + request parameters.

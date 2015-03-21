@@ -544,4 +544,83 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		assertEquals(expected.toString(), actual.toString());
 	}
 	
+	@Test
+	public void testResolveArgumentWithInvalidOrderField() throws Exception {
+		// Given
+		final Integer limitValue = 20;
+		final Integer offsetValue = 0;
+		String orderByParameterValue = "name-asc, personId-desc";
+		
+		String id = "1";
+		String name = "Ivan";
+		Map<String, String> pathVariables = new HashMap<>();
+		pathVariables.put("id", id);
+		Map<String, String[]> parameterMap = new HashMap<>();
+		parameterMap.put("name", new String[] { name });
+		
+		Map<String, String> requestParameters = new HashMap<>();
+		requestParameters.put("id", id);
+		requestParameters.put("name", name);
+		
+		PersonResource resource = new PersonResource();
+		resource.setName(name);
+		resource.setId(Long.valueOf(id));
+		
+		List<OrderBy> orders = Collections.emptyList();
+		PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, 
+				offsetValue, limitValue, orders);
+		
+		// When
+		// Init when's
+		when(webRequest.getNativeRequest()).thenReturn(httpRequest);
+		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
+		.thenReturn(pathVariables);
+		when(webRequest.getParameterMap()).thenReturn(parameterMap);
+		
+		// Resource when's
+		when(param.getGenericParameterType()).thenReturn(type);
+		when(type.getActualTypeArguments()).thenReturn(types);
+		
+		// Limit when's
+		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
+				new Class[] { Limit.class }, 
+				new InvocationHandler() {
+			@Override
+			public Object invoke(final Object proxy, final Method method, final Object[] args)
+					throws Throwable {
+				return String.valueOf(limitValue);
+			}
+		});
+		
+		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
+		doReturn(paramType).when(param).getParameterType();
+		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+		
+		// Offset when's
+		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
+				new Class[] { Offset.class }, 
+				new InvocationHandler() {
+			@Override
+			public Object invoke(final Object proxy, final Method method, final Object[] args)
+					throws Throwable {
+				return String.valueOf(offsetValue);
+			}
+		});
+		
+		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
+		doReturn(paramType).when(param).getParameterType();
+		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));		
+		
+		// Orders when's
+		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
+		
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Fields that contains 'Id' are not supported for ordering");
+		
+		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
+		
+		// Then
+		assertEquals(expected.toString(), actual.toString());
+	}
+	
 }

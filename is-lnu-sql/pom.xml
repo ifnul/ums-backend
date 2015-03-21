@@ -21,7 +21,7 @@
 	</description>
 
 	<properties>
-		<data.folder>production</data.folder>
+		<data.folder>data</data.folder>
 		<data.version>0.9.1</data.version>
 		
 		<cleaning.folder>cleaning</cleaning.folder>

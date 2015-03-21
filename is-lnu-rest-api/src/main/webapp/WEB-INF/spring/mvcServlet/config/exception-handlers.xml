@@ -9,6 +9,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
+	<bean class="org.lnu.is.web.rest.handler.DefaultExceptionHandler" />
 	<bean class="org.lnu.is.web.rest.handler.entity.EntityNotFoundExceptionHandler" />
 	<bean class="org.lnu.is.web.rest.handler.request.MessageNotReadableExceptionHandler" />
 	<bean class="org.lnu.is.web.rest.handler.request.MethodArgumentNotValidExceptionHandler" />
