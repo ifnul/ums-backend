@@ -2,10 +2,15 @@ package org.lnu.is.dao.builder.wave.type;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.wave.type.WaveType;
 import org.lnu.is.pagination.MultiplePagedSearch;
+import org.lnu.is.pagination.OrderBy;
+import org.lnu.is.pagination.OrderByType;
 
 public class WaveTypeQueryBuilderTest {
 
@@ -32,6 +37,25 @@ public class WaveTypeQueryBuilderTest {
 		// When
 		String actualQuery = unit.build(pagedSearch);
 
+		// Then
+		assertEquals(expected, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithOrderBy() throws Exception {
+		// Given
+		WaveType context = new WaveType();
+		OrderBy orderBy1 = new OrderBy("name", OrderByType.ASC);
+		List<OrderBy> orders = Arrays.asList(orderBy1);
+		
+		String expected = "SELECT e FROM WaveType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.name ASC";
+		MultiplePagedSearch<WaveType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		pagedSearch.setOrders(orders);
+		
+		// When
+		String actualQuery = unit.build(pagedSearch);
+		
 		// Then
 		assertEquals(expected, actualQuery);
 	}
@@ -81,6 +105,28 @@ public class WaveTypeQueryBuilderTest {
 		String expected = "SELECT e FROM WaveType e ";
 		MultiplePagedSearch<WaveType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
+		
+		// When
+		String actualQuery = unit.build(pagedSearch);
+		
+		// Then
+		assertEquals(expected, actualQuery);
+	}
+	
+	@Test
+	public void testBuildWithDisabledDefaultConstraintsAndOrderBy() throws Exception {
+		// Given
+		unit.setActive(false);
+		unit.setSecurity(false);
+		
+		WaveType context = new WaveType();
+		OrderBy orderBy1 = new OrderBy("name", OrderByType.ASC);
+		List<OrderBy> orders = Arrays.asList(orderBy1);
+		
+		String expected = "SELECT e FROM WaveType e ORDER BY e.name ASC";
+		MultiplePagedSearch<WaveType> pagedSearch = new MultiplePagedSearch<>();
+		pagedSearch.setEntity(context);
+		pagedSearch.setOrders(orders);
 		
 		// When
 		String actualQuery = unit.build(pagedSearch);
