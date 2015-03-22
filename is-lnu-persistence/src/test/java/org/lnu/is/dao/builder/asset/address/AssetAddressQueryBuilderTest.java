@@ -180,7 +180,7 @@ public class AssetAddressQueryBuilderTest {
 		
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2, orderBy3, orderBy4);
 
-		String expected = "SELECT e FROM AssetAddress e ORDER BY e.zipcode DESC, e.street DESC, e.house DESC, e.appartment DESC";
+		String expected = "SELECT e FROM AssetAddress e ORDER BY e.zipcode DESC, e.street DESC, e.house DESC, e.apartment DESC";
 		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
