@@ -7580,4 +7580,13 @@
 		<dropNotNullConstraint tableName="q_dc_order" columnName="optype_id"/>
 	</changeSet>
 	
+	<changeSet id="illay" author="add column timeperiodcourse_id in q_ob_specoffer">
+		<addColumn tableName="q_ob_specoffer">
+			<column name="timeperiodcourse_id" type="BIGINT" remarks="Ідентифікатор часового періоду (навчальний курс)'"></column>
+		</addColumn>
+		<addForeignKeyConstraint baseColumnNames="timeperiodcourse_id"
+			baseTableName="q_ob_specoffer" constraintName="fk_q_ob_timeperiodcourse_id"
+			deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+			onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod" />
+	</changeSet>
 </databaseChangeLog>
