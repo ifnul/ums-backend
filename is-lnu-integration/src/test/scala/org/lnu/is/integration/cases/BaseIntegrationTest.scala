@@ -13,6 +13,15 @@ abstract class BaseIntegrationTest {
   val username = "admin"
   val password = "nimda"
 
+  def toInt(s: String):Int = {
+  try {
+    s.toInt
+  } catch {
+    
+    case e:Exception => {print("Error"); 0}
+  }
+}
+    
   def buildTestCaseToCheckFieldsExistence(url: String, title: String, fields: List[String]) = {
     buildTestCase(url, title, buildHttpRequestWithFieldsExistenceCheck(
         http(title)
@@ -32,9 +41,15 @@ abstract class BaseIntegrationTest {
       .check(jsonPath("$.offset").find.saveAs("offset"))
       .check(jsonPath("$.resources[*]").ofType[Map[String, Any]].findAll.saveAs("resources")))
     .exec(session => {
-      val offset = session("offset").as[Int]
-      val limit = session("limit").as[Int]
-      val count = session("count").as[Int]
+      /*print("start\n")
+      print(session.attributes.filter({case (name, extension) => name == "offset"})("offset"))
+      print("end\n")
+      print(session.attributes("offset"))
+      print("end\n")*/
+      
+      val offset = toInt(session.attributes("offset").toString)
+      val limit = toInt(session.attributes("limit").toString)
+      val count = toInt(session.attributes("count").toString)
 
       // First occurrence -> Situation, when offset == 0 and needs to proceed.
       val result = offset + limit < count || offset <= count
@@ -61,9 +76,9 @@ abstract class BaseIntegrationTest {
         .exec(httpRequest)
       }
       .exec(session => {
-        val offset = session("offset").as[Int]
-        val limit = session("limit").as[Int]
-        val count = session("count").as[Int]
+         val offset = toInt(session.attributes("offset").toString)
+         val limit = toInt(session.attributes("limit").toString)
+         val count = toInt(session.attributes("count").toString)
 
         // Can be a situation, when offset == 0 and offset + count will be > count
         // That's why we need to add additional check -> offset != null
