@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd        
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<util:map id="resourceReplacementMap">
+		<entry key="org.lnu.is.resource.person.PersonResource">
+			<util:map>
+				<entry key="parentId" value="parent" />
+				<entry key="personTypeId" value="personType" />
+				<entry key="genderTypeId" value="genderType" />
+				<entry key="marriedTypeId" value="marriedType" />
+				<entry key="citizenCountryId" value="citizenCountry" />
+				<entry key="name" value="name" />
+				<entry key="firstName" value="firstName" />
+				<entry key="fatherName" value="fatherName" />
+				<entry key="surname" value="surname" />
+				<entry key="photo" value="photo" />
+				<entry key="docSeries" value="docSeries" />
+				<entry key="docNum" value="docNum" />
+				<entry key="identifier" value="identifier" />
+				<entry key="resident" value="resident" />
+				<entry key="birthPlace" value="birthPlace" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+				<entry key="isMilitary" value="isMilitary" />
+				<entry key="isHostel" value="isHostel" />
+			</util:map>
+		</entry>
+	</util:map>
+	
+</beans>

@@ -22,6 +22,15 @@ public class PersonResource extends ApiResource {
 	private Long personTypeId;
 	
 	@NotNull(message = "Field required")
+	private Long genderTypeId;
+	
+	@NotNull(message = "Field required")
+	private Long marriedTypeId;
+	
+	@NotNull(message = "Field required")
+	private Long citizenCountryId;
+
+	@NotNull(message = "Field required")
 	private String name;
 	
 	@NotNull(message = "Field required")
@@ -35,15 +44,6 @@ public class PersonResource extends ApiResource {
 	
 	@NotNull(message = "Field required")
 	private String photo;
-	
-	@NotNull(message = "Field required")
-	private Long genderTypeId;
-	
-	@NotNull(message = "Field required")
-	private Long marriedTypeId;
-	
-	@NotNull(message = "Field required")
-	private Long citizenCountryId;
 	
 	@NotNull(message = "Field required")
 	private String docSeries;

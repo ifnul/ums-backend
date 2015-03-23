@@ -8,6 +8,7 @@ import java.util.Collection;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -15,6 +16,7 @@ import org.junit.runners.Parameterized.Parameters;
 import org.lnu.is.web.rest.constant.Constants;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.mockito.MockitoAnnotations;
 import org.springframework.mock.web.MockHttpSession;
 
 @RunWith(Parameterized.class)
@@ -22,13 +24,20 @@ public class SystemControllerTest extends AbstractControllerTest {
 
 	private SystemController unit = new SystemController();
 
+	@Override
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+		super.setup();
+	}
+	
 	@Parameters
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] { { 200 }, { 300}, {400}, {403}});
 	}
 
 	private int status;
-
+	
     public SystemControllerTest(final int status) {
     	this.status = status;
     }

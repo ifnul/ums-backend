@@ -1,10 +1,18 @@
 package org.lnu.is.web.rest.controller;
 
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
+import java.util.Collections;
+
 import org.junit.Before;
+import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.web.rest.processor.resolver.PagedRequestHandlerMethodArgumentResolver;
+import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
+import org.mockito.Mock;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -20,11 +28,19 @@ public abstract class AbstractControllerTest {
 	protected MockMvc mockMvc;
 	
 	private ObjectMapper objectMapper = new ObjectMapper();
+
 	private PagedRequestHandlerMethodArgumentResolver pagedRequestArgumentResolver;
+	
+	@Mock
+	private OrderByFieldResolver orderByFieldResolver;
 	
 	@Before
 	public void setup() {
+		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(Collections.<OrderBy>emptyList());
+		
 		pagedRequestArgumentResolver = new PagedRequestHandlerMethodArgumentResolver();
+		pagedRequestArgumentResolver.setOrderByFieldResolver(orderByFieldResolver);
+		
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
 				.setValidator(getValidator())
 				.setCustomArgumentResolvers(pagedRequestArgumentResolver)

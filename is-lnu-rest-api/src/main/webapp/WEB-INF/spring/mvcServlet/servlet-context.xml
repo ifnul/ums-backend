@@ -16,6 +16,7 @@
 	<import resource="config/exception-handlers.xml"/>
 	<import resource="config/documentation-config.xml"/>
 	<import resource="config/validators.xml"/>
+	<import resource="config/resource-entity-relation.xml"/>
 
 	<mvc:annotation-driven validator="validator">
 		<mvc:argument-resolvers>

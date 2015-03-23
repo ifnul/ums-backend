@@ -3,13 +3,11 @@ package org.lnu.is.web.rest.processor.resolver;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.regex.Pattern;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -22,10 +20,9 @@ import org.apache.commons.beanutils.converters.DateTimeConverter;
 import org.lnu.is.annotations.Limit;
 import org.lnu.is.annotations.Offset;
 import org.lnu.is.pagination.OrderBy;
-import org.lnu.is.pagination.OrderByType;
 import org.lnu.is.resource.search.PagedRequest;
-import org.lnu.is.web.exception.InvalidOrderByException;
 import org.lnu.is.web.rest.constant.Constants;
+import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -40,7 +37,7 @@ import org.springframework.web.servlet.HandlerMapping;
 
 /**
  * Paged request argument resolver.
- * TODO: Ivan Ursul - Split this class to three separated.
+ * TODO: Ivan Ursul - Split this class to four separated resolvers - for offset, limit, resource and order by
  * @author ivanursul
  *
  */
@@ -48,8 +45,8 @@ import org.springframework.web.servlet.HandlerMapping;
 public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
 	private static final Logger LOG = LoggerFactory.getLogger(PagedRequestHandlerMethodArgumentResolver.class);
 	
-	@Resource(name = "orderByPattern")
-	private Pattern pattern;
+	@Resource(name = "orderByFieldResolver")
+	private OrderByFieldResolver orderByFieldResolver;
 	
 	/**
 	 * Method for initializing required staff for commons-beanutils classes.
@@ -77,57 +74,10 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
         Object resource = getResource(param, parameters);
         Integer limit = getLimit(param, httpRequest);
         Integer offset = getOffset(param, httpRequest);
-        List<OrderBy> orders = getOrders(param, httpRequest);
+        List<OrderBy> orders = orderByFieldResolver.getOrdersBy(httpRequest.getParameter("orderBy"), resource);
 		
         PagedRequest<Object> pagedRequest = new PagedRequest<Object>(resource, offset, limit, orders);
 		return pagedRequest;
-	}
-
-	/**
-	 * Method for counting all order by fields.
-	 * @param param
-	 * @param httpRequest
-	 * @return List of order by fields.
-	 */
-	private List<OrderBy> getOrders(final MethodParameter param, final HttpServletRequest httpRequest) {
-		List<OrderBy> orders = new ArrayList<>();
-		String orderByParameter = httpRequest.getParameter("orderBy");
-		
-		if (orderByParameter != null  && !orderByParameter.isEmpty()) {
-			orderByParameter = orderByParameter.replaceAll("\\s", "");
-
-			if (!pattern.matcher(orderByParameter).matches()) {
-				throw new InvalidOrderByException(orderByParameter);
-			}
-			
-			String[] ordersBy = orderByParameter.split(",");
-			
-			for (String order: ordersBy) {
-				String[] orderByParts = order.split("-");
-				
-				// Splitting parts of order
-				String fieldName = orderByParts[0];
-				OrderByType type = OrderByType.resolve(orderByParts[1]);
-				
-				validateOrderByField(fieldName);
-				
-				// Constructing new order
-				OrderBy orderBy = new OrderBy(fieldName, type);
-				orders.add(orderBy);
-			}
-		}
-		
-		return orders;
-	}
-	
-	/**
-	 * Method for validating orderBy Fields.
-	 * @param fieldName
-	 */
-	private void validateOrderByField(final String fieldName) {
-		if (fieldName.contains("Id")) {
-			throw new IllegalArgumentException("Fields that contains 'Id' are not supported for ordering");
-		}
 	}
 
 	/**
@@ -263,8 +213,8 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		throw new IllegalStateException("Missing parameter '" + paramName + "' of type [" + paramType.getName() + "]");
 	}
 
-	public void setPattern(final Pattern pattern) {
-		this.pattern = pattern;
+	public void setOrderByFieldResolver(final OrderByFieldResolver orderByFieldResolver) {
+		this.orderByFieldResolver = orderByFieldResolver;
 	}
-	
+
 }

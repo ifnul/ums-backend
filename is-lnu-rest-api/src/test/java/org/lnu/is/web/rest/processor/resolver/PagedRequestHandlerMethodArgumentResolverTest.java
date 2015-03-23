@@ -1,6 +1,8 @@
 package org.lnu.is.web.rest.processor.resolver;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
@@ -14,11 +16,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -30,6 +30,7 @@ import org.lnu.is.pagination.OrderByType;
 import org.lnu.is.resource.person.PersonResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.web.exception.InvalidOrderByException;
+import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -45,6 +46,9 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 
 	@InjectMocks
 	private PagedRequestHandlerMethodArgumentResolver unit;
+
+	@Mock
+	private OrderByFieldResolver orderByFieldResolver;
 	
 	@Mock
 	private MethodParameter param;
@@ -74,12 +78,6 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 	@SuppressWarnings("rawtypes")
 	private Class<PagedRequest> paramType = PagedRequest.class;
 
-	@Before
-	public void setup() {
-		Pattern pattern = Pattern.compile("^[a-zA-Z]+-([aA][sS][cC]|[dD][eE][sS][cC])(,\\s?[a-zA-Z]+-([aA][sS][cC]|[dD][eE][sS][cC]))*$");
-		unit.setPattern(pattern);
-	}
-	
 	@Test
 	public void testResolveArgument() throws Exception {
 		// Given
@@ -151,6 +149,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
+		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(orders);
 		
 		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
 
@@ -229,7 +228,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		
+		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(orders);
 		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
 		
 		// Then
@@ -306,7 +305,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		
+		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(orders);
 		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
 		
 		// Then
@@ -534,7 +533,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		
+		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenThrow(new InvalidOrderByException("Invalid string for order by field"));
 		exception.expect(InvalidOrderByException.class);
 		exception.expectMessage("Invalid string for order by field");
 		
@@ -613,7 +612,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		
+		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenThrow(new IllegalArgumentException("Fields that contains 'Id' are not supported for ordering"));
 		exception.expect(IllegalArgumentException.class);
 		exception.expectMessage("Fields that contains 'Id' are not supported for ordering");
 		
