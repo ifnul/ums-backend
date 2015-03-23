@@ -11,6 +11,8 @@ import java.util.Collections;
 import org.junit.Before;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.web.rest.processor.resolver.PagedRequestHandlerMethodArgumentResolver;
+import org.lnu.is.web.rest.processor.resolver.offset.DefaultOffsetParameterResolver;
+import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
 import org.mockito.Mock;
 import org.springframework.test.web.servlet.MockMvc;
@@ -33,6 +35,8 @@ public abstract class AbstractControllerTest {
 	
 	@Mock
 	private OrderByFieldResolver orderByFieldResolver;
+
+	private OffsetParameterResolver offsetParameterResolver = new DefaultOffsetParameterResolver();
 	
 	@Before
 	public void setup() {
@@ -40,6 +44,7 @@ public abstract class AbstractControllerTest {
 		
 		pagedRequestArgumentResolver = new PagedRequestHandlerMethodArgumentResolver();
 		pagedRequestArgumentResolver.setOrderByFieldResolver(orderByFieldResolver);
+		pagedRequestArgumentResolver.setOffsetParameterResolver(offsetParameterResolver);
 		
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
 				.setValidator(getValidator())

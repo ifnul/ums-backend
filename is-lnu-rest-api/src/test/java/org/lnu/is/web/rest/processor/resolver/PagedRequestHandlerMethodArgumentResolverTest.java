@@ -6,6 +6,7 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -30,6 +31,7 @@ import org.lnu.is.pagination.OrderByType;
 import org.lnu.is.resource.person.PersonResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.web.exception.InvalidOrderByException;
+import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -49,6 +51,9 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 
 	@Mock
 	private OrderByFieldResolver orderByFieldResolver;
+
+	@Mock
+	private OffsetParameterResolver offsetParameteExtractor;
 	
 	@Mock
 	private MethodParameter param;
@@ -145,7 +150,8 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));		
+		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -189,7 +195,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		// Init when's
 		when(webRequest.getNativeRequest()).thenReturn(httpRequest);
 		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
-		.thenReturn(pathVariables);
+			.thenReturn(pathVariables);
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
 		
 		// Resource when's
@@ -224,7 +230,8 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));		
+		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -301,7 +308,8 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));		
+		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -309,7 +317,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
 		
 		// Then
-		assertEquals(expected, actual);
+		assertEquals(expected.toString(), actual.toString());
 	}
 	
 	@Test
@@ -377,7 +385,8 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));		
+		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -453,7 +462,8 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));		
+		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -529,7 +539,8 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));		
+		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -608,7 +619,8 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));		
+		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(offsetValue));
+		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);

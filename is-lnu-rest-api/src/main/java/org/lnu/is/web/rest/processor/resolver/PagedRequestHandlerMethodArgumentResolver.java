@@ -22,6 +22,7 @@ import org.lnu.is.annotations.Offset;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.web.rest.constant.Constants;
+import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +49,9 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 	@Resource(name = "orderByFieldResolver")
 	private OrderByFieldResolver orderByFieldResolver;
 	
+	@Resource(name = "offsetParameterResolver")
+	private OffsetParameterResolver offsetParameterResolver;
+	
 	/**
 	 * Method for initializing required staff for commons-beanutils classes.
 	 */
@@ -71,13 +75,41 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) webRequest.getNativeRequest();
 		Map<String, String> parameters = getRequestParameters(webRequest);
+		
         Object resource = getResource(param, parameters);
-        Integer limit = getLimit(param, httpRequest);
-        Integer offset = getOffset(param, httpRequest);
+        Integer limit = getLimit(param.getParameterAnnotation(Limit.class), param.getParameterType().getDeclaredField("limit"), httpRequest);
+        Integer offset = offsetParameterResolver.getOffset(param.getParameterAnnotation(Offset.class), param.getParameterType().getDeclaredField("offset"), httpRequest);
         List<OrderBy> orders = orderByFieldResolver.getOrdersBy(httpRequest.getParameter("orderBy"), resource);
 		
         PagedRequest<Object> pagedRequest = new PagedRequest<Object>(resource, offset, limit, orders);
 		return pagedRequest;
+	}
+	
+
+	/**
+	 * Method for getting limit value.
+	 * @param param
+	 * @param httpRequest
+	 * @return offset.
+	 * @throws Exception exception.
+	 */
+	private Integer getLimit(final Limit limitAnnotation, final Field field, final HttpServletRequest httpRequest) throws Exception {
+		Limit annotation = limitAnnotation;
+		if (annotation == null) {
+			annotation = field.getAnnotation(Limit.class);
+		}
+		
+		String value = httpRequest.getParameter(annotation.value());
+
+		if (value == null) {
+			value = annotation.defaultValue();
+		}
+
+		if (value == null && annotation.required()) {
+			throw new IllegalStateException("Missing parameter '" + annotation.value() + "' of type [" + field.getDeclaringClass().getName() + "]");
+		}
+
+		return Integer.valueOf(value);
 	}
 
 	/**
@@ -115,63 +147,6 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		return values.length == 1 ? values[0] : null;
 	}
 
-
-	/**
-	 * Method for getting limit value.
-	 * @param param
-	 * @param httprequest
-	 * @return offset.
-	 * @throws Exception exception.
-	 */
-	private Integer getLimit(final MethodParameter param, final HttpServletRequest httprequest) throws Exception {
-		Limit annotation = param.getParameterAnnotation(Limit.class);
-		Field field = param.getParameterType().getDeclaredField("limit");
-
-		if (annotation == null) {
-			annotation = field.getAnnotation(Limit.class);
-		}
-		
-		String value = httprequest.getParameter(annotation.value());
-
-		if (value == null) {
-			value = annotation.defaultValue();
-		}
-
-		if (value == null && annotation.required()) {
-			raiseMissingParameterException(annotation.value(), field.getDeclaringClass());
-		}
-
-		return Integer.valueOf(value);
-	}
-
-	/**
-	 * Method for getting offset value.
-	 * @param param
-	 * @param httprequest
-	 * @return offset.
-	 * @throws Exception exception.
-	 */
-	private Integer getOffset(final MethodParameter param, final HttpServletRequest httprequest) throws Exception {
-		Offset annotation = param.getParameterAnnotation(Offset.class);
-		Field field = param.getParameterType().getDeclaredField("offset");
-
-		if (annotation == null) {
-			annotation = field.getAnnotation(Offset.class);
-		}
-		
-		String value = httprequest.getParameter(annotation.value());
-		
-		if (value == null) {
-			value = annotation.defaultValue();
-		}
-		
-		if (value == null && annotation.required()) {
-			raiseMissingParameterException(annotation.value(), field.getDeclaringClass());
-		}
-			
-		return Integer.valueOf(value);
-	}
-
 	/**
 	 * Method for getting resource.
 	 * @param parameter
@@ -201,20 +176,12 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		return resource;
 	}
 
-	/**
-	 * Method for raising exception.
-	 * 
-	 * @param paramName
-	 * @param paramType
-	 * @throws Exception
-	 *             exception.
-	 */
-	protected void raiseMissingParameterException(final String paramName, final Class<?> paramType) throws Exception {
-		throw new IllegalStateException("Missing parameter '" + paramName + "' of type [" + paramType.getName() + "]");
-	}
-
 	public void setOrderByFieldResolver(final OrderByFieldResolver orderByFieldResolver) {
 		this.orderByFieldResolver = orderByFieldResolver;
+	}
+
+	public void setOffsetParameterResolver(final OffsetParameterResolver offsetParameterResolver) {
+		this.offsetParameterResolver = offsetParameterResolver;
 	}
 
 }
