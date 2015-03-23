@@ -16,6 +16,8 @@ import org.lnu.is.web.rest.processor.resolver.limit.LimitParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.DefaultOffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
+import org.lnu.is.web.rest.processor.resolver.resource.DefaultResourceParameterResolver;
+import org.lnu.is.web.rest.processor.resolver.resource.ResourceParameterResolver;
 import org.mockito.Mock;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -42,6 +44,8 @@ public abstract class AbstractControllerTest {
 	
 	private LimitParameterResolver limitParameterResolver = new DefaultLimitParameterResolver();
 	
+	private ResourceParameterResolver resourceParameterResolver = new DefaultResourceParameterResolver();
+	
 	@Before
 	public void setup() {
 		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(Collections.<OrderBy>emptyList());
@@ -50,6 +54,7 @@ public abstract class AbstractControllerTest {
 		pagedRequestArgumentResolver.setOrderByFieldResolver(orderByFieldResolver);
 		pagedRequestArgumentResolver.setOffsetParameterResolver(offsetParameterResolver);
 		pagedRequestArgumentResolver.setLimitParameterResolver(limitParameterResolver);
+		pagedRequestArgumentResolver.setResourceParamterResolver(resourceParameterResolver);
 		
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
 				.setValidator(getValidator())

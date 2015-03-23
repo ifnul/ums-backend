@@ -2,6 +2,7 @@ package org.lnu.is.web.rest.processor.resolver;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyMapOf;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
@@ -11,7 +12,6 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
-import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -34,6 +34,7 @@ import org.lnu.is.web.exception.InvalidOrderByException;
 import org.lnu.is.web.rest.processor.resolver.limit.LimitParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
+import org.lnu.is.web.rest.processor.resolver.resource.ResourceParameterResolver;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -60,6 +61,9 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 	private LimitParameterResolver limitParameterResolver;
 	
 	@Mock
+	private ResourceParameterResolver resourceParamterResolver;
+	
+	@Mock
 	private MethodParameter param;
 	
 	@Mock
@@ -79,10 +83,6 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 	
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
-
-	private Class<PersonResource> clzType = PersonResource.class;
-
-	private Type[] types = new Type[] { clzType };
 
 	@SuppressWarnings("rawtypes")
 	private Class<PagedRequest> paramType = PagedRequest.class;
@@ -123,8 +123,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
 		
 		// Resource when's
-		when(param.getGenericParameterType()).thenReturn(type);
-		when(type.getActualTypeArguments()).thenReturn(types);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -204,8 +203,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
 		
 		// Resource when's
-		when(param.getGenericParameterType()).thenReturn(type);
-		when(type.getActualTypeArguments()).thenReturn(types);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -283,8 +281,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
 		
 		// Resource when's
-		when(param.getGenericParameterType()).thenReturn(type);
-		when(type.getActualTypeArguments()).thenReturn(types);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -361,8 +358,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
 		
 		// Resource when's
-		when(param.getGenericParameterType()).thenReturn(type);
-		when(type.getActualTypeArguments()).thenReturn(types);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -439,8 +435,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
 		
 		// Resource when's
-		when(param.getGenericParameterType()).thenReturn(type);
-		when(type.getActualTypeArguments()).thenReturn(types);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -517,8 +512,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
 		
 		// Resource when's
-		when(param.getGenericParameterType()).thenReturn(type);
-		when(type.getActualTypeArguments()).thenReturn(types);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -597,8 +591,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
 		
 		// Resource when's
-		when(param.getGenericParameterType()).thenReturn(type);
-		when(type.getActualTypeArguments()).thenReturn(types);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
