@@ -11,6 +11,8 @@ import java.util.Collections;
 import org.junit.Before;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.web.rest.processor.resolver.PagedRequestHandlerMethodArgumentResolver;
+import org.lnu.is.web.rest.processor.resolver.limit.DefaultLimitParameterResolver;
+import org.lnu.is.web.rest.processor.resolver.limit.LimitParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.DefaultOffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
@@ -38,6 +40,8 @@ public abstract class AbstractControllerTest {
 
 	private OffsetParameterResolver offsetParameterResolver = new DefaultOffsetParameterResolver();
 	
+	private LimitParameterResolver limitParameterResolver = new DefaultLimitParameterResolver();
+	
 	@Before
 	public void setup() {
 		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(Collections.<OrderBy>emptyList());
@@ -45,6 +49,7 @@ public abstract class AbstractControllerTest {
 		pagedRequestArgumentResolver = new PagedRequestHandlerMethodArgumentResolver();
 		pagedRequestArgumentResolver.setOrderByFieldResolver(orderByFieldResolver);
 		pagedRequestArgumentResolver.setOffsetParameterResolver(offsetParameterResolver);
+		pagedRequestArgumentResolver.setLimitParameterResolver(limitParameterResolver);
 		
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
 				.setValidator(getValidator())

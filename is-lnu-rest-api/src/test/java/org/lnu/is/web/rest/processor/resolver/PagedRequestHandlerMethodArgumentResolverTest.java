@@ -31,6 +31,7 @@ import org.lnu.is.pagination.OrderByType;
 import org.lnu.is.resource.person.PersonResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.web.exception.InvalidOrderByException;
+import org.lnu.is.web.rest.processor.resolver.limit.LimitParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
 import org.mockito.InjectMocks;
@@ -53,7 +54,10 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 	private OrderByFieldResolver orderByFieldResolver;
 
 	@Mock
-	private OffsetParameterResolver offsetParameteExtractor;
+	private OffsetParameterResolver offsetParameteResolver;
+	
+	@Mock
+	private LimitParameterResolver limitParameterResolver;
 	
 	@Mock
 	private MethodParameter param;
@@ -136,7 +140,8 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
-
+		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
+		
 		// Offset when's
 		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
 			new Class[] { Offset.class }, 
@@ -151,7 +156,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -216,6 +221,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
 		
 		// Offset when's
 		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
@@ -231,7 +237,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -294,6 +300,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
 		
 		// Offset when's
 		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
@@ -309,7 +316,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -371,6 +378,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
 		
 		// Offset when's
 		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
@@ -386,7 +394,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -448,6 +456,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
 		
 		// Offset when's
 		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
@@ -463,7 +472,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -540,7 +549,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
@@ -620,7 +629,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
 		doReturn(paramType).when(param).getParameterType();
 		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(offsetValue));
-		when(offsetParameteExtractor.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
 		
 		// Orders when's
 		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
