@@ -49,15 +49,6 @@ public class ValidEntityVerifierTest {
 		// Then
 		verify(nextVerifier, times(0)).verify(any());
 	}
-
-	@Test(expected = EntityNotFoundException.class)
-	public void testVerifyWithNullEntity() throws Exception {
-		// Given
-		Department resource = null;
-		
-		// When
-		unit.verify(resource);
-	}
 	
 	@Test(expected = EntityNotFoundException.class)
 	public void testVerifyWithDeletedEntity() throws Exception {

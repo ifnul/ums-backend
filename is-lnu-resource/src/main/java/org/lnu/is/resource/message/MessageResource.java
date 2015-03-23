@@ -11,6 +11,8 @@ public class MessageResource {
 	private MessageType messageType;
 	private String message;
 	private Integer httpCode;
+	private String cause;
+	
 	/**
 	 * Default constructor.
 	 */
@@ -76,10 +78,19 @@ public class MessageResource {
 		this.httpCode = httpCode;
 	}
 
+	public String getCause() {
+		return cause;
+	}
+
+	public void setCause(final String cause) {
+		this.cause = cause;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((cause == null) ? 0 : cause.hashCode());
 		result = prime * result
 				+ ((httpCode == null) ? 0 : httpCode.hashCode());
 		result = prime * result + ((message == null) ? 0 : message.hashCode());
@@ -100,6 +111,13 @@ public class MessageResource {
 			return false;
 		}
 		MessageResource other = (MessageResource) obj;
+		if (cause == null) {
+			if (other.cause != null) {
+				return false;
+			}
+		} else if (!cause.equals(other.cause)) {
+			return false;
+		}
 		if (httpCode == null) {
 			if (other.httpCode != null) {
 				return false;
@@ -123,7 +141,8 @@ public class MessageResource {
 	@Override
 	public String toString() {
 		return "MessageResource [messageType=" + messageType + ", message="
-				+ message + ", httpCode=" + httpCode + "]";
+				+ message + ", httpCode=" + httpCode + ", entity=" + cause
+				+ "]";
 	}
 	
 }
