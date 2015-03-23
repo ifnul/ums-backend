@@ -19,14 +19,9 @@ public class ValidEntityVerifier<T extends Model> extends DefaultVerifierChainLi
 	@Override
 	protected void verifyLink(final T entity) {
 		
-        if (entity == null) {
-        	LOG.error("No entity found: {}");
-        	throw new EntityNotFoundException("Entity is deleted");
-        }
-        
     	if (RowStatus.DELETED.equals(entity.getStatus())) {
         	LOG.error("Entity is deleted, {}, {}", entity.getClass().getSimpleName(), entity.getId());
-        	throw new EntityNotFoundException("Entity does'nt exist");
+        	throw new EntityNotFoundException("Entity doesn't exist", entity.getClass(), entity.getId());
         }
     	
 	}

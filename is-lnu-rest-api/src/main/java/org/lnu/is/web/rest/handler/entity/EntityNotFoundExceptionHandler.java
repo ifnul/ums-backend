@@ -1,5 +1,7 @@
 package org.lnu.is.web.rest.handler.entity;
 
+import java.text.MessageFormat;
+
 import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
@@ -31,6 +33,7 @@ public class EntityNotFoundExceptionHandler implements BaseExceptionHandler<Enti
     	MessageResource message = new MessageResource();
     	message.setMessageType(MessageType.ERROR);
     	message.setMessage(e.getMessage());
+    	message.setCause(MessageFormat.format("{0} : {1}", e.getClz().getSimpleName(), e.getIdentifier()));
     	
 		return message;
     }

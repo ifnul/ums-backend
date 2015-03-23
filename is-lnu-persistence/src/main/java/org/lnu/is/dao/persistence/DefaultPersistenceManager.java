@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.dao.persistence.enhancers.Enhancer;
 import org.lnu.is.dao.persistence.model.DaoMethod;
 import org.lnu.is.dao.persistence.verifier.VerifierChainLink;
@@ -56,6 +57,11 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     @Override
     public T findById(final Class<T> clazz, final I id) {
         T entity = entityManager.find(clazz, id);
+        if (entity == null) {
+        	LOG.error("Entity is deleted, {}, {}", clazz.getSimpleName());
+        	throw new EntityNotFoundException("Entity doesn't exist", clazz, id);
+        }
+
         verify(DaoMethod.SINGLE_GET, entity);
         return entity;
     }
