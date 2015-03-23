@@ -1,0 +1,462 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd        
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<util:map id="resourceReplacementMap">
+		<entry key="org.lnu.is.resource.addresstype.AddressTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.adminunit.AdminUnitResource">
+			<util:map>
+				<entry key="adminUnitTypeId" value="adminUnitType" />
+				<entry key="parentId" value="parent" />
+				<entry key="identifier" value="identifier" />
+				<entry key="identifier1" value="identifier1" />
+				<entry key="identifier2" value="identifier2" />
+				<entry key="identifier3" value="identifier3" />
+				<entry key="name" value="name" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.adminunit.type.AdminUnitTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.asset.AssetResource">
+			<util:map>
+				<entry key="assetTypeId" value="assetType" />
+				<entry key="assetStateId" value="assetState" />
+				<entry key="assetStatusId" value="assetStatus" />
+				<entry key="departmentId" value="department" />
+				<entry key="employeeId" value="employee" />
+				<entry key="partnerId" value="partner" />
+				<entry key="orderId" value="order" />
+				<entry key="parentId" value="parent" />
+				<entry key="name" value="name" />
+				<entry key="invNum" value="invNum" />
+				<entry key="serialNum" value="serialNum" />
+				<entry key="prodDate" value="prodDate" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+				<entry key="price" value="price" />
+				<entry key="amount" value="amount" />
+				<entry key="suma" value="suma" />
+				<entry key="description" value="description" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.asset.address.AssetAddressResource">
+			<util:map>
+				<entry key="adminUnitId" value="adminUnit" />
+				<entry key="assetId" value="asset" />
+				<entry key="addressTypeId" value="addressType" />
+				<entry key="streetTypeId" value="streetType" />
+				<entry key="zipCode" value="zipCode" />
+				<entry key="street" value="street" />
+				<entry key="house" value="house" />
+				<entry key="apartment" value="apartment" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.asset.state.AssetStateResource">
+			<util:map>
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.asset.status.AssetStatusResource">
+			<util:map>
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.asset.type.AssetTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.benefit.BenefitResource">
+			<util:map>
+				<entry key="benefitTypeId" value="benefitType" />
+				<entry key="parentId" value="parent" />
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+				<entry key="description" value="description" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.benefit.type.BenefitTypeResource">
+			<util:map>
+				<entry key="name" value="name" />
+				<entry key="priority" value="priority" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.broadcasting.BroadcastingMessageResource">
+			<util:map>
+				<entry key="content" value="content" />
+				<entry key="topic" value="topic" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.contact.type.ContactTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.course.type.CourseTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.degree.DegreeResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="degreeTypeId" value="degreeType" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.degree.type.DegreeTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.department.DepartmentResource">
+			<util:map>
+				<entry key="parentId" value="parent" />
+				<entry key="departmentTypeId" value="departmentType" />
+				<entry key="orderId" value="order" />
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+				<entry key="manager" value="manager" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.department.address.DepartmentAddressResource">
+			<util:map>
+				<entry key="departmentId" value="department" />
+				<entry key="addressTypeId" value="addressType" />
+				<entry key="adminUnitId" value="adminUnit" />
+				<entry key="streetTypeId" value="streetType" />
+				<entry key="zipCode" value="zipCode" />
+				<entry key="street" value="street" />
+				<entry key="house" value="house" />
+				<entry key="apartment" value="apartment" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.department.contact.DepartmentContactResource">
+			<util:map>
+				<entry key="departmentId" value="department" />
+				<entry key="contactTypeId" value="contactType" />
+				<entry key="value" value="value" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.department.name.DepartmentNameResource">
+			<util:map>
+				<entry key="departmentId" value="department" />
+				<entry key="languageId" value="language" />
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.department.specialty.DepartmentSpecialtyResource">
+			<util:map>
+				<entry key="departmentId" value="department" />
+				<entry key="specialtyId" value="specialty" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.department.type.DepartmentTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.duty.type.DutyTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.education.type.EducationTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.eduformtype.EduFormTypeResource">
+			<util:map>
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.employee.EmployeeResource">
+			<util:map>
+				<entry key="employeeTypeId" value="employeeType" />
+				<entry key="personId" value="person" />
+				<entry key="genderTypeId" value="genderType" />
+				<entry key="departmentId" value="department" />
+				<entry key="postId" value="post" />
+				<entry key="jobTypeId" value="jobType" />
+				<entry key="employeeStatusId" value="employeeStatus" />
+				<entry key="orderId" value="order" />
+				<entry key="parentId" value="parent" />
+				<entry key="name" value="name" />
+				<entry key="firstName" value="firstName" />
+				<entry key="fatherName" value="fatherName" />
+				<entry key="surname" value="surname" />
+				<entry key="birthDate" value="birthDate" />
+				<entry key="invNum" value="invNum" />
+				<entry key="rate" value="rate" />
+				<entry key="isPlurality" value="isPlurality" />
+				<entry key="isPensioner" value="isPensioner" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+				<entry key="docSeries" value="docSeries" />
+				<entry key="docNum" value="docNum" />
+				<entry key="phone" value="phone" />
+				<entry key="email" value="email" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.employee.status.EmployeeStatusResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.employee.type.EmployeeTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.enrolment.EnrolmentResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="specOfferId" value="specOffer" />
+				<entry key="departmentId" value="department" />
+				<entry key="personPaperId" value="personPaper" />
+				<entry key="enrolmentTypeId" value="enrolmentType" />
+				<entry key="parentId" value="parent" />
+				<entry key="mark" value="mark" />
+				<entry key="docSeries" value="docSeries" />
+				<entry key="docNum" value="docNum" />
+				<entry key="docText" value="docText" />
+				<entry key="isState" value="isState" />
+				<entry key="isContract" value="isContract" />
+				<entry key="isPrivilege" value="isPrivilege" />
+				<entry key="isHostel" value="isHostel" />
+				<entry key="evDate" value="evDate" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+				<entry key="priority" value="priority" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.enrolment.benefit.EnrolmentBenefitResource">
+			<util:map>
+				<entry key="enrolmentId" value="enrolment" />
+				<entry key="benefitId" value="benefit" />
+				<entry key="personPaperId" value="personPaper" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.enrolment.status.EnrolmentStatusResource">
+			<util:map>
+				<entry key="enrolmentId" value="enrolment" />
+				<entry key="specOfferWaveId" value="specOfferWave" />
+				<entry key="enrolmentStatusTypeId" value="enrolmentStatusType" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.enrolment.statustype.EnrolmentStatusTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+				<entry key="description" value="description" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.enrolment.subject.EnrolmentSubjectResource">
+			<util:map>
+				<entry key="parentId" value="parent" />
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+				<entry key="isTesting" value="isTesting" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.enrolment.type.EnrolmentTypeResource">
+			<util:map>
+				<entry key="abbrname" value="abbrname" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.enrolmentforeign.type.EnrolmentForeignTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.familytype.FamilyTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.gendertype.GenderTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.honor.type.HonorTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.jobtype.JobTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.language.LanguageResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.markscale.MarkscaleResource">
+			<util:map>
+				<entry key="markscaleTypeId" value="markscaleType" />
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+				<entry key="markMin" value="markMin" />
+				<entry key="markMax" value="markMax" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.markscale.exchange.MarkscaleExchangeResource">
+			<util:map>
+				<entry key="markscaleId" value="markscale" />
+				<entry key="markscaleValueId" value="markscaleValue" />
+				<entry key="markscaleExchangeId" value="markscaleExchange" />
+				<entry key="markscaleExchangeValueId" value="markscaleExchangeValue" />
+				<entry key="markMin" value="markMin" />
+				<entry key="markMax" value="markMax" />
+				<entry key="markExchange" value="markExchange" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.markscale.type.MarkscaleTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.markscale.value.MarkscaleValueResource">
+			<util:map>
+				<entry key="markscaleId" value="markscale" />
+				<entry key="strValue" value="strValue" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.marriedtype.MarriedTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.operationtype.OperationTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.order.OrderResource">
+			<util:map>
+				<entry key="orderTypeId" value="orderType" />
+				<entry key="employeeId" value="employee" />
+				<entry key="assetId" value="asset" />
+				<entry key="partnerId" value="partner" />
+				<entry key="operationTypeId" value="opType" />
+				<entry key="departmentId" value="department" />
+				<entry key="reasonId" value="reason" />
+				<entry key="parentId" value="parent" />
+				<entry key="timePeriodId" value="timePeriod" />
+				<entry key="reasonText" value="reasonText" />
+				<entry key="docSeries" value="docSeries" />
+				<entry key="docNum" value="docNum" />
+				<entry key="docDate" value="docDate" />
+				<entry key="docIssued" value="docIssued" />
+				<entry key="evDate" value="evDate" />
+				<entry key="title" value="title" />
+				<entry key="description" value="description" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.order.type.OrderTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+				<entry key="parentId" value="parent" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.paper.type.PaperTypeResource">
+			<util:map>
+				<entry key="paperUsageId" value="paperUsage" />
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.paper.usage.PaperUsageResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.partner.PartnerResource">
+			<util:map>
+				<entry key="parentId" value="parent" />
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+				<entry key="manager" value="manager" />
+				<entry key="phone" value="phone" />
+				<entry key="email" value="email" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.PersonResource">
+			<util:map>
+				<entry key="parentId" value="parent" />
+				<entry key="personTypeId" value="personType" />
+				<entry key="genderTypeId" value="genderType" />
+				<entry key="marriedTypeId" value="marriedType" />
+				<entry key="citizenCountryId" value="citizenCountry" />
+				<entry key="name" value="name" />
+				<entry key="firstName" value="firstName" />
+				<entry key="fatherName" value="fatherName" />
+				<entry key="surname" value="surname" />
+				<entry key="photo" value="photo" />
+				<entry key="docSeries" value="docSeries" />
+				<entry key="docNum" value="docNum" />
+				<entry key="identifier" value="identifier" />
+				<entry key="resident" value="resident" />
+				<entry key="birthPlace" value="birthPlace" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+				<entry key="isMilitary" value="isMilitary" />
+				<entry key="isHostel" value="isHostel" />
+			</util:map>
+		</entry>
+	</util:map>
+	
+</beans>
