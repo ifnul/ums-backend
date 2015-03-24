@@ -2,6 +2,9 @@ package org.lnu.is.converter.department.name;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.name.DepartmentName;
@@ -59,4 +62,46 @@ public class DepartmentNameConverterTest {
 		// Then
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		Long id = 1L;
+		String abbrName = "abbr name";
+		String name = "fgsdfds";
+		Long departmentId = 2L;
+		Department department = new Department();
+		department.setId(departmentId);
+		
+		Long languageId = 2L;
+		Language language = new Language();
+		language.setId(languageId);
+
+		DepartmentName source = new DepartmentName();
+		source.setId(id);
+		source.setDepartment(department);
+		source.setLanguage(language);
+		source.setAbbrName(abbrName);
+		source.setName(name);
+		
+		DepartmentNameResource expected = new DepartmentNameResource();
+		expected.setId(id);
+		expected.setDepartmentId(departmentId);
+		expected.setLanguageId(languageId);
+		expected.setAbbrName(abbrName);
+		expected.setName(name);
+		
+		DepartmentName source1 = new DepartmentName();
+		DepartmentNameResource expected1 = new DepartmentNameResource();
+		
+		List<DepartmentName> sources = Arrays.asList(source, source1);
+		
+		List<DepartmentNameResource> expecteds = Arrays.asList(expected,expected1);
+		// When
+		List<DepartmentNameResource> actual = unit.convertAll(sources);
+		
+		// Then
+		assertEquals(expecteds, actual);
+	}
+
 }

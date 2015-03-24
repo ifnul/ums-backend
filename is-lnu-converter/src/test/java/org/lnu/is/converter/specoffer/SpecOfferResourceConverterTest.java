@@ -53,6 +53,10 @@ public class SpecOfferResourceConverterTest {
 		TimePeriod timePeriod = new TimePeriod();
 		timePeriod.setId(timePeriodId);
 		
+		Long timePeriodCourseId = 6L;
+		TimePeriod timePeriodCourse = new TimePeriod();
+		timePeriodCourse.setId(timePeriodCourseId);
+		
 		SpecOffer expected = new SpecOffer();
 		expected.setBegDate(begDate);
 		expected.setDepartment(department);
@@ -68,6 +72,7 @@ public class SpecOfferResourceConverterTest {
 		expected.setSpecOfferType(specOfferType);
 		expected.setStateCount(stateCount);
 		expected.setTimePeriod(timePeriod);
+		expected.setTimePeriodCourse(timePeriodCourse);
 
 		SpecOfferResource source = new SpecOfferResource();
 		source.setBegDate(begDate);
@@ -83,6 +88,7 @@ public class SpecOfferResourceConverterTest {
 		source.setStateCount(stateCount);
 		source.setTimePeriodId(timePeriodId);
 		source.setEduFormTypeId(eduFormTypeId);
+		source.setTimePeriodCourseId(timePeriodCourseId);
 		
 		// When
 		SpecOffer actual = unit.convert(source);

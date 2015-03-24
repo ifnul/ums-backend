@@ -2,6 +2,9 @@ package org.lnu.is.converter.base;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.resource.person.PersonResource;
@@ -37,4 +40,31 @@ public class EntityDetailsConverterTest {
 	public void testConvertWithOneArgument() throws Exception {
 		unit.convert(null);
 	}
+	
+	@Test(expected = UnsupportedOperationException.class)
+	public void testConvertAll() throws Exception {
+		// Given
+		String utid = "utid";
+		String note = "note";
+		
+		Person source = new Person();
+		source.setNote(note);
+		source.setUtid(utid);
+		
+		
+
+		PersonResource expected = new PersonResource();
+		expected.setNote(note);
+		expected.setUtid(utid);
+		
+		List<Person> sources = Arrays.asList(source);
+		List<PersonResource> expecteds = Arrays.asList(expected);
+		
+		// When
+		List<PersonResource> target = unit.convertAll(sources);
+
+		// Then
+		assertEquals(expecteds, target);
+	}
+
 }

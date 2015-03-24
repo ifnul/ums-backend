@@ -46,6 +46,10 @@ public class SpecOffer extends InformationModel {
 	private TimePeriod timePeriod;
 	
 	@ManyToOne
+	@JoinColumn(name = "timeperiodcourse_id")
+	private TimePeriod timePeriodCourse;
+	
+	@ManyToOne
 	@JoinColumn(name = "eduformtype_id")
 	private EduFormType eduFormType;
 
@@ -80,6 +84,14 @@ public class SpecOffer extends InformationModel {
 	@Column(name = "enddate")
 	private Date endDate;
 	
+	public TimePeriod getTimePeriodCourse() {
+	    return timePeriodCourse;
+	}
+
+	public void setTimePeriodCourse(final TimePeriod timePeriodCourse) {
+	    this.timePeriodCourse = timePeriodCourse;
+	}
+
 	public SpecOffer getParent() {
 		return parent;
 	}

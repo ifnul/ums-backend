@@ -27,9 +27,9 @@ public class SessionConverterTest {
 		group1.setTitle(group1Title);
 		Group group2 = new Group();
 		group2.setTitle(group2Title);
+		Role role1 = new Role();
 
 		String role1String = "role1";
-		Role role1 = new Role();
 		role1.setTitle(role1String);
 
 		String role2String = "role2";
@@ -43,10 +43,10 @@ public class SessionConverterTest {
 		Session session = new Session();
 		session.setUser(user);
 		session.setGroups(Arrays.asList(group1, group2));
-		session.setRoles(Collections.<Role>emptyList());
+		session.setRoles(Arrays.asList(role1, role2));
 		
 		List<String> groupStrings = Arrays.asList(group1Title, group2Title);
-		List<String> roleStrings = Arrays.asList();
+		List<String> roleStrings = Arrays.asList(role1String,role2String);
 
 		SessionResource expected = new SessionResource();
 		expected.setLogin(login);
@@ -58,5 +58,46 @@ public class SessionConverterTest {
 
 		// Then
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testConvertAll() throws Exception {
+		// Given
+		
+		String login = "login";
+		User user = new User();
+		user.setLogin(login);
+
+		Session session = new Session();
+		session.setUser(user);
+		session.setGroups(Collections.<Group>emptyList());
+		session.setRoles(Collections.<Role>emptyList());
+		
+		List<String> groupStrings = Arrays.asList();
+		List<String> roleStrings = Arrays.asList();
+
+		SessionResource expected = new SessionResource();
+		expected.setLogin(login);
+		expected.setGroups(groupStrings);
+		expected.setRoles(roleStrings);
+		
+		Session session1 = new Session();
+		session1.setName(null);
+		session1.setGroups(Collections.<Group>emptyList());
+		session1.setRoles(Collections.<Role>emptyList());
+		
+		SessionResource expected1 = new SessionResource();
+		expected1.setLogin(null);
+		expected1.setGroups(groupStrings);
+		expected1.setRoles(roleStrings);
+		
+		
+		List<Session> sessions = Arrays.asList(session,session1);
+		List<SessionResource> expecteds = Arrays.asList(expected,expected1);
+		// When
+		List<SessionResource> actual = unit.convertAll(sessions);
+
+		// Then
+		assertEquals(expecteds, actual);
 	}
 }

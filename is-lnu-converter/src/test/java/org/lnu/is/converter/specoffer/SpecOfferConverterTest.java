@@ -62,6 +62,10 @@ public class SpecOfferConverterTest {
 		TimePeriod timePeriod = new TimePeriod();
 		timePeriod.setId(timePeriodId);
 		
+		Long timePeriodCourseId = 5L;
+		TimePeriod timePeriodCourse = new TimePeriod();
+		timePeriodCourse.setId(timePeriodCourseId);
+		
 		Date updateDate = new Date();
 		String utid = "utid";
 		
@@ -85,6 +89,7 @@ public class SpecOfferConverterTest {
 		source.setStateCount(stateCount);
 		source.setStatus(status);
 		source.setTimePeriod(timePeriod);
+		source.setTimePeriodCourse(timePeriodCourse);
 		source.setUapp(uapp);
 		source.setUid(uid);
 		source.setUpdateDate(updateDate);
@@ -104,6 +109,7 @@ public class SpecOfferConverterTest {
 		expected.setSpecofferTypeId(specOfferTypeId);
 		expected.setStateCount(stateCount);
 		expected.setTimePeriodId(timePeriodId);
+		expected.setTimePeriodCourseId(timePeriodCourseId);
 		
 		// When
 		SpecOfferResource actual = unit.convert(source);

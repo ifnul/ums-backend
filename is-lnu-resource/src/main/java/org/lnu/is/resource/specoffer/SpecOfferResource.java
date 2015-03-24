@@ -8,6 +8,8 @@ import javax.validation.constraints.NotNull;
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
+
+
 /**
  * Resource for specoffer entity.
  * 
@@ -25,6 +27,9 @@ public class SpecOfferResource extends ApiResource {
 	
 	@NotNull(message = "Field required")
 	private Long timePeriodId;
+	
+	@NotNull(message = "Field required")
+	private Long timePeriodCourseId;
 	
 	@NotNull(message = "Field required")
 	private Long specofferTypeId;
@@ -61,6 +66,14 @@ public class SpecOfferResource extends ApiResource {
 	@Override
 	public String getRootUri() {
 		return "/specoffers";
+	}
+	
+	public Long getTimePeriodCourseId() {
+	    return timePeriodCourseId;
+	}
+
+	public void setTimePeriodCourseId(final Long timePeriodCourseId) {
+	    this.timePeriodCourseId = timePeriodCourseId;
 	}
 
 	public Long getSpecialtyId() {
@@ -185,6 +198,8 @@ public class SpecOfferResource extends ApiResource {
 				+ ((stateCount == null) ? 0 : stateCount.hashCode());
 		result = prime * result
 				+ ((timePeriodId == null) ? 0 : timePeriodId.hashCode());
+		result = prime * result
+			+ ((timePeriodCourseId == null) ? 0 : timePeriodCourseId.hashCode());
 		return result;
 	}
 
@@ -284,6 +299,13 @@ public class SpecOfferResource extends ApiResource {
 		} else if (!timePeriodId.equals(other.timePeriodId)) {
 			return false;
 		}
+		if (timePeriodCourseId == null) {
+			if (other.timePeriodCourseId != null) {
+				return false;
+			}
+		} else if (!timePeriodCourseId.equals(other.timePeriodCourseId)) {
+			return false;
+		}
 		return true;
 	}
 
@@ -295,7 +317,8 @@ public class SpecOfferResource extends ApiResource {
 				+ ", docSeries=" + docSeries + ", docNum=" + docNum
 				+ ", eduFormTypeId=" + eduFormTypeId + ", licCount=" + licCount
 				+ ", stateCount=" + stateCount + ", begDate=" + begDate
-				+ ", endDate=" + endDate + ", note=" + note + "]";
+				+ ", endDate=" + endDate + ", note=" + note + ", timePeriodCourseId="
+					+ timePeriodCourseId + "]";
 	}
 	
 }

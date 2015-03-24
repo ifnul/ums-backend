@@ -2,6 +2,9 @@ package org.lnu.is.converter.base;
 
 import static org.mockito.Mockito.verify;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.common.RowStatus;
@@ -45,5 +48,15 @@ public class InsertConverterTest {
 	@Test(expected = UnsupportedOperationException.class)
 	public void testConvertWithOneArgument() throws Exception {
 		unit.convert(null);
+	}
+	
+	@Test(expected = UnsupportedOperationException.class)
+	public void testConvertAll() throws Exception {
+		// Given
+		SpecialtyResource source = new SpecialtyResource();
+		
+		List<SpecialtyResource> list = Arrays.asList(source);
+		// When
+		unit.convertAll(list);
 	}
 }

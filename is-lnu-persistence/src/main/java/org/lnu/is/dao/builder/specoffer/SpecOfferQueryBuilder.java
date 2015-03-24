@@ -24,7 +24,8 @@ public class SpecOfferQueryBuilder extends AbstractQueryBuilder<SpecOffer> {
 	private static final String STATECOUNT_CONDITION = "e.stateCount = :stateCount ";
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
 	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate";
-
+	private static final String TIMEPERIODCOURSE_CONDITION = "e.timePeriodCourse = :timePeriodCourse ";
+	
 	@Override
 	protected String getBaseQuery() {
 		return "SELECT e FROM SpecOffer e %s";
@@ -39,6 +40,7 @@ public class SpecOfferQueryBuilder extends AbstractQueryBuilder<SpecOffer> {
 					.addOrCondition(SPECIALTY_CONDITION, context.getSpecialty())
 					.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
 					.addOrCondition(TIMEPERIOD_CONDITION, context.getTimePeriod())
+					.addOrCondition(TIMEPERIODCOURSE_CONDITION, context.getTimePeriod())
 					.addOrCondition(EDUFORMTYPE_CONDITION, context.getEduFormType())
 					.addOrCondition(SPECOFFERTYPE_CONDITION, context.getSpecOfferType())
 					.addOrCondition(DOCSERIES_CONDITION, context.getDocSeries())

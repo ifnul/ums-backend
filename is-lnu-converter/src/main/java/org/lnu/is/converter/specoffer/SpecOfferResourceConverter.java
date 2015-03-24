@@ -56,6 +56,13 @@ public class SpecOfferResourceConverter extends AbstractConverter<SpecOfferResou
 			target.setTimePeriod(timePeriod);
 		}
 		
+		if (source.getTimePeriodCourseId() != null) {
+			TimePeriod timePeriodCourse = new TimePeriod();
+			timePeriodCourse.setId(source.getTimePeriodCourseId());
+			
+			target.setTimePeriodCourse(timePeriodCourse);
+		}
+		
 		target.setBegDate(source.getBegDate());
 		target.setDocNum(source.getDocNum());
 		target.setDocSeries(source.getDocSeries());

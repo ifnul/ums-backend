@@ -45,6 +45,10 @@ public class SpecOfferConverter extends AbstractConverter<SpecOffer, SpecOfferRe
 			target.setTimePeriodId(source.getTimePeriod().getId());
 		}
 		
+		if (source.getTimePeriodCourse() != null) {
+			target.setTimePeriodCourseId(source.getTimePeriodCourse().getId());
+		}
+		
 		return target;
 	}
 
