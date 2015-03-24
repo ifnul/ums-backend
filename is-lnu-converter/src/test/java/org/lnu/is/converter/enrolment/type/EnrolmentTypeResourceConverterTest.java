@@ -17,11 +17,14 @@ public class EnrolmentTypeResourceConverterTest {
 	public void testConvert() throws Exception {
 		// Given
 		String name = "1234";
+		String abbrName = "abbrName";
 		EnrolmentTypeResource source = new EnrolmentTypeResource();
 		source.setName(name);
+		source.setAbbrName(abbrName);
 
 		EnrolmentType expected = new EnrolmentType();
 		expected.setName(name);
+		expected.setAbbrName(abbrName);
 
 		// When
 		EnrolmentType actual = unit.convert(source);
@@ -35,16 +38,19 @@ public class EnrolmentTypeResourceConverterTest {
 		// Given
 		Long id = 1l;
 		String name = "n a m e";
+		String abbrName = "abbrName";
 		
 		EnrolmentTypeResource source = new EnrolmentTypeResource();
 		source.setId(id);
 		source.setName(name);
+		source.setAbbrName(abbrName);
 		
 		List<EnrolmentTypeResource> sources = Arrays.asList(source); 
 		
 		EnrolmentType expected = new EnrolmentType();
 		expected.setId(id);
 		expected.setName(name);
+		expected.setAbbrName(abbrName);
 		
 		List<EnrolmentType> expecteds = Arrays.asList(expected);
 		

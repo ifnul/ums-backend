@@ -16,7 +16,9 @@ public class EnrolmentTypeResourceConverter extends AbstractConverter<EnrolmentT
 
 	@Override
 	public EnrolmentType convert(final EnrolmentTypeResource source, final EnrolmentType target) {
+		
 		target.setName(source.getName());
+		target.setAbbrName(source.getAbbrName());
 
 		return target;
 	}

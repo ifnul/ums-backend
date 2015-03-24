@@ -13,7 +13,7 @@ import org.lnu.is.domain.enrolment.type.EnrolmentType;
 @QBuilder("enrolmentTypeQueryBuilder")
 public class EnrolmentTypeQueryBuilder extends AbstractQueryBuilder<EnrolmentType> {
 	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBRNAME_CONDITION = "e.abbrname LIKE CONCAT('%',:abbrname,'%') ";
+	private static final String ABBRNAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 	@Override
 	protected String getBaseQuery() {
@@ -26,7 +26,7 @@ public class EnrolmentTypeQueryBuilder extends AbstractQueryBuilder<EnrolmentTyp
 				.where()
 				.openBracket()
 					.addAndCondition(NAME_CONDITION, context.getName())
-					.addAndCondition(ABBRNAME_CONDITION, context.getAbbrname())
+					.addAndCondition(ABBRNAME_CONDITION, context.getAbbrName())
 				.closeBracket();
 	}
 

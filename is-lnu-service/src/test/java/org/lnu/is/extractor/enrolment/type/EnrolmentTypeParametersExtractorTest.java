@@ -51,11 +51,11 @@ public class EnrolmentTypeParametersExtractorTest {
 		
 		EnrolmentType entity = new EnrolmentType();
 		entity.setName(name);
-		entity.setAbbrname(abbrname);
+		entity.setAbbrName(abbrname);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
-		expected.put("abbrname", abbrname);
+		expected.put("abbrName", abbrname);
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
 		
@@ -77,11 +77,11 @@ public class EnrolmentTypeParametersExtractorTest {
 		
 		EnrolmentType entity = new EnrolmentType();
 		entity.setName(name);
-		entity.setAbbrname(abbrname);
+		entity.setAbbrName(abbrname);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("name", name);
-		expected.put("abbrname", abbrname);
+		expected.put("abbrName", abbrname);
 		
 		// When
 		Map<String, Object> actual = unit.getParameters(entity);

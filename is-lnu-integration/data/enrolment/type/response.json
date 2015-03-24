@@ -5,14 +5,17 @@
   "resources" : [ {
     "id" : 1,
     "name" : "За даними сертифікату",
+    "abbrName" : "сертифікат",
     "uri" : "/enrolments/types/1"
   }, {
     "id" : 2,
     "name" : "За результатами іспитів",
+    "abbrName" : "іспит",
     "uri" : "/enrolments/types/2"
   }, {
     "id" : 3,
     "name" : "За даними сертифікатів та результатами іспитів",
+    "abbrName" : "сертифікат+іспит",
     "uri" : "/enrolments/types/3"
   }, {
     "id" : 4,
