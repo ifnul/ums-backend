@@ -1,5 +1,6 @@
 {
   "timePeriodId": ${timePeriodId},
+  "timePeriodCourseId": ${timePeriodId},
   "eduFormTypeId": 1,
   "specofferTypeId": 1,
   "docSeries": "123456",
