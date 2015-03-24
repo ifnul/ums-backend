@@ -640,6 +640,90 @@
 				<entry key="endDate" value="endDate" />
 			</util:map>
 		</entry>
+		<entry key="org.lnu.is.resource.specoffer.benefit.SpecOfferBenefitResource">
+			<util:map>
+				<entry key="specOfferId" value="specOffer" />
+				<entry key="benefitId" value="benefit" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.specoffer.subject.SpecOfferSubjectResource">
+			<util:map>
+				<entry key="specOfferId" value="specOffer" />
+				<entry key="enrolmentSubjectId" value="enrolmentSubject" />
+				<entry key="isMajor" value="isMajor" />
+				<entry key="alternative" value="alternative" />
+				<entry key="mark" value="mark" />
+				<entry key="weightSubject" value="weightSubject" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.specoffer.subject.wave.SpecOfferWaveResource">
+			<util:map>
+				<entry key="specOfferId" value="specOffer" />
+				<entry key="waveTypeId" value="waveType" />
+				<entry key="licCount" value="licCount" />
+				<entry key="stateCount" value="stateCount" />
+				<entry key="benefitCount" value="benefitCount" />
+				<entry key="targetCount" value="targetCount" />
+			</util:map>
+		</entry>
+		<entry key="">
+			<util:map>
+				<entry key="timePeriodId" value="timePeriod" />
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.street.type.StreetTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.studyplan.cycle.StudyPlanCycleResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.subject.SubjectResource">
+			<util:map>
+				<entry key="subjectTypeId" value="subjectType" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.subject.type.SubjectTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.timeperiod.TimePeriodResource">
+			<util:map>
+				<entry key="parentId" value="parent" />
+				<entry key="timePeriodTypeId" value="timePeriodType" />
+				<entry key="name" value="name" />
+				<entry key="numValue" value="numValue" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.timeperiod.type.TimePeriodTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.timesheet.type.TimeSheetTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.wave.type.WaveTypeResource">
+			<util:map>
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
 	</util:map>
 	
 </beans>
