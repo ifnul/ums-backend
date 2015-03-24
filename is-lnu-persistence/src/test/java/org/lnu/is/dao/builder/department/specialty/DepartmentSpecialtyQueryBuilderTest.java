@@ -104,7 +104,7 @@ public class DepartmentSpecialtyQueryBuilderTest {
 		context.setDepartment(department);
 		context.setSpecialty(specialty);
 		
-		String expectedQuery = "SELECT e FROM DepartmentSpecialty e WHERE ( e.department = :department OR e.specialty = :specialty ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM DepartmentSpecialty e WHERE ( e.department = :department AND e.specialty = :specialty ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<DepartmentSpecialty> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -128,7 +128,7 @@ public class DepartmentSpecialtyQueryBuilderTest {
 		context.setDepartment(department);
 		context.setSpecialty(specialty);
 		
-		String expectedQuery = "SELECT e FROM DepartmentSpecialty e WHERE ( e.department = :department OR e.specialty = :specialty ) ";
+		String expectedQuery = "SELECT e FROM DepartmentSpecialty e WHERE ( e.department = :department AND e.specialty = :specialty ) ";
 		MultiplePagedSearch<DepartmentSpecialty> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

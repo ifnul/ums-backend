@@ -110,7 +110,7 @@ public class PersonNameQueryBuilderTest {
 		context.setFatherName(fatherName);
 		context.setSurname(surname);
 		
-		String expected = "SELECT e FROM PersonName e WHERE ( e.person = :person OR .language = :languageOR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:name,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM PersonName e WHERE ( e.person = :person AND .language = :language AND e.name LIKE CONCAT('%',:name,'%') AND e.firstName LIKE CONCAT('%',:name,'%') AND e.fatherName LIKE CONCAT('%',:fatherName,'%') AND e.surname LIKE CONCAT('%',:surname,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonName> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -142,7 +142,7 @@ public class PersonNameQueryBuilderTest {
 		context.setFatherName(fatherName);
 		context.setSurname(surname);
 		
-		String expected = "SELECT e FROM PersonName e WHERE ( e.person = :person OR .language = :languageOR e.name LIKE CONCAT('%',:name,'%') OR e.firstName LIKE CONCAT('%',:name,'%') OR e.fatherName LIKE CONCAT('%',:fatherName,'%') OR e.surname LIKE CONCAT('%',:surname,'%') ) ";
+		String expected = "SELECT e FROM PersonName e WHERE ( e.person = :person AND .language = :language AND e.name LIKE CONCAT('%',:name,'%') AND e.firstName LIKE CONCAT('%',:name,'%') AND e.fatherName LIKE CONCAT('%',:fatherName,'%') AND e.surname LIKE CONCAT('%',:surname,'%') ) ";
 		MultiplePagedSearch<PersonName> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

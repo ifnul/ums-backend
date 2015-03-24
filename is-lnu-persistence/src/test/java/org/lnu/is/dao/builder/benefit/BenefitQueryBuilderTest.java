@@ -230,7 +230,7 @@ public class BenefitQueryBuilderTest {
 		context.setEndDate(endDate);
 		context.setDescription(description);
 		
-		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType AND e.parent = :parent AND e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.description LIKE CONCAT('%',:description,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -271,7 +271,7 @@ public class BenefitQueryBuilderTest {
 		OrderBy orderBy7 = new OrderBy("description", OrderByType.ASC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2, orderBy3, orderBy4, orderBy5, orderBy6, orderBy7);
 		
-		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.benefitType ASC, e.parent DESC, e.abbrName ASC, e.name DESC, e.begdate ASC, e.enddate DESC, e.description ASC";
+		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType AND e.parent = :parent AND e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.description LIKE CONCAT('%',:description,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.benefitType ASC, e.parent DESC, e.abbrName ASC, e.name DESC, e.begdate ASC, e.enddate DESC, e.description ASC";
 		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -307,7 +307,7 @@ public class BenefitQueryBuilderTest {
 		context.setEndDate(endDate);
 		context.setDescription(description);
 		
-		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType AND e.parent = :parent AND e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.description LIKE CONCAT('%',:description,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) ";
 		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -351,7 +351,7 @@ public class BenefitQueryBuilderTest {
 		OrderBy orderBy7 = new OrderBy("description", OrderByType.ASC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2, orderBy3, orderBy4, orderBy5, orderBy6, orderBy7);
 		
-		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType OR e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ORDER BY e.benefitType ASC, e.parent DESC, e.abbrName ASC, e.name DESC, e.begdate ASC, e.enddate DESC, e.description ASC";
+		String expected = "SELECT e FROM Benefit e WHERE ( e.benefitType = :benefitType AND e.parent = :parent AND e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.description LIKE CONCAT('%',:description,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) ORDER BY e.benefitType ASC, e.parent DESC, e.abbrName ASC, e.name DESC, e.begdate ASC, e.enddate DESC, e.description ASC";
 		MultiplePagedSearch<Benefit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

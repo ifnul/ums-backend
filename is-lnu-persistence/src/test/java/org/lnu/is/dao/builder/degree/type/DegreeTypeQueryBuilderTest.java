@@ -197,7 +197,7 @@ public class DegreeTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM DegreeType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM DegreeType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrname LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<DegreeType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -222,7 +222,7 @@ public class DegreeTypeQueryBuilderTest {
 		OrderBy orderBy2 = new OrderBy("name", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
 		
-		String expectedQuery = "SELECT e FROM DegreeType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.abbrName ASC, e.name DESC";
+		String expectedQuery = "SELECT e FROM DegreeType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrname LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.abbrName ASC, e.name DESC";
 		MultiplePagedSearch<DegreeType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -247,7 +247,7 @@ public class DegreeTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM DegreeType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrName,'%') ) ";
+		String expectedQuery = "SELECT e FROM DegreeType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrname LIKE CONCAT('%',:abbrName,'%') ) ";
 		MultiplePagedSearch<DegreeType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -275,7 +275,7 @@ public class DegreeTypeQueryBuilderTest {
 		OrderBy orderBy2 = new OrderBy("name", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
 		
-		String expectedQuery = "SELECT e FROM DegreeType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrName,'%') ) ORDER BY e.abbrName ASC, e.name DESC";
+		String expectedQuery = "SELECT e FROM DegreeType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrname LIKE CONCAT('%',:abbrName,'%') ) ORDER BY e.abbrName ASC, e.name DESC";
 		MultiplePagedSearch<DegreeType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

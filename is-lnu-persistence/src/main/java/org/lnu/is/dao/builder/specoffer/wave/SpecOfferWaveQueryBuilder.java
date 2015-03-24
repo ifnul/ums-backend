@@ -14,10 +14,10 @@ import org.lnu.is.domain.specoffer.SpecOfferWave;
 public class SpecOfferWaveQueryBuilder extends AbstractQueryBuilder<SpecOfferWave> {
 	private static final String SPECOFFER_CONDITION = "e.specOffer = :specOffer ";
 	private static final String WAVETYPE_CONDITION = "e.waveType = :waveType ";
-	private static final String LICCOUNT_CONDITION = "e.licCount =:licCount";
-	private static final String STATECOUNT_CONDITION = "e.stateCount =:stateCount";
-	private static final String BENEFITCOUNT_CONDITION = "e.benefitCount =:benefitCount";
-	private static final String TARGETCOUNT_CONDITION = "e.targetCount =:targetCount";
+	private static final String LICCOUNT_CONDITION = "e.licCount =:licCount ";
+	private static final String STATECOUNT_CONDITION = "e.stateCount =:stateCount ";
+	private static final String BENEFITCOUNT_CONDITION = "e.benefitCount =:benefitCount ";
+	private static final String TARGETCOUNT_CONDITION = "e.targetCount =:targetCount ";
 
 	@Override
 	protected String getBaseQuery() {
@@ -29,12 +29,12 @@ public class SpecOfferWaveQueryBuilder extends AbstractQueryBuilder<SpecOfferWav
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
-					.addOrCondition(WAVETYPE_CONDITION, context.getWaveType())
-					.addOrCondition(LICCOUNT_CONDITION, context.getLicCount())
-					.addOrCondition(STATECOUNT_CONDITION, context.getStateCount())
-					.addOrCondition(BENEFITCOUNT_CONDITION, context.getBenefitCount())
-					.addOrCondition(TARGETCOUNT_CONDITION, context.getTargetCount())
+					.addAndCondition(SPECOFFER_CONDITION, context.getSpecOffer())
+					.addAndCondition(WAVETYPE_CONDITION, context.getWaveType())
+					.addAndCondition(LICCOUNT_CONDITION, context.getLicCount())
+					.addAndCondition(STATECOUNT_CONDITION, context.getStateCount())
+					.addAndCondition(BENEFITCOUNT_CONDITION, context.getBenefitCount())
+					.addAndCondition(TARGETCOUNT_CONDITION, context.getTargetCount())
 				.closeBracket();
 	}
 

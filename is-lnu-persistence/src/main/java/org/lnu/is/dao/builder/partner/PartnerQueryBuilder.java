@@ -31,14 +31,14 @@ public class PartnerQueryBuilder extends AbstractQueryBuilder<Partner> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PARENT_CONDITION, context.getParent())
-					.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(MANAGER_CONDITION, context.getManager())
-					.addOrCondition(PHONE_CONDITION, context.getPhone())
-					.addOrCondition(EMAIL_CONDITION, context.getEmail())
-					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(PARENT_CONDITION, context.getParent())
+					.addAndCondition(ABBRNAME_CONDITION, context.getAbbrName())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(MANAGER_CONDITION, context.getManager())
+					.addAndCondition(PHONE_CONDITION, context.getPhone())
+					.addAndCondition(EMAIL_CONDITION, context.getEmail())
+					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 

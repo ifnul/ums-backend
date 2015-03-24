@@ -195,7 +195,7 @@ public class AdminUnitTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expected = "SELECT e FROM AdminUnitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM AdminUnitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<AdminUnitType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -219,7 +219,7 @@ public class AdminUnitTypeQueryBuilderTest {
 		OrderBy orderBy1 = new OrderBy("name", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1);
 		
-		String expected = "SELECT e FROM AdminUnitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.name DESC";
+		String expected = "SELECT e FROM AdminUnitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.name DESC";
 		MultiplePagedSearch<AdminUnitType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -244,7 +244,7 @@ public class AdminUnitTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expected = "SELECT e FROM AdminUnitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		String expected = "SELECT e FROM AdminUnitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
 		MultiplePagedSearch<AdminUnitType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -271,7 +271,7 @@ public class AdminUnitTypeQueryBuilderTest {
 		OrderBy orderBy1 = new OrderBy("abbrName", OrderByType.ASC);
 		List<OrderBy> orders = Arrays.asList(orderBy1);
 
-		String expected = "SELECT e FROM AdminUnitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ORDER BY e.abbrName ASC";
+		String expected = "SELECT e FROM AdminUnitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ORDER BY e.abbrName ASC";
 		MultiplePagedSearch<AdminUnitType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

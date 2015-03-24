@@ -33,14 +33,14 @@ public class DepartmentAddressQueryBuilder extends AbstractQueryBuilder<Departme
 		return builder	
 				.where()
 				.openBracket()
-					.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
-					.addOrCondition(ADDRESSTYPE_CONDITION, context.getAddressType())
-					.addOrCondition(ADMINUNIT_CONDITION, context.getAdminUnit())
-					.addOrCondition(STREETTYPE_CONDITION, context.getStreetType())
-					.addOrCondition(ZIPCODE_CONDITION, context.getZipCode())
-					.addOrCondition(STREET_CONIDITON, context.getStreet())
-					.addOrCondition(HOUSE_CONDITION, context.getHouse())
-					.addOrCondition(APARTMENT_CONDITION, context.getApartment())
+					.addAndCondition(DEPARTMENT_CONDITION, context.getDepartment())
+					.addAndCondition(ADDRESSTYPE_CONDITION, context.getAddressType())
+					.addAndCondition(ADMINUNIT_CONDITION, context.getAdminUnit())
+					.addAndCondition(STREETTYPE_CONDITION, context.getStreetType())
+					.addAndCondition(ZIPCODE_CONDITION, context.getZipCode())
+					.addAndCondition(STREET_CONIDITON, context.getStreet())
+					.addAndCondition(HOUSE_CONDITION, context.getHouse())
+					.addAndCondition(APARTMENT_CONDITION, context.getApartment())
 				.closeBracket();
 	}
 

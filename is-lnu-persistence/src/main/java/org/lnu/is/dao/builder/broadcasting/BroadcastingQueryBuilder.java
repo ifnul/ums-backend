@@ -24,7 +24,7 @@ public class BroadcastingQueryBuilder extends AbstractQueryBuilder<BroadcastingM
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(TOPIC_CONDITION, context.getTopic())
+					.addAndCondition(TOPIC_CONDITION, context.getTopic())
 				.closeBracket();
 	}
 

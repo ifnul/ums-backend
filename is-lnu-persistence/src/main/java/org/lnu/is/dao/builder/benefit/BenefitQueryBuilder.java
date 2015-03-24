@@ -30,13 +30,13 @@ public class BenefitQueryBuilder extends AbstractQueryBuilder<Benefit> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(BENEFITTYPE_CONDITION, context.getBenefitType())
-					.addOrCondition(PARENT_CONDITION, context.getParent())
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
-					.addOrCondition(DESCRIPTION_CONDITION, context.getDescription())
-					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(BENEFITTYPE_CONDITION, context.getBenefitType())
+					.addAndCondition(PARENT_CONDITION, context.getParent())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(ABBRNAME_CONDITION, context.getAbbrName())
+					.addAndCondition(DESCRIPTION_CONDITION, context.getDescription())
+					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 

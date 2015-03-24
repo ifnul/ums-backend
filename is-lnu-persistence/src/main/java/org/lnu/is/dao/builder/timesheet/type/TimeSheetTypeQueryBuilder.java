@@ -25,8 +25,8 @@ public class TimeSheetTypeQueryBuilder extends AbstractQueryBuilder<TimeSheetTyp
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(ABBR_NAME_CONDITION, context.getAbbrName())
 				.closeBracket();
 	}
 

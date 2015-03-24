@@ -98,7 +98,7 @@ public class SubjectQueryBuilderTest {
 		context.setName(name);
 		context.setSubjectType(subjectType);
 
-		String expectedQuery = "SELECT e FROM Subject e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.subjectType = :subjectType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Subject e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.subjectType = :subjectType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Subject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -123,7 +123,7 @@ public class SubjectQueryBuilderTest {
 		context.setName(name);
 		context.setSubjectType(subjectType);
 		
-		String expectedQuery = "SELECT e FROM Subject e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.subjectType = :subjectType ) ";
+		String expectedQuery = "SELECT e FROM Subject e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.subjectType = :subjectType ) ";
 		MultiplePagedSearch<Subject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

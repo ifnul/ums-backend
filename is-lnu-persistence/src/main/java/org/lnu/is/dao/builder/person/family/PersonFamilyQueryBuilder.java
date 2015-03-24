@@ -27,9 +27,9 @@ public class PersonFamilyQueryBuilder extends AbstractQueryBuilder<PersonFamily>
 		return builder	
 				.where()
 				.openBracket()
-					.addOrCondition(PERSON_CONDITION, context.getPerson())
-					.addOrCondition(FAMILYTYPE_CONDITION, context.getFamilyType())
-					.addOrCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(PERSON_CONDITION, context.getPerson())
+					.addAndCondition(FAMILYTYPE_CONDITION, context.getFamilyType())
+					.addAndCondition(NAME_CONDITION, context.getName())
 				.closeBracket();
 	}
 

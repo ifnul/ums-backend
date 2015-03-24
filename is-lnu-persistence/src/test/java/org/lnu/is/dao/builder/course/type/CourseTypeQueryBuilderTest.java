@@ -196,7 +196,7 @@ public class CourseTypeQueryBuilderTest {
 		context.setName(name);
 		context.setAbbrName(abbrName);
 
-		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<CourseType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -220,7 +220,7 @@ public class CourseTypeQueryBuilderTest {
 		OrderBy orderBy2 = new OrderBy("name", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
 
-		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.abbrName ASC, e.name DESC";
+		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.abbrName ASC, e.name DESC";
 		MultiplePagedSearch<CourseType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -244,7 +244,7 @@ public class CourseTypeQueryBuilderTest {
 		context.setName(name);
 		context.setAbbrName(abbrName);
 		
-		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
 		MultiplePagedSearch<CourseType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -271,7 +271,7 @@ public class CourseTypeQueryBuilderTest {
 		OrderBy orderBy2 = new OrderBy("name", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
 		
-		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ORDER BY e.abbrName ASC, e.name DESC";
+		String expected = "SELECT e FROM CourseType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ORDER BY e.abbrName ASC, e.name DESC";
 		MultiplePagedSearch<CourseType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

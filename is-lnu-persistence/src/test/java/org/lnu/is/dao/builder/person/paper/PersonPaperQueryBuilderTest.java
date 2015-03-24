@@ -120,7 +120,7 @@ public class PersonPaperQueryBuilderTest {
 		context.setIsChecked(isChecked);
 		context.setIsForeign(isForeign);
 		
-		String expectedQuery = "SELECT e FROM PersonPaper e WHERE ( e.person = :person OR e.paperType = :paperType OR e.honorsType = :honorsType OR e.docDate = :docDate OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docIssued = :docIssued OR e.docPin = :docPin OR e.mark = :mark OR e.isChecked = :isChecked OR e.isForeign = :isForeign ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonPaper e WHERE ( e.person = :person AND e.paperType = :paperType AND e.honorsType = :honorsType AND e.docDate = :docDate AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docIssued = :docIssued AND e.docPin = :docPin AND e.mark = :mark AND e.isChecked = :isChecked AND e.isForeign = :isForeign ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonPaper> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -162,7 +162,7 @@ public class PersonPaperQueryBuilderTest {
 		context.setIsChecked(isChecked);
 		context.setIsForeign(isForeign);
 		
-		String expectedQuery = "SELECT e FROM PersonPaper e WHERE ( e.person = :person OR e.paperType = :paperType OR e.honorsType = :honorsType OR e.docDate = :docDate OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docIssued = :docIssued OR e.docPin = :docPin OR e.mark = :mark OR e.isChecked = :isChecked OR e.isForeign = :isForeign ) ";
+		String expectedQuery = "SELECT e FROM PersonPaper e WHERE ( e.person = :person AND e.paperType = :paperType AND e.honorsType = :honorsType AND e.docDate = :docDate AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docIssued = :docIssued AND e.docPin = :docPin AND e.mark = :mark AND e.isChecked = :isChecked AND e.isForeign = :isForeign ) ";
 		MultiplePagedSearch<PersonPaper> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

@@ -33,14 +33,14 @@ public class AssetAddressQueryBuilder extends AbstractQueryBuilder<AssetAddress>
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(ADMINUNIT_CONDITION, context.getAdminUnit())
-					.addOrCondition(ASSET_CONDITION, context.getAsset())
-					.addOrCondition(ADDRESSTYPE_CONDITION, context.getAddressType())
-					.addOrCondition(STREETTYPE_CONDITION, context.getStreetType())
-					.addOrCondition(ZIPCODE_CONDITION, context.getZipCode())
-					.addOrCondition(STREET_CONDITION, context.getStreet())
-					.addOrCondition(HOUSE_CONDITION, context.getHouse())
-					.addOrCondition(APARTMENT_CONDITION, context.getApartment())
+					.addAndCondition(ADMINUNIT_CONDITION, context.getAdminUnit())
+					.addAndCondition(ASSET_CONDITION, context.getAsset())
+					.addAndCondition(ADDRESSTYPE_CONDITION, context.getAddressType())
+					.addAndCondition(STREETTYPE_CONDITION, context.getStreetType())
+					.addAndCondition(ZIPCODE_CONDITION, context.getZipCode())
+					.addAndCondition(STREET_CONDITION, context.getStreet())
+					.addAndCondition(HOUSE_CONDITION, context.getHouse())
+					.addAndCondition(APARTMENT_CONDITION, context.getApartment())
 				.closeBracket();
 	}
 

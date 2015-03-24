@@ -24,7 +24,7 @@ public class WaveTypeQueryBuilder extends AbstractQueryBuilder<WaveType>  {
 		return builder
 				.where()
 				.openBracket()
-						.addOrCondition(NAME_CONDITION, context.getName())
+						.addAndCondition(NAME_CONDITION, context.getName())
 				.closeBracket();
 	}
 

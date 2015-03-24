@@ -26,8 +26,8 @@ public class MarkscaleValueQueryBuilder extends AbstractQueryBuilder<MarkscaleVa
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(MARKSCALE_CONDITION, context.getMarkscale())
-					.addOrCondition(STRVALUE_CONDITION, context.getStrValue())
+					.addAndCondition(MARKSCALE_CONDITION, context.getMarkscale())
+					.addAndCondition(STRVALUE_CONDITION, context.getStrValue())
 				.closeBracket();
 	}
 

@@ -52,7 +52,7 @@ public class AssetAddressQueryBuilderTest {
 		context.setHouse(house);
 		context.setApartment(apartment);
 
-		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit AND e.asset = :asset AND e.addressType = :addressType AND e.streetType = :streetType AND e.zipCode LIKE CONCAT('%',:zipCode,'%') AND e.street LIKE CONCAT('%',:street,'%') AND e.house LIKE CONCAT('%',:house,'%') AND e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -94,7 +94,7 @@ public class AssetAddressQueryBuilderTest {
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2, orderBy3, orderBy4);
 
 			
-		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.zipcode ASC, e.street ASC, e.house ASC, e.apartment ASC";
+		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit AND e.asset = :asset AND e.addressType = :addressType AND e.streetType = :streetType AND e.zipCode LIKE CONCAT('%',:zipCode,'%') AND e.street LIKE CONCAT('%',:street,'%') AND e.house LIKE CONCAT('%',:house,'%') AND e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.zipcode ASC, e.street ASC, e.house ASC, e.apartment ASC";
 		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -218,7 +218,7 @@ public class AssetAddressQueryBuilderTest {
 		context.setHouse(house);
 		context.setApartment(apartment);
 		
-		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) ";
+		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit AND e.asset = :asset AND e.addressType = :addressType AND e.streetType = :streetType AND e.zipCode LIKE CONCAT('%',:zipCode,'%') AND e.street LIKE CONCAT('%',:street,'%') AND e.house LIKE CONCAT('%',:house,'%') AND e.apartment LIKE CONCAT('%',:apartment,'%') ) ";
 		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -260,7 +260,7 @@ public class AssetAddressQueryBuilderTest {
 		
 		List<OrderBy> orders = Arrays.asList(orderBy1);
 
-		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) ORDER BY e.zipcode ASC";
+		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit AND e.asset = :asset AND e.addressType = :addressType AND e.streetType = :streetType AND e.zipCode LIKE CONCAT('%',:zipCode,'%') AND e.street LIKE CONCAT('%',:street,'%') AND e.house LIKE CONCAT('%',:house,'%') AND e.apartment LIKE CONCAT('%',:apartment,'%') ) ORDER BY e.zipcode ASC";
 		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -297,7 +297,7 @@ public class AssetAddressQueryBuilderTest {
 		context.setHouse(house);
 		context.setApartment(apartment);
 		
-		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit AND e.asset = :asset AND e.addressType = :addressType AND e.streetType = :streetType AND e.zipCode LIKE CONCAT('%',:zipCode,'%') AND e.street LIKE CONCAT('%',:street,'%') AND e.house LIKE CONCAT('%',:house,'%') AND e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -333,7 +333,7 @@ public class AssetAddressQueryBuilderTest {
 		context.setHouse(house);
 		context.setApartment(apartment);
 		
-		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit OR e.asset = :asset OR e.addressType = :addressType OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status ";
+		String expected = "SELECT e FROM AssetAddress e WHERE ( e.adminUnit = :adminUnit AND e.asset = :asset AND e.addressType = :addressType AND e.streetType = :streetType AND e.zipCode LIKE CONCAT('%',:zipCode,'%') AND e.street LIKE CONCAT('%',:street,'%') AND e.house LIKE CONCAT('%',:house,'%') AND e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status ";
 		MultiplePagedSearch<AssetAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

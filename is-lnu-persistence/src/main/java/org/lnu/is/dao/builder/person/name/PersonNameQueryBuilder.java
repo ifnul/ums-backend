@@ -13,7 +13,7 @@ import org.lnu.is.domain.person.name.PersonName;
 @QBuilder("personNameQueryBuilder")
 public class PersonNameQueryBuilder extends AbstractQueryBuilder<PersonName> {
 	private static final String PERSON_CONDITION = "e.person = :person ";
-	private static final String LANGUAGE_CONDITION = ".language = :language";
+	private static final String LANGUAGE_CONDITION = ".language = :language ";
 	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
 	private static final String FIRSTNAME_CONDITION = "e.firstName LIKE CONCAT('%',:name,'%') ";
 	private static final String LASTNAME_CONDITION = "e.fatherName LIKE CONCAT('%',:fatherName,'%') ";
@@ -29,12 +29,12 @@ public class PersonNameQueryBuilder extends AbstractQueryBuilder<PersonName> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PERSON_CONDITION, context.getPerson())
-					.addOrCondition(LANGUAGE_CONDITION, context.getLanguage())
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(FIRSTNAME_CONDITION, context.getFirstName())
-					.addOrCondition(LASTNAME_CONDITION, context.getFatherName())
-					.addOrCondition(SURNAME_CONDITION, context.getSurname())
+					.addAndCondition(PERSON_CONDITION, context.getPerson())
+					.addAndCondition(LANGUAGE_CONDITION, context.getLanguage())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(FIRSTNAME_CONDITION, context.getFirstName())
+					.addAndCondition(LASTNAME_CONDITION, context.getFatherName())
+					.addAndCondition(SURNAME_CONDITION, context.getSurname())
 				.closeBracket();
 	}
 

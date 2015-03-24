@@ -102,7 +102,7 @@ public class PaperTypeQueryBuilderTest {
 		context.setName(name);
 		context.setPaperUsage(paperUsage);
 
-		String expectedQuery = "SELECT e FROM PaperType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.paperUsage = :paperUsage ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PaperType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.paperUsage = :paperUsage ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PaperType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -128,7 +128,7 @@ public class PaperTypeQueryBuilderTest {
 		context.setName(name);
 		context.setPaperUsage(paperUsage);
 		
-		String expectedQuery = "SELECT e FROM PaperType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.paperUsage = :paperUsage ) ";
+		String expectedQuery = "SELECT e FROM PaperType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.paperUsage = :paperUsage ) ";
 		MultiplePagedSearch<PaperType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

@@ -28,11 +28,11 @@ public class PublicActivityQueryBuilder extends AbstractQueryBuilder<PublicActiv
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PUBLICACTIVITYTYPE_CONDITION, context.getPublicActiveType())
-					.addOrCondition(TIMEPERIOD_CONDITION, context.getTimePeriod())
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(PUBLICACTIVITYTYPE_CONDITION, context.getPublicActiveType())
+					.addAndCondition(TIMEPERIOD_CONDITION, context.getTimePeriod())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 

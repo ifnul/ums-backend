@@ -106,7 +106,7 @@ public class DepartmentContactQueryBuilderTest {
 		context.setContactType(addressType);
 		context.setValue(value);
 		
-		String expectedQuery = "SELECT e FROM DepartmentContact e WHERE ( e.department = :department OR e.contactType = :addressType OR e.value LIKE CONCAT('%',:value,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM DepartmentContact e WHERE ( e.department = :department AND e.contactType = :addressType AND e.value LIKE CONCAT('%',:value,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<DepartmentContact> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -132,7 +132,7 @@ public class DepartmentContactQueryBuilderTest {
 		context.setContactType(addressType);
 		context.setValue(value);
 		
-		String expectedQuery = "SELECT e FROM DepartmentContact e WHERE ( e.department = :department OR e.contactType = :addressType OR e.value LIKE CONCAT('%',:value,'%') ) ";
+		String expectedQuery = "SELECT e FROM DepartmentContact e WHERE ( e.department = :department AND e.contactType = :addressType AND e.value LIKE CONCAT('%',:value,'%') ) ";
 		MultiplePagedSearch<DepartmentContact> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

@@ -113,7 +113,7 @@ public class PersonEducationQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 
-		String expectedQuery = "SELECT e FROM PersonEducation e WHERE ( e.person = :person OR e.educationType = :educationType OR e.person = :person OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonEducation e WHERE ( e.person = :person AND e.educationType = :educationType AND e.person = :person AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonEducation> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -143,7 +143,7 @@ public class PersonEducationQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 
-		String expectedQuery = "SELECT e FROM PersonEducation e WHERE ( e.person = :person OR e.educationType = :educationType OR e.person = :person OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		String expectedQuery = "SELECT e FROM PersonEducation e WHERE ( e.person = :person AND e.educationType = :educationType AND e.person = :person AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
 		MultiplePagedSearch<PersonEducation> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

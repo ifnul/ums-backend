@@ -104,7 +104,7 @@ public class PersonEnrolmentSubjectQueryBuilderTest {
 		context.setPerson(person);
 		context.setMark(mark);
 
-		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e WHERE ( e.person = :person OR e.personPaper = :personPaper OR e.enrolmentSubject = :enrolmentSubject OR e.mark = :mark ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e WHERE ( e.person = :person AND e.personPaper = :personPaper AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -131,7 +131,7 @@ public class PersonEnrolmentSubjectQueryBuilderTest {
 		context.setPerson(person);
 		context.setMark(mark);
 
-		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e WHERE ( e.person = :person OR e.personPaper = :personPaper OR e.enrolmentSubject = :enrolmentSubject OR e.mark = :mark ) ";
+		String expectedQuery = "SELECT e FROM PersonEnrolmentSubject e WHERE ( e.person = :person AND e.personPaper = :personPaper AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark ) ";
 		MultiplePagedSearch<PersonEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

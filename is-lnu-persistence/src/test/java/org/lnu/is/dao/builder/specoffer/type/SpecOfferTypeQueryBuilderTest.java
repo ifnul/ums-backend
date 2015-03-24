@@ -118,7 +118,7 @@ public class SpecOfferTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setTimePeriod(timePeriod);
 		
-		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.timePeriod = :timePeriod) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.timePeriod = :timePeriod) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<SpecOfferType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -142,7 +142,7 @@ public class SpecOfferTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setTimePeriod(timePeriod);
 		
-		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.timePeriod = :timePeriod) ";
+		String expectedQuery = "SELECT e FROM SpecOfferType e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.timePeriod = :timePeriod) ";
 		MultiplePagedSearch<SpecOfferType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

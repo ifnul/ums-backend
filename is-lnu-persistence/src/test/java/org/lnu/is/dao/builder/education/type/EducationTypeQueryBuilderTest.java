@@ -100,7 +100,7 @@ public class EducationTypeQueryBuilderTest {
 		context.setName(name);
 		context.setAbbrName(abbrName);
 
-		String expected = "SELECT e FROM EducationType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM EducationType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<EducationType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -123,7 +123,7 @@ public class EducationTypeQueryBuilderTest {
 		context.setName(name);
 		context.setAbbrName(abbrName);
 		
-		String expected = "SELECT e FROM EducationType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		String expected = "SELECT e FROM EducationType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
 		MultiplePagedSearch<EducationType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

@@ -118,7 +118,7 @@ public class DepartmentQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent OR e.departmentType = :departmentType OR e.order = :order OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent AND e.departmentType = :departmentType AND e.order = :order AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.manager LIKE CONCAT('%',:manager,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -155,7 +155,7 @@ public class DepartmentQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent OR e.departmentType = :departmentType OR e.order = :order OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent AND e.departmentType = :departmentType AND e.order = :order AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.manager LIKE CONCAT('%',:manager,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
 		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

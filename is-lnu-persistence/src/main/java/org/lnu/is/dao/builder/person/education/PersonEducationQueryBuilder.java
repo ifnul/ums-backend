@@ -28,11 +28,11 @@ public class PersonEducationQueryBuilder extends AbstractQueryBuilder<PersonEduc
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PERSON_CONDITION, context.getPerson())
-					.addOrCondition(EDUCATIONTYPE_CONDITION, context.getEducationType())
-					.addOrCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
-					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(PERSON_CONDITION, context.getPerson())
+					.addAndCondition(EDUCATIONTYPE_CONDITION, context.getEducationType())
+					.addAndCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
+					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 }

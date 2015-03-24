@@ -107,7 +107,7 @@ public class PersonLanguageQueryBuilderTest {
 		context.setLanguage(language);
 		context.setLanguageLevel(languageLevel);
 
-		String expectedQuery = "SELECT e FROM PersonLanguage e WHERE ( e.person = :person OR e.language = :language OR e.languageLevel = :languageLevel ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonLanguage e WHERE ( e.person = :person AND e.language = :language AND e.languageLevel = :languageLevel ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonLanguage> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -133,7 +133,7 @@ public class PersonLanguageQueryBuilderTest {
 		context.setLanguage(language);
 		context.setLanguageLevel(languageLevel);
 
-		String expectedQuery = "SELECT e FROM PersonLanguage e WHERE ( e.person = :person OR e.language = :language OR e.languageLevel = :languageLevel ) ";
+		String expectedQuery = "SELECT e FROM PersonLanguage e WHERE ( e.person = :person AND e.language = :language AND e.languageLevel = :languageLevel ) ";
 		MultiplePagedSearch<PersonLanguage> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

@@ -28,11 +28,11 @@ public class PublicActivityAwardQueryBuilder extends AbstractQueryBuilder<Public
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PUBLICACTIVITY_CONDITION, context.getPublicActivity())
-					.addOrCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
-					.addOrCondition(AWARDNAME_CONDITION, context.getAwardName())
-					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(PUBLICACTIVITY_CONDITION, context.getPublicActivity())
+					.addAndCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
+					.addAndCondition(AWARDNAME_CONDITION, context.getAwardName())
+					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 

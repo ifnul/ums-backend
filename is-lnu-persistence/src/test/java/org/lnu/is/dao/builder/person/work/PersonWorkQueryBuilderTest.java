@@ -116,7 +116,7 @@ public class PersonWorkQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 
-		String expectedQuery = "SELECT e FROM PersonWork e WHERE ( e.person = :person OR e.jobType = :jobType OR e.specStageType = :specStageType OR e.organizationName LIKE CONCAT('%',:organizationName,'%') OR e.postName LIKE CONCAT('%',:postName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonWork e WHERE ( e.person = :person AND e.jobType = :jobType AND e.specStageType = :specStageType AND e.organizationName LIKE CONCAT('%',:organizationName,'%') AND e.postName LIKE CONCAT('%',:postName,'%') AND e.description LIKE CONCAT('%',:description,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonWork> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -152,7 +152,7 @@ public class PersonWorkQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM PersonWork e WHERE ( e.person = :person OR e.jobType = :jobType OR e.specStageType = :specStageType OR e.organizationName LIKE CONCAT('%',:organizationName,'%') OR e.postName LIKE CONCAT('%',:postName,'%') OR e.description LIKE CONCAT('%',:description,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		String expectedQuery = "SELECT e FROM PersonWork e WHERE ( e.person = :person AND e.jobType = :jobType AND e.specStageType = :specStageType AND e.organizationName LIKE CONCAT('%',:organizationName,'%') AND e.postName LIKE CONCAT('%',:postName,'%') AND e.description LIKE CONCAT('%',:description,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
 		MultiplePagedSearch<PersonWork> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

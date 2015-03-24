@@ -111,7 +111,7 @@ public class PublicActivityQueryBuilderTest {
 		context.setTimePeriod(timePeriod);
 		context.setPublicActiveType(publicActiveType);
 
-		String expectedQuery = "SELECT e FROM PublicActivity e WHERE ( e.publicActivityType=:publicActivityType OR e.timePeriod=:timePeriod OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PublicActivity e WHERE ( e.publicActivityType=:publicActivityType AND e.timePeriod=:timePeriod AND e.name LIKE CONCAT('%',:name,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PublicActivity> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -141,7 +141,7 @@ public class PublicActivityQueryBuilderTest {
 		context.setTimePeriod(timePeriod);
 		context.setPublicActiveType(publicActiveType);
 		
-		String expectedQuery = "SELECT e FROM PublicActivity e WHERE ( e.publicActivityType=:publicActivityType OR e.timePeriod=:timePeriod OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		String expectedQuery = "SELECT e FROM PublicActivity e WHERE ( e.publicActivityType=:publicActivityType AND e.timePeriod=:timePeriod AND e.name LIKE CONCAT('%',:name,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
 		MultiplePagedSearch<PublicActivity> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

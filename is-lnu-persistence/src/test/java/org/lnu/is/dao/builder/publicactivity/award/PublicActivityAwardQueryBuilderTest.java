@@ -111,7 +111,7 @@ public class PublicActivityAwardQueryBuilderTest {
 		context.setEnrolmentSubject(enrolmentSubject);
 		context.setPublicActivity(publicActivity);
 
-		String expectedQuery = "SELECT e FROM PublicActivityAward e WHERE ( e.publicActivity=:publicActivity OR e.enrolmentSubject=:enrolmentSubject OR e.awardName LIKE CONCAT('%',:awardName,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PublicActivityAward e WHERE ( e.publicActivity=:publicActivity AND e.enrolmentSubject=:enrolmentSubject AND e.awardName LIKE CONCAT('%',:awardName,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PublicActivityAward> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -142,7 +142,7 @@ public class PublicActivityAwardQueryBuilderTest {
 		context.setPublicActivity(publicActivity);
 
 		
-		String expectedQuery = "SELECT e FROM PublicActivityAward e WHERE ( e.publicActivity=:publicActivity OR e.enrolmentSubject=:enrolmentSubject OR e.awardName LIKE CONCAT('%',:awardName,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		String expectedQuery = "SELECT e FROM PublicActivityAward e WHERE ( e.publicActivity=:publicActivity AND e.enrolmentSubject=:enrolmentSubject AND e.awardName LIKE CONCAT('%',:awardName,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
 		MultiplePagedSearch<PublicActivityAward> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

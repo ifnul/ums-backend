@@ -2,9 +2,8 @@ package org.lnu.is.dao.builder.adminunit;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Date;
-
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
@@ -234,7 +233,7 @@ public class AdminUnitQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 				
-		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitType AND e.parent = :parent AND e.identifier LIKE CONCAT('%',:identifier,'%') AND e.identifier1 LIKE CONCAT('%',:identifier1,'%') AND e.identifier2 LIKE CONCAT('%',:identifier2,'%') AND e.identifier3 LIKE CONCAT('%',:identifier3,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -275,7 +274,7 @@ public class AdminUnitQueryBuilderTest {
 		OrderBy orderBy4 = new OrderBy("identifier3", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2, orderBy3, orderBy4);
 
-		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.identifier DESC, e.identifier1 DESC, e.identifier2 DESC, e.identifier3 DESC";
+		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitType AND e.parent = :parent AND e.identifier LIKE CONCAT('%',:identifier,'%') AND e.identifier1 LIKE CONCAT('%',:identifier1,'%') AND e.identifier2 LIKE CONCAT('%',:identifier2,'%') AND e.identifier3 LIKE CONCAT('%',:identifier3,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.identifier DESC, e.identifier1 DESC, e.identifier2 DESC, e.identifier3 DESC";
 		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -315,7 +314,7 @@ public class AdminUnitQueryBuilderTest {
 		context.setEndDate(endDate);
 		
 		
-		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitType AND e.parent = :parent AND e.identifier LIKE CONCAT('%',:identifier,'%') AND e.identifier1 LIKE CONCAT('%',:identifier1,'%') AND e.identifier2 LIKE CONCAT('%',:identifier2,'%') AND e.identifier3 LIKE CONCAT('%',:identifier3,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) ";
 		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -355,7 +354,7 @@ public class AdminUnitQueryBuilderTest {
 		
 		List<OrderBy> orders = Arrays.asList();
 		
-		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitTypeOR e.parent = :parent OR e.identifier LIKE CONCAT('%',:identifier,'%') OR e.identifier1 LIKE CONCAT('%',:identifier1,'%') OR e.identifier2 LIKE CONCAT('%',:identifier2,'%') OR e.identifier3 LIKE CONCAT('%',:identifier3,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		String expected = "SELECT e FROM AdminUnit e WHERE ( e.adminUnitType = :adminUnitType AND e.parent = :parent AND e.identifier LIKE CONCAT('%',:identifier,'%') AND e.identifier1 LIKE CONCAT('%',:identifier1,'%') AND e.identifier2 LIKE CONCAT('%',:identifier2,'%') AND e.identifier3 LIKE CONCAT('%',:identifier3,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) ";
 		MultiplePagedSearch<AdminUnit> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

@@ -457,6 +457,188 @@
 				<entry key="isHostel" value="isHostel" />
 			</util:map>
 		</entry>
+		<entry key="org.lnu.is.resource.person.address.PersonAddressResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="addressTypeId" value="addressType" />
+				<entry key="adminUnitId" value="adminUnit" />
+				<entry key="streetTypeId" value="streetType" />
+				<entry key="assetId" value="asset" />
+				<entry key="zipCode" value="zipCode" />
+				<entry key="street" value="street" />
+				<entry key="house" value="house" />
+				<entry key="apartment" value="apartment" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.award.PersonAwardResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="personPaperId" value="personPaper" />
+				<entry key="publicActivityAwardId" value="publicActivityAward" />
+				<entry key="bonus" value="bonus" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.contact.PersonContactResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="contactTypeId" value="contactType" />
+				<entry key="value" value="value" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.education.PersonEducationResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="educationTypeId" value="educationType" />
+				<entry key="personPaperId" value="personPaper" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.enrolmentsubject.PersonEnrolmentSubjectResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="personPaperId" value="personPaper" />
+				<entry key="enrolmentSubjectId" value="enrolmentSubject" />
+				<entry key="mark" value="mark" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.family.PersonFamilyResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="familyTypeId" value="familyType" />
+				<entry key="name" value="name" />
+				<entry key="birthDate" value="birthDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.language.PersonLanguageResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="languageId" value="language" />
+				<entry key="languageLevelId" value="languageLevel" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.name.PersonNameResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="languageId" value="language" />
+				<entry key="name" value="name" />
+				<entry key="firstName" value="firstName" />
+				<entry key="fatherName" value="fatherName" />
+				<entry key="surname" value="surname" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.paper.PersonPaperResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="paperTypeId" value="paperType" />
+				<entry key="honorsTypeId" value="honorsType" />
+				<entry key="docSeries" value="docSeries" />
+				<entry key="docNum" value="docNum" />
+				<entry key="docDate" value="docDate" />
+				<entry key="docIssued" value="docIssued" />
+				<entry key="docPin" value="docPin" />
+				<entry key="mark" value="mark" />
+				<entry key="isChecked" value="isChecked" />
+				<entry key="isForeign" value="isForeign" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.pension.PersonPensionResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="pensionTypeId" value="pensionType" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.type.PersonTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.person.work.PersonWorkResource">
+			<util:map>
+				<entry key="personId" value="person" />
+				<entry key="jobTypeId" value="jobType" />
+				<entry key="specStageTypeId" value="specStageType" />
+				<entry key="organizationName" value="organizationName" />
+				<entry key="postName" value="postName" />
+				<entry key="description" value="description" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.publicactivity.PublicActivityResource">
+			<util:map>
+				<entry key="publicActivityTypeId" value="publicActiveType" />
+				<entry key="timePeriodId" value="timePeriod" />
+				<entry key="name" value="name" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.publicactivity.award.PublicActivityAwardResource">
+			<util:map>
+				<entry key="publicActivityId" value="publicActivity" />
+				<entry key="enrolmentSubjectId" value="enrolmentSubject" />
+				<entry key="awardName" value="awardName" />
+				<entry key="bonus" value="bonus" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.publicactivity.type.PublicActivityTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.reason.ReasonResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.sallary.type.SallaryTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrname" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.specialty.SpecialtyResource">
+			<util:map>
+				<entry key="parentId" value="parent" />
+				<entry key="specialtyTypeId" value="specialtyType" />
+				<entry key="abbrName" value="abbrName;" />
+				<entry key="name" value="name" />
+				<entry key="cipher" value="cipher" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.specialty.type.SpecialtyTypeResource">
+			<util:map>
+				<entry key="abbrName" value="abbrName" />
+				<entry key="name" value="name" />
+			</util:map>
+		</entry>
+		<entry key="org.lnu.is.resource.specoffer.SpecOfferResource">
+			<util:map>
+				<entry key="specialtyId" value="specialty" />
+				<entry key="departmentId" value="department" />
+				<entry key="timePeriodId" value="timePeriod" />
+				<entry key="eduFormTypeId" value="eduFormType" />
+				<entry key="specofferTypeId" value="specOfferType" />
+				<entry key="docSeries" value="docSeries" />
+				<entry key="docNum" value="docNum" />
+				<entry key="licCount" value="licCount" />
+				<entry key="stateCount" value="stateCount" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+			</util:map>
+		</entry>
 	</util:map>
 	
 </beans>

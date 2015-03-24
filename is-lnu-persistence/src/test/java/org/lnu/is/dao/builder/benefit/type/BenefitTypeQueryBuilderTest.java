@@ -197,7 +197,7 @@ public class BenefitTypeQueryBuilderTest {
 		context.setName(name);
 		context.setPriority(priority);
 		
-		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.priority =:priority ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.priority =:priority ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<BenefitType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -222,7 +222,7 @@ public class BenefitTypeQueryBuilderTest {
 		OrderBy orderBy2 = new OrderBy("priority", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
 		
-		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.priority =:priority ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.name ASC, e.priority DESC";
+		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.priority =:priority ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.name ASC, e.priority DESC";
 		MultiplePagedSearch<BenefitType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -247,7 +247,7 @@ public class BenefitTypeQueryBuilderTest {
 		context.setName(name);
 		context.setPriority(priority);
 		
-		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.priority =:priority ) ";
+		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.priority =:priority ) ";
 		MultiplePagedSearch<BenefitType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -275,7 +275,7 @@ public class BenefitTypeQueryBuilderTest {
 		OrderBy orderBy2 = new OrderBy("priority", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
 		
-		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.priority =:priority ) ORDER BY e.name ASC, e.priority DESC";
+		String expected = "SELECT e FROM BenefitType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.priority =:priority ) ORDER BY e.name ASC, e.priority DESC";
 		MultiplePagedSearch<BenefitType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

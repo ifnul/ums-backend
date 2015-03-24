@@ -133,7 +133,7 @@ public class OrderQueryBuilderTest {
 		context.setDocIssued(docIssued);
 		context.setEvDate(evDate);
 		
-		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType AND e.employee = :employee AND e.asset = :asset AND e.partner = :partner AND e.opType = :opType AND e.department = :department AND e.reason = :reason AND e.parent = :parent AND e.reasonText LIKE CONCAT('%',:reasonText,'%') AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docDate = :docDate AND e.docIssued LIKE CONCAT('%',:docIssued,'%') AND e.evDate = :evDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Order> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -181,7 +181,7 @@ public class OrderQueryBuilderTest {
 		context.setDocIssued(docIssued);
 		context.setEvDate(evDate);
 		
-		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType OR e.employee = :employee OR e.asset = :asset OR e.partner = :partner OR e.opType = :opType OR e.department = :department OR e.reason = :reason OR e.parent = :parent OR e.reasonText LIKE CONCAT('%',:reasonText,'%') OR e.docSeries LIKE CONCAT('%',:docSeries,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') OR e.docDate = :docDate OR e.docIssued LIKE CONCAT('%',:docIssued,'%') OR e.evDate = :evDate ) ";
+		String expected = "SELECT e FROM Order e WHERE ( e.orderType = :orderType AND e.employee = :employee AND e.asset = :asset AND e.partner = :partner AND e.opType = :opType AND e.department = :department AND e.reason = :reason AND e.parent = :parent AND e.reasonText LIKE CONCAT('%',:reasonText,'%') AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docDate = :docDate AND e.docIssued LIKE CONCAT('%',:docIssued,'%') AND e.evDate = :evDate ) ";
 		MultiplePagedSearch<Order> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

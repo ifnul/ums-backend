@@ -99,7 +99,7 @@ public class ReasonQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
-		String expectedQuery = "SELECT e FROM Reason e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Reason e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Reason> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -123,7 +123,7 @@ public class ReasonQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM Reason e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		String expectedQuery = "SELECT e FROM Reason e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
 		MultiplePagedSearch<Reason> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

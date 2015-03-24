@@ -28,10 +28,10 @@ public class EnrolmentSubjectQueryBuilder extends AbstractQueryBuilder<Enrolment
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PARENT_CONDITION, context.getParent())
-					.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(ISTESTING_CONDITION, context.getIsTesting())
+					.addAndCondition(PARENT_CONDITION, context.getParent())
+					.addAndCondition(ABBRNAME_CONDITION, context.getAbbrName())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(ISTESTING_CONDITION, context.getIsTesting())
 				.closeBracket();
 	}
 

@@ -12,7 +12,7 @@ import org.lnu.is.domain.adminunit.AdminUnit;
  */
 @QBuilder("adminUnitQueryBuilder")
 public class AdminUnitQueryBuilder extends AbstractQueryBuilder<AdminUnit> {
-	private static final String ADMINUNITTYPE_COND = "e.adminUnitType = :adminUnitType";
+	private static final String ADMINUNITTYPE_COND = "e.adminUnitType = :adminUnitType ";
 	private static final String PARENT_COND = "e.parent = :parent ";
 	private static final String IDENTIFIER_COND = "e.identifier LIKE CONCAT('%',:identifier,'%') ";
 	private static final String IDENTIFIER1_COND = "e.identifier1 LIKE CONCAT('%',:identifier1,'%') ";
@@ -32,15 +32,15 @@ public class AdminUnitQueryBuilder extends AbstractQueryBuilder<AdminUnit> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(ADMINUNITTYPE_COND, context.getAdminUnitType())
-					.addOrCondition(PARENT_COND, context.getParent())
-					.addOrCondition(IDENTIFIER_COND, context.getIdentifier())
-					.addOrCondition(IDENTIFIER1_COND, context.getIdentifier1())
-					.addOrCondition(IDENTIFIER2_COND, context.getIdentifier2())
-					.addOrCondition(IDENTIFIER3_COND, context.getIdentifier3())
-					.addOrCondition(NAME_COND, context.getName())
-					.addOrCondition(BEGDATE_COND, context.getBegDate())
-					.addOrCondition(ENDDATE_COND, context.getEndDate())
+					.addAndCondition(ADMINUNITTYPE_COND, context.getAdminUnitType())
+					.addAndCondition(PARENT_COND, context.getParent())
+					.addAndCondition(IDENTIFIER_COND, context.getIdentifier())
+					.addAndCondition(IDENTIFIER1_COND, context.getIdentifier1())
+					.addAndCondition(IDENTIFIER2_COND, context.getIdentifier2())
+					.addAndCondition(IDENTIFIER3_COND, context.getIdentifier3())
+					.addAndCondition(NAME_COND, context.getName())
+					.addAndCondition(BEGDATE_COND, context.getBegDate())
+					.addAndCondition(ENDDATE_COND, context.getEndDate())
 				.closeBracket();
 	}
 

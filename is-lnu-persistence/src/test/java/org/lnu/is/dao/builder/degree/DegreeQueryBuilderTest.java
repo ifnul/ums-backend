@@ -198,7 +198,7 @@ public class DegreeQueryBuilderTest {
 		context.setPerson(person);
 		context.setDegreeType(degreeType);
 		
-		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person OR e.degreeType=:degreeType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person AND e.degreeType=:degreeType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -222,7 +222,7 @@ public class DegreeQueryBuilderTest {
 		OrderBy orderBy2 = new OrderBy("degreeType", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
 		
-		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person OR e.degreeType=:degreeType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.person ASC, e.degreeType DESC";
+		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person AND e.degreeType=:degreeType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.person ASC, e.degreeType DESC";
 		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -246,7 +246,7 @@ public class DegreeQueryBuilderTest {
 		context.setPerson(person);
 		context.setDegreeType(degreeType);
 		
-		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person OR e.degreeType=:degreeType ) ";
+		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person AND e.degreeType=:degreeType ) ";
 		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -273,7 +273,7 @@ public class DegreeQueryBuilderTest {
 		OrderBy orderBy2 = new OrderBy("degreeType", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
 		
-		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person OR e.degreeType=:degreeType ) ORDER BY e.person ASC, e.degreeType DESC";
+		String expectedQuery = "SELECT e FROM Degree e WHERE ( e.person=:person AND e.degreeType=:degreeType ) ORDER BY e.person ASC, e.degreeType DESC";
 		MultiplePagedSearch<Degree> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

@@ -102,7 +102,7 @@ public class PersonAwardQueryBuilderTest {
 		context.setPerson(person);
 		context.setPersonPaper(personPaper);
 
-		String expectedQuery = "SELECT e FROM PersonAward e WHERE ( e.person = :person OR e.person = :person ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonAward e WHERE ( e.person = :person AND e.person = :person ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonAward> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -125,7 +125,7 @@ public class PersonAwardQueryBuilderTest {
 		context.setPerson(person);
 		context.setPersonPaper(personPaper);
 		
-		String expectedQuery = "SELECT e FROM PersonAward e WHERE ( e.person = :person OR e.person = :person ) ";
+		String expectedQuery = "SELECT e FROM PersonAward e WHERE ( e.person = :person AND e.person = :person ) ";
 		MultiplePagedSearch<PersonAward> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

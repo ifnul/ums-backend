@@ -44,7 +44,7 @@ public class PersonAddressQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM PersonAddress e WHERE ( e.person = :person OR e.addressType = :addressType OR e.adminUnit = :adminUnit OR e.streetType =:streetType OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonAddress e WHERE ( e.person = :person AND e.addressType = :addressType AND e.adminUnit = :adminUnit AND e.streetType =:streetType AND e.begDate <= :begDate AND e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -76,7 +76,7 @@ public class PersonAddressQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM PersonAddress e WHERE ( e.person = :person OR e.addressType = :addressType OR e.adminUnit = :adminUnit OR e.streetType =:streetType OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		String expectedQuery = "SELECT e FROM PersonAddress e WHERE ( e.person = :person AND e.addressType = :addressType AND e.adminUnit = :adminUnit AND e.streetType =:streetType AND e.begDate <= :begDate AND e.endDate >= :endDate ) ";
 		MultiplePagedSearch<PersonAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

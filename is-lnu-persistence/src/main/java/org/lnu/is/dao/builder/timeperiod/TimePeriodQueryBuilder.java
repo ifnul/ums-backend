@@ -29,12 +29,12 @@ public class TimePeriodQueryBuilder extends AbstractQueryBuilder<TimePeriod> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PARENT_CONDITION, context.getParent())
-					.addOrCondition(TIMEPERIOD_CONDITION, context.getTimePeriodType())
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(NUMVALUE_CONDITION, context.getNumValue())
-					.addOrCondition(BEG_DATE_CONDITION, context.getBegDate())
-					.addOrCondition(END_DATE_CONDITION, context.getBegDate())
+					.addAndCondition(PARENT_CONDITION, context.getParent())
+					.addAndCondition(TIMEPERIOD_CONDITION, context.getTimePeriodType())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(NUMVALUE_CONDITION, context.getNumValue())
+					.addAndCondition(BEG_DATE_CONDITION, context.getBegDate())
+					.addAndCondition(END_DATE_CONDITION, context.getBegDate())
 				.closeBracket();
 	}
 

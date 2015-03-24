@@ -106,7 +106,7 @@ public class PersonFamilyQueryBuilderTest {
 		context.setFamilyType(addressType);
 		context.setName(value);
 
-		String expectedQuery = "SELECT e FROM PersonFamily e WHERE ( e.person = :person OR e.familyType = :familyType OR e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM PersonFamily e WHERE ( e.person = :person AND e.familyType = :familyType AND e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonFamily> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -132,7 +132,7 @@ public class PersonFamilyQueryBuilderTest {
 		context.setFamilyType(addressType);
 		context.setName(value);
 
-		String expectedQuery = "SELECT e FROM PersonFamily e WHERE ( e.person = :person OR e.familyType = :familyType OR e.name LIKE CONCAT('%',:name,'%') ) ";
+		String expectedQuery = "SELECT e FROM PersonFamily e WHERE ( e.person = :person AND e.familyType = :familyType AND e.name LIKE CONCAT('%',:name,'%') ) ";
 		MultiplePagedSearch<PersonFamily> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

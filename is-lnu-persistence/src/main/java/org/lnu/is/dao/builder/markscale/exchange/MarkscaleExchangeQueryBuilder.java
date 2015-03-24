@@ -31,13 +31,13 @@ public class MarkscaleExchangeQueryBuilder extends AbstractQueryBuilder<Markscal
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(MARKSCALE_CONDITION, context.getMarkscale())
-					.addOrCondition(MARKSCALEVALUE_CONDITION, context.getMarkscaleValue())
-					.addOrCondition(MARKSCALEEXCHANGE_CONDITION, context.getMarkscaleExchange())
-					.addOrCondition(MARKSCALEEXCHANGEVALUE_CONDITION, context.getMarkscaleExchangeValue())
-					.addOrCondition(MARKMIN_CONDITION, context.getMarkMin())
-					.addOrCondition(MARKMAX_CONDITION, context.getMarkMax())
-					.addOrCondition(MARKEXCHANGE_CONDITION, context.getMarkExchange())
+					.addAndCondition(MARKSCALE_CONDITION, context.getMarkscale())
+					.addAndCondition(MARKSCALEVALUE_CONDITION, context.getMarkscaleValue())
+					.addAndCondition(MARKSCALEEXCHANGE_CONDITION, context.getMarkscaleExchange())
+					.addAndCondition(MARKSCALEEXCHANGEVALUE_CONDITION, context.getMarkscaleExchangeValue())
+					.addAndCondition(MARKMIN_CONDITION, context.getMarkMin())
+					.addAndCondition(MARKMAX_CONDITION, context.getMarkMax())
+					.addAndCondition(MARKEXCHANGE_CONDITION, context.getMarkExchange())
 				.closeBracket();
 	}
 

@@ -117,7 +117,7 @@ public class DepartmentAddressQueryBuilderTest {
 		context.setHouse(house);
 		context.setApartment(apartment);
 		
-		String expectedQuery = "SELECT e FROM DepartmentAddress e WHERE ( e.department = :department OR e.addressType = :addressType OR e.adminUnit = :adminUnit OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM DepartmentAddress e WHERE ( e.department = :department AND e.addressType = :addressType AND e.adminUnit = :adminUnit AND e.streetType = :streetType AND e.zipCode LIKE CONCAT('%',:zipCode,'%') AND e.street LIKE CONCAT('%',:street,'%') AND e.house LIKE CONCAT('%',:house,'%') AND e.apartment LIKE CONCAT('%',:apartment,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<DepartmentAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -153,7 +153,7 @@ public class DepartmentAddressQueryBuilderTest {
 		context.setHouse(house);
 		context.setApartment(apartment);
 		
-		String expectedQuery = "SELECT e FROM DepartmentAddress e WHERE ( e.department = :department OR e.addressType = :addressType OR e.adminUnit = :adminUnit OR e.streetType = :streetType OR e.zipCode LIKE CONCAT('%',:zipCode,'%') OR e.street LIKE CONCAT('%',:street,'%') OR e.house LIKE CONCAT('%',:house,'%') OR e.apartment LIKE CONCAT('%',:apartment,'%') ) ";
+		String expectedQuery = "SELECT e FROM DepartmentAddress e WHERE ( e.department = :department AND e.addressType = :addressType AND e.adminUnit = :adminUnit AND e.streetType = :streetType AND e.zipCode LIKE CONCAT('%',:zipCode,'%') AND e.street LIKE CONCAT('%',:street,'%') AND e.house LIKE CONCAT('%',:house,'%') AND e.apartment LIKE CONCAT('%',:apartment,'%') ) ";
 		MultiplePagedSearch<DepartmentAddress> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

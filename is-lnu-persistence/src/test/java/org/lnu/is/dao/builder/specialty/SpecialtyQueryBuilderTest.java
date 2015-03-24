@@ -37,7 +37,7 @@ public class SpecialtyQueryBuilderTest {
 		context.setName(name);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM Specialty e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.cipher LIKE CONCAT('%',:cipher,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Specialty e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.cipher LIKE CONCAT('%',:cipher,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Specialty> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -66,7 +66,7 @@ public class SpecialtyQueryBuilderTest {
 		context.setName(name);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM Specialty e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.cipher LIKE CONCAT('%',:cipher,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		String expectedQuery = "SELECT e FROM Specialty e WHERE ( e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.cipher LIKE CONCAT('%',:cipher,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) ";
 		MultiplePagedSearch<Specialty> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

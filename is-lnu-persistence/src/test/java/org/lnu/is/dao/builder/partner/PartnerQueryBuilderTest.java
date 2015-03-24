@@ -114,7 +114,7 @@ public class PartnerQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expected = "SELECT e FROM Partner e WHERE ( e.parent = :parent OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM Partner e WHERE ( e.parent = :parent AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.manager LIKE CONCAT('%',:manager,'%') AND e.phone LIKE CONCAT('%',:phone,'%') AND e.email LIKE CONCAT('%',:email,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Partner> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -150,7 +150,7 @@ public class PartnerQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expected = "SELECT e FROM Partner e WHERE ( e.parent = :parent OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.manager LIKE CONCAT('%',:manager,'%') OR e.phone LIKE CONCAT('%',:phone,'%') OR e.email LIKE CONCAT('%',:email,'%') OR e.begDate <= :begDate OR e.endDate >= :endDate ) ";
+		String expected = "SELECT e FROM Partner e WHERE ( e.parent = :parent AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.manager LIKE CONCAT('%',:manager,'%') AND e.phone LIKE CONCAT('%',:phone,'%') AND e.email LIKE CONCAT('%',:email,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate ) ";
 		MultiplePagedSearch<Partner> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

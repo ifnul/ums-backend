@@ -26,9 +26,9 @@ public class OrderTypeQueryBuilder extends AbstractQueryBuilder<OrderType> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PARENT_CONDITION, context.getParent())
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(ABBR_NAME_CONDITION, context.getAbbrName())
+					.addAndCondition(PARENT_CONDITION, context.getParent())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(ABBR_NAME_CONDITION, context.getAbbrName())
 				.closeBracket();
 	}
 }

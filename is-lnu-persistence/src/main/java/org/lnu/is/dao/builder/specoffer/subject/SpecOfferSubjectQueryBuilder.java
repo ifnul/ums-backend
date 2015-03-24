@@ -29,12 +29,12 @@ public class SpecOfferSubjectQueryBuilder extends AbstractQueryBuilder<SpecOffer
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(SPECOFFER_CONDITION, context.getSpecOffer())
-					.addOrCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
-					.addOrCondition(MARK_CONDITION, context.getMark())
-					.addOrCondition(ISMAJOR_CONDITION, context.getIsMajor())
-					.addOrCondition(ALTERNATIVE_CONDITION, context.getAlternative())
-					.addOrCondition(WEIGHTSUBJECT_CONDITION, context.getWeightSubject())
+					.addAndCondition(SPECOFFER_CONDITION, context.getSpecOffer())
+					.addAndCondition(ENROLMENTSUBJECT_CONDITION, context.getEnrolmentSubject())
+					.addAndCondition(MARK_CONDITION, context.getMark())
+					.addAndCondition(ISMAJOR_CONDITION, context.getIsMajor())
+					.addAndCondition(ALTERNATIVE_CONDITION, context.getAlternative())
+					.addAndCondition(WEIGHTSUBJECT_CONDITION, context.getWeightSubject())
 				.closeBracket();
 	}
 

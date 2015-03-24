@@ -26,9 +26,9 @@ public class EnrolmentBenefitQueryBuilder extends AbstractQueryBuilder<Enrolment
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(ENROLMENT_CONDITION, context.getEnrolment())
-					.addOrCondition(BENEFIT_CONDITION, context.getBenefit())
-					.addOrCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
+					.addAndCondition(ENROLMENT_CONDITION, context.getEnrolment())
+					.addAndCondition(BENEFIT_CONDITION, context.getBenefit())
+					.addAndCondition(PERSONPAPER_CONDITION, context.getPersonPaper())
 				.closeBracket();
 	}
 

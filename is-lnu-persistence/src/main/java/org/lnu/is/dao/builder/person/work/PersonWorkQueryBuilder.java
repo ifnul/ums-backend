@@ -33,14 +33,14 @@ public class PersonWorkQueryBuilder extends AbstractQueryBuilder<PersonWork> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PERSON_CONDITION, context.getPerson())
-					.addOrCondition(JOBTYPE_CONDITION, context.getJobType())
-					.addOrCondition(SPECSTAGETYPE_CONDITION, context.getSpecStageType())
-					.addOrCondition(ORGANIZATIONNAME_CONDITION, context.getOrganizationName())
-					.addOrCondition(POSTNAME_CONDITION, context.getPostName())
-					.addOrCondition(DESCRIPTION_CONDITION, context.getDescription())
-					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(PERSON_CONDITION, context.getPerson())
+					.addAndCondition(JOBTYPE_CONDITION, context.getJobType())
+					.addAndCondition(SPECSTAGETYPE_CONDITION, context.getSpecStageType())
+					.addAndCondition(ORGANIZATIONNAME_CONDITION, context.getOrganizationName())
+					.addAndCondition(POSTNAME_CONDITION, context.getPostName())
+					.addAndCondition(DESCRIPTION_CONDITION, context.getDescription())
+					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 

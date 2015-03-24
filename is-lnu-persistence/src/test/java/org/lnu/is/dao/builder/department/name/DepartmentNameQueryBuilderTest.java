@@ -106,7 +106,7 @@ public class DepartmentNameQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM DepartmentName e WHERE ( e.department = :department OR e.language = :language OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM DepartmentName e WHERE ( e.department = :department AND e.language = :language AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<DepartmentName> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -133,7 +133,7 @@ public class DepartmentNameQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM DepartmentName e WHERE ( e.department = :department OR e.language = :language OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') ) ";
+		String expectedQuery = "SELECT e FROM DepartmentName e WHERE ( e.department = :department AND e.language = :language AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') ) ";
 		MultiplePagedSearch<DepartmentName> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

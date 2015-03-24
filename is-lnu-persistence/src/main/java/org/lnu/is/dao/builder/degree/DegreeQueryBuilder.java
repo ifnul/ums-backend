@@ -25,8 +25,8 @@ public class DegreeQueryBuilder extends AbstractQueryBuilder<Degree> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PERSON_CONDITION, context.getPerson())
-					.addOrCondition(DEGREE_CONDITION, context.getDegreeType())
+					.addAndCondition(PERSON_CONDITION, context.getPerson())
+					.addAndCondition(DEGREE_CONDITION, context.getDegreeType())
 				.closeBracket();
 	}
 

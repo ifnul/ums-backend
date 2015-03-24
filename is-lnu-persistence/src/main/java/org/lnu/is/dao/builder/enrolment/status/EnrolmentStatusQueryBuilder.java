@@ -26,9 +26,9 @@ public class EnrolmentStatusQueryBuilder extends AbstractQueryBuilder<EnrolmentS
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(ENROLMENT_CONDITION, context.getEnrolment())
-					.addOrCondition(SPECOFFERWAVE_CONDITION, context.getSpecOfferWave())
-					.addOrCondition(ENROLMENTSTATUSTYPE_CONDITION, context.getEnrolmentStatusType())
+					.addAndCondition(ENROLMENT_CONDITION, context.getEnrolment())
+					.addAndCondition(SPECOFFERWAVE_CONDITION, context.getSpecOfferWave())
+					.addAndCondition(ENROLMENTSTATUSTYPE_CONDITION, context.getEnrolmentStatusType())
 				.closeBracket();
 	}
 

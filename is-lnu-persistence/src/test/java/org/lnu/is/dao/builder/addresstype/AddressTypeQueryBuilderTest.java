@@ -190,7 +190,7 @@ public class AddressTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<AddressType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -214,7 +214,7 @@ public class AddressTypeQueryBuilderTest {
 		OrderBy orderBy1 = new OrderBy("abbrName", OrderByType.ASC);
 		List<OrderBy> orders = Arrays.asList(orderBy1);
 
-		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.abbrName ASC";		MultiplePagedSearch<AddressType> pagedSearch = new MultiplePagedSearch<>();
+		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.abbrName ASC";		MultiplePagedSearch<AddressType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
 		
@@ -238,7 +238,7 @@ public class AddressTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
 		MultiplePagedSearch<AddressType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -265,7 +265,7 @@ public class AddressTypeQueryBuilderTest {
 		OrderBy orderBy1 = new OrderBy("abbrName", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1);
 
-		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ORDER BY e.abbrName DESC";
+		String expectedQuery = "SELECT e FROM AddressType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ORDER BY e.abbrName DESC";
 		MultiplePagedSearch<AddressType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

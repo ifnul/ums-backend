@@ -120,7 +120,7 @@ public class MarkscaleExchangeQueryBuilderTest {
 		context.setMarkscaleExchange(markscaleExchange);
 		context.setMarkscaleExchangeValue(markscaleExchangeValue);
 
-		String expected = "SELECT e FROM MarkscaleExchange e WHERE ( e.markscale = :markscale OR e.markscaleValue = :markscaleValue OR e.markscaleExchange = :markscaleExchange OR e.markscaleExchangeValue = :markscaleExchangeValue OR e.markMin = :markMin OR e.markMax = :markMax OR e.markExchange = :markExchange ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM MarkscaleExchange e WHERE ( e.markscale = :markscale AND e.markscaleValue = :markscaleValue AND e.markscaleExchange = :markscaleExchange AND e.markscaleExchangeValue = :markscaleExchangeValue AND e.markMin = :markMin AND e.markMax = :markMax AND e.markExchange = :markExchange ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<MarkscaleExchange> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -161,7 +161,7 @@ public class MarkscaleExchangeQueryBuilderTest {
 		context.setMarkscaleExchange(markscaleExchange);
 		context.setMarkscaleExchangeValue(markscaleExchangeValue);
 		
-		String expected = "SELECT e FROM MarkscaleExchange e WHERE ( e.markscale = :markscale OR e.markscaleValue = :markscaleValue OR e.markscaleExchange = :markscaleExchange OR e.markscaleExchangeValue = :markscaleExchangeValue OR e.markMin = :markMin OR e.markMax = :markMax OR e.markExchange = :markExchange ) ";
+		String expected = "SELECT e FROM MarkscaleExchange e WHERE ( e.markscale = :markscale AND e.markscaleValue = :markscaleValue AND e.markscaleExchange = :markscaleExchange AND e.markscaleExchangeValue = :markscaleExchangeValue AND e.markMin = :markMin AND e.markMax = :markMax AND e.markExchange = :markExchange ) ";
 		MultiplePagedSearch<MarkscaleExchange> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

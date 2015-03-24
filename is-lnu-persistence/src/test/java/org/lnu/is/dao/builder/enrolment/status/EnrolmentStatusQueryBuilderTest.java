@@ -106,7 +106,7 @@ public class EnrolmentStatusQueryBuilderTest {
 		context.setSpecOfferWave(specOfferWave);
 		context.setEnrolmentStatusType(enrolmentStatusType);
 
-		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE ( e.enrolment = :enrolment OR e.specOfferWave =:specOfferWave OR e.enrolmentStatusType =:enrolmentStatusType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE ( e.enrolment = :enrolment AND e.specOfferWave =:specOfferWave AND e.enrolmentStatusType =:enrolmentStatusType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<EnrolmentStatus> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -132,7 +132,7 @@ public class EnrolmentStatusQueryBuilderTest {
 		context.setSpecOfferWave(specOfferWave);
 		context.setEnrolmentStatusType(enrolmentStatusType);
 		
-		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE ( e.enrolment = :enrolment OR e.specOfferWave =:specOfferWave OR e.enrolmentStatusType =:enrolmentStatusType ) ";
+		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE ( e.enrolment = :enrolment AND e.specOfferWave =:specOfferWave AND e.enrolmentStatusType =:enrolmentStatusType ) ";
 		MultiplePagedSearch<EnrolmentStatus> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

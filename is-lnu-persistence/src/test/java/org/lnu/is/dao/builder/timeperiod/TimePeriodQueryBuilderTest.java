@@ -88,7 +88,7 @@ public class TimePeriodQueryBuilderTest {
 		context.setTimePeriodType(timePeriodType);
 		context.setNumValue(numValue);
 
-		String expectedQuery = "SELECT e FROM TimePeriod e WHERE ( e.timePeriodType = :timePeriodType OR e.numValue = :numValue OR e.begDate <= :begDate OR e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM TimePeriod e WHERE ( e.timePeriodType = :timePeriodType AND e.numValue = :numValue AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<TimePeriod> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -113,7 +113,7 @@ public class TimePeriodQueryBuilderTest {
 		context.setTimePeriodType(timePeriodType);
 		context.setNumValue(numValue);
 		
-		String expectedQuery = "SELECT e FROM TimePeriod e WHERE ( e.timePeriodType = :timePeriodType OR e.numValue = :numValue OR e.begDate <= :begDate OR e.endDate >= :endDate) ";
+		String expectedQuery = "SELECT e FROM TimePeriod e WHERE ( e.timePeriodType = :timePeriodType AND e.numValue = :numValue AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
 		MultiplePagedSearch<TimePeriod> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

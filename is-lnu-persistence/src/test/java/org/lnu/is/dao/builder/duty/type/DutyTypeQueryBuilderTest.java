@@ -102,7 +102,7 @@ public class DutyTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM DutyType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM DutyType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrname LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<DutyType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -126,7 +126,7 @@ public class DutyTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM DutyType e WHERE ( e.name LIKE CONCAT('%',:name,'%') OR e.abbrname LIKE CONCAT('%',:abbrName,'%') ) ";
+		String expectedQuery = "SELECT e FROM DutyType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrname LIKE CONCAT('%',:abbrName,'%') ) ";
 		MultiplePagedSearch<DutyType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

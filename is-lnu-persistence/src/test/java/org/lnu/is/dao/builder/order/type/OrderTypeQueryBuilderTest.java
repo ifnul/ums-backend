@@ -103,7 +103,7 @@ public class OrderTypeQueryBuilderTest {
 		context.setName(name);
 		context.setParent(parent);
 		
-		String expected = "SELECT e FROM OrderType e WHERE ( e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM OrderType e WHERE ( e.parent = :parent AND e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<OrderType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -131,7 +131,7 @@ public class OrderTypeQueryBuilderTest {
 		context.setName(name);
 		context.setParent(parent);
 		
-		String expected = "SELECT e FROM OrderType e WHERE ( e.parent = :parent OR e.name LIKE CONCAT('%',:name,'%') OR e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		String expected = "SELECT e FROM OrderType e WHERE ( e.parent = :parent AND e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
 		MultiplePagedSearch<OrderType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

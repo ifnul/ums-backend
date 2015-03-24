@@ -19,7 +19,7 @@ public class EmployeeQueryBuilder extends AbstractQueryBuilder<Employee> {
 
 	private static final String FIRSTNAME_CONDITION = "e.firstName LIKE CONCAT('%',:firstName,'%') ";
 	private static final String FATHERNAME_CONDITION = "e.fatherName LIKE CONCAT('%',:fatherName,'%') ";
-	private static final String SURNAME_CONDITION = "e.surname LIKE CONCAT('%',:surname,'%') e";
+	private static final String SURNAME_CONDITION = "e.surname LIKE CONCAT('%',:surname,'%') ";
 	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
 	private static final String DOCNUM_CONDITION = "e.docNum LIKE CONCAT('%',:docNum,'%') ";
 	
@@ -51,30 +51,30 @@ public class EmployeeQueryBuilder extends AbstractQueryBuilder<Employee> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(EMPLOYEETYPE_CONDITION, context.getEmployeeType())
-					.addOrCondition(PERSON_CONDITION, context.getPerson())
-					.addOrCondition(GENDERTYPE_CONDITION, context.getGenderType())
-					.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
-					.addOrCondition(POST_CONDITION, context.getPost())
-					.addOrCondition(JOBTYPE_CONDITION, context.getJobType())
-					.addOrCondition(EMPLOYEESTATUS_CONDITION, context.getEmployeeStatus())
-					.addOrCondition(ORDER_CONDITON, context.getOrder())
-					.addOrCondition(PARENT_CONDITION, context.getParent())
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(FIRSTNAME_CONDITION, context.getFirstName())
-					.addOrCondition(FATHERNAME_CONDITION, context.getFatherName())
-					.addOrCondition(SURNAME_CONDITION, context.getSurname())
-					.addOrCondition(BIRTHDATE_CONDITION, context.getBirthDate())
-					.addOrCondition(INVNUM_CONDITION, context.getInvNum())
-					.addOrCondition(RATE_CONDITION, context.getRate())
-					.addOrCondition(ISPLURALITY_CONDITION, context.getIsPlurality())
-					.addOrCondition(ISPENSIONER_CONDITION, context.getIsPensioner())
-					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
-					.addOrCondition(DOCSERIES_CONDITION, context.getDocSeries())
-					.addOrCondition(DOCNUM_CONDITION, context.getDocNum())
-					.addOrCondition(PHONE_CONDITION, context.getPhone())
-					.addOrCondition(EMAIL_CONDITION, context.getEmail())
+					.addAndCondition(EMPLOYEETYPE_CONDITION, context.getEmployeeType())
+					.addAndCondition(PERSON_CONDITION, context.getPerson())
+					.addAndCondition(GENDERTYPE_CONDITION, context.getGenderType())
+					.addAndCondition(DEPARTMENT_CONDITION, context.getDepartment())
+					.addAndCondition(POST_CONDITION, context.getPost())
+					.addAndCondition(JOBTYPE_CONDITION, context.getJobType())
+					.addAndCondition(EMPLOYEESTATUS_CONDITION, context.getEmployeeStatus())
+					.addAndCondition(ORDER_CONDITON, context.getOrder())
+					.addAndCondition(PARENT_CONDITION, context.getParent())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(FIRSTNAME_CONDITION, context.getFirstName())
+					.addAndCondition(FATHERNAME_CONDITION, context.getFatherName())
+					.addAndCondition(SURNAME_CONDITION, context.getSurname())
+					.addAndCondition(BIRTHDATE_CONDITION, context.getBirthDate())
+					.addAndCondition(INVNUM_CONDITION, context.getInvNum())
+					.addAndCondition(RATE_CONDITION, context.getRate())
+					.addAndCondition(ISPLURALITY_CONDITION, context.getIsPlurality())
+					.addAndCondition(ISPENSIONER_CONDITION, context.getIsPensioner())
+					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(DOCSERIES_CONDITION, context.getDocSeries())
+					.addAndCondition(DOCNUM_CONDITION, context.getDocNum())
+					.addAndCondition(PHONE_CONDITION, context.getPhone())
+					.addAndCondition(EMAIL_CONDITION, context.getEmail())
 				.closeBracket();
 	}
 

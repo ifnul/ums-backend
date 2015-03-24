@@ -106,7 +106,7 @@ public class MarkscaleValueQueryBuilderTest {
 		
 		context.setMarkscale(markscale);
 
-		String expected = "SELECT e FROM MarkscaleValue e WHERE ( e.markscale = :markscale OR e.strValue LIKE CONCAT('%',:strValue,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM MarkscaleValue e WHERE ( e.markscale = :markscale AND e.strValue LIKE CONCAT('%',:strValue,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<MarkscaleValue> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -134,7 +134,7 @@ public class MarkscaleValueQueryBuilderTest {
 		
 		context.setMarkscale(markscale);
 		
-		String expected = "SELECT e FROM MarkscaleValue e WHERE ( e.markscale = :markscale OR e.strValue LIKE CONCAT('%',:strValue,'%') ) ";
+		String expected = "SELECT e FROM MarkscaleValue e WHERE ( e.markscale = :markscale AND e.strValue LIKE CONCAT('%',:strValue,'%') ) ";
 		MultiplePagedSearch<MarkscaleValue> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

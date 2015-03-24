@@ -26,8 +26,8 @@ public class DepartmentSpecialtyQueryBuilder extends AbstractQueryBuilder<Depart
 		return builder	
 				.where()
 				.openBracket()
-					.addOrCondition(DEPARTMENT_CONDITION, context.getDepartment())
-					.addOrCondition(SPECIALTY_CONDITION, context.getSpecialty())
+					.addAndCondition(DEPARTMENT_CONDITION, context.getDepartment())
+					.addAndCondition(SPECIALTY_CONDITION, context.getSpecialty())
 				.closeBracket();
 	}
 

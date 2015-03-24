@@ -112,7 +112,7 @@ public class MarkscaleQueryBuilderTest {
 		
 		context.setMarkscaleType(markscaleType);
 
-		String expected = "SELECT e FROM Markscale e WHERE ( e.markscaleType = :markscaleType OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.markMin = :markMin OR e.markMax = :markMax ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM Markscale e WHERE ( e.markscaleType = :markscaleType AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.markMin = :markMin AND e.markMax = :markMax ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Markscale> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -146,7 +146,7 @@ public class MarkscaleQueryBuilderTest {
 		
 		context.setMarkscaleType(markscaleType);
 		
-		String expected = "SELECT e FROM Markscale e WHERE ( e.markscaleType = :markscaleType OR e.abbrName LIKE CONCAT('%',:abbrName,'%') OR e.name LIKE CONCAT('%',:name,'%') OR e.markMin = :markMin OR e.markMax = :markMax ) ";
+		String expected = "SELECT e FROM Markscale e WHERE ( e.markscaleType = :markscaleType AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.markMin = :markMin AND e.markMax = :markMax ) ";
 		MultiplePagedSearch<Markscale> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

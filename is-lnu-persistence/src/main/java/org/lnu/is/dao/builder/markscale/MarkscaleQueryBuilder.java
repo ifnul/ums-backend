@@ -29,11 +29,11 @@ public class MarkscaleQueryBuilder extends AbstractQueryBuilder<Markscale> {
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(MARKSCALETYPE_CONDITION, context.getMarkscaleType())
-					.addOrCondition(ABBRNAME_CONDITION, context.getAbbrName())
-					.addOrCondition(NAME_CONDITION, context.getName())
-					.addOrCondition(MARKMIN_CONDITION, context.getMarkMin())
-					.addOrCondition(MARKMAX_CONDITION, context.getMarkMax())
+					.addAndCondition(MARKSCALETYPE_CONDITION, context.getMarkscaleType())
+					.addAndCondition(ABBRNAME_CONDITION, context.getAbbrName())
+					.addAndCondition(NAME_CONDITION, context.getName())
+					.addAndCondition(MARKMIN_CONDITION, context.getMarkMin())
+					.addAndCondition(MARKMAX_CONDITION, context.getMarkMax())
 				.closeBracket();
 	}
 

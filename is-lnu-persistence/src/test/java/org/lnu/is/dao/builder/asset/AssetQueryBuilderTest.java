@@ -234,7 +234,7 @@ public class AssetQueryBuilderTest {
 
 		List<OrderBy> orders = Arrays.asList();
 		
-		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order AND e.partner = :partner AND e.employee = :employee AND e.department = :department AND e.assetStatus = :assetStatus AND e.assetState = :assetState AND e.assetType = :assetType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -266,7 +266,7 @@ public class AssetQueryBuilderTest {
 		context.setPartner(partner);
 		context.setOrder(order);
 
-		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order AND e.partner = :partner AND e.employee = :employee AND e.department = :department AND e.assetStatus = :assetStatus AND e.assetState = :assetState AND e.assetType = :assetType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -301,7 +301,7 @@ public class AssetQueryBuilderTest {
 		context.setPartner(partner);
 		context.setOrder(order);
 		
-		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) ";
+		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order AND e.partner = :partner AND e.employee = :employee AND e.department = :department AND e.assetStatus = :assetStatus AND e.assetState = :assetState AND e.assetType = :assetType ) ";
 		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -338,7 +338,7 @@ public class AssetQueryBuilderTest {
 		OrderBy orderBy1 = new OrderBy("name", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1);
 		
-		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order OR e.partner = :partner OR e.employee = :employee OR e.department = :department OR e.assetStatus = :assetStatus OR e.assetState = :assetState OR e.assetType = :assetType ) ORDER BY e.name DESC";
+		String expectedSql = "SELECT e FROM Asset e WHERE ( e.order = :order AND e.partner = :partner AND e.employee = :employee AND e.department = :department AND e.assetStatus = :assetStatus AND e.assetState = :assetState AND e.assetType = :assetType ) ORDER BY e.name DESC";
 		MultiplePagedSearch<Asset> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

@@ -27,9 +27,9 @@ public class PersonLanguageQueryBuilder extends AbstractQueryBuilder<PersonLangu
 		return builder
 				.where()
 				.openBracket()
-					.addOrCondition(PERSON_CONDITION, context.getPerson())
-					.addOrCondition(LANGUAGE_CONDITION, context.getLanguage())
-					.addOrCondition(LANGUAGELEVEL_CONDITION, context.getLanguageLevel())
+					.addAndCondition(PERSON_CONDITION, context.getPerson())
+					.addAndCondition(LANGUAGE_CONDITION, context.getLanguage())
+					.addAndCondition(LANGUAGELEVEL_CONDITION, context.getLanguageLevel())
 				.closeBracket();
 	}
 

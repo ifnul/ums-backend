@@ -28,10 +28,10 @@ public class PersonPensionQueryBuilder extends AbstractQueryBuilder<PersonPensio
 		return builder	
 				.where()
 				.openBracket()
-					.addOrCondition(PERSON_CONDITION, context.getPerson())
-					.addOrCondition(CONTACTTYPE_CONDITION, context.getPensionType())
-					.addOrCondition(BEGDATE_CONDITION, context.getBegDate())
-					.addOrCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(PERSON_CONDITION, context.getPerson())
+					.addAndCondition(CONTACTTYPE_CONDITION, context.getPensionType())
+					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
+					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 }

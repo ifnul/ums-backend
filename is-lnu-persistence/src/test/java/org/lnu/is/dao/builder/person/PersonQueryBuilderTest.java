@@ -107,7 +107,7 @@ public class PersonQueryBuilderTest {
 		context.setSurname(surname);
 		context.setDocNum(docNum);
 
-		String expectedQuery = "SELECT e FROM Person e WHERE ( e.personType = :personType OR e.marriedType = :marriedType OR e.name LIKE CONCAT('%',:name,'%') OR e.surname LIKE CONCAT('%',:surname,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Person e WHERE ( e.personType = :personType AND e.marriedType = :marriedType AND e.name LIKE CONCAT('%',:name,'%') AND e.surname LIKE CONCAT('%',:surname,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Person> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -137,7 +137,7 @@ public class PersonQueryBuilderTest {
 		context.setSurname(surname);
 		context.setDocNum(docNum);
 		
-		String expectedQuery = "SELECT e FROM Person e WHERE ( e.personType = :personType OR e.marriedType = :marriedType OR e.name LIKE CONCAT('%',:name,'%') OR e.surname LIKE CONCAT('%',:surname,'%') OR e.docNum LIKE CONCAT('%',:docNum,'%') ) ";
+		String expectedQuery = "SELECT e FROM Person e WHERE ( e.personType = :personType AND e.marriedType = :marriedType AND e.name LIKE CONCAT('%',:name,'%') AND e.surname LIKE CONCAT('%',:surname,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') ) ";
 		MultiplePagedSearch<Person> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
