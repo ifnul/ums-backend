@@ -629,6 +629,7 @@
 				<entry key="specialtyId" value="specialty" />
 				<entry key="departmentId" value="department" />
 				<entry key="timePeriodId" value="timePeriod" />
+				<entry key="timePeriodCourseId" value="timePeriodCourse" />
 				<entry key="eduFormTypeId" value="eduFormType" />
 				<entry key="specofferTypeId" value="specOfferType" />
 				<entry key="docSeries" value="docSeries" />

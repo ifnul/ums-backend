@@ -50,7 +50,6 @@ public class SpecOfferParametersExtractor extends AbstractParametersExtractor<Sp
 		addParameter(entity.getTimePeriodCourse(), timePeriodDao, "timePeriodCourse", parameters);
 		addParameter(entity.getEduFormType(), eduFormTypeDao, "eduFormType", parameters);
 		addParameter(entity.getSpecOfferType(), specOfferTypeDao, "specOfferType", parameters);
-
 		addParameter(entity.getDocSeries(), "docSeries", parameters);
 		addParameter(entity.getDocNum(), "docNum", parameters);
 		addParameter(entity.getLicCount(), "licCount", parameters);
