@@ -23,7 +23,7 @@ public class SpecOfferQueryBuilder extends AbstractQueryBuilder<SpecOffer> {
 	private static final String LICCOUNT_CONDITION = "e.licCount = :licCount ";
 	private static final String STATECOUNT_CONDITION = "e.stateCount = :stateCount ";
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
-	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate";
+	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate ";
 	private static final String TIMEPERIODCOURSE_CONDITION = "e.timePeriodCourse = :timePeriodCourse ";
 	
 	@Override
