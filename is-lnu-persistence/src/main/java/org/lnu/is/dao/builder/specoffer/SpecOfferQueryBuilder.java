@@ -40,7 +40,7 @@ public class SpecOfferQueryBuilder extends AbstractQueryBuilder<SpecOffer> {
 					.addAndCondition(SPECIALTY_CONDITION, context.getSpecialty())
 					.addAndCondition(DEPARTMENT_CONDITION, context.getDepartment())
 					.addAndCondition(TIMEPERIOD_CONDITION, context.getTimePeriod())
-					.addAndCondition(TIMEPERIODCOURSE_CONDITION, context.getTimePeriod())
+					.addAndCondition(TIMEPERIODCOURSE_CONDITION, context.getTimePeriodCourse())
 					.addAndCondition(EDUFORMTYPE_CONDITION, context.getEduFormType())
 					.addAndCondition(SPECOFFERTYPE_CONDITION, context.getSpecOfferType())
 					.addAndCondition(DOCSERIES_CONDITION, context.getDocSeries())
