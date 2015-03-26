@@ -24,6 +24,8 @@
 		<findbugs.skip>true</findbugs.skip>
 		<skipAnalyses>true</skipAnalyses>
 		<checkstyle.skip>true</checkstyle.skip>		
+		<checkstyleDir>${basedir}/../checks</checkstyleDir>
+		<findBugsDir>${basedir}/../findbugs</findBugsDir>		
 	</properties>
 
 	<dependencies>

@@ -10,8 +10,17 @@
   <artifactId>is-lnu-edbo-common</artifactId>
   <name>is-lnu-edbo-common</name>
   <url>http://maven.apache.org</url>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<checkstyleDir>${basedir}/../checks</checkstyleDir>
+	<findBugsDir>${basedir}/../findbugs</findBugsDir>
+	<maven.test.skip>true</maven.test.skip>
+	<cobertura.skip>true</cobertura.skip>
+	<maven.javadoc.skip>true</maven.javadoc.skip>
+	<findbugs.skip>true</findbugs.skip>
+	<skipAnalyses>true</skipAnalyses>
+	<checkstyle.skip>true</checkstyle.skip>		    
   </properties>
 
   <dependencies>

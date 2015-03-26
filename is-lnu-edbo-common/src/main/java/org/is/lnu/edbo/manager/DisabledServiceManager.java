@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * Will Throw exception if there will be disabled integration in the system.
  * @author ivanursul
  *
- * @param <WEBSERVICE>
+ * @param <WEBSERVICE> Web Service.
  */
 @Component("disabledWebServiceManager")
 public class DisabledServiceManager<WEBSERVICE> implements ServiceManager<WEBSERVICE> {

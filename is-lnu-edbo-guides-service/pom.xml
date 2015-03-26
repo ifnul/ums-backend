@@ -18,6 +18,9 @@
 		<cxf.version>2.7.3</cxf.version>
 		<wsdl.location>EDBOGuides.wsdl</wsdl.location>
 		
+		<checkstyleDir>${basedir}/../checks</checkstyleDir>
+		<findBugsDir>${basedir}/../findbugs</findBugsDir>
+				
 		<maven.test.skip>true</maven.test.skip>
 		<cobertura.skip>true</cobertura.skip>
 		<maven.javadoc.skip>true</maven.javadoc.skip>
