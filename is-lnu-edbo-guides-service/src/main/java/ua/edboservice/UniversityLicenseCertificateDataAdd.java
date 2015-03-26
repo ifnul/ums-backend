@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="SpecSpecialityCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="SpecSpecializationName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="IsPerepidgotovka" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="IsTeacher" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -41,7 +42,8 @@ import javax.xml.bind.annotation.XmlType;
     "specDirectionsCode",
     "specSpecialityCode",
     "specSpecializationName",
-    "isPerepidgotovka"
+    "isPerepidgotovka",
+    "isTeacher"
 })
 @XmlRootElement(name = "UniversityLicenseCertificateDataAdd")
 public class UniversityLicenseCertificateDataAdd {
@@ -60,6 +62,8 @@ public class UniversityLicenseCertificateDataAdd {
     protected String specSpecializationName;
     @XmlElement(name = "IsPerepidgotovka")
     protected int isPerepidgotovka;
+    @XmlElement(name = "IsTeacher")
+    protected int isTeacher;
 
     /**
      * Gets the value of the sessionGUID property.
@@ -203,6 +207,22 @@ public class UniversityLicenseCertificateDataAdd {
      */
     public void setIsPerepidgotovka(int value) {
         this.isPerepidgotovka = value;
+    }
+
+    /**
+     * Gets the value of the isTeacher property.
+     * 
+     */
+    public int getIsTeacher() {
+        return isTeacher;
+    }
+
+    /**
+     * Sets the value of the isTeacher property.
+     * 
+     */
+    public void setIsTeacher(int value) {
+        this.isTeacher = value;
     }
 
 }

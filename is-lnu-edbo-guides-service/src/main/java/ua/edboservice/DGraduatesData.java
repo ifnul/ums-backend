@@ -35,6 +35,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Qalification_Prev_EN" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Speciality_Prev_UK" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Speciality_Prev_EN" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="AdditionalIInfoSmall" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="AdditionalIInfoSmallEn" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -60,7 +62,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "qalificationPrevUK",
     "qalificationPrevEN",
     "specialityPrevUK",
-    "specialityPrevEN"
+    "specialityPrevEN",
+    "additionalIInfoSmall",
+    "additionalIInfoSmallEn"
 })
 public class DGraduatesData {
 
@@ -98,6 +102,10 @@ public class DGraduatesData {
     protected String specialityPrevUK;
     @XmlElement(name = "Speciality_Prev_EN")
     protected String specialityPrevEN;
+    @XmlElement(name = "AdditionalIInfoSmall")
+    protected String additionalIInfoSmall;
+    @XmlElement(name = "AdditionalIInfoSmallEn")
+    protected String additionalIInfoSmallEn;
 
     /**
      * Gets the value of the idGraduate property.
@@ -441,6 +449,54 @@ public class DGraduatesData {
      */
     public void setSpecialityPrevEN(String value) {
         this.specialityPrevEN = value;
+    }
+
+    /**
+     * Gets the value of the additionalIInfoSmall property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAdditionalIInfoSmall() {
+        return additionalIInfoSmall;
+    }
+
+    /**
+     * Sets the value of the additionalIInfoSmall property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAdditionalIInfoSmall(String value) {
+        this.additionalIInfoSmall = value;
+    }
+
+    /**
+     * Gets the value of the additionalIInfoSmallEn property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAdditionalIInfoSmallEn() {
+        return additionalIInfoSmallEn;
+    }
+
+    /**
+     * Sets the value of the additionalIInfoSmallEn property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAdditionalIInfoSmallEn(String value) {
+        this.additionalIInfoSmallEn = value;
     }
 
 }

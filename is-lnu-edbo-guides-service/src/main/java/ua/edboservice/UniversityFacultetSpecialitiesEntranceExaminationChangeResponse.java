@@ -31,10 +31,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "universityFacultetSpecialitiesEntranceExamination\u0421hangeResult"
 })
-@XmlRootElement(name = "UniversityFacultetSpecialitiesEntranceExaminationChangeResponse")
+@XmlRootElement(name = "UniversityFacultetSpecialitiesEntranceExamination\u0421hangeResponse")
 public class UniversityFacultetSpecialitiesEntranceExaminationChangeResponse {
 
-    @XmlElement(name = "UniversityFacultetSpecialitiesEntranceExaminationChangeResult")
+    @XmlElement(name = "UniversityFacultetSpecialitiesEntranceExamination\u0421hangeResult")
     protected String universityFacultetSpecialitiesEntranceExaminationСhangeResult;
 
     /**
@@ -57,7 +57,7 @@ public class UniversityFacultetSpecialitiesEntranceExaminationChangeResponse {
      *     {@link String }
      *     
      */
-    public void setUniversityFacultetSpecialitiesEntranceExaminationСhangeResult(final String value) {
+    public void setUniversityFacultetSpecialitiesEntranceExaminationСhangeResult(String value) {
         this.universityFacultetSpecialitiesEntranceExaminationСhangeResult = value;
     }
 

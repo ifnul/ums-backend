@@ -43,6 +43,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="OrderNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="OrderDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *         &lt;element name="IsOnce" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -76,7 +77,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "userEditFIO",
     "orderNumber",
     "orderDate",
-    "isOnce"
+    "isOnce",
+    "region"
 })
 public class DUniversityScienseSpecialitiesAspirants {
 
@@ -132,6 +134,8 @@ public class DUniversityScienseSpecialitiesAspirants {
     protected XMLGregorianCalendar orderDate;
     @XmlElement(name = "IsOnce")
     protected int isOnce;
+    @XmlElement(name = "Region")
+    protected String region;
 
     /**
      * Gets the value of the idUniversityScienseSpecialitiesAspirants property.
@@ -659,6 +663,30 @@ public class DUniversityScienseSpecialitiesAspirants {
      */
     public void setIsOnce(int value) {
         this.isOnce = value;
+    }
+
+    /**
+     * Gets the value of the region property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRegion() {
+        return region;
+    }
+
+    /**
+     * Sets the value of the region property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRegion(String value) {
+        this.region = value;
     }
 
 }

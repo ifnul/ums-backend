@@ -165,6 +165,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="EDBO_FIO" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Id_University" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="UniversityFullName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -320,7 +321,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "edboBirthday",
     "edbofio",
     "idUniversity",
-    "universityFullName"
+    "universityFullName",
+    "region"
 })
 public class DAcademicCards {
 
@@ -623,6 +625,8 @@ public class DAcademicCards {
     protected int idUniversity;
     @XmlElement(name = "UniversityFullName")
     protected String universityFullName;
+    @XmlElement(name = "Region")
+    protected String region;
 
     /**
      * Gets the value of the idAcademicCards property.
@@ -3998,6 +4002,30 @@ public class DAcademicCards {
      */
     public void setUniversityFullName(String value) {
         this.universityFullName = value;
+    }
+
+    /**
+     * Gets the value of the region property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRegion() {
+        return region;
+    }
+
+    /**
+     * Sets the value of the region property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRegion(String value) {
+        this.region = value;
     }
 
 }

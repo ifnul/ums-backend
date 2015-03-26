@@ -74,6 +74,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Id_AcademicEducationHistory_From" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="UniversityKodeFrom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="AcademicLeaveDateEnd" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
+ *         &lt;element name="Id_University" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="UniversityFullName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="UniversityKode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="AcademicEducationHistoryTypeName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -137,7 +142,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "academicYearName",
     "idAcademicEducationHistoryFrom",
     "universityKodeFrom",
-    "academicLeaveDateEnd"
+    "academicLeaveDateEnd",
+    "idUniversity",
+    "universityFullName",
+    "universityKode",
+    "academicEducationHistoryTypeName",
+    "region"
 })
 public class DAcademicEducation {
 
@@ -256,6 +266,16 @@ public class DAcademicEducation {
     @XmlElement(name = "AcademicLeaveDateEnd", required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar academicLeaveDateEnd;
+    @XmlElement(name = "Id_University")
+    protected int idUniversity;
+    @XmlElement(name = "UniversityFullName")
+    protected String universityFullName;
+    @XmlElement(name = "UniversityKode")
+    protected String universityKode;
+    @XmlElement(name = "AcademicEducationHistoryTypeName")
+    protected String academicEducationHistoryTypeName;
+    @XmlElement(name = "Region")
+    protected String region;
 
     /**
      * Gets the value of the academicEducationDateBegin property.
@@ -1383,6 +1403,118 @@ public class DAcademicEducation {
      */
     public void setAcademicLeaveDateEnd(XMLGregorianCalendar value) {
         this.academicLeaveDateEnd = value;
+    }
+
+    /**
+     * Gets the value of the idUniversity property.
+     * 
+     */
+    public int getIdUniversity() {
+        return idUniversity;
+    }
+
+    /**
+     * Sets the value of the idUniversity property.
+     * 
+     */
+    public void setIdUniversity(int value) {
+        this.idUniversity = value;
+    }
+
+    /**
+     * Gets the value of the universityFullName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityFullName() {
+        return universityFullName;
+    }
+
+    /**
+     * Sets the value of the universityFullName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityFullName(String value) {
+        this.universityFullName = value;
+    }
+
+    /**
+     * Gets the value of the universityKode property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityKode() {
+        return universityKode;
+    }
+
+    /**
+     * Sets the value of the universityKode property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityKode(String value) {
+        this.universityKode = value;
+    }
+
+    /**
+     * Gets the value of the academicEducationHistoryTypeName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAcademicEducationHistoryTypeName() {
+        return academicEducationHistoryTypeName;
+    }
+
+    /**
+     * Sets the value of the academicEducationHistoryTypeName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAcademicEducationHistoryTypeName(String value) {
+        this.academicEducationHistoryTypeName = value;
+    }
+
+    /**
+     * Gets the value of the region property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRegion() {
+        return region;
+    }
+
+    /**
+     * Sets the value of the region property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRegion(String value) {
+        this.region = value;
     }
 
 }

@@ -39,6 +39,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="SpecProfession3_Rang" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="SpecProfession4_Rang" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="SpecProfession5_Rang" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Id_GlobalRishen" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -69,7 +70,8 @@ import javax.xml.bind.annotation.XmlType;
     "specProfession2Rang",
     "specProfession3Rang",
     "specProfession4Rang",
-    "specProfession5Rang"
+    "specProfession5Rang",
+    "idGlobalRishen"
 })
 @XmlRootElement(name = "tUniversityLicensesDataPtnzEdit")
 public class TUniversityLicensesDataPtnzEdit {
@@ -116,6 +118,8 @@ public class TUniversityLicensesDataPtnzEdit {
     protected String specProfession4Rang;
     @XmlElement(name = "SpecProfession5_Rang")
     protected String specProfession5Rang;
+    @XmlElement(name = "Id_GlobalRishen")
+    protected int idGlobalRishen;
 
     /**
      * Gets the value of the sessionGUID property.
@@ -563,6 +567,22 @@ public class TUniversityLicensesDataPtnzEdit {
      */
     public void setSpecProfession5Rang(String value) {
         this.specProfession5Rang = value;
+    }
+
+    /**
+     * Gets the value of the idGlobalRishen property.
+     * 
+     */
+    public int getIdGlobalRishen() {
+        return idGlobalRishen;
+    }
+
+    /**
+     * Sets the value of the idGlobalRishen property.
+     * 
+     */
+    public void setIdGlobalRishen(int value) {
+        this.idGlobalRishen = value;
     }
 
 }

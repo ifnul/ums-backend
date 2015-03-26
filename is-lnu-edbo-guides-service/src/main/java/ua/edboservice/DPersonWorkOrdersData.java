@@ -57,6 +57,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="TariffValue" type="{http://www.w3.org/2001/XMLSchema}decimal"/>
  *         &lt;element name="UniversityFacultetKode_Kafedra" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="UniversityFacultetFullName_Kafedra" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="HoursCount" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -103,7 +104,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "personWorkCancelationOther",
     "tariffValue",
     "universityFacultetKodeKafedra",
-    "universityFacultetFullNameKafedra"
+    "universityFacultetFullNameKafedra",
+    "hoursCount"
 })
 public class DPersonWorkOrdersData {
 
@@ -187,6 +189,8 @@ public class DPersonWorkOrdersData {
     protected String universityFacultetKodeKafedra;
     @XmlElement(name = "UniversityFacultetFullName_Kafedra")
     protected String universityFacultetFullNameKafedra;
+    @XmlElement(name = "HoursCount")
+    protected int hoursCount;
 
     /**
      * Gets the value of the idPersonWorkHistory property.
@@ -962,6 +966,22 @@ public class DPersonWorkOrdersData {
      */
     public void setUniversityFacultetFullNameKafedra(String value) {
         this.universityFacultetFullNameKafedra = value;
+    }
+
+    /**
+     * Gets the value of the hoursCount property.
+     * 
+     */
+    public int getHoursCount() {
+        return hoursCount;
+    }
+
+    /**
+     * Sets the value of the hoursCount property.
+     * 
+     */
+    public void setHoursCount(int value) {
+        this.hoursCount = value;
     }
 
 }

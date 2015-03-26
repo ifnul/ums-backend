@@ -44,6 +44,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="PersonCount" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="Id_University" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="UniversityFullName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="AcademicEducationHistoryTypeName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -78,7 +80,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "addUserFIO",
     "personCount",
     "idUniversity",
-    "universityFullName"
+    "universityFullName",
+    "region",
+    "academicEducationHistoryTypeName"
 })
 public class DAcademicEducationOrders {
 
@@ -135,6 +139,10 @@ public class DAcademicEducationOrders {
     protected int idUniversity;
     @XmlElement(name = "UniversityFullName")
     protected String universityFullName;
+    @XmlElement(name = "Region")
+    protected String region;
+    @XmlElement(name = "AcademicEducationHistoryTypeName")
+    protected String academicEducationHistoryTypeName;
 
     /**
      * Gets the value of the idAcademicEducationOrders property.
@@ -630,6 +638,54 @@ public class DAcademicEducationOrders {
      */
     public void setUniversityFullName(String value) {
         this.universityFullName = value;
+    }
+
+    /**
+     * Gets the value of the region property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRegion() {
+        return region;
+    }
+
+    /**
+     * Sets the value of the region property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRegion(String value) {
+        this.region = value;
+    }
+
+    /**
+     * Gets the value of the academicEducationHistoryTypeName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAcademicEducationHistoryTypeName() {
+        return academicEducationHistoryTypeName;
+    }
+
+    /**
+     * Sets the value of the academicEducationHistoryTypeName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAcademicEducationHistoryTypeName(String value) {
+        this.academicEducationHistoryTypeName = value;
     }
 
 }

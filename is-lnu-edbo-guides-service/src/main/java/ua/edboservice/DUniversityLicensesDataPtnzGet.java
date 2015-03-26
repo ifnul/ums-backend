@@ -56,6 +56,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="SpecProfession3_Rang" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="SpecProfession4_Rang" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="SpecProfession5_Rang" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Id_GlobalRishen" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="NumberRishen" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="DateRishen" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -102,7 +105,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "specProfession2Rang",
     "specProfession3Rang",
     "specProfession4Rang",
-    "specProfession5Rang"
+    "specProfession5Rang",
+    "idGlobalRishen",
+    "numberRishen",
+    "dateRishen"
 })
 public class DUniversityLicensesDataPtnzGet {
 
@@ -181,6 +187,13 @@ public class DUniversityLicensesDataPtnzGet {
     protected String specProfession4Rang;
     @XmlElement(name = "SpecProfession5_Rang")
     protected String specProfession5Rang;
+    @XmlElement(name = "Id_GlobalRishen")
+    protected int idGlobalRishen;
+    @XmlElement(name = "NumberRishen")
+    protected String numberRishen;
+    @XmlElement(name = "DateRishen", required = true)
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar dateRishen;
 
     /**
      * Gets the value of the idUniversityLicenseData property.
@@ -988,6 +1001,70 @@ public class DUniversityLicensesDataPtnzGet {
      */
     public void setSpecProfession5Rang(String value) {
         this.specProfession5Rang = value;
+    }
+
+    /**
+     * Gets the value of the idGlobalRishen property.
+     * 
+     */
+    public int getIdGlobalRishen() {
+        return idGlobalRishen;
+    }
+
+    /**
+     * Sets the value of the idGlobalRishen property.
+     * 
+     */
+    public void setIdGlobalRishen(int value) {
+        this.idGlobalRishen = value;
+    }
+
+    /**
+     * Gets the value of the numberRishen property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNumberRishen() {
+        return numberRishen;
+    }
+
+    /**
+     * Sets the value of the numberRishen property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNumberRishen(String value) {
+        this.numberRishen = value;
+    }
+
+    /**
+     * Gets the value of the dateRishen property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDateRishen() {
+        return dateRishen;
+    }
+
+    /**
+     * Sets the value of the dateRishen property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDateRishen(XMLGregorianCalendar value) {
+        this.dateRishen = value;
     }
 
 }

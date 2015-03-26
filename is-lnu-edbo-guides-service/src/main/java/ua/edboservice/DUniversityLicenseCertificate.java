@@ -58,6 +58,16 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Id_GlobalOrders" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="Id_GlobalRishen" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="Region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="IsTeacher" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Id_UniversityLicenseCertificateProlongationType" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="UniversityLicenseCertificateProlongationTypeName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Id_GlobalRishen_Prolongation" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="NumberRishenProlongation" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="DateRishenProlongation" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
+ *         &lt;element name="UniversityLicenseCertificateDescription" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="IsProlongation" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="DateCreate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
+ *         &lt;element name="IsImported" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -106,7 +116,17 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "isPerepidgotovka",
     "idGlobalOrders",
     "idGlobalRishen",
-    "region"
+    "region",
+    "isTeacher",
+    "idUniversityLicenseCertificateProlongationType",
+    "universityLicenseCertificateProlongationTypeName",
+    "idGlobalRishenProlongation",
+    "numberRishenProlongation",
+    "dateRishenProlongation",
+    "universityLicenseCertificateDescription",
+    "isProlongation",
+    "dateCreate",
+    "isImported"
 })
 public class DUniversityLicenseCertificate {
 
@@ -193,6 +213,28 @@ public class DUniversityLicenseCertificate {
     protected int idGlobalRishen;
     @XmlElement(name = "Region")
     protected String region;
+    @XmlElement(name = "IsTeacher")
+    protected int isTeacher;
+    @XmlElement(name = "Id_UniversityLicenseCertificateProlongationType")
+    protected int idUniversityLicenseCertificateProlongationType;
+    @XmlElement(name = "UniversityLicenseCertificateProlongationTypeName")
+    protected String universityLicenseCertificateProlongationTypeName;
+    @XmlElement(name = "Id_GlobalRishen_Prolongation")
+    protected int idGlobalRishenProlongation;
+    @XmlElement(name = "NumberRishenProlongation")
+    protected String numberRishenProlongation;
+    @XmlElement(name = "DateRishenProlongation", required = true)
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar dateRishenProlongation;
+    @XmlElement(name = "UniversityLicenseCertificateDescription")
+    protected String universityLicenseCertificateDescription;
+    @XmlElement(name = "IsProlongation")
+    protected int isProlongation;
+    @XmlElement(name = "DateCreate", required = true)
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar dateCreate;
+    @XmlElement(name = "IsImported")
+    protected int isImported;
 
     /**
      * Gets the value of the idUniversityLicenseCertificate property.
@@ -1008,6 +1050,206 @@ public class DUniversityLicenseCertificate {
      */
     public void setRegion(String value) {
         this.region = value;
+    }
+
+    /**
+     * Gets the value of the isTeacher property.
+     * 
+     */
+    public int getIsTeacher() {
+        return isTeacher;
+    }
+
+    /**
+     * Sets the value of the isTeacher property.
+     * 
+     */
+    public void setIsTeacher(int value) {
+        this.isTeacher = value;
+    }
+
+    /**
+     * Gets the value of the idUniversityLicenseCertificateProlongationType property.
+     * 
+     */
+    public int getIdUniversityLicenseCertificateProlongationType() {
+        return idUniversityLicenseCertificateProlongationType;
+    }
+
+    /**
+     * Sets the value of the idUniversityLicenseCertificateProlongationType property.
+     * 
+     */
+    public void setIdUniversityLicenseCertificateProlongationType(int value) {
+        this.idUniversityLicenseCertificateProlongationType = value;
+    }
+
+    /**
+     * Gets the value of the universityLicenseCertificateProlongationTypeName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityLicenseCertificateProlongationTypeName() {
+        return universityLicenseCertificateProlongationTypeName;
+    }
+
+    /**
+     * Sets the value of the universityLicenseCertificateProlongationTypeName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityLicenseCertificateProlongationTypeName(String value) {
+        this.universityLicenseCertificateProlongationTypeName = value;
+    }
+
+    /**
+     * Gets the value of the idGlobalRishenProlongation property.
+     * 
+     */
+    public int getIdGlobalRishenProlongation() {
+        return idGlobalRishenProlongation;
+    }
+
+    /**
+     * Sets the value of the idGlobalRishenProlongation property.
+     * 
+     */
+    public void setIdGlobalRishenProlongation(int value) {
+        this.idGlobalRishenProlongation = value;
+    }
+
+    /**
+     * Gets the value of the numberRishenProlongation property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNumberRishenProlongation() {
+        return numberRishenProlongation;
+    }
+
+    /**
+     * Sets the value of the numberRishenProlongation property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNumberRishenProlongation(String value) {
+        this.numberRishenProlongation = value;
+    }
+
+    /**
+     * Gets the value of the dateRishenProlongation property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDateRishenProlongation() {
+        return dateRishenProlongation;
+    }
+
+    /**
+     * Sets the value of the dateRishenProlongation property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDateRishenProlongation(XMLGregorianCalendar value) {
+        this.dateRishenProlongation = value;
+    }
+
+    /**
+     * Gets the value of the universityLicenseCertificateDescription property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityLicenseCertificateDescription() {
+        return universityLicenseCertificateDescription;
+    }
+
+    /**
+     * Sets the value of the universityLicenseCertificateDescription property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityLicenseCertificateDescription(String value) {
+        this.universityLicenseCertificateDescription = value;
+    }
+
+    /**
+     * Gets the value of the isProlongation property.
+     * 
+     */
+    public int getIsProlongation() {
+        return isProlongation;
+    }
+
+    /**
+     * Sets the value of the isProlongation property.
+     * 
+     */
+    public void setIsProlongation(int value) {
+        this.isProlongation = value;
+    }
+
+    /**
+     * Gets the value of the dateCreate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDateCreate() {
+        return dateCreate;
+    }
+
+    /**
+     * Sets the value of the dateCreate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDateCreate(XMLGregorianCalendar value) {
+        this.dateCreate = value;
+    }
+
+    /**
+     * Gets the value of the isImported property.
+     * 
+     */
+    public int getIsImported() {
+        return isImported;
+    }
+
+    /**
+     * Sets the value of the isImported property.
+     * 
+     */
+    public void setIsImported(int value) {
+        this.isImported = value;
     }
 
 }

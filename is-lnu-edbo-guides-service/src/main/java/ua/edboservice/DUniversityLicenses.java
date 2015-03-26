@@ -58,6 +58,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Id_GlobalOrders" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="Id_GlobalRishen" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="Region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="DateCreate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
+ *         &lt;element name="IsImported" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -106,7 +108,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "registrationNumbers",
     "idGlobalOrders",
     "idGlobalRishen",
-    "region"
+    "region",
+    "dateCreate",
+    "isImported"
 })
 public class DUniversityLicenses {
 
@@ -192,6 +196,11 @@ public class DUniversityLicenses {
     protected int idGlobalRishen;
     @XmlElement(name = "Region")
     protected String region;
+    @XmlElement(name = "DateCreate", required = true)
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar dateCreate;
+    @XmlElement(name = "IsImported")
+    protected int isImported;
 
     /**
      * Gets the value of the idUniversityLicense property.
@@ -1007,6 +1016,46 @@ public class DUniversityLicenses {
      */
     public void setRegion(String value) {
         this.region = value;
+    }
+
+    /**
+     * Gets the value of the dateCreate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDateCreate() {
+        return dateCreate;
+    }
+
+    /**
+     * Sets the value of the dateCreate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDateCreate(XMLGregorianCalendar value) {
+        this.dateCreate = value;
+    }
+
+    /**
+     * Gets the value of the isImported property.
+     * 
+     */
+    public int getIsImported() {
+        return isImported;
+    }
+
+    /**
+     * Sets the value of the isImported property.
+     * 
+     */
+    public void setIsImported(int value) {
+        this.isImported = value;
     }
 
 }

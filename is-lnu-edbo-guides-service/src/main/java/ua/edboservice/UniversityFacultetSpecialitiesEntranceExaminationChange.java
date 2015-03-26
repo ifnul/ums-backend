@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlType;
     "universitySpecialitiesKodes",
     "idEntranceExamination"
 })
-@XmlRootElement(name = "UniversityFacultetSpecialitiesEntranceExaminationChange")
+@XmlRootElement(name = "UniversityFacultetSpecialitiesEntranceExamination\u0421hange")
 public class UniversityFacultetSpecialitiesEntranceExaminationChange {
 
     @XmlElement(name = "SessionGUID")
@@ -69,7 +69,7 @@ public class UniversityFacultetSpecialitiesEntranceExaminationChange {
      *     {@link String }
      *     
      */
-    public void setSessionGUID(final String value) {
+    public void setSessionGUID(String value) {
         this.sessionGUID = value;
     }
 
@@ -93,7 +93,7 @@ public class UniversityFacultetSpecialitiesEntranceExaminationChange {
      *     {@link String }
      *     
      */
-    public void setUniversityKode(final String value) {
+    public void setUniversityKode(String value) {
         this.universityKode = value;
     }
 
@@ -117,7 +117,7 @@ public class UniversityFacultetSpecialitiesEntranceExaminationChange {
      *     {@link String }
      *     
      */
-    public void setUniversitySpecialitiesKodes(final String value) {
+    public void setUniversitySpecialitiesKodes(String value) {
         this.universitySpecialitiesKodes = value;
     }
 
@@ -133,7 +133,7 @@ public class UniversityFacultetSpecialitiesEntranceExaminationChange {
      * Sets the value of the idEntranceExamination property.
      * 
      */
-    public void setIdEntranceExamination(final int value) {
+    public void setIdEntranceExamination(int value) {
         this.idEntranceExamination = value;
     }
 

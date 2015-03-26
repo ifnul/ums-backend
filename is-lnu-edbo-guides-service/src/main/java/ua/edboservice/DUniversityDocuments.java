@@ -53,6 +53,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="UniversityFullName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="CertificatesGiveToUser" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="Region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Block" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Id_UniversityParent" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="IsVSP" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="UniversityTypeName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="EducationOrganizationFullTypeName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="UniversityGovernanceTypeName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="DateClosed" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
+ *         &lt;element name="UniversityCloseStatusTypesName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -96,7 +104,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "idUniversity",
     "universityFullName",
     "certificatesGiveToUser",
-    "region"
+    "region",
+    "block",
+    "idUniversityParent",
+    "isVSP",
+    "universityTypeName",
+    "educationOrganizationFullTypeName",
+    "universityGovernanceTypeName",
+    "dateClosed",
+    "universityCloseStatusTypesName"
 })
 public class DUniversityDocuments {
 
@@ -173,6 +189,23 @@ public class DUniversityDocuments {
     protected int certificatesGiveToUser;
     @XmlElement(name = "Region")
     protected String region;
+    @XmlElement(name = "Block")
+    protected int block;
+    @XmlElement(name = "Id_UniversityParent")
+    protected int idUniversityParent;
+    @XmlElement(name = "IsVSP")
+    protected int isVSP;
+    @XmlElement(name = "UniversityTypeName")
+    protected String universityTypeName;
+    @XmlElement(name = "EducationOrganizationFullTypeName")
+    protected String educationOrganizationFullTypeName;
+    @XmlElement(name = "UniversityGovernanceTypeName")
+    protected String universityGovernanceTypeName;
+    @XmlElement(name = "DateClosed", required = true)
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar dateClosed;
+    @XmlElement(name = "UniversityCloseStatusTypesName")
+    protected String universityCloseStatusTypesName;
 
     /**
      * Gets the value of the idRegulationDocument property.
@@ -924,6 +957,174 @@ public class DUniversityDocuments {
      */
     public void setRegion(String value) {
         this.region = value;
+    }
+
+    /**
+     * Gets the value of the block property.
+     * 
+     */
+    public int getBlock() {
+        return block;
+    }
+
+    /**
+     * Sets the value of the block property.
+     * 
+     */
+    public void setBlock(int value) {
+        this.block = value;
+    }
+
+    /**
+     * Gets the value of the idUniversityParent property.
+     * 
+     */
+    public int getIdUniversityParent() {
+        return idUniversityParent;
+    }
+
+    /**
+     * Sets the value of the idUniversityParent property.
+     * 
+     */
+    public void setIdUniversityParent(int value) {
+        this.idUniversityParent = value;
+    }
+
+    /**
+     * Gets the value of the isVSP property.
+     * 
+     */
+    public int getIsVSP() {
+        return isVSP;
+    }
+
+    /**
+     * Sets the value of the isVSP property.
+     * 
+     */
+    public void setIsVSP(int value) {
+        this.isVSP = value;
+    }
+
+    /**
+     * Gets the value of the universityTypeName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityTypeName() {
+        return universityTypeName;
+    }
+
+    /**
+     * Sets the value of the universityTypeName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityTypeName(String value) {
+        this.universityTypeName = value;
+    }
+
+    /**
+     * Gets the value of the educationOrganizationFullTypeName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getEducationOrganizationFullTypeName() {
+        return educationOrganizationFullTypeName;
+    }
+
+    /**
+     * Sets the value of the educationOrganizationFullTypeName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setEducationOrganizationFullTypeName(String value) {
+        this.educationOrganizationFullTypeName = value;
+    }
+
+    /**
+     * Gets the value of the universityGovernanceTypeName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityGovernanceTypeName() {
+        return universityGovernanceTypeName;
+    }
+
+    /**
+     * Sets the value of the universityGovernanceTypeName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityGovernanceTypeName(String value) {
+        this.universityGovernanceTypeName = value;
+    }
+
+    /**
+     * Gets the value of the dateClosed property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDateClosed() {
+        return dateClosed;
+    }
+
+    /**
+     * Sets the value of the dateClosed property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDateClosed(XMLGregorianCalendar value) {
+        this.dateClosed = value;
+    }
+
+    /**
+     * Gets the value of the universityCloseStatusTypesName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityCloseStatusTypesName() {
+        return universityCloseStatusTypesName;
+    }
+
+    /**
+     * Sets the value of the universityCloseStatusTypesName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityCloseStatusTypesName(String value) {
+        this.universityCloseStatusTypesName = value;
     }
 
 }

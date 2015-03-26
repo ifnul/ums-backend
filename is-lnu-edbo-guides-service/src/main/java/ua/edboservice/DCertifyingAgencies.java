@@ -28,6 +28,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="CertifyingAgenciesIsActive" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="DateBegin" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *         &lt;element name="DateEnd" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
+ *         &lt;element name="Sort" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -46,7 +47,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "certifyingAgenciesNamesInDocuments",
     "certifyingAgenciesIsActive",
     "dateBegin",
-    "dateEnd"
+    "dateEnd",
+    "sort"
 })
 public class DCertifyingAgencies {
 
@@ -70,6 +72,8 @@ public class DCertifyingAgencies {
     @XmlElement(name = "DateEnd", required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar dateEnd;
+    @XmlElement(name = "Sort")
+    protected int sort;
 
     /**
      * Gets the value of the idCertifyingAgencies property.
@@ -269,6 +273,22 @@ public class DCertifyingAgencies {
      */
     public void setDateEnd(XMLGregorianCalendar value) {
         this.dateEnd = value;
+    }
+
+    /**
+     * Gets the value of the sort property.
+     * 
+     */
+    public int getSort() {
+        return sort;
+    }
+
+    /**
+     * Sets the value of the sort property.
+     * 
+     */
+    public void setSort(int value) {
+        this.sort = value;
     }
 
 }

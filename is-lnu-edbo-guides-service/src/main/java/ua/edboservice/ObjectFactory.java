@@ -158,6 +158,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesProgramGetResponse }
+     * 
+     */
+    public EducationalCyclesProgramGetResponse createEducationalCyclesProgramGetResponse() {
+        return new EducationalCyclesProgramGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDEducationalCyclesProgram }
+     * 
+     */
+    public ArrayOfDEducationalCyclesProgram createArrayOfDEducationalCyclesProgram() {
+        return new ArrayOfDEducationalCyclesProgram();
+    }
+
+    /**
      * Create an instance of {@link AcademicEducationCancelationTypesGet }
      * 
      */
@@ -190,22 +206,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityEntrantWavesRequestsGetResponse }
-     * 
-     */
-    public UniversityEntrantWavesRequestsGetResponse createUniversityEntrantWavesRequestsGetResponse() {
-        return new UniversityEntrantWavesRequestsGetResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDUniversityEntrantWavesRequests }
-     * 
-     */
-    public ArrayOfDUniversityEntrantWavesRequests createArrayOfDUniversityEntrantWavesRequests() {
-        return new ArrayOfDUniversityEntrantWavesRequests();
-    }
-
-    /**
      * Create an instance of {@link UniversityLicensesDataGetResponse }
      * 
      */
@@ -219,6 +219,22 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityLicensesData createArrayOfDUniversityLicensesData() {
         return new ArrayOfDUniversityLicensesData();
+    }
+
+    /**
+     * Create an instance of {@link UniversityEntrantWavesRequestsGetResponse }
+     * 
+     */
+    public UniversityEntrantWavesRequestsGetResponse createUniversityEntrantWavesRequestsGetResponse() {
+        return new UniversityEntrantWavesRequestsGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDUniversityEntrantWavesRequests }
+     * 
+     */
+    public ArrayOfDUniversityEntrantWavesRequests createArrayOfDUniversityEntrantWavesRequests() {
+        return new ArrayOfDUniversityEntrantWavesRequests();
     }
 
     /**
@@ -254,19 +270,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonEducationProgressDataDelResponse }
-     * 
-     */
-    public PersonEducationProgressDataDelResponse createPersonEducationProgressDataDelResponse() {
-        return new PersonEducationProgressDataDelResponse();
-    }
-
-    /**
      * Create an instance of {@link UniversityPersonsEdit }
      * 
      */
     public UniversityPersonsEdit createUniversityPersonsEdit() {
         return new UniversityPersonsEdit();
+    }
+
+    /**
+     * Create an instance of {@link PersonEducationProgressDataDelResponse }
+     * 
+     */
+    public PersonEducationProgressDataDelResponse createPersonEducationProgressDataDelResponse() {
+        return new PersonEducationProgressDataDelResponse();
     }
 
     /**
@@ -347,6 +363,14 @@ public class ObjectFactory {
      */
     public ReceptionConditionAdditionsTableData1Del createReceptionConditionAdditionsTableData1Del() {
         return new ReceptionConditionAdditionsTableData1Del();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesProgramAdd }
+     * 
+     */
+    public EducationalCyclesProgramAdd createEducationalCyclesProgramAdd() {
+        return new EducationalCyclesProgramAdd();
     }
 
     /**
@@ -534,14 +558,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link QualificationGroupsGet }
-     * 
-     */
-    public QualificationGroupsGet createQualificationGroupsGet() {
-        return new QualificationGroupsGet();
-    }
-
-    /**
      * Create an instance of {@link UniversityLicensesGetResponse }
      * 
      */
@@ -555,6 +571,22 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityLicenses createArrayOfDUniversityLicenses() {
         return new ArrayOfDUniversityLicenses();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesKnowledgeDel }
+     * 
+     */
+    public GlobalEducationalCyclesKnowledgeDel createGlobalEducationalCyclesKnowledgeDel() {
+        return new GlobalEducationalCyclesKnowledgeDel();
+    }
+
+    /**
+     * Create an instance of {@link QualificationGroupsGet }
+     * 
+     */
+    public QualificationGroupsGet createQualificationGroupsGet() {
+        return new QualificationGroupsGet();
     }
 
     /**
@@ -611,6 +643,14 @@ public class ObjectFactory {
      */
     public PersonEducationHistoryOrdersRequestsAddResponse createPersonEducationHistoryOrdersRequestsAddResponse() {
         return new PersonEducationHistoryOrdersRequestsAddResponse();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesUseKnowledgeAddResponse }
+     * 
+     */
+    public GlobalEducationalCyclesUseKnowledgeAddResponse createGlobalEducationalCyclesUseKnowledgeAddResponse() {
+        return new GlobalEducationalCyclesUseKnowledgeAddResponse();
     }
 
     /**
@@ -683,6 +723,14 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityCertificates createArrayOfDUniversityCertificates() {
         return new ArrayOfDUniversityCertificates();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesKnowledgeAddResponse }
+     * 
+     */
+    public EducationalCyclesKnowledgeAddResponse createEducationalCyclesKnowledgeAddResponse() {
+        return new EducationalCyclesKnowledgeAddResponse();
     }
 
     /**
@@ -854,11 +902,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CertifyingAgenciesAddResponse }
+     * 
+     */
+    public CertifyingAgenciesAddResponse createCertifyingAgenciesAddResponse() {
+        return new CertifyingAgenciesAddResponse();
+    }
+
+    /**
      * Create an instance of {@link OlympiadsAwardsGet }
      * 
      */
     public OlympiadsAwardsGet createOlympiadsAwardsGet() {
         return new OlympiadsAwardsGet();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesKnowledgeEdit }
+     * 
+     */
+    public GlobalEducationalCyclesKnowledgeEdit createGlobalEducationalCyclesKnowledgeEdit() {
+        return new GlobalEducationalCyclesKnowledgeEdit();
     }
 
     /**
@@ -982,6 +1046,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraduatesAdditionalInfoGet }
+     * 
+     */
+    public GraduatesAdditionalInfoGet createGraduatesAdditionalInfoGet() {
+        return new GraduatesAdditionalInfoGet();
+    }
+
+    /**
      * Create an instance of {@link AcademicAttestationCaseDelResponse }
      * 
      */
@@ -1083,6 +1155,14 @@ public class ObjectFactory {
      */
     public AlertsEdit createAlertsEdit() {
         return new AlertsEdit();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesKnowledgeEditResponse }
+     * 
+     */
+    public EducationalCyclesKnowledgeEditResponse createEducationalCyclesKnowledgeEditResponse() {
+        return new EducationalCyclesKnowledgeEditResponse();
     }
 
     /**
@@ -1270,6 +1350,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeGetResponse }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeGetResponse createEducationalCyclesUseKnowledgeGetResponse() {
+        return new EducationalCyclesUseKnowledgeGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDEducationalCyclesUseKnowledge }
+     * 
+     */
+    public ArrayOfDEducationalCyclesUseKnowledge createArrayOfDEducationalCyclesUseKnowledge() {
+        return new ArrayOfDEducationalCyclesUseKnowledge();
+    }
+
+    /**
      * Create an instance of {@link EducationalCyclesPatternsAllDisciplinesGetResponse }
      * 
      */
@@ -1326,6 +1422,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UniversityLicensesSubTypesGet }
+     * 
+     */
+    public UniversityLicensesSubTypesGet createUniversityLicensesSubTypesGet() {
+        return new UniversityLicensesSubTypesGet();
+    }
+
+    /**
      * Create an instance of {@link BanksGetResponse }
      * 
      */
@@ -1342,11 +1446,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityLicensesSubTypesGet }
+     * Create an instance of {@link CertifyingAgenciesAdd }
      * 
      */
-    public UniversityLicensesSubTypesGet createUniversityLicensesSubTypesGet() {
-        return new UniversityLicensesSubTypesGet();
+    public CertifyingAgenciesAdd createCertifyingAgenciesAdd() {
+        return new CertifyingAgenciesAdd();
     }
 
     /**
@@ -1366,22 +1470,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityDisciplinesCategoryGetResponse }
-     * 
-     */
-    public UniversityDisciplinesCategoryGetResponse createUniversityDisciplinesCategoryGetResponse() {
-        return new UniversityDisciplinesCategoryGetResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDUniversityDisciplinesCategory }
-     * 
-     */
-    public ArrayOfDUniversityDisciplinesCategory createArrayOfDUniversityDisciplinesCategory() {
-        return new ArrayOfDUniversityDisciplinesCategory();
-    }
-
-    /**
      * Create an instance of {@link PersonEducationProgressPeriodTypeGet }
      * 
      */
@@ -1395,6 +1483,22 @@ public class ObjectFactory {
      */
     public UniversityBuildingDocumentsScanGet createUniversityBuildingDocumentsScanGet() {
         return new UniversityBuildingDocumentsScanGet();
+    }
+
+    /**
+     * Create an instance of {@link UniversityDisciplinesCategoryGetResponse }
+     * 
+     */
+    public UniversityDisciplinesCategoryGetResponse createUniversityDisciplinesCategoryGetResponse() {
+        return new UniversityDisciplinesCategoryGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDUniversityDisciplinesCategory }
+     * 
+     */
+    public ArrayOfDUniversityDisciplinesCategory createArrayOfDUniversityDisciplinesCategory() {
+        return new ArrayOfDUniversityDisciplinesCategory();
     }
 
     /**
@@ -1494,6 +1598,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesJudgmentsGet }
+     * 
+     */
+    public GlobalEducationalCyclesJudgmentsGet createGlobalEducationalCyclesJudgmentsGet() {
+        return new GlobalEducationalCyclesJudgmentsGet();
+    }
+
+    /**
      * Create an instance of {@link AcademicReportsPlanPriyomGet }
      * 
      */
@@ -1531,6 +1643,14 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityLicenseCertificateData createArrayOfDUniversityLicenseCertificateData() {
         return new ArrayOfDUniversityLicenseCertificateData();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesJudgmentsAddResponse }
+     * 
+     */
+    public EducationalCyclesJudgmentsAddResponse createEducationalCyclesJudgmentsAddResponse() {
+        return new EducationalCyclesJudgmentsAddResponse();
     }
 
     /**
@@ -1654,19 +1774,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicEducationDegreDetailTypeGet }
-     * 
-     */
-    public AcademicEducationDegreDetailTypeGet createAcademicEducationDegreDetailTypeGet() {
-        return new AcademicEducationDegreDetailTypeGet();
-    }
-
-    /**
      * Create an instance of {@link UniversityScienseSpecialitiesDoctorantsEditResponse }
      * 
      */
     public UniversityScienseSpecialitiesDoctorantsEditResponse createUniversityScienseSpecialitiesDoctorantsEditResponse() {
         return new UniversityScienseSpecialitiesDoctorantsEditResponse();
+    }
+
+    /**
+     * Create an instance of {@link AcademicEducationDegreDetailTypeGet }
+     * 
+     */
+    public AcademicEducationDegreDetailTypeGet createAcademicEducationDegreDetailTypeGet() {
+        return new AcademicEducationDegreDetailTypeGet();
     }
 
     /**
@@ -1774,11 +1894,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeAdd }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeAdd createEducationalCyclesUseKnowledgeAdd() {
+        return new EducationalCyclesUseKnowledgeAdd();
+    }
+
+    /**
      * Create an instance of {@link UniversityJuristyialTypesGet }
      * 
      */
     public UniversityJuristyialTypesGet createUniversityJuristyialTypesGet() {
         return new UniversityJuristyialTypesGet();
+    }
+
+    /**
+     * Create an instance of {@link UniversityScienseSpecialitiesAspirantsGet }
+     * 
+     */
+    public UniversityScienseSpecialitiesAspirantsGet createUniversityScienseSpecialitiesAspirantsGet() {
+        return new UniversityScienseSpecialitiesAspirantsGet();
     }
 
     /**
@@ -1798,14 +1934,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityScienseSpecialitiesAspirantsGet }
-     * 
-     */
-    public UniversityScienseSpecialitiesAspirantsGet createUniversityScienseSpecialitiesAspirantsGet() {
-        return new UniversityScienseSpecialitiesAspirantsGet();
-    }
-
-    /**
      * Create an instance of {@link UniversityOrderRequestsStatusChange }
      * 
      */
@@ -1819,6 +1947,22 @@ public class ObjectFactory {
      */
     public M23NkEditConst createM23NkEditConst() {
         return new M23NkEditConst();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesUseKnowledgeGetResponse }
+     * 
+     */
+    public GraduatesUseKnowledgeGetResponse createGraduatesUseKnowledgeGetResponse() {
+        return new GraduatesUseKnowledgeGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDGraduatesUseKnowledge }
+     * 
+     */
+    public ArrayOfDGraduatesUseKnowledge createArrayOfDGraduatesUseKnowledge() {
+        return new ArrayOfDGraduatesUseKnowledge();
     }
 
     /**
@@ -1910,6 +2054,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesKnowledgeEdit }
+     * 
+     */
+    public EducationalCyclesKnowledgeEdit createEducationalCyclesKnowledgeEdit() {
+        return new EducationalCyclesKnowledgeEdit();
+    }
+
+    /**
      * Create an instance of {@link ReportEmploymentsDataDel }
      * 
      */
@@ -1942,6 +2094,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraduatesDataAdditionalInfoEdit }
+     * 
+     */
+    public GraduatesDataAdditionalInfoEdit createGraduatesDataAdditionalInfoEdit() {
+        return new GraduatesDataAdditionalInfoEdit();
+    }
+
+    /**
      * Create an instance of {@link UniversityCoursesDel }
      * 
      */
@@ -1950,11 +2110,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BanksGet }
+     * Create an instance of {@link GraduatesJudgmentsGet }
      * 
      */
-    public BanksGet createBanksGet() {
-        return new BanksGet();
+    public GraduatesJudgmentsGet createGraduatesJudgmentsGet() {
+        return new GraduatesJudgmentsGet();
     }
 
     /**
@@ -1963,6 +2123,14 @@ public class ObjectFactory {
      */
     public UniversityGovernanceTypesCategoryGet createUniversityGovernanceTypesCategoryGet() {
         return new UniversityGovernanceTypesCategoryGet();
+    }
+
+    /**
+     * Create an instance of {@link BanksGet }
+     * 
+     */
+    public BanksGet createBanksGet() {
+        return new BanksGet();
     }
 
     /**
@@ -2006,6 +2174,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesUseKnowledgeGet }
+     * 
+     */
+    public GlobalEducationalCyclesUseKnowledgeGet createGlobalEducationalCyclesUseKnowledgeGet() {
+        return new GlobalEducationalCyclesUseKnowledgeGet();
+    }
+
+    /**
      * Create an instance of {@link AcademicRankTypeGet }
      * 
      */
@@ -2046,19 +2222,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicCouncilSpecDecisionGet }
-     * 
-     */
-    public AcademicCouncilSpecDecisionGet createAcademicCouncilSpecDecisionGet() {
-        return new AcademicCouncilSpecDecisionGet();
-    }
-
-    /**
      * Create an instance of {@link UniversityScienseSpecialitiesAspirantsAddResponse }
      * 
      */
     public UniversityScienseSpecialitiesAspirantsAddResponse createUniversityScienseSpecialitiesAspirantsAddResponse() {
         return new UniversityScienseSpecialitiesAspirantsAddResponse();
+    }
+
+    /**
+     * Create an instance of {@link AcademicCouncilSpecDecisionGet }
+     * 
+     */
+    public AcademicCouncilSpecDecisionGet createAcademicCouncilSpecDecisionGet() {
+        return new AcademicCouncilSpecDecisionGet();
     }
 
     /**
@@ -2502,6 +2678,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UniversitiesRestore }
+     * 
+     */
+    public UniversitiesRestore createUniversitiesRestore() {
+        return new UniversitiesRestore();
+    }
+
+    /**
      * Create an instance of {@link GlobaliInfoGet }
      * 
      */
@@ -2510,19 +2694,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link OrdersOfEnrollmentsGet }
-     * 
-     */
-    public OrdersOfEnrollmentsGet createOrdersOfEnrollmentsGet() {
-        return new OrdersOfEnrollmentsGet();
-    }
-
-    /**
      * Create an instance of {@link UniversityGovernanceTypesRestoreResponse }
      * 
      */
     public UniversityGovernanceTypesRestoreResponse createUniversityGovernanceTypesRestoreResponse() {
         return new UniversityGovernanceTypesRestoreResponse();
+    }
+
+    /**
+     * Create an instance of {@link OrdersOfEnrollmentsGet }
+     * 
+     */
+    public OrdersOfEnrollmentsGet createOrdersOfEnrollmentsGet() {
+        return new OrdersOfEnrollmentsGet();
     }
 
     /**
@@ -2566,11 +2750,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicReportsFactPriyomDel }
+     * Create an instance of {@link GlobalEducationalCyclesUseKnowledgeGetResponse }
      * 
      */
-    public AcademicReportsFactPriyomDel createAcademicReportsFactPriyomDel() {
-        return new AcademicReportsFactPriyomDel();
+    public GlobalEducationalCyclesUseKnowledgeGetResponse createGlobalEducationalCyclesUseKnowledgeGetResponse() {
+        return new GlobalEducationalCyclesUseKnowledgeGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDGlobalEducationalCyclesUseKnowledge }
+     * 
+     */
+    public ArrayOfDGlobalEducationalCyclesUseKnowledge createArrayOfDGlobalEducationalCyclesUseKnowledge() {
+        return new ArrayOfDGlobalEducationalCyclesUseKnowledge();
     }
 
     /**
@@ -2587,6 +2779,14 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityOperatorStateOrders createArrayOfDUniversityOperatorStateOrders() {
         return new ArrayOfDUniversityOperatorStateOrders();
+    }
+
+    /**
+     * Create an instance of {@link AcademicReportsFactPriyomDel }
+     * 
+     */
+    public AcademicReportsFactPriyomDel createAcademicReportsFactPriyomDel() {
+        return new AcademicReportsFactPriyomDel();
     }
 
     /**
@@ -2742,6 +2942,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link PerformanceIndicatorsAddResponse }
+     * 
+     */
+    public PerformanceIndicatorsAddResponse createPerformanceIndicatorsAddResponse() {
+        return new PerformanceIndicatorsAddResponse();
+    }
+
+    /**
      * Create an instance of {@link AcademicReportsSpecGetResponse }
      * 
      */
@@ -2755,14 +2963,6 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicReportsSpec createArrayOfDAcademicReportsSpec() {
         return new ArrayOfDAcademicReportsSpec();
-    }
-
-    /**
-     * Create an instance of {@link PerformanceIndicatorsAddResponse }
-     * 
-     */
-    public PerformanceIndicatorsAddResponse createPerformanceIndicatorsAddResponse() {
-        return new PerformanceIndicatorsAddResponse();
     }
 
     /**
@@ -2806,19 +3006,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EducationalCyclesDisciplinesDelResponse }
-     * 
-     */
-    public EducationalCyclesDisciplinesDelResponse createEducationalCyclesDisciplinesDelResponse() {
-        return new EducationalCyclesDisciplinesDelResponse();
-    }
-
-    /**
      * Create an instance of {@link SpecSpecializationRequestsGet }
      * 
      */
     public SpecSpecializationRequestsGet createSpecSpecializationRequestsGet() {
         return new SpecSpecializationRequestsGet();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesDisciplinesDelResponse }
+     * 
+     */
+    public EducationalCyclesDisciplinesDelResponse createEducationalCyclesDisciplinesDelResponse() {
+        return new EducationalCyclesDisciplinesDelResponse();
     }
 
     /**
@@ -2918,19 +3118,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityStructureSpecialitiesAdd }
-     * 
-     */
-    public UniversityStructureSpecialitiesAdd createUniversityStructureSpecialitiesAdd() {
-        return new UniversityStructureSpecialitiesAdd();
-    }
-
-    /**
      * Create an instance of {@link PersonRequestSeasonRequestAddCustomUniversitySettingDel }
      * 
      */
     public PersonRequestSeasonRequestAddCustomUniversitySettingDel createPersonRequestSeasonRequestAddCustomUniversitySettingDel() {
         return new PersonRequestSeasonRequestAddCustomUniversitySettingDel();
+    }
+
+    /**
+     * Create an instance of {@link UniversityStructureSpecialitiesAdd }
+     * 
+     */
+    public UniversityStructureSpecialitiesAdd createUniversityStructureSpecialitiesAdd() {
+        return new UniversityStructureSpecialitiesAdd();
     }
 
     /**
@@ -2979,6 +3179,14 @@ public class ObjectFactory {
      */
     public UniversityLicensesPtnzSvidEdit createUniversityLicensesPtnzSvidEdit() {
         return new UniversityLicensesPtnzSvidEdit();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesUseKnowledgeDel }
+     * 
+     */
+    public GlobalEducationalCyclesUseKnowledgeDel createGlobalEducationalCyclesUseKnowledgeDel() {
+        return new GlobalEducationalCyclesUseKnowledgeDel();
     }
 
     /**
@@ -3035,6 +3243,22 @@ public class ObjectFactory {
      */
     public EducationalCyclesDisciplinesFillFromPattern createEducationalCyclesDisciplinesFillFromPattern() {
         return new EducationalCyclesDisciplinesFillFromPattern();
+    }
+
+    /**
+     * Create an instance of {@link UniversityLicenseCertificateProlongationTypeGetResponse }
+     * 
+     */
+    public UniversityLicenseCertificateProlongationTypeGetResponse createUniversityLicenseCertificateProlongationTypeGetResponse() {
+        return new UniversityLicenseCertificateProlongationTypeGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDUniversityLicenseCertificateProlongationType }
+     * 
+     */
+    public ArrayOfDUniversityLicenseCertificateProlongationType createArrayOfDUniversityLicenseCertificateProlongationType() {
+        return new ArrayOfDUniversityLicenseCertificateProlongationType();
     }
 
     /**
@@ -3142,19 +3366,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EducationalCyclesDisciplinesGroupsDel }
-     * 
-     */
-    public EducationalCyclesDisciplinesGroupsDel createEducationalCyclesDisciplinesGroupsDel() {
-        return new EducationalCyclesDisciplinesGroupsDel();
-    }
-
-    /**
      * Create an instance of {@link PerformanceIndicatorsAdditionalValuesGet }
      * 
      */
     public PerformanceIndicatorsAdditionalValuesGet createPerformanceIndicatorsAdditionalValuesGet() {
         return new PerformanceIndicatorsAdditionalValuesGet();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesDisciplinesGroupsDel }
+     * 
+     */
+    public EducationalCyclesDisciplinesGroupsDel createEducationalCyclesDisciplinesGroupsDel() {
+        return new EducationalCyclesDisciplinesGroupsDel();
     }
 
     /**
@@ -3174,6 +3398,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link WebPersonStatementImport }
+     * 
+     */
+    public WebPersonStatementImport createWebPersonStatementImport() {
+        return new WebPersonStatementImport();
+    }
+
+    /**
      * Create an instance of {@link AcademicRankGetResponse }
      * 
      */
@@ -3187,14 +3419,6 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicRank createArrayOfDAcademicRank() {
         return new ArrayOfDAcademicRank();
-    }
-
-    /**
-     * Create an instance of {@link WebPersonStatementImport }
-     * 
-     */
-    public WebPersonStatementImport createWebPersonStatementImport() {
-        return new WebPersonStatementImport();
     }
 
     /**
@@ -3526,6 +3750,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesJudgmentsEdit }
+     * 
+     */
+    public GlobalEducationalCyclesJudgmentsEdit createGlobalEducationalCyclesJudgmentsEdit() {
+        return new GlobalEducationalCyclesJudgmentsEdit();
+    }
+
+    /**
      * Create an instance of {@link OrderOfDocumentsGet }
      * 
      */
@@ -3534,19 +3766,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicCardsAdd }
-     * 
-     */
-    public AcademicCardsAdd createAcademicCardsAdd() {
-        return new AcademicCardsAdd();
-    }
-
-    /**
      * Create an instance of {@link UniversityManagmentOrganisationsGet }
      * 
      */
     public UniversityManagmentOrganisationsGet createUniversityManagmentOrganisationsGet() {
         return new UniversityManagmentOrganisationsGet();
+    }
+
+    /**
+     * Create an instance of {@link AcademicCardsAdd }
+     * 
+     */
+    public AcademicCardsAdd createAcademicCardsAdd() {
+        return new AcademicCardsAdd();
     }
 
     /**
@@ -3678,19 +3910,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GlobalOrdersDel }
-     * 
-     */
-    public GlobalOrdersDel createGlobalOrdersDel() {
-        return new GlobalOrdersDel();
-    }
-
-    /**
      * Create an instance of {@link UniversityImportDocGenerate2 }
      * 
      */
     public UniversityImportDocGenerate2 createUniversityImportDocGenerate2() {
         return new UniversityImportDocGenerate2();
+    }
+
+    /**
+     * Create an instance of {@link GlobalOrdersDel }
+     * 
+     */
+    public GlobalOrdersDel createGlobalOrdersDel() {
+        return new GlobalOrdersDel();
     }
 
     /**
@@ -4022,6 +4254,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesJudgmentsEditResponse }
+     * 
+     */
+    public GlobalEducationalCyclesJudgmentsEditResponse createGlobalEducationalCyclesJudgmentsEditResponse() {
+        return new GlobalEducationalCyclesJudgmentsEditResponse();
+    }
+
+    /**
      * Create an instance of {@link UniversityOrderRequestsCalendarDayUserVisibleChange }
      * 
      */
@@ -4046,19 +4286,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityStateOrdersAdd }
-     * 
-     */
-    public UniversityStateOrdersAdd createUniversityStateOrdersAdd() {
-        return new UniversityStateOrdersAdd();
-    }
-
-    /**
      * Create an instance of {@link SpecSpecializationRequestsStatusChangeResponse }
      * 
      */
     public SpecSpecializationRequestsStatusChangeResponse createSpecSpecializationRequestsStatusChangeResponse() {
         return new SpecSpecializationRequestsStatusChangeResponse();
+    }
+
+    /**
+     * Create an instance of {@link UniversityStateOrdersAdd }
+     * 
+     */
+    public UniversityStateOrdersAdd createUniversityStateOrdersAdd() {
+        return new UniversityStateOrdersAdd();
     }
 
     /**
@@ -4219,6 +4459,14 @@ public class ObjectFactory {
      */
     public ArrayOfDReceptionConditionAdditionsTableData5 createArrayOfDReceptionConditionAdditionsTableData5() {
         return new ArrayOfDReceptionConditionAdditionsTableData5();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesKnowledgeFill }
+     * 
+     */
+    public EducationalCyclesKnowledgeFill createEducationalCyclesKnowledgeFill() {
+        return new EducationalCyclesKnowledgeFill();
     }
 
     /**
@@ -4438,19 +4686,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicBoardDel }
-     * 
-     */
-    public AcademicBoardDel createAcademicBoardDel() {
-        return new AcademicBoardDel();
-    }
-
-    /**
      * Create an instance of {@link WebPersonsGet }
      * 
      */
     public WebPersonsGet createWebPersonsGet() {
         return new WebPersonsGet();
+    }
+
+    /**
+     * Create an instance of {@link AcademicBoardDel }
+     * 
+     */
+    public AcademicBoardDel createAcademicBoardDel() {
+        return new AcademicBoardDel();
     }
 
     /**
@@ -4598,6 +4846,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UniversityGovernanceTypesDelResponse }
+     * 
+     */
+    public UniversityGovernanceTypesDelResponse createUniversityGovernanceTypesDelResponse() {
+        return new UniversityGovernanceTypesDelResponse();
+    }
+
+    /**
      * Create an instance of {@link UniversitiesActivityAddResponse }
      * 
      */
@@ -4606,11 +4862,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityGovernanceTypesDelResponse }
+     * Create an instance of {@link CertifyingAgenciesEditResponse }
      * 
      */
-    public UniversityGovernanceTypesDelResponse createUniversityGovernanceTypesDelResponse() {
-        return new UniversityGovernanceTypesDelResponse();
+    public CertifyingAgenciesEditResponse createCertifyingAgenciesEditResponse() {
+        return new CertifyingAgenciesEditResponse();
     }
 
     /**
@@ -4686,19 +4942,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicCouncilSpecDecisionDel }
-     * 
-     */
-    public AcademicCouncilSpecDecisionDel createAcademicCouncilSpecDecisionDel() {
-        return new AcademicCouncilSpecDecisionDel();
-    }
-
-    /**
      * Create an instance of {@link AcademicEducationOrdersDel }
      * 
      */
     public AcademicEducationOrdersDel createAcademicEducationOrdersDel() {
         return new AcademicEducationOrdersDel();
+    }
+
+    /**
+     * Create an instance of {@link AcademicCouncilSpecDecisionDel }
+     * 
+     */
+    public AcademicCouncilSpecDecisionDel createAcademicCouncilSpecDecisionDel() {
+        return new AcademicCouncilSpecDecisionDel();
     }
 
     /**
@@ -4718,14 +4974,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityCoursesStudentsDataAdd }
-     * 
-     */
-    public UniversityCoursesStudentsDataAdd createUniversityCoursesStudentsDataAdd() {
-        return new UniversityCoursesStudentsDataAdd();
-    }
-
-    /**
      * Create an instance of {@link UniversityLicensesDataDelResponse }
      * 
      */
@@ -4734,11 +4982,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UniversityCoursesStudentsDataAdd }
+     * 
+     */
+    public UniversityCoursesStudentsDataAdd createUniversityCoursesStudentsDataAdd() {
+        return new UniversityCoursesStudentsDataAdd();
+    }
+
+    /**
      * Create an instance of {@link ProfessionUpStudentsDel }
      * 
      */
     public ProfessionUpStudentsDel createProfessionUpStudentsDel() {
         return new ProfessionUpStudentsDel();
+    }
+
+    /**
+     * Create an instance of {@link OrderOfDocumentsSendPackageDataStatusChange }
+     * 
+     */
+    public OrderOfDocumentsSendPackageDataStatusChange createOrderOfDocumentsSendPackageDataStatusChange() {
+        return new OrderOfDocumentsSendPackageDataStatusChange();
     }
 
     /**
@@ -4755,14 +5019,6 @@ public class ObjectFactory {
      */
     public ArrayOfDUzLogData createArrayOfDUzLogData() {
         return new ArrayOfDUzLogData();
-    }
-
-    /**
-     * Create an instance of {@link OrderOfDocumentsSendPackageDataStatusChange }
-     * 
-     */
-    public OrderOfDocumentsSendPackageDataStatusChange createOrderOfDocumentsSendPackageDataStatusChange() {
-        return new OrderOfDocumentsSendPackageDataStatusChange();
     }
 
     /**
@@ -4819,6 +5075,14 @@ public class ObjectFactory {
      */
     public ArrayOfDDictOrderOfDocumentsRegionsDocuments createArrayOfDDictOrderOfDocumentsRegionsDocuments() {
         return new ArrayOfDDictOrderOfDocumentsRegionsDocuments();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesUseKnowledgeEditResponse }
+     * 
+     */
+    public GlobalEducationalCyclesUseKnowledgeEditResponse createGlobalEducationalCyclesUseKnowledgeEditResponse() {
+        return new GlobalEducationalCyclesUseKnowledgeEditResponse();
     }
 
     /**
@@ -4894,19 +5158,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicBoardDelResponse }
-     * 
-     */
-    public AcademicBoardDelResponse createAcademicBoardDelResponse() {
-        return new AcademicBoardDelResponse();
-    }
-
-    /**
      * Create an instance of {@link UzCurentDocsGet }
      * 
      */
     public UzCurentDocsGet createUzCurentDocsGet() {
         return new UzCurentDocsGet();
+    }
+
+    /**
+     * Create an instance of {@link AcademicBoardDelResponse }
+     * 
+     */
+    public AcademicBoardDelResponse createAcademicBoardDelResponse() {
+        return new AcademicBoardDelResponse();
     }
 
     /**
@@ -5110,6 +5374,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesKnowledgeAddResponse }
+     * 
+     */
+    public GlobalEducationalCyclesKnowledgeAddResponse createGlobalEducationalCyclesKnowledgeAddResponse() {
+        return new GlobalEducationalCyclesKnowledgeAddResponse();
+    }
+
+    /**
      * Create an instance of {@link CertifyingAgenciesGet }
      * 
      */
@@ -5206,6 +5478,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link PerformanceIndicatorsDel }
+     * 
+     */
+    public PerformanceIndicatorsDel createPerformanceIndicatorsDel() {
+        return new PerformanceIndicatorsDel();
+    }
+
+    /**
      * Create an instance of {@link EducationalCyclesStudentsGetByEduParamsResponse }
      * 
      */
@@ -5219,14 +5499,6 @@ public class ObjectFactory {
      */
     public ArrayOfDEducationalCyclesStudentsGetByEduParams createArrayOfDEducationalCyclesStudentsGetByEduParams() {
         return new ArrayOfDEducationalCyclesStudentsGetByEduParams();
-    }
-
-    /**
-     * Create an instance of {@link PerformanceIndicatorsDel }
-     * 
-     */
-    public PerformanceIndicatorsDel createPerformanceIndicatorsDel() {
-        return new PerformanceIndicatorsDel();
     }
 
     /**
@@ -5326,6 +5598,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UniversitiesRestoreResponse }
+     * 
+     */
+    public UniversitiesRestoreResponse createUniversitiesRestoreResponse() {
+        return new UniversitiesRestoreResponse();
+    }
+
+    /**
      * Create an instance of {@link UniversityBuildingDocumentsEdit }
      * 
      */
@@ -5374,6 +5654,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesJudgmentsGet }
+     * 
+     */
+    public EducationalCyclesJudgmentsGet createEducationalCyclesJudgmentsGet() {
+        return new EducationalCyclesJudgmentsGet();
+    }
+
+    /**
      * Create an instance of {@link VakAcademicAttestationCaseRemoveFromBoardResponse }
      * 
      */
@@ -5387,6 +5675,14 @@ public class ObjectFactory {
      */
     public UniversityLicenseCertificateDelResponse createUniversityLicenseCertificateDelResponse() {
         return new UniversityLicenseCertificateDelResponse();
+    }
+
+    /**
+     * Create an instance of {@link SpecSpecializationRequestsGroupStatusChange }
+     * 
+     */
+    public SpecSpecializationRequestsGroupStatusChange createSpecSpecializationRequestsGroupStatusChange() {
+        return new SpecSpecializationRequestsGroupStatusChange();
     }
 
     /**
@@ -5411,14 +5707,6 @@ public class ObjectFactory {
      */
     public ExaminationSheetsEditResponse createExaminationSheetsEditResponse() {
         return new ExaminationSheetsEditResponse();
-    }
-
-    /**
-     * Create an instance of {@link SpecSpecializationRequestsGroupStatusChange }
-     * 
-     */
-    public SpecSpecializationRequestsGroupStatusChange createSpecSpecializationRequestsGroupStatusChange() {
-        return new SpecSpecializationRequestsGroupStatusChange();
     }
 
     /**
@@ -5518,6 +5806,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesUseKnowledgeDelResponse }
+     * 
+     */
+    public GlobalEducationalCyclesUseKnowledgeDelResponse createGlobalEducationalCyclesUseKnowledgeDelResponse() {
+        return new GlobalEducationalCyclesUseKnowledgeDelResponse();
+    }
+
+    /**
      * Create an instance of {@link UniversityStateOrdersStatusChange }
      * 
      */
@@ -5539,6 +5835,14 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityFacultetSpecialities createArrayOfDUniversityFacultetSpecialities() {
         return new ArrayOfDUniversityFacultetSpecialities();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesJudgmentsFillResponse }
+     * 
+     */
+    public EducationalCyclesJudgmentsFillResponse createEducationalCyclesJudgmentsFillResponse() {
+        return new EducationalCyclesJudgmentsFillResponse();
     }
 
     /**
@@ -5694,6 +5998,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraduatesProgramGet }
+     * 
+     */
+    public GraduatesProgramGet createGraduatesProgramGet() {
+        return new GraduatesProgramGet();
+    }
+
+    /**
      * Create an instance of {@link UniversityDisciplinesCategoryAdd }
      * 
      */
@@ -5782,6 +6094,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link WebAddPersonToEdboResponse }
+     * 
+     */
+    public WebAddPersonToEdboResponse createWebAddPersonToEdboResponse() {
+        return new WebAddPersonToEdboResponse();
+    }
+
+    /**
      * Create an instance of {@link GraduatesDataDisciplinesNationalGradesTypesGetResponse }
      * 
      */
@@ -5795,14 +6115,6 @@ public class ObjectFactory {
      */
     public ArrayOfDGraduatesDataDisciplinesNationalGradesTypes createArrayOfDGraduatesDataDisciplinesNationalGradesTypes() {
         return new ArrayOfDGraduatesDataDisciplinesNationalGradesTypes();
-    }
-
-    /**
-     * Create an instance of {@link WebAddPersonToEdboResponse }
-     * 
-     */
-    public WebAddPersonToEdboResponse createWebAddPersonToEdboResponse() {
-        return new WebAddPersonToEdboResponse();
     }
 
     /**
@@ -5827,6 +6139,22 @@ public class ObjectFactory {
      */
     public UniversityMemorandumsGet createUniversityMemorandumsGet() {
         return new UniversityMemorandumsGet();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesJudgmentsGetResponse }
+     * 
+     */
+    public GraduatesJudgmentsGetResponse createGraduatesJudgmentsGetResponse() {
+        return new GraduatesJudgmentsGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDGraduatesJudgments }
+     * 
+     */
+    public ArrayOfDGraduatesJudgments createArrayOfDGraduatesJudgments() {
+        return new ArrayOfDGraduatesJudgments();
     }
 
     /**
@@ -5886,6 +6214,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeEditResponse }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeEditResponse createEducationalCyclesUseKnowledgeEditResponse() {
+        return new EducationalCyclesUseKnowledgeEditResponse();
+    }
+
+    /**
      * Create an instance of {@link DeliveryOfDocumentsAddResponse }
      * 
      */
@@ -5931,6 +6267,14 @@ public class ObjectFactory {
      */
     public VakAcademicAttestationCaseHistoryGet createVakAcademicAttestationCaseHistoryGet() {
         return new VakAcademicAttestationCaseHistoryGet();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesKnowledgeFillResponse }
+     * 
+     */
+    public GraduatesKnowledgeFillResponse createGraduatesKnowledgeFillResponse() {
+        return new GraduatesKnowledgeFillResponse();
     }
 
     /**
@@ -6102,6 +6446,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesKnowledgeDelResponse }
+     * 
+     */
+    public EducationalCyclesKnowledgeDelResponse createEducationalCyclesKnowledgeDelResponse() {
+        return new EducationalCyclesKnowledgeDelResponse();
+    }
+
+    /**
      * Create an instance of {@link DeliveryOfDocumentsDelResponse }
      * 
      */
@@ -6182,6 +6534,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesProgramAddResponse }
+     * 
+     */
+    public EducationalCyclesProgramAddResponse createEducationalCyclesProgramAddResponse() {
+        return new EducationalCyclesProgramAddResponse();
+    }
+
+    /**
      * Create an instance of {@link AcademicReports7AEditResponse }
      * 
      */
@@ -6206,22 +6566,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link WebPersonsStatusTypeGet }
-     * 
-     */
-    public WebPersonsStatusTypeGet createWebPersonsStatusTypeGet() {
-        return new WebPersonsStatusTypeGet();
-    }
-
-    /**
-     * Create an instance of {@link UniversityBuildingDocumentsDel }
-     * 
-     */
-    public UniversityBuildingDocumentsDel createUniversityBuildingDocumentsDel() {
-        return new UniversityBuildingDocumentsDel();
-    }
-
-    /**
      * Create an instance of {@link UniversityTypesOfFinansingGetResponse }
      * 
      */
@@ -6235,6 +6579,22 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityTypesOfFinansing createArrayOfDUniversityTypesOfFinansing() {
         return new ArrayOfDUniversityTypesOfFinansing();
+    }
+
+    /**
+     * Create an instance of {@link WebPersonsStatusTypeGet }
+     * 
+     */
+    public WebPersonsStatusTypeGet createWebPersonsStatusTypeGet() {
+        return new WebPersonsStatusTypeGet();
+    }
+
+    /**
+     * Create an instance of {@link UniversityBuildingDocumentsDel }
+     * 
+     */
+    public UniversityBuildingDocumentsDel createUniversityBuildingDocumentsDel() {
+        return new UniversityBuildingDocumentsDel();
     }
 
     /**
@@ -6347,6 +6707,14 @@ public class ObjectFactory {
      */
     public SpecSpecializationRequestsGroupStatusesGet createSpecSpecializationRequestsGroupStatusesGet() {
         return new SpecSpecializationRequestsGroupStatusesGet();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesAdditionalInfoEdit }
+     * 
+     */
+    public GraduatesAdditionalInfoEdit createGraduatesAdditionalInfoEdit() {
+        return new GraduatesAdditionalInfoEdit();
     }
 
     /**
@@ -6478,19 +6846,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EducationalCyclesPatternDisciplinesAddResponse }
-     * 
-     */
-    public EducationalCyclesPatternDisciplinesAddResponse createEducationalCyclesPatternDisciplinesAddResponse() {
-        return new EducationalCyclesPatternDisciplinesAddResponse();
-    }
-
-    /**
      * Create an instance of {@link AcademicBoardEdit }
      * 
      */
     public AcademicBoardEdit createAcademicBoardEdit() {
         return new AcademicBoardEdit();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesPatternDisciplinesAddResponse }
+     * 
+     */
+    public EducationalCyclesPatternDisciplinesAddResponse createEducationalCyclesPatternDisciplinesAddResponse() {
+        return new EducationalCyclesPatternDisciplinesAddResponse();
     }
 
     /**
@@ -6619,6 +6987,14 @@ public class ObjectFactory {
      */
     public SpecProfessionsRangTypeGet createSpecProfessionsRangTypeGet() {
         return new SpecProfessionsRangTypeGet();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesKnowledgeGet }
+     * 
+     */
+    public GlobalEducationalCyclesKnowledgeGet createGlobalEducationalCyclesKnowledgeGet() {
+        return new GlobalEducationalCyclesKnowledgeGet();
     }
 
     /**
@@ -6758,14 +7134,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GlobalOrdersDelResponse }
-     * 
-     */
-    public GlobalOrdersDelResponse createGlobalOrdersDelResponse() {
-        return new GlobalOrdersDelResponse();
-    }
-
-    /**
      * Create an instance of {@link WebCheckStatsGetResponse }
      * 
      */
@@ -6779,6 +7147,30 @@ public class ObjectFactory {
      */
     public ArrayOfDWebCheckStats createArrayOfDWebCheckStats() {
         return new ArrayOfDWebCheckStats();
+    }
+
+    /**
+     * Create an instance of {@link GlobalOrdersDelResponse }
+     * 
+     */
+    public GlobalOrdersDelResponse createGlobalOrdersDelResponse() {
+        return new GlobalOrdersDelResponse();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesAdditionalInfoGetResponse }
+     * 
+     */
+    public GraduatesAdditionalInfoGetResponse createGraduatesAdditionalInfoGetResponse() {
+        return new GraduatesAdditionalInfoGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDGraduatesAdditionalInfo }
+     * 
+     */
+    public ArrayOfDGraduatesAdditionalInfo createArrayOfDGraduatesAdditionalInfo() {
+        return new ArrayOfDGraduatesAdditionalInfo();
     }
 
     /**
@@ -6830,19 +7222,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityBuildingPasportsDel }
-     * 
-     */
-    public UniversityBuildingPasportsDel createUniversityBuildingPasportsDel() {
-        return new UniversityBuildingPasportsDel();
-    }
-
-    /**
      * Create an instance of {@link UniversityImportDocDataAddToDeliveryResponse }
      * 
      */
     public UniversityImportDocDataAddToDeliveryResponse createUniversityImportDocDataAddToDeliveryResponse() {
         return new UniversityImportDocDataAddToDeliveryResponse();
+    }
+
+    /**
+     * Create an instance of {@link UniversityBuildingPasportsDel }
+     * 
+     */
+    public UniversityBuildingPasportsDel createUniversityBuildingPasportsDel() {
+        return new UniversityBuildingPasportsDel();
     }
 
     /**
@@ -6862,6 +7254,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UniversityLicensesPtnzSvidDataEditResponse }
+     * 
+     */
+    public UniversityLicensesPtnzSvidDataEditResponse createUniversityLicensesPtnzSvidDataEditResponse() {
+        return new UniversityLicensesPtnzSvidDataEditResponse();
+    }
+
+    /**
      * Create an instance of {@link EDBOISUOreportRvk77ExistGetResponse }
      * 
      */
@@ -6878,11 +7278,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityLicensesPtnzSvidDataEditResponse }
+     * Create an instance of {@link GraduatesJudgmentsFill }
      * 
      */
-    public UniversityLicensesPtnzSvidDataEditResponse createUniversityLicensesPtnzSvidDataEditResponse() {
-        return new UniversityLicensesPtnzSvidDataEditResponse();
+    public GraduatesJudgmentsFill createGraduatesJudgmentsFill() {
+        return new GraduatesJudgmentsFill();
     }
 
     /**
@@ -6974,14 +7374,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EducationalCyclesPatternsAddResponse }
-     * 
-     */
-    public EducationalCyclesPatternsAddResponse createEducationalCyclesPatternsAddResponse() {
-        return new EducationalCyclesPatternsAddResponse();
-    }
-
-    /**
      * Create an instance of {@link UniversityImportDocTypeGetResponse }
      * 
      */
@@ -6998,6 +7390,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesPatternsAddResponse }
+     * 
+     */
+    public EducationalCyclesPatternsAddResponse createEducationalCyclesPatternsAddResponse() {
+        return new EducationalCyclesPatternsAddResponse();
+    }
+
+    /**
      * Create an instance of {@link AcademicEducationCancelationTypesGetResponse }
      * 
      */
@@ -7011,6 +7411,14 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicEducationCancelationTypes createArrayOfDAcademicEducationCancelationTypes() {
         return new ArrayOfDAcademicEducationCancelationTypes();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesJudgmentsEdit }
+     * 
+     */
+    public EducationalCyclesJudgmentsEdit createEducationalCyclesJudgmentsEdit() {
+        return new EducationalCyclesJudgmentsEdit();
     }
 
     /**
@@ -7094,6 +7502,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesJudgmentsFill }
+     * 
+     */
+    public EducationalCyclesJudgmentsFill createEducationalCyclesJudgmentsFill() {
+        return new EducationalCyclesJudgmentsFill();
+    }
+
+    /**
      * Create an instance of {@link OlympiadsGet2 }
      * 
      */
@@ -7142,6 +7558,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AcademicReportsPlanPriyomDataGet }
+     * 
+     */
+    public AcademicReportsPlanPriyomDataGet createAcademicReportsPlanPriyomDataGet() {
+        return new AcademicReportsPlanPriyomDataGet();
+    }
+
+    /**
      * Create an instance of {@link UniversityBuildingTypesGetResponse }
      * 
      */
@@ -7155,14 +7579,6 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityBuildingTypes createArrayOfDUniversityBuildingTypes() {
         return new ArrayOfDUniversityBuildingTypes();
-    }
-
-    /**
-     * Create an instance of {@link AcademicReportsPlanPriyomDataGet }
-     * 
-     */
-    public AcademicReportsPlanPriyomDataGet createAcademicReportsPlanPriyomDataGet() {
-        return new AcademicReportsPlanPriyomDataGet();
     }
 
     /**
@@ -7198,6 +7614,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link PersonEducationHistoryOrdersRequestsDataDel }
+     * 
+     */
+    public PersonEducationHistoryOrdersRequestsDataDel createPersonEducationHistoryOrdersRequestsDataDel() {
+        return new PersonEducationHistoryOrdersRequestsDataDel();
+    }
+
+    /**
      * Create an instance of {@link OrdersOfEnrollmentsAdditionalOrdersDataGetResponse }
      * 
      */
@@ -7211,14 +7635,6 @@ public class ObjectFactory {
      */
     public ArrayOfDOrdersOfEnrollmentsAdditionalOrdersData createArrayOfDOrdersOfEnrollmentsAdditionalOrdersData() {
         return new ArrayOfDOrdersOfEnrollmentsAdditionalOrdersData();
-    }
-
-    /**
-     * Create an instance of {@link PersonEducationHistoryOrdersRequestsDataDel }
-     * 
-     */
-    public PersonEducationHistoryOrdersRequestsDataDel createPersonEducationHistoryOrdersRequestsDataDel() {
-        return new PersonEducationHistoryOrdersRequestsDataDel();
     }
 
     /**
@@ -7254,19 +7670,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityBuildingDocumentsScanPagesGet }
-     * 
-     */
-    public UniversityBuildingDocumentsScanPagesGet createUniversityBuildingDocumentsScanPagesGet() {
-        return new UniversityBuildingDocumentsScanPagesGet();
-    }
-
-    /**
      * Create an instance of {@link AcademicReportsSpecEditResponse }
      * 
      */
     public AcademicReportsSpecEditResponse createAcademicReportsSpecEditResponse() {
         return new AcademicReportsSpecEditResponse();
+    }
+
+    /**
+     * Create an instance of {@link UniversityBuildingDocumentsScanPagesGet }
+     * 
+     */
+    public UniversityBuildingDocumentsScanPagesGet createUniversityBuildingDocumentsScanPagesGet() {
+        return new UniversityBuildingDocumentsScanPagesGet();
     }
 
     /**
@@ -7358,14 +7774,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityBuildingDocumentsScanAddResponse }
-     * 
-     */
-    public UniversityBuildingDocumentsScanAddResponse createUniversityBuildingDocumentsScanAddResponse() {
-        return new UniversityBuildingDocumentsScanAddResponse();
-    }
-
-    /**
      * Create an instance of {@link MinistersGetResponse }
      * 
      */
@@ -7382,11 +7790,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link M23NkAdd1Response }
+     * Create an instance of {@link UniversityBuildingDocumentsScanAddResponse }
      * 
      */
-    public M23NkAdd1Response createM23NkAdd1Response() {
-        return new M23NkAdd1Response();
+    public UniversityBuildingDocumentsScanAddResponse createUniversityBuildingDocumentsScanAddResponse() {
+        return new UniversityBuildingDocumentsScanAddResponse();
     }
 
     /**
@@ -7395,6 +7803,14 @@ public class ObjectFactory {
      */
     public UniversityGovernanceTypesRestore createUniversityGovernanceTypesRestore() {
         return new UniversityGovernanceTypesRestore();
+    }
+
+    /**
+     * Create an instance of {@link M23NkAdd1Response }
+     * 
+     */
+    public M23NkAdd1Response createM23NkAdd1Response() {
+        return new M23NkAdd1Response();
     }
 
     /**
@@ -7419,6 +7835,14 @@ public class ObjectFactory {
      */
     public ArrayOfDRegulationDocumentsRekvizit createArrayOfDRegulationDocumentsRekvizit() {
         return new ArrayOfDRegulationDocumentsRekvizit();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesKnowledgeFillResponse }
+     * 
+     */
+    public EducationalCyclesKnowledgeFillResponse createEducationalCyclesKnowledgeFillResponse() {
+        return new EducationalCyclesKnowledgeFillResponse();
     }
 
     /**
@@ -7526,14 +7950,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link VakAcademicAttestationCaseGet }
-     * 
-     */
-    public VakAcademicAttestationCaseGet createVakAcademicAttestationCaseGet() {
-        return new VakAcademicAttestationCaseGet();
-    }
-
-    /**
      * Create an instance of {@link AcademicReports1HKDataGet }
      * 
      */
@@ -7542,11 +7958,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RegulationDocumentsFileChange }
+     * Create an instance of {@link VakAcademicAttestationCaseGet }
      * 
      */
-    public RegulationDocumentsFileChange createRegulationDocumentsFileChange() {
-        return new RegulationDocumentsFileChange();
+    public VakAcademicAttestationCaseGet createVakAcademicAttestationCaseGet() {
+        return new VakAcademicAttestationCaseGet();
     }
 
     /**
@@ -7555,6 +7971,14 @@ public class ObjectFactory {
      */
     public SpecSpecializationRequestsGroupGet createSpecSpecializationRequestsGroupGet() {
         return new SpecSpecializationRequestsGroupGet();
+    }
+
+    /**
+     * Create an instance of {@link RegulationDocumentsFileChange }
+     * 
+     */
+    public RegulationDocumentsFileChange createRegulationDocumentsFileChange() {
+        return new RegulationDocumentsFileChange();
     }
 
     /**
@@ -7726,6 +8150,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesKnowledgeGetResponse }
+     * 
+     */
+    public EducationalCyclesKnowledgeGetResponse createEducationalCyclesKnowledgeGetResponse() {
+        return new EducationalCyclesKnowledgeGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDEducationalCyclesKnowledge }
+     * 
+     */
+    public ArrayOfDEducationalCyclesKnowledge createArrayOfDEducationalCyclesKnowledge() {
+        return new ArrayOfDEducationalCyclesKnowledge();
+    }
+
+    /**
      * Create an instance of {@link DeliveryOfDocumentsDocumentTypesGet }
      * 
      */
@@ -7795,6 +8235,14 @@ public class ObjectFactory {
      */
     public ProfessionUpsAddResponse createProfessionUpsAddResponse() {
         return new ProfessionUpsAddResponse();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesJudgmentsEditResponse }
+     * 
+     */
+    public EducationalCyclesJudgmentsEditResponse createEducationalCyclesJudgmentsEditResponse() {
+        return new EducationalCyclesJudgmentsEditResponse();
     }
 
     /**
@@ -7894,6 +8342,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesJudgmentsGetResponse }
+     * 
+     */
+    public EducationalCyclesJudgmentsGetResponse createEducationalCyclesJudgmentsGetResponse() {
+        return new EducationalCyclesJudgmentsGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDEducationalCyclesJudgments }
+     * 
+     */
+    public ArrayOfDEducationalCyclesJudgments createArrayOfDEducationalCyclesJudgments() {
+        return new ArrayOfDEducationalCyclesJudgments();
+    }
+
+    /**
      * Create an instance of {@link ReceptionConditionAdditionsTableData234EditResponse }
      * 
      */
@@ -7958,19 +8422,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReportEmploymentsAddResponse }
-     * 
-     */
-    public ReportEmploymentsAddResponse createReportEmploymentsAddResponse() {
-        return new ReportEmploymentsAddResponse();
-    }
-
-    /**
      * Create an instance of {@link UniversityLicenseCertificateDataAdd }
      * 
      */
     public UniversityLicenseCertificateDataAdd createUniversityLicenseCertificateDataAdd() {
         return new UniversityLicenseCertificateDataAdd();
+    }
+
+    /**
+     * Create an instance of {@link ReportEmploymentsAddResponse }
+     * 
+     */
+    public ReportEmploymentsAddResponse createReportEmploymentsAddResponse() {
+        return new ReportEmploymentsAddResponse();
     }
 
     /**
@@ -8422,6 +8886,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraduatesKnowledgeFill }
+     * 
+     */
+    public GraduatesKnowledgeFill createGraduatesKnowledgeFill() {
+        return new GraduatesKnowledgeFill();
+    }
+
+    /**
      * Create an instance of {@link AcademicCouncilScienseSpecialityGetResponse }
      * 
      */
@@ -8438,19 +8910,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicCardsAddResponse }
-     * 
-     */
-    public AcademicCardsAddResponse createAcademicCardsAddResponse() {
-        return new AcademicCardsAddResponse();
-    }
-
-    /**
      * Create an instance of {@link PersonWorkEditResponse }
      * 
      */
     public PersonWorkEditResponse createPersonWorkEditResponse() {
         return new PersonWorkEditResponse();
+    }
+
+    /**
+     * Create an instance of {@link AcademicCardsAddResponse }
+     * 
+     */
+    public AcademicCardsAddResponse createAcademicCardsAddResponse() {
+        return new AcademicCardsAddResponse();
     }
 
     /**
@@ -8622,14 +9094,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReportEmploymentsDataAddResponse }
-     * 
-     */
-    public ReportEmploymentsDataAddResponse createReportEmploymentsDataAddResponse() {
-        return new ReportEmploymentsDataAddResponse();
-    }
-
-    /**
      * Create an instance of {@link PersonWorkOrdersGetResponse }
      * 
      */
@@ -8646,11 +9110,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicReports7AAddResponse }
+     * Create an instance of {@link ReportEmploymentsDataAddResponse }
      * 
      */
-    public AcademicReports7AAddResponse createAcademicReports7AAddResponse() {
-        return new AcademicReports7AAddResponse();
+    public ReportEmploymentsDataAddResponse createReportEmploymentsDataAddResponse() {
+        return new ReportEmploymentsDataAddResponse();
     }
 
     /**
@@ -8659,6 +9123,14 @@ public class ObjectFactory {
      */
     public UniversityStateOrdersDataEditResponse createUniversityStateOrdersDataEditResponse() {
         return new UniversityStateOrdersDataEditResponse();
+    }
+
+    /**
+     * Create an instance of {@link AcademicReports7AAddResponse }
+     * 
+     */
+    public AcademicReports7AAddResponse createAcademicReports7AAddResponse() {
+        return new AcademicReports7AAddResponse();
     }
 
     /**
@@ -8766,19 +9238,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReportEmploymentsDel }
-     * 
-     */
-    public ReportEmploymentsDel createReportEmploymentsDel() {
-        return new ReportEmploymentsDel();
-    }
-
-    /**
      * Create an instance of {@link UniversityGovernanceTypesAdd }
      * 
      */
     public UniversityGovernanceTypesAdd createUniversityGovernanceTypesAdd() {
         return new UniversityGovernanceTypesAdd();
+    }
+
+    /**
+     * Create an instance of {@link ReportEmploymentsDel }
+     * 
+     */
+    public ReportEmploymentsDel createReportEmploymentsDel() {
+        return new ReportEmploymentsDel();
     }
 
     /**
@@ -8851,6 +9323,22 @@ public class ObjectFactory {
      */
     public EDBOISUOAuthorityGet createEDBOISUOAuthorityGet() {
         return new EDBOISUOAuthorityGet();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesKnowledgeGetResponse }
+     * 
+     */
+    public GraduatesKnowledgeGetResponse createGraduatesKnowledgeGetResponse() {
+        return new GraduatesKnowledgeGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDGraduatesKnowledge }
+     * 
+     */
+    public ArrayOfDGraduatesKnowledge createArrayOfDGraduatesKnowledge() {
+        return new ArrayOfDGraduatesKnowledge();
     }
 
     /**
@@ -9054,6 +9542,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesJudgmentsGetResponse }
+     * 
+     */
+    public GlobalEducationalCyclesJudgmentsGetResponse createGlobalEducationalCyclesJudgmentsGetResponse() {
+        return new GlobalEducationalCyclesJudgmentsGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDGlobalEducationalCyclesJudgments }
+     * 
+     */
+    public ArrayOfDGlobalEducationalCyclesJudgments createArrayOfDGlobalEducationalCyclesJudgments() {
+        return new ArrayOfDGlobalEducationalCyclesJudgments();
+    }
+
+    /**
      * Create an instance of {@link ReceptionConditionAdditionsTableData5SubjectsDel }
      * 
      */
@@ -9131,6 +9635,14 @@ public class ObjectFactory {
      */
     public UniversityGetEnableAddStudents createUniversityGetEnableAddStudents() {
         return new UniversityGetEnableAddStudents();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesUseKnowledgeFillResponse }
+     * 
+     */
+    public GraduatesUseKnowledgeFillResponse createGraduatesUseKnowledgeFillResponse() {
+        return new GraduatesUseKnowledgeFillResponse();
     }
 
     /**
@@ -9334,14 +9846,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReportEmploymentsDataEditResponse }
-     * 
-     */
-    public ReportEmploymentsDataEditResponse createReportEmploymentsDataEditResponse() {
-        return new ReportEmploymentsDataEditResponse();
-    }
-
-    /**
      * Create an instance of {@link AcademicReports1HKDataGetResponse }
      * 
      */
@@ -9355,6 +9859,14 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicReports1HKData createArrayOfDAcademicReports1HKData() {
         return new ArrayOfDAcademicReports1HKData();
+    }
+
+    /**
+     * Create an instance of {@link ReportEmploymentsDataEditResponse }
+     * 
+     */
+    public ReportEmploymentsDataEditResponse createReportEmploymentsDataEditResponse() {
+        return new ReportEmploymentsDataEditResponse();
     }
 
     /**
@@ -9478,19 +9990,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityLicensesAllSpecGet }
-     * 
-     */
-    public UniversityLicensesAllSpecGet createUniversityLicensesAllSpecGet() {
-        return new UniversityLicensesAllSpecGet();
-    }
-
-    /**
      * Create an instance of {@link AcademicReportsFactPriyomAddResponse }
      * 
      */
     public AcademicReportsFactPriyomAddResponse createAcademicReportsFactPriyomAddResponse() {
         return new AcademicReportsFactPriyomAddResponse();
+    }
+
+    /**
+     * Create an instance of {@link UniversityLicensesAllSpecGet }
+     * 
+     */
+    public UniversityLicensesAllSpecGet createUniversityLicensesAllSpecGet() {
+        return new UniversityLicensesAllSpecGet();
     }
 
     /**
@@ -9622,6 +10134,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesKnowledgeAdd }
+     * 
+     */
+    public EducationalCyclesKnowledgeAdd createEducationalCyclesKnowledgeAdd() {
+        return new EducationalCyclesKnowledgeAdd();
+    }
+
+    /**
      * Create an instance of {@link UniversityGroupsEditResponse }
      * 
      */
@@ -9750,22 +10270,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityLicensesAllProfsGetResponse }
-     * 
-     */
-    public UniversityLicensesAllProfsGetResponse createUniversityLicensesAllProfsGetResponse() {
-        return new UniversityLicensesAllProfsGetResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDUniversityLicensesAllProfs }
-     * 
-     */
-    public ArrayOfDUniversityLicensesAllProfs createArrayOfDUniversityLicensesAllProfs() {
-        return new ArrayOfDUniversityLicensesAllProfs();
-    }
-
-    /**
      * Create an instance of {@link AcademicReportsPlanPriyomGetResponse }
      * 
      */
@@ -9779,6 +10283,22 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicReportsPlanPriyom createArrayOfDAcademicReportsPlanPriyom() {
         return new ArrayOfDAcademicReportsPlanPriyom();
+    }
+
+    /**
+     * Create an instance of {@link UniversityLicensesAllProfsGetResponse }
+     * 
+     */
+    public UniversityLicensesAllProfsGetResponse createUniversityLicensesAllProfsGetResponse() {
+        return new UniversityLicensesAllProfsGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDUniversityLicensesAllProfs }
+     * 
+     */
+    public ArrayOfDUniversityLicensesAllProfs createArrayOfDUniversityLicensesAllProfs() {
+        return new ArrayOfDUniversityLicensesAllProfs();
     }
 
     /**
@@ -9862,22 +10382,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EDBOISUOreportRvk83GetResponse }
-     * 
-     */
-    public EDBOISUOreportRvk83GetResponse createEDBOISUOreportRvk83GetResponse() {
-        return new EDBOISUOreportRvk83GetResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDEDBOISUOreportRvk83 }
-     * 
-     */
-    public ArrayOfDEDBOISUOreportRvk83 createArrayOfDEDBOISUOreportRvk83() {
-        return new ArrayOfDEDBOISUOreportRvk83();
-    }
-
-    /**
      * Create an instance of {@link UniversitiesActivitySubTypesGetResponse }
      * 
      */
@@ -9891,6 +10395,22 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversitiesActivitySubTypes createArrayOfDUniversitiesActivitySubTypes() {
         return new ArrayOfDUniversitiesActivitySubTypes();
+    }
+
+    /**
+     * Create an instance of {@link EDBOISUOreportRvk83GetResponse }
+     * 
+     */
+    public EDBOISUOreportRvk83GetResponse createEDBOISUOreportRvk83GetResponse() {
+        return new EDBOISUOreportRvk83GetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDEDBOISUOreportRvk83 }
+     * 
+     */
+    public ArrayOfDEDBOISUOreportRvk83 createArrayOfDEDBOISUOreportRvk83() {
+        return new ArrayOfDEDBOISUOreportRvk83();
     }
 
     /**
@@ -9934,27 +10454,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityDocumentsGetResponse }
+     * Create an instance of {@link GraduatesDataAdditionalInfoGetResponse }
      * 
      */
-    public UniversityDocumentsGetResponse createUniversityDocumentsGetResponse() {
-        return new UniversityDocumentsGetResponse();
+    public GraduatesDataAdditionalInfoGetResponse createGraduatesDataAdditionalInfoGetResponse() {
+        return new GraduatesDataAdditionalInfoGetResponse();
     }
 
     /**
-     * Create an instance of {@link ArrayOfDUniversityDocuments }
+     * Create an instance of {@link ArrayOfDGraduatesDataAdditionalInfo }
      * 
      */
-    public ArrayOfDUniversityDocuments createArrayOfDUniversityDocuments() {
-        return new ArrayOfDUniversityDocuments();
-    }
-
-    /**
-     * Create an instance of {@link UniversityCoursesStudentsDelResponse }
-     * 
-     */
-    public UniversityCoursesStudentsDelResponse createUniversityCoursesStudentsDelResponse() {
-        return new UniversityCoursesStudentsDelResponse();
+    public ArrayOfDGraduatesDataAdditionalInfo createArrayOfDGraduatesDataAdditionalInfo() {
+        return new ArrayOfDGraduatesDataAdditionalInfo();
     }
 
     /**
@@ -9971,6 +10483,30 @@ public class ObjectFactory {
      */
     public ArrayOfDPerformanceIndicatorsAdditionalValues createArrayOfDPerformanceIndicatorsAdditionalValues() {
         return new ArrayOfDPerformanceIndicatorsAdditionalValues();
+    }
+
+    /**
+     * Create an instance of {@link UniversityCoursesStudentsDelResponse }
+     * 
+     */
+    public UniversityCoursesStudentsDelResponse createUniversityCoursesStudentsDelResponse() {
+        return new UniversityCoursesStudentsDelResponse();
+    }
+
+    /**
+     * Create an instance of {@link UniversityDocumentsGetResponse }
+     * 
+     */
+    public UniversityDocumentsGetResponse createUniversityDocumentsGetResponse() {
+        return new UniversityDocumentsGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDUniversityDocuments }
+     * 
+     */
+    public ArrayOfDUniversityDocuments createArrayOfDUniversityDocuments() {
+        return new ArrayOfDUniversityDocuments();
     }
 
     /**
@@ -9998,14 +10534,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityOrderRequestsAddResponse }
-     * 
-     */
-    public UniversityOrderRequestsAddResponse createUniversityOrderRequestsAddResponse() {
-        return new UniversityOrderRequestsAddResponse();
-    }
-
-    /**
      * Create an instance of {@link ScienceIndustryGetResponse }
      * 
      */
@@ -10019,6 +10547,22 @@ public class ObjectFactory {
      */
     public ArrayOfDScienceIndustry createArrayOfDScienceIndustry() {
         return new ArrayOfDScienceIndustry();
+    }
+
+    /**
+     * Create an instance of {@link UniversityOrderRequestsAddResponse }
+     * 
+     */
+    public UniversityOrderRequestsAddResponse createUniversityOrderRequestsAddResponse() {
+        return new UniversityOrderRequestsAddResponse();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesProgramDelResponse }
+     * 
+     */
+    public EducationalCyclesProgramDelResponse createEducationalCyclesProgramDelResponse() {
+        return new EducationalCyclesProgramDelResponse();
     }
 
     /**
@@ -10126,11 +10670,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UniversityLicenseCertificateProlongationTypeGet }
+     * 
+     */
+    public UniversityLicenseCertificateProlongationTypeGet createUniversityLicenseCertificateProlongationTypeGet() {
+        return new UniversityLicenseCertificateProlongationTypeGet();
+    }
+
+    /**
      * Create an instance of {@link ReceptionConditionAdditionsAdd }
      * 
      */
     public ReceptionConditionAdditionsAdd createReceptionConditionAdditionsAdd() {
         return new ReceptionConditionAdditionsAdd();
+    }
+
+    /**
+     * Create an instance of {@link PerformanceIndicatorsGet }
+     * 
+     */
+    public PerformanceIndicatorsGet createPerformanceIndicatorsGet() {
+        return new PerformanceIndicatorsGet();
     }
 
     /**
@@ -10142,11 +10702,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PerformanceIndicatorsGet }
+     * Create an instance of {@link GraduatesJudgmentsFillResponse }
      * 
      */
-    public PerformanceIndicatorsGet createPerformanceIndicatorsGet() {
-        return new PerformanceIndicatorsGet();
+    public GraduatesJudgmentsFillResponse createGraduatesJudgmentsFillResponse() {
+        return new GraduatesJudgmentsFillResponse();
     }
 
     /**
@@ -10486,19 +11046,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityLicenseCertificateAdd }
-     * 
-     */
-    public UniversityLicenseCertificateAdd createUniversityLicenseCertificateAdd() {
-        return new UniversityLicenseCertificateAdd();
-    }
-
-    /**
      * Create an instance of {@link AcademicReports8DAdd }
      * 
      */
     public AcademicReports8DAdd createAcademicReports8DAdd() {
         return new AcademicReports8DAdd();
+    }
+
+    /**
+     * Create an instance of {@link UniversityLicenseCertificateAdd }
+     * 
+     */
+    public UniversityLicenseCertificateAdd createUniversityLicenseCertificateAdd() {
+        return new UniversityLicenseCertificateAdd();
     }
 
     /**
@@ -10515,6 +11075,14 @@ public class ObjectFactory {
      */
     public ArrayOfDAlertsWeight createArrayOfDAlertsWeight() {
         return new ArrayOfDAlertsWeight();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesKnowledgeEditResponse }
+     * 
+     */
+    public GlobalEducationalCyclesKnowledgeEditResponse createGlobalEducationalCyclesKnowledgeEditResponse() {
+        return new GlobalEducationalCyclesKnowledgeEditResponse();
     }
 
     /**
@@ -10758,6 +11326,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeGet }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeGet createEducationalCyclesUseKnowledgeGet() {
+        return new EducationalCyclesUseKnowledgeGet();
+    }
+
+    /**
      * Create an instance of {@link AcademicReportsSpecDataGet }
      * 
      */
@@ -10838,19 +11414,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityEntrantWavesNotPostVstupInfoChangeEx }
-     * 
-     */
-    public UniversityEntrantWavesNotPostVstupInfoChangeEx createUniversityEntrantWavesNotPostVstupInfoChangeEx() {
-        return new UniversityEntrantWavesNotPostVstupInfoChangeEx();
-    }
-
-    /**
      * Create an instance of {@link SpecSpecializationRequestsEdit }
      * 
      */
     public SpecSpecializationRequestsEdit createSpecSpecializationRequestsEdit() {
         return new SpecSpecializationRequestsEdit();
+    }
+
+    /**
+     * Create an instance of {@link UniversityEntrantWavesNotPostVstupInfoChangeEx }
+     * 
+     */
+    public UniversityEntrantWavesNotPostVstupInfoChangeEx createUniversityEntrantWavesNotPostVstupInfoChangeEx() {
+        return new UniversityEntrantWavesNotPostVstupInfoChangeEx();
     }
 
     /**
@@ -10966,6 +11542,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalRishenEdit }
+     * 
+     */
+    public GlobalRishenEdit createGlobalRishenEdit() {
+        return new GlobalRishenEdit();
+    }
+
+    /**
      * Create an instance of {@link UniversityOrderRequestsCategoriesGetResponse }
      * 
      */
@@ -10979,14 +11563,6 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityOrderRequestsCategories createArrayOfDUniversityOrderRequestsCategories() {
         return new ArrayOfDUniversityOrderRequestsCategories();
-    }
-
-    /**
-     * Create an instance of {@link GlobalRishenEdit }
-     * 
-     */
-    public GlobalRishenEdit createGlobalRishenEdit() {
-        return new GlobalRishenEdit();
     }
 
     /**
@@ -11078,19 +11654,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversitiesActivityAdd }
-     * 
-     */
-    public UniversitiesActivityAdd createUniversitiesActivityAdd() {
-        return new UniversitiesActivityAdd();
-    }
-
-    /**
      * Create an instance of {@link UniversityGovernanceTypesGet }
      * 
      */
     public UniversityGovernanceTypesGet createUniversityGovernanceTypesGet() {
         return new UniversityGovernanceTypesGet();
+    }
+
+    /**
+     * Create an instance of {@link UniversitiesActivityAdd }
+     * 
+     */
+    public UniversitiesActivityAdd createUniversitiesActivityAdd() {
+        return new UniversitiesActivityAdd();
     }
 
     /**
@@ -11110,19 +11686,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicCouncilSpecDecisionAdd }
-     * 
-     */
-    public AcademicCouncilSpecDecisionAdd createAcademicCouncilSpecDecisionAdd() {
-        return new AcademicCouncilSpecDecisionAdd();
-    }
-
-    /**
      * Create an instance of {@link UniversityLicensesPtnzSvidDataDelResponse }
      * 
      */
     public UniversityLicensesPtnzSvidDataDelResponse createUniversityLicensesPtnzSvidDataDelResponse() {
         return new UniversityLicensesPtnzSvidDataDelResponse();
+    }
+
+    /**
+     * Create an instance of {@link AcademicCouncilSpecDecisionAdd }
+     * 
+     */
+    public AcademicCouncilSpecDecisionAdd createAcademicCouncilSpecDecisionAdd() {
+        return new AcademicCouncilSpecDecisionAdd();
     }
 
     /**
@@ -11150,6 +11726,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesProgramEditResponse }
+     * 
+     */
+    public EducationalCyclesProgramEditResponse createEducationalCyclesProgramEditResponse() {
+        return new EducationalCyclesProgramEditResponse();
+    }
+
+    /**
      * Create an instance of {@link OrdersOfEnrollmentsAcessesDel }
      * 
      */
@@ -11174,14 +11758,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicEducationHistoryTypeGet }
-     * 
-     */
-    public AcademicEducationHistoryTypeGet createAcademicEducationHistoryTypeGet() {
-        return new AcademicEducationHistoryTypeGet();
-    }
-
-    /**
      * Create an instance of {@link UniversityGovernanceTypesForEditGetResponse }
      * 
      */
@@ -11195,6 +11771,14 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityGovernanceTypesForEdit createArrayOfDUniversityGovernanceTypesForEdit() {
         return new ArrayOfDUniversityGovernanceTypesForEdit();
+    }
+
+    /**
+     * Create an instance of {@link AcademicEducationHistoryTypeGet }
+     * 
+     */
+    public AcademicEducationHistoryTypeGet createAcademicEducationHistoryTypeGet() {
+        return new AcademicEducationHistoryTypeGet();
     }
 
     /**
@@ -11323,6 +11907,14 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicCouncilPersons createArrayOfDAcademicCouncilPersons() {
         return new ArrayOfDAcademicCouncilPersons();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesJudgmentsAdd }
+     * 
+     */
+    public EducationalCyclesJudgmentsAdd createEducationalCyclesJudgmentsAdd() {
+        return new EducationalCyclesJudgmentsAdd();
     }
 
     /**
@@ -11782,19 +12374,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SupportRequestGetResponse }
+     * Create an instance of {@link UniversityLicensesDataEditResponse }
      * 
      */
-    public SupportRequestGetResponse createSupportRequestGetResponse() {
-        return new SupportRequestGetResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDSupportRequest }
-     * 
-     */
-    public ArrayOfDSupportRequest createArrayOfDSupportRequest() {
-        return new ArrayOfDSupportRequest();
+    public UniversityLicensesDataEditResponse createUniversityLicensesDataEditResponse() {
+        return new UniversityLicensesDataEditResponse();
     }
 
     /**
@@ -11814,11 +12398,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityLicensesDataEditResponse }
+     * Create an instance of {@link SupportRequestGetResponse }
      * 
      */
-    public UniversityLicensesDataEditResponse createUniversityLicensesDataEditResponse() {
-        return new UniversityLicensesDataEditResponse();
+    public SupportRequestGetResponse createSupportRequestGetResponse() {
+        return new SupportRequestGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDSupportRequest }
+     * 
+     */
+    public ArrayOfDSupportRequest createArrayOfDSupportRequest() {
+        return new ArrayOfDSupportRequest();
     }
 
     /**
@@ -11894,11 +12486,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraduatesAdditionalInfoEditResponse }
+     * 
+     */
+    public GraduatesAdditionalInfoEditResponse createGraduatesAdditionalInfoEditResponse() {
+        return new GraduatesAdditionalInfoEditResponse();
+    }
+
+    /**
      * Create an instance of {@link UniversityFacultetEdit2Response }
      * 
      */
     public UniversityFacultetEdit2Response createUniversityFacultetEdit2Response() {
         return new UniversityFacultetEdit2Response();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesKnowledgeGetResponse }
+     * 
+     */
+    public GlobalEducationalCyclesKnowledgeGetResponse createGlobalEducationalCyclesKnowledgeGetResponse() {
+        return new GlobalEducationalCyclesKnowledgeGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDGlobalEducationalCyclesKnowledge }
+     * 
+     */
+    public ArrayOfDGlobalEducationalCyclesKnowledge createArrayOfDGlobalEducationalCyclesKnowledge() {
+        return new ArrayOfDGlobalEducationalCyclesKnowledge();
     }
 
     /**
@@ -11934,11 +12550,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraduatesDataAdditionalInfoGet }
+     * 
+     */
+    public GraduatesDataAdditionalInfoGet createGraduatesDataAdditionalInfoGet() {
+        return new GraduatesDataAdditionalInfoGet();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesJudgmentsAddResponse }
+     * 
+     */
+    public GlobalEducationalCyclesJudgmentsAddResponse createGlobalEducationalCyclesJudgmentsAddResponse() {
+        return new GlobalEducationalCyclesJudgmentsAddResponse();
+    }
+
+    /**
      * Create an instance of {@link UniversityOrderRequestsRegisterResponse }
      * 
      */
     public UniversityOrderRequestsRegisterResponse createUniversityOrderRequestsRegisterResponse() {
         return new UniversityOrderRequestsRegisterResponse();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesJudgmentsDelResponse }
+     * 
+     */
+    public EducationalCyclesJudgmentsDelResponse createEducationalCyclesJudgmentsDelResponse() {
+        return new EducationalCyclesJudgmentsDelResponse();
     }
 
     /**
@@ -12358,6 +12998,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link WebPersonsEducationGet }
+     * 
+     */
+    public WebPersonsEducationGet createWebPersonsEducationGet() {
+        return new WebPersonsEducationGet();
+    }
+
+    /**
      * Create an instance of {@link AcademicCardsFindAcademicsResponse }
      * 
      */
@@ -12371,14 +13019,6 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicCardsFindAcademics createArrayOfDAcademicCardsFindAcademics() {
         return new ArrayOfDAcademicCardsFindAcademics();
-    }
-
-    /**
-     * Create an instance of {@link WebPersonsEducationGet }
-     * 
-     */
-    public WebPersonsEducationGet createWebPersonsEducationGet() {
-        return new WebPersonsEducationGet();
     }
 
     /**
@@ -12502,6 +13142,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesJudgmentsDel }
+     * 
+     */
+    public GlobalEducationalCyclesJudgmentsDel createGlobalEducationalCyclesJudgmentsDel() {
+        return new GlobalEducationalCyclesJudgmentsDel();
+    }
+
+    /**
      * Create an instance of {@link ReceptionConditionAdditionsTableData62GetResponse }
      * 
      */
@@ -12606,6 +13254,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraduatesKnowledgeGet }
+     * 
+     */
+    public GraduatesKnowledgeGet createGraduatesKnowledgeGet() {
+        return new GraduatesKnowledgeGet();
+    }
+
+    /**
      * Create an instance of {@link AcademicEducationOrdersGet }
      * 
      */
@@ -12638,19 +13294,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityOrderRequestsDataGet }
-     * 
-     */
-    public UniversityOrderRequestsDataGet createUniversityOrderRequestsDataGet() {
-        return new UniversityOrderRequestsDataGet();
-    }
-
-    /**
      * Create an instance of {@link UniversityBuildingTypesGet }
      * 
      */
     public UniversityBuildingTypesGet createUniversityBuildingTypesGet() {
         return new UniversityBuildingTypesGet();
+    }
+
+    /**
+     * Create an instance of {@link UniversityOrderRequestsDataGet }
+     * 
+     */
+    public UniversityOrderRequestsDataGet createUniversityOrderRequestsDataGet() {
+        return new UniversityOrderRequestsDataGet();
     }
 
     /**
@@ -12782,11 +13438,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityStateOrdersFillResponse }
+     * Create an instance of {@link EducationalCyclesProgramDel }
      * 
      */
-    public UniversityStateOrdersFillResponse createUniversityStateOrdersFillResponse() {
-        return new UniversityStateOrdersFillResponse();
+    public EducationalCyclesProgramDel createEducationalCyclesProgramDel() {
+        return new EducationalCyclesProgramDel();
     }
 
     /**
@@ -12795,6 +13451,14 @@ public class ObjectFactory {
      */
     public UniversityLicensesDataAdd createUniversityLicensesDataAdd() {
         return new UniversityLicensesDataAdd();
+    }
+
+    /**
+     * Create an instance of {@link UniversityStateOrdersFillResponse }
+     * 
+     */
+    public UniversityStateOrdersFillResponse createUniversityStateOrdersFillResponse() {
+        return new UniversityStateOrdersFillResponse();
     }
 
     /**
@@ -12843,6 +13507,14 @@ public class ObjectFactory {
      */
     public PersonWorkOrdersGet createPersonWorkOrdersGet() {
         return new PersonWorkOrdersGet();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesUseKnowledgeGet }
+     * 
+     */
+    public GraduatesUseKnowledgeGet createGraduatesUseKnowledgeGet() {
+        return new GraduatesUseKnowledgeGet();
     }
 
     /**
@@ -12918,6 +13590,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesKnowledgeDelResponse }
+     * 
+     */
+    public GlobalEducationalCyclesKnowledgeDelResponse createGlobalEducationalCyclesKnowledgeDelResponse() {
+        return new GlobalEducationalCyclesKnowledgeDelResponse();
+    }
+
+    /**
      * Create an instance of {@link RegulationDocumentsFileGetFirstPage }
      * 
      */
@@ -12926,11 +13606,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraduatesProgramFill }
+     * 
+     */
+    public GraduatesProgramFill createGraduatesProgramFill() {
+        return new GraduatesProgramFill();
+    }
+
+    /**
      * Create an instance of {@link UniversityRegistrationsAddResponse }
      * 
      */
     public UniversityRegistrationsAddResponse createUniversityRegistrationsAddResponse() {
         return new UniversityRegistrationsAddResponse();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesDataAdditionalInfoEditResponse }
+     * 
+     */
+    public GraduatesDataAdditionalInfoEditResponse createGraduatesDataAdditionalInfoEditResponse() {
+        return new GraduatesDataAdditionalInfoEditResponse();
     }
 
     /**
@@ -12974,19 +13670,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReportEmploymentsMonCheckChange }
-     * 
-     */
-    public ReportEmploymentsMonCheckChange createReportEmploymentsMonCheckChange() {
-        return new ReportEmploymentsMonCheckChange();
-    }
-
-    /**
      * Create an instance of {@link UniversityDocumentsGet }
      * 
      */
     public UniversityDocumentsGet createUniversityDocumentsGet() {
         return new UniversityDocumentsGet();
+    }
+
+    /**
+     * Create an instance of {@link ReportEmploymentsMonCheckChange }
+     * 
+     */
+    public ReportEmploymentsMonCheckChange createReportEmploymentsMonCheckChange() {
+        return new ReportEmploymentsMonCheckChange();
     }
 
     /**
@@ -13574,6 +14270,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeFill }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeFill createEducationalCyclesUseKnowledgeFill() {
+        return new EducationalCyclesUseKnowledgeFill();
+    }
+
+    /**
      * Create an instance of {@link RegulationDocumentDataImageChange }
      * 
      */
@@ -13670,19 +14374,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicBoardGetResponse }
+     * Create an instance of {@link EducationalCyclesProgramEdit }
      * 
      */
-    public AcademicBoardGetResponse createAcademicBoardGetResponse() {
-        return new AcademicBoardGetResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDAcademicBoard }
-     * 
-     */
-    public ArrayOfDAcademicBoard createArrayOfDAcademicBoard() {
-        return new ArrayOfDAcademicBoard();
+    public EducationalCyclesProgramEdit createEducationalCyclesProgramEdit() {
+        return new EducationalCyclesProgramEdit();
     }
 
     /**
@@ -13702,6 +14398,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AcademicBoardGetResponse }
+     * 
+     */
+    public AcademicBoardGetResponse createAcademicBoardGetResponse() {
+        return new AcademicBoardGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDAcademicBoard }
+     * 
+     */
+    public ArrayOfDAcademicBoard createArrayOfDAcademicBoard() {
+        return new ArrayOfDAcademicBoard();
+    }
+
+    /**
      * Create an instance of {@link LoginResponse }
      * 
      */
@@ -13715,6 +14427,14 @@ public class ObjectFactory {
      */
     public MinistersGet createMinistersGet() {
         return new MinistersGet();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesKnowledgeDel }
+     * 
+     */
+    public EducationalCyclesKnowledgeDel createEducationalCyclesKnowledgeDel() {
+        return new EducationalCyclesKnowledgeDel();
     }
 
     /**
@@ -13846,6 +14566,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeEdit }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeEdit createEducationalCyclesUseKnowledgeEdit() {
+        return new EducationalCyclesUseKnowledgeEdit();
+    }
+
+    /**
      * Create an instance of {@link QuestionnairesQuestionGet }
      * 
      */
@@ -13891,6 +14619,14 @@ public class ObjectFactory {
      */
     public ArrayOfDPersonEducationHistoryOrdersRequestsTypes createArrayOfDPersonEducationHistoryOrdersRequestsTypes() {
         return new ArrayOfDPersonEducationHistoryOrdersRequestsTypes();
+    }
+
+    /**
+     * Create an instance of {@link CertifyingAgenciesDel }
+     * 
+     */
+    public CertifyingAgenciesDel createCertifyingAgenciesDel() {
+        return new CertifyingAgenciesDel();
     }
 
     /**
@@ -14038,14 +14774,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReportEmploymentsDataPersonsGet }
-     * 
-     */
-    public ReportEmploymentsDataPersonsGet createReportEmploymentsDataPersonsGet() {
-        return new ReportEmploymentsDataPersonsGet();
-    }
-
-    /**
      * Create an instance of {@link AcademicEducationDegreTypeGet }
      * 
      */
@@ -14054,11 +14782,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ReportEmploymentsDataPersonsGet }
+     * 
+     */
+    public ReportEmploymentsDataPersonsGet createReportEmploymentsDataPersonsGet() {
+        return new ReportEmploymentsDataPersonsGet();
+    }
+
+    /**
      * Create an instance of {@link EducationalCyclesPatternsEditResponse }
      * 
      */
     public EducationalCyclesPatternsEditResponse createEducationalCyclesPatternsEditResponse() {
         return new EducationalCyclesPatternsEditResponse();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesProgramFillResponse }
+     * 
+     */
+    public GraduatesProgramFillResponse createGraduatesProgramFillResponse() {
+        return new GraduatesProgramFillResponse();
     }
 
     /**
@@ -14118,6 +14862,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CertifyingAgenciesEdit }
+     * 
+     */
+    public CertifyingAgenciesEdit createCertifyingAgenciesEdit() {
+        return new CertifyingAgenciesEdit();
+    }
+
+    /**
      * Create an instance of {@link AlertsGet }
      * 
      */
@@ -14126,19 +14878,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EducationalCyclesDisciplinesTypesGet }
-     * 
-     */
-    public EducationalCyclesDisciplinesTypesGet createEducationalCyclesDisciplinesTypesGet() {
-        return new EducationalCyclesDisciplinesTypesGet();
-    }
-
-    /**
      * Create an instance of {@link EducationalCyclesEmulation }
      * 
      */
     public EducationalCyclesEmulation createEducationalCyclesEmulation() {
         return new EducationalCyclesEmulation();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesDisciplinesTypesGet }
+     * 
+     */
+    public EducationalCyclesDisciplinesTypesGet createEducationalCyclesDisciplinesTypesGet() {
+        return new EducationalCyclesDisciplinesTypesGet();
     }
 
     /**
@@ -14182,19 +14934,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonSubjectsOrdersDataDel }
-     * 
-     */
-    public PersonSubjectsOrdersDataDel createPersonSubjectsOrdersDataDel() {
-        return new PersonSubjectsOrdersDataDel();
-    }
-
-    /**
      * Create an instance of {@link UniversityScienseSpecialitiesDoctorantsEdit }
      * 
      */
     public UniversityScienseSpecialitiesDoctorantsEdit createUniversityScienseSpecialitiesDoctorantsEdit() {
         return new UniversityScienseSpecialitiesDoctorantsEdit();
+    }
+
+    /**
+     * Create an instance of {@link PersonSubjectsOrdersDataDel }
+     * 
+     */
+    public PersonSubjectsOrdersDataDel createPersonSubjectsOrdersDataDel() {
+        return new PersonSubjectsOrdersDataDel();
     }
 
     /**
@@ -14211,6 +14963,30 @@ public class ObjectFactory {
      */
     public EducationalCyclesDisciplinesEditRangeResponse createEducationalCyclesDisciplinesEditRangeResponse() {
         return new EducationalCyclesDisciplinesEditRangeResponse();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesProgramGetResponse }
+     * 
+     */
+    public GraduatesProgramGetResponse createGraduatesProgramGetResponse() {
+        return new GraduatesProgramGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDGraduatesProgram }
+     * 
+     */
+    public ArrayOfDGraduatesProgram createArrayOfDGraduatesProgram() {
+        return new ArrayOfDGraduatesProgram();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeDelResponse }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeDelResponse createEducationalCyclesUseKnowledgeDelResponse() {
+        return new EducationalCyclesUseKnowledgeDelResponse();
     }
 
     /**
@@ -14430,6 +15206,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeFillResponse }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeFillResponse createEducationalCyclesUseKnowledgeFillResponse() {
+        return new EducationalCyclesUseKnowledgeFillResponse();
+    }
+
+    /**
      * Create an instance of {@link OrderOfDocumentsDatasDel }
      * 
      */
@@ -14582,11 +15366,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EducationalCyclesDisciplinesDelRange }
+     * Create an instance of {@link GlobalEducationalCyclesUseKnowledgeAdd }
      * 
      */
-    public EducationalCyclesDisciplinesDelRange createEducationalCyclesDisciplinesDelRange() {
-        return new EducationalCyclesDisciplinesDelRange();
+    public GlobalEducationalCyclesUseKnowledgeAdd createGlobalEducationalCyclesUseKnowledgeAdd() {
+        return new GlobalEducationalCyclesUseKnowledgeAdd();
     }
 
     /**
@@ -14595,6 +15379,14 @@ public class ObjectFactory {
      */
     public SpecSpecializationRequestsEditResponse createSpecSpecializationRequestsEditResponse() {
         return new SpecSpecializationRequestsEditResponse();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesDisciplinesDelRange }
+     * 
+     */
+    public EducationalCyclesDisciplinesDelRange createEducationalCyclesDisciplinesDelRange() {
+        return new EducationalCyclesDisciplinesDelRange();
     }
 
     /**
@@ -14686,19 +15478,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicCouncilSpecDecisionAddResponse }
-     * 
-     */
-    public AcademicCouncilSpecDecisionAddResponse createAcademicCouncilSpecDecisionAddResponse() {
-        return new AcademicCouncilSpecDecisionAddResponse();
-    }
-
-    /**
      * Create an instance of {@link UniversityLicensesDataGet }
      * 
      */
     public UniversityLicensesDataGet createUniversityLicensesDataGet() {
         return new UniversityLicensesDataGet();
+    }
+
+    /**
+     * Create an instance of {@link AcademicCouncilSpecDecisionAddResponse }
+     * 
+     */
+    public AcademicCouncilSpecDecisionAddResponse createAcademicCouncilSpecDecisionAddResponse() {
+        return new AcademicCouncilSpecDecisionAddResponse();
     }
 
     /**
@@ -14758,6 +15550,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UniversityStateOrdersDataEdit }
+     * 
+     */
+    public UniversityStateOrdersDataEdit createUniversityStateOrdersDataEdit() {
+        return new UniversityStateOrdersDataEdit();
+    }
+
+    /**
      * Create an instance of {@link AcademicReportsPlanVipuskGetResponse }
      * 
      */
@@ -14771,14 +15571,6 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicReportsPlanVipusk createArrayOfDAcademicReportsPlanVipusk() {
         return new ArrayOfDAcademicReportsPlanVipusk();
-    }
-
-    /**
-     * Create an instance of {@link UniversityStateOrdersDataEdit }
-     * 
-     */
-    public UniversityStateOrdersDataEdit createUniversityStateOrdersDataEdit() {
-        return new UniversityStateOrdersDataEdit();
     }
 
     /**
@@ -14934,6 +15726,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraduatesUseKnowledgeFill }
+     * 
+     */
+    public GraduatesUseKnowledgeFill createGraduatesUseKnowledgeFill() {
+        return new GraduatesUseKnowledgeFill();
+    }
+
+    /**
      * Create an instance of {@link DocumentsChipSeriesTypesGet }
      * 
      */
@@ -15011,6 +15811,14 @@ public class ObjectFactory {
      */
     public OrdersOfEnrollmentsAdditionalOrdersDel createOrdersOfEnrollmentsAdditionalOrdersDel() {
         return new OrdersOfEnrollmentsAdditionalOrdersDel();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeAddResponse }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeAddResponse createEducationalCyclesUseKnowledgeAddResponse() {
+        return new EducationalCyclesUseKnowledgeAddResponse();
     }
 
     /**
@@ -15110,6 +15918,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesKnowledgeAdd }
+     * 
+     */
+    public GlobalEducationalCyclesKnowledgeAdd createGlobalEducationalCyclesKnowledgeAdd() {
+        return new GlobalEducationalCyclesKnowledgeAdd();
+    }
+
+    /**
      * Create an instance of {@link QuestionnairesQuestionValueGetResponse }
      * 
      */
@@ -15166,14 +15982,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AcademicAttestationCaseEditResponse }
-     * 
-     */
-    public AcademicAttestationCaseEditResponse createAcademicAttestationCaseEditResponse() {
-        return new AcademicAttestationCaseEditResponse();
-    }
-
-    /**
      * Create an instance of {@link AcademicReports8DGetResponse }
      * 
      */
@@ -15187,6 +15995,14 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicReports8D createArrayOfDAcademicReports8D() {
         return new ArrayOfDAcademicReports8D();
+    }
+
+    /**
+     * Create an instance of {@link AcademicAttestationCaseEditResponse }
+     * 
+     */
+    public AcademicAttestationCaseEditResponse createAcademicAttestationCaseEditResponse() {
+        return new AcademicAttestationCaseEditResponse();
     }
 
     /**
@@ -15702,6 +16518,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GlobalEducationalCyclesJudgmentsDelResponse }
+     * 
+     */
+    public GlobalEducationalCyclesJudgmentsDelResponse createGlobalEducationalCyclesJudgmentsDelResponse() {
+        return new GlobalEducationalCyclesJudgmentsDelResponse();
+    }
+
+    /**
      * Create an instance of {@link RisksGet }
      * 
      */
@@ -15715,6 +16539,14 @@ public class ObjectFactory {
      */
     public LogoutResponse createLogoutResponse() {
         return new LogoutResponse();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesUseKnowledgeDel }
+     * 
+     */
+    public EducationalCyclesUseKnowledgeDel createEducationalCyclesUseKnowledgeDel() {
+        return new EducationalCyclesUseKnowledgeDel();
     }
 
     /**
@@ -15734,14 +16566,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EducationalCyclesDisciplinesEditRange }
-     * 
-     */
-    public EducationalCyclesDisciplinesEditRange createEducationalCyclesDisciplinesEditRange() {
-        return new EducationalCyclesDisciplinesEditRange();
-    }
-
-    /**
      * Create an instance of {@link UniversitiesActivityTypesGet }
      * 
      */
@@ -15750,11 +16574,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesDisciplinesEditRange }
+     * 
+     */
+    public EducationalCyclesDisciplinesEditRange createEducationalCyclesDisciplinesEditRange() {
+        return new EducationalCyclesDisciplinesEditRange();
+    }
+
+    /**
      * Create an instance of {@link M23NkMONCheckChange }
      * 
      */
     public M23NkMONCheckChange createM23NkMONCheckChange() {
         return new M23NkMONCheckChange();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesUseKnowledgeEdit }
+     * 
+     */
+    public GlobalEducationalCyclesUseKnowledgeEdit createGlobalEducationalCyclesUseKnowledgeEdit() {
+        return new GlobalEducationalCyclesUseKnowledgeEdit();
     }
 
     /**
@@ -15918,6 +16758,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesJudgmentsDel }
+     * 
+     */
+    public EducationalCyclesJudgmentsDel createEducationalCyclesJudgmentsDel() {
+        return new EducationalCyclesJudgmentsDel();
+    }
+
+    /**
      * Create an instance of {@link AcademicAttestationCaseSatusHistoryTypeGetResponse }
      * 
      */
@@ -15974,14 +16822,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GraduatesDataDisciplinesImport }
-     * 
-     */
-    public GraduatesDataDisciplinesImport createGraduatesDataDisciplinesImport() {
-        return new GraduatesDataDisciplinesImport();
-    }
-
-    /**
      * Create an instance of {@link PersonEducationProgressOrdersDataGetResponse }
      * 
      */
@@ -15995,6 +16835,14 @@ public class ObjectFactory {
      */
     public ArrayOfDPersonEducationProgressOrdersData createArrayOfDPersonEducationProgressOrdersData() {
         return new ArrayOfDPersonEducationProgressOrdersData();
+    }
+
+    /**
+     * Create an instance of {@link GraduatesDataDisciplinesImport }
+     * 
+     */
+    public GraduatesDataDisciplinesImport createGraduatesDataDisciplinesImport() {
+        return new GraduatesDataDisciplinesImport();
     }
 
     /**
@@ -16246,19 +17094,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityBossScanGet }
-     * 
-     */
-    public UniversityBossScanGet createUniversityBossScanGet() {
-        return new UniversityBossScanGet();
-    }
-
-    /**
      * Create an instance of {@link UniversityTypesGet }
      * 
      */
     public UniversityTypesGet createUniversityTypesGet() {
         return new UniversityTypesGet();
+    }
+
+    /**
+     * Create an instance of {@link UniversityBossScanGet }
+     * 
+     */
+    public UniversityBossScanGet createUniversityBossScanGet() {
+        return new UniversityBossScanGet();
     }
 
     /**
@@ -16278,6 +17126,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesKnowledgeGet }
+     * 
+     */
+    public EducationalCyclesKnowledgeGet createEducationalCyclesKnowledgeGet() {
+        return new EducationalCyclesKnowledgeGet();
+    }
+
+    /**
      * Create an instance of {@link EducationalCyclesDisciplinesDel }
      * 
      */
@@ -16294,14 +17150,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EducationalCyclesPatternMoveToHistoreResponse }
-     * 
-     */
-    public EducationalCyclesPatternMoveToHistoreResponse createEducationalCyclesPatternMoveToHistoreResponse() {
-        return new EducationalCyclesPatternMoveToHistoreResponse();
-    }
-
-    /**
      * Create an instance of {@link AcademicEducationOrdersGetResponse }
      * 
      */
@@ -16315,6 +17163,14 @@ public class ObjectFactory {
      */
     public ArrayOfDAcademicEducationOrders createArrayOfDAcademicEducationOrders() {
         return new ArrayOfDAcademicEducationOrders();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesPatternMoveToHistoreResponse }
+     * 
+     */
+    public EducationalCyclesPatternMoveToHistoreResponse createEducationalCyclesPatternMoveToHistoreResponse() {
+        return new EducationalCyclesPatternMoveToHistoreResponse();
     }
 
     /**
@@ -16614,19 +17470,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link VakAcademicAttestationCaseStatusChange }
-     * 
-     */
-    public VakAcademicAttestationCaseStatusChange createVakAcademicAttestationCaseStatusChange() {
-        return new VakAcademicAttestationCaseStatusChange();
-    }
-
-    /**
      * Create an instance of {@link AcademicCardsEditResponse }
      * 
      */
     public AcademicCardsEditResponse createAcademicCardsEditResponse() {
         return new AcademicCardsEditResponse();
+    }
+
+    /**
+     * Create an instance of {@link VakAcademicAttestationCaseStatusChange }
+     * 
+     */
+    public VakAcademicAttestationCaseStatusChange createVakAcademicAttestationCaseStatusChange() {
+        return new VakAcademicAttestationCaseStatusChange();
     }
 
     /**
@@ -16830,14 +17686,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityLicensesPtnzSvidDataGet }
-     * 
-     */
-    public UniversityLicensesPtnzSvidDataGet createUniversityLicensesPtnzSvidDataGet() {
-        return new UniversityLicensesPtnzSvidDataGet();
-    }
-
-    /**
      * Create an instance of {@link UniversityLicensesPtnzSvidDetailedSubTypesGetResponse }
      * 
      */
@@ -16851,6 +17699,14 @@ public class ObjectFactory {
      */
     public ArrayOfDUniversityLicensesPtnzSvidDetailedSubTypes createArrayOfDUniversityLicensesPtnzSvidDetailedSubTypes() {
         return new ArrayOfDUniversityLicensesPtnzSvidDetailedSubTypes();
+    }
+
+    /**
+     * Create an instance of {@link UniversityLicensesPtnzSvidDataGet }
+     * 
+     */
+    public UniversityLicensesPtnzSvidDataGet createUniversityLicensesPtnzSvidDataGet() {
+        return new UniversityLicensesPtnzSvidDataGet();
     }
 
     /**
@@ -16942,19 +17798,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityScienseSpecialitiesDoctorantsDel }
-     * 
-     */
-    public UniversityScienseSpecialitiesDoctorantsDel createUniversityScienseSpecialitiesDoctorantsDel() {
-        return new UniversityScienseSpecialitiesDoctorantsDel();
-    }
-
-    /**
      * Create an instance of {@link ScienceIndustryGet }
      * 
      */
     public ScienceIndustryGet createScienceIndustryGet() {
         return new ScienceIndustryGet();
+    }
+
+    /**
+     * Create an instance of {@link UniversityScienseSpecialitiesDoctorantsDel }
+     * 
+     */
+    public UniversityScienseSpecialitiesDoctorantsDel createUniversityScienseSpecialitiesDoctorantsDel() {
+        return new UniversityScienseSpecialitiesDoctorantsDel();
     }
 
     /**
@@ -16990,6 +17846,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CertifyingAgenciesDelResponse }
+     * 
+     */
+    public CertifyingAgenciesDelResponse createCertifyingAgenciesDelResponse() {
+        return new CertifyingAgenciesDelResponse();
+    }
+
+    /**
      * Create an instance of {@link UniversityLicensesDataPtnzDetailedSubTypesGetResponse }
      * 
      */
@@ -17006,19 +17870,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityDisciplinesCategoryEdit }
-     * 
-     */
-    public UniversityDisciplinesCategoryEdit createUniversityDisciplinesCategoryEdit() {
-        return new UniversityDisciplinesCategoryEdit();
-    }
-
-    /**
      * Create an instance of {@link PersonEducationProgressDataDel }
      * 
      */
     public PersonEducationProgressDataDel createPersonEducationProgressDataDel() {
         return new PersonEducationProgressDataDel();
+    }
+
+    /**
+     * Create an instance of {@link UniversityDisciplinesCategoryEdit }
+     * 
+     */
+    public UniversityDisciplinesCategoryEdit createUniversityDisciplinesCategoryEdit() {
+        return new UniversityDisciplinesCategoryEdit();
     }
 
     /**
@@ -17158,19 +18022,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EducationalCyclesAddResponse }
-     * 
-     */
-    public EducationalCyclesAddResponse createEducationalCyclesAddResponse() {
-        return new EducationalCyclesAddResponse();
-    }
-
-    /**
      * Create an instance of {@link RegulationDocumentsRekvizitChangeResponse }
      * 
      */
     public RegulationDocumentsRekvizitChangeResponse createRegulationDocumentsRekvizitChangeResponse() {
         return new RegulationDocumentsRekvizitChangeResponse();
+    }
+
+    /**
+     * Create an instance of {@link EducationalCyclesAddResponse }
+     * 
+     */
+    public EducationalCyclesAddResponse createEducationalCyclesAddResponse() {
+        return new EducationalCyclesAddResponse();
     }
 
     /**
@@ -17342,6 +18206,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EducationalCyclesProgramGet }
+     * 
+     */
+    public EducationalCyclesProgramGet createEducationalCyclesProgramGet() {
+        return new EducationalCyclesProgramGet();
+    }
+
+    /**
      * Create an instance of {@link RegulationDocumentsDelResponse }
      * 
      */
@@ -17414,6 +18286,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link PerformanceIndicatorsAdd }
+     * 
+     */
+    public PerformanceIndicatorsAdd createPerformanceIndicatorsAdd() {
+        return new PerformanceIndicatorsAdd();
+    }
+
+    /**
      * Create an instance of {@link PerformanceIndicatorSubcategoriesGetResponse }
      * 
      */
@@ -17427,14 +18307,6 @@ public class ObjectFactory {
      */
     public ArrayOfDPerformanceIndicatorSubcategories createArrayOfDPerformanceIndicatorSubcategories() {
         return new ArrayOfDPerformanceIndicatorSubcategories();
-    }
-
-    /**
-     * Create an instance of {@link PerformanceIndicatorsAdd }
-     * 
-     */
-    public PerformanceIndicatorsAdd createPerformanceIndicatorsAdd() {
-        return new PerformanceIndicatorsAdd();
     }
 
     /**
@@ -17523,6 +18395,14 @@ public class ObjectFactory {
      */
     public PersonDeleteRequestDataGet createPersonDeleteRequestDataGet() {
         return new PersonDeleteRequestDataGet();
+    }
+
+    /**
+     * Create an instance of {@link GlobalEducationalCyclesJudgmentsAdd }
+     * 
+     */
+    public GlobalEducationalCyclesJudgmentsAdd createGlobalEducationalCyclesJudgmentsAdd() {
+        return new GlobalEducationalCyclesJudgmentsAdd();
     }
 
     /**
@@ -17950,19 +18830,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UniversityBuildingEdit }
-     * 
-     */
-    public UniversityBuildingEdit createUniversityBuildingEdit() {
-        return new UniversityBuildingEdit();
-    }
-
-    /**
      * Create an instance of {@link AcademicBoardDataGet }
      * 
      */
     public AcademicBoardDataGet createAcademicBoardDataGet() {
         return new AcademicBoardDataGet();
+    }
+
+    /**
+     * Create an instance of {@link UniversityBuildingEdit }
+     * 
+     */
+    public UniversityBuildingEdit createUniversityBuildingEdit() {
+        return new UniversityBuildingEdit();
     }
 
     /**
@@ -18206,6 +19086,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DEducationalCyclesProgram }
+     * 
+     */
+    public DEducationalCyclesProgram createDEducationalCyclesProgram() {
+        return new DEducationalCyclesProgram();
+    }
+
+    /**
      * Create an instance of {@link DUniversityOrderRequestsDataType }
      * 
      */
@@ -18438,6 +19326,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DEducationalCyclesKnowledge }
+     * 
+     */
+    public DEducationalCyclesKnowledge createDEducationalCyclesKnowledge() {
+        return new DEducationalCyclesKnowledge();
+    }
+
+    /**
      * Create an instance of {@link DUniversityOrderRequestsTypes }
      * 
      */
@@ -18459,6 +19355,14 @@ public class ObjectFactory {
      */
     public DUniversityGroupsStudents createDUniversityGroupsStudents() {
         return new DUniversityGroupsStudents();
+    }
+
+    /**
+     * Create an instance of {@link DUniversityLicenseCertificateProlongationType }
+     * 
+     */
+    public DUniversityLicenseCertificateProlongationType createDUniversityLicenseCertificateProlongationType() {
+        return new DUniversityLicenseCertificateProlongationType();
     }
 
     /**
@@ -18550,6 +19454,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DGlobalEducationalCyclesKnowledge }
+     * 
+     */
+    public DGlobalEducationalCyclesKnowledge createDGlobalEducationalCyclesKnowledge() {
+        return new DGlobalEducationalCyclesKnowledge();
+    }
+
+    /**
      * Create an instance of {@link DLastError }
      * 
      */
@@ -18630,19 +19542,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DImportDocFindByName }
-     * 
-     */
-    public DImportDocFindByName createDImportDocFindByName() {
-        return new DImportDocFindByName();
-    }
-
-    /**
      * Create an instance of {@link DUniversityImportDocType }
      * 
      */
     public DUniversityImportDocType createDUniversityImportDocType() {
         return new DUniversityImportDocType();
+    }
+
+    /**
+     * Create an instance of {@link DImportDocFindByName }
+     * 
+     */
+    public DImportDocFindByName createDImportDocFindByName() {
+        return new DImportDocFindByName();
     }
 
     /**
@@ -18670,6 +19582,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DUniversities }
+     * 
+     */
+    public DUniversities createDUniversities() {
+        return new DUniversities();
+    }
+
+    /**
      * Create an instance of {@link DPersonWorkCharges }
      * 
      */
@@ -18683,14 +19603,6 @@ public class ObjectFactory {
      */
     public DOrdersOfEnrollments createDOrdersOfEnrollments() {
         return new DOrdersOfEnrollments();
-    }
-
-    /**
-     * Create an instance of {@link DUniversities }
-     * 
-     */
-    public DUniversities createDUniversities() {
-        return new DUniversities();
     }
 
     /**
@@ -18758,19 +19670,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DUzCurentDocs }
-     * 
-     */
-    public DUzCurentDocs createDUzCurentDocs() {
-        return new DUzCurentDocs();
-    }
-
-    /**
      * Create an instance of {@link DWebPersonsForeign }
      * 
      */
     public DWebPersonsForeign createDWebPersonsForeign() {
         return new DWebPersonsForeign();
+    }
+
+    /**
+     * Create an instance of {@link DUzCurentDocs }
+     * 
+     */
+    public DUzCurentDocs createDUzCurentDocs() {
+        return new DUzCurentDocs();
     }
 
     /**
@@ -19294,6 +20206,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DGraduatesAdditionalInfo }
+     * 
+     */
+    public DGraduatesAdditionalInfo createDGraduatesAdditionalInfo() {
+        return new DGraduatesAdditionalInfo();
+    }
+
+    /**
      * Create an instance of {@link DUniversitiesHistory }
      * 
      */
@@ -19323,6 +20243,14 @@ public class ObjectFactory {
      */
     public DAcademicEducationDegreDetailType createDAcademicEducationDegreDetailType() {
         return new DAcademicEducationDegreDetailType();
+    }
+
+    /**
+     * Create an instance of {@link DGraduatesProgram }
+     * 
+     */
+    public DGraduatesProgram createDGraduatesProgram() {
+        return new DGraduatesProgram();
     }
 
     /**
@@ -19374,19 +20302,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DUniversitiesCodes }
-     * 
-     */
-    public DUniversitiesCodes createDUniversitiesCodes() {
-        return new DUniversitiesCodes();
-    }
-
-    /**
      * Create an instance of {@link DUniversityEarlyPreview }
      * 
      */
     public DUniversityEarlyPreview createDUniversityEarlyPreview() {
         return new DUniversityEarlyPreview();
+    }
+
+    /**
+     * Create an instance of {@link DUniversitiesCodes }
+     * 
+     */
+    public DUniversitiesCodes createDUniversitiesCodes() {
+        return new DUniversitiesCodes();
     }
 
     /**
@@ -19443,6 +20371,14 @@ public class ObjectFactory {
      */
     public DEducationalCycles createDEducationalCycles() {
         return new DEducationalCycles();
+    }
+
+    /**
+     * Create an instance of {@link DGlobalEducationalCyclesUseKnowledge }
+     * 
+     */
+    public DGlobalEducationalCyclesUseKnowledge createDGlobalEducationalCyclesUseKnowledge() {
+        return new DGlobalEducationalCyclesUseKnowledge();
     }
 
     /**
@@ -19670,6 +20606,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DGraduatesJudgments }
+     * 
+     */
+    public DGraduatesJudgments createDGraduatesJudgments() {
+        return new DGraduatesJudgments();
+    }
+
+    /**
      * Create an instance of {@link DRegulationDocumentTypesGroups }
      * 
      */
@@ -19683,6 +20627,14 @@ public class ObjectFactory {
      */
     public DPersonWorkOrders createDPersonWorkOrders() {
         return new DPersonWorkOrders();
+    }
+
+    /**
+     * Create an instance of {@link DGraduatesDataAdditionalInfo }
+     * 
+     */
+    public DGraduatesDataAdditionalInfo createDGraduatesDataAdditionalInfo() {
+        return new DGraduatesDataAdditionalInfo();
     }
 
     /**
@@ -19734,6 +20686,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DEducationalCyclesJudgments }
+     * 
+     */
+    public DEducationalCyclesJudgments createDEducationalCyclesJudgments() {
+        return new DEducationalCyclesJudgments();
+    }
+
+    /**
      * Create an instance of {@link DRegulationDocumentData }
      * 
      */
@@ -19758,11 +20718,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DGraduatesKnowledge }
+     * 
+     */
+    public DGraduatesKnowledge createDGraduatesKnowledge() {
+        return new DGraduatesKnowledge();
+    }
+
+    /**
      * Create an instance of {@link DAcademicReportsFactPriyom }
      * 
      */
     public DAcademicReportsFactPriyom createDAcademicReportsFactPriyom() {
         return new DAcademicReportsFactPriyom();
+    }
+
+    /**
+     * Create an instance of {@link DGraduatesUseKnowledge }
+     * 
+     */
+    public DGraduatesUseKnowledge createDGraduatesUseKnowledge() {
+        return new DGraduatesUseKnowledge();
     }
 
     /**
@@ -19806,6 +20782,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DGlobalEducationalCyclesJudgments }
+     * 
+     */
+    public DGlobalEducationalCyclesJudgments createDGlobalEducationalCyclesJudgments() {
+        return new DGlobalEducationalCyclesJudgments();
+    }
+
+    /**
      * Create an instance of {@link DUniversityFacultetsTypes }
      * 
      */
@@ -19822,14 +20806,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DAcademicReports1HK }
-     * 
-     */
-    public DAcademicReports1HK createDAcademicReports1HK() {
-        return new DAcademicReports1HK();
-    }
-
-    /**
      * Create an instance of {@link DUniversityPersons }
      * 
      */
@@ -19838,11 +20814,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DUniversityOperatorStateOrders }
+     * Create an instance of {@link DAcademicReports1HK }
      * 
      */
-    public DUniversityOperatorStateOrders createDUniversityOperatorStateOrders() {
-        return new DUniversityOperatorStateOrders();
+    public DAcademicReports1HK createDAcademicReports1HK() {
+        return new DAcademicReports1HK();
     }
 
     /**
@@ -19851,6 +20827,14 @@ public class ObjectFactory {
      */
     public DScienceSpeciality createDScienceSpeciality() {
         return new DScienceSpeciality();
+    }
+
+    /**
+     * Create an instance of {@link DUniversityOperatorStateOrders }
+     * 
+     */
+    public DUniversityOperatorStateOrders createDUniversityOperatorStateOrders() {
+        return new DUniversityOperatorStateOrders();
     }
 
     /**
@@ -20078,6 +21062,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DEducationalCyclesUseKnowledge }
+     * 
+     */
+    public DEducationalCyclesUseKnowledge createDEducationalCyclesUseKnowledge() {
+        return new DEducationalCyclesUseKnowledge();
+    }
+
+    /**
      * Create an instance of {@link DSpecProfessionsRang }
      * 
      */
@@ -20206,6 +21198,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DUniversities3 }
+     * 
+     */
+    public DUniversities3 createDUniversities3() {
+        return new DUniversities3();
+    }
+
+    /**
      * Create an instance of {@link DPersonWorkCancelationType }
      * 
      */
@@ -20219,14 +21219,6 @@ public class ObjectFactory {
      */
     public DWebPersonStatementData createDWebPersonStatementData() {
         return new DWebPersonStatementData();
-    }
-
-    /**
-     * Create an instance of {@link DUniversities3 }
-     * 
-     */
-    public DUniversities3 createDUniversities3() {
-        return new DUniversities3();
     }
 
     /**

@@ -49,6 +49,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="IsPerepidgotovka" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="UniversityFacultetFullNameEn" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="UniversityFacultetShortNameEn" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="BlockDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -88,7 +89,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "blockDescription",
     "isPerepidgotovka",
     "universityFacultetFullNameEn",
-    "universityFacultetShortNameEn"
+    "universityFacultetShortNameEn",
+    "blockDate"
 })
 public class DUniversityFacultets2 {
 
@@ -154,6 +156,9 @@ public class DUniversityFacultets2 {
     protected String universityFacultetFullNameEn;
     @XmlElement(name = "UniversityFacultetShortNameEn")
     protected String universityFacultetShortNameEn;
+    @XmlElement(name = "BlockDate", required = true)
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar blockDate;
 
     /**
      * Gets the value of the idUniversityFacultet property.
@@ -785,6 +790,30 @@ public class DUniversityFacultets2 {
      */
     public void setUniversityFacultetShortNameEn(String value) {
         this.universityFacultetShortNameEn = value;
+    }
+
+    /**
+     * Gets the value of the blockDate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getBlockDate() {
+        return blockDate;
+    }
+
+    /**
+     * Sets the value of the blockDate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setBlockDate(XMLGregorianCalendar value) {
+        this.blockDate = value;
     }
 
 }

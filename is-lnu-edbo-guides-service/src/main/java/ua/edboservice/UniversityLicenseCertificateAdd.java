@@ -43,6 +43,10 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="RegistrationNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Id_GlobalOrders" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="Id_GlobalRishen" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="IsProlongation" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Id_UniversityLicenseCertificateProlongationType" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="UniversityLicenseCertificateDescription" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Id_GlobalRishen_Prolongation" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -77,7 +81,11 @@ import javax.xml.bind.annotation.XmlType;
     "isRequest",
     "registrationNumber",
     "idGlobalOrders",
-    "idGlobalRishen"
+    "idGlobalRishen",
+    "isProlongation",
+    "idUniversityLicenseCertificateProlongationType",
+    "universityLicenseCertificateDescription",
+    "idGlobalRishenProlongation"
 })
 @XmlRootElement(name = "UniversityLicenseCertificateAdd")
 public class UniversityLicenseCertificateAdd {
@@ -132,6 +140,14 @@ public class UniversityLicenseCertificateAdd {
     protected int idGlobalOrders;
     @XmlElement(name = "Id_GlobalRishen")
     protected int idGlobalRishen;
+    @XmlElement(name = "IsProlongation")
+    protected int isProlongation;
+    @XmlElement(name = "Id_UniversityLicenseCertificateProlongationType")
+    protected int idUniversityLicenseCertificateProlongationType;
+    @XmlElement(name = "UniversityLicenseCertificateDescription")
+    protected String universityLicenseCertificateDescription;
+    @XmlElement(name = "Id_GlobalRishen_Prolongation")
+    protected int idGlobalRishenProlongation;
 
     /**
      * Gets the value of the sessionGUID property.
@@ -667,6 +683,78 @@ public class UniversityLicenseCertificateAdd {
      */
     public void setIdGlobalRishen(int value) {
         this.idGlobalRishen = value;
+    }
+
+    /**
+     * Gets the value of the isProlongation property.
+     * 
+     */
+    public int getIsProlongation() {
+        return isProlongation;
+    }
+
+    /**
+     * Sets the value of the isProlongation property.
+     * 
+     */
+    public void setIsProlongation(int value) {
+        this.isProlongation = value;
+    }
+
+    /**
+     * Gets the value of the idUniversityLicenseCertificateProlongationType property.
+     * 
+     */
+    public int getIdUniversityLicenseCertificateProlongationType() {
+        return idUniversityLicenseCertificateProlongationType;
+    }
+
+    /**
+     * Sets the value of the idUniversityLicenseCertificateProlongationType property.
+     * 
+     */
+    public void setIdUniversityLicenseCertificateProlongationType(int value) {
+        this.idUniversityLicenseCertificateProlongationType = value;
+    }
+
+    /**
+     * Gets the value of the universityLicenseCertificateDescription property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityLicenseCertificateDescription() {
+        return universityLicenseCertificateDescription;
+    }
+
+    /**
+     * Sets the value of the universityLicenseCertificateDescription property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityLicenseCertificateDescription(String value) {
+        this.universityLicenseCertificateDescription = value;
+    }
+
+    /**
+     * Gets the value of the idGlobalRishenProlongation property.
+     * 
+     */
+    public int getIdGlobalRishenProlongation() {
+        return idGlobalRishenProlongation;
+    }
+
+    /**
+     * Sets the value of the idGlobalRishenProlongation property.
+     * 
+     */
+    public void setIdGlobalRishenProlongation(int value) {
+        this.idGlobalRishenProlongation = value;
     }
 
 }

@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="SpecScecializationName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Id_UniversityLicensesSubTypes" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="IsPed" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Id_GlobalRishen" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -59,7 +60,8 @@ import javax.xml.bind.annotation.XmlType;
     "specScecializationCode",
     "specScecializationName",
     "idUniversityLicensesSubTypes",
-    "isPed"
+    "isPed",
+    "idGlobalRishen"
 })
 @XmlRootElement(name = "UniversityLicensesDataAdd")
 public class UniversityLicensesDataAdd {
@@ -96,6 +98,8 @@ public class UniversityLicensesDataAdd {
     protected int idUniversityLicensesSubTypes;
     @XmlElement(name = "IsPed")
     protected int isPed;
+    @XmlElement(name = "Id_GlobalRishen")
+    protected int idGlobalRishen;
 
     /**
      * Gets the value of the sessionGUID property.
@@ -455,6 +459,22 @@ public class UniversityLicensesDataAdd {
      */
     public void setIsPed(int value) {
         this.isPed = value;
+    }
+
+    /**
+     * Gets the value of the idGlobalRishen property.
+     * 
+     */
+    public int getIdGlobalRishen() {
+        return idGlobalRishen;
+    }
+
+    /**
+     * Sets the value of the idGlobalRishen property.
+     * 
+     */
+    public void setIdGlobalRishen(int value) {
+        this.idGlobalRishen = value;
     }
 
 }

@@ -32,6 +32,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="Qalification_Prev_EN" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Speciality_Prev_UK" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Speciality_Prev_EN" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="AdditionalIInfo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="AdditionalIInfoEn" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -55,7 +57,9 @@ import javax.xml.bind.annotation.XmlType;
     "qalificationPrevUK",
     "qalificationPrevEN",
     "specialityPrevUK",
-    "specialityPrevEN"
+    "specialityPrevEN",
+    "additionalIInfo",
+    "additionalIInfoEn"
 })
 @XmlRootElement(name = "GraduatesAdd")
 public class GraduatesAdd {
@@ -88,6 +92,10 @@ public class GraduatesAdd {
     protected String specialityPrevUK;
     @XmlElement(name = "Speciality_Prev_EN")
     protected String specialityPrevEN;
+    @XmlElement(name = "AdditionalIInfo")
+    protected String additionalIInfo;
+    @XmlElement(name = "AdditionalIInfoEn")
+    protected String additionalIInfoEn;
 
     /**
      * Gets the value of the sessionGUID property.
@@ -399,6 +407,54 @@ public class GraduatesAdd {
      */
     public void setSpecialityPrevEN(String value) {
         this.specialityPrevEN = value;
+    }
+
+    /**
+     * Gets the value of the additionalIInfo property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAdditionalIInfo() {
+        return additionalIInfo;
+    }
+
+    /**
+     * Sets the value of the additionalIInfo property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAdditionalIInfo(String value) {
+        this.additionalIInfo = value;
+    }
+
+    /**
+     * Gets the value of the additionalIInfoEn property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAdditionalIInfoEn() {
+        return additionalIInfoEn;
+    }
+
+    /**
+     * Sets the value of the additionalIInfoEn property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAdditionalIInfoEn(String value) {
+        this.additionalIInfoEn = value;
     }
 
 }

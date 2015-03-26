@@ -37,6 +37,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Id_RegulationDocumentVerificationHistoryType" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="RegulationDocumentVerificationHistoryTypeName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="IsExistFile" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -63,7 +64,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "isVerified",
     "idRegulationDocumentVerificationHistoryType",
     "regulationDocumentVerificationHistoryTypeName",
-    "isExistFile"
+    "isExistFile",
+    "region"
 })
 public class DAcademicReports8D {
 
@@ -103,6 +105,8 @@ public class DAcademicReports8D {
     protected String regulationDocumentVerificationHistoryTypeName;
     @XmlElement(name = "IsExistFile")
     protected int isExistFile;
+    @XmlElement(name = "Region")
+    protected String region;
 
     /**
      * Gets the value of the idAcademicReports8D property.
@@ -438,6 +442,30 @@ public class DAcademicReports8D {
      */
     public void setIsExistFile(int value) {
         this.isExistFile = value;
+    }
+
+    /**
+     * Gets the value of the region property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRegion() {
+        return region;
+    }
+
+    /**
+     * Sets the value of the region property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRegion(String value) {
+        this.region = value;
     }
 
 }

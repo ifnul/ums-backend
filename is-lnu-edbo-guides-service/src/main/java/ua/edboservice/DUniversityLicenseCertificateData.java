@@ -26,6 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="SpecSpecializationName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="SpecDirCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="SpecDirName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="IsPerepidgotovka" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="IsTeacher" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -44,7 +46,9 @@ import javax.xml.bind.annotation.XmlType;
     "specSpecialityCode",
     "specSpecializationName",
     "specDirCode",
-    "specDirName"
+    "specDirName",
+    "isPerepidgotovka",
+    "isTeacher"
 })
 public class DUniversityLicenseCertificateData {
 
@@ -66,6 +70,10 @@ public class DUniversityLicenseCertificateData {
     protected String specDirCode;
     @XmlElement(name = "SpecDirName")
     protected String specDirName;
+    @XmlElement(name = "IsPerepidgotovka")
+    protected int isPerepidgotovka;
+    @XmlElement(name = "IsTeacher")
+    protected int isTeacher;
 
     /**
      * Gets the value of the idUniversityLicenseCertificateData property.
@@ -257,6 +265,38 @@ public class DUniversityLicenseCertificateData {
      */
     public void setSpecDirName(String value) {
         this.specDirName = value;
+    }
+
+    /**
+     * Gets the value of the isPerepidgotovka property.
+     * 
+     */
+    public int getIsPerepidgotovka() {
+        return isPerepidgotovka;
+    }
+
+    /**
+     * Sets the value of the isPerepidgotovka property.
+     * 
+     */
+    public void setIsPerepidgotovka(int value) {
+        this.isPerepidgotovka = value;
+    }
+
+    /**
+     * Gets the value of the isTeacher property.
+     * 
+     */
+    public int getIsTeacher() {
+        return isTeacher;
+    }
+
+    /**
+     * Sets the value of the isTeacher property.
+     * 
+     */
+    public void setIsTeacher(int value) {
+        this.isTeacher = value;
     }
 
 }
