@@ -247,7 +247,7 @@ public class DepartmentResource extends ApiResource {
 				+ ", departmentTypeId=" + departmentTypeId + ", orderId="
 				+ orderId + ", abbrName=" + abbrName + ", name=" + name
 				+ ", manager=" + manager + ", begDate=" + begDate + ", endDate=" + endDate
-				+ ", note=" + note + ", identifir="+identifir+"]";
+				+ ", note=" + note + ", identifir=" + identifir + "]";
 	}
 
 }
