@@ -58,6 +58,9 @@ public class Department extends InformationModel {
 	@Column(name = "enddate")
 	private Date endDate;
 	
+	@Column(name = "identifir")
+	private String identifir;
+	
 	@OneToMany(mappedBy = "department")
 	private List<DepartmentAddress> addresses;
 	
@@ -73,6 +76,14 @@ public class Department extends InformationModel {
 		inverseJoinColumns = { @JoinColumn(name = "specialty_id") })
 	private List<Specialty> specialties;
 	
+	public String getIdentifir() {
+		return identifir;
+	}
+
+	public void setIdentifir(final String identifir) {
+		this.identifir = identifir;
+	}
+
 	public Department getParent() {
 		return parent;
 	}
@@ -178,6 +189,7 @@ public class Department extends InformationModel {
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((manager == null) ? 0 : manager.hashCode());
+		result = prime * result + ((identifir == null) ? 0 : identifir.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -222,6 +234,13 @@ public class Department extends InformationModel {
 		} else if (!manager.equals(other.manager)) {
 			return false;
 		}
+		if (identifir == null) {
+			if (other.identifir != null) {
+				return false;
+			}
+		} else if (!identifir.equals(other.identifir)) {
+			return false;
+		}
 		if (name == null) {
 			if (other.name != null) {
 				return false;
@@ -236,7 +255,7 @@ public class Department extends InformationModel {
 	public String toString() {
 		return "Department [abbrName=" + abbrName
 				+ ", name=" + name + ", manager=" + manager + ", begDate=" + begDate
-				+ ", endDate=" + endDate + "]";
+				+ ", endDate=" + endDate + ", identifir=" + identifir + "]";
 	}
 
 }

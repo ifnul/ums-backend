@@ -35,6 +35,9 @@ public class DepartmentResource extends ApiResource {
 	private String manager;
 	
 	@NotNull(message = "Field required")
+	private String identifir;
+	
+	@NotNull(message = "Field required")
 	private Date begDate;
 	
 	@NotNull(message = "Field required")
@@ -50,6 +53,14 @@ public class DepartmentResource extends ApiResource {
 		return "/departments";
 	}
 	
+	public String getIdentifir() {
+		return identifir;
+	}
+
+	public void setIdentifir(final String indetifir) {
+		this.identifir = indetifir;
+	}
+
 	public Long getParentId() {
 		return parentId;
 	}
@@ -136,6 +147,7 @@ public class DepartmentResource extends ApiResource {
 				+ ((departmentTypeId == null) ? 0 : departmentTypeId.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((manager == null) ? 0 : manager.hashCode());
+		result = prime * result + ((identifir == null) ? 0 : identifir.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((note == null) ? 0 : note.hashCode());
 		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
@@ -190,6 +202,13 @@ public class DepartmentResource extends ApiResource {
 			}
 		} else if (!manager.equals(other.manager)) {
 			return false;
+		}		
+		if (identifir == null) {
+			if (other.identifir != null) {
+				return false;
+			}
+		} else if (!identifir.equals(other.identifir)) {
+			return false;
 		}
 		if (name == null) {
 			if (other.name != null) {
@@ -228,7 +247,7 @@ public class DepartmentResource extends ApiResource {
 				+ ", departmentTypeId=" + departmentTypeId + ", orderId="
 				+ orderId + ", abbrName=" + abbrName + ", name=" + name
 				+ ", manager=" + manager + ", begDate=" + begDate + ", endDate=" + endDate
-				+ ", note=" + note + "]";
+				+ ", note=" + note + ", identifir="+identifir+"]";
 	}
 
 }
