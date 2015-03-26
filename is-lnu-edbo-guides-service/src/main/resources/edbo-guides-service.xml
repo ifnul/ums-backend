@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd
 		">
  
-	    <bean id="subscriptionJaxProxyService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+	    <bean id="edboGuides" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
 	    	<property name="serviceInterface" value="ua.edboservice.EDBOGuidesSoap"/>
 	    	<property name="wsdlDocumentUrl">
 	    		<util:constant static-field="ua.edboservice.EDBOGuides.WSDL_LOCATION" />
@@ -24,7 +24,7 @@
 	    </bean>
 
 	    <bean id="loginService" class="org.is.lnu.edbo.service.login.DefaultLoginService">
-	    	<property name="soap" ref="subscriptionJaxProxyService"/>
+	    	<property name="soap" ref="edboGuides"/>
 	    </bean>
 
 </beans>
