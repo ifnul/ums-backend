@@ -106,7 +106,8 @@ public class DepartmentQueryBuilderTest {
 		String manager = "manager";
 		Date begDate = new Date();
 		Date endDate = new Date();
-
+		String indetifir = "s";
+			
 		Department context = new Department();
 		context.setName(name);
 		context.setParent(parent);
@@ -117,8 +118,9 @@ public class DepartmentQueryBuilderTest {
 		context.setManager(manager);
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
+		context.setIdentifir(indetifir);
 		
-		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent AND e.departmentType = :departmentType AND e.order = :order AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.manager LIKE CONCAT('%',:manager,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Department e WHERE ( e.parent = :parent AND e.departmentType = :departmentType AND e.order = :order AND e.abbrName LIKE CONCAT('%',:abbrName,'%') AND e.name LIKE CONCAT('%',:name,'%') AND e.manager LIKE CONCAT('%',:manager,'%') AND e.identifir LIKE CONCAT('%',:identifir,'%') AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Department> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

@@ -23,6 +23,7 @@ public class DepartmentConverterTest {
 		String abbrName = "abbr name";
 		Date begDate = new Date();
 		Date endDate = new Date();
+		String indetifir = "123";
 		Department parent = new Department();
 		parent.setId(1L);
 		
@@ -41,6 +42,7 @@ public class DepartmentConverterTest {
 		department.setParent(parent);
 		department.setDepartmentType(departmentType);
 		department.setOrder(order);
+		department.setIdentifir(indetifir);
 		
 		DepartmentResource expected = new DepartmentResource();
 		expected.setAbbrName(abbrName);
@@ -50,6 +52,7 @@ public class DepartmentConverterTest {
 		expected.setDepartmentTypeId(departmentType.getId());
 		expected.setParentId(parent.getId());
 		expected.setOrderId(orderId);
+		expected.setIdentifir(indetifir);
 		
 		// When
 		DepartmentResource actual = unit.convert(department);

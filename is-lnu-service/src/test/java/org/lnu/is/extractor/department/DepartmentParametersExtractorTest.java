@@ -78,6 +78,7 @@ public class DepartmentParametersExtractorTest {
 		String manager = "manager1";
 		Date begDate = new Date();
 		Date endDate = new Date();
+		String indetifir = "aasd";
 
 		Department entity = new Department();
 		entity.setParent(parent);
@@ -89,6 +90,7 @@ public class DepartmentParametersExtractorTest {
 		entity.setManager(manager);
 		entity.setBegDate(begDate);
 		entity.setEndDate(endDate);
+		entity.setIdentifir(indetifir);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("parent", parent);
@@ -97,6 +99,7 @@ public class DepartmentParametersExtractorTest {
 		expected.put("abbrName", abbrName);
 		expected.put("name", name);
 		expected.put("manager", manager);
+		expected.put("identifir", indetifir);
 		expected.put("begDate", begDate);
 		expected.put("endDate", endDate);
 		expected.put("status", RowStatus.ACTIVE);
