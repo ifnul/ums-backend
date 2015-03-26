@@ -12,7 +12,8 @@
         http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services-2.0.xsd
         http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd
 		">
- 		
-	<import resource="edbo-guides-service-${edbo.status}.xml"/>
 
+	    <bean id="edboGuidesServiceManager" class="org.is.lnu.edbo.manager.DisabledServiceManager"/>
+
+ 
 </beans>

@@ -15,8 +15,8 @@
 			classpath*:mail-context.xml
 			
 			<!-- EDBO specific contexts -->
-<!--
 	 		classpath*:edbo-guides-service.xml
+<!--
 			classpath*:edbo-person-service.xml 
 -->
 		</param-value>

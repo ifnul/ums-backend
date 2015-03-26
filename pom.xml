@@ -38,6 +38,7 @@
    		
    		<!-- EDBO Modules -->
     	<module>is-lnu-edbo</module>
+    	<module>is-lnu-edbo-common</module>
     	<module>is-lnu-edbo-person-service</module>
     	<module>is-lnu-edbo-guides-service</module>
   </modules>
@@ -95,7 +96,14 @@
 		<findBugsDir>${basedir}/findbugs</findBugsDir>
 
 		<!-- Mail related properties -->
+		<!--
+		Possible options
+ 		1)true
+		2)false -->
 		<mail.enabled>true</mail.enabled>
+		<!--
+ 		1)dev
+		2)production -->		
 		<mail.environment.active>dev</mail.environment.active>
         <mail.from>info@franko.edu.ua</mail.from>
         <mail.host>localhost</mail.host>
@@ -110,10 +118,11 @@
 		<mail.smtp.ssl.trust>smtp.gmail.com</mail.smtp.ssl.trust>
 		
 		<!-- edbo related dependencies -->
-		<edbo.login>edbo.login</edbo.login>
-		<edbo.password>edbo.password</edbo.password>
-		<edbo.application.key>edbo.application.key</edbo.application.key>
-		<edbo.clear.previous.session>1</edbo.clear.previous.session>
+		<!-- 		
+		Possible statuses:
+		1)enabled
+		2)disabled -->
+		<edbo.status>disabled</edbo.status>
 	</properties>
 
 	<dependencyManagement>
@@ -163,6 +172,11 @@
 			<dependency>
 				<groupId>is-lnu</groupId>
 				<artifactId>is-lnu-edbo</artifactId>
+				<version>${version}</version>
+			</dependency>
+			<dependency>
+				<groupId>is-lnu</groupId>
+				<artifactId>is-lnu-edbo-common</artifactId>
 				<version>${version}</version>
 			</dependency>
 			<dependency>
