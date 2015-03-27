@@ -40,6 +40,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="SpecClasifierCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="SpecClasifierName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="QuailificationName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Id_PersonDocumentSourceTypes" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -71,7 +72,8 @@ import javax.xml.bind.annotation.XmlType;
     "yearEnd",
     "specClasifierCode",
     "specClasifierName",
-    "quailificationName"
+    "quailificationName",
+    "idPersonDocumentSourceTypes"
 })
 @XmlRootElement(name = "PersonDocumentsAdd2")
 public class PersonDocumentsAdd2 {
@@ -120,6 +122,8 @@ public class PersonDocumentsAdd2 {
     protected String specClasifierName;
     @XmlElement(name = "QuailificationName")
     protected String quailificationName;
+    @XmlElement(name = "Id_PersonDocumentSourceTypes")
+    protected int idPersonDocumentSourceTypes;
 
     /**
      * Gets the value of the sessionGUID property.
@@ -551,6 +555,22 @@ public class PersonDocumentsAdd2 {
      */
     public void setQuailificationName(String value) {
         this.quailificationName = value;
+    }
+
+    /**
+     * Gets the value of the idPersonDocumentSourceTypes property.
+     * 
+     */
+    public int getIdPersonDocumentSourceTypes() {
+        return idPersonDocumentSourceTypes;
+    }
+
+    /**
+     * Sets the value of the idPersonDocumentSourceTypes property.
+     * 
+     */
+    public void setIdPersonDocumentSourceTypes(int value) {
+        this.idPersonDocumentSourceTypes = value;
     }
 
 }

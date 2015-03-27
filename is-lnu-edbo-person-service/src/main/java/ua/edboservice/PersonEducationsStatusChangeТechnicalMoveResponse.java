@@ -31,11 +31,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "personEducationsStatusChange\u0422echnicalMoveResult"
 })
-@XmlRootElement(name = "PersonEducationsStatusChangeTechnicalMoveResponse")
-public class PersonEducationsStatusChangeTechnicalMoveResponse {
+@XmlRootElement(name = "PersonEducationsStatusChange\u0422echnicalMoveResponse")
+public class PersonEducationsStatusChangeТechnicalMoveResponse {
 
-    @XmlElement(name = "PersonEducationsStatusChangeTechnicalMoveResult")
-    protected String personEducationsStatusChangeTechnicalMoveResult;
+    @XmlElement(name = "PersonEducationsStatusChange\u0422echnicalMoveResult")
+    protected String personEducationsStatusChangeТechnicalMoveResult;
 
     /**
      * Gets the value of the personEducationsStatusChangeТechnicalMoveResult property.
@@ -46,7 +46,7 @@ public class PersonEducationsStatusChangeTechnicalMoveResponse {
      *     
      */
     public String getPersonEducationsStatusChangeТechnicalMoveResult() {
-        return personEducationsStatusChangeTechnicalMoveResult;
+        return personEducationsStatusChangeТechnicalMoveResult;
     }
 
     /**
@@ -57,8 +57,8 @@ public class PersonEducationsStatusChangeTechnicalMoveResponse {
      *     {@link String }
      *     
      */
-    public void setPersonEducationsStatusChangeТechnicalMoveResult(final String value) {
-        this.personEducationsStatusChangeTechnicalMoveResult = value;
+    public void setPersonEducationsStatusChangeТechnicalMoveResult(String value) {
+        this.personEducationsStatusChangeТechnicalMoveResult = value;
     }
 
 }

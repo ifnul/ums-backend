@@ -4,28 +4,26 @@ package ua.edboservice;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for dGovernmentAward complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="dGovernmentAward">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="SessionGUID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Id_GovernmentAward" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="GovernmentAwardName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="GovernmentAwardDateBegin" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
- *         &lt;element name="GovernmentAwardDateEnd" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
- *         &lt;element name="GovernmentAwardDateLastChange" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
+ *         &lt;element name="GovernmentAwardDateBegin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="GovernmentAwardDateEnd" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Id_GovernmentAwardsTypes" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="GovernmentAwardsTypesName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,34 +33,53 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "dGovernmentAward", propOrder = {
+@XmlType(name = "", propOrder = {
+    "sessionGUID",
     "idGovernmentAward",
     "governmentAwardName",
     "governmentAwardDateBegin",
     "governmentAwardDateEnd",
-    "governmentAwardDateLastChange",
-    "idGovernmentAwardsTypes",
-    "governmentAwardsTypesName"
+    "idGovernmentAwardsTypes"
 })
-public class DGovernmentAward {
+@XmlRootElement(name = "GovernmentAwardsEdit")
+public class GovernmentAwardsEdit {
 
+    @XmlElement(name = "SessionGUID")
+    protected String sessionGUID;
     @XmlElement(name = "Id_GovernmentAward")
     protected int idGovernmentAward;
     @XmlElement(name = "GovernmentAwardName")
     protected String governmentAwardName;
-    @XmlElement(name = "GovernmentAwardDateBegin", required = true)
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar governmentAwardDateBegin;
-    @XmlElement(name = "GovernmentAwardDateEnd", required = true)
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar governmentAwardDateEnd;
-    @XmlElement(name = "GovernmentAwardDateLastChange", required = true)
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar governmentAwardDateLastChange;
+    @XmlElement(name = "GovernmentAwardDateBegin")
+    protected String governmentAwardDateBegin;
+    @XmlElement(name = "GovernmentAwardDateEnd")
+    protected String governmentAwardDateEnd;
     @XmlElement(name = "Id_GovernmentAwardsTypes")
     protected int idGovernmentAwardsTypes;
-    @XmlElement(name = "GovernmentAwardsTypesName")
-    protected String governmentAwardsTypesName;
+
+    /**
+     * Gets the value of the sessionGUID property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSessionGUID() {
+        return sessionGUID;
+    }
+
+    /**
+     * Sets the value of the sessionGUID property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSessionGUID(String value) {
+        this.sessionGUID = value;
+    }
 
     /**
      * Gets the value of the idGovernmentAward property.
@@ -109,10 +126,10 @@ public class DGovernmentAward {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getGovernmentAwardDateBegin() {
+    public String getGovernmentAwardDateBegin() {
         return governmentAwardDateBegin;
     }
 
@@ -121,10 +138,10 @@ public class DGovernmentAward {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setGovernmentAwardDateBegin(XMLGregorianCalendar value) {
+    public void setGovernmentAwardDateBegin(String value) {
         this.governmentAwardDateBegin = value;
     }
 
@@ -133,10 +150,10 @@ public class DGovernmentAward {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getGovernmentAwardDateEnd() {
+    public String getGovernmentAwardDateEnd() {
         return governmentAwardDateEnd;
     }
 
@@ -145,35 +162,11 @@ public class DGovernmentAward {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setGovernmentAwardDateEnd(XMLGregorianCalendar value) {
+    public void setGovernmentAwardDateEnd(String value) {
         this.governmentAwardDateEnd = value;
-    }
-
-    /**
-     * Gets the value of the governmentAwardDateLastChange property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getGovernmentAwardDateLastChange() {
-        return governmentAwardDateLastChange;
-    }
-
-    /**
-     * Sets the value of the governmentAwardDateLastChange property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setGovernmentAwardDateLastChange(XMLGregorianCalendar value) {
-        this.governmentAwardDateLastChange = value;
     }
 
     /**
@@ -190,30 +183,6 @@ public class DGovernmentAward {
      */
     public void setIdGovernmentAwardsTypes(int value) {
         this.idGovernmentAwardsTypes = value;
-    }
-
-    /**
-     * Gets the value of the governmentAwardsTypesName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getGovernmentAwardsTypesName() {
-        return governmentAwardsTypesName;
-    }
-
-    /**
-     * Sets the value of the governmentAwardsTypesName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setGovernmentAwardsTypesName(String value) {
-        this.governmentAwardsTypesName = value;
     }
 
 }

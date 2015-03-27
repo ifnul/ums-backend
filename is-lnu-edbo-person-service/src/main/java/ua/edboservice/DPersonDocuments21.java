@@ -75,6 +75,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="QuailificationName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="IsExpired" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="PersonDocumentSourceTypesName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Id_PersonDocumentSourceTypes" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -139,7 +140,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "specClasifierName",
     "quailificationName",
     "isExpired",
-    "personDocumentSourceTypesName"
+    "personDocumentSourceTypesName",
+    "idPersonDocumentSourceTypes"
 })
 public class DPersonDocuments21 {
 
@@ -259,6 +261,8 @@ public class DPersonDocuments21 {
     protected int isExpired;
     @XmlElement(name = "PersonDocumentSourceTypesName")
     protected String personDocumentSourceTypesName;
+    @XmlElement(name = "Id_PersonDocumentSourceTypes")
+    protected int idPersonDocumentSourceTypes;
 
     /**
      * Gets the value of the idPersonDocument property.
@@ -1378,6 +1382,22 @@ public class DPersonDocuments21 {
      */
     public void setPersonDocumentSourceTypesName(String value) {
         this.personDocumentSourceTypesName = value;
+    }
+
+    /**
+     * Gets the value of the idPersonDocumentSourceTypes property.
+     * 
+     */
+    public int getIdPersonDocumentSourceTypes() {
+        return idPersonDocumentSourceTypes;
+    }
+
+    /**
+     * Sets the value of the idPersonDocumentSourceTypes property.
+     * 
+     */
+    public void setIdPersonDocumentSourceTypes(int value) {
+        this.idPersonDocumentSourceTypes = value;
     }
 
 }

@@ -47,6 +47,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Id_AcademicEducationDegreDetailType" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="AcademicEducationDegreDetailFullName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="AcademicEducationDegreDetailShortName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="UniversityKode_CertifyingAgencies" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="CertifyingAgenciesAdditionalName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -84,7 +86,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "idPersonAcademicDegreiesScan",
     "idAcademicEducationDegreDetailType",
     "academicEducationDegreDetailFullName",
-    "academicEducationDegreDetailShortName"
+    "academicEducationDegreDetailShortName",
+    "universityKodeCertifyingAgencies",
+    "certifyingAgenciesAdditionalName"
 })
 public class DPersonAcademicDegreies {
 
@@ -149,6 +153,10 @@ public class DPersonAcademicDegreies {
     protected String academicEducationDegreDetailFullName;
     @XmlElement(name = "AcademicEducationDegreDetailShortName")
     protected String academicEducationDegreDetailShortName;
+    @XmlElement(name = "UniversityKode_CertifyingAgencies")
+    protected String universityKodeCertifyingAgencies;
+    @XmlElement(name = "CertifyingAgenciesAdditionalName")
+    protected String certifyingAgenciesAdditionalName;
 
     /**
      * Gets the value of the idPersonAcademicDegreies property.
@@ -756,6 +764,54 @@ public class DPersonAcademicDegreies {
      */
     public void setAcademicEducationDegreDetailShortName(String value) {
         this.academicEducationDegreDetailShortName = value;
+    }
+
+    /**
+     * Gets the value of the universityKodeCertifyingAgencies property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityKodeCertifyingAgencies() {
+        return universityKodeCertifyingAgencies;
+    }
+
+    /**
+     * Sets the value of the universityKodeCertifyingAgencies property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityKodeCertifyingAgencies(String value) {
+        this.universityKodeCertifyingAgencies = value;
+    }
+
+    /**
+     * Gets the value of the certifyingAgenciesAdditionalName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCertifyingAgenciesAdditionalName() {
+        return certifyingAgenciesAdditionalName;
+    }
+
+    /**
+     * Sets the value of the certifyingAgenciesAdditionalName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCertifyingAgenciesAdditionalName(String value) {
+        this.certifyingAgenciesAdditionalName = value;
     }
 
 }

@@ -45,8 +45,8 @@ import javax.xml.bind.annotation.XmlType;
     "idPersonEducations",
     "personEducationHistoryDesciption"
 })
-@XmlRootElement(name = "PersonEducationsStatusChangeTechnicalMove")
-public class PersonEducationsStatusChangeTechnicalMove {
+@XmlRootElement(name = "PersonEducationsStatusChange\u0422echnicalMove")
+public class PersonEducationsStatusChangeТechnicalMove {
 
     @XmlElement(name = "SessionGUID")
     protected String sessionGUID;
@@ -85,7 +85,7 @@ public class PersonEducationsStatusChangeTechnicalMove {
      *     {@link String }
      *     
      */
-    public void setSessionGUID(final String value) {
+    public void setSessionGUID(String value) {
         this.sessionGUID = value;
     }
 
@@ -109,7 +109,7 @@ public class PersonEducationsStatusChangeTechnicalMove {
      *     {@link String }
      *     
      */
-    public void setUniversityKode(final String value) {
+    public void setUniversityKode(String value) {
         this.universityKode = value;
     }
 
@@ -133,7 +133,7 @@ public class PersonEducationsStatusChangeTechnicalMove {
      *     {@link String }
      *     
      */
-    public void setUniversityKodeTo(final String value) {
+    public void setUniversityKodeTo(String value) {
         this.universityKodeTo = value;
     }
 
@@ -149,7 +149,7 @@ public class PersonEducationsStatusChangeTechnicalMove {
      * Sets the value of the idUniversityGroup property.
      * 
      */
-    public void setIdUniversityGroup(final int value) {
+    public void setIdUniversityGroup(int value) {
         this.idUniversityGroup = value;
     }
 
@@ -173,7 +173,7 @@ public class PersonEducationsStatusChangeTechnicalMove {
      *     {@link String }
      *     
      */
-    public void setUniversityFacultetKode(final String value) {
+    public void setUniversityFacultetKode(String value) {
         this.universityFacultetKode = value;
     }
 
@@ -189,7 +189,7 @@ public class PersonEducationsStatusChangeTechnicalMove {
      * Sets the value of the idPersonEducationHistoryOrders property.
      * 
      */
-    public void setIdPersonEducationHistoryOrders(final int value) {
+    public void setIdPersonEducationHistoryOrders(int value) {
         this.idPersonEducationHistoryOrders = value;
     }
 
@@ -213,7 +213,7 @@ public class PersonEducationsStatusChangeTechnicalMove {
      *     {@link String }
      *     
      */
-    public void setIdPersonEducations(final String value) {
+    public void setIdPersonEducations(String value) {
         this.idPersonEducations = value;
     }
 
@@ -237,7 +237,7 @@ public class PersonEducationsStatusChangeTechnicalMove {
      *     {@link String }
      *     
      */
-    public void setPersonEducationHistoryDesciption(final String value) {
+    public void setPersonEducationHistoryDesciption(String value) {
         this.personEducationHistoryDesciption = value;
     }
 

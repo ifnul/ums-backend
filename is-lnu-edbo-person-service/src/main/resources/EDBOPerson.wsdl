@@ -2,6 +2,226 @@
 <wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://edboservice.ua/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://edboservice.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://edboservice.ua/">
+      <s:element name="PersonsStudentsForRequestDPGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetKode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityGroup" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationForm" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityClasifierCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonsStudentsForRequestDPGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonsStudentsForRequestDPGetResult" type="tns:ArrayOfDPersonRequestAnketaDP" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonRequestAnketaDP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonRequestAnketaDP" nillable="true" type="tns:dPersonRequestAnketaDP" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonRequestAnketaDP">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonSex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Birthday" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_EducationDocument" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationPaymentType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonEducationID_EDBO" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstNameEn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleNameEn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastNameEn" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SpecSpecialityClasifierForRequestDPGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetKode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityGroup" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationForm" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SpecSpecialityClasifierForRequestDPGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityClasifierForRequestDPGetResult" type="tns:ArrayOfDSpecSpecialityClasifierForRequestDP" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDSpecSpecialityClasifierForRequestDP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dSpecSpecialityClasifierForRequestDP" nillable="true" type="tns:dSpecSpecialityClasifierForRequestDP" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dSpecSpecialityClasifierForRequestDP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SpecClasifierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecNameEn" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PersonDocumentCancellationGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonDocumentCancellationGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationGetResult" type="tns:ArrayOfDPersonDocumentCancellation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonDocumentCancellation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentCancellation" nillable="true" type="tns:dPersonDocumentCancellation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonDocumentCancellation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellation" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentCancellationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentCancellationDateLastChange" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_RegulationDocument" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsVerified" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_RegulationDocumentVerificationHistoryType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegulationDocumentVerificationHistoryTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsExistFile" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationHistoryOrders" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonEducationHistoryOrdersNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonEducationHistoryOrdersDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationHistoryType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonEducationHistoryTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_University" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PersonDocumentCancellationDataGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellation" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonDocumentCancellationDataGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationDataGetResult" type="tns:ArrayOfDPersonDocumentCancellationData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonDocumentCancellationData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentCancellationData" nillable="true" type="tns:dPersonDocumentCancellationData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonDocumentCancellationData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellationData" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellation" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentCancellationDataLastChange" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentSeries" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentNumbers" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FIO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cancellad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Birthday" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellationType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationTypeName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PersonDocumentCancellationTypesGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonDocumentCancellationTypesGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationTypesGetResult" type="tns:ArrayOfDPersonDocumentCancellationTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonDocumentCancellationTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentCancellationTypes" nillable="true" type="tns:dPersonDocumentCancellationTypes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonDocumentCancellationTypes">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellationType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationTypeName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PersonDocumentCancellationPersonsFind">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonDocumentCancellationPersonsFindResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationPersonsFindResult" type="tns:ArrayOfDPersonDocumentCancellationPersonsFind" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonDocumentCancellationPersonsFind">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentCancellationPersonsFind" nillable="true" type="tns:dPersonDocumentCancellationPersonsFind" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonDocumentCancellationPersonsFind">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Birthday" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="FIO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentSeries" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentNumbers" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentDateGet" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentIssued" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationHistory" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EducationInfo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="PersonDocumentCancellationAdd">
         <s:complexType>
           <s:sequence>
@@ -208,8 +428,61 @@
           <s:element minOccurs="1" maxOccurs="1" name="GovernmentAwardDateEnd" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="GovernmentAwardDateLastChange" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="Id_GovernmentAwardsTypes" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GovernmentAwardsTypesName" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GovernmentAwardsAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GovernmentAwardName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GovernmentAwardDateBegin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GovernmentAwardDateEnd" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_GovernmentAwardsTypes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GovernmentAwardsAddResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_GovernmentAward" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="GovernmentAwardName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GovernmentAwardDateBegin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GovernmentAwardDateEnd" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_GovernmentAwardsTypes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GovernmentAwardsEditResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsDel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_GovernmentAward" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsDelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GovernmentAwardsDelResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GovernmentAwardsTypesGet">
         <s:complexType>
           <s:sequence>
@@ -236,6 +509,54 @@
           <s:element minOccurs="1" maxOccurs="1" name="Sort" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GovernmentAwardsTypesAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GovernmentAwardsTypesName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Sort" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsTypesAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GovernmentAwardsTypesAddResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsTypesEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_GovernmentAwardsTypes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="GovernmentAwardsTypesName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Sort" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsTypesEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GovernmentAwardsTypesEditResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsTypesDel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_GovernmentAwardsTypes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GovernmentAwardsTypesDelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GovernmentAwardsTypesDelResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="TextbookTypesGet">
         <s:complexType>
           <s:sequence>
@@ -959,6 +1280,8 @@
           <s:element minOccurs="1" maxOccurs="1" name="DateCreate" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="DateLastChange" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="Id_PersonAcademicRankScan" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityKode_CertifyingAgencies" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertifyingAgenciesAdditionalName" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="PersonAcademicRankAdd">
@@ -979,6 +1302,8 @@
             <s:element minOccurs="0" maxOccurs="1" name="ScienceSpecialityClasifierCode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="ScienceSpecialityName" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="PersonAcademicRankScan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode_CertifyingAgencies" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CertifyingAgenciesAdditionalName" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1004,6 +1329,8 @@
             <s:element minOccurs="0" maxOccurs="1" name="KafedraName" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="ScienceSpecialityClasifierCode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="ScienceSpecialityName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode_CertifyingAgencies" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CertifyingAgenciesAdditionalName" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1110,6 +1437,8 @@
           <s:element minOccurs="1" maxOccurs="1" name="Id_AcademicEducationDegreDetailType" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="AcademicEducationDegreDetailFullName" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="AcademicEducationDegreDetailShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityKode_CertifyingAgencies" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertifyingAgenciesAdditionalName" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="PersonAcademicDegreiesAdd">
@@ -1132,6 +1461,8 @@
             <s:element minOccurs="0" maxOccurs="1" name="ScienceSpecialityClasifierCode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="ScienceSpecialityName" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="PersonAcademicDegreiesScan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode_CertifyingAgencies" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CertifyingAgenciesAdditionalName" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1161,6 +1492,8 @@
             <s:element minOccurs="0" maxOccurs="1" name="ScienceSpecialityCode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="ScienceSpecialityClasifierCode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="ScienceSpecialityName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode_CertifyingAgencies" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CertifyingAgenciesAdditionalName" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -4264,223 +4597,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducation" type="s:int" />
         </s:sequence>
       </s:complexType>
-      <s:element name="PersonsStudentsForRequestDPGet">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetKode" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityGroup" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationForm" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityClasifierCode" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="PersonsStudentsForRequestDPGetResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PersonsStudentsForRequestDPGetResult" type="tns:ArrayOfDPersonRequestAnketaDP" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfDPersonRequestAnketaDP">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonRequestAnketaDP" nillable="true" type="tns:dPersonRequestAnketaDP" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="dPersonRequestAnketaDP">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="UpdateTime" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonSex" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Birthday" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="IPN" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_EducationDocument" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationPaymentType" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="PersonEducationID_EDBO" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="FirstNameEn" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="MiddleNameEn" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="LastNameEn" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="SpecSpecialityClasifierForRequestDPGet">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetKode" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityGroup" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationForm" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="SpecSpecialityClasifierForRequestDPGetResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityClasifierForRequestDPGetResult" type="tns:ArrayOfDSpecSpecialityClasifierForRequestDP" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfDSpecSpecialityClasifierForRequestDP">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="dSpecSpecialityClasifierForRequestDP" nillable="true" type="tns:dSpecSpecialityClasifierForRequestDP" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="dSpecSpecialityClasifierForRequestDP">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="SpecClasifierCode" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SpecName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SpecNameEn" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="PersonDocumentCancellationGet">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="PersonDocumentCancellationGetResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationGetResult" type="tns:ArrayOfDPersonDocumentCancellation" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfDPersonDocumentCancellation">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentCancellation" nillable="true" type="tns:dPersonDocumentCancellation" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="dPersonDocumentCancellation">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellation" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentCancellationDate" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationNumber" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentCancellationDateLastChange" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentTypeName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_RegulationDocument" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="IsVerified" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_RegulationDocumentVerificationHistoryType" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="RegulationDocumentVerificationHistoryTypeName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="IsExistFile" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationHistoryOrders" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PersonEducationHistoryOrdersNumber" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="PersonEducationHistoryOrdersDate" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationHistoryType" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PersonEducationHistoryTypeName" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="PersonDocumentCancellationDataGet">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellation" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="PersonDocumentCancellationDataGetResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationDataGetResult" type="tns:ArrayOfDPersonDocumentCancellationData" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfDPersonDocumentCancellationData">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentCancellationData" nillable="true" type="tns:dPersonDocumentCancellationData" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="dPersonDocumentCancellationData">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellationData" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellation" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentCancellationDataLastChange" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="DocumentSeries" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="DocumentNumbers" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="FIO" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Cancellad" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Birthday" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellationType" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationTypeName" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="PersonDocumentCancellationTypesGet">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="PersonDocumentCancellationTypesGetResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationTypesGetResult" type="tns:ArrayOfDPersonDocumentCancellationTypes" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfDPersonDocumentCancellationTypes">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentCancellationTypes" nillable="true" type="tns:dPersonDocumentCancellationTypes" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="dPersonDocumentCancellationTypes">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentCancellationType" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationTypeName" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="PersonDocumentCancellationPersonsFind">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="PersonDocumentCancellationPersonsFindResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentCancellationPersonsFindResult" type="tns:ArrayOfDPersonDocumentCancellationPersonsFind" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfDPersonDocumentCancellationPersonsFind">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentCancellationPersonsFind" nillable="true" type="tns:dPersonDocumentCancellationPersonsFind" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="dPersonDocumentCancellationPersonsFind">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducation" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Birthday" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="FIO" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="DocumentSeries" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="DocumentNumbers" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="DocumentDateGet" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="DocumentIssued" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationHistory" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="EducationInfo" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="PersonRequestEdit3">
         <s:complexType>
           <s:sequence>
@@ -5150,6 +5266,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="IPN" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ScienseName" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="PrevFIO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocFullName" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="PersonViewersGet">
@@ -8839,6 +8956,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="QuailificationName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="IsExpired" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentSourceTypesName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentSourceTypes" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="PersonDocumentsFullGet">
@@ -8955,6 +9073,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="SpecClasifierCode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SpecClasifierName" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="QuailificationName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentSourceTypes" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -11953,6 +12072,42 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="PersonsStudentsForRequestDPGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonsStudentsForRequestDPGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonsStudentsForRequestDPGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonsStudentsForRequestDPGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SpecSpecialityClasifierForRequestDPGetSoapIn">
+    <wsdl:part name="parameters" element="tns:SpecSpecialityClasifierForRequestDPGet" />
+  </wsdl:message>
+  <wsdl:message name="SpecSpecialityClasifierForRequestDPGetSoapOut">
+    <wsdl:part name="parameters" element="tns:SpecSpecialityClasifierForRequestDPGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentCancellationGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentCancellationGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentCancellationDataGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationDataGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentCancellationDataGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationDataGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentCancellationTypesGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationTypesGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentCancellationTypesGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationTypesGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentCancellationPersonsFindSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationPersonsFind" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentCancellationPersonsFindSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationPersonsFindResponse" />
+  </wsdl:message>
   <wsdl:message name="PersonDocumentCancellationAddSoapIn">
     <wsdl:part name="parameters" element="tns:PersonDocumentCancellationAdd" />
   </wsdl:message>
@@ -12007,11 +12162,47 @@
   <wsdl:message name="GovernmentAwardsGetSoapOut">
     <wsdl:part name="parameters" element="tns:GovernmentAwardsGetResponse" />
   </wsdl:message>
+  <wsdl:message name="GovernmentAwardsAddSoapIn">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsAdd" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsAddSoapOut">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsEditSoapIn">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsEdit" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsEditSoapOut">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsDelSoapIn">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsDel" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsDelSoapOut">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsDelResponse" />
+  </wsdl:message>
   <wsdl:message name="GovernmentAwardsTypesGetSoapIn">
     <wsdl:part name="parameters" element="tns:GovernmentAwardsTypesGet" />
   </wsdl:message>
   <wsdl:message name="GovernmentAwardsTypesGetSoapOut">
     <wsdl:part name="parameters" element="tns:GovernmentAwardsTypesGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsTypesAddSoapIn">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsTypesAdd" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsTypesAddSoapOut">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsTypesAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsTypesEditSoapIn">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsTypesEdit" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsTypesEditSoapOut">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsTypesEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsTypesDelSoapIn">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsTypesDel" />
+  </wsdl:message>
+  <wsdl:message name="GovernmentAwardsTypesDelSoapOut">
+    <wsdl:part name="parameters" element="tns:GovernmentAwardsTypesDelResponse" />
   </wsdl:message>
   <wsdl:message name="TextbookTypesGetSoapIn">
     <wsdl:part name="parameters" element="tns:TextbookTypesGet" />
@@ -12720,42 +12911,6 @@
   </wsdl:message>
   <wsdl:message name="PersonsStudentsForRequestDSGetSoapOut">
     <wsdl:part name="parameters" element="tns:PersonsStudentsForRequestDSGetResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonsStudentsForRequestDPGetSoapIn">
-    <wsdl:part name="parameters" element="tns:PersonsStudentsForRequestDPGet" />
-  </wsdl:message>
-  <wsdl:message name="PersonsStudentsForRequestDPGetSoapOut">
-    <wsdl:part name="parameters" element="tns:PersonsStudentsForRequestDPGetResponse" />
-  </wsdl:message>
-  <wsdl:message name="SpecSpecialityClasifierForRequestDPGetSoapIn">
-    <wsdl:part name="parameters" element="tns:SpecSpecialityClasifierForRequestDPGet" />
-  </wsdl:message>
-  <wsdl:message name="SpecSpecialityClasifierForRequestDPGetSoapOut">
-    <wsdl:part name="parameters" element="tns:SpecSpecialityClasifierForRequestDPGetResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonDocumentCancellationGetSoapIn">
-    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationGet" />
-  </wsdl:message>
-  <wsdl:message name="PersonDocumentCancellationGetSoapOut">
-    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationGetResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonDocumentCancellationDataGetSoapIn">
-    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationDataGet" />
-  </wsdl:message>
-  <wsdl:message name="PersonDocumentCancellationDataGetSoapOut">
-    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationDataGetResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonDocumentCancellationTypesGetSoapIn">
-    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationTypesGet" />
-  </wsdl:message>
-  <wsdl:message name="PersonDocumentCancellationTypesGetSoapOut">
-    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationTypesGetResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonDocumentCancellationPersonsFindSoapIn">
-    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationPersonsFind" />
-  </wsdl:message>
-  <wsdl:message name="PersonDocumentCancellationPersonsFindSoapOut">
-    <wsdl:part name="parameters" element="tns:PersonDocumentCancellationPersonsFindResponse" />
   </wsdl:message>
   <wsdl:message name="PersonRequestEdit3SoapIn">
     <wsdl:part name="parameters" element="tns:PersonRequestEdit3" />
@@ -14198,6 +14353,30 @@
     <wsdl:part name="parameters" element="tns:PersonRequestEdit2Response" />
   </wsdl:message>
   <wsdl:portType name="EDBOPersonSoap">
+    <wsdl:operation name="PersonsStudentsForRequestDPGet">
+      <wsdl:input message="tns:PersonsStudentsForRequestDPGetSoapIn" />
+      <wsdl:output message="tns:PersonsStudentsForRequestDPGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SpecSpecialityClasifierForRequestDPGet">
+      <wsdl:input message="tns:SpecSpecialityClasifierForRequestDPGetSoapIn" />
+      <wsdl:output message="tns:SpecSpecialityClasifierForRequestDPGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationGet">
+      <wsdl:input message="tns:PersonDocumentCancellationGetSoapIn" />
+      <wsdl:output message="tns:PersonDocumentCancellationGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationDataGet">
+      <wsdl:input message="tns:PersonDocumentCancellationDataGetSoapIn" />
+      <wsdl:output message="tns:PersonDocumentCancellationDataGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationTypesGet">
+      <wsdl:input message="tns:PersonDocumentCancellationTypesGetSoapIn" />
+      <wsdl:output message="tns:PersonDocumentCancellationTypesGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationPersonsFind">
+      <wsdl:input message="tns:PersonDocumentCancellationPersonsFindSoapIn" />
+      <wsdl:output message="tns:PersonDocumentCancellationPersonsFindSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="PersonDocumentCancellationAdd">
       <wsdl:input message="tns:PersonDocumentCancellationAddSoapIn" />
       <wsdl:output message="tns:PersonDocumentCancellationAddSoapOut" />
@@ -14237,10 +14416,34 @@
       <wsdl:input message="tns:GovernmentAwardsGetSoapIn" />
       <wsdl:output message="tns:GovernmentAwardsGetSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsAdd">
+      <wsdl:input message="tns:GovernmentAwardsAddSoapIn" />
+      <wsdl:output message="tns:GovernmentAwardsAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsEdit">
+      <wsdl:input message="tns:GovernmentAwardsEditSoapIn" />
+      <wsdl:output message="tns:GovernmentAwardsEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsDel">
+      <wsdl:input message="tns:GovernmentAwardsDelSoapIn" />
+      <wsdl:output message="tns:GovernmentAwardsDelSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GovernmentAwardsTypesGet">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Отримання переліку державних нагород</wsdl:documentation>
       <wsdl:input message="tns:GovernmentAwardsTypesGetSoapIn" />
       <wsdl:output message="tns:GovernmentAwardsTypesGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsTypesAdd">
+      <wsdl:input message="tns:GovernmentAwardsTypesAddSoapIn" />
+      <wsdl:output message="tns:GovernmentAwardsTypesAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsTypesEdit">
+      <wsdl:input message="tns:GovernmentAwardsTypesEditSoapIn" />
+      <wsdl:output message="tns:GovernmentAwardsTypesEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsTypesDel">
+      <wsdl:input message="tns:GovernmentAwardsTypesDelSoapIn" />
+      <wsdl:output message="tns:GovernmentAwardsTypesDelSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="TextbookTypesGet">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Переліки типів підручників та посібників</wsdl:documentation>
@@ -14719,30 +14922,6 @@
     <wsdl:operation name="PersonsStudentsForRequestDSGet">
       <wsdl:input message="tns:PersonsStudentsForRequestDSGetSoapIn" />
       <wsdl:output message="tns:PersonsStudentsForRequestDSGetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="PersonsStudentsForRequestDPGet">
-      <wsdl:input message="tns:PersonsStudentsForRequestDPGetSoapIn" />
-      <wsdl:output message="tns:PersonsStudentsForRequestDPGetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="SpecSpecialityClasifierForRequestDPGet">
-      <wsdl:input message="tns:SpecSpecialityClasifierForRequestDPGetSoapIn" />
-      <wsdl:output message="tns:SpecSpecialityClasifierForRequestDPGetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationGet">
-      <wsdl:input message="tns:PersonDocumentCancellationGetSoapIn" />
-      <wsdl:output message="tns:PersonDocumentCancellationGetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationDataGet">
-      <wsdl:input message="tns:PersonDocumentCancellationDataGetSoapIn" />
-      <wsdl:output message="tns:PersonDocumentCancellationDataGetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationTypesGet">
-      <wsdl:input message="tns:PersonDocumentCancellationTypesGetSoapIn" />
-      <wsdl:output message="tns:PersonDocumentCancellationTypesGetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationPersonsFind">
-      <wsdl:input message="tns:PersonDocumentCancellationPersonsFindSoapIn" />
-      <wsdl:output message="tns:PersonDocumentCancellationPersonsFindSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="PersonRequestEdit3">
       <wsdl:input message="tns:PersonRequestEdit3SoapIn" />
@@ -15711,6 +15890,60 @@
   </wsdl:portType>
   <wsdl:binding name="EDBOPersonSoap" type="tns:EDBOPersonSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PersonsStudentsForRequestDPGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonsStudentsForRequestDPGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SpecSpecialityClasifierForRequestDPGet">
+      <soap:operation soapAction="http://edboservice.ua/SpecSpecialityClasifierForRequestDPGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonDocumentCancellationGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationDataGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonDocumentCancellationDataGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationTypesGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonDocumentCancellationTypesGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationPersonsFind">
+      <soap:operation soapAction="http://edboservice.ua/PersonDocumentCancellationPersonsFind" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="PersonDocumentCancellationAdd">
       <soap:operation soapAction="http://edboservice.ua/PersonDocumentCancellationAdd" style="document" />
       <wsdl:input>
@@ -15792,8 +16025,62 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsAdd">
+      <soap:operation soapAction="http://edboservice.ua/GovernmentAwardsAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsEdit">
+      <soap:operation soapAction="http://edboservice.ua/GovernmentAwardsEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsDel">
+      <soap:operation soapAction="http://edboservice.ua/GovernmentAwardsDel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GovernmentAwardsTypesGet">
       <soap:operation soapAction="http://edboservice.ua/GovernmentAwardsTypesGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsTypesAdd">
+      <soap:operation soapAction="http://edboservice.ua/GovernmentAwardsTypesAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsTypesEdit">
+      <soap:operation soapAction="http://edboservice.ua/GovernmentAwardsTypesEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsTypesDel">
+      <soap:operation soapAction="http://edboservice.ua/GovernmentAwardsTypesDel" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -16856,60 +17143,6 @@
     </wsdl:operation>
     <wsdl:operation name="PersonsStudentsForRequestDSGet">
       <soap:operation soapAction="http://edboservice.ua/PersonsStudentsForRequestDSGet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonsStudentsForRequestDPGet">
-      <soap:operation soapAction="http://edboservice.ua/PersonsStudentsForRequestDPGet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SpecSpecialityClasifierForRequestDPGet">
-      <soap:operation soapAction="http://edboservice.ua/SpecSpecialityClasifierForRequestDPGet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationGet">
-      <soap:operation soapAction="http://edboservice.ua/PersonDocumentCancellationGet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationDataGet">
-      <soap:operation soapAction="http://edboservice.ua/PersonDocumentCancellationDataGet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationTypesGet">
-      <soap:operation soapAction="http://edboservice.ua/PersonDocumentCancellationTypesGet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationPersonsFind">
-      <soap:operation soapAction="http://edboservice.ua/PersonDocumentCancellationPersonsFind" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -19080,6 +19313,60 @@
   </wsdl:binding>
   <wsdl:binding name="EDBOPersonSoap12" type="tns:EDBOPersonSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PersonsStudentsForRequestDPGet">
+      <soap12:operation soapAction="http://edboservice.ua/PersonsStudentsForRequestDPGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SpecSpecialityClasifierForRequestDPGet">
+      <soap12:operation soapAction="http://edboservice.ua/SpecSpecialityClasifierForRequestDPGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationGet">
+      <soap12:operation soapAction="http://edboservice.ua/PersonDocumentCancellationGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationDataGet">
+      <soap12:operation soapAction="http://edboservice.ua/PersonDocumentCancellationDataGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationTypesGet">
+      <soap12:operation soapAction="http://edboservice.ua/PersonDocumentCancellationTypesGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonDocumentCancellationPersonsFind">
+      <soap12:operation soapAction="http://edboservice.ua/PersonDocumentCancellationPersonsFind" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="PersonDocumentCancellationAdd">
       <soap12:operation soapAction="http://edboservice.ua/PersonDocumentCancellationAdd" style="document" />
       <wsdl:input>
@@ -19161,8 +19448,62 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsAdd">
+      <soap12:operation soapAction="http://edboservice.ua/GovernmentAwardsAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsEdit">
+      <soap12:operation soapAction="http://edboservice.ua/GovernmentAwardsEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsDel">
+      <soap12:operation soapAction="http://edboservice.ua/GovernmentAwardsDel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GovernmentAwardsTypesGet">
       <soap12:operation soapAction="http://edboservice.ua/GovernmentAwardsTypesGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsTypesAdd">
+      <soap12:operation soapAction="http://edboservice.ua/GovernmentAwardsTypesAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsTypesEdit">
+      <soap12:operation soapAction="http://edboservice.ua/GovernmentAwardsTypesEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GovernmentAwardsTypesDel">
+      <soap12:operation soapAction="http://edboservice.ua/GovernmentAwardsTypesDel" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -20225,60 +20566,6 @@
     </wsdl:operation>
     <wsdl:operation name="PersonsStudentsForRequestDSGet">
       <soap12:operation soapAction="http://edboservice.ua/PersonsStudentsForRequestDSGet" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonsStudentsForRequestDPGet">
-      <soap12:operation soapAction="http://edboservice.ua/PersonsStudentsForRequestDPGet" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SpecSpecialityClasifierForRequestDPGet">
-      <soap12:operation soapAction="http://edboservice.ua/SpecSpecialityClasifierForRequestDPGet" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationGet">
-      <soap12:operation soapAction="http://edboservice.ua/PersonDocumentCancellationGet" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationDataGet">
-      <soap12:operation soapAction="http://edboservice.ua/PersonDocumentCancellationDataGet" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationTypesGet">
-      <soap12:operation soapAction="http://edboservice.ua/PersonDocumentCancellationTypesGet" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PersonDocumentCancellationPersonsFind">
-      <soap12:operation soapAction="http://edboservice.ua/PersonDocumentCancellationPersonsFind" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -22449,10 +22736,10 @@
   </wsdl:binding>
   <wsdl:service name="EDBOPerson">
     <wsdl:port name="EDBOPersonSoap" binding="tns:EDBOPersonSoap">
-      <soap:address location="http://194.44.198.43:8081/EDBOPerson/EDBOPerson.asmx" />
+      <soap:address location="http://194.44.198.43:8080/EDBOPerson/EDBOPerson.asmx" />
     </wsdl:port>
     <wsdl:port name="EDBOPersonSoap12" binding="tns:EDBOPersonSoap12">
-      <soap12:address location="http://194.44.198.43:8081/EDBOPerson/EDBOPerson.asmx" />
+      <soap12:address location="http://194.44.198.43:8080/EDBOPerson/EDBOPerson.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

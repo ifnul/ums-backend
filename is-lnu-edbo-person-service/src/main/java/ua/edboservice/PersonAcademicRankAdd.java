@@ -33,6 +33,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="ScienceSpecialityClasifierCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="ScienceSpecialityName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PersonAcademicRankScan" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="UniversityKode_CertifyingAgencies" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="CertifyingAgenciesAdditionalName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -57,7 +59,9 @@ import javax.xml.bind.annotation.XmlType;
     "kafedraName",
     "scienceSpecialityClasifierCode",
     "scienceSpecialityName",
-    "personAcademicRankScan"
+    "personAcademicRankScan",
+    "universityKodeCertifyingAgencies",
+    "certifyingAgenciesAdditionalName"
 })
 @XmlRootElement(name = "PersonAcademicRankAdd")
 public class PersonAcademicRankAdd {
@@ -92,6 +96,10 @@ public class PersonAcademicRankAdd {
     protected String scienceSpecialityName;
     @XmlElement(name = "PersonAcademicRankScan")
     protected String personAcademicRankScan;
+    @XmlElement(name = "UniversityKode_CertifyingAgencies")
+    protected String universityKodeCertifyingAgencies;
+    @XmlElement(name = "CertifyingAgenciesAdditionalName")
+    protected String certifyingAgenciesAdditionalName;
 
     /**
      * Gets the value of the sessionGUID property.
@@ -427,6 +435,54 @@ public class PersonAcademicRankAdd {
      */
     public void setPersonAcademicRankScan(String value) {
         this.personAcademicRankScan = value;
+    }
+
+    /**
+     * Gets the value of the universityKodeCertifyingAgencies property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUniversityKodeCertifyingAgencies() {
+        return universityKodeCertifyingAgencies;
+    }
+
+    /**
+     * Sets the value of the universityKodeCertifyingAgencies property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUniversityKodeCertifyingAgencies(String value) {
+        this.universityKodeCertifyingAgencies = value;
+    }
+
+    /**
+     * Gets the value of the certifyingAgenciesAdditionalName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCertifyingAgenciesAdditionalName() {
+        return certifyingAgenciesAdditionalName;
+    }
+
+    /**
+     * Sets the value of the certifyingAgenciesAdditionalName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCertifyingAgenciesAdditionalName(String value) {
+        this.certifyingAgenciesAdditionalName = value;
     }
 
 }

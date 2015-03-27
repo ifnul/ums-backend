@@ -214,14 +214,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonEducationsStatusChangePaymentType2Response }
-     * 
-     */
-    public PersonEducationsStatusChangePaymentType2Response createPersonEducationsStatusChangePaymentType2Response() {
-        return new PersonEducationsStatusChangePaymentType2Response();
-    }
-
-    /**
      * Create an instance of {@link PersonEducationHistoryOrdersEdit2Response }
      * 
      */
@@ -230,11 +222,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link PersonEducationsStatusChangePaymentType2Response }
+     * 
+     */
+    public PersonEducationsStatusChangePaymentType2Response createPersonEducationsStatusChangePaymentType2Response() {
+        return new PersonEducationsStatusChangePaymentType2Response();
+    }
+
+    /**
      * Create an instance of {@link PersonDocumentsDel }
      * 
      */
     public PersonDocumentsDel createPersonDocumentsDel() {
         return new PersonDocumentsDel();
+    }
+
+    /**
+     * Create an instance of {@link GovernmentAwardsAdd }
+     * 
+     */
+    public GovernmentAwardsAdd createGovernmentAwardsAdd() {
+        return new GovernmentAwardsAdd();
     }
 
     /**
@@ -438,6 +446,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link PersonSOAPPhotoChaneResponse }
+     * 
+     */
+    public PersonSOAPPhotoChaneResponse createPersonSOAPPhotoChaneResponse() {
+        return new PersonSOAPPhotoChaneResponse();
+    }
+
+    /**
      * Create an instance of {@link PersonRequestsIdsGetResponse }
      * 
      */
@@ -451,14 +467,6 @@ public class ObjectFactory {
      */
     public ArrayOfDPersonRequestsIds createArrayOfDPersonRequestsIds() {
         return new ArrayOfDPersonRequestsIds();
-    }
-
-    /**
-     * Create an instance of {@link PersonSOAPPhotoChaneResponse }
-     * 
-     */
-    public PersonSOAPPhotoChaneResponse createPersonSOAPPhotoChaneResponse() {
-        return new PersonSOAPPhotoChaneResponse();
     }
 
     /**
@@ -590,6 +598,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GovernmentAwardsDelResponse }
+     * 
+     */
+    public GovernmentAwardsDelResponse createGovernmentAwardsDelResponse() {
+        return new GovernmentAwardsDelResponse();
+    }
+
+    /**
      * Create an instance of {@link PersonEducationHistoryOrdersDataGet2Response }
      * 
      */
@@ -683,6 +699,14 @@ public class ObjectFactory {
      */
     public ArrayOfDPersonSexTypes createArrayOfDPersonSexTypes() {
         return new ArrayOfDPersonSexTypes();
+    }
+
+    /**
+     * Create an instance of {@link GovernmentAwardsTypesAddResponse }
+     * 
+     */
+    public GovernmentAwardsTypesAddResponse createGovernmentAwardsTypesAddResponse() {
+        return new GovernmentAwardsTypesAddResponse();
     }
 
     /**
@@ -1014,19 +1038,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonAcademicDegreiesEditResponse }
-     * 
-     */
-    public PersonAcademicDegreiesEditResponse createPersonAcademicDegreiesEditResponse() {
-        return new PersonAcademicDegreiesEditResponse();
-    }
-
-    /**
      * Create an instance of {@link PersonSOAPPhotoGet }
      * 
      */
     public PersonSOAPPhotoGet createPersonSOAPPhotoGet() {
         return new PersonSOAPPhotoGet();
+    }
+
+    /**
+     * Create an instance of {@link PersonAcademicDegreiesEditResponse }
+     * 
+     */
+    public PersonAcademicDegreiesEditResponse createPersonAcademicDegreiesEditResponse() {
+        return new PersonAcademicDegreiesEditResponse();
     }
 
     /**
@@ -1150,14 +1174,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonGovernmentAwardsDelResponse }
-     * 
-     */
-    public PersonGovernmentAwardsDelResponse createPersonGovernmentAwardsDelResponse() {
-        return new PersonGovernmentAwardsDelResponse();
-    }
-
-    /**
      * Create an instance of {@link PersonAcademicDegreiesGetResponse }
      * 
      */
@@ -1171,6 +1187,14 @@ public class ObjectFactory {
      */
     public ArrayOfDPersonAcademicDegreies createArrayOfDPersonAcademicDegreies() {
         return new ArrayOfDPersonAcademicDegreies();
+    }
+
+    /**
+     * Create an instance of {@link PersonGovernmentAwardsDelResponse }
+     * 
+     */
+    public PersonGovernmentAwardsDelResponse createPersonGovernmentAwardsDelResponse() {
+        return new PersonGovernmentAwardsDelResponse();
     }
 
     /**
@@ -1395,6 +1419,14 @@ public class ObjectFactory {
      */
     public PersonContactsEditResponse createPersonContactsEditResponse() {
         return new PersonContactsEditResponse();
+    }
+
+    /**
+     * Create an instance of {@link GovernmentAwardsTypesEditResponse }
+     * 
+     */
+    public GovernmentAwardsTypesEditResponse createGovernmentAwardsTypesEditResponse() {
+        return new GovernmentAwardsTypesEditResponse();
     }
 
     /**
@@ -1990,14 +2022,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonEducationsStatusChangeAcademicLeaveFromResponse }
-     * 
-     */
-    public PersonEducationsStatusChangeAcademicLeaveFromResponse createPersonEducationsStatusChangeAcademicLeaveFromResponse() {
-        return new PersonEducationsStatusChangeAcademicLeaveFromResponse();
-    }
-
-    /**
      * Create an instance of {@link PersonAcademiesGetResponse }
      * 
      */
@@ -2011,6 +2035,14 @@ public class ObjectFactory {
      */
     public ArrayOfDPersonAcademiesGet createArrayOfDPersonAcademiesGet() {
         return new ArrayOfDPersonAcademiesGet();
+    }
+
+    /**
+     * Create an instance of {@link PersonEducationsStatusChangeAcademicLeaveFromResponse }
+     * 
+     */
+    public PersonEducationsStatusChangeAcademicLeaveFromResponse createPersonEducationsStatusChangeAcademicLeaveFromResponse() {
+        return new PersonEducationsStatusChangeAcademicLeaveFromResponse();
     }
 
     /**
@@ -2886,6 +2918,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GovernmentAwardsEdit }
+     * 
+     */
+    public GovernmentAwardsEdit createGovernmentAwardsEdit() {
+        return new GovernmentAwardsEdit();
+    }
+
+    /**
      * Create an instance of {@link PersonTypeChangeResponse }
      * 
      */
@@ -3334,6 +3374,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GovernmentAwardsTypesAdd }
+     * 
+     */
+    public GovernmentAwardsTypesAdd createGovernmentAwardsTypesAdd() {
+        return new GovernmentAwardsTypesAdd();
+    }
+
+    /**
      * Create an instance of {@link GetUserPerson }
      * 
      */
@@ -3638,11 +3686,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonEducationsStatusChangeTechnicalMoveResponse }
+     * Create an instance of {@link PersonEducationsStatusChangeТechnicalMoveResponse }
      * 
      */
-    public PersonEducationsStatusChangeTechnicalMoveResponse createPersonEducationsStatusChangeТechnicalMoveResponse() {
-        return new PersonEducationsStatusChangeTechnicalMoveResponse();
+    public PersonEducationsStatusChangeТechnicalMoveResponse createPersonEducationsStatusChangeТechnicalMoveResponse() {
+        return new PersonEducationsStatusChangeТechnicalMoveResponse();
     }
 
     /**
@@ -3955,6 +4003,14 @@ public class ObjectFactory {
      */
     public PersonContactsAdd createPersonContactsAdd() {
         return new PersonContactsAdd();
+    }
+
+    /**
+     * Create an instance of {@link GovernmentAwardsDel }
+     * 
+     */
+    public GovernmentAwardsDel createGovernmentAwardsDel() {
+        return new GovernmentAwardsDel();
     }
 
     /**
@@ -4814,11 +4870,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonEducationsStatusChangeTechnicalMove }
+     * Create an instance of {@link PersonEducationsStatusChangeТechnicalMove }
      * 
      */
-    public PersonEducationsStatusChangeTechnicalMove createPersonEducationsStatusChangeТechnicalMove() {
-        return new PersonEducationsStatusChangeTechnicalMove();
+    public PersonEducationsStatusChangeТechnicalMove createPersonEducationsStatusChangeТechnicalMove() {
+        return new PersonEducationsStatusChangeТechnicalMove();
     }
 
     /**
@@ -5035,6 +5091,14 @@ public class ObjectFactory {
      */
     public PersonSOAPPhotoDel createPersonSOAPPhotoDel() {
         return new PersonSOAPPhotoDel();
+    }
+
+    /**
+     * Create an instance of {@link GovernmentAwardsTypesDel }
+     * 
+     */
+    public GovernmentAwardsTypesDel createGovernmentAwardsTypesDel() {
+        return new GovernmentAwardsTypesDel();
     }
 
     /**
@@ -6086,6 +6150,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GovernmentAwardsEditResponse }
+     * 
+     */
+    public GovernmentAwardsEditResponse createGovernmentAwardsEditResponse() {
+        return new GovernmentAwardsEditResponse();
+    }
+
+    /**
      * Create an instance of {@link PersonsStudentsForRequestGetResponse }
      * 
      */
@@ -6131,6 +6203,14 @@ public class ObjectFactory {
      */
     public PersonRequestExaminationsGet2 createPersonRequestExaminationsGet2() {
         return new PersonRequestExaminationsGet2();
+    }
+
+    /**
+     * Create an instance of {@link GovernmentAwardsTypesDelResponse }
+     * 
+     */
+    public GovernmentAwardsTypesDelResponse createGovernmentAwardsTypesDelResponse() {
+        return new GovernmentAwardsTypesDelResponse();
     }
 
     /**
@@ -6587,6 +6667,14 @@ public class ObjectFactory {
      */
     public PersonEducationHistoryOrdersGet2 createPersonEducationHistoryOrdersGet2() {
         return new PersonEducationHistoryOrdersGet2();
+    }
+
+    /**
+     * Create an instance of {@link GovernmentAwardsAddResponse }
+     * 
+     */
+    public GovernmentAwardsAddResponse createGovernmentAwardsAddResponse() {
+        return new GovernmentAwardsAddResponse();
     }
 
     /**
@@ -7307,6 +7395,14 @@ public class ObjectFactory {
      */
     public PersonEducationHistoryOrdersDel createPersonEducationHistoryOrdersDel() {
         return new PersonEducationHistoryOrdersDel();
+    }
+
+    /**
+     * Create an instance of {@link GovernmentAwardsTypesEdit }
+     * 
+     */
+    public GovernmentAwardsTypesEdit createGovernmentAwardsTypesEdit() {
+        return new GovernmentAwardsTypesEdit();
     }
 
     /**
@@ -8470,19 +8566,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DPersonStuff }
-     * 
-     */
-    public DPersonStuff createDPersonStuff() {
-        return new DPersonStuff();
-    }
-
-    /**
      * Create an instance of {@link DGovernmentAwardsTypes }
      * 
      */
     public DGovernmentAwardsTypes createDGovernmentAwardsTypes() {
         return new DGovernmentAwardsTypes();
+    }
+
+    /**
+     * Create an instance of {@link DPersonStuff }
+     * 
+     */
+    public DPersonStuff createDPersonStuff() {
+        return new DPersonStuff();
     }
 
     /**

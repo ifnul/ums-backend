@@ -65,6 +65,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="IPN" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="ScienseName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PrevFIO" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="DocFullName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -120,7 +121,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "autoAdd",
     "ipn",
     "scienseName",
-    "prevFIO"
+    "prevFIO",
+    "docFullName"
 })
 public class DPersonsFind3 {
 
@@ -222,6 +224,8 @@ public class DPersonsFind3 {
     protected String scienseName;
     @XmlElement(name = "PrevFIO")
     protected String prevFIO;
+    @XmlElement(name = "DocFullName")
+    protected String docFullName;
 
     /**
      * Gets the value of the idPerson property.
@@ -1221,6 +1225,30 @@ public class DPersonsFind3 {
      */
     public void setPrevFIO(String value) {
         this.prevFIO = value;
+    }
+
+    /**
+     * Gets the value of the docFullName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDocFullName() {
+        return docFullName;
+    }
+
+    /**
+     * Sets the value of the docFullName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDocFullName(String value) {
+        this.docFullName = value;
     }
 
 }
