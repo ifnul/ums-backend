@@ -3686,11 +3686,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonEducationsStatusChangeТechnicalMoveResponse }
+     * Create an instance of {@link PersonEducationsStatusChangeTechnicalMoveResponse }
      * 
      */
-    public PersonEducationsStatusChangeТechnicalMoveResponse createPersonEducationsStatusChangeТechnicalMoveResponse() {
-        return new PersonEducationsStatusChangeТechnicalMoveResponse();
+    public PersonEducationsStatusChangeTechnicalMoveResponse createPersonEducationsStatusChangeТechnicalMoveResponse() {
+        return new PersonEducationsStatusChangeTechnicalMoveResponse();
     }
 
     /**
@@ -4870,11 +4870,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonEducationsStatusChangeТechnicalMove }
+     * Create an instance of {@link PersonEducationsStatusChangeTechnicalMove }
      * 
      */
-    public PersonEducationsStatusChangeТechnicalMove createPersonEducationsStatusChangeТechnicalMove() {
-        return new PersonEducationsStatusChangeТechnicalMove();
+    public PersonEducationsStatusChangeTechnicalMove createPersonEducationsStatusChangeТechnicalMove() {
+        return new PersonEducationsStatusChangeTechnicalMove();
     }
 
     /**

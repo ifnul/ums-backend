@@ -46,7 +46,7 @@ import javax.xml.bind.annotation.XmlType;
     "personEducationHistoryDesciption"
 })
 @XmlRootElement(name = "PersonEducationsStatusChange\u0422echnicalMove")
-public class PersonEducationsStatusChangeТechnicalMove {
+public class PersonEducationsStatusChangeTechnicalMove {
 
     @XmlElement(name = "SessionGUID")
     protected String sessionGUID;

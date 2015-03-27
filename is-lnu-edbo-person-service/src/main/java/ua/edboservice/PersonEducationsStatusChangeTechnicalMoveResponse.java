@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
     "personEducationsStatusChange\u0422echnicalMoveResult"
 })
 @XmlRootElement(name = "PersonEducationsStatusChange\u0422echnicalMoveResponse")
-public class PersonEducationsStatusChangeТechnicalMoveResponse {
+public class PersonEducationsStatusChangeTechnicalMoveResponse {
 
     @XmlElement(name = "PersonEducationsStatusChange\u0422echnicalMoveResult")
     protected String personEducationsStatusChangeТechnicalMoveResult;
