@@ -11,9 +11,34 @@ public class Authentification {
 	private String password;
 	private String applicationKey;
 	private Integer clearPreviousSession;
-	
 	private String sessionGUID;
-	
+
+	/**
+	 * Default constructor.
+	 */
+	public Authentification() {
+		super();
+	}
+
+	/**
+	 * Constructor with all parameters.
+	 * @param login
+	 * @param password
+	 * @param applicationKey
+	 * @param clearPreviousSession
+	 * @param sessionGUID
+	 */
+	public Authentification(final String login, final String password,
+			final String applicationKey, final Integer clearPreviousSession,
+			final String sessionGUID) {
+		super();
+		this.login = login;
+		this.password = password;
+		this.applicationKey = applicationKey;
+		this.clearPreviousSession = clearPreviousSession;
+		this.sessionGUID = sessionGUID;
+	}
+
 	public String getLogin() {
 		return login;
 	}

@@ -16,8 +16,6 @@
   	</description>
 
 	<properties>
-		<edebo.webservice.url>http://www.webservicex.net/CurrencyConvertor.asmx?WSDL</edebo.webservice.url>
-	
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>
 		<camel-version>2.14.0</camel-version>
@@ -91,6 +89,10 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+		</dependency>		
 
 	</dependencies>
     <build>
