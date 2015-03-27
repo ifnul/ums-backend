@@ -39,8 +39,8 @@
    		<!-- EDBO Modules -->
     	<module>is-lnu-edbo</module>
     	<module>is-lnu-edbo-common</module>
-    	<module>is-lnu-edbo-person-service</module>
-    	<module>is-lnu-edbo-guides-service</module>
+    	<module>is-lnu-edbo-person-dao</module>
+    	<module>is-lnu-edbo-guides-dao</module>
   </modules>
 
 	<properties>
@@ -181,12 +181,12 @@
 			</dependency>
 			<dependency>
 				<groupId>is-lnu</groupId>
-				<artifactId>is-lnu-edbo-guides-service</artifactId>
+				<artifactId>is-lnu-edbo-guides-dao</artifactId>
 				<version>${version}</version>
 			</dependency>
 			<dependency>
 				<groupId>is-lnu</groupId>
-				<artifactId>is-lnu-edbo-person-service</artifactId>
+				<artifactId>is-lnu-edbo-person-dao</artifactId>
 				<version>${version}</version>
 			</dependency>
 			

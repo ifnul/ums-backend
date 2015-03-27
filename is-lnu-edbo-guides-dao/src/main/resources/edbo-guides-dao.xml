@@ -13,6 +13,6 @@
         http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd
 		">
  		
-	<import resource="edbo-guides-service-${edbo.status}.xml"/>
+	<import resource="edbo-guides-dao-${edbo.status}.xml"/>
 
 </beans>

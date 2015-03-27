@@ -10,8 +10,8 @@
 		<version>0.0.5-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>is-lnu-edbo-guides-service</artifactId>
-	<name>is-lnu-edbo-guides-service</name>
+	<artifactId>is-lnu-edbo-guides-dao</artifactId>
+	<name>is-lnu-edbo-guides-dao</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -46,11 +46,11 @@
 		</dependency>
 		<dependency>
 			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-edbo-guides-service</artifactId>
+			<artifactId>is-lnu-edbo-guides-dao</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-edbo-person-service</artifactId>
+			<artifactId>is-lnu-edbo-person-dao</artifactId>
 		</dependency>		
 		
 

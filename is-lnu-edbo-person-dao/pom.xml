@@ -10,8 +10,8 @@
 		<version>0.0.5-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>is-lnu-edbo-person-service</artifactId>
-	<name>is-lnu-edbo-person-service</name>
+	<artifactId>is-lnu-edbo-person-dao</artifactId>
+	<name>is-lnu-edbo-person-dao</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

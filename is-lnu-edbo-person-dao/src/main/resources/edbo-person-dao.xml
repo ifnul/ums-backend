@@ -6,6 +6,6 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 >
 
-	<import resource="edbo-person-service-${edbo.status}.xml"/>
+	<import resource="edbo-person-dao-${edbo.status}.xml"/>
 
 </beans>
