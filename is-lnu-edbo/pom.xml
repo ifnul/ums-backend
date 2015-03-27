@@ -25,6 +25,16 @@
 	</properties>
 	
 	<dependencies>
+
+		<dependency>
+			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-edbo-guides-dao</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-edbo-person-dao</artifactId>
+		</dependency>
+	
 		<dependency>
 			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-common</artifactId>
