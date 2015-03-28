@@ -38,6 +38,7 @@ import org.lnu.is.integration.cases.language.LanguageIntegrationTest
 import org.lnu.is.integration.cases.operation.types.OperationTypeIntegrationTest
 import org.lnu.is.integration.cases.order.OrderIntegrationTest
 import org.lnu.is.integration.cases.order.types.OrderTypeIntegrationTest
+import org.lnu.is.integration.cases.orderbyandfilter.OrderByAndFilterIntegrationTest
 import org.lnu.is.integration.cases.paper.types.PaperTypeIntegrationTest
 import org.lnu.is.integration.cases.paper.usage.PaperUsageIntegrationTest
 import org.lnu.is.integration.cases.partner.PartnerIntegrationTest
@@ -171,6 +172,8 @@ object TestCases {
                     
                     OrderIntegrationTest.testCase,
                     OrderTypeIntegrationTest.testCase,
+                    
+                    OrderByAndFilterIntegrationTest.testCase,
                     
                     OperationTypeIntegrationTest.testCase,
                     
