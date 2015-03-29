@@ -12,7 +12,7 @@ import org.lnu.is.domain.asset.state.AssetState;
  */
 @QBuilder("assetStateQueryBuilder")
 public class AssetStateQueryBuilder extends AbstractQueryBuilder<AssetState> {
-	private static final String NAME_CONDITION = "a.name LIKE CONCAT('%',:name,'%') ";
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
 	
 	@Override
 	protected String getBaseQuery() {

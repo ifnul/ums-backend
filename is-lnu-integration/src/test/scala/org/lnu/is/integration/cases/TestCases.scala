@@ -73,6 +73,7 @@ import org.lnu.is.integration.cases.wave.types.WaveTypeIntegrationTest
 import io.gatling.core.Predef.scenario
 import org.lnu.is.integration.cases.person.language.PersonLanguageIntegrationTest
 import org.lnu.is.integration.cases.person.family.PersonFamilyIntegrationTest
+import org.lnu.is.integration.cases.config.Configuration
 
 
 /**
@@ -84,7 +85,9 @@ object TestCases {
     val scn = scenario("Integration test scenario")
               .exec(
                     AddressTypeIntegrationTest.testCase,
-                    
+                   
+            		Configuration.testCase,
+            		
                     AdminUnitIntegrationTest.testCase,
                     AdminUnitTypeIntegrationTest.testCase,
                     

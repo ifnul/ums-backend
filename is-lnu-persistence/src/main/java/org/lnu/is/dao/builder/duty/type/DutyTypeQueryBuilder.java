@@ -15,7 +15,7 @@ import org.lnu.is.domain.dutytype.DutyType;
 @QBuilder("dutyTypeQueryBuilder")
 public class DutyTypeQueryBuilder extends AbstractQueryBuilder<DutyType> {
 	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBR_NAME_CONDITION = "e.abbrname LIKE CONCAT('%',:abbrName,'%') ";
+	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 	@Override
 	protected String getBaseQuery() {
