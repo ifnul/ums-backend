@@ -666,7 +666,7 @@
 				<entry key="targetCount" value="targetCount" />
 			</util:map>
 		</entry>
-		<entry key="">
+		<entry key="org.lnu.is.resource.specoffer.type.SpecOfferTypeResource">
 			<util:map>
 				<entry key="timePeriodId" value="timePeriod" />
 				<entry key="abbrName" value="abbrName" />
