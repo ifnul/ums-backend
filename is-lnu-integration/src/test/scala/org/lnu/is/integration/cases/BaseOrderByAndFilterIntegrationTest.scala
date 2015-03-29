@@ -24,7 +24,6 @@ abstract class BaseOrderByAndFilterIntegrationTest {
       result = result.exec(checkUrl(method._1, url))
     }}
     return result
-    
   }
   
   def checkUrl(title: String, url: String) =
