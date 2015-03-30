@@ -190,7 +190,7 @@ public class AssetStateQueryBuilderTest {
 		AssetState context = new AssetState();
 		context.setName(name);
 		
-		String expected = "SELECT e FROM AssetState e WHERE ( a.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expected = "SELECT e FROM AssetState e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<AssetState> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -211,7 +211,7 @@ public class AssetStateQueryBuilderTest {
 		OrderBy orderBy1 = new OrderBy("name", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1);
 		
-		String expected = "SELECT e FROM AssetState e WHERE ( a.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.name DESC";
+		String expected = "SELECT e FROM AssetState e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.name DESC";
 		MultiplePagedSearch<AssetState> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -233,7 +233,7 @@ public class AssetStateQueryBuilderTest {
 		AssetState context = new AssetState();
 		context.setName(name);
 		
-		String expected = "SELECT e FROM AssetState e WHERE ( a.name LIKE CONCAT('%',:name,'%') ) ";
+		String expected = "SELECT e FROM AssetState e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) ";
 		MultiplePagedSearch<AssetState> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -257,7 +257,7 @@ public class AssetStateQueryBuilderTest {
 		OrderBy orderBy1 = new OrderBy("name", OrderByType.ASC);
 		List<OrderBy> orders = Arrays.asList(orderBy1);
 		
-		String expected = "SELECT e FROM AssetState e WHERE ( a.name LIKE CONCAT('%',:name,'%') ) ORDER BY e.name ASC";
+		String expected = "SELECT e FROM AssetState e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) ORDER BY e.name ASC";
 		MultiplePagedSearch<AssetState> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
