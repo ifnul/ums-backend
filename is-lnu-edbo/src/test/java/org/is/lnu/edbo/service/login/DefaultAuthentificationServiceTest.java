@@ -7,7 +7,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.is.lnu.edbo.manager.ServiceManager;
-import org.is.lnu.edbo.model.Authentification;
+import org.is.lnu.edbo.model.authentification.Authentification;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

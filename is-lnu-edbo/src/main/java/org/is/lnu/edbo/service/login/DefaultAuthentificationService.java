@@ -1,7 +1,7 @@
 package org.is.lnu.edbo.service.login;
 
 import org.is.lnu.edbo.manager.ServiceManager;
-import org.is.lnu.edbo.model.Authentification;
+import org.is.lnu.edbo.model.authentification.Authentification;
 
 import ua.edboservice.EDBOGuidesSoap;
 

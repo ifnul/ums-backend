@@ -1,4 +1,4 @@
-package org.is.lnu.edbo.model;
+package org.is.lnu.edbo.model.authentification;
 
 /**
  * Authentification model.
