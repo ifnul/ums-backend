@@ -10,6 +10,8 @@
 
 	<bean id="edboAuthentificationService" class="org.is.lnu.edbo.service.login.DefaultAuthentificationService">
 		<property name="serviceManager" ref="edboGuidesServiceManager" />
+		<property name="applicationKey" value="${edbo.application.key}" />
+		<property name="clearPreviousSession" value="${edbo.clear.previous.session}"/>
 	</bean>
  		
 

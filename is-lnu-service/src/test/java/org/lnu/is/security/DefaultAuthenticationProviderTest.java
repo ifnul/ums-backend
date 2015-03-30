@@ -13,12 +13,12 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.dao.dao.user.UserDao;
 import org.lnu.is.domain.role.Role;
 import org.lnu.is.domain.session.Session;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.role.UserRole;
+import org.lnu.is.service.user.UserService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -32,7 +32,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 public class DefaultAuthenticationProviderTest {
 
 	@Mock
-    private UserDao userDao;
+    private UserService userService;
     
 	@Mock
 	private Authentication authentication;
@@ -86,11 +86,11 @@ public class DefaultAuthenticationProviderTest {
 		when(authentication.getName()).thenReturn(login);
 		when(authentication.getCredentials()).thenReturn(password);
 		
-		when(userDao.getUserByLogin(anyString())).thenReturn(user);
+		when(userService.getUserByLogin(anyString())).thenReturn(user);
 		Authentication actual = unit.authenticate(authentication);
 
 		// Then
-		verify(userDao).getUserByLogin(login);
+		verify(userService).getUserByLogin(login);
 		verify(authentication).getName();
 		verify(authentication).getCredentials();
 		assertEquals(expected, actual);
@@ -109,7 +109,7 @@ public class DefaultAuthenticationProviderTest {
 		when(authentication.getName()).thenReturn(login);
 		when(authentication.getCredentials()).thenReturn(credentials);
 		
-		when(userDao.getUserByLogin(anyString())).thenThrow(new BadCredentialsException(""));
+		when(userService.getUserByLogin(anyString())).thenThrow(new BadCredentialsException(""));
 		unit.authenticate(authentication);
 	}
 }

@@ -14,14 +14,17 @@ public class DefaultAuthentificationService implements AuthentificationService {
 
 	private ServiceManager<EDBOGuidesSoap> serviceManager;
 	
+	private String applicationKey;
+	
+	private Integer clearPreviousSession;
+	
 	@Override
 	public EdboAuthentification login(final EdboAuthentification auth) {
 		EDBOGuidesSoap client = serviceManager.getWebServiceClient();
-		String sessionGuid = client.login(auth.getLogin(), auth.getPassword(), auth.getClearPreviousSession(), auth.getApplicationKey());
+		
+		String sessionGuid = client.login(auth.getLogin(), auth.getPassword(), clearPreviousSession, applicationKey);
 		String login = auth.getLogin();
 		String password = auth.getPassword();
-		String applicationKey = auth.getApplicationKey();
-		Integer clearPreviousSession = auth.getClearPreviousSession();
 		
 		return new EdboAuthentification(login, password, applicationKey, clearPreviousSession, sessionGuid);
 	}
@@ -34,6 +37,14 @@ public class DefaultAuthentificationService implements AuthentificationService {
 
 	public void setServiceManager(final ServiceManager<EDBOGuidesSoap> serviceManager) {
 		this.serviceManager = serviceManager;
+	}
+
+	public void setApplicationKey(final String applicationKey) {
+		this.applicationKey = applicationKey;
+	}
+
+	public void setClearPreviousSession(final Integer clearPreviousSession) {
+		this.clearPreviousSession = clearPreviousSession;
 	}
 
 }

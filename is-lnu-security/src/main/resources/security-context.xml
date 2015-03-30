@@ -19,10 +19,15 @@
 		<security:form-login 
 			authentication-success-handler-ref="customSuccessHandler"
 			authentication-failure-handler-ref="customFailureHandler" />
+		<security:logout logout-url="/logout" success-handler-ref="logoutSuccessHandler" />	
 	</security:http>
 
 	<bean id="customSuccessHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler" />
 	<bean id="customFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" />
 	<bean id="restAuthenticationEntryPoint" class="org.lnu.is.security.entrypoint.RestAuthenticationEntryPoint" />
+	
+	<bean id="logoutSuccessHandler" class="org.lnu.is.security.LogoutSuccessHandler">
+		<property name="authentificationService" ref="edboAuthentificationService"/>
+	</bean>
 	
 </beans>

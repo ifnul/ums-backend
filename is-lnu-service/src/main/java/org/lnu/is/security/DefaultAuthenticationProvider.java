@@ -6,13 +6,17 @@ import java.util.Collection;
 import javax.annotation.Resource;
 
 import org.hibernate.Hibernate;
-import org.lnu.is.dao.dao.user.UserDao;
+import org.is.lnu.edbo.model.authentification.EdboAuthentification;
+import org.is.lnu.edbo.service.login.AuthentificationService;
 import org.lnu.is.domain.session.Session;
+import org.lnu.is.domain.user.EdboUser;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.role.UserRole;
+import org.lnu.is.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,10 +35,14 @@ import org.springframework.util.Assert;
 public class DefaultAuthenticationProvider implements AuthenticationProvider {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultAuthenticationProvider.class);
 
-    // TODO: Consider to replace To UserService.
-    // This would be more higher abstraction.
-    @Resource(name = "userDao")
-    private UserDao userDao;
+    @Resource(name = "userService")
+    private UserService userService;
+    
+    @Resource(name = "edboAuthentificationService")
+    private AuthentificationService edboAuthentificationService;
+    
+    @Value("${edbo.status}")
+    private String edboStatus;
     
     @Override
     public boolean supports(final Class<?> clazz) {
@@ -58,12 +66,15 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
      */
     private Authentication getAuthentication(final String login, final String password) {
         User user = getUser(login, password);
+        EdboAuthentification authentification = getEdboAuthentication(user);
+        
         loadLazyFields(user);
         
         Collection<GrantedAuthority> authorities = getAuthorities(user);
         
         Session session = new Session();
         session.setUser(user);
+        session.setEdboAuthentification(authentification);
         
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(login, password, authorities);
         token.setDetails(session);
@@ -72,6 +83,30 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
     }
 
     /**
+     * Method for getting edbo authentification.
+     * @param user
+     * @return authentification.
+     */
+    private EdboAuthentification getEdboAuthentication(final User user) {
+    	EdboAuthentification authentification = null;
+    	
+    	if ("disabled".equals(edboStatus)) {
+    		return authentification;
+    	}
+    	
+    	EdboUser edboUser = user.getEdboUser();
+    	
+    	if (edboUser != null) {
+    		EdboAuthentification auth = new EdboAuthentification();
+    		auth.setLogin(edboUser.getLogin());
+    		auth.setPassword(edboUser.getPassword());
+			authentification = edboAuthentificationService.login(auth);
+    	}
+    	
+		return authentification;
+	}
+
+	/**
      * Method for loading lazy objects.
      * @param user
      */
@@ -96,7 +131,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
         User user = null;
 
         try {
-            user =  userDao.getUserByLogin(login);
+            user =  userService.getUserByLogin(login);
             Assert.isTrue(user.getPassword().equals(password));
         } catch (Exception e) {
             LOG.error("Can't find user for login: " + login, e);
@@ -121,4 +156,9 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
     	
         return authorities;
     }
+
+	public void setEdboStatus(final String edboStatus) {
+		this.edboStatus = edboStatus;
+	}
+    
 }

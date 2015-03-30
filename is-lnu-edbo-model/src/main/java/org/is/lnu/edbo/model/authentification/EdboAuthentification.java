@@ -1,12 +1,15 @@
 package org.is.lnu.edbo.model.authentification;
 
+import java.io.Serializable;
+
 /**
  * Authentification model.
  * @author ivanursul
  *
  */
-public class EdboAuthentification {
-
+public class EdboAuthentification implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private String login;
 	private String password;
 	private String applicationKey;

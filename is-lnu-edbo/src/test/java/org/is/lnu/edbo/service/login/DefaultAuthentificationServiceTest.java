@@ -29,23 +29,26 @@ public class DefaultAuthentificationServiceTest {
 	@InjectMocks
 	private DefaultAuthentificationService unit;
 	
+	private String applicationKey = "application key";
+	
+	private Integer clearPreviousSession = 1;
+	
 	@Before
 	public void setup() {
 		when(serviceManager.getWebServiceClient()).thenReturn(edboGuidesSoap);
+		
+		unit.setApplicationKey(applicationKey);
+		unit.setClearPreviousSession(clearPreviousSession);
 	}
 	
 	@Test
 	public void testLogin() throws Exception {
 		// Given
-		String applicationKey = "applicationKey";
-		Integer clearPreviousSession = 1;
 		String login = "login";
 		String password = "password";
 		String sessionGUID = "sessionGUID";
 		
 		EdboAuthentification auth = new EdboAuthentification();
-		auth.setApplicationKey(applicationKey);
-		auth.setClearPreviousSession(clearPreviousSession);
 		auth.setLogin(login);
 		auth.setPassword(password);
 
