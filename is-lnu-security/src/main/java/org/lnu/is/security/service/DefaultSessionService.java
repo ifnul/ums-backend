@@ -28,7 +28,7 @@ public class DefaultSessionService implements SessionService {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getDetails();
 		LOG.info(MessageFormat.format("Getting session user: {0}", principal));
 
-		return (User) principal;
+		return ((Session) principal).getUser();
 	}
 
 	@Override

@@ -15,10 +15,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.group.Group;
+import org.lnu.is.domain.session.Session;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.security.exception.AccessDeniedException;
-import org.lnu.is.security.service.DefaultSessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -49,10 +49,12 @@ public class DefaultSessionServiceTest {
 	public void testGetUser() throws Exception {
 		// Given
 		User expected = new User();
+		Session session = new Session();
+		session.setUser(expected);
 
 		// When
 		when(context.getAuthentication()).thenReturn(authentification);
-		when(authentification.getDetails()).thenReturn(expected);
+		when(authentification.getDetails()).thenReturn(session);
 		
 		User actual = unit.getUser();
 		
@@ -74,12 +76,14 @@ public class DefaultSessionServiceTest {
 		List<Group> groups = Arrays.asList(group1, group2);
 		User user = new User();
 		user.setGroups(groups);
+		Session session = new Session();
+		session.setUser(user);
 
 		List<String> expected = Arrays.asList(groupTitle1, groupTitle2);
 		
 		// When
 		when(context.getAuthentication()).thenReturn(authentification);
-		when(authentification.getDetails()).thenReturn(user);
+		when(authentification.getDetails()).thenReturn(session);
 		
 		List<String> actual = unit.getGroups();
 		
@@ -148,10 +152,12 @@ public class DefaultSessionServiceTest {
 		User user = new User();
 		user.setGroups(groups);
 		user.setUserGroups(userGroups);
+		Session session = new Session();
+		session.setUser(user);
 
 		// When
 		when(context.getAuthentication()).thenReturn(authentification);
-		when(authentification.getDetails()).thenReturn(user);
+		when(authentification.getDetails()).thenReturn(session);
 		Group actaul = unit.getDefaultGroup();
 
 		// Then
@@ -168,10 +174,12 @@ public class DefaultSessionServiceTest {
 		
 		User user = new User();
 		user.setUserGroups(userGroups);
+		Session session = new Session();
+		session.setUser(user);
 		
 		// When
 		when(context.getAuthentication()).thenReturn(authentification);
-		when(authentification.getDetails()).thenReturn(user);
+		when(authentification.getDetails()).thenReturn(session);
 		Group actaul = unit.getDefaultGroup();
 		
 		// Then
@@ -195,10 +203,12 @@ public class DefaultSessionServiceTest {
 		List<Group> groups = Arrays.asList(group1, group2);
 		User user = new User();
 		user.setGroups(groups);
+		Session session = new Session();
+		session.setUser(user);
 		
 		// When
 		when(context.getAuthentication()).thenReturn(authentification);
-		when(authentification.getDetails()).thenReturn(user);
+		when(authentification.getDetails()).thenReturn(session);
 		
 		unit.verifyGroup(title);
 		
@@ -219,10 +229,12 @@ public class DefaultSessionServiceTest {
 		List<Group> groups = Arrays.asList(group2);
 		User user = new User();
 		user.setGroups(groups);
+		Session session = new Session();
+		session.setUser(user);
 		
 		// When
 		when(context.getAuthentication()).thenReturn(authentification);
-		when(authentification.getDetails()).thenReturn(user);
+		when(authentification.getDetails()).thenReturn(session);
 		
 		unit.verifyGroup(title);
 

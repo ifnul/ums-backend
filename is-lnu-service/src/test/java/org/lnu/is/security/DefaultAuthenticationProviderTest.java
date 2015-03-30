@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.user.UserDao;
 import org.lnu.is.domain.role.Role;
+import org.lnu.is.domain.session.Session;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.role.UserRole;
@@ -75,8 +76,11 @@ public class DefaultAuthenticationProviderTest {
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(roleCode1));
 
+		Session session = new Session();
+		session.setUser(user);
+        
         UsernamePasswordAuthenticationToken expected = new UsernamePasswordAuthenticationToken(login, password, authorities);
-        expected.setDetails(user);
+        expected.setDetails(session);
         
 		// When
 		when(authentication.getName()).thenReturn(login);

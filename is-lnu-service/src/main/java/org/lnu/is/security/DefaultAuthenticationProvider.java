@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.hibernate.Hibernate;
 import org.lnu.is.dao.dao.user.UserDao;
+import org.lnu.is.domain.session.Session;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.role.UserRole;
@@ -35,9 +36,6 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
     @Resource(name = "userDao")
     private UserDao userDao;
     
-    //@Resource(name = "edboAuthentificationService")
-    //private AuthentificationService edboAuthentificationService;
-    
     @Override
     public boolean supports(final Class<?> clazz) {
     	return clazz.equals(UsernamePasswordAuthenticationToken.class);
@@ -64,8 +62,11 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
         
         Collection<GrantedAuthority> authorities = getAuthorities(user);
         
+        Session session = new Session();
+        session.setUser(user);
+        
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(login, password, authorities);
-        token.setDetails(user);
+        token.setDetails(session);
 
         return token;
     }
