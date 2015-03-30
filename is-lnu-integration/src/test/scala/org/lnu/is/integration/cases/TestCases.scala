@@ -35,10 +35,10 @@ import org.lnu.is.integration.cases.gendertype.GenderTypeIntegrationTest
 import org.lnu.is.integration.cases.honor.types.HonorTypeIntegrationTest
 import org.lnu.is.integration.cases.invalid.InvalidRequestBodyIntegrationTest
 import org.lnu.is.integration.cases.language.LanguageIntegrationTest
+import org.lnu.is.integration.cases.multipleget.MultipleGetIntegrationTest
 import org.lnu.is.integration.cases.operation.types.OperationTypeIntegrationTest
 import org.lnu.is.integration.cases.order.OrderIntegrationTest
 import org.lnu.is.integration.cases.order.types.OrderTypeIntegrationTest
-import org.lnu.is.integration.cases.orderbyandfilter.OrderByAndFilterIntegrationTest
 import org.lnu.is.integration.cases.paper.types.PaperTypeIntegrationTest
 import org.lnu.is.integration.cases.paper.usage.PaperUsageIntegrationTest
 import org.lnu.is.integration.cases.partner.PartnerIntegrationTest
@@ -135,6 +135,8 @@ object TestCases {
                     
                     LanguageIntegrationTest.testCase,
                     
+                    MultipleGetIntegrationTest.testCase,
+                    
                     PaperTypeIntegrationTest.testCase,
                     PaperUsageIntegrationTest.testCase,
                     
@@ -175,8 +177,6 @@ object TestCases {
                     
                     OrderIntegrationTest.testCase,
                     OrderTypeIntegrationTest.testCase,
-                    
-                    OrderByAndFilterIntegrationTest.testCase,
                     
                     OperationTypeIntegrationTest.testCase,
                     
