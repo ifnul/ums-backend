@@ -43,7 +43,7 @@ object SpecialtyIntegrationTest {
         .get("/specialties/${specialtyId}")
         .basicAuth("admin", "nimda")
         .check(status.is(200))
-        .check(jsonPath("$.name").find.is("Теоретичні основи інформатики та кібернетики")))
+        .check(jsonPath("$.abbrName").find.is("prm111")))
     .exec(http("Delete Specialty")
   		  .delete("/specialties/${specialtyId}")
   		  .basicAuth("admin", "nimda")
