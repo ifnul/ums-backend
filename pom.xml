@@ -42,7 +42,7 @@
     	<module>is-lnu-edbo-person-dao</module>
     	<module>is-lnu-edbo-guides-dao</module>
     	<module>is-lnu-edbo-model</module>
-  </modules>
+  	</modules>
 
 	<properties>
 		<version>${project.version}</version>
@@ -95,7 +95,9 @@
 		<findbugs.skip>false</findbugs.skip>
 		<checkstyleDir>${basedir}/checks</checkstyleDir>
 		<findBugsDir>${basedir}/findbugs</findBugsDir>
-
+		
+		<orderby.regex>^[a-zA-Z0-9]+-([aA][sS][cC]|[dD][eE][sS][cC])(,\s?[a-zA-Z0-9]+-([aA][sS][cC]|[dD][eE][sS][cC]))*$</orderby.regex>
+		
 		<!-- Mail related properties -->
 		<!--
 		Possible options
