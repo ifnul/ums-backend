@@ -1,5 +1,6 @@
 package org.lnu.is.security;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -54,6 +55,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
         String login = authentication.getName();
         String password = authentication.getCredentials().toString();
+        LOG.info(MessageFormat.format("Starting to authenticate user with login: {0}", login));
 
         return getAuthentication(login, password);
     }

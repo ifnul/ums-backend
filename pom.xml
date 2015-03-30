@@ -124,7 +124,7 @@
 		1)enabled
 		2)disabled -->
 		<edbo.status>disabled</edbo.status>
-		<edbo.application.key>app Key</edbo.application.key>
+		<edbo.application.key/>
 		<edbo.clear.previous.session>1</edbo.clear.previous.session>
 	</properties>
 
