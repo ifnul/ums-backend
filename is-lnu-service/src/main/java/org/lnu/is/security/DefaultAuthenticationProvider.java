@@ -30,8 +30,13 @@ import org.springframework.util.Assert;
 public class DefaultAuthenticationProvider implements AuthenticationProvider {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultAuthenticationProvider.class);
 
+    // TODO: Consider to replace To UserService.
+    // This would be more higher abstraction.
     @Resource(name = "userDao")
     private UserDao userDao;
+    
+    //@Resource(name = "edboAuthentificationService")
+    //private AuthentificationService edboAuthentificationService;
     
     @Override
     public boolean supports(final Class<?> clazz) {

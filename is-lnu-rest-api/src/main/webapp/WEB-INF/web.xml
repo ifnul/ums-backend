@@ -15,6 +15,7 @@
 			classpath*:mail-context.xml
 			
 			<!-- EDBO specific contexts -->
+	 		classpath*:edbo-context.xml
 	 		classpath*:edbo-guides-dao.xml
 			classpath*:edbo-person-dao.xml
 		</param-value>

@@ -7,7 +7,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.is.lnu.edbo.manager.ServiceManager;
-import org.is.lnu.edbo.model.authentification.Authentification;
+import org.is.lnu.edbo.model.authentification.EdboAuthentification;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,17 +43,17 @@ public class DefaultAuthentificationServiceTest {
 		String password = "password";
 		String sessionGUID = "sessionGUID";
 		
-		Authentification auth = new Authentification();
+		EdboAuthentification auth = new EdboAuthentification();
 		auth.setApplicationKey(applicationKey);
 		auth.setClearPreviousSession(clearPreviousSession);
 		auth.setLogin(login);
 		auth.setPassword(password);
 
-		Authentification expected = new Authentification(login, password, applicationKey, clearPreviousSession, sessionGUID);
+		EdboAuthentification expected = new EdboAuthentification(login, password, applicationKey, clearPreviousSession, sessionGUID);
 		
 		// When
 		when(edboGuidesSoap.login(anyString(), anyString(), anyInt(), anyString())).thenReturn(sessionGUID);
-		Authentification actual = unit.login(auth);
+		EdboAuthentification actual = unit.login(auth);
 
 		// Then
 		verify(serviceManager).getWebServiceClient();
@@ -70,7 +70,7 @@ public class DefaultAuthentificationServiceTest {
 		String password = "password";
 		String sessionGUID = "sessionGUID";
 		
-		Authentification auth = new Authentification();
+		EdboAuthentification auth = new EdboAuthentification();
 		auth.setApplicationKey(applicationKey);
 		auth.setClearPreviousSession(clearPreviousSession);
 		auth.setLogin(login);

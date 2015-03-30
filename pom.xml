@@ -124,6 +124,7 @@
 		1)enabled
 		2)disabled -->
 		<edbo.status>disabled</edbo.status>
+		<edbo.application.key/>
 	</properties>
 
 	<dependencyManagement>

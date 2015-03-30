@@ -7589,4 +7589,55 @@
 			deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
 			onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod" />
 	</changeSet>
+	
+	<changeSet id="add_q_op_edbo_user_table" author="ivanursul">
+		<createTable tableName="q_op_edbo_user">
+			<!-- Common fields -->
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+        	
+        	<!-- Specific fields -->
+        	<column name="login" remarks="Логін єдбо користувача" type="VARCHAR(250)">
+        		<constraints nullable="false" unique="true"/>
+        	</column>
+        	<column name="password" remarks="Пароль єдбо користувача" type="VARCHAR(250)">
+        		<constraints nullable="false" unique="true"/>
+        	</column>
+		</createTable>
+		
+		<addColumn tableName="q_op_user">
+			<column name="edbo_user_id" type="BIGINT" remarks="Айдішка ЄДЕБО користувача">
+				<constraints unique="true" nullable="true"/>
+			</column>
+		</addColumn>
+		
+		<addForeignKeyConstraint baseColumnNames="edbo_user_id"
+			baseTableName="q_op_user" constraintName="fk_q_op_user_edbo_user_id"
+			deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+			onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_op_edbo_user" />
+	</changeSet>
+	
 </databaseChangeLog>

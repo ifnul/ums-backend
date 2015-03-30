@@ -5,7 +5,7 @@ package org.is.lnu.edbo.model.authentification;
  * @author ivanursul
  *
  */
-public class Authentification {
+public class EdboAuthentification {
 
 	private String login;
 	private String password;
@@ -16,7 +16,7 @@ public class Authentification {
 	/**
 	 * Default constructor.
 	 */
-	public Authentification() {
+	public EdboAuthentification() {
 		super();
 	}
 
@@ -28,7 +28,7 @@ public class Authentification {
 	 * @param clearPreviousSession
 	 * @param sessionGUID
 	 */
-	public Authentification(final String login, final String password,
+	public EdboAuthentification(final String login, final String password,
 			final String applicationKey, final Integer clearPreviousSession,
 			final String sessionGUID) {
 		super();
@@ -108,7 +108,7 @@ public class Authentification {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		Authentification other = (Authentification) obj;
+		EdboAuthentification other = (EdboAuthentification) obj;
 		if (applicationKey == null) {
 			if (other.applicationKey != null) {
 				return false;

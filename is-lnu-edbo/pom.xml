@@ -18,15 +18,18 @@
 	<properties>
 		<checkstyleDir>${basedir}/../checks</checkstyleDir>
 		<findBugsDir>${basedir}/../findbugs</findBugsDir>
-		<camel-version>2.14.0</camel-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	
 	<dependencies>
-
+		<!-- EDBO dependencies -->
 		<dependency>
 			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-edbo-guides-dao</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-edbo-common</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>is-lnu</groupId>
@@ -34,34 +37,10 @@
 		</dependency>
 		<dependency>
 			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-common</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-domain</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-resource</artifactId>
-		</dependency>		
-		<dependency>
-			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-converter</artifactId>
-		</dependency>		
-		<dependency>
-			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-service</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-edbo-model</artifactId>
 		</dependency>			
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-		</dependency>
-        		
+		<!-- Dependencies for testing -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

@@ -163,6 +163,7 @@
         
         <!-- Security entities -->
         <class>org.lnu.is.domain.user.User</class>
+        <class>org.lnu.is.domain.user.EdboUser</class>
         <class>org.lnu.is.domain.role.Role</class>
         <class>org.lnu.is.domain.group.Group</class>
         <class>org.lnu.is.domain.user.group.UserGroup</class>

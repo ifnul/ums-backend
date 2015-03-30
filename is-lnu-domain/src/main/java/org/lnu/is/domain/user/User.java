@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OP;
@@ -48,6 +49,10 @@ public class User extends Model implements Serializable {
     @Column(name = "enddate")
     private Date endDate;
 
+    @OneToOne
+    @JoinColumn(name = "edbo_user_id" , unique = true, nullable = true)
+    private EdboUser edboUser;
+    
     @OneToMany(mappedBy = "user")
     private List<UserGroup> userGroups;
     
@@ -144,6 +149,14 @@ public class User extends Model implements Serializable {
 
 	public void setRoles(final List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public EdboUser getEdboUser() {
+		return edboUser;
+	}
+
+	public void setEdboUser(final EdboUser edboUser) {
+		this.edboUser = edboUser;
 	}
 
 	@Override
