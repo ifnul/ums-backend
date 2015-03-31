@@ -13,6 +13,12 @@
 		<property name="applicationKey" value="${edbo.application.key}" />
 		<property name="clearPreviousSession" value="${edbo.clear.previous.session}"/>
 	</bean>
+
+	<bean id="edboPersonService" class="org.is.lnu.edbo.service.person.DefaultEdboPersonService">
+		<property name="serviceManager" ref="edboPersonServiceManager" />
+		<property name="applicationKey" value="${edbo.application.key}" />
+		<property name="clearPreviousSession" value="${edbo.clear.previous.session}"/>
+	</bean>
  		
 
 </beans>
