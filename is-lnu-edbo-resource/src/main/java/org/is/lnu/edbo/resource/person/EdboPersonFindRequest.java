@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 /**
- * Class-request for finding required 
+ * Class-request for finding required. 
  * @author ivanursul
  *
  */
