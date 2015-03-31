@@ -1,7 +1,8 @@
 package org.lnu.is.integration.cases.config
 
 import org.lnu.is.integration.cases.BaseIntegrationTest
-import org.lnu.is.integration.cases.OrderByType
+import org.lnu.is.integration.config.OrderByType
+import org.lnu.is.integration.config.OrderBy
 object Configuration extends BaseIntegrationTest {
 /*
  assets/1/address
@@ -15,21 +16,20 @@ object Configuration extends BaseIntegrationTest {
 	   "title" -> " Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   )
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+		"chackWithOutParemetrs" -> false
+     )
  */
   /**
    *щоб вимкнути тести певної групи траба відповідно у globalCongiguration відповідне значення поставити false
    */
-val globalCongiguration=Map(
-	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-)
 val data =List(
 	Map(
 	   "name" -> "adresstype",
@@ -37,11 +37,15 @@ val data =List(
 	   "title" -> "Address Type Integration Test",
 	   "filds" -> List[String]("id", "name", "abbrName","uri"),
 	   "filter" -> Map[String,Any]("id" -> 1, "name" -> "as", "abbrName" -> "asd"),
-	   "order" -> Map[String,OrderByType.OrderByType]("id" -> OrderByType.ASC, "name" -> OrderByType.DESC, "abbrName" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("name", OrderByType.DESC), new OrderBy("abbrName", OrderByType.ASC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	   
 	Map(
@@ -49,11 +53,15 @@ val data =List(
 	   "url" -> "/adminunits",
 	   "title" -> "Admin Unit Integration Test",
 	   "filter" -> Map[String,Any]("adminUnitTypeId"->1, "parentId" -> 1, "identifier"->"001", "identifier1" -> "010" , "identifier2" -> "010", "identifier3" ->"00051" , "name" -> "Cd", "begDate"-> "2015-02-07", "endDate" -> "2015-03-01" ),
-	   "order" -> Map[String,OrderByType.OrderByType]("adminUnitTypeId"->OrderByType.ASC, "parentId" -> OrderByType.ASC, "identifier"->OrderByType.DESC , "identifier1" -> OrderByType.DESC  , "identifier2" -> OrderByType.ASC, "identifier3" ->OrderByType.ASC , "name" -> OrderByType.DESC , "begDate"-> OrderByType.ASC, "endDate" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("adminUnitTypeId", OrderByType.ASC), new OrderBy("parentId", OrderByType.ASC), new OrderBy("identifier", OrderByType.DESC) , new OrderBy("identifier1", OrderByType.DESC)  , new OrderBy("identifier2", OrderByType.ASC), new OrderBy("identifier3", OrderByType.ASC) , new OrderBy("name", OrderByType.DESC) , new OrderBy("begDate", OrderByType.ASC), new OrderBy("endDate", OrderByType.ASC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	   
 	Map(
@@ -62,11 +70,15 @@ val data =List(
 	   "title" -> "Admin Unit Type Integration Test",
 	   "filds" -> List[String]("id", "name", "abbrName", "uri"),
 	   "filter" -> Map[String,Any]("id" -> 1, "name" -> "as", "abbrName" -> "asd"),
-	   "order" -> Map[String,OrderByType.OrderByType]("id" -> OrderByType.ASC, "name" -> OrderByType.DESC, "abbrName" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("name", OrderByType.DESC), new OrderBy("abbrName", OrderByType.ASC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	   
 	Map(
@@ -74,11 +86,15 @@ val data =List(
 	   "url" -> "/assets",
 	   "title" -> "Asset Integration Test",
 	   "filter" -> Map[String,Any]("id" -> 1, "invNum" -> "as", "prodDate" -> "2015-02-07",  "endDate"-> "2015-02-07",  "serialNum"-> "serl",  "begDate"-> "2015-02-07", "amount"-> 3,  "price"-> 100,  "suma"-> 300,  "assetTypeId"-> 1,  "assetStatusId"-> 1,  "assetStateId"-> 1,  "description"-> "description",  "name"-> "name"),
-	   "order" -> Map[String, OrderByType.OrderByType]("id" -> OrderByType.ASC, "invNum" -> OrderByType.DESC,  "prodDate" -> OrderByType.DESC,  "endDate"-> OrderByType.ASC ,  "serialNum"-> OrderByType.DESC,  "begDate"-> OrderByType.ASC, "amount"-> OrderByType.DESC,  "price"-> OrderByType.DESC,  "suma"-> OrderByType.ASC,  "assetTypeId"-> OrderByType.DESC,  "assetStatusId"-> OrderByType.DESC,  "assetStateId"-> OrderByType.ASC,  "description"-> OrderByType.DESC,  "name"-> OrderByType.DESC),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("invNum", OrderByType.DESC),  new OrderBy("prodDate", OrderByType.DESC),  new OrderBy("endDate", OrderByType.ASC) ,  new OrderBy("serialNum", OrderByType.DESC),  new OrderBy("begDate", OrderByType.ASC), new OrderBy("amount", OrderByType.DESC),  new OrderBy("price", OrderByType.DESC),  new OrderBy("suma", OrderByType.ASC),  new OrderBy("assetTypeId", OrderByType.DESC),  new OrderBy("assetStatusId", OrderByType.DESC),  new OrderBy("assetStateId", OrderByType.ASC),  new OrderBy("description", OrderByType.DESC),  new OrderBy("name", OrderByType.DESC)),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 
 	Map(
@@ -87,12 +103,16 @@ val data =List(
 	   "title" -> "Asset Address Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 	   
 	Map(
 	   "name" -> "assetstate",
@@ -100,11 +120,15 @@ val data =List(
 	   "title" -> "Asset State Integration Test",
 	   "filds" -> List[String]("id", "name", "uri"),
 	   "filter" -> Map[String, Any]("id" -> 1, "name" -> "as"),
-	   "order" -> Map[String,OrderByType.OrderByType]("id" -> OrderByType.ASC, "name" -> OrderByType.DESC ),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("name", OrderByType.DESC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	   
 	Map(
@@ -113,11 +137,15 @@ val data =List(
 	   "title" -> "Asset Status Integration Test",
 	   "filds" -> List[String]("id", "name", "uri"),
 	   "filter" -> Map[String, Any]("id" -> 1, "name" -> "as"),
-	   "order" -> Map[String,OrderByType.OrderByType]("id" -> OrderByType.ASC, "name" -> OrderByType.DESC ),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("name", OrderByType.DESC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	   
 	Map(
@@ -126,11 +154,15 @@ val data =List(
 	   "title" -> "Asset Type Integration Test",
 	   "filds" -> List[String]("id", "name", "abbrName", "uri"),
 	   "filter" -> Map[String,Any]("id" -> 1, "name" -> "as", "abbrName" -> "asd"),
-	   "order" -> Map[String,OrderByType.OrderByType]("id" -> OrderByType.ASC, "name" -> OrderByType.DESC, "abbrName" -> OrderByType.DESC ),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("name", OrderByType.DESC), new OrderBy("abbrName", OrderByType.DESC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	  
 	Map(
@@ -138,11 +170,15 @@ val data =List(
 	   "url" -> "/benefits",
 	   "title" -> "Benefit Integration Test",
 	   "filter" -> Map[String,Any]("abbrName" -> 1, "name" -> "as", "endDate"-> "2012-01-01", "begDate"-> "2012-02-02",  "benefitTypeId"-> 1,  "description"-> "DEscription"),
-	   "order" -> Map[String,OrderByType.OrderByType]("id" -> OrderByType.ASC, "name" -> OrderByType.DESC, "endDate"-> OrderByType.ASC , "begDate" -> OrderByType.ASC  ,  "benefitTypeId" -> OrderByType.ASC,  "description"-> OrderByType.DESC),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("name", OrderByType.DESC), new OrderBy("endDate", OrderByType.ASC) , new OrderBy("begDate", OrderByType.ASC)  ,  new OrderBy("benefitTypeId", OrderByType.ASC),  new OrderBy("description", OrderByType.DESC)),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	  
 	Map(
@@ -151,11 +187,15 @@ val data =List(
 	   "title" -> "Benefit Type Integration Test",
 	   "filds" -> List[String]("id", "name", "priority", "uri"),
 	   "filter" -> Map[String,Any]("id" -> 1, "name" -> "as", "priority" -> 1),
-	   "order" -> Map[String,OrderByType.OrderByType]("id" -> OrderByType.ASC, "name" -> OrderByType.DESC, "priority" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("name", OrderByType.DESC), new OrderBy("priority", OrderByType.ASC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	   
 	Map(
@@ -164,11 +204,15 @@ val data =List(
 	   "title" -> "Contact Type Integration Test",
 	   "filds" -> List[String]("id", "name", "abbrName", "uri"),
 	   "filter" -> Map[String,Any]("id" -> 1, "name" -> "as", "abbrName" -> "asd"),
-	   "order" -> Map[String,OrderByType.OrderByType]("id" -> OrderByType.ASC, "name" -> OrderByType.DESC, "abbrName" -> OrderByType.DESC ),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("name", OrderByType.DESC), new OrderBy("abbrName", OrderByType.DESC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	   
 	Map(
@@ -177,11 +221,15 @@ val data =List(
 	   "title" -> "Course Type Integration Test",
 	   "filds" -> List[String]("id", "name", "abbrName", "uri"),
 	   "filter" -> Map[String,Any]("id" -> 1, "name" -> "as", "abbrName" -> "asd"),
-	   "order" -> Map[String,OrderByType.OrderByType]("id" -> OrderByType.ASC, "name" -> OrderByType.DESC, "abbrName" -> OrderByType.DESC ),
+	   "order" -> List[OrderBy](new OrderBy("id", OrderByType.ASC), new OrderBy("name", OrderByType.DESC), new OrderBy("abbrName", OrderByType.DESC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 
 	   // TODO: Add releation
@@ -191,12 +239,16 @@ val data =List(
 	   "title" -> "Degree Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("personId" -> 1, "degreeTypeId" -> 1),
-	   "order" -> Map[String,OrderByType.OrderByType]("personId" -> OrderByType.ASC, "degreeTypeId" ->OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("personId", OrderByType.ASC), new OrderBy("degreeTypeId", OrderByType.ASC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 	
 	Map(
 	   "name" -> "degretype",
@@ -204,11 +256,15 @@ val data =List(
 	   "title" -> "Degree Types Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("abbrName" -> "test", "name" -> "sdf"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" -> OrderByType.ASC, "name" -> OrderByType.DESC ),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.DESC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 
 	Map(
@@ -217,12 +273,16 @@ val data =List(
 	   "title" -> "Department Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("parentId" -> 1, "departmentTypeId" -> 1, "abbrName" -> "an", "name" -> "n", "manager" -> "men", "identifir" -> "10.01.01", "begDate" -> "2015-02-02", "endDate" -> "2015-02-02"),//TODO: Add "oder"->1
-	   "order" -> Map[String,OrderByType.OrderByType]("parentId" -> OrderByType.ASC , "orderId" -> OrderByType.DESC , "departmentTypeId" -> OrderByType.ASC , "abbrName" -> OrderByType.ASC , "name" -> OrderByType.ASC , "manager" -> OrderByType.DESC , "identifir" -> OrderByType.DESC , "begDate" -> OrderByType.DESC , "endDate" -> OrderByType.DESC ),
+	   "order" -> List[OrderBy](new OrderBy("parentId", OrderByType.ASC) , new OrderBy("orderId", OrderByType.DESC) , new OrderBy("departmentTypeId", OrderByType.ASC) , new OrderBy("abbrName", OrderByType.ASC) , new OrderBy("name", OrderByType.ASC) , new OrderBy("manager", OrderByType.DESC) , new OrderBy("identifir", OrderByType.DESC) , new OrderBy("begDate", OrderByType.DESC) , new OrderBy("endDate", OrderByType.DESC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "departmentaddress",
@@ -230,12 +290,16 @@ val data =List(
 	   "title" -> "Department Address Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "departmentcontact",
@@ -243,12 +307,16 @@ val data =List(
 	   "title" -> "Department Contact Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "departmentname",
@@ -256,12 +324,16 @@ val data =List(
 	   "title" -> "Department Name Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "departmentspecialty",
@@ -269,12 +341,16 @@ val data =List(
 	   "title" -> "Department Specialty Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 	 
 	Map(
 	   "name" -> "departmenttype",
@@ -282,11 +358,15 @@ val data =List(
 	   "title" -> "Department Type Integration Test",
 	   "filds" -> List[String]("id",  "name", "uri"), // TODO: add "abbrName"
 	   "filter" -> Map[String,Any]("abbrName" -> "123", "name" -> "neme"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" -> OrderByType.ASC, "name" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.ASC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	   
 	Map(
@@ -295,11 +375,15 @@ val data =List(
 	   "title" -> "Duty Status Integration Test",
 	   "filds" -> List[String]("id", "name", "uri"),
 	   "filter" -> Map[String,Any]("abbrName" -> "123", "name" -> "neme"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" -> OrderByType.ASC, "name" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.ASC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   ),
 	
 	Map(
@@ -308,12 +392,16 @@ val data =List(
 	   "title" -> "Education Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("abbrName" -> "123", "name" -> "neme"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" -> OrderByType.ASC, "name" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.ASC) ),
 	   "pathData" -> "data/education/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
    	
 	Map(
 	   "name" -> "eduformtype",
@@ -321,12 +409,16 @@ val data =List(
 	   "title" -> "Edu Form Types Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("name" -> "new"),
-	   "order" -> Map[String,OrderByType.OrderByType]("name" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("name", OrderByType.ASC) ),
 	   "pathData" -> "data/eduformtypes/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
    	//TODO:Is not test
    	Map(
 	   "name" -> "employee",
@@ -334,12 +426,16 @@ val data =List(
 	   "title" -> "Employee Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("name" -> "new"),
-	   "order" -> Map[String,OrderByType.OrderByType]("name" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("name", OrderByType.ASC) ),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
    	   
 	Map(
 	   "name" -> "employeestatus",
@@ -347,12 +443,16 @@ val data =List(
 	   "title" -> "Employee Status Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("abbrName" -> "123", "name" -> "neme"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" -> OrderByType.ASC, "name" -> OrderByType.DESC ),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.DESC) ),
 	   "pathData" -> "data/employee/status/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "employeetype",
@@ -360,12 +460,16 @@ val data =List(
 	   "title" -> "Employee Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("abbrName" -> "123", "name" -> "neme"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" -> OrderByType.ASC, "name" -> OrderByType.ASC  ),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.ASC)  ),
 	   "pathData" -> "data/employee/types/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "enrolment",
@@ -373,12 +477,16 @@ val data =List(
 	   "title" -> "Enrolment Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "enrolmentbenefit",
@@ -386,12 +494,16 @@ val data =List(
 	   "title" -> "Enrolment Benefit Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "enrolmentstatuse",
@@ -399,12 +511,16 @@ val data =List(
 	   "title" -> "Enrolment Status Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "enrolmentstatustype",
@@ -412,12 +528,16 @@ val data =List(
 	   "title" -> "Enrolment Status Types Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("abbrName" -> "qwe", "name" -> "nqm","description" -> "desc"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" ->OrderByType.ASC, "name" ->OrderByType.ASC, "description" ->  OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.ASC), new OrderBy("description", OrderByType.ASC) ),
 	   "pathData" -> "data/enrolment/statustype/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "enrolmentsubject",
@@ -425,12 +545,16 @@ val data =List(
 	   "title" -> "Enrolment Subject Types Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("parentId" -> 3, "abbrName" -> "укр", "name" ->"213","isTesting" -> 1),
-	   "order" -> Map[String,OrderByType.OrderByType]("parentId" -> OrderByType.ASC , "abbrName" -> OrderByType.DESC , "name" ->OrderByType.ASC ,"isTesting" -> OrderByType.ASC ),
+	   "order" -> List[OrderBy](new OrderBy("parentId", OrderByType.ASC) , new OrderBy("abbrName", OrderByType.DESC) , new OrderBy("name", OrderByType.ASC) ,new OrderBy("isTesting", OrderByType.ASC) ),
 	   "pathData" -> "data/enrolment/subject/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "enrolmenttype",
@@ -438,12 +562,16 @@ val data =List(
 	   "title" -> "Enrolment Types Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("abbrName" -> "123", "name" -> "neme"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" -> OrderByType.ASC, "name" -> OrderByType.ASC  ),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.ASC)  ),
 	   "pathData" -> "data/enrolment/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "familytype",
@@ -451,12 +579,16 @@ val data =List(
 	   "title" -> "Family Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("abbrName" -> "123", "name" -> "neme"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" -> OrderByType.ASC, "name" -> OrderByType.ASC),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.ASC)),
 	   "pathData" -> "data/family/types/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "gendertype",
@@ -464,25 +596,33 @@ val data =List(
 	   "title" -> "Gender Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("abbrName" -> "123", "name" -> "neme"),
-	   "order" -> Map[String,OrderByType.OrderByType]("abbrName" -> OrderByType.DESC , "name" -> OrderByType.DESC ),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.DESC) , new OrderBy("name", OrderByType.DESC) ),
 	   "pathData" -> "data/gendertype/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> true,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "honortype",
 	   "url" -> "/honors/types",
 	   "title" -> "Honor Type Integration Test",
 	   "filds" -> List[String](),
-	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "filter" -> Map[String,Any]("abbrName" -> "abr", "name" -> "df"),
+	   "order" -> List[OrderBy](new OrderBy("abbrName", OrderByType.ASC), new OrderBy("name", OrderByType.DESC)),
 	   "pathData" -> "data/honor/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> true,
+	   "checkOrderOne" -> true,
+	   "checkFilter" -> true,
+	   "checkFilterOne"-> true,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "language",
@@ -490,12 +630,16 @@ val data =List(
 	   "title" -> "Language Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/language/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "marriedtype",
@@ -503,12 +647,16 @@ val data =List(
 	   "title" -> "Married Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/marriedtype/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "operationtype",
@@ -516,12 +664,16 @@ val data =List(
 	   "title" -> "Operation Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/operation/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "order",
@@ -529,12 +681,16 @@ val data =List(
 	   "title" -> "Order Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "ordertype",
@@ -542,12 +698,16 @@ val data =List(
 	   "title" -> "Order Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/order/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "papertype",
@@ -555,12 +715,16 @@ val data =List(
 	   "title" -> "Paper Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/paper/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "paperusage",
@@ -568,12 +732,16 @@ val data =List(
 	   "title" -> "Paper Usage Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/paper/usage/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "partner",
@@ -581,12 +749,16 @@ val data =List(
 	   "title" -> "Partner Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "person",
@@ -594,12 +766,16 @@ val data =List(
 	   "title" -> "Person Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "personaddress",
@@ -607,12 +783,16 @@ val data =List(
 	   "title" -> "Person Address Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "personaward",
@@ -620,12 +800,16 @@ val data =List(
 	   "title" -> "Person Award Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "personcontact",
@@ -633,12 +817,16 @@ val data =List(
 	   "title" -> "Person Contact Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "personeducation",
@@ -646,12 +834,16 @@ val data =List(
 	   "title" -> "Person Education Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "personenrolmentsubject",
@@ -659,12 +851,16 @@ val data =List(
 	   "title" -> "Person Enrolment Subject Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "personfamily",
@@ -672,12 +868,16 @@ val data =List(
 	   "title" -> "Person Family Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "personlanguage",
@@ -685,12 +885,16 @@ val data =List(
 	   "title" -> "Person Language Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "personname",
@@ -698,12 +902,16 @@ val data =List(
 	   "title" -> "Person Name Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "personpaper",
@@ -711,12 +919,16 @@ val data =List(
 	   "title" -> "Person Paper Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "persontype",
@@ -724,12 +936,16 @@ val data =List(
 	   "title" -> "Person Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/person/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "publicactivity",
@@ -737,12 +953,16 @@ val data =List(
 	   "title" -> "Public Activity Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "publicactivityaward",
@@ -750,12 +970,16 @@ val data =List(
 	   "title" -> "Public Activity Award Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "publicactivitytype",
@@ -763,12 +987,16 @@ val data =List(
 	   "title" -> "Public Activity Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/publicactivity/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "reason",
@@ -776,12 +1004,16 @@ val data =List(
 	   "title" -> "Reason Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/reason/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "sallarytype",
@@ -789,12 +1021,16 @@ val data =List(
 	   "title" -> "Sallary Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/sallary/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "specialty",
@@ -802,12 +1038,16 @@ val data =List(
 	   "title" -> "Specialty Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "specialtytype",
@@ -815,12 +1055,16 @@ val data =List(
 	   "title" -> " Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/specialty/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "specoffer",
@@ -828,12 +1072,16 @@ val data =List(
 	   "title" -> "Specoffer Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "specofferbenefit",
@@ -841,12 +1089,16 @@ val data =List(
 	   "title" -> "Specoffer Benefit Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "specoffersubject",
@@ -854,12 +1106,16 @@ val data =List(
 	   "title" -> "Specoffer Subject Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "specoffertype",
@@ -867,12 +1123,16 @@ val data =List(
 	   "title" -> "Specoffer Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/specoffer/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "specofferwave",
@@ -880,12 +1140,16 @@ val data =List(
 	   "title" -> "Specoffer Wave Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> false
+	   ),
 
 	Map(
 	   "name" -> "streettype",
@@ -893,12 +1157,16 @@ val data =List(
 	   "title" -> "Street Types Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/street/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "studyplancycle",
@@ -906,12 +1174,16 @@ val data =List(
 	   "title" -> "StudyPlan Cycle Integration Test",
 	   "filds" -> List[String]("id", "name", "abbrName", "uri"),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map( 
 	   "name" -> "subject",
@@ -919,12 +1191,16 @@ val data =List(
 	   "title" -> "Subject Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/subject/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "subjecttype",
@@ -932,12 +1208,16 @@ val data =List(
 	   "title" -> "Subject Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/subject/types/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "timeperiod",
@@ -945,12 +1225,16 @@ val data =List(
 	   "title" -> "Time Period Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "timeperiodtype",
@@ -958,12 +1242,16 @@ val data =List(
 	   "title" -> "Time Period Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/timeperiod/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 
 	Map(
 	   "name" -> "timesheettype",
@@ -971,12 +1259,16 @@ val data =List(
 	   "title" -> "Timesheet Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "data/timesheet/type/response.json",
 	   "checkFieldsExistence"-> false,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> true
-   	   ),
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> true,
+   	   "chackWithOutParemetrs" -> true
+	   ),
 	   
 	Map(
 	   "name" -> "wavetype",
@@ -984,15 +1276,19 @@ val data =List(
 	   "title" -> "Wave Type Get Paged Result",
 	   "filds" -> List[String]("id", "name", "uri"),
 	   "filter" -> Map[String,Any](),
-	   "order" -> Map[String,OrderByType.OrderByType](),
+	   "order" -> List[OrderBy](),
 	   "pathData" -> "",
 	   "checkFieldsExistence"-> true,
-	   "checkOrderAndFilter" -> false,
-	   "checkData" -> false
+	   "checkOrder" -> false,
+	   "checkOrderOne" -> false,
+	   "checkFilter" -> false,
+	   "checkFilterOne"-> false,
+	   "checkData" -> false,
+	   "chackWithOutParemetrs" -> true
 	   )
 	   
 	 )
 	 	
-  val testCase = buildAllTestCase(data,globalCongiguration)
+  val testCase = buildAllTestCase(data)
 }
 	
