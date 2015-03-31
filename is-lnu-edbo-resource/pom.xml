@@ -15,6 +15,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<checkstyleDir>${basedir}/../checks</checkstyleDir>
+		<findBugsDir>${basedir}/../findbugs</findBugsDir>		
 	</properties>
 
 	<dependencies>
@@ -27,5 +29,32 @@
 			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 	</dependencies>
-
+    <build>
+        <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>			
+			</plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>			
+			</plugin>					
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>			
+			</plugin>        
+        </plugins>
+    </build>	
 </project>
