@@ -88,7 +88,7 @@ public class EdboPersonFindRequest implements Serializable {
 	public void setFilters(final String filters) {
 		this.filters = filters;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -99,7 +99,6 @@ public class EdboPersonFindRequest implements Serializable {
 				+ ((documentSeries == null) ? 0 : documentSeries.hashCode());
 		result = prime * result + ((filters == null) ? 0 : filters.hashCode());
 		result = prime * result + ((fioMask == null) ? 0 : fioMask.hashCode());
-		result = prime * result + hundred;
 		result = prime
 				* result
 				+ ((idsDocumentTypes == null) ? 0 : idsDocumentTypes.hashCode());
@@ -107,7 +106,7 @@ public class EdboPersonFindRequest implements Serializable {
 				+ ((personCodeU == null) ? 0 : personCodeU.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(final Object obj) {
 		if (this == obj) {
@@ -148,9 +147,6 @@ public class EdboPersonFindRequest implements Serializable {
 		} else if (!fioMask.equals(other.fioMask)) {
 			return false;
 		}
-		if (hundred != other.hundred) {
-			return false;
-		}
 		if (idsDocumentTypes == null) {
 			if (other.idsDocumentTypes != null) {
 				return false;
@@ -167,7 +163,7 @@ public class EdboPersonFindRequest implements Serializable {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "EdboPersonFindRequest [fioMask=" + fioMask
