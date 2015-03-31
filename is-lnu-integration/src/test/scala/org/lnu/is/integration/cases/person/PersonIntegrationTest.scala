@@ -57,7 +57,7 @@ object PersonIntegrationTest {
         .get("/persons/${identifier}")
         .basicAuth("admin", "nimda")
         .check(status.is(200))
-        .check(jsonPath("$.name").find.is("${person_lastname} ${person_firstname} Ололошович")))
+        .check(jsonPath("$.firstName").find.is("${person_firstname}")))
     .exec(http("Delete Person")
   		  .delete("/persons/${identifier}")
         .basicAuth("admin", "nimda")
