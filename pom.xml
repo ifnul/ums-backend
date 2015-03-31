@@ -100,14 +100,7 @@
 		<orderby.regex>^[a-zA-Z0-9]+-([aA][sS][cC]|[dD][eE][sS][cC])(,\s?[a-zA-Z0-9]+-([aA][sS][cC]|[dD][eE][sS][cC]))*$</orderby.regex>
 		
 		<!-- Mail related properties -->
-		<!--
-		Possible options
- 		1)true
-		2)false -->
 		<mail.enabled>true</mail.enabled>
-		<!--
- 		1)dev
-		2)production -->		
 		<mail.environment.active>dev</mail.environment.active>
         <mail.from>info@franko.edu.ua</mail.from>
         <mail.host>localhost</mail.host>
@@ -122,10 +115,6 @@
 		<mail.smtp.ssl.trust>smtp.gmail.com</mail.smtp.ssl.trust>
 		
 		<!-- edbo related dependencies -->
-		<!-- 		
-		Possible statuses:
-		1)enabled
-		2)disabled -->
 		<edbo.status>disabled</edbo.status>
 		<edbo.application.key/>
 		<edbo.clear.previous.session>1</edbo.clear.previous.session>
