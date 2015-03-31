@@ -9,6 +9,9 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<bean id="springSwaggerConig" class = "com.mangofactory.swagger.configuration.SpringSwaggerConfig"/>
-
+	<bean id="springSwaggerConig" class="com.mangofactory.swagger.configuration.SpringSwaggerConfig"/>
+	<bean id="swaggerSpringMvcPlugin" class="org.lnu.configuration.converters.CustomSwaggerSpringMvcPlugin">
+		<constructor-arg ref="springSwaggerConig"/>
+	</bean>
+	
 </beans>

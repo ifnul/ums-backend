@@ -91,14 +91,9 @@ public class DefaultSessionService implements SessionService {
 
 	@Override
 	public Session getSession() {
-		User user = getUser();
-		Session session = new Session();
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getDetails();
 		
-		session.setUser(user);
-		session.setGroups(user.getGroups());
-		session.setRoles(user.getRoles());
-		
-		return session;
+		return (Session) principal;
 	}
 	
 

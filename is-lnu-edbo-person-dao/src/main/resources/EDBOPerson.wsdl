@@ -22736,10 +22736,10 @@
   </wsdl:binding>
   <wsdl:service name="EDBOPerson">
     <wsdl:port name="EDBOPersonSoap" binding="tns:EDBOPersonSoap">
-      <soap:address location="http://194.44.198.43:8080/EDBOPerson/EDBOPerson.asmx" />
+      <soap:address location="http://194.44.198.43:8081/EDBOPerson/EDBOPerson.asmx" />
     </wsdl:port>
     <wsdl:port name="EDBOPersonSoap12" binding="tns:EDBOPersonSoap12">
-      <soap12:address location="http://194.44.198.43:8080/EDBOPerson/EDBOPerson.asmx" />
+      <soap12:address location="http://194.44.198.43:8081/EDBOPerson/EDBOPerson.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

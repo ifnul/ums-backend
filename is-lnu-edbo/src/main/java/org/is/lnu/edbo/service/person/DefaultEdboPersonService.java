@@ -1,5 +1,6 @@
 package org.is.lnu.edbo.service.person;
 
+import org.is.lnu.edbo.handler.ExceptionHandler;
 import org.is.lnu.edbo.service.BaseEdboService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,8 @@ import ua.edboservice.PersonsFind;
  */
 public class DefaultEdboPersonService extends BaseEdboService<EDBOPersonSoap> implements EdboPersonService {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultEdboPersonService.class);
+	
+	private ExceptionHandler exceptionHandler;
 	
 	@Override
 	public ArrayOfDPersonsFind findPerson(final PersonsFind person) {
@@ -32,7 +35,15 @@ public class DefaultEdboPersonService extends BaseEdboService<EDBOPersonSoap> im
 				person.getPersonCodeU(),
 				person.getFilters());
 		
+		if (persons == null) {
+			exceptionHandler.handle(person.getSessionGUID());
+		}
+		
 		return persons;
+	}
+
+	public void setExceptionHandler(final ExceptionHandler exceptionHandler) {
+		this.exceptionHandler = exceptionHandler;
 	}
 
 }

@@ -7,23 +7,16 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		">
-	
-	<context:component-scan base-package="org.is.lnu.edbo.handler"/>
-	<import resource="edbo-exception-handlers.xml"/>
-	<bean id="edboAuthentificationService" class="org.is.lnu.edbo.service.login.DefaultAuthentificationService">
-		<property name="serviceManager" ref="edboGuidesServiceManager" />
-		<property name="applicationKey" value="${edbo.application.key}" />
-		<property name="clearPreviousSession" value="${edbo.clear.previous.session}"/>
-	</bean>
-
-	<bean id="edboPersonService" class="org.is.lnu.edbo.service.person.DefaultEdboPersonService">
+		
+	<bean id="edboPersonExceptionHandler" class="org.is.lnu.edbo.handler.DefaultExceptionHandler">
 		<property name="serviceManager" ref="edboPersonServiceManager" />
 		<property name="applicationKey" value="${edbo.application.key}" />
 		<property name="clearPreviousSession" value="${edbo.clear.previous.session}"/>
-		<property name="exceptionHandler" ref="edboPersonExceptionHandler"/>
-	</bean>
- 	
- 	<bean id="edboLanguageService" class="org.is.lnu.edbo.service.language.DefaultEdboLanguageService"/>
- 	<bean id="edboActualDateService" class="org.is.lnu.edbo.service.date.DefaultActualDateService"/>	
+		<property name="exceptionThrowers" ref="edboPersonExceptionThrowers"/>
+	</bean>	
+
+	<util:map id="edboPersonExceptionThrowers">
+		<entry key="1004" value-ref="noFilterProvidedExceptionThrower" />
+	</util:map>	
 
 </beans>

@@ -27,6 +27,7 @@ public class CustomObjectMapper extends ObjectMapper {
 
 		SimpleModule module = new SimpleModule("JSONModule", new Version(2, 1, 5, null, null, null));
 		module.addSerializer(ApiListing.class, new SwaggerApiListingJsonSerializer());
+		
 		module.addSerializer(ResourceListing.class, new SwaggerResourceListingJsonSerializer());
 		
 		registerModule(module);

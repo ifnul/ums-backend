@@ -3,9 +3,12 @@ package org.is.lnu.edbo.service.person;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
+import org.is.lnu.edbo.handler.ExceptionHandler;
 import org.is.lnu.edbo.manager.ServiceManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +32,9 @@ public class DefaultEdboPersonServiceTest {
 	@Mock
 	private EDBOPersonSoap client;
 
+	@Mock
+	private ExceptionHandler exceptionHandler;
+	
 	private String applicationKey = "applicationKey";
 	
 	private Integer clearPreviousSession = 1;
@@ -61,6 +67,26 @@ public class DefaultEdboPersonServiceTest {
 		
 		// Then
 		verify(serviceManager).getWebServiceClient();
+		verifyZeroInteractions(exceptionHandler);
+		assertEquals(expected, actual);
+	}
+
+	@Test(expected = RuntimeException.class)
+	public void testFindPersonWithNullPerson() throws Exception {
+		// Given
+		String sessionGUID = "Session GUID";
+		PersonsFind person = new PersonsFind();
+		person.setSessionGUID(sessionGUID);
+		ArrayOfDPersonsFind expected = new ArrayOfDPersonsFind();
+		
+		// When
+		when(serviceManager.getWebServiceClient()).thenReturn(client);
+		doThrow(RuntimeException.class).when(exceptionHandler).handle(anyString());
+		ArrayOfDPersonsFind actual = unit.findPerson(person);
+		
+		// Then
+		verify(serviceManager).getWebServiceClient();
+		verify(exceptionHandler).handle(sessionGUID);
 		assertEquals(expected, actual);
 	}
 }

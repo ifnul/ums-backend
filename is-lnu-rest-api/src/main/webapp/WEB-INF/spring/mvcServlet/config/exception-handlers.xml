@@ -16,5 +16,9 @@
 	<bean class="org.lnu.is.web.rest.handler.access.AccessDeniedExceptionHandler" />
 	<bean class="org.lnu.is.web.rest.handler.access.NoGroupForUserExceptionHandler" />
 	<bean class="org.lnu.is.web.rest.handler.request.InvalidOrderByExceptionHandler" />
+	<bean class="org.lnu.is.web.rest.handler.request.BindExceptionHandler" />
+	
+	<!-- EDBO related exception handlers -->
+	<bean class="org.lnu.is.web.rest.handler.edbo.filter.NoFilterProvidedExceptionHandler"/>
 	
 </beans>

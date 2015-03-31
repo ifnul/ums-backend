@@ -42,7 +42,8 @@
     	<module>is-lnu-edbo-person-dao</module>
     	<module>is-lnu-edbo-guides-dao</module>
     	<module>is-lnu-edbo-model</module>
-  	</modules>
+    <module>is-lnu-edbo-resource</module>
+  </modules>
 
 	<properties>
 		<version>${project.version}</version>
@@ -197,6 +198,11 @@
 			<dependency>
 				<groupId>is-lnu</groupId>
 				<artifactId>is-lnu-edbo-model</artifactId>
+				<version>${version}</version>
+			</dependency>
+			<dependency>
+				<groupId>is-lnu</groupId>
+				<artifactId>is-lnu-edbo-resource</artifactId>
 				<version>${version}</version>
 			</dependency>
 			

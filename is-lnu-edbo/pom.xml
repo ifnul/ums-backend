@@ -39,6 +39,10 @@
 			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-edbo-model</artifactId>
 		</dependency>			
+		<dependency>
+			<groupId>is-lnu</groupId>
+			<artifactId>is-lnu-edbo-resource</artifactId>
+		</dependency>			
 
 		<!-- Dependencies for testing -->
 		<dependency>

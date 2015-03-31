@@ -76,6 +76,8 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
         
         Session session = new Session();
         session.setUser(user);
+		session.setGroups(user.getGroups());
+		session.setRoles(user.getRoles());
         session.setEdboAuthentification(authentification);
         
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(login, password, authorities);
