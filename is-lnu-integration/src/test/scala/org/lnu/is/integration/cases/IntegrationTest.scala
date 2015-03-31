@@ -12,11 +12,20 @@ import io.gatling.jdbc.Predef._
  * Class, that runs integration testing.
  * @author ivanursul
  */
-class IntegrationTest extends Simulation {
 
+class IntegrationTest extends Simulation {
+   
+  def toInt(s: String, default:Int): Int = {
+    try {
+      s.toInt
+    } catch {
+
+      case e: Exception => { default }
+    }
+  }
+   
 	val host = System.getProperty("integration.host")
-	val successPercent = Integer.getInteger("integration.successtests.percent", 95)
-  
+	val successPercent = toInt(System.getProperty("integration.successtests.percent"), 95)
 	val httpConf = http
 			.baseURL(host)
       .header("Content-Type", "application/json") // Instead of adding this header in all test cases.

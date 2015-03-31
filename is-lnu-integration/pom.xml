@@ -15,7 +15,15 @@
 		<!-- Gatling properties -->
 		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
 		<integration.successtests.percent>100</integration.successtests.percent>
-
+		
+		<test.multipleget.check.fieldsexistence.skip>false</test.multipleget.check.fieldsexistence.skip>
+		<test.multipleget.check.order.skip>false</test.multipleget.check.order.skip>
+		<test.multipleget.check.orderone.skip>false</test.multipleget.check.orderone.skip>
+		<test.multipleget.check.filter.skip>false</test.multipleget.check.filter.skip>
+		<test.multipleget.check.filterone.skip>false</test.multipleget.check.filterone.skip>
+		<test.multipleget.check.date.skip>false</test.multipleget.check.date.skip>
+		<test.multipleget.check.withoutparemetrs.skip>false</test.multipleget.check.withoutparemetrs.skip>
+		
 		<simulation.class>org.lnu.is.integration.cases.IntegrationTest</simulation.class>
 	</properties>
 
@@ -48,6 +56,14 @@
 							<failOnError>true</failOnError>
 						    <jvmArgs> 
 						        <jvmArg>-Dintegration.host=${integration.url}</jvmArg>
+						        <jvmArg>-Dintegration.successtests.percent=${integration.successtests.percent}</jvmArg>
+						        <jvmArg>-Dtest.multipleget.check.fieldsexistence.skip=${test.multipleget.check.fieldsexistence.skip}</jvmArg>
+								<jvmArg>-Dtest.multipleget.check.order.skip=${test.multipleget.check.order.skip}</jvmArg>
+								<jvmArg>-Dtest.multipleget.check.orderone.skip=${test.multipleget.check.orderone.skip}</jvmArg>
+								<jvmArg>-Dtest.multipleget.check.filter.skip=${test.multipleget.check.filter.skip}</jvmArg>
+								<jvmArg>-Dtest.multipleget.check.filterone.skip=${test.multipleget.check.filterone.skip}</jvmArg>
+								<jvmArg>-Dtest.multipleget.check.date.skip=${test.multipleget.check.date.skip}</jvmArg>
+								<jvmArg>-Dtest.multipleget.check.withoutparemetrs.skip=${test.multipleget.check.withoutparemetrs.skip}</jvmArg>
 						    </jvmArgs> 
 						</configuration>
 					</execution>

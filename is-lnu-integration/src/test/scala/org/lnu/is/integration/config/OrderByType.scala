@@ -1,4 +1,4 @@
-package org.lnu.is.integration.cases
+package org.lnu.is.integration.config
 
 import scala.Enumeration
 
