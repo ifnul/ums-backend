@@ -1013,9 +1013,6 @@
     <Bug pattern="TLW_TWO_LOCK_WAIT"/>
   </Match>
   <Match>
-    <Bug pattern="SE_BAD_FIELD"/>
-  </Match>
-  <Match>
     <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON"/>
   </Match>
   <Match>
