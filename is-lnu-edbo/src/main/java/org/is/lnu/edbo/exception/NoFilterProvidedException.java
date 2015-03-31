@@ -12,6 +12,12 @@ public class NoFilterProvidedException extends RuntimeException {
 	
 	private Integer edboCode;
 
+	/**
+	 * Default constructor.
+	 * @param message
+	 * @param edboMessage
+	 * @param edboCode
+	 */
 	public NoFilterProvidedException(final String message, final String edboMessage, final Integer edboCode) {
 		super(message);
 		this.edboMessage = edboMessage;
