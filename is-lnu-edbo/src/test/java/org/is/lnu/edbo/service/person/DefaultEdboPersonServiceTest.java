@@ -10,14 +10,17 @@ import static org.mockito.Mockito.when;
 
 import org.is.lnu.edbo.handler.ExceptionHandler;
 import org.is.lnu.edbo.manager.ServiceManager;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import ua.edboservice.ArrayOfDPersonAddRet;
 import ua.edboservice.ArrayOfDPersonsFind;
 import ua.edboservice.EDBOPersonSoap;
+import ua.edboservice.PersonEntrantAdd;
 import ua.edboservice.PersonsFind;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -39,9 +42,12 @@ public class DefaultEdboPersonServiceTest {
 	
 	private Integer clearPreviousSession = 1;
 
+	@Before
 	public void setup() {
 		unit.setApplicationKey(applicationKey);
 		unit.setClearPreviousSession(clearPreviousSession);
+		
+		when(serviceManager.getWebServiceClient()).thenReturn(client);
 	}
 
 	@Test
@@ -51,7 +57,6 @@ public class DefaultEdboPersonServiceTest {
 		ArrayOfDPersonsFind expected = new ArrayOfDPersonsFind();
 
 		// When
-		when(serviceManager.getWebServiceClient()).thenReturn(client);
 		when(client.personsFind(
 				anyString(), 
 				anyString(), 
@@ -80,13 +85,78 @@ public class DefaultEdboPersonServiceTest {
 		ArrayOfDPersonsFind expected = new ArrayOfDPersonsFind();
 		
 		// When
-		when(serviceManager.getWebServiceClient()).thenReturn(client);
 		doThrow(RuntimeException.class).when(exceptionHandler).handle(anyString());
 		ArrayOfDPersonsFind actual = unit.findPerson(person);
 		
 		// Then
 		verify(serviceManager).getWebServiceClient();
 		verify(exceptionHandler).handle(sessionGUID);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testCreateAplicationManually() throws Exception {
+		// Given
+		String address = "address";
+		PersonEntrantAdd request = new PersonEntrantAdd();
+		request.setAdress(address);
+
+		ArrayOfDPersonAddRet expected = new ArrayOfDPersonAddRet();
+		
+		// When
+		when(client.personEntrantAdd(
+				anyString(), 
+				anyInt(), 
+				anyInt(), 
+				anyString(), 
+				anyInt(), 
+				anyString(), 
+				anyString(),
+				anyString(), 
+				anyString(), 
+				anyInt(), 
+				anyString(), 
+				anyString(),
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(),
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyInt(), 
+				anyInt(), 
+				anyInt(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(),
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyInt(),
+				anyInt(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyString(), 
+				anyInt())).thenReturn(expected );
+		
+		ArrayOfDPersonAddRet actual = unit.createAplicantManually(request);
+
+		// Then
 		assertEquals(expected, actual);
 	}
 }
