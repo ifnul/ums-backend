@@ -10,8 +10,6 @@
 		
 	<bean id="edboPersonExceptionHandler" class="org.is.lnu.edbo.handler.DefaultExceptionHandler">
 		<property name="serviceManager" ref="edboPersonServiceManager" />
-		<property name="applicationKey" value="${edbo.application.key}" />
-		<property name="clearPreviousSession" value="${edbo.clear.previous.session}"/>
 		<property name="exceptionThrowers" ref="edboPersonExceptionThrowers"/>
 	</bean>	
 

@@ -18,5 +18,6 @@ public interface EdboPersonFacade {
 	 * @return list of persons.
 	 */
 	List<EdboPersonResource> findPersons(EdboPersonFindRequest request);
+
 	
 }
