@@ -1,4 +1,4 @@
-package org.is.lnu.edbo.lservice.anguage;
+package org.is.lnu.edbo.service.language;
 
 import static org.junit.Assert.assertEquals;
 

@@ -19,6 +19,8 @@ import ua.edboservice.EDBOPersonSoap;
  */
 @Component("edboPersonExceptionHandler")
 public class DefaultExceptionHandler extends BaseExceptionHandler<EDBOPersonSoap> {
+	private static final String NO_THROWER_MESSAGE = "There is no handler for this type of edbo error code. Please, contact dev team with information about: errorCode:{0} , message: {1}";
+
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultExceptionHandler.class);
 
 	private Map<Integer, ExceptionThrower> exceptionThrowers; 
@@ -32,7 +34,11 @@ public class DefaultExceptionHandler extends BaseExceptionHandler<EDBOPersonSoap
 			LOG.error(MessageFormat.format("{0} {1}", error.getLastErrorDescription(), error.getLastErrorCode()));
 			
 			ExceptionThrower thrower = exceptionThrowers.get(error.getLastErrorCode());
-			// TODO :CHECK is no thrower exists -> throw IllegalArgumentException.
+			
+			if (thrower == null) {
+				throw new UnsupportedOperationException(MessageFormat.format(NO_THROWER_MESSAGE, error.getLastErrorCode(), error.getLastErrorDescription()));
+			}
+			
 			thrower.throwException(error);
 		}		
 	}

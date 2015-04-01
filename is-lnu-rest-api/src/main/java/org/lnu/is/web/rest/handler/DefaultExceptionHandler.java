@@ -22,7 +22,7 @@ public class DefaultExceptionHandler implements BaseExceptionHandler<Exception> 
     @Override
 	@ResponseBody
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(value = { IllegalArgumentException.class })
+    @ExceptionHandler(value = { IllegalArgumentException.class, UnsupportedOperationException.class })
     public MessageResource handle(final Exception e) {
     	LOGGER.error("Handling general exception exception", e);
 
