@@ -95,7 +95,7 @@ public class DefaultEdboPersonServiceTest {
 	}
 	
 	@Test
-	public void testCreateAplicationManually() throws Exception {
+	public void testCreateApplicantManually() throws Exception {
 		// Given
 		String address = "address";
 		PersonEntrantAdd request = new PersonEntrantAdd();
@@ -154,7 +154,7 @@ public class DefaultEdboPersonServiceTest {
 				anyString(), 
 				anyInt())).thenReturn(expected );
 		
-		ArrayOfDPersonAddRet actual = unit.createAplicantManually(request);
+		ArrayOfDPersonAddRet actual = unit.createApplicantManually(request);
 
 		// Then
 		assertEquals(expected, actual);

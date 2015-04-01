@@ -26,6 +26,6 @@ public interface EdboPersonService {
 	 * @param person
 	 * @return Array of Returned Persons.
 	 */
-	ArrayOfDPersonAddRet createAplicantManually(PersonEntrantAdd person);
+	ArrayOfDPersonAddRet createApplicantManually(PersonEntrantAdd person);
 	
 }
