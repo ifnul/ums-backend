@@ -11,42 +11,97 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
   val methods = Array(
       
       (
-          "Multiple Get Address Type",
+          "Address Type",
           "/addresstypes",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Admin Unit Type",
+          "Admin Unit",
+          "/adminunits",
+          Array(
+              "adminUnitTypeId",
+              "parentId"
+          ),
+          Array(
+              "identifier" -> "String",
+              "identifier1" -> "String",
+              "identifier2" -> "String",
+              "identifier3" -> "String",
+              "name" -> "String",
+              "begDate" -> "Date",
+              "endDate" -> "Date"
+          )
+      ),
+
+      (
+          "Admin Unit Type",
           "/adminunits/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Asset State",
+          "Asset",
+          "/assets",
+          Array(
+              "assetTypeId",
+              "assetStateId",
+              "assetStatusId",
+              "departmentId",
+              "employeeId",
+              "partnerId",
+              "orderId",
+              "parentId"
+          ),
+          Array(
+              "name" -> "String",
+              "invNum" -> "String",
+              "serialNum" -> "String",
+              "prodDate" -> "Date",
+              "begDate" -> "Date",
+              "endDate" -> "Date",
+              "price" -> "Double",
+              "amount" -> "Double",
+              "suma" -> "Double",
+              "description" -> "String"
+          )
+      ),
+
+      (
+          "Asset State",
           "/assets/states",
           Array(
-              "name" -> "String"
-          )
-      ),
-
-      (
-          "Multiple Get Asset Status",
-          "/assets/statuses",
+          ),
           Array(
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Asset Type",
+          "Asset Status",
+          "/assets/statuses",
+          Array(
+          ),
+          Array(
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Asset Type",
           "/assets/types",
+          Array(
+          ),
           Array(
               "abbrName" -> "String",
               "name" -> "String"
@@ -54,8 +109,26 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
       ),
 
       (
-          "Multiple Get Benefit Type",
+          "Benefit",
+          "/benefits",
+          Array(
+              "benefitTypeId",
+              "parentId"
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String",
+              "begDate" -> "Date",
+              "endDate" -> "Date",
+              "description" -> "String"
+          )
+      ),
+
+      (
+          "Benefit Type",
           "/benefits/types",
+          Array(
+          ),
           Array(
               "name" -> "String",
               "priority" -> "Integer"
@@ -63,8 +136,10 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
       ),
 
       (
-          "Multiple Get Broadcasting Message",
+          "Broadcasting Message",
           "/broadcastings",
+          Array(
+          ),
           Array(
               "content" -> "String",
               "topic" -> "String"
@@ -72,79 +147,147 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
       ),
 
       (
-          "Multiple Get Contact Type",
+          "Contact Type",
           "/contacts/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Course Type",
+          "Course Type",
           "/courses/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Degree Type",
+          "Degree",
+          "/degrees",
+          Array(
+              "personId",
+              "degreeTypeId"
+          ),
+          Array(
+          )
+      ),
+
+      (
+          "Degree Type",
           "/degrees/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Department Type",
+          "Department",
+          "/departments",
+          Array(
+              "parentId",
+              "departmentTypeId",
+              "orderId"
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String",
+              "manager" -> "String",
+              "begDate" -> "Date",
+              "endDate" -> "Date"
+          )
+      ),
+
+      (
+          "Department Type",
           "/departments/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Duty Type",
+          "Duty Type",
           "/duties/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Education Type",
+          "Education Type",
           "/educations/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Edu Form Type",
+          "Edu Form Type",
           "/eduformtypes",
           Array(
+          ),
+          Array(
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Employee Status",
+          "Employee",
+          "/employees",
+          Array(
+              "employeeTypeId",
+              "personId",
+              "genderTypeId",
+              "departmentId",
+              "postId",
+              "jobTypeId",
+              "employeeStatusId",
+              "orderId",
+              "parentId"
+          ),
+          Array(
+              /*"name" -> "String",
+              "firstName" -> "String",
+              "fatherName" -> "String",
+              "surname" -> "String",
+              "birthDate" -> "Date",
+              "invNum" -> "String",
+              "rate" -> "Double",
+              "isPlurality" -> "Integer",
+              "isPensioner" -> "Integer",
+              "begDate" -> "Date",
+              "endDate" -> "Date",
+              "docSeries" -> "String",
+              "docNum" -> "String",
+              "phone" -> "String",
+              "email" -> "String"*/
+          )
+      ),
+
+      (
+          "Employee Status",
           "/employees/statuses",
           Array(
-              "abbrName" -> "String",
-              "name" -> "String"
-          )
-      ),
-
-      (
-          "Multiple Get Employee Type",
-          "/employees/types",
+          ),
           Array(
               "abbrName" -> "String",
               "name" -> "String"
@@ -152,8 +295,48 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
       ),
 
       (
-          "Multiple Get Enrolment Status Type",
+          "Employee Type",
+          "/employees/types",
+          Array(
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Enrolment",
+          "/enrolments",
+          Array(
+              "personId",
+              "specOfferId",
+              "departmentId",
+              "personPaperId",
+              "enrolmentTypeId",
+              "parentId"
+          ),
+          Array(
+              /*"mark" -> "Double",
+              "docSeries" -> "String",
+              "docNum" -> "String",
+              "docText" -> "String",
+              "isState" -> "Integer",
+              "isContract" -> "Integer",
+              "isPrivilege" -> "Integer",
+              "isHostel" -> "Integer",
+              "evDate" -> "Date",
+              "begDate" -> "Date",
+              "endDate" -> "Date",
+              "priority" -> "Integer"*/
+          )
+      ),
+
+      (
+          "Enrolment Status Type",
           "/enrolments/statustypes",
+          Array(
+          ),
           Array(
               "abbrName" -> "String",
               "name" -> "String",
@@ -162,134 +345,430 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
       ),
 
       (
-          "Multiple Get Enrolment Foreign Type",
+          "Enrolment Subject",
+          "/enrolments/subjects",
+          Array(
+              "parentId"
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String",
+              "isTesting" -> "Integer"
+          )
+      ),
+
+      (
+          "Enrolment Type",
+          "/enrolments/types",
+          Array(
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Enrolment Foreign Type",
           "/enrolmentforeignes/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Family Type",
+          "Family Type",
           "/families/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Gender Type",
+          "Gender Type",
           "/gendertypes",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Honor Type",
+          "Honor Type",
           "/honors/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Job Type",
+          "Job Type",
           "/jobtypes",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Markscale Type",
+          "Language",
+          "/languages",
+          Array(
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Markscale",
+          "/markscales",
+          Array(
+              "markscaleTypeId"
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String",
+              "markMin" -> "Double",
+              "markMax" -> "Double"
+          )
+      ),
+
+      (
+          "Markscale Type",
           "/markscales/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
+      /*(
+          "Married Type",
+          "/marriedtypes",
+          Array(
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),*/
+
       (
-          "Multiple Get Operation Type",
+          "Operation Type",
           "/operationtypes",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Paper Usage",
+          "Order",
+          "/orders",
+          Array(
+              "orderTypeId",
+              "employeeId",
+              "assetId",
+              "partnerId",
+              "operationTypeId",
+              "departmentId",
+              "reasonId",
+              "parentId",
+              "timePeriodId"
+          ),
+          Array(
+              /*"reasonText" -> "String",
+              "docSeries" -> "String",
+              "docNum" -> "String",
+              "docDate" -> "Date",
+              "docIssued" -> "String",
+              "evDate" -> "Date",
+              "title" -> "String",
+              "description" -> "String"*/
+          )
+      ),
+
+      (
+          "Order Type",
+          "/orders/types",
+          Array(
+              "parentId"
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Paper Type",
+          "/papers/types",
+          Array(
+              "paperUsageId"
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Paper Usage",
           "/papers/usages",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Person Type",
+          "Partner",
+          "/partners",
+          Array(
+              "parentId"
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String",
+              "manager" -> "String",
+              "phone" -> "String",
+              "email" -> "String",
+              "begDate" -> "Date",
+              "endDate" -> "Date"
+          )
+      ),
+
+      (
+          "Person",
+          "/persons",
+          Array(
+              "parentId",
+              "personTypeId",
+              "genderTypeId",
+              "marriedTypeId",
+              "citizenCountryId"
+          ),
+          Array(
+              /*"name" -> "String",
+              "firstName" -> "String",
+              "fatherName" -> "String",
+              "surname" -> "String",
+              "photo" -> "String",
+              "docSeries" -> "String",
+              "docNum" -> "String",
+              "identifier" -> "String",
+              "resident" -> "Integer",
+              "birthPlace" -> "String",
+              "begDate" -> "Date",
+              "endDate" -> "Date",
+              "isMilitary" -> "Integer",
+              "isHostel" -> "Integer"*/
+          )
+      ),
+
+      (
+          "Person Type",
           "/persons/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Reason",
+          "Public Activity",
+          "/publicactivities",
+          Array(
+              "publicActivityTypeId",
+              "timePeriodId"
+          ),
+          Array(
+              "name" -> "String",
+              "begDate" -> "Date",
+              "endDate" -> "Date"
+          )
+      ),
+
+      (
+          "Public Activity Type",
+          "/publicactivities/types",
+          Array(
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Reason",
           "/reasons",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
+      /*(
+          "Sallary Type",
+          "/sallaries/types",
+          Array(
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),*/
+
+      /*(
+          "Specialty",
+          "/specialties",
+          Array(
+              "parentId",
+              "specialtyTypeId"
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String",
+              "cipher" -> "String",
+              "begDate" -> "Date",
+              "endDate" -> "Date"
+          )
+      ),*/
+
       (
-          "Multiple Get Specialty Type",
+          "Specialty Type",
           "/specialties/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Street Type",
+          "Spec Offer",
+          "/specoffers",
+          Array(
+              "specialtyId",
+              "departmentId",
+              "timePeriodId",
+              "timePeriodCourseId",
+              "eduFormTypeId",
+              "specofferTypeId"
+          ),
+          Array(
+              "docSeries" -> "String",
+              "docNum" -> "String",
+              "licCount" -> "Integer",
+              "stateCount" -> "Integer",
+              "begDate" -> "Date",
+              "endDate" -> "Date"
+          )
+      ),
+
+      (
+          "Spec Offer Type",
+          "/specoffers/types",
+          Array(
+              "timePeriodId"
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Street Type",
           "/streets/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
+      /*(
+          "Study Plan Cycle",
+          "/studyplans/cycles",
+          Array(
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),*/
+
       (
-          "Multiple Get Subject Type",
+          "Subject",
+          "/subjects",
+          Array(
+              "subjectTypeId"
+          ),
+          Array(
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Subject Type",
           "/subjects/types",
           Array(
+          ),
+          Array(
               "abbrName" -> "String",
               "name" -> "String"
           )
       ),
 
       (
-          "Multiple Get Time Period Type",
+          "Time Period",
+          "/timeperiods",
+          Array(
+              "parentId",
+              "timePeriodTypeId"
+          ),
+          Array(
+              "name" -> "String",
+              "numValue" -> "Integer",
+              "begDate" -> "Date",
+              "endDate" -> "Date"
+          )
+      ),
+
+      (
+          "Time Period Type",
           "/timeperiods/types",
           Array(
-              "abbrName" -> "String",
-              "name" -> "String"
-          )
-      ),
-
-      (
-          "Multiple Get Time Sheet Type",
-          "/timesheets/types",
+          ),
           Array(
               "abbrName" -> "String",
               "name" -> "String"
@@ -297,8 +776,21 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
       ),
 
       (
-          "Multiple Get Wave Type",
+          "Time Sheet Type",
+          "/timesheets/types",
+          Array(
+          ),
+          Array(
+              "abbrName" -> "String",
+              "name" -> "String"
+          )
+      ),
+
+      (
+          "Wave Type",
           "/wave/types",
+          Array(
+          ),
           Array(
               "name" -> "String"
           )
