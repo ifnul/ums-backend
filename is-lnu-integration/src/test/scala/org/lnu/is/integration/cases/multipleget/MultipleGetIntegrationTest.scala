@@ -490,7 +490,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "assetId",
               "partnerId",
               "operationTypeId",
-              "departmentId",
+              //"departmentId",
               "reasonId",
               "parentId",
               "timePeriodId"
@@ -566,8 +566,8 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "parentId",
               "personTypeId",
               "genderTypeId",
-              "marriedTypeId",
-              "citizenCountryId"
+              "marriedTypeId"//,
+              //"citizenCountryId"
           ),
           Array(
               "name" -> "String",
@@ -640,7 +640,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
           Array(
           ),
           Array(
-              //"abbrname" -> "String",
+              "abbrName" -> "String",
               "name" -> "String"
           )
       ),
