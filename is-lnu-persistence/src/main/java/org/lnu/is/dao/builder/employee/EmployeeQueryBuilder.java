@@ -24,7 +24,7 @@ public class EmployeeQueryBuilder extends AbstractQueryBuilder<Employee> {
 	private static final String DOCNUM_CONDITION = "e.docNum LIKE CONCAT('%',:docNum,'%') ";
 	
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
-	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate";
+	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate ";
 
 	private static final String EMPLOYEETYPE_CONDITION = "e.employeeType = :employeeType ";
 	private static final String EMPLOYEESTATUS_CONDITION = "e.employeeStatus = :employeeStatus ";

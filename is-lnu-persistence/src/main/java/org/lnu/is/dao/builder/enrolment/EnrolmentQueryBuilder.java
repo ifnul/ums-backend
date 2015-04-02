@@ -21,15 +21,15 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 	private static final String PARENT_CONDITION = "e.parent = :parent ";
 	private static final String PRIORITY_CONDITION = "e.priority = :priority ";
 
-	private static final String MARK_CONDITION = "e.mark LIKE CONCAT('%',:mark,'%') ";
+	private static final String MARK_CONDITION = "e.mark = :mark ";
 	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
 	private static final String DOCNUM_CONDITION = "e.docNum LIKE CONCAT('%',:docNum,'%') ";
 	private static final String DOCTEXT_CONDITION = "e.docText LIKE CONCAT('%',:docText,'%') ";
 	
-	private static final String ISSTATE_CONDITION = "e.isState LIKE CONCAT('%',:isState,'%') ";
-	private static final String ISCONTRACT_CONDITION = "e.isContract LIKE CONCAT('%',:isContract,'%') ";
-	private static final String ISPRIVELEGE_CONDITION = "e.isPrivelege LIKE CONCAT('%',:isPrivelege,'%') ";
-	private static final String ISHOSTEL_CONDITION = "e.isHostel LIKE CONCAT('%',:isHostel,'%') ";
+	private static final String ISSTATE_CONDITION = "e.isState = :isState ";
+	private static final String ISCONTRACT_CONDITION = "e.isContract = :isContract ";
+	private static final String ISPRIVELEGE_CONDITION = "e.isPrivilege = :isPrivilege ";
+	private static final String ISHOSTEL_CONDITION = "e.isHostel = :isHostel ";
 	
 	private static final String EVDATE_CONDITION = "e.evDate = :evDate ";
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
