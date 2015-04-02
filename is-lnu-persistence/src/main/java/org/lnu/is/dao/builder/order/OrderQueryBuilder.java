@@ -27,7 +27,7 @@ public class OrderQueryBuilder extends AbstractQueryBuilder<Order> {
 	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
 	private static final String DOCISSUED_CONDITION = "e.docIssued LIKE CONCAT('%',:docIssued,'%') ";
 	private static final String EVDATE_CONDITION = "e.evDate = :evDate ";
-	private static final String TITLE_CONDITION = "e.title = :title";
+	private static final String TITLE_CONDITION = "e.title = :title ";
 	private static final String DESCRIPTION_CONDITION = "e.description = :description";
 	private static final String TIMEPERIOD_CONDITION = "e.timePeriod = :timePeriod";
 	

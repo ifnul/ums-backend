@@ -101,7 +101,7 @@ public class MarriedTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM MarriedType e WHERE ( m.name LIKE CONCAT('%',:name,'%') AND m.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM MarriedType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<MarriedType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -125,7 +125,7 @@ public class MarriedTypeQueryBuilderTest {
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM MarriedType e WHERE ( m.name LIKE CONCAT('%',:name,'%') AND m.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
+		String expectedQuery = "SELECT e FROM MarriedType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
 		MultiplePagedSearch<MarriedType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

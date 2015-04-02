@@ -265,7 +265,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "parentId"
           ),
           Array(
-              /*"name" -> "String",
+              "name" -> "String",
               "firstName" -> "String",
               "fatherName" -> "String",
               "surname" -> "String",
@@ -279,7 +279,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "docSeries" -> "String",
               "docNum" -> "String",
               "phone" -> "String",
-              "email" -> "String"*/
+              "email" -> "String"
           )
       ),
 
@@ -317,7 +317,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "parentId"
           ),
           Array(
-              /*"mark" -> "Double",
+              "mark" -> "Double",
               "docSeries" -> "String",
               "docNum" -> "String",
               "docText" -> "String",
@@ -328,7 +328,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "evDate" -> "Date",
               "begDate" -> "Date",
               "endDate" -> "Date",
-              "priority" -> "Integer"*/
+              "priority" -> "Integer"
           )
       ),
 
@@ -459,7 +459,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
           )
       ),
 
-      /*(
+      (
           "Married Type",
           "/marriedtypes",
           Array(
@@ -468,7 +468,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "abbrName" -> "String",
               "name" -> "String"
           )
-      ),*/
+      ),
 
       (
           "Operation Type",
@@ -496,14 +496,14 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "timePeriodId"
           ),
           Array(
-              /*"reasonText" -> "String",
+              "reasonText" -> "String",
               "docSeries" -> "String",
               "docNum" -> "String",
               "docDate" -> "Date",
               "docIssued" -> "String",
               "evDate" -> "Date",
               "title" -> "String",
-              "description" -> "String"*/
+              "description" -> "String"
           )
       ),
 
@@ -570,7 +570,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "citizenCountryId"
           ),
           Array(
-              /*"name" -> "String",
+              "name" -> "String",
               "firstName" -> "String",
               "fatherName" -> "String",
               "surname" -> "String",
@@ -583,7 +583,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "begDate" -> "Date",
               "endDate" -> "Date",
               "isMilitary" -> "Integer",
-              "isHostel" -> "Integer"*/
+              "isHostel" -> "Integer"
           )
       ),
 
@@ -634,18 +634,18 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
           )
       ),
 
-      /*(
+      (
           "Sallary Type",
           "/sallaries/types",
           Array(
           ),
           Array(
-              "abbrName" -> "String",
+              //"abbrname" -> "String",
               "name" -> "String"
           )
-      ),*/
+      ),
 
-      /*(
+      (
           "Specialty",
           "/specialties",
           Array(
@@ -659,7 +659,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "begDate" -> "Date",
               "endDate" -> "Date"
           )
-      ),*/
+      ),
 
       (
           "Specialty Type",
@@ -716,7 +716,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
           )
       ),
 
-      /*(
+      (
           "Study Plan Cycle",
           "/studyplans/cycles",
           Array(
@@ -725,7 +725,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "abbrName" -> "String",
               "name" -> "String"
           )
-      ),*/
+      ),
 
       (
           "Subject",

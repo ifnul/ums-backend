@@ -12,8 +12,8 @@ import org.lnu.is.domain.studyplan.cycle.StudyPlanCycle;
  */
 @QBuilder("studyPlanCycleQueryBuilder")
 public class StudyPlanCycleQueryBuilder extends AbstractQueryBuilder<StudyPlanCycle> {
-	private static final String NAME_CONDITION = "d.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBR_NAME_CONDITION = "d.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 	@Override
 	protected String getBaseQuery() {

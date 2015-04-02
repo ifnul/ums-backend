@@ -29,7 +29,7 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<Person> {
 	
 	private static final String RESIDENT_CONDITION = "e.resident = :resident ";
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
-	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate";
+	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate ";
 	private static final String ISMILITARY_CONDITION = "e.isMilitary = :isMilitary ";
 	private static final String ISHOSTEL_CONDITION = "e.isHostel = :isHostel ";
 
