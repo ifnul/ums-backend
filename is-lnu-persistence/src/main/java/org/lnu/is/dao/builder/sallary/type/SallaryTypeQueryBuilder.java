@@ -13,7 +13,7 @@ import org.lnu.is.domain.salarytype.SallaryType;
 @QBuilder("sallaryTypeQueryBuilder")
 public class SallaryTypeQueryBuilder extends AbstractQueryBuilder<SallaryType> {
 	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBR_NAME_CONDITION = "e.abbrname LIKE CONCAT('%',:abbrname,'%') ";
+	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 	@Override
 	protected String getBaseQuery() {

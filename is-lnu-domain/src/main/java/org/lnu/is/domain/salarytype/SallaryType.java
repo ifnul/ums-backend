@@ -19,17 +19,17 @@ public class SallaryType extends InformationModel {
 
 	private static final long serialVersionUID = 1L;
 	@Column(name = "abbrname")
-	private String abbrname;
+	private String abbrName;
 	
 	@Column(name  = "name")
 	private String name;
 
 	public String getAbbrName() {
-		return abbrname;
+		return abbrName;
 	}
 
-	public void setAbbrName(final String abbrname) {
-		this.abbrname = abbrname;
+	public void setAbbrName(final String abbrName) {
+		this.abbrName = abbrName;
 	}
 
 	public String getName() {
@@ -45,7 +45,7 @@ public class SallaryType extends InformationModel {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result
-				+ ((abbrname == null) ? 0 : abbrname.hashCode());
+				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -62,11 +62,11 @@ public class SallaryType extends InformationModel {
 			return false;
 		}
 		SallaryType other = (SallaryType) obj;
-		if (abbrname == null) {
-			if (other.abbrname != null) {
+		if (abbrName == null) {
+			if (other.abbrName != null) {
 				return false;
 			}
-		} else if (!abbrname.equals(other.abbrname)) {
+		} else if (!abbrName.equals(other.abbrName)) {
 			return false;
 		}
 		if (name == null) {
@@ -81,7 +81,7 @@ public class SallaryType extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "SalaryType [abbrname=" + abbrname + ", name=" + name + "]";
+		return "SalaryType [abbrName=" + abbrName + ", name=" + name + "]";
 	}
 
 }
