@@ -27,7 +27,7 @@ public class InsertConverter<S extends ApiResource, T extends Model> extends Abs
 
 		target.setActual(1);
 		target.setStatus(RowStatus.ACTIVE);
-
+		
 		return target;
 	}
 
