@@ -12,8 +12,8 @@ import org.lnu.is.domain.marriedtype.MarriedType;
  */
 @QBuilder("marriedTypeQueryBuilder")
 public class MarriedTypeQueryBuilder extends AbstractQueryBuilder<MarriedType> {
-	private static final String NAME_CONDITION = "m.name LIKE CONCAT('%',:name,'%') ";
-	private static final String ABBR_NAME_CONDITION = "m.abbrName LIKE CONCAT('%',:abbrName,'%') ";
+	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
 	@Override
 	protected String getBaseQuery() {

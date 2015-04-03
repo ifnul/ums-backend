@@ -138,7 +138,7 @@ public class EnrolmentQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 
-		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND e.specOffer LIKE CONCAT('%',:specOffer,'%') AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark LIKE CONCAT('%',:mark,'%') AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docText LIKE CONCAT('%',:docText,'%') AND e.isState LIKE CONCAT('%',:isState,'%') AND e.isContract LIKE CONCAT('%',:isContract,'%') AND e.isPrivelege LIKE CONCAT('%',:isPrivelege,'%') AND e.isHostel LIKE CONCAT('%',:isHostel,'%') AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND e.specOffer LIKE CONCAT('%',:specOffer,'%') AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docText LIKE CONCAT('%',:docText,'%') AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Enrolment> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -192,7 +192,7 @@ public class EnrolmentQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND e.specOffer LIKE CONCAT('%',:specOffer,'%') AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark LIKE CONCAT('%',:mark,'%') AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docText LIKE CONCAT('%',:docText,'%') AND e.isState LIKE CONCAT('%',:isState,'%') AND e.isContract LIKE CONCAT('%',:isContract,'%') AND e.isPrivelege LIKE CONCAT('%',:isPrivelege,'%') AND e.isHostel LIKE CONCAT('%',:isHostel,'%') AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
+		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND e.specOffer LIKE CONCAT('%',:specOffer,'%') AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docText LIKE CONCAT('%',:docText,'%') AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
 		MultiplePagedSearch<Enrolment> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

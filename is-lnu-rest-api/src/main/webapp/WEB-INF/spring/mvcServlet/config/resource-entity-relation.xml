@@ -603,7 +603,7 @@
 		</entry>
 		<entry key="org.lnu.is.resource.sallary.type.SallaryTypeResource">
 			<util:map>
-				<entry key="abbrName" value="abbrname" />
+				<entry key="abbrName" value="abbrName" />
 				<entry key="name" value="name" />
 			</util:map>
 		</entry>
@@ -611,7 +611,7 @@
 			<util:map>
 				<entry key="parentId" value="parent" />
 				<entry key="specialtyTypeId" value="specialtyType" />
-				<entry key="abbrName" value="abbrName;" />
+				<entry key="abbrName" value="abbrName" />
 				<entry key="name" value="name" />
 				<entry key="cipher" value="cipher" />
 				<entry key="begDate" value="begDate" />
