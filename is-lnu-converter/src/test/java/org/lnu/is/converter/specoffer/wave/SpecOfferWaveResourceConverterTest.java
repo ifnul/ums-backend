@@ -3,13 +3,14 @@ package org.lnu.is.converter.specoffer.wave;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
 import org.lnu.is.domain.wave.type.WaveType;
-import org.lnu.is.resource.specoffer.subject.wave.SpecOfferWaveResource;
+import org.lnu.is.resource.specoffer.wave.SpecOfferWaveResource;
 
 public class SpecOfferWaveResourceConverterTest {
 
@@ -28,6 +29,8 @@ public class SpecOfferWaveResourceConverterTest {
 		Long waveTypeId = 2L;
 		WaveType waveType = new WaveType();
 		waveType.setId(waveTypeId);
+		Date beginDate = new Date();
+		Date endDate = new Date();
 
 		SpecOfferWaveResource source = new SpecOfferWaveResource();
 		source.setLicCount(licCount);
@@ -36,6 +39,8 @@ public class SpecOfferWaveResourceConverterTest {
 		source.setTargetCount(targetCount);
 		source.setSpecOfferId(specOfferId);
 		source.setWaveTypeId(waveTypeId);
+		source.setBeginDate(beginDate);
+		source.setEndDate(endDate);
 
 		SpecOfferWave expected = new SpecOfferWave();
 		expected.setLicCount(licCount);
@@ -44,6 +49,8 @@ public class SpecOfferWaveResourceConverterTest {
 		expected.setTargetCount(targetCount);
 		expected.setSpecOffer(specOffer);
 		expected.setWaveType(waveType);
+		expected.setBeginDate(beginDate);
+		expected.setEndDate(endDate);
 		
 		// When
 		SpecOfferWave actual = unit.convert(source);

@@ -1,5 +1,7 @@
 package org.lnu.is.domain.specoffer;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -40,6 +42,28 @@ public class SpecOfferWave extends InformationModel {
 	
 	@Column(name = "targetcount")
 	private Integer targetCount;
+
+	@Column(name = "begdate")
+	private Date beginDate;
+	
+	@Column(name = "enddate")
+	private Date endDate;
+	
+	public Date getBeginDate() {
+		return beginDate;
+	}
+
+	public void setBeginDate(final Date beginDate) {
+		this.beginDate = beginDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(final Date endDate) {
+		this.endDate = endDate;
+	}
 
 	public WaveType getWaveType() {
 		return waveType;
@@ -101,6 +125,10 @@ public class SpecOfferWave extends InformationModel {
 				+ ((stateCount == null) ? 0 : stateCount.hashCode());
 		result = prime * result
 				+ ((targetCount == null) ? 0 : targetCount.hashCode());
+		result = prime * result 
+				+ ((beginDate == null) ? 0 : beginDate.hashCode());
+		result = prime * result 
+				+ ((endDate == null) ? 0 : endDate.hashCode());
 		return result;
 	}
 
@@ -144,6 +172,20 @@ public class SpecOfferWave extends InformationModel {
 		} else if (!targetCount.equals(other.targetCount)) {
 			return false;
 		}
+		if (beginDate == null) {
+			if (other.beginDate != null) {
+				return false;
+			}
+		} else if (!beginDate.equals(other.beginDate)) {
+			return false;
+		}
+		if (endDate == null) {
+			if (other.endDate != null) {
+				return false;
+			}
+		} else if (!endDate.equals(other.endDate)) {
+			return false;
+		}
 		return true;
 	}
 
@@ -151,7 +193,8 @@ public class SpecOfferWave extends InformationModel {
 	public String toString() {
 		return "SpecOfferWave [licCount=" + licCount + ", stateCount="
 				+ stateCount + ", benefitCount=" + benefitCount
-				+ ", targetCount=" + targetCount + "]";
+				+ ", targetCount=" + targetCount + ", begDate=" + beginDate
+				+ ", endDate=" + endDate + "]";
 	}
 	
 }

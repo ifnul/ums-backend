@@ -5,6 +5,7 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,7 +69,9 @@ public class SpecOfferWaveParametersExtractorTest {
 		Integer stateCount = 2;
 		Integer benefitCount = 3;
 		Integer targetCount = 4;
-
+		Date beginDate = new Date();
+		Date endDate = new Date();
+		
 		SpecOfferWave entity = new SpecOfferWave();
 		entity.setSpecOffer(specOffer);
 		entity.setWaveType(waveType);
@@ -76,6 +79,8 @@ public class SpecOfferWaveParametersExtractorTest {
 		entity.setStateCount(stateCount);
 		entity.setBenefitCount(benefitCount);
 		entity.setTargetCount(targetCount);
+		entity.setBeginDate(beginDate);
+		entity.setEndDate(endDate);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("specOffer", specOffer);
@@ -86,6 +91,8 @@ public class SpecOfferWaveParametersExtractorTest {
 		expected.put("targetCount", targetCount);
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
+		expected.put("beginDate", beginDate);
+		expected.put("endDate",endDate);
 		
 		// When
 		when(specOfferDao.getEntityById(anyLong())).thenReturn(specOffer);
@@ -115,7 +122,9 @@ public class SpecOfferWaveParametersExtractorTest {
 		Integer stateCount = 2;
 		Integer benefitCount = 3;
 		Integer targetCount = 4;
-
+		Date beginDate = new Date();
+		Date endDate = new Date();
+		
 		SpecOfferWave entity = new SpecOfferWave();
 		entity.setSpecOffer(specOffer);
 		entity.setWaveType(waveType);
@@ -123,6 +132,8 @@ public class SpecOfferWaveParametersExtractorTest {
 		entity.setStateCount(stateCount);
 		entity.setBenefitCount(benefitCount);
 		entity.setTargetCount(targetCount);
+		entity.setBeginDate(beginDate);
+		entity.setEndDate(endDate);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("specOffer", specOffer);
@@ -131,6 +142,8 @@ public class SpecOfferWaveParametersExtractorTest {
 		expected.put("stateCount", stateCount);
 		expected.put("benefitCount", benefitCount);
 		expected.put("targetCount", targetCount);
+		expected.put("beginDate", beginDate);
+		expected.put("endDate",endDate);
 		
 		// When
 		when(specOfferDao.getEntityById(anyLong())).thenReturn(specOffer);

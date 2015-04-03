@@ -3,7 +3,7 @@ package org.lnu.is.converter.specoffer.wave;
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
-import org.lnu.is.resource.specoffer.subject.wave.SpecOfferWaveResource;
+import org.lnu.is.resource.specoffer.wave.SpecOfferWaveResource;
 
 /**
  * Converter, that converts from Entity to Resource.
@@ -21,6 +21,8 @@ public class SpecOfferWaveConverter extends AbstractConverter<SpecOfferWave, Spe
 		target.setStateCount(source.getStateCount());
 		target.setBenefitCount(source.getBenefitCount());
 		target.setTargetCount(source.getTargetCount());
+		target.setBeginDate(source.getBeginDate());
+		target.setEndDate(source.getEndDate());
 		
 		if (source.getSpecOffer() != null) {
 			target.setSpecOfferId(source.getSpecOffer().getId());

@@ -73,7 +73,7 @@ public class AssetController extends BaseController implements CrudController<As
 	@RequestMapping(value = Request.ID, method = RequestMethod.DELETE)
 	@ApiOperation(value = "Delete Asset by id")
 	public MessageResource removeResource(@PathVariable("id") final Long id) {
-		LOG.info("Removing specoffer with id: {}", id);
+		LOG.info("Removing Admin Unit with id: {}", id);
 		facade.removeResource(id);
 		return new MessageResource(MessageType.INFO, "Asset removed");
 	}

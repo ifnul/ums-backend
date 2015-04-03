@@ -35,6 +35,8 @@ public class SpecOfferWaveParametersExtractor extends AbstractParametersExtracto
 		addParameter(entity.getStateCount(), "stateCount", parameters);
 		addParameter(entity.getBenefitCount(), "benefitCount", parameters);
 		addParameter(entity.getTargetCount(), "targetCount", parameters);
+		addParameter(entity.getBeginDate(), "beginDate", parameters);
+		addParameter(entity.getEndDate(), "endDate", parameters);
 		
 		return parameters;
 	}

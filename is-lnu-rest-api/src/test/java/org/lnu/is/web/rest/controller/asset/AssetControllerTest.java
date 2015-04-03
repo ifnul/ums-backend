@@ -94,7 +94,7 @@ public class AssetControllerTest extends AbstractControllerTest {
 	}
     
     @Test
-	public void testGetSpecoffer() throws Exception {
+	public void testGetAsset() throws Exception {
 		// Given
     	Long id = 1L;
     	AssetResource assetResource = new AssetResource();

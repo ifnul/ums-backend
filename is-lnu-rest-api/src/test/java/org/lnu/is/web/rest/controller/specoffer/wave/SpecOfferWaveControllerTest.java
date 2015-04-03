@@ -26,7 +26,7 @@ import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
-import org.lnu.is.resource.specoffer.subject.wave.SpecOfferWaveResource;
+import org.lnu.is.resource.specoffer.wave.SpecOfferWaveResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.mockito.InjectMocks;

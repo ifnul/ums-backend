@@ -2,6 +2,8 @@ package org.lnu.is.dao.builder.specoffer.wave;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.specoffer.SpecOffer;
@@ -99,6 +101,7 @@ public class SpecOfferWaveQueryBuilderTest {
 		Integer stateCount = 2;
 		Integer targetCount = 3;
 		Integer benefitCount = 4;
+		Date date = new Date();
 		
 		SpecOfferWave context = new SpecOfferWave();
 		context.setSpecOffer(specOffer);
@@ -107,8 +110,10 @@ public class SpecOfferWaveQueryBuilderTest {
 		context.setStateCount(stateCount);
 		context.setTargetCount(targetCount);
 		context.setBenefitCount(benefitCount);
+		context.setBeginDate(date);
+		context.setEndDate(date);
 		
-		String expectedQuery = "SELECT e FROM SpecOfferWave e WHERE ( e.specOffer = :specOffer AND e.waveType = :waveType AND e.licCount =:licCount AND e.stateCount =:stateCount AND e.benefitCount =:benefitCount AND e.targetCount =:targetCount ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM SpecOfferWave e WHERE ( e.specOffer = :specOffer AND e.waveType = :waveType AND e.licCount =:licCount AND e.stateCount =:stateCount AND e.benefitCount =:benefitCount AND e.targetCount =:targetCount AND e.beginDate >=:beginDate AND e.endDate <=:endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<SpecOfferWave> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -131,6 +136,7 @@ public class SpecOfferWaveQueryBuilderTest {
 		Integer stateCount = 2;
 		Integer targetCount = 3;
 		Integer benefitCount = 4;
+		Date date = new Date();
 		
 		SpecOfferWave context = new SpecOfferWave();
 		context.setSpecOffer(specOffer);
@@ -139,8 +145,10 @@ public class SpecOfferWaveQueryBuilderTest {
 		context.setStateCount(stateCount);
 		context.setTargetCount(targetCount);
 		context.setBenefitCount(benefitCount);
+		context.setBeginDate(date);
+		context.setEndDate(date);
 		
-		String expectedQuery = "SELECT e FROM SpecOfferWave e WHERE ( e.specOffer = :specOffer AND e.waveType = :waveType AND e.licCount =:licCount AND e.stateCount =:stateCount AND e.benefitCount =:benefitCount AND e.targetCount =:targetCount ) ";
+		String expectedQuery = "SELECT e FROM SpecOfferWave e WHERE ( e.specOffer = :specOffer AND e.waveType = :waveType AND e.licCount =:licCount AND e.stateCount =:stateCount AND e.benefitCount =:benefitCount AND e.targetCount =:targetCount AND e.beginDate >=:beginDate AND e.endDate <=:endDate ) ";
 		MultiplePagedSearch<SpecOfferWave> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

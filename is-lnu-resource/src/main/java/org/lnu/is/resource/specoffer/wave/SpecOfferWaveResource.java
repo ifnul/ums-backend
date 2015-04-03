@@ -1,6 +1,7 @@
-package org.lnu.is.resource.specoffer.subject.wave;
+package org.lnu.is.resource.specoffer.wave;
 
 import java.text.MessageFormat;
+import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
@@ -31,6 +32,12 @@ public class SpecOfferWaveResource extends ApiResource {
 	@NotNull
 	private Integer targetCount;
 	
+	@NotNull(message = "Field required")
+	private Date beginDate;
+	
+	@NotNull(message = "Field required")
+	private Date endDate;
+	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/specoffers/{0}/waves/{1}", specOfferId, getId());
@@ -39,6 +46,22 @@ public class SpecOfferWaveResource extends ApiResource {
 	@Override
 	public String getRootUri() {
 		return MessageFormat.format("/specoffers/{0}/waves", specOfferId);
+	}
+	
+	public Date getBeginDate() {
+		return beginDate;
+	}
+
+	public void setBeginDate(final Date beginDate) {
+		this.beginDate = beginDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(final Date endDate) {
+		this.endDate = endDate;
 	}
 
 	public Long getSpecOfferId() {
@@ -105,6 +128,10 @@ public class SpecOfferWaveResource extends ApiResource {
 				+ ((targetCount == null) ? 0 : targetCount.hashCode());
 		result = prime * result
 				+ ((waveTypeId == null) ? 0 : waveTypeId.hashCode());
+		result = prime * result
+				+ ((beginDate == null) ? 0 : beginDate.hashCode());
+		result = prime * result
+				+ ((endDate == null) ? 0 : endDate.hashCode());
 		return result;
 	}
 
@@ -162,6 +189,13 @@ public class SpecOfferWaveResource extends ApiResource {
 		} else if (!waveTypeId.equals(other.waveTypeId)) {
 			return false;
 		}
+		if (beginDate == null) {
+			if (other.beginDate != null) {
+				return false;
+			}
+		} else if (!beginDate.equals(other.beginDate)) {
+			return false;
+		}
 		return true;
 	}
 
@@ -170,7 +204,8 @@ public class SpecOfferWaveResource extends ApiResource {
 		return "SpecOfferWaveResource [specOfferId=" + specOfferId
 				+ ", waveTypeId=" + waveTypeId + ", licCount=" + licCount
 				+ ", stateCount=" + stateCount + ", benefitCount="
-				+ benefitCount + ", targetCount=" + targetCount + "]";
+				+ benefitCount + ", targetCount=" + targetCount + ", begDate="
+				+ beginDate + ", endDate=" + endDate + "]";
 	}
 
 }

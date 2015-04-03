@@ -47,7 +47,7 @@ val data =List(
 	   "checkData" -> false,
 	   "chackWithOutParemetrs" -> true
 	   ),
-	   
+	   //TODO:Add CRUD opertions test
 	Map(
 	   "name" -> "adminunit",
 	   "url" -> "/adminunits",
@@ -1134,6 +1134,7 @@ val data =List(
    	   "chackWithOutParemetrs" -> true
 	   ),
 
+	//TODO:Add begDate and End Date
 	Map(
 	   "name" -> "specofferwave",
 	   "url" -> "/specoffers/${specofferId}/waves",

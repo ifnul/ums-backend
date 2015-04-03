@@ -18,6 +18,8 @@ public class SpecOfferWaveQueryBuilder extends AbstractQueryBuilder<SpecOfferWav
 	private static final String STATECOUNT_CONDITION = "e.stateCount =:stateCount ";
 	private static final String BENEFITCOUNT_CONDITION = "e.benefitCount =:benefitCount ";
 	private static final String TARGETCOUNT_CONDITION = "e.targetCount =:targetCount ";
+	private static final String BEGINDATE_CONDITION = "e.beginDate >=:beginDate ";
+	private static final String ENDDATE_CONDITION = "e.endDate <=:endDate ";
 
 	@Override
 	protected String getBaseQuery() {
@@ -35,6 +37,8 @@ public class SpecOfferWaveQueryBuilder extends AbstractQueryBuilder<SpecOfferWav
 					.addAndCondition(STATECOUNT_CONDITION, context.getStateCount())
 					.addAndCondition(BENEFITCOUNT_CONDITION, context.getBenefitCount())
 					.addAndCondition(TARGETCOUNT_CONDITION, context.getTargetCount())
+					.addAndCondition(BEGINDATE_CONDITION, context.getBeginDate())
+					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 				.closeBracket();
 	}
 
