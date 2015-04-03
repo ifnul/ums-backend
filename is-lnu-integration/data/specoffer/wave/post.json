@@ -4,5 +4,7 @@
 	"licCount" : 14,
 	"stateCount" : 12,
 	"benefitCount" : 56,
-	"targetCount" : 45
+	"targetCount" : 45,
+  	"beginDate": "2015-02-07",
+  	"endDate": "2015-02-07"
 }
