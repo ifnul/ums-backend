@@ -9,5 +9,6 @@
     <suppress checks="." files="CustomObjectMapper.java" />
     <suppress files="PGEnumUserType\.java" checks="[a-zA-Z0-9]*"/>
     <suppress checks="." files="ua[\\/]edboservice[\\/]"/>
+    <suppress checks="MethodLength" files="org[\\/]lnu[\\/]is[\\/]domain[\\/]person[\\/]entrant"/>
 </suppressions>
 

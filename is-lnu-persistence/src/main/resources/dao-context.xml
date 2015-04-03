@@ -279,6 +279,14 @@
 		<property name="queryBuilder" ref="personQueryBuilder" />
 	</bean>
 
+	<bean id="entrantDao" class="org.lnu.is.dao.dao.DefaultViewDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.entrant.PersonEntrant" />
+	</bean>
+
+	<bean id="entrantAutoDao" class="org.lnu.is.dao.dao.DefaultViewDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.person.entrant.PersonEntrantAuto" />
+	</bean>
+
 	<bean id="personAddressDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.person.address.PersonAddress" />
 		<property name="queryBuilder" ref="personAddressQueryBuilder" />

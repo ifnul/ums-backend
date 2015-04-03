@@ -8,6 +8,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
 import org.lnu.is.domain.common.RowStatus;
 
 /**
@@ -21,8 +23,15 @@ public class View {
 	@Id
 	private Long id;
 	
-	@Column(name = "status", columnDefinition = "q_en_row_status")
-	@Enumerated(EnumType.STRING)
+	@Type(type = "org.lnu.is.dao.persistence.enumtype.PGEnumUserType",
+			parameters = {
+						@Parameter(
+							name = "enumClassName", 
+							value = "org.lnu.is.domain.common.RowStatus"
+								)
+						})
+		@Column(name = "status", columnDefinition = "q_en_row_status")
+		@Enumerated(EnumType.STRING)
 	private RowStatus status;
 	
 	@Column(name = "actual")

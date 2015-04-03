@@ -9,6 +9,7 @@ import ua.edboservice.ArrayOfDPersonAddRet;
 import ua.edboservice.ArrayOfDPersonsFind;
 import ua.edboservice.EDBOPersonSoap;
 import ua.edboservice.PersonEntrantAdd;
+import ua.edboservice.PersonEntrantAutoAdd;
 import ua.edboservice.PersonsFind;
 
 /**
@@ -103,6 +104,11 @@ public class DefaultEdboPersonService extends BaseEdboService<EDBOPersonSoap> im
 		}
 		
 		return response;
+	}
+
+	@Override
+	public ArrayOfDPersonAddRet createApplicantAutomatically(final PersonEntrantAutoAdd person) {
+		return null;
 	}
 
 	public void setExceptionHandler(final ExceptionHandler exceptionHandler) {
