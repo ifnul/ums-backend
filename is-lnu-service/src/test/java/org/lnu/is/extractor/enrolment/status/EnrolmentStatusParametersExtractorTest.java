@@ -17,7 +17,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.status.EnrolmentStatus;
-import org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.status.type.EnrolmentStatusType;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;

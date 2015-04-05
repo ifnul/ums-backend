@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.education.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.educationtype.EducationType;
+import org.lnu.is.domain.education.type.EducationType;
 
 /**
  * Query builder for Education Type.

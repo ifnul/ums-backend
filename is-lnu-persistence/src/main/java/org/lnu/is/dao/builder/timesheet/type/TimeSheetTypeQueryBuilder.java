@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.timesheet.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.timesheettype.TimeSheetType;
+import org.lnu.is.domain.timesheet.type.TimeSheetType;
 
 /**
  * TimesheetType query builder.

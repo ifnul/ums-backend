@@ -2,7 +2,7 @@ package org.lnu.is.converter.education.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.educationtype.EducationType;
+import org.lnu.is.domain.education.type.EducationType;
 import org.lnu.is.resource.education.type.EducationTypeResource;
 
 /**

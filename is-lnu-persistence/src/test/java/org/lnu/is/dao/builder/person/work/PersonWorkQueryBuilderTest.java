@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.jobtype.JobType;
+import org.lnu.is.domain.job.type.JobType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.work.PersonWork;
 import org.lnu.is.domain.specstagetype.SpecStageType;

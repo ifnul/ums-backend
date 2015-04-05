@@ -2,7 +2,7 @@ package org.lnu.is.converter.person.family;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.familytype.FamilyType;
+import org.lnu.is.domain.family.type.FamilyType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.family.PersonFamily;
 import org.lnu.is.resource.person.family.PersonFamilyResource;

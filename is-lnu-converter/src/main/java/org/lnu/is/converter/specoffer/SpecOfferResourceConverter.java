@@ -3,7 +3,7 @@ package org.lnu.is.converter.specoffer;
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferType;
@@ -29,7 +29,7 @@ public class SpecOfferResourceConverter extends AbstractConverter<SpecOfferResou
 		}
 		
 		if (source.getEduFormTypeId() != null) {
-			EduFormType eduFormType = new EduFormType();
+			EducationFormType eduFormType = new EducationFormType();
 			eduFormType.setId(source.getEduFormTypeId());
 		
 			target.setEduFormType(eduFormType);

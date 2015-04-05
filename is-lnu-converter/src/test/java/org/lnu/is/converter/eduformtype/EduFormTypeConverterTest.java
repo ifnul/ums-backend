@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.converter.education.form.type.EduFormTypeConverter;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.resource.eduformtype.EduFormTypeResource;
 
 public class EduFormTypeConverterTest {
@@ -17,7 +18,7 @@ public class EduFormTypeConverterTest {
 	public void testConvert() throws Exception {
 		// Given
 		String name = "name";
-		EduFormType source = new EduFormType();
+		EducationFormType source = new EducationFormType();
 		source.setName(name);
 		
 		EduFormTypeResource expected = new EduFormTypeResource();
@@ -36,11 +37,11 @@ public class EduFormTypeConverterTest {
 		Long id = 1l;
 		String name = "n a m e";
 		
-		EduFormType source = new EduFormType();
+		EducationFormType source = new EducationFormType();
 		source.setId(id);
 		source.setName(name);
 		
-		List<EduFormType> sources = Arrays.asList(source); 
+		List<EducationFormType> sources = Arrays.asList(source); 
 		
 		EduFormTypeResource expected = new EduFormTypeResource();
 		expected.setId(id);

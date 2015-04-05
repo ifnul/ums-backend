@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.duty.DutyTypeConverter;
-import org.lnu.is.domain.dutytype.DutyType;
+import org.lnu.is.converter.duty.type.DutyTypeConverter;
+import org.lnu.is.domain.duty.type.DutyType;
 import org.lnu.is.resource.duty.type.DutyTypeResource;
 
 public class DutyTypeConverterTest {

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.enrolment.Enrolment;
-import org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.status.type.EnrolmentStatusType;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
 
 /**

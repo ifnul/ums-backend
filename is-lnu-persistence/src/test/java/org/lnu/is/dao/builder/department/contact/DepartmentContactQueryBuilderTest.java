@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.contacttype.ContactType;
+import org.lnu.is.domain.contact.type.ContactType;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.contact.DepartmentContact;
 import org.lnu.is.pagination.MultiplePagedSearch;

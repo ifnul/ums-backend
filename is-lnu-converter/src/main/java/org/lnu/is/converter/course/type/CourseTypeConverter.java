@@ -2,7 +2,7 @@ package org.lnu.is.converter.course.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.coursetype.CourseType;
+import org.lnu.is.domain.course.type.CourseType;
 import org.lnu.is.resource.course.type.CourseTypeResource;
 
 /**

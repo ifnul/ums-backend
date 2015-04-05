@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.timesheettype.TimeSheetType;
+import org.lnu.is.domain.timesheet.type.TimeSheetType;
 import org.lnu.is.resource.timesheet.type.TimeSheetTypeResource;
 
 public class TimeSheetTypeResourceConverterTest {

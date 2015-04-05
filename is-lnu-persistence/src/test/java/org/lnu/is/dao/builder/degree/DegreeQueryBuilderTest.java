@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.degree.Degree;
-import org.lnu.is.domain.degree.DegreeType;
+import org.lnu.is.domain.degree.type.DegreeType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.OrderBy;

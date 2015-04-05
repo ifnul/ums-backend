@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.degree.Degree;
-import org.lnu.is.domain.degree.DegreeType;
+import org.lnu.is.domain.degree.type.DegreeType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 

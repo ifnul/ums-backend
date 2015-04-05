@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.coursetype.CourseType;
+import org.lnu.is.domain.course.type.CourseType;
 import org.lnu.is.resource.course.type.CourseTypeResource;
 
 public class CourseTypeResourceConverterTest {

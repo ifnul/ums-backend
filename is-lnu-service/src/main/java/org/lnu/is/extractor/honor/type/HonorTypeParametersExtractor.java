@@ -3,7 +3,7 @@ package org.lnu.is.extractor.honor.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.honorstype.HonorType;
+import org.lnu.is.domain.honors.type.HonorType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

@@ -6,11 +6,11 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.addresstype.AddressType;
-import org.lnu.is.domain.adminunit.AdminUnit;
+import org.lnu.is.domain.address.type.AddressType;
+import org.lnu.is.domain.admin.unit.AdminUnit;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.asset.address.AssetAddress;
-import org.lnu.is.domain.streettype.StreetType;
+import org.lnu.is.domain.street.type.StreetType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.contacttype.ContactType;
+import org.lnu.is.domain.contact.type.ContactType;
 import org.lnu.is.domain.employee.Employee;
 
 /**

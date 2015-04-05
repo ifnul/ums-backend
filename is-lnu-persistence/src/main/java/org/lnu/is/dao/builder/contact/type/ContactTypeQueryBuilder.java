@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.contact.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.contacttype.ContactType;
+import org.lnu.is.domain.contact.type.ContactType;
 
 /**
  * Query builder for Contact Type.

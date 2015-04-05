@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.pensiontype.PensionType;
+import org.lnu.is.domain.pension.type.PensionType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.pension.PersonPension;
 import org.lnu.is.resource.person.pension.PersonPensionResource;

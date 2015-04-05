@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.streettype.StreetType;
+import org.lnu.is.domain.street.type.StreetType;
 import org.lnu.is.resource.street.type.StreetTypeResource;
 
 public class StreetTypeResourceConverterTest {

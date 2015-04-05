@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.pensiontype.PensionType;
+import org.lnu.is.domain.pension.type.PensionType;
 import org.lnu.is.domain.person.Person;
 /**
  * Person Pension entity.

@@ -7,7 +7,7 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferType;
@@ -35,7 +35,7 @@ public class SpecOfferQueryBuilderTest {
 		TimePeriod timePeriodCourse = new TimePeriod();
 		SpecOffer parent = new SpecOffer();
 		SpecOfferType specOfferType = new SpecOfferType();
-		EduFormType eduFormType = new EduFormType();
+		EducationFormType eduFormType = new EducationFormType();
 		Department department = new Department();
 		String docSeries = "docSeries";
 		String docNum = "docNum";
@@ -79,7 +79,7 @@ public class SpecOfferQueryBuilderTest {
 		TimePeriod timePeriodCourse = new TimePeriod();
 		SpecOffer parent = new SpecOffer();
 		SpecOfferType specOfferType = new SpecOfferType();
-		EduFormType eduFormType = new EduFormType();
+		EducationFormType eduFormType = new EducationFormType();
 		Department department = new Department();
 		String docSeries = "docSeries";
 		String docNum = "docNum";

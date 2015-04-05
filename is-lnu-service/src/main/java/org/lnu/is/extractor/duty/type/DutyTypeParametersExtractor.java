@@ -3,7 +3,7 @@ package org.lnu.is.extractor.duty.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.dutytype.DutyType;
+import org.lnu.is.domain.duty.type.DutyType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

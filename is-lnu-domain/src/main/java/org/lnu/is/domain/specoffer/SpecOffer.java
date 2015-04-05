@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.timeperiod.TimePeriod;
 
@@ -51,7 +51,7 @@ public class SpecOffer extends InformationModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "eduformtype_id")
-	private EduFormType eduFormType;
+	private EducationFormType eduFormType;
 
 	@ManyToOne
 	@JoinColumn(name = "specoffertype_id")
@@ -124,11 +124,11 @@ public class SpecOffer extends InformationModel {
 		this.timePeriod = timePeriod;
 	}
 
-	public EduFormType getEduFormType() {
+	public EducationFormType getEduFormType() {
 		return eduFormType;
 	}
 
-	public void setEduFormType(final EduFormType eduFormType) {
+	public void setEduFormType(final EducationFormType eduFormType) {
 		this.eduFormType = eduFormType;
 	}
 

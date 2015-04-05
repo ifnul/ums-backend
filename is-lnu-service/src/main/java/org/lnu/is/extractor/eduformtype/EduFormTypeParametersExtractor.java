@@ -3,7 +3,7 @@ package org.lnu.is.extractor.eduformtype;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**
@@ -12,10 +12,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
  *
  */
 @ParametersExtractor("eduFormTypeParametersExtractor")
-public class EduFormTypeParametersExtractor extends AbstractParametersExtractor<EduFormType> {
+public class EduFormTypeParametersExtractor extends AbstractParametersExtractor<EducationFormType> {
 
 	@Override
-	public Map<String, Object> getParameters(final EduFormType entity, final Map<String, Object> parameters) {
+	public Map<String, Object> getParameters(final EducationFormType entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getName(), "name", parameters);
 		

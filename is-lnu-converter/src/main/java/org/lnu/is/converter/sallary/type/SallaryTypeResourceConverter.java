@@ -2,7 +2,7 @@ package org.lnu.is.converter.sallary.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.salarytype.SallaryType;
+import org.lnu.is.domain.salary.type.SallaryType;
 import org.lnu.is.resource.sallary.type.SallaryTypeResource;
 
 /**

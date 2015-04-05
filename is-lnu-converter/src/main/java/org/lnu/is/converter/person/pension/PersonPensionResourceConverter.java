@@ -2,7 +2,7 @@ package org.lnu.is.converter.person.pension;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.pensiontype.PensionType;
+import org.lnu.is.domain.pension.type.PensionType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.pension.PersonPension;
 import org.lnu.is.resource.person.pension.PersonPensionResource;

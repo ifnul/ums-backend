@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.dutytype.DutyType;
+import org.lnu.is.domain.duty.type.DutyType;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
 /**

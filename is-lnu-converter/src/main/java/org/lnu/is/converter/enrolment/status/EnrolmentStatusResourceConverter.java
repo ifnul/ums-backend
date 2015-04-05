@@ -4,7 +4,7 @@ import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.status.EnrolmentStatus;
-import org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.status.type.EnrolmentStatusType;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
 import org.lnu.is.resource.enrolment.status.EnrolmentStatusResource;
 

@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.street.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.streettype.StreetType;
+import org.lnu.is.domain.street.type.StreetType;
 
 /**
  * StreetType query builder.

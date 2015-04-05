@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.honorstype.HonorType;
+import org.lnu.is.domain.honors.type.HonorType;
 import org.lnu.is.domain.paper.type.PaperType;
 import org.lnu.is.domain.person.Person;
 

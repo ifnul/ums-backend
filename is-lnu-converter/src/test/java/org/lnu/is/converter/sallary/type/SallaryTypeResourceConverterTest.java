@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.salarytype.SallaryType;
+import org.lnu.is.domain.salary.type.SallaryType;
 import org.lnu.is.resource.sallary.type.SallaryTypeResource;
 
 public class SallaryTypeResourceConverterTest {

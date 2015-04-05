@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.salarytype.SallaryType;
+import org.lnu.is.domain.salary.type.SallaryType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class SallaryTypeQueryBuilderTest {

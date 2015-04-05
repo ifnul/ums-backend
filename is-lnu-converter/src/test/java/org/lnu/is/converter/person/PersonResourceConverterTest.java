@@ -5,9 +5,9 @@ import static org.junit.Assert.assertEquals;
 import java.util.Date;
 
 import org.junit.Test;
-import org.lnu.is.domain.adminunit.AdminUnit;
-import org.lnu.is.domain.gendertype.GenderType;
-import org.lnu.is.domain.marriedtype.MarriedType;
+import org.lnu.is.domain.admin.unit.AdminUnit;
+import org.lnu.is.domain.gender.type.GenderType;
+import org.lnu.is.domain.married.type.MarriedType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.resource.person.PersonResource;

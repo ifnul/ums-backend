@@ -2,9 +2,9 @@ package org.lnu.is.converter.person;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.adminunit.AdminUnit;
-import org.lnu.is.domain.gendertype.GenderType;
-import org.lnu.is.domain.marriedtype.MarriedType;
+import org.lnu.is.domain.admin.unit.AdminUnit;
+import org.lnu.is.domain.gender.type.GenderType;
+import org.lnu.is.domain.married.type.MarriedType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.resource.person.PersonResource;

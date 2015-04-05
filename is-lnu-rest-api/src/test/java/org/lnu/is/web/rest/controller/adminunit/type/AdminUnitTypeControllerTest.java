@@ -22,6 +22,7 @@ import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.admin.unit.type.AdminUnitTypeController;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;

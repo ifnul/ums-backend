@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.family.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.familytype.FamilyType;
+import org.lnu.is.domain.family.type.FamilyType;
 
 /**
  * Query builder for Family Type.

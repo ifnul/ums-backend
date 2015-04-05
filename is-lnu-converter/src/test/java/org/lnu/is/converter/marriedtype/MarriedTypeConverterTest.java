@@ -6,8 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.marriedtype.MarriedType;
-import org.lnu.is.resource.marriedtype.MarriedTypeResource;
+import org.lnu.is.converter.married.type.MarriedTypeConverter;
+import org.lnu.is.domain.married.type.MarriedType;
+import org.lnu.is.resource.married.type.MarriedTypeResource;
 
 public class MarriedTypeConverterTest {
 	

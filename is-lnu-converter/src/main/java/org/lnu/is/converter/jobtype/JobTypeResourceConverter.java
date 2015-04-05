@@ -2,8 +2,8 @@ package org.lnu.is.converter.jobtype;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.jobtype.JobType;
-import org.lnu.is.resource.jobtype.JobTypeResource;
+import org.lnu.is.domain.job.type.JobType;
+import org.lnu.is.resource.job.type.JobTypeResource;
 /**
  * 
  * @author kushnir

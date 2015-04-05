@@ -4,7 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.marriedtype.MarriedType;
+import org.lnu.is.dao.builder.married.type.MarriedTypeQueryBuilder;
+import org.lnu.is.domain.married.type.MarriedType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class MarriedTypeQueryBuilderTest {

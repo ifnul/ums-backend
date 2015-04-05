@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.lnu.is.dao.builder.person.enrolment.subject.PersonEnrolmentSubjectQueryBuilder;
 import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject;

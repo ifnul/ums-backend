@@ -20,6 +20,7 @@ import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject;
 import org.lnu.is.domain.person.paper.PersonPaper;
+import org.lnu.is.extractor.person.enrolment.subject.PersonEnrolmentSubjectParametersExtractor;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

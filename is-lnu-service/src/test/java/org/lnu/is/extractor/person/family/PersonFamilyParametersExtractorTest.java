@@ -16,7 +16,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.familytype.FamilyType;
+import org.lnu.is.domain.family.type.FamilyType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.family.PersonFamily;
 import org.lnu.is.security.service.SessionService;

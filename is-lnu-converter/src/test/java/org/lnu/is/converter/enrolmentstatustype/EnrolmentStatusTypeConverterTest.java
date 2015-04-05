@@ -6,9 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.enrolment.statustype.EnrolmentStatusTypeConverter;
-import org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType;
-import org.lnu.is.resource.enrolment.statustype.EnrolmentStatusTypeResource;
+import org.lnu.is.converter.enrolment.status.type.EnrolmentStatusTypeConverter;
+import org.lnu.is.domain.enrolment.status.type.EnrolmentStatusType;
+import org.lnu.is.resource.enrolment.status.type.EnrolmentStatusTypeResource;
 
 public class EnrolmentStatusTypeConverterTest {
 

@@ -2,12 +2,12 @@ package org.lnu.is.converter.person.address;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.addresstype.AddressType;
-import org.lnu.is.domain.adminunit.AdminUnit;
+import org.lnu.is.domain.address.type.AddressType;
+import org.lnu.is.domain.admin.unit.AdminUnit;
 import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.address.PersonAddress;
-import org.lnu.is.domain.streettype.StreetType;
+import org.lnu.is.domain.street.type.StreetType;
 import org.lnu.is.resource.person.address.PersonAddressResource;
 
 /**

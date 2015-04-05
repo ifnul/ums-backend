@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.pensiontype.PensionType;
+import org.lnu.is.domain.pension.type.PensionType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.pension.PersonPension;
 import org.lnu.is.extractor.AbstractParametersExtractor;

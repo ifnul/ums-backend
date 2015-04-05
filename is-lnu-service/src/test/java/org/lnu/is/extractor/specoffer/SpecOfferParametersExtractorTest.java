@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferType;
@@ -46,7 +46,7 @@ public class SpecOfferParametersExtractorTest {
 	private Dao<TimePeriod, Long> timePeriodDao;
 	
 	@Mock
-	private Dao<EduFormType, Long> eduFormTypeDao;
+	private Dao<EducationFormType, Long> eduFormTypeDao;
 	
 	@Mock
 	private Dao<SpecOfferType, Long> specOfferTypeDao;
@@ -74,7 +74,7 @@ public class SpecOfferParametersExtractorTest {
 	public void testGetParameters() throws Exception {
 		// Given
 		Long eduFormTypeId = 3L;
-		EduFormType eduFormType = new EduFormType();
+		EducationFormType eduFormType = new EducationFormType();
 		eduFormType.setId(eduFormTypeId);
 		
 		Long departmentId = 2L;
@@ -119,7 +119,7 @@ public class SpecOfferParametersExtractorTest {
 		unit.setSecurity(false);
 		
 		Long eduFormTypeId = 3L;
-		EduFormType eduFormType = new EduFormType();
+		EducationFormType eduFormType = new EducationFormType();
 		eduFormType.setId(eduFormTypeId);
 		
 		Long departmentId = 2L;

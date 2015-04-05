@@ -12,7 +12,7 @@ import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.employee.Employee;
 import org.lnu.is.domain.order.Order;
-import org.lnu.is.domain.timesheettype.TimeSheetType;
+import org.lnu.is.domain.timesheet.type.TimeSheetType;
 
 /**
  * Order Employee Time Sheet entity.

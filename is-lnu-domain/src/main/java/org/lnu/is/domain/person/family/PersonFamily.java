@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.familytype.FamilyType;
+import org.lnu.is.domain.family.type.FamilyType;
 import org.lnu.is.domain.person.Person;
 /**
  * Person Family entity.

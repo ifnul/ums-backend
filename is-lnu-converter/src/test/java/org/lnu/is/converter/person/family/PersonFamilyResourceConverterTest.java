@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.familytype.FamilyType;
+import org.lnu.is.domain.family.type.FamilyType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.family.PersonFamily;
 import org.lnu.is.resource.person.family.PersonFamilyResource;

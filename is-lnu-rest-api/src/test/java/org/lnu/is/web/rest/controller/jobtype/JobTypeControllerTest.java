@@ -17,7 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.pagination.OrderBy;
-import org.lnu.is.resource.jobtype.JobTypeResource;
+import org.lnu.is.resource.job.type.JobTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;

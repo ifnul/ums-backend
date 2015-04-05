@@ -3,7 +3,7 @@ package org.lnu.is.extractor.degree.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.degree.DegreeType;
+import org.lnu.is.domain.degree.type.DegreeType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

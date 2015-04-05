@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.contacttype.ContactType;
+import org.lnu.is.domain.contact.type.ContactType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.contact.PersonContact;
 import org.lnu.is.extractor.AbstractParametersExtractor;

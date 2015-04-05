@@ -2,7 +2,7 @@ package org.lnu.is.converter.street.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.streettype.StreetType;
+import org.lnu.is.domain.street.type.StreetType;
 import org.lnu.is.resource.street.type.StreetTypeResource;
 
 /**

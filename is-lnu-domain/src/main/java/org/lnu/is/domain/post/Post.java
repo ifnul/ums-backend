@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.posttype.PostType;
+import org.lnu.is.domain.post.type.PostType;
 
 /**
  * Post entity.

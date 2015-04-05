@@ -14,7 +14,7 @@ import org.lnu.is.annotation.dbtable.DC;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.benefit.EnrolmentBenefit;
-import org.lnu.is.domain.enrolment.enrolsubject.EnrolmentEnrolSubject;
+import org.lnu.is.domain.enrolment.enrolment.subject.EnrolmentEnrolmentSubject;
 import org.lnu.is.domain.enrolment.status.EnrolmentStatus;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
 import org.lnu.is.domain.person.Person;
@@ -60,7 +60,7 @@ public class Enrolment extends InformationModel {
 	private List<EnrolmentBenefit> benefits;
 	
 	@OneToMany(mappedBy = "enrolment")
-	private List<EnrolmentEnrolSubject> enrolmentSubjects;
+	private List<EnrolmentEnrolmentSubject> enrolmentSubjects;
 	
 	@OneToMany(mappedBy = "enrolment")
 	private List<EnrolmentStatus> statuses;
@@ -253,11 +253,11 @@ public class Enrolment extends InformationModel {
 		this.benefits = benefits;
 	}
 
-	public List<EnrolmentEnrolSubject> getEnrolmentSubjects() {
+	public List<EnrolmentEnrolmentSubject> getEnrolmentSubjects() {
 		return enrolmentSubjects;
 	}
 
-	public void setEnrolmentSubjects(final List<EnrolmentEnrolSubject> enrolmentSubjects) {
+	public void setEnrolmentSubjects(final List<EnrolmentEnrolmentSubject> enrolmentSubjects) {
 		this.enrolmentSubjects = enrolmentSubjects;
 	}
 

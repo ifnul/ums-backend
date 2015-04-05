@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.degree.type.DegreeType;
 import org.lnu.is.domain.person.Person;
 
 /**

@@ -4,7 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.gendertype.GenderType;
+import org.lnu.is.dao.builder.gender.type.GenderTypeQueryBuilder;
+import org.lnu.is.domain.gender.type.GenderType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class GenderTypeQueryBuilderTest {

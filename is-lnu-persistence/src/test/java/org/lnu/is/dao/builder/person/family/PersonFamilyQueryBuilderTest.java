@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.familytype.FamilyType;
+import org.lnu.is.domain.family.type.FamilyType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.family.PersonFamily;
 import org.lnu.is.pagination.MultiplePagedSearch;

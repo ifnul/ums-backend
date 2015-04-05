@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -48,7 +48,7 @@ public class EduFormTypeParametersExtractorTest {
 		// Given
 		String name = "AddressN";
 
-		EduFormType entity = new EduFormType();
+		EducationFormType entity = new EducationFormType();
 		entity.setName(name);
 
 		Map<String, Object> expected = new HashMap<String, Object>();
@@ -71,7 +71,7 @@ public class EduFormTypeParametersExtractorTest {
 		
 		String name = "AddressN";
 		
-		EduFormType entity = new EduFormType();
+		EducationFormType entity = new EducationFormType();
 		entity.setName(name);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
@@ -87,7 +87,7 @@ public class EduFormTypeParametersExtractorTest {
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		EduFormType entity = new EduFormType();
+		EducationFormType entity = new EducationFormType();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
@@ -104,7 +104,7 @@ public class EduFormTypeParametersExtractorTest {
 		// Given
 		unit.setSecurity(false);
 		
-		EduFormType entity = new EduFormType();
+		EducationFormType entity = new EducationFormType();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
 		
@@ -119,7 +119,7 @@ public class EduFormTypeParametersExtractorTest {
 	public void testGetParametersWithDefaultEntityAndDisabledStatus() throws Exception {
 		// Given
 		unit.setActive(false);
-		EduFormType entity = new EduFormType();
+		EducationFormType entity = new EducationFormType();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("userGroups", groups);
 		
@@ -136,7 +136,7 @@ public class EduFormTypeParametersExtractorTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		EduFormType entity = new EduFormType();
+		EducationFormType entity = new EducationFormType();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		
 		// When

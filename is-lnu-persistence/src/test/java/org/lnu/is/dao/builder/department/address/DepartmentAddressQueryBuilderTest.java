@@ -4,11 +4,11 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.addresstype.AddressType;
-import org.lnu.is.domain.adminunit.AdminUnit;
+import org.lnu.is.domain.address.type.AddressType;
+import org.lnu.is.domain.admin.unit.AdminUnit;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.address.DepartmentAddress;
-import org.lnu.is.domain.streettype.StreetType;
+import org.lnu.is.domain.street.type.StreetType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class DepartmentAddressQueryBuilderTest {

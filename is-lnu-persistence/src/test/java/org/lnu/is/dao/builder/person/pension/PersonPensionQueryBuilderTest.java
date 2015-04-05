@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.pensiontype.PensionType;
+import org.lnu.is.domain.pension.type.PensionType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.pension.PersonPension;
 import org.lnu.is.pagination.MultiplePagedSearch;

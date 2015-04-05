@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.enrolment.statustype;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType;
+import org.lnu.is.domain.enrolment.status.type.EnrolmentStatusType;
 /**
  * Enrolment Status Type query builder.
  * @author OlehZanevych

@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.converter.education.form.type.EduFormTypeResourceConverter;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.resource.eduformtype.EduFormTypeResource;
 
 public class EduFormTypeResourceConverterTest {
@@ -18,14 +19,14 @@ public class EduFormTypeResourceConverterTest {
 		// Given
 		String name = "EducationN";
 
-		EduFormType expected = new EduFormType();
+		EducationFormType expected = new EducationFormType();
 		expected.setName(name);
 
 		EduFormTypeResource source = new EduFormTypeResource();
 		source.setName(name);
 
 		// When
-		EduFormType actual = unit.convert(source);
+		EducationFormType actual = unit.convert(source);
 
 		// Then
 		assertEquals(expected, actual);
@@ -43,14 +44,14 @@ public class EduFormTypeResourceConverterTest {
 		
 		List<EduFormTypeResource> sources = Arrays.asList(source); 
 		
-		EduFormType expected = new EduFormType();
+		EducationFormType expected = new EducationFormType();
 		expected.setId(id);
 		expected.setName(name);
 		
-		List<EduFormType> expecteds = Arrays.asList(expected);
+		List<EducationFormType> expecteds = Arrays.asList(expected);
 		
 		// Where
-		List<EduFormType> actuals = unit.convertAll(sources);
+		List<EducationFormType> actuals = unit.convertAll(sources);
 		
 		//Then
 		assertEquals(expecteds, actuals);

@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.honorstype.HonorType;
+import org.lnu.is.domain.honors.type.HonorType;
 import org.lnu.is.domain.paper.type.PaperType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.paper.PersonPaper;

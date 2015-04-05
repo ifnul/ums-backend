@@ -2,7 +2,7 @@ package org.lnu.is.converter.timesheet.type;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.timesheettype.TimeSheetType;
+import org.lnu.is.domain.timesheet.type.TimeSheetType;
 import org.lnu.is.resource.timesheet.type.TimeSheetTypeResource;
 
 /**

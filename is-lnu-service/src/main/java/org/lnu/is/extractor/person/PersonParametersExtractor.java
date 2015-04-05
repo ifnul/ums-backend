@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.gendertype.GenderType;
-import org.lnu.is.domain.marriedtype.MarriedType;
+import org.lnu.is.domain.gender.type.GenderType;
+import org.lnu.is.domain.married.type.MarriedType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.extractor.AbstractParametersExtractor;

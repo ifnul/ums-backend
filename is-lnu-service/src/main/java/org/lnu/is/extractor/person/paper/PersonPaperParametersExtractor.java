@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.honorstype.HonorType;
+import org.lnu.is.domain.honors.type.HonorType;
 import org.lnu.is.domain.paper.type.PaperType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.paper.PersonPaper;

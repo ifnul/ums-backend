@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.timesheettype.TimeSheetType;
+import org.lnu.is.domain.timesheet.type.TimeSheetType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class TimesheetTypeQueryBuilderTest {

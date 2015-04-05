@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferType;
@@ -29,7 +29,7 @@ public class SpecOfferResourceConverterTest {
 		Date endDate = new Date();
 		
 		Long eduFormTypeId = 2L;
-		EduFormType eduFormType = new EduFormType();
+		EducationFormType eduFormType = new EducationFormType();
 		eduFormType.setId(eduFormTypeId);
 
 		Long id = 1L;

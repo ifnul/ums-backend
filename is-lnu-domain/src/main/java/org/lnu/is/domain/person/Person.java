@@ -12,9 +12,9 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.adminunit.AdminUnit;
-import org.lnu.is.domain.gendertype.GenderType;
-import org.lnu.is.domain.marriedtype.MarriedType;
+import org.lnu.is.domain.admin.unit.AdminUnit;
+import org.lnu.is.domain.gender.type.GenderType;
+import org.lnu.is.domain.married.type.MarriedType;
 import org.lnu.is.domain.person.address.PersonAddress;
 import org.lnu.is.domain.person.award.PersonAward;
 import org.lnu.is.domain.person.contact.PersonContact;

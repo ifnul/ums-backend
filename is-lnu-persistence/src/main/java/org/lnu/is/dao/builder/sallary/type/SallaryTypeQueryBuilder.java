@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.sallary.type;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.salarytype.SallaryType;
+import org.lnu.is.domain.salary.type.SallaryType;
 
 /**
  * SallaryType query builder.

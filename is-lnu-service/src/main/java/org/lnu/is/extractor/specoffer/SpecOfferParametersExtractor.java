@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.department.Department;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferType;
@@ -35,7 +35,7 @@ public class SpecOfferParametersExtractor extends AbstractParametersExtractor<Sp
 	private Dao<TimePeriod, Long> timePeriodDao;
 	
 	@Resource(name = "eduFormTypeDao")
-	private Dao<EduFormType, Long> eduFormTypeDao;
+	private Dao<EducationFormType, Long> eduFormTypeDao;
 	
 	@Resource(name = "specOfferTypeDao")
 	private Dao<SpecOfferType, Long> specOfferTypeDao;

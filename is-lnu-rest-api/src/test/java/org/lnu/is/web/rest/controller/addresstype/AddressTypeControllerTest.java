@@ -23,6 +23,7 @@ import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.address.type.AddressTypeController;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;

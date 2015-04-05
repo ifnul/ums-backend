@@ -3,7 +3,7 @@ package org.lnu.is.extractor.course.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.coursetype.CourseType;
+import org.lnu.is.domain.course.type.CourseType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

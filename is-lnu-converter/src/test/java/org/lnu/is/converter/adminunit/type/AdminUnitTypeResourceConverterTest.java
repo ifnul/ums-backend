@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.adminunit.type.AdminUnitType;
+import org.lnu.is.converter.admin.unit.type.AdminUnitTypeResourceConverter;
+import org.lnu.is.domain.admin.unit.type.AdminUnitType;
 import org.lnu.is.resource.adminunit.type.AdminUnitTypeResource;
 
 public class AdminUnitTypeResourceConverterTest {

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.dutytype.DutyType;
+import org.lnu.is.domain.duty.type.DutyType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class DutyTypeQueryBuilderTest {

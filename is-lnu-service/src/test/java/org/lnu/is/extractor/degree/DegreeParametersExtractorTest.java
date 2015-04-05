@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.degree.Degree;
-import org.lnu.is.domain.degree.DegreeType;
+import org.lnu.is.domain.degree.type.DegreeType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;

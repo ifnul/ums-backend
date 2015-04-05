@@ -3,7 +3,7 @@ package org.lnu.is.extractor.sallary.type;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.salarytype.SallaryType;
+import org.lnu.is.domain.salary.type.SallaryType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**

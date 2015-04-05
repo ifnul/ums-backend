@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.familytype.FamilyType;
+import org.lnu.is.domain.family.type.FamilyType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.family.PersonFamily;
 import org.lnu.is.extractor.AbstractParametersExtractor;

@@ -2,7 +2,7 @@ package org.lnu.is.converter.person.work;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.jobtype.JobType;
+import org.lnu.is.domain.job.type.JobType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.work.PersonWork;
 import org.lnu.is.domain.specstagetype.SpecStageType;

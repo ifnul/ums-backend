@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.gendertype.GenderType;
-import org.lnu.is.resource.gendertype.GenderTypeResource;
+import org.lnu.is.domain.gender.type.GenderType;
+import org.lnu.is.resource.gender.type.GenderTypeResource;
 
 public class GenderTypeResourceConverterTest {
 

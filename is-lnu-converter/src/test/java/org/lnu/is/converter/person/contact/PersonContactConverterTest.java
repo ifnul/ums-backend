@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.contacttype.ContactType;
+import org.lnu.is.domain.contact.type.ContactType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.contact.PersonContact;
 import org.lnu.is.resource.person.contact.PersonContactResource;

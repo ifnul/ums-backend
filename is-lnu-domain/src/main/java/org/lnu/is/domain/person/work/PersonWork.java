@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.jobtype.JobType;
+import org.lnu.is.domain.job.type.JobType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.specstagetype.SpecStageType;
 /**

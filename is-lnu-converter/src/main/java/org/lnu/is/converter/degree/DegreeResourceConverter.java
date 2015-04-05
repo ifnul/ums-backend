@@ -3,7 +3,7 @@ package org.lnu.is.converter.degree;
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.degree.Degree;
-import org.lnu.is.domain.degree.DegreeType;
+import org.lnu.is.domain.degree.type.DegreeType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.resource.degree.DegreeResource;
 

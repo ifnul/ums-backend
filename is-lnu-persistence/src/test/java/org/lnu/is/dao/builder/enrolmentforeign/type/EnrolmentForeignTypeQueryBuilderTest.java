@@ -4,7 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.enrolmentforeign.type.EnrolmentForeignType;
+import org.lnu.is.dao.builder.enrolment.foreign.type.EnrolmentForeignTypeQueryBuilder;
+import org.lnu.is.domain.enrolment.foreign.type.EnrolmentForeignType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class EnrolmentForeignTypeQueryBuilderTest {

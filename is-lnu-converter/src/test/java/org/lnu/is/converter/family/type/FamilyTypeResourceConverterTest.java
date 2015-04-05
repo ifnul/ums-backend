@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.familytype.FamilyType;
-import org.lnu.is.resource.familytype.FamilyTypeResource;
+import org.lnu.is.domain.family.type.FamilyType;
+import org.lnu.is.resource.family.type.FamilyTypeResource;
 
 public class FamilyTypeResourceConverterTest {
 

@@ -8,9 +8,9 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.addresstype.AddressType;
-import org.lnu.is.domain.adminunit.AdminUnit;
-import org.lnu.is.domain.streettype.StreetType;
+import org.lnu.is.domain.address.type.AddressType;
+import org.lnu.is.domain.admin.unit.AdminUnit;
+import org.lnu.is.domain.street.type.StreetType;
 
 /**
  * Partner Address entity.

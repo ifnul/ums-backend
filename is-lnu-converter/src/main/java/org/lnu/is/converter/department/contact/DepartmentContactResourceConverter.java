@@ -2,7 +2,7 @@ package org.lnu.is.converter.department.contact;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.contacttype.ContactType;
+import org.lnu.is.domain.contact.type.ContactType;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.contact.DepartmentContact;
 import org.lnu.is.resource.department.contact.DepartmentContactResource;

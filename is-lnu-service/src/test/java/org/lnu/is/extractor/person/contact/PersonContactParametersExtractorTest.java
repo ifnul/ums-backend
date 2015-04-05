@@ -16,7 +16,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.contacttype.ContactType;
+import org.lnu.is.domain.contact.type.ContactType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.contact.PersonContact;
 import org.lnu.is.security.service.SessionService;

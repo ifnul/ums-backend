@@ -7,8 +7,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.adminunit.AdminUnit;
-import org.lnu.is.domain.adminunit.type.AdminUnitType;
+import org.lnu.is.converter.admin.unit.AdminUnitConverter;
+import org.lnu.is.domain.admin.unit.AdminUnit;
+import org.lnu.is.domain.admin.unit.type.AdminUnitType;
 import org.lnu.is.resource.adminunit.AdminUnitResource;
 
 public class AdminUnitConverterTest {

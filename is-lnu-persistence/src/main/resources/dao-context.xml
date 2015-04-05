@@ -12,7 +12,7 @@
 	</bean>
 	
 	<bean id="addressTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.addresstype.AddressType" />
+		<property name="entityClass" value="org.lnu.is.domain.address.type.AddressType" />
 		<property name="queryBuilder" ref="addressTypeQueryBuilder" />
 	</bean>
 	
@@ -22,12 +22,12 @@
 	</bean>	
 	
 	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.adminunit.AdminUnit" />
+		<property name="entityClass" value="org.lnu.is.domain.admin.unit.AdminUnit" />
 		<property name="queryBuilder" ref="adminUnitQueryBuilder" />		
 	</bean>
 
 	<bean id="adminUnitTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.adminunit.type.AdminUnitType" />
+		<property name="entityClass" value="org.lnu.is.domain.admin.unit.type.AdminUnitType" />
 		<property name="queryBuilder" ref="adminUnitTypeQueryBuilder" />
 	</bean>
 
@@ -72,12 +72,12 @@
 	</bean>
 	
 	<bean id="contactTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.contacttype.ContactType" />
+		<property name="entityClass" value="org.lnu.is.domain.contact.type.ContactType" />
 		<property name="queryBuilder" ref="contactTypeQueryBuilder"/>
 	</bean>
 
 	<bean id="courseTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.coursetype.CourseType" />
+		<property name="entityClass" value="org.lnu.is.domain.course.type.CourseType" />
 		<property name="queryBuilder" ref="courseTypeQueryBuilder"/>
 	</bean>
 	
@@ -87,7 +87,7 @@
 	</bean>
 
 	<bean id="degreeTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.degree.DegreeType"/>
+		<property name="entityClass" value="org.lnu.is.domain.degree.type.DegreeType"/>
 		<property name="queryBuilder" ref="degreeTypeQueryBuilder"/>
 	</bean>
 
@@ -122,17 +122,17 @@
 	</bean>
 
 	<bean id="dutyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.dutytype.DutyType"/>
+		<property name="entityClass" value="org.lnu.is.domain.duty.type.DutyType"/>
 		<property name="queryBuilder" ref="dutyTypeQueryBuilder"/>
 	</bean>
 
 	<bean id="educationTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.educationtype.EducationType" />
+		<property name="entityClass" value="org.lnu.is.domain.education.type.EducationType" />
 		<property name="queryBuilder" ref="educationTypeQueryBuilder" />
 	</bean>
 
 	<bean id="eduFormTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.eduformtype.EduFormType" />
+		<property name="entityClass" value="org.lnu.is.domain.education.form.type.EducationFormType" />
 		<property name="queryBuilder" ref="eduFormTypeQueryBuilder" />
 	</bean>
 
@@ -162,7 +162,7 @@
 	</bean>
 
 	<bean id="enrolmentStatusTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType" />
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.status.type.EnrolmentStatusType" />
 		<property name="queryBuilder" ref="enrolmentStatusTypeQueryBuilder" />
 	</bean>
 
@@ -182,27 +182,27 @@
 	</bean>
 	
 	<bean id="enrolmentForeignTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.enrolmentforeign.type.EnrolmentForeignType" />
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.foreign.type.EnrolmentForeignType" />
 		<property name="queryBuilder" ref="enrolmentForeignTypeQueryBuilder"/>
 	</bean>
 
 	<bean id="familyTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.familytype.FamilyType" />
+		<property name="entityClass" value="org.lnu.is.domain.family.type.FamilyType" />
 		<property name="queryBuilder" ref="familyTypeQueryBuilder"/>
 	</bean>
 
 	<bean id="genderTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.gendertype.GenderType" />
+		<property name="entityClass" value="org.lnu.is.domain.gender.type.GenderType" />
 		<property name="queryBuilder" ref="genderTypeQueryBuilder" />
 	</bean>
 
 	<bean id="honorsTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.honorstype.HonorType" />
+		<property name="entityClass" value="org.lnu.is.domain.honors.type.HonorType" />
 		<property name="queryBuilder" ref="honorTypeQueryBuilder" />
 	</bean>
 
 	<bean id="jobTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.jobtype.JobType" />
+		<property name="entityClass" value="org.lnu.is.domain.job.type.JobType" />
 		<property name="queryBuilder" ref="jobTypeQueryBuilder" />
 	</bean>
 
@@ -236,7 +236,7 @@
 	</bean>
 	
 	<bean id="marriedTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.marriedtype.MarriedType" />
+		<property name="entityClass" value="org.lnu.is.domain.married.type.MarriedType" />
 		<property name="queryBuilder" ref="marriedTypeQueryBuilder" />
 	</bean>
 
@@ -271,7 +271,7 @@
 	</bean>
 
 	<bean id="pensionTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.pensiontype.PensionType" />
+		<property name="entityClass" value="org.lnu.is.domain.pension.type.PensionType" />
 	</bean>
 
 	<bean id="personDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
@@ -367,7 +367,7 @@
 	</bean>
 
 	<bean id="sallaryTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.salarytype.SallaryType" />
+		<property name="entityClass" value="org.lnu.is.domain.salary.type.SallaryType" />
 		<property name="queryBuilder" ref="sallaryTypeQueryBuilder" />
 	</bean>
 	
@@ -411,7 +411,7 @@
 	</bean>
 
 	<bean id="streetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.streettype.StreetType" />
+		<property name="entityClass" value="org.lnu.is.domain.street.type.StreetType" />
 		<property name="queryBuilder" ref="streetTypeQueryBuilder" />
 	</bean>
 	
@@ -441,7 +441,7 @@
 	</bean>
 	
 	<bean id="timeSheetTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.timesheettype.TimeSheetType" />
+		<property name="entityClass" value="org.lnu.is.domain.timesheet.type.TimeSheetType" />
 		<property name="queryBuilder" ref="timeSheetTypeQueryBuilder" />
 	</bean>
 

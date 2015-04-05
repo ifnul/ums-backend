@@ -8,8 +8,8 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.DT;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.coursetype.CourseType;
-import org.lnu.is.domain.eduformtype.EduFormType;
+import org.lnu.is.domain.course.type.CourseType;
+import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.order.Order;
 import org.lnu.is.domain.person.Person;
@@ -48,7 +48,7 @@ public class OrderNewStudent extends InformationModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "eduformtype_id")
-	private EduFormType eduFormType;
+	private EducationFormType eduFormType;
 	
 	@Column(name = "docseries")
 	private String docSeries;
@@ -110,11 +110,11 @@ public class OrderNewStudent extends InformationModel {
 		this.specoffer = specoffer;
 	}
 
-	public EduFormType getEduFormType() {
+	public EducationFormType getEduFormType() {
 		return eduFormType;
 	}
 
-	public void setEduFormType(final EduFormType eduFormType) {
+	public void setEduFormType(final EducationFormType eduFormType) {
 		this.eduFormType = eduFormType;
 	}
 

@@ -43,7 +43,7 @@
         
 		<!-- Degree related enities -->
         <class>org.lnu.is.domain.degree.Degree</class>
-        <class>org.lnu.is.domain.degree.DegreeType</class>
+        <class>org.lnu.is.domain.degree.type.DegreeType</class>
 
 		<!-- Language related entities -->
         <class>org.lnu.is.domain.language.Language</class>
@@ -58,8 +58,8 @@
 		<!-- Enrolment related entities -->
         <class>org.lnu.is.domain.enrolment.Enrolment</class>
         <class>org.lnu.is.domain.enrolment.benefit.EnrolmentBenefit</class>
-        <class>org.lnu.is.domain.enrolment.enrolsubject.EnrolmentEnrolSubject</class>
-        <class>org.lnu.is.domain.enrolment.statustype.EnrolmentStatusType</class>
+        <class>org.lnu.is.domain.enrolment.enrolment.subject.EnrolmentEnrolmentSubject</class>
+        <class>org.lnu.is.domain.enrolment.status.type.EnrolmentStatusType</class>
         <class>org.lnu.is.domain.enrolment.status.EnrolmentStatus</class>
         <class>org.lnu.is.domain.enrolment.type.EnrolmentType</class>
         <class>org.lnu.is.domain.enrolment.subject.EnrolmentSubject</class>
@@ -99,8 +99,8 @@
         <class>org.lnu.is.domain.specoffer.SpecOfferType</class>
 		
 		<!-- Admin Unit related entities -->        
-        <class>org.lnu.is.domain.adminunit.AdminUnit</class>
-        <class>org.lnu.is.domain.adminunit.type.AdminUnitType</class>
+        <class>org.lnu.is.domain.admin.unit.AdminUnit</class>
+        <class>org.lnu.is.domain.admin.unit.type.AdminUnitType</class>
 		
 		<!-- Post related entities -->
         <class>org.lnu.is.domain.post.Post</class> 
@@ -132,27 +132,27 @@
         <class>org.lnu.is.domain.studyplan.cycle.StudyPlanCycle</class>
 
         <!-- Types - references -->
-        <class>org.lnu.is.domain.familytype.FamilyType</class>
-        <class>org.lnu.is.domain.gendertype.GenderType</class> 
-        <class>org.lnu.is.domain.honorstype.HonorType</class>
-        <class>org.lnu.is.domain.addresstype.AddressType</class>
-        <class>org.lnu.is.domain.contacttype.ContactType</class>
-        <class>org.lnu.is.domain.marriedtype.MarriedType</class> 
-        <class>org.lnu.is.domain.jobtype.JobType</class> 
-        <class>org.lnu.is.domain.posttype.PostType</class> 
-        <class>org.lnu.is.domain.pensiontype.PensionType</class>
+        <class>org.lnu.is.domain.family.type.FamilyType</class>
+        <class>org.lnu.is.domain.gender.type.GenderType</class> 
+        <class>org.lnu.is.domain.honors.type.HonorType</class>
+        <class>org.lnu.is.domain.address.type.AddressType</class>
+        <class>org.lnu.is.domain.contact.type.ContactType</class>
+        <class>org.lnu.is.domain.married.type.MarriedType</class> 
+        <class>org.lnu.is.domain.job.type.JobType</class> 
+        <class>org.lnu.is.domain.post.type.PostType</class> 
+        <class>org.lnu.is.domain.pension.type.PensionType</class>
         <class>org.lnu.is.domain.optype.OperationType</class> 
         <class>org.lnu.is.domain.paper.type.PaperType</class>
         <class>org.lnu.is.domain.paper.usage.PaperUsage</class>
-        <class>org.lnu.is.domain.coursetype.CourseType</class>
-        <class>org.lnu.is.domain.dutytype.DutyType</class>
-        <class>org.lnu.is.domain.educationtype.EducationType</class>
-        <class>org.lnu.is.domain.eduformtype.EduFormType</class>
-        <class>org.lnu.is.domain.enrolmentforeign.type.EnrolmentForeignType</class>
-        <class>org.lnu.is.domain.salarytype.SallaryType</class>
+        <class>org.lnu.is.domain.course.type.CourseType</class>
+        <class>org.lnu.is.domain.duty.type.DutyType</class>
+        <class>org.lnu.is.domain.education.type.EducationType</class>
+        <class>org.lnu.is.domain.education.form.type.EducationFormType</class>
+        <class>org.lnu.is.domain.enrolment.foreign.type.EnrolmentForeignType</class>
+        <class>org.lnu.is.domain.salary.type.SallaryType</class>
         <class>org.lnu.is.domain.specstagetype.SpecStageType</class>
-        <class>org.lnu.is.domain.streettype.StreetType</class>
-        <class>org.lnu.is.domain.timesheettype.TimeSheetType</class>
+        <class>org.lnu.is.domain.street.type.StreetType</class>
+        <class>org.lnu.is.domain.timesheet.type.TimeSheetType</class>
         <class>org.lnu.is.domain.wave.type.WaveType</class>
         <class>org.lnu.is.domain.reason.Reason</class>
         <class>org.lnu.is.domain.profession.Profession</class>

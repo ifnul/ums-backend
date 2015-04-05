@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.jobtype.JobType;
-import org.lnu.is.resource.jobtype.JobTypeResource;
+import org.lnu.is.domain.job.type.JobType;
+import org.lnu.is.resource.job.type.JobTypeResource;
 
 public class JobTypeConverterTest {
 
