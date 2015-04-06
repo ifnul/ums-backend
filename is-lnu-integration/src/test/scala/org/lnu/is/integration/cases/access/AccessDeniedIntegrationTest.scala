@@ -32,7 +32,7 @@ object AccessDeniedIntegrationTest {
     val urls = List("/persons/types", "/streets/types", "/timeperiods/types","/papers/types" , 
         "/orders/types", "/marriedtypes", "/languages", "/gendertypes", "/honors/types",
         "/enrolments/types", "/enrolments/subjects", "/enrolments/statustypes",
-        "/eduformtypes", "/educations/types", "/departments/types", "/courses/types",
+        "/educations/forms/types", "/educations/types", "/departments/types", "/courses/types",
         "/contacts/types", "/assets/types", "/assets/statuses", "/assets/states", "/adminunits", "/addresstypes")
     
     val testCase = 

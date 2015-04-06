@@ -680,7 +680,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "departmentId",
               "timePeriodId",
               "timePeriodCourseId",
-              "eduFormTypeId",
+              "educationFormTypeId",
               "specofferTypeId"
           ),
           Array(

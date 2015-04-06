@@ -76,7 +76,7 @@ public class Employee extends InformationModel {
 	private List<EmployeeContact> contacts;
 	
 	@OneToMany(mappedBy = "employee")
-	private List<EmployeeSalary> sallaries;
+	private List<EmployeeSalary> salaries;
 	
 	@OneToMany(mappedBy = "employee")
 	private List<EmployeeSchedule> schedules;
@@ -326,12 +326,12 @@ public class Employee extends InformationModel {
 		this.contacts = contacts;
 	}
 
-	public List<EmployeeSalary> getSallaries() {
-		return sallaries;
+	public List<EmployeeSalary> getSalaries() {
+		return salaries;
 	}
 
-	public void setSallaries(final List<EmployeeSalary> sallaries) {
-		this.sallaries = sallaries;
+	public void setSallaries(final List<EmployeeSalary> salaries) {
+		this.salaries = salaries;
 	}
 
 	public List<EmployeeSchedule> getSchedules() {

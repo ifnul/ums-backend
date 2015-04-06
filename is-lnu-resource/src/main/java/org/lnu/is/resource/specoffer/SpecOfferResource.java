@@ -41,7 +41,7 @@ public class SpecOfferResource extends ApiResource {
 	private String docNum;
 	
 	@NotNull(message = "Field required")
-	private Long eduFormTypeId;
+	private Long educationFormTypeId;
 	
 	@NotNull(message = "Field required")
 	private Integer licCount;
@@ -124,12 +124,12 @@ public class SpecOfferResource extends ApiResource {
 		this.docNum = docNum;
 	}
 
-	public Long getEduFormTypeId() {
-		return eduFormTypeId;
+	public Long getEducationFormTypeId() {
+		return educationFormTypeId;
 	}
 
-	public void setEduFormTypeId(final Long eduFormTypeId) {
-		this.eduFormTypeId = eduFormTypeId;
+	public void setEducationFormTypeId(final Long educationFormTypeId) {
+		this.educationFormTypeId = educationFormTypeId;
 	}
 
 	public Integer getLicCount() {
@@ -185,7 +185,7 @@ public class SpecOfferResource extends ApiResource {
 		result = prime * result
 				+ ((docSeries == null) ? 0 : docSeries.hashCode());
 		result = prime * result
-				+ ((eduFormTypeId == null) ? 0 : eduFormTypeId.hashCode());
+				+ ((educationFormTypeId == null) ? 0 : educationFormTypeId.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result
 				+ ((licCount == null) ? 0 : licCount.hashCode());
@@ -243,11 +243,11 @@ public class SpecOfferResource extends ApiResource {
 		} else if (!docSeries.equals(other.docSeries)) {
 			return false;
 		}
-		if (eduFormTypeId == null) {
-			if (other.eduFormTypeId != null) {
+		if (educationFormTypeId == null) {
+			if (other.educationFormTypeId != null) {
 				return false;
 			}
-		} else if (!eduFormTypeId.equals(other.eduFormTypeId)) {
+		} else if (!educationFormTypeId.equals(other.educationFormTypeId)) {
 			return false;
 		}
 		if (endDate == null) {
@@ -315,7 +315,7 @@ public class SpecOfferResource extends ApiResource {
 				+ ", departmentId=" + departmentId + ", timePeriodId="
 				+ timePeriodId + ", specofferTypeId=" + specofferTypeId
 				+ ", docSeries=" + docSeries + ", docNum=" + docNum
-				+ ", eduFormTypeId=" + eduFormTypeId + ", licCount=" + licCount
+				+ ", educationFormTypeId=" + educationFormTypeId + ", licCount=" + licCount
 				+ ", stateCount=" + stateCount + ", begDate=" + begDate
 				+ ", endDate=" + endDate + ", note=" + note + ", timePeriodCourseId="
 					+ timePeriodCourseId + "]";

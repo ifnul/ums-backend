@@ -28,9 +28,9 @@ public class SpecOfferResourceConverterTest {
 		String docSeries = "doc series";
 		Date endDate = new Date();
 		
-		Long eduFormTypeId = 2L;
+		Long educationFormTypeId = 2L;
 		EducationFormType eduFormType = new EducationFormType();
-		eduFormType.setId(eduFormTypeId);
+		eduFormType.setId(educationFormTypeId);
 
 		Long id = 1L;
 		Integer licCount = 223;
@@ -87,7 +87,7 @@ public class SpecOfferResourceConverterTest {
 		source.setSpecofferTypeId(specOfferTypeId);
 		source.setStateCount(stateCount);
 		source.setTimePeriodId(timePeriodId);
-		source.setEduFormTypeId(eduFormTypeId);
+		source.setEducationFormTypeId(educationFormTypeId);
 		source.setTimePeriodCourseId(timePeriodCourseId);
 		
 		// When

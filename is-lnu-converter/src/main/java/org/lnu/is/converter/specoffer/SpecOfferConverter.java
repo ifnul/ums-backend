@@ -30,7 +30,7 @@ public class SpecOfferConverter extends AbstractConverter<SpecOffer, SpecOfferRe
 		}
 		
 		if (source.getEduFormType() != null) {
-			target.setEduFormTypeId(source.getEduFormType().getId());
+			target.setEducationFormTypeId(source.getEduFormType().getId());
 		}
 		
 		if (source.getSpecialty() != null) {

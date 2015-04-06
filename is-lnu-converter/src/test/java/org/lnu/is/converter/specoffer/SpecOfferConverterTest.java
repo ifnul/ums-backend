@@ -33,9 +33,9 @@ public class SpecOfferConverterTest {
 		String docSeries = "doc series";
 		Date endDate = new Date();
 		
-		Long eduFormTypeId = 2L;
+		Long educationFormTypeId = 2L;
 		EducationFormType eduFormType = new EducationFormType();
-		eduFormType.setId(eduFormTypeId);
+		eduFormType.setId(educationFormTypeId);
 
 		Long id = 1L;
 		Integer licCount = 223;
@@ -100,7 +100,7 @@ public class SpecOfferConverterTest {
 		expected.setDepartmentId(departmentId);
 		expected.setDocNum(docNum);
 		expected.setDocSeries(docSeries);
-		expected.setEduFormTypeId(eduFormTypeId);
+		expected.setEducationFormTypeId(educationFormTypeId);
 		expected.setEndDate(endDate);
 		expected.setId(id);
 		expected.setLicCount(licCount);

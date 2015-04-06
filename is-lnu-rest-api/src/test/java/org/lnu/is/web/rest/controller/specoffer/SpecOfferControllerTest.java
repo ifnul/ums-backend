@@ -54,7 +54,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
 		// Given
     	String note = "Note";
     	Integer licCount = 24;
-    	Long eduFormTypeId = 1L;
+    	Long educationFormTypeId = 1L;
     	String docNum = "docNum";
     	Long departmentId = 23L;
     	
@@ -63,7 +63,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     	specOfferResource.setEndDate(new Date());
 		specOfferResource.setDepartmentId(departmentId);
 		specOfferResource.setDocNum(docNum);
-		specOfferResource.setEduFormTypeId(eduFormTypeId);
+		specOfferResource.setEducationFormTypeId(educationFormTypeId);
 		specOfferResource.setLicCount(licCount);
 		specOfferResource.setNote(note);
 		
@@ -90,7 +90,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     	Long id = 1L;
     	String note = "Note";
     	Integer licCount = 24;
-    	Long eduFormTypeId = 1L;
+    	Long educationFormTypeId = 1L;
     	String docNum = "docNum";
     	Long departmentId = 23L;
     	
@@ -100,7 +100,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     	specOfferResource.setEndDate(new Date());
 		specOfferResource.setDepartmentId(departmentId);
 		specOfferResource.setDocNum(docNum);
-		specOfferResource.setEduFormTypeId(eduFormTypeId);
+		specOfferResource.setEducationFormTypeId(educationFormTypeId);
 		specOfferResource.setLicCount(licCount);
 		specOfferResource.setNote(note);
 		
@@ -127,7 +127,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     	Long id = 1L;
     	String note = "Note";
     	Integer licCount = 24;
-    	Long eduFormTypeId = 1L;
+    	Long educationFormTypeId = 1L;
     	String docNum = "docNum";
     	Long departmentId = 23L;
     	
@@ -137,7 +137,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     	specOfferResource.setEndDate(new Date());
 		specOfferResource.setDepartmentId(departmentId);
 		specOfferResource.setDocNum(docNum);
-		specOfferResource.setEduFormTypeId(eduFormTypeId);
+		specOfferResource.setEducationFormTypeId(educationFormTypeId);
 		specOfferResource.setLicCount(licCount);
 		specOfferResource.setNote(note);
 
@@ -174,7 +174,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     	Long id = 1L;
     	String note = "Note";
     	Integer licCount = 24;
-    	Long eduFormTypeId = 1L;
+    	Long educationFormTypeId = 1L;
     	String docNum = "docNum";
     	Long departmentId = 23L;
     	
@@ -184,7 +184,7 @@ public class SpecOfferControllerTest extends AbstractControllerTest {
     	entity1.setEndDate(new Date());
 		entity1.setDepartmentId(departmentId);
 		entity1.setDocNum(docNum);
-		entity1.setEduFormTypeId(eduFormTypeId);
+		entity1.setEducationFormTypeId(educationFormTypeId);
 		entity1.setLicCount(licCount);
 		entity1.setNote(note);
 

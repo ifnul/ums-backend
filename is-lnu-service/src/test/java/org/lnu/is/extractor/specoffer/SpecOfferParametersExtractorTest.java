@@ -73,9 +73,9 @@ public class SpecOfferParametersExtractorTest {
 	@Test
 	public void testGetParameters() throws Exception {
 		// Given
-		Long eduFormTypeId = 3L;
+		Long educationFormTypeId = 3L;
 		EducationFormType eduFormType = new EducationFormType();
-		eduFormType.setId(eduFormTypeId);
+		eduFormType.setId(educationFormTypeId);
 		
 		Long departmentId = 2L;
 		Department department = new Department();
@@ -108,7 +108,7 @@ public class SpecOfferParametersExtractorTest {
 
 		// Then
 		verify(departmentDao).getEntityById(departmentId);
-		verify(eduFormTypeDao).getEntityById(eduFormTypeId);
+		verify(eduFormTypeDao).getEntityById(educationFormTypeId);
 		assertEquals(expected, actual);
 	}
 	
@@ -118,9 +118,9 @@ public class SpecOfferParametersExtractorTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		Long eduFormTypeId = 3L;
+		Long educationFormTypeId = 3L;
 		EducationFormType eduFormType = new EducationFormType();
-		eduFormType.setId(eduFormTypeId);
+		eduFormType.setId(educationFormTypeId);
 		
 		Long departmentId = 2L;
 		Department department = new Department();
@@ -151,7 +151,7 @@ public class SpecOfferParametersExtractorTest {
 		
 		// Then
 		verify(departmentDao).getEntityById(departmentId);
-		verify(eduFormTypeDao).getEntityById(eduFormTypeId);
+		verify(eduFormTypeDao).getEntityById(educationFormTypeId);
 		assertEquals(expected, actual);
 	}
 	

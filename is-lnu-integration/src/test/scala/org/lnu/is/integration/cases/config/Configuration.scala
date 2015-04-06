@@ -1017,7 +1017,7 @@ val data =List(
 
 	Map(
 	   "name" -> "salarytype",
-	   "url" -> "/sallaries/types",
+	   "url" -> "/salaries/types",
 	   "title" -> "Salary Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),

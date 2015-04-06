@@ -199,7 +199,7 @@
 				<entry key="name" value="name" />
 			</util:map>
 		</entry>
-		<entry key="org.lnu.is.resource.eduformtype.EduFormTypeResource">
+		<entry key="org.lnu.is.resource.education.form.type.EducationFormTypeResource">
 			<util:map>
 				<entry key="name" value="name" />
 			</util:map>
@@ -630,7 +630,7 @@
 				<entry key="departmentId" value="department" />
 				<entry key="timePeriodId" value="timePeriod" />
 				<entry key="timePeriodCourseId" value="timePeriodCourse" />
-				<entry key="eduFormTypeId" value="eduFormType" />
+				<entry key="educationFormTypeId" value="educationFormType" />
 				<entry key="specofferTypeId" value="specOfferType" />
 				<entry key="docSeries" value="docSeries" />
 				<entry key="docNum" value="docNum" />
