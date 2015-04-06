@@ -23,57 +23,65 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Controller for spec offer waves.
+ * 
  * @author ivanursul
  *
  */
 @RestController
 @RequestMapping("/specoffers")
-public class SpecOfferWaveController extends BaseController implements CrudController<SpecOfferWaveResource> {
-	private static final Logger LOG = LoggerFactory.getLogger(SpecOfferWaveController.class);
-	
-	@Resource(name = "specOfferWaveFacade")
-	private Facade<SpecOfferWaveResource, Long> facade;
+public class SpecOfferWaveController extends BaseController implements
+	CrudController<SpecOfferWaveResource> {
+    private static final Logger LOG = LoggerFactory
+	    .getLogger(SpecOfferWaveController.class);
 
-	@Override
-	@ResponseStatus(HttpStatus.CREATED)
-	@RequestMapping(value = "/{specOfferId}/waves", method = RequestMethod.POST)
-	public SpecOfferWaveResource createResource(@Valid @RequestBody final SpecOfferWaveResource resource) {
-		LOG.info("Creating spec offer wave: {}", resource);
-		return facade.createResource(resource);
-	}
-	
-	@Override
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{specOfferId}/waves/{specOfferWaveId}", method = RequestMethod.PUT)
-	public MessageResource updateResource(@PathVariable("specOfferWaveId") final Long specOfferWaveId,
- 			@RequestBody final SpecOfferWaveResource resource) {
-		LOG.info("Updating spec offer wave with id: {}, {}", specOfferWaveId, resource);
-		facade.updateResource(specOfferWaveId, resource);
-		return new MessageResource(MessageType.INFO);
-	}
-	
-	@Override
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{specOfferId}/waves/{id}", method = RequestMethod.GET)
-	public SpecOfferWaveResource getResource(@PathVariable("id") final Long id) {
-		LOG.info("Retrieving Spec Offer Wave with id: {}", id);
-		return facade.getResource(id);
-	}
-	
-	@Override
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@RequestMapping(value = "/{specOfferId}/waves/{id}", method = RequestMethod.DELETE)
-	public MessageResource removeResource(@PathVariable("id") final Long id) {
-		LOG.info("Removing Spec Offer Wave with id: {}", id);
-		facade.removeResource(id);
-		return new MessageResource(MessageType.INFO);
-	}
-	
-	@Override
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{specOfferId}/waves", "/waves" }, method = RequestMethod.GET)
-	public PagedResultResource<SpecOfferWaveResource> getPagedResource(final PagedRequest<SpecOfferWaveResource> request) {
-		LOG.info("Retrieving PagedResultResource for Spec Offer Wave: {}", request);
-		return facade.getResources(request);
-	}
+    @Resource(name = "specOfferWaveFacade")
+    private Facade<SpecOfferWaveResource, Long> facade;
+
+    @Override
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(value = "/{specOfferId}/waves", method = RequestMethod.POST)
+    public SpecOfferWaveResource createResource(
+	    @Valid @RequestBody final SpecOfferWaveResource resource) {
+	LOG.info("Creating spec offer wave: {}", resource);
+	return facade.createResource(resource);
+    }
+
+    @Override
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/{specOfferId}/waves/{specOfferWaveId}", method = RequestMethod.PUT)
+    public MessageResource updateResource(
+	    @PathVariable("specOfferWaveId") final Long specOfferWaveId,
+	    @RequestBody final SpecOfferWaveResource resource) {
+	LOG.info("Updating spec offer wave with id: {}, {}", specOfferWaveId,
+		resource);
+	facade.updateResource(specOfferWaveId, resource);
+	return new MessageResource(MessageType.INFO);
+    }
+
+    @Override
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/{specOfferId}/waves/{id}", method = RequestMethod.GET)
+    public SpecOfferWaveResource getResource(@PathVariable("id") final Long id) {
+	LOG.info("Retrieving Spec Offer Wave with id: {}", id);
+	return facade.getResource(id);
+    }
+
+    @Override
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(value = "/{specOfferId}/waves/{id}", method = RequestMethod.DELETE)
+    public MessageResource removeResource(@PathVariable("id") final Long id) {
+	LOG.info("Removing Spec Offer Wave with id: {}", id);
+	facade.removeResource(id);
+	return new MessageResource(MessageType.INFO);
+    }
+
+    @Override
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/{specOfferId}/waves", method = RequestMethod.GET)
+    public PagedResultResource<SpecOfferWaveResource> getPagedResource(
+	    final PagedRequest<SpecOfferWaveResource> request) {
+	LOG.info("Retrieving PagedResultResource for Spec Offer Wave: {}",
+		request);
+	return facade.getResources(request);
+    }
 }

@@ -1016,13 +1016,13 @@ val data =List(
 	   ),
 
 	Map(
-	   "name" -> "sallarytype",
+	   "name" -> "salarytype",
 	   "url" -> "/sallaries/types",
-	   "title" -> "Sallary Type Integration Test",
+	   "title" -> "Salary Type Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any](),
 	   "order" -> List[OrderBy](),
-	   "pathData" -> "data/sallary/type/response.json",
+	   "pathData" -> "data/salary/type/response.json",
 	   "checkFieldsExistence"-> false,
 	   "checkOrder" -> false,
 	   "checkOrderOne" -> false,

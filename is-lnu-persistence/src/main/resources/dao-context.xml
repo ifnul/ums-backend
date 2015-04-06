@@ -175,6 +175,11 @@
 		<property name="entityClass" value="org.lnu.is.domain.enrolment.subject.EnrolmentSubject" />
 		<property name="queryBuilder" ref="enrolmentSubjectQueryBuilder" />
 	</bean>
+	
+	<bean id="enrolmentEnrolmentSubjectDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.enrolment.enrolment.subject.EnrolmentEnrolmentSubject" />
+		<property name="queryBuilder" ref="enrolmentEnrolmentSubjectQueryBuilder" />
+	</bean>
 
 	<bean id="enrolmentTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.enrolment.type.EnrolmentType" />
@@ -366,9 +371,9 @@
 		<property name="queryBuilder" ref="reasonQueryBuilder"/>
 	</bean>
 
-	<bean id="sallaryTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.salary.type.SallaryType" />
-		<property name="queryBuilder" ref="sallaryTypeQueryBuilder" />
+	<bean id="salaryTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+		<property name="entityClass" value="org.lnu.is.domain.salary.type.SalaryType" />
+		<property name="queryBuilder" ref="salaryTypeQueryBuilder" />
 	</bean>
 	
 	<bean id="specOfferDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">

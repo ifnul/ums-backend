@@ -168,6 +168,11 @@
 		<property name="dao" ref="enrolmentSubjectDao" />
 	</bean>
 
+	<bean id="enrolmentEnrolmentSubjectService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="enrolmentEnrolmentSubjectParametersExtractor" />
+		<property name="dao" ref="enrolmentEnrolmentSubjectDao" />
+	</bean>
+
 	<bean id="enrolmentTypeService" class="org.lnu.is.service.DefaultService">
 		<property name="parametersExtractor" ref="enrolmentTypeParametersExtractor" />
 		<property name="dao" ref="enrolmentTypeDao" />
@@ -343,9 +348,9 @@
 		<property name="parametersExtractor" ref="reasonParametersExtractor" />
 	</bean>
 
-	<bean id="sallaryTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="sallaryTypeParametersExtractor" />
-		<property name="dao" ref="sallaryTypeDao" />
+	<bean id="salaryTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="salaryTypeParametersExtractor" />
+		<property name="dao" ref="salaryTypeDao" />
 	</bean>
 
 	<bean id="streetTypeService" class="org.lnu.is.service.DefaultService">

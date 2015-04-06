@@ -72,7 +72,7 @@ public class PublicActivityAwardController extends BaseController implements Cru
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{publicActivityId}/awards", "/awards" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/{publicActivityId}/awards", method = RequestMethod.GET)
 	public PagedResultResource<PublicActivityAwardResource> getPagedResource(final PagedRequest<PublicActivityAwardResource> request) {
 		LOG.info("Retrieving PagedResultResource for PublicActivityAward Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

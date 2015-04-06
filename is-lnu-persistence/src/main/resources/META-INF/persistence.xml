@@ -30,7 +30,7 @@
         <class>org.lnu.is.domain.employee.type.EmployeeType</class> 
         <class>org.lnu.is.domain.employee.contact.EmployeeContact</class>
         <class>org.lnu.is.domain.employee.profession.EmployeeProfession</class>
-        <class>org.lnu.is.domain.employee.sallary.EmployeeSallary</class>
+        <class>org.lnu.is.domain.employee.salary.EmployeeSalary</class>
         <class>org.lnu.is.domain.employee.schedule.EmployeeSchedule</class>
 
 		<!-- Partner related entities -->
@@ -63,6 +63,7 @@
         <class>org.lnu.is.domain.enrolment.status.EnrolmentStatus</class>
         <class>org.lnu.is.domain.enrolment.type.EnrolmentType</class>
         <class>org.lnu.is.domain.enrolment.subject.EnrolmentSubject</class>
+        <class>org.lnu.is.domain.enrolment.foreign.type.EnrolmentForeignType</class>
         
         <!-- Order related entities -->
         <class>org.lnu.is.domain.order.Order</class>
@@ -147,9 +148,8 @@
         <class>org.lnu.is.domain.course.type.CourseType</class>
         <class>org.lnu.is.domain.duty.type.DutyType</class>
         <class>org.lnu.is.domain.education.type.EducationType</class>
-        <class>org.lnu.is.domain.education.form.type.EducationFormType</class>
-        <class>org.lnu.is.domain.enrolment.foreign.type.EnrolmentForeignType</class>
-        <class>org.lnu.is.domain.salary.type.SallaryType</class>
+        <class>org.lnu.is.domain.education.form.type.EducationFormType</class>       
+        <class>org.lnu.is.domain.salary.type.SalaryType</class>
         <class>org.lnu.is.domain.specstagetype.SpecStageType</class>
         <class>org.lnu.is.domain.street.type.StreetType</class>
         <class>org.lnu.is.domain.timesheet.type.TimeSheetType</class>

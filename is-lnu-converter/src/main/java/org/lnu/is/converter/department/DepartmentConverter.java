@@ -22,7 +22,6 @@ public class DepartmentConverter extends AbstractConverter<Department, Departmen
 		target.setId(source.getId());
 		target.setManager(source.getManager());
 		target.setName(source.getName());
-		target.setNote(source.getNote());
 		target.setIdentifir(source.getIdentifir());
 		
 		if (source.getOrder() != null) {

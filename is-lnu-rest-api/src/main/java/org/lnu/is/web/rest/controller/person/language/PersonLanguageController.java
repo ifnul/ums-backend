@@ -72,7 +72,7 @@ public class PersonLanguageController extends BaseController implements CrudCont
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{personId}/languages", "/languages" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/{personId}/languages", method = RequestMethod.GET)
 	public PagedResultResource<PersonLanguageResource> getPagedResource(final PagedRequest<PersonLanguageResource> request) {
 		LOG.info("Retrieving PagedResultResource for PersonLanguage Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

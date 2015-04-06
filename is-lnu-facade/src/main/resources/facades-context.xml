@@ -222,7 +222,13 @@
 		<property name="entityConverter" ref="enrolmentStatusTypeConverter" />
 		<property name="service" ref="enrolmentStatusTypeService" />
 	</bean>
-
+	
+	<bean id="enrolmentEnrolmentSubjectFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="enrolmentEnrolmentSubjectResourceConverter" />
+		<property name="entityConverter" ref="enrolmentEnrolmentSubjectConverter" />
+		<property name="service" ref="enrolmentEnrolmentSubjectService" />
+	</bean>
+	
 	<bean id="enrolmentSubjectFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
 		<property name="resourceConverter" ref="enrolmentSubjectResourceConverter" />
 		<property name="entityConverter" ref="enrolmentSubjectConverter" />
@@ -403,10 +409,10 @@
 		<property name="service" ref="reasonService" />
 	</bean>
 
-	<bean id="sallaryTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
-		<property name="resourceConverter" ref="sallaryTypeResourceConverter" />
-		<property name="entityConverter" ref="sallaryTypeConverter" />
-		<property name="service" ref="sallaryTypeService" />
+	<bean id="salaryTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">
+		<property name="resourceConverter" ref="salaryTypeResourceConverter" />
+		<property name="entityConverter" ref="salaryTypeConverter" />
+		<property name="service" ref="salaryTypeService" />
 	</bean>
 
 	<bean id="streetTypeFacade" class="org.lnu.is.facade.facade.DefaultFacade" parent="defaultFacade">

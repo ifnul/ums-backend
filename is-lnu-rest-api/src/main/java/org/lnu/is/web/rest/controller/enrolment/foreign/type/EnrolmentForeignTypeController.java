@@ -3,7 +3,7 @@ package org.lnu.is.web.rest.controller.enrolment.foreign.type;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.resource.enrolmentforeign.type.EnrolmentForeignTypeResource;
+import org.lnu.is.resource.enrolment.foreign.type.EnrolmentForeignTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;

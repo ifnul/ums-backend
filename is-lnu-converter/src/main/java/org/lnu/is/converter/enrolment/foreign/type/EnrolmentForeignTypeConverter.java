@@ -3,7 +3,7 @@ package org.lnu.is.converter.enrolment.foreign.type;
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.enrolment.foreign.type.EnrolmentForeignType;
-import org.lnu.is.resource.enrolmentforeign.type.EnrolmentForeignTypeResource;
+import org.lnu.is.resource.enrolment.foreign.type.EnrolmentForeignTypeResource;
 
 /**
  * EnrolmentForeign Type Converter.

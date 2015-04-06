@@ -20,8 +20,6 @@ public class DepartmentResource extends ApiResource {
 
 	private Long orderId;
 
-	private String note;
-
 	@NotNull(message = "Field required")
 	private Long departmentTypeId;
 
@@ -126,16 +124,6 @@ public class DepartmentResource extends ApiResource {
 	}
 
 	@Override
-	public String getNote() {
-		return note;
-	}
-
-	@Override
-	public void setNote(final String note) {
-		this.note = note;
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -149,7 +137,6 @@ public class DepartmentResource extends ApiResource {
 		result = prime * result + ((manager == null) ? 0 : manager.hashCode());
 		result = prime * result + ((identifir == null) ? 0 : identifir.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((note == null) ? 0 : note.hashCode());
 		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
 		result = prime * result
 				+ ((parentId == null) ? 0 : parentId.hashCode());
@@ -217,13 +204,6 @@ public class DepartmentResource extends ApiResource {
 		} else if (!name.equals(other.name)) {
 			return false;
 		}
-		if (note == null) {
-			if (other.note != null) {
-				return false;
-			}
-		} else if (!note.equals(other.note)) {
-			return false;
-		}
 		if (orderId == null) {
 			if (other.orderId != null) {
 				return false;
@@ -247,7 +227,7 @@ public class DepartmentResource extends ApiResource {
 				+ ", departmentTypeId=" + departmentTypeId + ", orderId="
 				+ orderId + ", abbrName=" + abbrName + ", name=" + name
 				+ ", manager=" + manager + ", begDate=" + begDate + ", endDate=" + endDate
-				+ ", note=" + note + ", identifir=" + identifir + "]";
+				+ ", identifir=" + identifir + "]";
 	}
 
 }

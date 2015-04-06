@@ -25,7 +25,7 @@ public class PublicActivityResourceConverter extends AbstractConverter<PublicAct
 		if (source.getPublicActivityTypeId() != null) {
 			PublicActivityType publicActiveType = new PublicActivityType();
 			publicActiveType.setId(source.getPublicActivityTypeId());
-			target.setPublicActiveType(publicActiveType);
+			target.setPublicActivityType(publicActiveType);
 		}
 		
 		if (source.getTimePeriodId() != null) {

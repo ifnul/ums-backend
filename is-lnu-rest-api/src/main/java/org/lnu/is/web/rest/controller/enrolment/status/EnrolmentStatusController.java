@@ -72,7 +72,7 @@ public class EnrolmentStatusController extends BaseController implements CrudCon
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{enrolmentId}/statuses", "/statuses" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/{enrolmentId}/statuses", method = RequestMethod.GET)
 	public PagedResultResource<EnrolmentStatusResource> getPagedResource(final PagedRequest<EnrolmentStatusResource> request) {
 		LOG.info("Retrieving enrolment statuses with offset {}, limit {} ", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

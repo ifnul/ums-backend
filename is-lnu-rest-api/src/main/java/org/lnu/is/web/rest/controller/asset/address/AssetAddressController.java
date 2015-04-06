@@ -71,7 +71,7 @@ public class AssetAddressController extends BaseController implements CrudContro
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{assetId}/addresses", "/addresses" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/{assetId}/addresses", method = RequestMethod.GET)
 	public PagedResultResource<AssetAddressResource> getPagedResource(final PagedRequest<AssetAddressResource> request) {
 		LOG.info("Retrieving PagedResultResource for Asset Address Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

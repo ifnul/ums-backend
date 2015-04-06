@@ -37,7 +37,7 @@ public class PublicActivityConverterTest {
 		source.setName(name);
 		source.setBegDate(begDate);
 		source.setEndDate(endDate);
-		source.setPublicActiveType(publicActiveType);
+		source.setPublicActivityType(publicActiveType);
 		source.setTimePeriod(timePeriod);
 
 		PublicActivityResource expected = new PublicActivityResource();
@@ -89,7 +89,7 @@ public class PublicActivityConverterTest {
 		source.setName(name);
 		source.setBegDate(begDate);
 		source.setEndDate(endDate);
-		source.setPublicActiveType(publicActiveType);
+		source.setPublicActivityType(publicActiveType);
 		source.setTimePeriod(timePeriod);
 		List<PublicActivity> sources = Arrays.asList(source);
 		

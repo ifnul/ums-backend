@@ -601,7 +601,7 @@
 				<entry key="name" value="name" />
 			</util:map>
 		</entry>
-		<entry key="org.lnu.is.resource.sallary.type.SallaryTypeResource">
+		<entry key="org.lnu.is.resource.salary.type.SalaryTypeResource">
 			<util:map>
 				<entry key="abbrName" value="abbrName" />
 				<entry key="name" value="name" />

@@ -72,7 +72,7 @@ public class PersonFamilyController extends BaseController implements CrudContro
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{personId}/families", "/families" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/{personId}/families", method = RequestMethod.GET)
 	public PagedResultResource<PersonFamilyResource> getPagedResource(final PagedRequest<PersonFamilyResource> request) {
 		LOG.info("Retrieving PagedResultResource for PersonFamily Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

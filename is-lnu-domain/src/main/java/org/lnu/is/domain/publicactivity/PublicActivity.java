@@ -28,7 +28,7 @@ public class PublicActivity extends InformationModel {
 
 	@ManyToOne
 	@JoinColumn(name = "publicactivitytype_id")
-	private PublicActivityType publicActiveType;
+	private PublicActivityType publicActivityType;
 	
 	@ManyToOne
 	@JoinColumn(name = "timeperiod_id")
@@ -46,12 +46,12 @@ public class PublicActivity extends InformationModel {
 	@Column(name = "enddate")
 	private Date endDate;
 
-	public PublicActivityType getPublicActiveType() {
-		return publicActiveType;
+	public PublicActivityType getPublicActivityTypeType() {
+		return publicActivityType;
 	}
 
-	public void setPublicActiveType(final PublicActivityType publicActiveType) {
-		this.publicActiveType = publicActiveType;
+	public void setPublicActivityType(final PublicActivityType publicActiviTypeType) {
+		this.publicActivityType = publicActiviTypeType;
 	}
 
 	public TimePeriod getTimePeriod() {

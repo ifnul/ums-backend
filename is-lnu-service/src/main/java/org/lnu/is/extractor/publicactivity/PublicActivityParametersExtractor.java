@@ -28,7 +28,7 @@ public class PublicActivityParametersExtractor extends AbstractParametersExtract
 	@Override
 	protected Map<String, Object> getParameters(final PublicActivity entity, final Map<String, Object> parameters) {
 		
-		addParameter(entity.getPublicActiveType(), publicActivityTypeDao, "publicActivityType", parameters);
+		addParameter(entity.getPublicActivityTypeType(), publicActivityTypeDao, "publicActivityType", parameters);
 		addParameter(entity.getTimePeriod(), timePeriodDao, "timePeriod", parameters);
 		
 		addParameter(entity.getName(), "name", parameters);

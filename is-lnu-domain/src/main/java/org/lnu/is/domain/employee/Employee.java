@@ -14,7 +14,7 @@ import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.employee.contact.EmployeeContact;
-import org.lnu.is.domain.employee.sallary.EmployeeSallary;
+import org.lnu.is.domain.employee.salary.EmployeeSalary;
 import org.lnu.is.domain.employee.schedule.EmployeeSchedule;
 import org.lnu.is.domain.employee.status.EmployeeStatus;
 import org.lnu.is.domain.employee.type.EmployeeType;
@@ -76,7 +76,7 @@ public class Employee extends InformationModel {
 	private List<EmployeeContact> contacts;
 	
 	@OneToMany(mappedBy = "employee")
-	private List<EmployeeSallary> sallaries;
+	private List<EmployeeSalary> sallaries;
 	
 	@OneToMany(mappedBy = "employee")
 	private List<EmployeeSchedule> schedules;
@@ -326,11 +326,11 @@ public class Employee extends InformationModel {
 		this.contacts = contacts;
 	}
 
-	public List<EmployeeSallary> getSallaries() {
+	public List<EmployeeSalary> getSallaries() {
 		return sallaries;
 	}
 
-	public void setSallaries(final List<EmployeeSallary> sallaries) {
+	public void setSallaries(final List<EmployeeSalary> sallaries) {
 		this.sallaries = sallaries;
 	}
 

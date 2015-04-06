@@ -72,7 +72,7 @@ public class PersonWorkController extends BaseController implements CrudControll
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{personId}/works", "/works" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/{personId}/works", method = RequestMethod.GET)
 	public PagedResultResource<PersonWorkResource> getPagedResource(final PagedRequest<PersonWorkResource> request) {
 		LOG.info("Retrieving PagedResultResource for PersonWork Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

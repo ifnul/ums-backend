@@ -72,7 +72,7 @@ public class PersonEducationController extends BaseController implements CrudCon
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/{personId}/educations", "/educations" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/{personId}/educations", method = RequestMethod.GET)
 	public PagedResultResource<PersonEducationResource> getPagedResource(final PagedRequest<PersonEducationResource> request) {
 		LOG.info("Retrieving PagedResultResource for Person language Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

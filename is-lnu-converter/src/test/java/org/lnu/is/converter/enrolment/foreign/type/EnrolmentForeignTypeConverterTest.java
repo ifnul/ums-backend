@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Test;
 import org.lnu.is.converter.enrolment.foreign.type.EnrolmentForeignTypeConverter;
 import org.lnu.is.domain.enrolment.foreign.type.EnrolmentForeignType;
-import org.lnu.is.resource.enrolmentforeign.type.EnrolmentForeignTypeResource;
+import org.lnu.is.resource.enrolment.foreign.type.EnrolmentForeignTypeResource;
 
 public class EnrolmentForeignTypeConverterTest {
 

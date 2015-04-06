@@ -165,42 +165,6 @@ public class AssetAddressControllerTest extends AbstractControllerTest {
 		verify(facade).getResources(pagedRequest);
 	}
     
-    @Test
-    public void testGetAddresss() throws Exception {
-    	// Given
-    	Long id = 1L;
-    	AssetAddressResource assetResource = new AssetAddressResource();
-    	assetResource.setId(id);
-    	
-    	long count = 100;
-    	int limit = 25;
-    	Integer offset = 10;
-    	String uri = "/assets/1/addresses";
-    	List<AssetAddressResource> entities = Arrays.asList(assetResource);
-    	PagedResultResource<AssetAddressResource> expectedResource = new PagedResultResource<>();
-    	expectedResource.setCount(count);
-    	expectedResource.setLimit(limit);
-    	expectedResource.setOffset(offset);
-    	expectedResource.setUri(uri);
-    	expectedResource.setResources(entities);
-    	
-    	AssetAddressResource resource = new AssetAddressResource();
-    	PagedRequest<AssetAddressResource> pagedRequest = new PagedRequest<AssetAddressResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
-    	
-    	// When
-    	when(facade.getResources(Matchers.<PagedRequest<AssetAddressResource>>any())).thenReturn(expectedResource);
-    	String response = getJson(expectedResource, false);
-    	
-    	// Then
-    	mockMvc.perform(get("/assets/addresses")
-    			.param("offset", String.valueOf(offset))
-    			.param("limit", String.valueOf(limit)))
-    			.andExpect(status().isOk())
-    			.andExpect(content().string(response));
-    	
-    	verify(facade).getResources(pagedRequest);
-    }
-
 	@Test(expected = AccessDeniedException.class)
 	public void testGetResourceWithAccessDeniedException() throws Exception {
 		// Given

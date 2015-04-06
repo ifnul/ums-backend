@@ -43,7 +43,6 @@ public class DepartmentResourceConverter extends AbstractConverter<DepartmentRes
 		target.setAbbrName(source.getAbbrName());
 		target.setManager(source.getManager());
 		target.setName(source.getName());
-		target.setNote(source.getNote());
 		target.setIdentifir(source.getIdentifir());
 		
 		return target;

@@ -37,7 +37,7 @@ public class PublicActivityResourceConverterTest {
 		expected.setName(name);
 		expected.setBegDate(begDate);
 		expected.setEndDate(endDate);
-		expected.setPublicActiveType(publicActiveType);
+		expected.setPublicActivityType(publicActiveType);
 		expected.setTimePeriod(timePeriod);
 
 		PublicActivityResource source = new PublicActivityResource();
@@ -89,7 +89,7 @@ public class PublicActivityResourceConverterTest {
 		expected.setName(name);
 		expected.setBegDate(begDate);
 		expected.setEndDate(endDate);
-		expected.setPublicActiveType(publicActiveType);
+		expected.setPublicActivityType(publicActiveType);
 		expected.setTimePeriod(timePeriod);
 		List<PublicActivity> expecteds = Arrays.asList(expected);
 		

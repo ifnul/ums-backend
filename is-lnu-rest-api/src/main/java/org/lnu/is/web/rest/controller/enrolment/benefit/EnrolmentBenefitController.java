@@ -72,7 +72,7 @@ public class EnrolmentBenefitController extends BaseController implements CrudCo
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = { "/benefits", "/{enrolmentId}/benefits" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/{enrolmentId}/benefits" , method = RequestMethod.GET)
 	public PagedResultResource<EnrolmentBenefitResource> getPagedResource(final PagedRequest<EnrolmentBenefitResource> request) {
 		LOG.info("Retrieving enrolment benefits with offset {}, limit {} ", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

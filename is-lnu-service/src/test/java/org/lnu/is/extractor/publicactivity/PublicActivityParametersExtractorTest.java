@@ -70,7 +70,7 @@ public class PublicActivityParametersExtractorTest {
 		Date endDate = new Date();
 
 		PublicActivity entity = new PublicActivity();
-		entity.setPublicActiveType(publicActiveType);
+		entity.setPublicActivityType(publicActiveType);
 		entity.setTimePeriod(timePeriod);
 		entity.setName(name);
 		entity.setBegDate(begDate);
@@ -114,7 +114,7 @@ public class PublicActivityParametersExtractorTest {
 		Date endDate = new Date();
 
 		PublicActivity entity = new PublicActivity();
-		entity.setPublicActiveType(publicActiveType);
+		entity.setPublicActivityType(publicActiveType);
 		entity.setTimePeriod(timePeriod);
 		entity.setName(name);
 		entity.setBegDate(begDate);

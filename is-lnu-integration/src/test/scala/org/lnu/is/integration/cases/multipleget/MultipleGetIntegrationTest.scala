@@ -635,8 +635,8 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
       ),
 
       (
-          "Sallary Type",
-          "/sallaries/types",
+          "Salary Type",
+          "/salaries/types",
           Array(
           ),
           Array(

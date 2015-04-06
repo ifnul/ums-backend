@@ -29,90 +29,94 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EnrolmentSubjectControllerTest extends AbstractControllerTest {
-	
-	@Mock
-	private Facade<EnrolmentSubjectResource, Long> facade;
-	
-	@InjectMocks
-	private EnrolmentSubjectController unit;
-	
-	@Override
-	protected BaseController getUnit() {
-		return unit;
-	}
+
+    @Mock
+    private Facade<EnrolmentSubjectResource, Long> facade;
+
+    @InjectMocks
+    private EnrolmentSubjectController unit;
+
+    @Override
+    protected BaseController getUnit() {
+	return unit;
+    }
 
     @Test
-	public void testGetEnrolmentSubjects() throws Exception {
-		// Given
-    	String name = "Ua lan";
-    	String abbrName = "ua";
-		EnrolmentSubjectResource resource = new EnrolmentSubjectResource();
-		resource.setAbbrName(abbrName);
-		resource.setName(name);
-		
-		List<EnrolmentSubjectResource> entities = Arrays.asList(resource);
+    public void testGetEnrolmentSubjects() throws Exception {
+	// Given
+	String name = "Ua lan";
+	String abbrName = "ua";
+	EnrolmentSubjectResource resource = new EnrolmentSubjectResource();
+	resource.setAbbrName(abbrName);
+	resource.setName(name);
 
+	List<EnrolmentSubjectResource> entities = Arrays.asList(resource);
 
-		Integer offset = 0;
-		long count = 1;
-		Integer limit = 43;
-		PagedResultResource<EnrolmentSubjectResource> expected = new PagedResultResource<>("/enrolments/subjects");
-		expected.setResources(entities);
-		expected.setCount(count);
-		expected.setLimit(limit);
-		expected.setOffset(offset);
+	Integer offset = 0;
+	long count = 1;
+	Integer limit = 43;
+	PagedResultResource<EnrolmentSubjectResource> expected = new PagedResultResource<>(
+		"/enrolments/subjects");
+	expected.setResources(entities);
+	expected.setCount(count);
+	expected.setLimit(limit);
+	expected.setOffset(offset);
 
-		EnrolmentSubjectResource paramResource = new EnrolmentSubjectResource();
-		paramResource.setName(name);
-		PagedRequest<EnrolmentSubjectResource> request = new PagedRequest<EnrolmentSubjectResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
-		
-		// When
-		when(facade.getResources(Matchers.<PagedRequest<EnrolmentSubjectResource>>any())).thenReturn(expected);
-    	String response = getJson(expected, false);
+	EnrolmentSubjectResource paramResource = new EnrolmentSubjectResource();
+	paramResource.setName(name);
+	PagedRequest<EnrolmentSubjectResource> request = new PagedRequest<EnrolmentSubjectResource>(
+		paramResource, offset, limit, Collections.<OrderBy> emptyList());
 
-		// Then
-    	mockMvc.perform(get("/enrolments/subjects")
-    			.param("name", name))
-    		.andExpect(status().isOk())
-    		.andExpect(content().string(response));
-    	
-		verify(facade).getResources(request);
-	}
-    
-	@Test
-	public void testGetResource() throws Exception {
-		// Given
-		Long id = 1L;
-		String name = "all difficult";
-		String abbrName = "ad";
-		EnrolmentSubjectResource expected = new EnrolmentSubjectResource();
-		expected.setName(name);
-		expected.setAbbrName(abbrName);
-		expected.setId(id);
-		
-		// When
-		when(facade.getResource(anyLong())).thenReturn(expected);
-		String response = getJson(expected, false);
+	// When
+	when(
+		facade.getResources(Matchers
+			.<PagedRequest<EnrolmentSubjectResource>> any()))
+		.thenReturn(expected);
+	String response = getJson(expected, false);
 
-		// Then
-		mockMvc.perform(get("/enrolments/subjects/{id}", id))
-			.andExpect(status().isOk())
-			.andExpect(content().string(response));
-		
-		verify(facade).getResource(id);
-	}
+	// Then
+	mockMvc.perform(get("/enrolments/subjects").param("name", name))
+		.andExpect(status().isOk())
+		.andExpect(content().string(response));
 
-	@Test(expected = AccessDeniedException.class)
-	public void testGetResourceWithAccessDeniedException() throws Exception {
-		// Given
-		Long id = 1L;
-		
-		// When
-		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
-		
-		// Then
-		mockMvc.perform(get("/enrolments/subjects/{id}", id));
-		
-		verify(facade).getResource(id);
-	}
+	verify(facade).getResources(request);
+    }
+
+    @Test
+    public void testGetResource() throws Exception {
+	// Given
+	Long id = 1L;
+	String name = "all difficult";
+	String abbrName = "ad";
+	EnrolmentSubjectResource expected = new EnrolmentSubjectResource();
+	expected.setName(name);
+	expected.setAbbrName(abbrName);
+	expected.setId(id);
+
+	// When
+	when(facade.getResource(anyLong())).thenReturn(expected);
+	String response = getJson(expected, false);
+
+	// Then
+	mockMvc.perform(get("/enrolments/subjects/{id}", id))
+		.andExpect(status().isOk())
+		.andExpect(content().string(response));
+
+	verify(facade).getResource(id);
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void testGetResourceWithAccessDeniedException() throws Exception {
+	// Given
+	Long id = 1L;
+
+	// When
+	doThrow(AccessDeniedException.class).when(facade)
+		.getResource(anyLong());
+
+	// Then
+	mockMvc.perform(get("/enrolments/subjects/{id}", id));
+
+	verify(facade).getResource(id);
+    }
 }

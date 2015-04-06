@@ -28,7 +28,7 @@ public class PublicActivityQueryBuilder extends AbstractQueryBuilder<PublicActiv
 		return builder
 				.where()
 				.openBracket()
-					.addAndCondition(PUBLICACTIVITYTYPE_CONDITION, context.getPublicActiveType())
+					.addAndCondition(PUBLICACTIVITYTYPE_CONDITION, context.getPublicActivityTypeType())
 					.addAndCondition(TIMEPERIOD_CONDITION, context.getTimePeriod())
 					.addAndCondition(NAME_CONDITION, context.getName())
 					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
