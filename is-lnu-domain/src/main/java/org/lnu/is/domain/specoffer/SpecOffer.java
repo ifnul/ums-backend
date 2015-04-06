@@ -51,7 +51,7 @@ public class SpecOffer extends InformationModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "eduformtype_id")
-	private EducationFormType eduFormType;
+	private EducationFormType educationFormType;
 
 	@ManyToOne
 	@JoinColumn(name = "specoffertype_id")
@@ -124,12 +124,12 @@ public class SpecOffer extends InformationModel {
 		this.timePeriod = timePeriod;
 	}
 
-	public EducationFormType getEduFormType() {
-		return eduFormType;
+	public EducationFormType getEducationFormType() {
+		return educationFormType;
 	}
 
-	public void setEduFormType(final EducationFormType eduFormType) {
-		this.eduFormType = eduFormType;
+	public void setEducationFormType(final EducationFormType educationFormType) {
+		this.educationFormType = educationFormType;
 	}
 
 	public String getDocSeries() {

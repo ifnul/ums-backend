@@ -32,7 +32,7 @@ public class SpecOfferResourceConverter extends AbstractConverter<SpecOfferResou
 			EducationFormType eduFormType = new EducationFormType();
 			eduFormType.setId(source.getEducationFormTypeId());
 		
-			target.setEduFormType(eduFormType);
+			target.setEducationFormType(eduFormType);
 		}
 		
 		if (source.getSpecialtyId() != null) {

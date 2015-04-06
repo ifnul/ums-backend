@@ -29,8 +29,8 @@ public class SpecOfferConverter extends AbstractConverter<SpecOffer, SpecOfferRe
 			target.setDepartmentId(source.getDepartment().getId());
 		}
 		
-		if (source.getEduFormType() != null) {
-			target.setEducationFormTypeId(source.getEduFormType().getId());
+		if (source.getEducationFormType() != null) {
+			target.setEducationFormTypeId(source.getEducationFormType().getId());
 		}
 		
 		if (source.getSpecialty() != null) {

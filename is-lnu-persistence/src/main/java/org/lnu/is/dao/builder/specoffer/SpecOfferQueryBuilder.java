@@ -16,7 +16,7 @@ public class SpecOfferQueryBuilder extends AbstractQueryBuilder<SpecOffer> {
 	private static final String SPECIALTY_CONDITION = "e.specialty = :specialty ";
 	private static final String DEPARTMENT_CONDITION = "e.department = :department ";
 	private static final String TIMEPERIOD_CONDITION = "e.timePeriod = :timePeriod ";
-	private static final String EDUFORMTYPE_CONDITION = "e.eduFormType = :eduFormType ";
+	private static final String EDUFORMTYPE_CONDITION = "e.educationFormType = :educationFormType ";
 	private static final String SPECOFFERTYPE_CONDITION = "e.specOfferType :specOfferType ";
 	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
 	private static final String DOCNUM_CONDITION = "e.docNum LIKE CONCAT('%',:docNum,'%') ";
@@ -41,7 +41,7 @@ public class SpecOfferQueryBuilder extends AbstractQueryBuilder<SpecOffer> {
 					.addAndCondition(DEPARTMENT_CONDITION, context.getDepartment())
 					.addAndCondition(TIMEPERIOD_CONDITION, context.getTimePeriod())
 					.addAndCondition(TIMEPERIODCOURSE_CONDITION, context.getTimePeriodCourse())
-					.addAndCondition(EDUFORMTYPE_CONDITION, context.getEduFormType())
+					.addAndCondition(EDUFORMTYPE_CONDITION, context.getEducationFormType())
 					.addAndCondition(SPECOFFERTYPE_CONDITION, context.getSpecOfferType())
 					.addAndCondition(DOCSERIES_CONDITION, context.getDocSeries())
 					.addAndCondition(DOCNUM_CONDITION, context.getDocNum())

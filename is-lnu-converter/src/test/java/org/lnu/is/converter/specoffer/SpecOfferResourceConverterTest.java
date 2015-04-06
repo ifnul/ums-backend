@@ -62,7 +62,7 @@ public class SpecOfferResourceConverterTest {
 		expected.setDepartment(department);
 		expected.setDocNum(docNum);
 		expected.setDocSeries(docSeries);
-		expected.setEduFormType(eduFormType);
+		expected.setEducationFormType(eduFormType);
 		expected.setEndDate(endDate);
 		expected.setId(id);
 		expected.setLicCount(licCount);

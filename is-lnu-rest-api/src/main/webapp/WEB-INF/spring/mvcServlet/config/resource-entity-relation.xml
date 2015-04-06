@@ -572,7 +572,7 @@
 		</entry>
 		<entry key="org.lnu.is.resource.publicactivity.PublicActivityResource">
 			<util:map>
-				<entry key="publicActivityTypeId" value="publicActiveType" />
+				<entry key="publicActivityTypeId" value="publicActivityType" />
 				<entry key="timePeriodId" value="timePeriod" />
 				<entry key="name" value="name" />
 				<entry key="begDate" value="begDate" />

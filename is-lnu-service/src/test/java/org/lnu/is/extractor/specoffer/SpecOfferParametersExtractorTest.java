@@ -90,10 +90,10 @@ public class SpecOfferParametersExtractorTest {
 		entity.setDepartment(department);
 		entity.setDocNum(docNum);
 		entity.setDocSeries(docSeries);
-		entity.setEduFormType(eduFormType);
+		entity.setEducationFormType(eduFormType);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
-		expected.put("eduFormType", eduFormType);
+		expected.put("educationFormType", eduFormType);
 		expected.put("department", department);
 		expected.put("begDate", begDate);
 		expected.put("docNum", docNum);
@@ -135,10 +135,10 @@ public class SpecOfferParametersExtractorTest {
 		entity.setDepartment(department);
 		entity.setDocNum(docNum);
 		entity.setDocSeries(docSeries);
-		entity.setEduFormType(eduFormType);
+		entity.setEducationFormType(eduFormType);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
-		expected.put("eduFormType", eduFormType);
+		expected.put("educationFormType", eduFormType);
 		expected.put("department", department);
 		expected.put("begDate", begDate);
 		expected.put("docNum", docNum);

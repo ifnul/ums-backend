@@ -78,7 +78,7 @@ public class SpecOfferConverterTest {
 		source.setDepartment(department);
 		source.setDocNum(docNum);
 		source.setDocSeries(docSeries);
-		source.setEduFormType(eduFormType);
+		source.setEducationFormType(eduFormType);
 		source.setEndDate(endDate);
 		source.setId(id);
 		source.setLicCount(licCount);

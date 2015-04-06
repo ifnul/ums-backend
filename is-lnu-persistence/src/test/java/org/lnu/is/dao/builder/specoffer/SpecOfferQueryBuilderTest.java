@@ -35,7 +35,7 @@ public class SpecOfferQueryBuilderTest {
 		TimePeriod timePeriodCourse = new TimePeriod();
 		SpecOffer parent = new SpecOffer();
 		SpecOfferType specOfferType = new SpecOfferType();
-		EducationFormType eduFormType = new EducationFormType();
+		EducationFormType educationFormType = new EducationFormType();
 		Department department = new Department();
 		String docSeries = "docSeries";
 		String docNum = "docNum";
@@ -48,7 +48,7 @@ public class SpecOfferQueryBuilderTest {
 		context.setDepartment(department);
 		context.setDocNum(docNum);
 		context.setDocSeries(docSeries);
-		context.setEduFormType(eduFormType);
+		context.setEducationFormType(educationFormType);
 		context.setLicCount(licCount);
 		context.setParent(parent);
 		context.setSpecialty(specialty);
@@ -57,7 +57,7 @@ public class SpecOfferQueryBuilderTest {
 		context.setTimePeriod(timePeriod);
 		context.setTimePeriodCourse(timePeriodCourse);
 		
-		String expectedQuery = "SELECT e FROM SpecOffer e WHERE ( e.parent = :parent AND e.specialty = :specialty AND e.department = :department AND e.timePeriod = :timePeriod AND e.timePeriodCourse = :timePeriodCourse AND e.eduFormType = :eduFormType AND e.specOfferType :specOfferType AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.licCount = :licCount AND e.stateCount = :stateCount AND e.begDate <= :begDate AND e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM SpecOffer e WHERE ( e.parent = :parent AND e.specialty = :specialty AND e.department = :department AND e.timePeriod = :timePeriod AND e.timePeriodCourse = :timePeriodCourse AND e.educationFormType = :educationFormType AND e.specOfferType :specOfferType AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.licCount = :licCount AND e.stateCount = :stateCount AND e.begDate <= :begDate AND e.endDate >= :endDate ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<SpecOffer> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -79,7 +79,7 @@ public class SpecOfferQueryBuilderTest {
 		TimePeriod timePeriodCourse = new TimePeriod();
 		SpecOffer parent = new SpecOffer();
 		SpecOfferType specOfferType = new SpecOfferType();
-		EducationFormType eduFormType = new EducationFormType();
+		EducationFormType educationFormType = new EducationFormType();
 		Department department = new Department();
 		String docSeries = "docSeries";
 		String docNum = "docNum";
@@ -92,7 +92,7 @@ public class SpecOfferQueryBuilderTest {
 		context.setDepartment(department);
 		context.setDocNum(docNum);
 		context.setDocSeries(docSeries);
-		context.setEduFormType(eduFormType);
+		context.setEducationFormType(educationFormType);
 		context.setLicCount(licCount);
 		context.setParent(parent);
 		context.setSpecialty(specialty);
@@ -101,7 +101,7 @@ public class SpecOfferQueryBuilderTest {
 		context.setTimePeriod(timePeriod);
 		context.setTimePeriodCourse(timePeriodCourse);
 		
-		String expectedQuery = "SELECT e FROM SpecOffer e WHERE ( e.parent = :parent AND e.specialty = :specialty AND e.department = :department AND e.timePeriod = :timePeriod AND e.timePeriodCourse = :timePeriodCourse AND e.eduFormType = :eduFormType AND e.specOfferType :specOfferType AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.licCount = :licCount AND e.stateCount = :stateCount AND e.begDate <= :begDate AND e.endDate >= :endDate ) ";
+		String expectedQuery = "SELECT e FROM SpecOffer e WHERE ( e.parent = :parent AND e.specialty = :specialty AND e.department = :department AND e.timePeriod = :timePeriod AND e.timePeriodCourse = :timePeriodCourse AND e.educationFormType = :educationFormType AND e.specOfferType :specOfferType AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.licCount = :licCount AND e.stateCount = :stateCount AND e.begDate <= :begDate AND e.endDate >= :endDate ) ";
 		MultiplePagedSearch<SpecOffer> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
