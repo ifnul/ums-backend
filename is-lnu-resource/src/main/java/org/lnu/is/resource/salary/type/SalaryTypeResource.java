@@ -19,12 +19,12 @@ public class SalaryTypeResource extends ApiResource {
 	
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/sallaries/types/{0}", getId());
+		return MessageFormat.format("/salaries/types/{0}", getId());
 	}
 
 	@Override
 	public String getRootUri() {
-		return "/sallaries/types";
+		return "/salaries/types";
 	}
 
 	public String getName() {

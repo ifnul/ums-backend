@@ -26,7 +26,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
  *
  */
 @RestController
-@RequestMapping("/sallaries/types")
+@RequestMapping("/salaries/types")
 public class SalaryTypeController extends BaseController implements PagedController<SalaryTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(SalaryTypeController.class);
 	

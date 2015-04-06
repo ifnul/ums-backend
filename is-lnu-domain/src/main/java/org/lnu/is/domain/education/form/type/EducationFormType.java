@@ -60,7 +60,7 @@ public class EducationFormType extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "EduFormType [name=" + name + "]";
+		return "EducationFormType [name=" + name + "]";
 	}
 	
 }

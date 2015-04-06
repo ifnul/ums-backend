@@ -55,7 +55,7 @@ public class SalaryTypeControllerTest extends AbstractControllerTest {
 		int offset = 0;
 		int limit = 20;
 		long count = 1;
-		PagedResultResource<SalaryTypeResource> expected = new PagedResultResource<>("/sallaries/types");
+		PagedResultResource<SalaryTypeResource> expected = new PagedResultResource<>("/salaries/types");
 		expected.setResources(entities);
 		expected.setOffset(offset);
 		expected.setLimit(limit);
@@ -72,7 +72,7 @@ public class SalaryTypeControllerTest extends AbstractControllerTest {
 		String response = getJson(expected, false);
 		
 		// Then
-		mockMvc.perform(get("/sallaries/types")
+		mockMvc.perform(get("/salaries/types")
 				.param("name", name)
 				.param("abbrName", abbrName))
 				.andExpect(status().isOk())
@@ -97,7 +97,7 @@ public class SalaryTypeControllerTest extends AbstractControllerTest {
 		String response = getJson(expected, false);
 
 		// Then
-		mockMvc.perform(get("/sallaries/types/{id}", id))
+		mockMvc.perform(get("/salaries/types/{id}", id))
 			.andExpect(status().isOk())
 			.andExpect(content().string(response));
 		
@@ -113,7 +113,7 @@ public class SalaryTypeControllerTest extends AbstractControllerTest {
 		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
 		
 		// Then
-		mockMvc.perform(get("/sallaries/types/{id}", id));
+		mockMvc.perform(get("/salaries/types/{id}", id));
 		
 		verify(facade).getResource(id);
 	}	

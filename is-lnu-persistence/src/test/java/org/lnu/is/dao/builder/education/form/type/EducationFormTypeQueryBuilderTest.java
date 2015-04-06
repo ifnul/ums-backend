@@ -4,13 +4,13 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.dao.builder.education.form.type.EduFormTypeQueryBuilder;
+import org.lnu.is.dao.builder.education.form.type.EducationFormTypeQueryBuilder;
 import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 
-public class EduFormTypeQueryBuilderTest {
+public class EducationFormTypeQueryBuilderTest {
 
-	private EduFormTypeQueryBuilder unit = new EduFormTypeQueryBuilder();
+	private EducationFormTypeQueryBuilder unit = new EducationFormTypeQueryBuilder();
 	
 	private Boolean active = true;
 	private Boolean security = true;
@@ -26,7 +26,7 @@ public class EduFormTypeQueryBuilderTest {
 		// Given
 		EducationFormType context = new EducationFormType();
 		
-		String expectedQuery = "SELECT e FROM EduFormType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM EducationFormType e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<EducationFormType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -44,7 +44,7 @@ public class EduFormTypeQueryBuilderTest {
 		
 		EducationFormType context = new EducationFormType();
 		
-		String expectedQuery = "SELECT e FROM EduFormType e WHERE e.status=:status ";
+		String expectedQuery = "SELECT e FROM EducationFormType e WHERE e.status=:status ";
 		MultiplePagedSearch<EducationFormType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -62,7 +62,7 @@ public class EduFormTypeQueryBuilderTest {
 		
 		EducationFormType context = new EducationFormType();
 		
-		String expectedQuery = "SELECT e FROM EduFormType e WHERE e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM EducationFormType e WHERE e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<EducationFormType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -81,7 +81,7 @@ public class EduFormTypeQueryBuilderTest {
 		
 		EducationFormType context = new EducationFormType();
 		
-		String expectedQuery = "SELECT e FROM EduFormType e ";
+		String expectedQuery = "SELECT e FROM EducationFormType e ";
 		MultiplePagedSearch<EducationFormType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -99,7 +99,7 @@ public class EduFormTypeQueryBuilderTest {
 		EducationFormType context = new EducationFormType();
 		context.setName(name);
 
-		String expectedQuery = "SELECT e FROM EduFormType e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM EducationFormType e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<EducationFormType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -120,7 +120,7 @@ public class EduFormTypeQueryBuilderTest {
 		EducationFormType context = new EducationFormType();
 		context.setName(name);
 		
-		String expectedQuery = "SELECT e FROM EduFormType e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) ";
+		String expectedQuery = "SELECT e FROM EducationFormType e WHERE ( e.name LIKE CONCAT('%',:name,'%') ) ";
 		MultiplePagedSearch<EducationFormType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

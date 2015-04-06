@@ -13,17 +13,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.education.form.type.EducationFormType;
-import org.lnu.is.extractor.eduformtype.EduFormTypeParametersExtractor;
+import org.lnu.is.extractor.education.form.type.EducationFormTypeParametersExtractor;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class EduFormTypeParametersExtractorTest {
+public class EducationFormTypeParametersExtractorTest {
 	
 	@InjectMocks
-	private EduFormTypeParametersExtractor unit;
+	private EducationFormTypeParametersExtractor unit;
 
 	@Mock
 	private SessionService sessionService;

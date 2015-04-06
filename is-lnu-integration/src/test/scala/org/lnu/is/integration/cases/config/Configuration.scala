@@ -404,13 +404,13 @@ val data =List(
 	   ),
    	
 	Map(
-	   "name" -> "eduformtype",
-	   "url" -> "/eduformtypes",
-	   "title" -> "Edu Form Types Integration Test",
+	   "name" -> "educationformtype",
+	   "url" -> "/educations/forms/types",
+	   "title" -> "Educations Form Types Integration Test",
 	   "filds" -> List[String](),
 	   "filter" -> Map[String,Any]("name" -> "new"),
 	   "order" -> List[OrderBy](new OrderBy("name", OrderByType.ASC) ),
-	   "pathData" -> "data/eduformtypes/response.json",
+	   "pathData" -> "data/education/form/type/response.json",
 	   "checkFieldsExistence"-> false,
 	   "checkOrder" -> true,
 	   "checkOrderOne" -> true,

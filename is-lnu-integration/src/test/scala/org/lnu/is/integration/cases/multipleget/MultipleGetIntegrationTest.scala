@@ -241,8 +241,8 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
       ),
 
       (
-          "Edu Form Type",
-          "/eduformtypes",
+          "Education Form Type",
+          "/educations/forms/types",
           Array(
           ),
           Array(

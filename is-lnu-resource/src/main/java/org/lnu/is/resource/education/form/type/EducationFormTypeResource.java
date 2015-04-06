@@ -1,4 +1,4 @@
-package org.lnu.is.resource.eduformtype;
+package org.lnu.is.resource.education.form.type;
 
 import java.text.MessageFormat;
 
@@ -11,18 +11,18 @@ import org.lnu.is.resource.ApiResource;
  *
  */
 @ReferenceResource
-public class EduFormTypeResource extends ApiResource {
+public class EducationFormTypeResource extends ApiResource {
 
 	private String name;
 	
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/eduformtypes/{0}", getId());
+		return MessageFormat.format("/educations/forms/types/{0}", getId());
 	}
 	
 	@Override
 	public String getRootUri() {
-		return "/eduformtypes";
+		return "/educations/forms/types";
 	}
 
 	public String getName() {
@@ -52,7 +52,7 @@ public class EduFormTypeResource extends ApiResource {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		EduFormTypeResource other = (EduFormTypeResource) obj;
+		EducationFormTypeResource other = (EducationFormTypeResource) obj;
 		if (name == null) {
 			if (other.name != null) {
 				return false;

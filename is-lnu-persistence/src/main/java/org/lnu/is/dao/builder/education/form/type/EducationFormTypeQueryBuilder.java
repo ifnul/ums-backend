@@ -11,12 +11,12 @@ import org.lnu.is.domain.education.form.type.EducationFormType;
  *
  */
 @QBuilder("eduFormTypeQueryBuilder")
-public class EduFormTypeQueryBuilder extends AbstractQueryBuilder<EducationFormType> {
+public class EducationFormTypeQueryBuilder extends AbstractQueryBuilder<EducationFormType> {
 	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
 
 	@Override
 	protected String getBaseQuery() {
-		return "SELECT e FROM EduFormType e %s";
+		return "SELECT e FROM EducationFormType e %s";
 	}
 
 	@Override

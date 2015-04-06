@@ -6,13 +6,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.converter.education.form.type.EduFormTypeConverter;
+import org.lnu.is.converter.education.form.type.EducationFormTypeConverter;
 import org.lnu.is.domain.education.form.type.EducationFormType;
-import org.lnu.is.resource.eduformtype.EduFormTypeResource;
+import org.lnu.is.resource.education.form.type.EducationFormTypeResource;
 
 public class EducationFormTypeConverterTest {
 
-	private EduFormTypeConverter unit = new EduFormTypeConverter();
+	private EducationFormTypeConverter unit = new EducationFormTypeConverter();
 
 	@Test
 	public void testConvert() throws Exception {
@@ -21,11 +21,11 @@ public class EducationFormTypeConverterTest {
 		EducationFormType source = new EducationFormType();
 		source.setName(name);
 		
-		EduFormTypeResource expected = new EduFormTypeResource();
+		EducationFormTypeResource expected = new EducationFormTypeResource();
 		expected.setName(name);
 		
 		// When
-		EduFormTypeResource actual = unit.convert(source);
+		EducationFormTypeResource actual = unit.convert(source);
 
 		// Then
 		assertEquals(expected, actual);
@@ -43,14 +43,14 @@ public class EducationFormTypeConverterTest {
 		
 		List<EducationFormType> sources = Arrays.asList(source); 
 		
-		EduFormTypeResource expected = new EduFormTypeResource();
+		EducationFormTypeResource expected = new EducationFormTypeResource();
 		expected.setId(id);
 		expected.setName(name);
 		
-		List<EduFormTypeResource> expecteds = Arrays.asList(expected);
+		List<EducationFormTypeResource> expecteds = Arrays.asList(expected);
 		
 		// Where
-		List<EduFormTypeResource> actuals = unit.convertAll(sources);
+		List<EducationFormTypeResource> actuals = unit.convertAll(sources);
 		
 		//Then
 		assertEquals(expecteds, actuals);

@@ -17,12 +17,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.pagination.OrderBy;
-import org.lnu.is.resource.eduformtype.EduFormTypeResource;
+import org.lnu.is.resource.education.form.type.EducationFormTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
-import org.lnu.is.web.rest.controller.eduformtype.EduFormTypeController;
+import org.lnu.is.web.rest.controller.education.form.type.EducationFormTypeController;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;
@@ -32,10 +32,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class EduFormTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<EduFormTypeResource, Long> facade;
+	private Facade<EducationFormTypeResource, Long> facade;
 	
 	@InjectMocks
-	private EduFormTypeController unit;
+	private EducationFormTypeController unit;
 	
 	@Override
 	protected BaseController getUnit() {
@@ -46,27 +46,27 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
 	public void testGetEduFormTypes() throws Exception {
 		// Given
     	String name = "form type 1";
-		EduFormTypeResource resource = new EduFormTypeResource();
+		EducationFormTypeResource resource = new EducationFormTypeResource();
 		resource.setName(name);
 		
-		List<EduFormTypeResource> entities = Arrays.asList(resource);
+		List<EducationFormTypeResource> entities = Arrays.asList(resource);
 
 
 		Integer offset = 0;
 		long count = 1;
 		Integer limit = 38;
-		PagedResultResource<EduFormTypeResource> expected = new PagedResultResource<>("/eduformtypes");
+		PagedResultResource<EducationFormTypeResource> expected = new PagedResultResource<>("/eduformtypes");
 		expected.setResources(entities);
 		expected.setCount(count);
 		expected.setLimit(limit);
 		expected.setOffset(offset);
 
-		EduFormTypeResource paramResource = new EduFormTypeResource();
+		EducationFormTypeResource paramResource = new EducationFormTypeResource();
 		paramResource.setName(name);
-		PagedRequest<EduFormTypeResource> request = new PagedRequest<EduFormTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
+		PagedRequest<EducationFormTypeResource> request = new PagedRequest<EducationFormTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
-		when(facade.getResources(Matchers.<PagedRequest<EduFormTypeResource>>any())).thenReturn(expected);
+		when(facade.getResources(Matchers.<PagedRequest<EducationFormTypeResource>>any())).thenReturn(expected);
     	String response = getJson(expected, false);
 
 		// Then
@@ -83,7 +83,7 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
 		// Given
 		Long id = 1L;
 		String name = "all difficult";
-		EduFormTypeResource expected = new EduFormTypeResource();
+		EducationFormTypeResource expected = new EducationFormTypeResource();
 		expected.setName(name);
 		expected.setId(id);
 		

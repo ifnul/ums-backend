@@ -1,10 +1,10 @@
-package org.lnu.is.web.rest.controller.eduformtype;
+package org.lnu.is.web.rest.controller.education.form.type;
 
 import javax.annotation.Resource;
 
 import org.lnu.is.annotations.Limit;
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.resource.eduformtype.EduFormTypeResource;
+import org.lnu.is.resource.education.form.type.EducationFormTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;
@@ -28,19 +28,19 @@ import com.wordnik.swagger.annotations.ApiOperation;
  *
  */
 @RestController
-@RequestMapping("/eduformtypes")
+@RequestMapping("/educations/forms/types")
 @Api("Education Form Types")
-public class EduFormTypeController extends BaseController implements PagedController<EduFormTypeResource> {
-	private static final Logger LOG = LoggerFactory.getLogger(EduFormTypeController.class);
+public class EducationFormTypeController extends BaseController implements PagedController<EducationFormTypeResource> {
+	private static final Logger LOG = LoggerFactory.getLogger(EducationFormTypeController.class);
 	
 	@Resource(name = "eduFormTypeFacade")
-	private Facade<EduFormTypeResource, Long> facade;
+	private Facade<EducationFormTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get Education Form Types")
-	public PagedResultResource<EduFormTypeResource> getPagedResource(@Limit(defaultValue = "38") final PagedRequest<EduFormTypeResource> request) {
+	public PagedResultResource<EducationFormTypeResource> getPagedResource(@Limit(defaultValue = "38") final PagedRequest<EducationFormTypeResource> request) {
 		LOG.info("Getting Paged Result of  Edu Form Type with  offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
 	}
@@ -49,7 +49,7 @@ public class EduFormTypeController extends BaseController implements PagedContro
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = Request.ID, method = RequestMethod.GET)
 	@ApiOperation(value = "Get Edu Form Type by id")
-	public EduFormTypeResource getResource(@PathVariable("id") final Long id) {
+	public EducationFormTypeResource getResource(@PathVariable("id") final Long id) {
 		return facade.getResource(id);
 	}
 }
