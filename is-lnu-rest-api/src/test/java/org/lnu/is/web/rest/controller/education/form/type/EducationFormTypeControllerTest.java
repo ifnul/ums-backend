@@ -29,7 +29,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class EduFormTypeControllerTest extends AbstractControllerTest {
+public class EducationFormTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
 	private Facade<EducationFormTypeResource, Long> facade;
@@ -70,7 +70,7 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
     	String response = getJson(expected, false);
 
 		// Then
-    	mockMvc.perform(get("/eduformtypes")
+    	mockMvc.perform(get("/educations/forms/types")
     			.param("name", name))
     		.andExpect(status().isOk())
     		.andExpect(content().string(response));
@@ -92,7 +92,7 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
 		String response = getJson(expected, false);
 
 		// Then
-		mockMvc.perform(get("/eduformtypes/{id}", id))
+		mockMvc.perform(get("/educations/forms/types/{id}", id))
 			.andExpect(status().isOk())
 			.andExpect(content().string(response));
 		
@@ -108,7 +108,7 @@ public class EduFormTypeControllerTest extends AbstractControllerTest {
 		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
 		
 		// Then
-		mockMvc.perform(get("/eduformtypes/{id}", id));
+		mockMvc.perform(get("/educations/forms/types/{id}", id));
 		
 		verify(facade).getResource(id);
 	}
