@@ -608,6 +608,8 @@
 				            <exclude>org/lnu/is/pagination/**/*.class</exclude>
 				            <exclude>org/lnu/is/queries/**/*.class</exclude>
 				            <exclude>org/lnu/is/queries/**/*.class</exclude>
+				            <exclude>org/is/lnu/edbo/model/**/*.class</exclude>
+				            <exclude>org/is/lnu/edbo/resource/**/*.class</exclude>
 				            <exclude>**/model/*.class</exclude>
 				            <exclude>org/lnu/is/web/rest/constant/Constants.class</exclude>
 				            <exclude>org/lnu/is/web/rest/constant/Request.class</exclude>				            
