@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.controller.address.type;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
@@ -17,6 +18,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.pagination.OrderBy;
+import org.lnu.is.pagination.OrderByType;
 import org.lnu.is.resource.addresstype.AddressTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
@@ -114,6 +116,48 @@ public class AddressTypeControllerTest extends AbstractControllerTest {
 		mockMvc.perform(get("/addresstypes/{id}", id));
 		
 		verify(facade).getResource(id);
+	}
+	
+	@Test
+	public void testOrderBy() throws Exception {
+		// Given
+		int offset = 0;
+		int limit = 20;
+		long count = 1;
+		
+		String abbrName = "abbr name";		
+		String name = "name";
+		AddressTypeResource resource = new AddressTypeResource();
+		resource.setAbbrName(abbrName);
+		resource.setName(name);
+
+		List<AddressTypeResource> entities = Arrays.asList(resource);
+		PagedResultResource<AddressTypeResource> expected = new PagedResultResource<>(
+				"/addresstypes");
+		expected.setResources(entities);
+		expected.setCount(count);
+		expected.setLimit(limit);
+		expected.setOffset(offset);
+		
+		OrderBy orderBy1 = new OrderBy("abbrName", OrderByType.ASC);
+		OrderBy orderBy2 = new OrderBy("name", OrderByType.DESC);
+		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
+		PagedRequest<AddressTypeResource> request = new PagedRequest<AddressTypeResource>();
+		request.setOffset(offset);
+		request.setLimit(limit);
+		request.setOrders(orders);
+
+		// When
+		when(facade.getResources(Matchers.<PagedRequest<AddressTypeResource>> any())).thenReturn(expected);
+		String response = getJson(expected, false);
+		PagedResultResource<AddressTypeResource> actual = unit.getPagedResource(request);
+
+		// Then
+		mockMvc.perform(get("/addresstypes"))
+				.andExpect(status().isOk())
+				.andExpect(content().string(response));
+
+		assertEquals(expected, actual);
 	}
 	
 }
