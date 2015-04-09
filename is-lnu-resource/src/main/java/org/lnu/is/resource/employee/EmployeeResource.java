@@ -3,6 +3,7 @@ package org.lnu.is.resource.employee;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -16,30 +17,39 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class EmployeeResource extends ApiResource {
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long parentId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long personId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long employeeTypeId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long genderTypeId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long departmentId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long postId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long jobTypeId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long employeeStatusId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long orderId;
 
 	@NotNull(message = "Field required")

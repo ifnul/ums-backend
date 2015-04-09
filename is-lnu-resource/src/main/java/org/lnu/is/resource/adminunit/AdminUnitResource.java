@@ -4,6 +4,7 @@ import java.text.MessageFormat;
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Min;
 
 import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
@@ -19,6 +20,7 @@ public class AdminUnitResource extends ApiResource {
 	private Long parentId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long adminUnitTypeId;
 
 	@NotNull(message = "Field required")

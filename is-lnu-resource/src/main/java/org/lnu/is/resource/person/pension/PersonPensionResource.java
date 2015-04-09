@@ -3,6 +3,8 @@ package org.lnu.is.resource.person.pension;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
+
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -12,8 +14,10 @@ import org.lnu.is.resource.ApiResource;
  */
 public class PersonPensionResource extends ApiResource {
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long personId;
 	
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long pensionTypeId;
 	
 	private Date begDate;

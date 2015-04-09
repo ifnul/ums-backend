@@ -3,6 +3,7 @@ package org.lnu.is.resource.publicactivity;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.resource.ApiResource;
@@ -15,9 +16,11 @@ import org.lnu.is.resource.ApiResource;
 public class PublicActivityResource extends ApiResource {
 
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long publicActivityTypeId;
 	
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long timePeriodId;
 	
 	@NotNull

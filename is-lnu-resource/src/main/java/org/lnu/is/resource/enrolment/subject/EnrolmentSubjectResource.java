@@ -2,6 +2,8 @@ package org.lnu.is.resource.enrolment.subject;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.Min;
+
 import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -13,6 +15,7 @@ import org.lnu.is.resource.ApiResource;
 @ReferenceResource
 public class EnrolmentSubjectResource extends ApiResource {
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long parentId;
 	
 	private String abbrName;

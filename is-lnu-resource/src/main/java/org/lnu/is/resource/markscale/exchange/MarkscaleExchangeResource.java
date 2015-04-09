@@ -2,6 +2,7 @@ package org.lnu.is.resource.markscale.exchange;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -16,12 +17,16 @@ import org.lnu.is.resource.ApiResource;
 public class MarkscaleExchangeResource extends ApiResource {
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long markscaleId;
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long markscaleValueId;
 	
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long markscaleExchangeId;
 	
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long markscaleExchangeValueId;
 	
 	private Double markMin;

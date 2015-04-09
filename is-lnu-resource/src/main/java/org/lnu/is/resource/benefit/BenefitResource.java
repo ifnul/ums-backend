@@ -3,6 +3,7 @@ package org.lnu.is.resource.benefit;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -19,6 +20,7 @@ public class BenefitResource extends ApiResource {
 	private Long parentId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long benefitTypeId;
 	
 	@NotNull(message = "Field required")

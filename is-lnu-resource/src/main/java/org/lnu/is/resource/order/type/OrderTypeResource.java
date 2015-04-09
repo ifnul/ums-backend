@@ -2,6 +2,8 @@ package org.lnu.is.resource.order.type;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.Min;
+
 import org.lnu.is.annotation.ReferenceResource;
 import org.lnu.is.resource.ApiResource;
 
@@ -17,6 +19,7 @@ public class OrderTypeResource extends ApiResource {
 
 	private String name;
 	
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long parentId;
 	
 	@Override

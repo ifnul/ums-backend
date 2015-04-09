@@ -3,6 +3,7 @@ package org.lnu.is.resource.person.family;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.resource.ApiResource;
@@ -15,9 +16,11 @@ import org.lnu.is.resource.ApiResource;
 public class PersonFamilyResource extends ApiResource {
 
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long personId;
 	
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long familyTypeId;
 	
 	@NotNull

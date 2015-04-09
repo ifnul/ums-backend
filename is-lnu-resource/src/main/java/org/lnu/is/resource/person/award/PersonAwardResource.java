@@ -2,6 +2,7 @@ package org.lnu.is.resource.person.award;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -16,12 +17,15 @@ import org.lnu.is.resource.ApiResource;
 public class PersonAwardResource extends ApiResource {
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long personId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long personPaperId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long publicActivityAwardId;
 	
 	@NotNull(message = "Field required")

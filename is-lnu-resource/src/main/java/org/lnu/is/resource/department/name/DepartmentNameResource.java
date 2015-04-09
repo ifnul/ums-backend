@@ -2,6 +2,8 @@ package org.lnu.is.resource.department.name;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.Min;
+
 import org.lnu.is.resource.ApiResource;
 
 /**
@@ -11,8 +13,10 @@ import org.lnu.is.resource.ApiResource;
  */
 public class DepartmentNameResource extends ApiResource {
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long departmentId;
 	
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long languageId;
 	
 	private String abbrName;

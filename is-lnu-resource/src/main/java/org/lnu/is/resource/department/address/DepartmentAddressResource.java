@@ -2,6 +2,7 @@ package org.lnu.is.resource.department.address;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.resource.ApiResource;
@@ -14,15 +15,19 @@ import org.lnu.is.resource.ApiResource;
 public class DepartmentAddressResource extends ApiResource {
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long departmentId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long addressTypeId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long adminUnitId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long streetTypeId;
 	
 	@NotNull(message = "Field required")

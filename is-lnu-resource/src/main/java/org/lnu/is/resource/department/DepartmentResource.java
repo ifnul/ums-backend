@@ -3,6 +3,7 @@ package org.lnu.is.resource.department;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -16,11 +17,14 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class DepartmentResource extends ApiResource {
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long parentId;
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long orderId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long departmentTypeId;
 
 	@NotNull(message = "Field required")

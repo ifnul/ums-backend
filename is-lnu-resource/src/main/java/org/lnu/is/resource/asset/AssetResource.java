@@ -3,6 +3,7 @@ package org.lnu.is.resource.asset;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -16,21 +17,28 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class AssetResource extends ApiResource {
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long partnerId;
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long parentId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long assetTypeId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long assetStateId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long assetStatusId;
 	
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long departmentId;
 	
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long employeeId;
 	
 	private Long orderId;

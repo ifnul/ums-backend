@@ -3,6 +3,7 @@ package org.lnu.is.resource.enrolment;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -17,21 +18,27 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class EnrolmentResource extends ApiResource {
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long parentId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long personId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long specOfferId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long departmentId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long personPaperId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long enrolmentTypeId;
 
 	@NotNull(message = "Field required")

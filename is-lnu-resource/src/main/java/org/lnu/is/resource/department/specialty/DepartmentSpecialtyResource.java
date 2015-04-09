@@ -2,6 +2,7 @@ package org.lnu.is.resource.department.specialty;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.resource.ApiResource;
@@ -14,9 +15,11 @@ import org.lnu.is.resource.ApiResource;
 public class DepartmentSpecialtyResource extends ApiResource {
 
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long departmentId;
 	
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long specialtyId;
 	
 	@Override

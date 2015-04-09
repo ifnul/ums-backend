@@ -3,6 +3,7 @@ package org.lnu.is.resource.specoffer.wave;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.resource.ApiResource;
@@ -15,9 +16,11 @@ import org.lnu.is.resource.ApiResource;
 public class SpecOfferWaveResource extends ApiResource {
 
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long specOfferId;
 
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long waveTypeId;
 	
 	@NotNull

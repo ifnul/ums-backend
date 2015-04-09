@@ -2,6 +2,7 @@ package org.lnu.is.resource.enrolment.status;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -16,12 +17,15 @@ import org.lnu.is.resource.ApiResource;
 public class EnrolmentStatusResource extends ApiResource {
 	
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long enrolmentId;
 	
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long specOfferWaveId;
 	
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long enrolmentStatusTypeId;
 	
 	@Override

@@ -3,6 +3,7 @@ package org.lnu.is.resource.person.address;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -16,18 +17,23 @@ import org.lnu.is.resource.ApiResource;
 @CrudableResource
 public class PersonAddressResource extends ApiResource {
 
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long assetId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long personId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long addressTypeId;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long adminUnitId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long streetTypeId;
 
 	@NotNull(message = "Field required")

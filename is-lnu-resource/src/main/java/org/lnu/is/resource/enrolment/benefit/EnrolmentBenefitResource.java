@@ -2,6 +2,7 @@ package org.lnu.is.resource.enrolment.benefit;
 
 import java.text.MessageFormat;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.resource.ApiResource;
@@ -14,12 +15,15 @@ import org.lnu.is.resource.ApiResource;
 public class EnrolmentBenefitResource extends ApiResource {
 
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long enrolmentId;
 	
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long benefitId;
 	
 	@NotNull
+	@Min(value = 1, message = "Minimal value is 1")
 	private Long personPaperId;
 	
 	@Override
