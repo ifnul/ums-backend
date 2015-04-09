@@ -20,13 +20,23 @@ import scala.concurrent.duration.DurationInt
 
 object ResourceByIdIntegrationTest {
   
-    val urls = List("/persons/types", "/streets/types", "/timeperiods/types","/papers/types" , 
-        "/orders/types", "/marriedtypes", "/languages", "/gendertypes", "/honors/types",
-        "/enrolments/types", "/enrolments/subjects", "/enrolments/statustypes",
-        "/eduformtypes", "/educations/types", "/departments/types", "/courses/types",
-        "/contacts/types", "/assets/types", "/assets/statuses", "/assets/states", 
-        "/adminunits", "/addresstypes",
-        "/departments", "/timeperiods")
+    val urls = List(
+        "/addresstypes", "/adminunits", "/adminunits/types", "/assets",
+        "/assets/states", "/assets/statuses", "/assets/types", "/benefits",
+        "/benefits/types", "/broadcastings", "/contacts/types", "/courses/types",
+        "/degrees", "/degrees/types", "/departments", "/departments/types",
+        "/duties/types", "/educations/types", "/educations/forms/types","/employees",
+        "/employees/statuses", "/employees/types", "/enrolments", "/enrolments/statustypes",
+        "/enrolments/subjects", "/enrolments/types", "/enrolmentforeignes/types", "/families/types",
+        "/gendertypes", "/honors/types", "/jobtypes", "/languages",
+        "/markscales", "/markscales/types", "/marriedtypes", "/operationtypes",
+        "/orders", "/orders/types", "/papers/types", "/papers/usages",
+        "/partners", "/persons", "/persons/types", "/publicactivities",
+        "/publicactivities/types", "/reasons", "/salaries/types", "/specialties",
+        "/specialties/types", "/specoffers", "/specoffers/types", "/streets/types",
+        "/studyplans/cycles", "/subjects", "/subjects/types", "/timeperiods",
+        "/timeperiods/types", "/timesheets/types", "/wave/types"
+    )
     
     val testCase = 
       exec(session => {
