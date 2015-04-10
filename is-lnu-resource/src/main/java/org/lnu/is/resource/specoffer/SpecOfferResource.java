@@ -40,10 +40,8 @@ public class SpecOfferResource extends ApiResource {
 	@Min(value = 1, message = "Minimal value is 1")
 	private Long specofferTypeId;
 	
-	@NotNull(message = "Field required")
 	private String docSeries;
 	
-	@NotNull(message = "Field required")
 	private String docNum;
 	
 	@NotNull(message = "Field required")
