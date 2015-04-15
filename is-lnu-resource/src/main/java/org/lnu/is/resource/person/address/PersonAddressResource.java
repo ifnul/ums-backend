@@ -48,10 +48,8 @@ public class PersonAddressResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private String apartment;
 	
-	@NotNull(message = "Field required")
 	private Date begDate;
 	
-	@NotNull(message = "Field required")
 	private Date endDate;
 
 	@Override
