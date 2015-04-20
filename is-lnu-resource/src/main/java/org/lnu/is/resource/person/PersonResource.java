@@ -69,7 +69,6 @@ public class PersonResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Date begDate;
 	
-	@NotNull(message = "Field required")
 	private Date endDate;
 	
 	@NotNull(message = "Field required")
