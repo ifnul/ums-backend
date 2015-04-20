@@ -82,7 +82,7 @@ public class PersonPaperController extends BaseController implements CrudControl
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{personId}/papers", method = RequestMethod.GET)
+	@RequestMapping(value = {"/{personId}/papers", "/papers"}, method = RequestMethod.GET)
 	@ApiOperation(value = "Get PersonPapers")
 	public PagedResultResource<PersonPaperResource> getPagedResource(final PagedRequest<PersonPaperResource> request) {
 		LOG.info("Retrieving PagedResultResource for PersonPaper:{} Resources with offset: {}, limit: {}", request.getResource().getPersonId(), request.getOffset(), request.getLimit());
