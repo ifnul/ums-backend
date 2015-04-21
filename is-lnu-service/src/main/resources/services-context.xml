@@ -213,24 +213,24 @@
 		<property name="dao" ref="languageDao" />
 	</bean>
 	
-	<bean id="markscaleService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="markscaleParametersExtractor"/>
-		<property name="dao" ref="markscaleDao"/>
+	<bean id="markScaleService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="markScaleParametersExtractor"/>
+		<property name="dao" ref="markScaleDao"/>
 	</bean>
 	
-	<bean id="markscaleExchangeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="markscaleExchangeParametersExtractor"/>
-		<property name="dao" ref="markscaleExchangeDao"/>
+	<bean id="markScaleExchangeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="markScaleExchangeParametersExtractor"/>
+		<property name="dao" ref="markScaleExchangeDao"/>
 	</bean>
 	
-	<bean id="markscaleTypeService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="markscaleTypeParametersExtractor"/>
-		<property name="dao" ref="markscaleTypeDao"/>
+	<bean id="markScaleTypeService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="markScaleTypeParametersExtractor"/>
+		<property name="dao" ref="markScaleTypeDao"/>
 	</bean>
 	
-	<bean id="markscaleValueService" class="org.lnu.is.service.DefaultService">
-		<property name="parametersExtractor" ref="markscaleValueParametersExtractor"/>
-		<property name="dao" ref="markscaleValueDao"/>
+	<bean id="markScaleValueService" class="org.lnu.is.service.DefaultService">
+		<property name="parametersExtractor" ref="markScaleValueParametersExtractor"/>
+		<property name="dao" ref="markScaleValueDao"/>
 	</bean>
 
 	<bean id="marriedTypeService" class="org.lnu.is.service.DefaultService">

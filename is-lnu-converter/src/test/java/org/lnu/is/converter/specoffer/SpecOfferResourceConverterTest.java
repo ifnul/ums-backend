@@ -34,8 +34,7 @@ public class SpecOfferResourceConverterTest {
 
 		Long id = 1L;
 		Integer licCount = 223;
-		String note = "soem notes";
-
+		
 		Long parentId = 45L;
 		SpecOffer parent = new SpecOffer();
 		parent.setId(parentId);
@@ -66,7 +65,6 @@ public class SpecOfferResourceConverterTest {
 		expected.setEndDate(endDate);
 		expected.setId(id);
 		expected.setLicCount(licCount);
-		expected.setNote(note);
 		expected.setParent(parent);
 		expected.setSpecialty(specialty);
 		expected.setSpecOfferType(specOfferType);
@@ -82,7 +80,6 @@ public class SpecOfferResourceConverterTest {
 		source.setEndDate(endDate);
 		source.setId(id);
 		source.setLicCount(licCount);
-		source.setNote(note);
 		source.setSpecialtyId(specialtyId);
 		source.setSpecofferTypeId(specOfferTypeId);
 		source.setStateCount(stateCount);
@@ -106,7 +103,6 @@ public class SpecOfferResourceConverterTest {
 		Date endDate = new Date();
 		Long id = 1L;
 		Integer licCount = 223;
-		String note = "soem notes";
 		Integer stateCount = 34;
 		
 		SpecOffer expected = new SpecOffer();
@@ -116,7 +112,6 @@ public class SpecOfferResourceConverterTest {
 		expected.setEndDate(endDate);
 		expected.setId(id);
 		expected.setLicCount(licCount);
-		expected.setNote(note);
 		expected.setStateCount(stateCount);
 		
 		SpecOfferResource source = new SpecOfferResource();
@@ -126,7 +121,6 @@ public class SpecOfferResourceConverterTest {
 		source.setEndDate(endDate);
 		source.setId(id);
 		source.setLicCount(licCount);
-		source.setNote(note);
 		source.setStateCount(stateCount);
 		
 		// When

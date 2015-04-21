@@ -22,7 +22,6 @@ public class SpecOfferConverter extends AbstractConverter<SpecOffer, SpecOfferRe
 		target.setEndDate(source.getEndDate());
 		target.setId(source.getId());
 		target.setLicCount(source.getLicCount());
-		target.setNote(source.getNote());
 		target.setStateCount(source.getStateCount());
 
 		if (source.getDepartment() != null) {

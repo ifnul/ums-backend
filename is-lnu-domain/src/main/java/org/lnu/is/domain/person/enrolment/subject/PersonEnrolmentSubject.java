@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.enrolment.subject.EnrolmentSubject;
+import org.lnu.is.domain.mark.scale.MarkScale;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.paper.PersonPaper;
 
@@ -34,6 +35,11 @@ public class PersonEnrolmentSubject extends InformationModel {
 	@ManyToOne
 	@JoinColumn(name = "enrolsubject_id")
 	private EnrolmentSubject enrolmentSubject;
+	
+	@ManyToOne
+	@JoinColumn(name = "markscale_id")
+	private MarkScale markScale;
+	
 	
 	@Column(name = "mark")
 	private Double mark;

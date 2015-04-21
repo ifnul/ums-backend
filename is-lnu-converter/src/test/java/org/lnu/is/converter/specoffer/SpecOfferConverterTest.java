@@ -39,8 +39,7 @@ public class SpecOfferConverterTest {
 
 		Long id = 1L;
 		Integer licCount = 223;
-		String note = "soem notes";
-
+		
 		Long parentId = 45L;
 		SpecOffer parent = new SpecOffer();
 		parent.setId(parentId);
@@ -82,7 +81,6 @@ public class SpecOfferConverterTest {
 		source.setEndDate(endDate);
 		source.setId(id);
 		source.setLicCount(licCount);
-		source.setNote(note);
 		source.setParent(parent);
 		source.setSpecialty(specialty);
 		source.setSpecOfferType(specOfferType);
@@ -104,7 +102,6 @@ public class SpecOfferConverterTest {
 		expected.setEndDate(endDate);
 		expected.setId(id);
 		expected.setLicCount(licCount);
-		expected.setNote(note);
 		expected.setSpecialtyId(specialtyId);
 		expected.setSpecofferTypeId(specOfferTypeId);
 		expected.setStateCount(stateCount);
@@ -131,7 +128,6 @@ public class SpecOfferConverterTest {
 		Date endDate = new Date();
 		Long id = 1L;
 		Integer licCount = 223;
-		String note = "soem notes";
 		Integer stateCount = 34;
 		RowStatus status = RowStatus.ACTIVE;
 		String uapp = "uap";
@@ -150,7 +146,6 @@ public class SpecOfferConverterTest {
 		source.setEndDate(endDate);
 		source.setId(id);
 		source.setLicCount(licCount);
-		source.setNote(note);
 		source.setStateCount(stateCount);
 		source.setStatus(status);
 		source.setUapp(uapp);
@@ -165,7 +160,6 @@ public class SpecOfferConverterTest {
 		expected.setEndDate(endDate);
 		expected.setId(id);
 		expected.setLicCount(licCount);
-		expected.setNote(note);
 		expected.setStateCount(stateCount);
 		
 		// When

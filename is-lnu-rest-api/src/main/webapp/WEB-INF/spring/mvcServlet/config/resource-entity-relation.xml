@@ -337,35 +337,35 @@
 				<entry key="name" value="name" />
 			</util:map>
 		</entry>
-		<entry key="org.lnu.is.resource.markscale.MarkscaleResource">
+		<entry key="org.lnu.is.resource.mark.scale.MarkScaleResource">
 			<util:map>
-				<entry key="markscaleTypeId" value="markscaleType" />
+				<entry key="markScaleTypeId" value="markScaleType" />
 				<entry key="abbrName" value="abbrName" />
 				<entry key="name" value="name" />
 				<entry key="markMin" value="markMin" />
 				<entry key="markMax" value="markMax" />
 			</util:map>
 		</entry>
-		<entry key="org.lnu.is.resource.markscale.exchange.MarkscaleExchangeResource">
+		<entry key="org.lnu.is.resource.mark.scale.exchange.MarkScaleExchangeResource">
 			<util:map>
-				<entry key="markscaleId" value="markscale" />
-				<entry key="markscaleValueId" value="markscaleValue" />
-				<entry key="markscaleExchangeId" value="markscaleExchange" />
-				<entry key="markscaleExchangeValueId" value="markscaleExchangeValue" />
+				<entry key="markScaleId" value="markScale" />
+				<entry key="markScaleValueId" value="markScaleValue" />
+				<entry key="markScaleExchangeId" value="markScaleExchange" />
+				<entry key="markScaleExchangeValueId" value="markScaleExchangeValue" />
 				<entry key="markMin" value="markMin" />
 				<entry key="markMax" value="markMax" />
 				<entry key="markExchange" value="markExchange" />
 			</util:map>
 		</entry>
-		<entry key="org.lnu.is.resource.markscale.type.MarkscaleTypeResource">
+		<entry key="org.lnu.is.resource.mark.scale.type.MarkScaleTypeResource">
 			<util:map>
 				<entry key="abbrName" value="abbrName" />
 				<entry key="name" value="name" />
 			</util:map>
 		</entry>
-		<entry key="org.lnu.is.resource.markscale.value.MarkscaleValueResource">
+		<entry key="org.lnu.is.resource.mark.scale.value.MarkScaleValueResource">
 			<util:map>
-				<entry key="markscaleId" value="markscale" />
+				<entry key="markScaleId" value="markScale" />
 				<entry key="strValue" value="strValue" />
 			</util:map>
 		</entry>

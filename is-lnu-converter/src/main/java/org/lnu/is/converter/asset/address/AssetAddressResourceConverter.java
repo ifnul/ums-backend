@@ -48,7 +48,6 @@ public class AssetAddressResourceConverter extends AbstractConverter<AssetAddres
 		target.setStreet(source.getStreet());
 		target.setHouse(source.getHouse());
 		target.setApartment(source.getApartment());
-		target.setNote(source.getNote());
 		
 		return target;
 	}

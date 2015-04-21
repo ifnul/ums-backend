@@ -20,7 +20,6 @@ public class SpecOfferSubjectConverter extends AbstractConverter<SpecOfferSubjec
 		target.setId(source.getId());
 		target.setIsMajor(source.getIsMajor());
 		target.setMark(source.getMark());
-		target.setNote(source.getNote());
 		target.setWeightSubject(source.getWeightSubject());
 		
 		if (source.getSpecOffer() != null) {

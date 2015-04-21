@@ -23,7 +23,6 @@ public class SpecialtyConverter extends AbstractConverter<Specialty, SpecialtyRe
 		target.setCipher(source.getCipher());
 		target.setEndDate(source.getEndDate());
 		target.setName(source.getName());
-		target.setNote(source.getNote());
 
 		if (source.getSpecialtyType() != null) {
 			target.setSpecialtyTypeId(source.getSpecialtyType().getId());

@@ -60,7 +60,6 @@ public class OrderConverter extends AbstractConverter<Order, OrderResource> {
 		target.setEvDate(source.getEvDate());
 		target.setDescription(source.getDescription());
 		target.setTitle(source.getTitle());
-		target.setNote(source.getNote());
 		target.setId(source.getId());
 		
 		return target;

@@ -60,10 +60,10 @@ PersonPension
 PersonWork
 Degree
 StudyPlanCycle (потрібно поправити і підключити)
-Markscale
-MarkscaleExchange
-MarkscaleType
-MarkscaleValue
+educationFormTypeId
+educationFormTypeIdExchange
+educationFormTypeIdType
+educationFormTypeIdValue
 EnrolmentForeignType
 
 Broadcastings -> Email sending:

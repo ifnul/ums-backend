@@ -35,7 +35,6 @@ public class SpecialtyResourceConverter extends AbstractConverter<SpecialtyResou
 		target.setCipher(source.getCipher());
 		target.setEndDate(source.getEndDate());
 		target.setName(source.getName());
-		target.setNote(source.getNote());
 		
 		return target;
 	}

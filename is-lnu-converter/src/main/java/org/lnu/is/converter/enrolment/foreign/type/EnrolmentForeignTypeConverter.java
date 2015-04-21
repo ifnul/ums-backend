@@ -20,7 +20,6 @@ public class EnrolmentForeignTypeConverter extends AbstractConverter<EnrolmentFo
 		target.setId(source.getId());
 		target.setName(source.getName());
 		target.setAbbrName(source.getAbbrName());
-		target.setNote(source.getNote());
 
 		return target;
 	}

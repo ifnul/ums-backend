@@ -17,11 +17,11 @@ public class EntityDetailsConverterTest {
 	public void testConvert() throws Exception {
 		// Given
 		String utid = "utid";
-		String note = "note";
+		String note = "sss";
 		
 		Person source = new Person();
-		source.setNote(note);
 		source.setUtid(utid);
+		source.setNote(note);
 		
 		PersonResource target = new PersonResource();
 

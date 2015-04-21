@@ -49,11 +49,11 @@
         <class>org.lnu.is.domain.language.Language</class>
         <class>org.lnu.is.domain.language.LanguageLevel</class>
         
-        <!-- Markscale entities -->
-        <class>org.lnu.is.domain.markscale.Markscale</class>
-        <class>org.lnu.is.domain.markscale.exchange.MarkscaleExchange</class>
-        <class>org.lnu.is.domain.markscale.type.MarkscaleType</class>
-        <class>org.lnu.is.domain.markscale.value.MarkscaleValue</class>
+        <!-- MarkScale entities -->
+        <class>org.lnu.is.domain.mark.scale.MarkScale</class>
+        <class>org.lnu.is.domain.mark.scale.exchange.MarkScaleExchange</class>
+        <class>org.lnu.is.domain.mark.scale.type.MarkScaleType</class>
+        <class>org.lnu.is.domain.mark.scale.value.MarkScaleValue</class>
 
 		<!-- Enrolment related entities -->
         <class>org.lnu.is.domain.enrolment.Enrolment</class>

@@ -37,7 +37,6 @@ public class AssetAddressConverter extends AbstractConverter<AssetAddress, Asset
 		target.setStreet(source.getStreet());
 		target.setHouse(source.getHouse());
 		target.setApartment(source.getApartment());
-		target.setNote(source.getNote());
 		
 		return target;
 	}

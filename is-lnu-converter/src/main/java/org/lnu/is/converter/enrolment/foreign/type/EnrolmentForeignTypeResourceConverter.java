@@ -19,7 +19,6 @@ public class EnrolmentForeignTypeResourceConverter extends AbstractConverter<Enr
 
 		target.setName(source.getName());
 		target.setAbbrName(source.getAbbrName());
-		target.setNote(source.getNote());
 
 		return target;
 	}
