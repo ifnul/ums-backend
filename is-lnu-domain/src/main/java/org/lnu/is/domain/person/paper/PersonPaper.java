@@ -10,9 +10,12 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.asset.Asset;
 import org.lnu.is.domain.honors.type.HonorType;
+import org.lnu.is.domain.mark.scale.MarkScale;
 import org.lnu.is.domain.paper.type.PaperType;
 import org.lnu.is.domain.person.Person;
+import org.lnu.is.domain.specialty.Specialty;
 
 /**
  * Person Paper entity.
@@ -36,6 +39,18 @@ public class PersonPaper extends InformationModel {
 	@ManyToOne
 	@JoinColumn(name = "honorstype_id")
 	private HonorType honorsType;
+	
+	@ManyToOne
+	@JoinColumn(name = "markscale_id")
+	private MarkScale markScale;
+	
+	@ManyToOne
+	@JoinColumn(name = "specialty_id")
+	private Specialty specialty;
+	
+	@ManyToOne
+	@JoinColumn(name = "asset_id")
+	private Asset asset;
 	
 	@Column(name = "docseries")
 	private String docSeries;
@@ -61,6 +76,7 @@ public class PersonPaper extends InformationModel {
 	@Column(name = "isforeign")
 	private Integer isForeign;
 
+	
 	public Person getPerson() {
 		return person;
 	}
@@ -147,6 +163,30 @@ public class PersonPaper extends InformationModel {
 
 	public void setIsForeign(final Integer isForeign) {
 		this.isForeign = isForeign;
+	}
+
+	public MarkScale getMarkScale() {
+		return markScale;
+	}
+
+	public void setMarkScale(final MarkScale markScale) {
+		this.markScale = markScale;
+	}
+
+	public Specialty getSpecialty() {
+		return specialty;
+	}
+
+	public void setSpecialty(final Specialty specialty) {
+		this.specialty = specialty;
+	}
+
+	public Asset getAsset() {
+		return asset;
+	}
+
+	public void setAsset(final Asset asset) {
+		this.asset = asset;
 	}
 
 	@Override

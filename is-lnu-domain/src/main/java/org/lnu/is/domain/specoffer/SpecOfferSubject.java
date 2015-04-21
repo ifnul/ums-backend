@@ -41,6 +41,17 @@ public class SpecOfferSubject extends InformationModel {
 	@Column(name = "weightsubject")
 	private Double weightSubject;
 		
+	@Column(name = "istrainingcourses")
+	private Integer isTrainingCourses;
+	
+	public Integer getIsTrainingCourses() {
+		return isTrainingCourses;
+	}
+
+	public void setIsTrainingCourses(final Integer isTrainingCourses) {
+		this.isTrainingCourses = isTrainingCourses;
+	}
+
 	public SpecOffer getSpecOffer() {
 		return specOffer;
 	}
@@ -97,6 +108,7 @@ public class SpecOfferSubject extends InformationModel {
 				+ ((alternative == null) ? 0 : alternative.hashCode());
 		result = prime * result + ((isMajor == null) ? 0 : isMajor.hashCode());
 		result = prime * result + ((mark == null) ? 0 : mark.hashCode());
+		result = prime * result + ((isTrainingCourses == null) ? 0 : isTrainingCourses.hashCode());
 		return result;
 	}
 
@@ -133,13 +145,20 @@ public class SpecOfferSubject extends InformationModel {
 		} else if (!mark.equals(other.mark)) {
 			return false;
 		}
+		if (isTrainingCourses == null) {
+			if (other.isTrainingCourses != null) {
+				return false;
+			}
+		} else if (!isTrainingCourses.equals(other.isTrainingCourses)) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "SpecofferSubject [isMajor=" + isMajor + ", alternative="
-				+ alternative + ", mark=" + mark + "]";
+				+ alternative + ", mark=" + mark + ", isTrainingCourses=" + isTrainingCourses + "]";
 	}
 	
 	
