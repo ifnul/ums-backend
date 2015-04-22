@@ -42,7 +42,7 @@ object SpecOfferSubjectIntegrationTest extends ComplexTest {
     .exec(http("Get Specoffer Subject")
         .get("/specoffers/${specofferId}/subjects/${specofferSubjectId}")
         .basicAuth("admin", "nimda")
-        .check(status.is(200))
+        .check(status.is(200)))
     .exec(http("Delete Specoffer Subject")
         .delete("/specoffers/${specofferId}/subjects/${specofferSubjectId}")
         .basicAuth("admin", "nimda")

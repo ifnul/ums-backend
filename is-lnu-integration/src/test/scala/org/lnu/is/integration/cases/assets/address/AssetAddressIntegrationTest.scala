@@ -41,7 +41,7 @@ object AssetAddressIntegrationTest extends ComplexTest {
     .exec(http("Get Asset Address")
         .get("/assets/${assetId}/addresses/${assetAddressId}")
         .basicAuth("admin", "nimda")
-        .check(status.is(200))
+        .check(status.is(200)))
     .exec(http("Delete Asset Address")
 		    .delete("/assets/${assetId}/addresses/${assetAddressId}")
         .basicAuth("admin", "nimda")

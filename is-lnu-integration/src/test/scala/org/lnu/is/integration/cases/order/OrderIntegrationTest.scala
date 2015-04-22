@@ -41,7 +41,7 @@ object OrderIntegrationTest extends ComplexTest {
     .exec(http("Get Order")
         .get("/orders/${orderId}")
         .basicAuth("admin", "nimda")
-        .check(status.is(200))
+        .check(status.is(200)))
     .exec(http("Delete Order")
 		    .delete("/orders/${orderId}")
         .basicAuth("admin", "nimda")

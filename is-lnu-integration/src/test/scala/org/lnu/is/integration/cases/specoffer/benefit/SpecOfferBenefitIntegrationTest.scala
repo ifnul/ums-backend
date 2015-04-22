@@ -42,7 +42,7 @@ object SpecOfferBenefitIntegrationTest extends ComplexTest {
     .exec(http("Get Specoffer Benefit")
         .get("/specoffers/${specofferId}/benefits/${specofferBenefitId}")
         .basicAuth("admin", "nimda")
-        .check(status.is(200))
+        .check(status.is(200)))
     .exec(http("Delete Specoffer Benefit")
         .delete("/specoffers/${specofferId}/benefits/${specofferBenefitId}")
         .basicAuth("admin", "nimda")

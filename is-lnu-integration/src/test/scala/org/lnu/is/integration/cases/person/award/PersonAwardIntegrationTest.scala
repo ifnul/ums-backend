@@ -49,7 +49,7 @@ object PersonAwardIntegrationTest extends ComplexTest {
   .exec(http("Get Person Award")
       .get("/persons/${personId}/awards/${personAwardId}")
       .basicAuth("admin", "nimda")
-      .check(status.is(200))
+      .check(status.is(200)))
   .exec(http("Delete Person Award")
       .delete("/persons/${personId}/awards/${personAwardId}")
       .basicAuth("admin", "nimda")
