@@ -115,7 +115,6 @@ object SpecOfferWaveIntegrationTest extends ComplexTest {
               .set("departmentName", UUID.randomUUID())
               .set("departmentManager", UUID.randomUUID())
               .set("idnum", UUID.randomUUID())
-              .set("note", UUID.randomUUID())
               .set("newNote", UUID.randomUUID())
           })
   }

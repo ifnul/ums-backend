@@ -57,7 +57,6 @@ object OrderIntegrationTest extends ComplexTest {
           session
             .set("invNum", UUID.randomUUID())
             .set("serialNum", UUID.randomUUID())
-            .set("note", UUID.randomUUID())
             .set("newNote", UUID.randomUUID())
             .set("partnerName", UUID.randomUUID())
             .set("partnerManager", UUID.randomUUID())

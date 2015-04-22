@@ -84,7 +84,6 @@ object EnrolmentIntegrationTest extends ComplexTest {
       .set("departmentAbbrName", UUID.randomUUID())
       .set("departmentName", UUID.randomUUID())
       .set("departmentManager", UUID.randomUUID())
-      .set("note", UUID.randomUUID())
       .set("newNote", UUID.randomUUID())
       .set("docSeries", UUID.randomUUID())
       .set("docNum", UUID.randomUUID())

@@ -201,7 +201,6 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
             .set("departmentName", UUID.randomUUID())
             .set("departmentManager", UUID.randomUUID())
             // Spec Offer
-            .set("note", UUID.randomUUID())
             .set("newNote", UUID.randomUUID())
             
             // Person Paper related fields
