@@ -80,7 +80,7 @@ public class PersonAddressController extends BaseController implements CrudContr
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{person}/addresses", method = RequestMethod.GET)
+	@RequestMapping(value = "/{personId}/addresses", method = RequestMethod.GET)
 	@ApiOperation(value = "Method for getting paged result.")
 	public PagedResultResource<PersonAddressResource> getPagedResource(final PagedRequest<PersonAddressResource> request) {
 		LOG.info("Getting paged result for person({}) addresses with parameters: {}", request.getResource().getPersonId(), request.getResource());
