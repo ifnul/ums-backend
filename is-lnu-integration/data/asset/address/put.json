@@ -6,6 +6,5 @@
   "addressTypeId": 2,
   "streetTypeId": 2,
   "adminUnitId": 2,
-  "assetId": ${assetId},
-  "note": "${newNote}"
+  "assetId": ${assetId}
 }

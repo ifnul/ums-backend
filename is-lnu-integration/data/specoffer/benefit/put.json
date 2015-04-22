@@ -1,5 +1,4 @@
 {
   "benefitId": ${benefitId},
-  "specOfferId": ${specofferId},
-  "note": "${newNote}"
+  "specOfferId": ${specofferId}
 }

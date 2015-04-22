@@ -436,9 +436,9 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
 
       (
           "MarkScale",
-          "/markscales",
+          "/marks/scales",
           Array(
-              "markscaleTypeId"
+              "marks/scaleTypeId"
           ),
           Array(
               "abbrName" -> "String",
@@ -450,7 +450,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
 
       (
           "MarkScale Type",
-          "/markscales/types",
+          "/marks/scales/types",
           Array(
           ),
           Array(

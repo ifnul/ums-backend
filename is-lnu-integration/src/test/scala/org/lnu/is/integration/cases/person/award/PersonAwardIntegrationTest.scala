@@ -50,7 +50,6 @@ object PersonAwardIntegrationTest extends ComplexTest {
       .get("/persons/${personId}/awards/${personAwardId}")
       .basicAuth("admin", "nimda")
       .check(status.is(200))
-      .check(jsonPath("$.note").find.is("${newNote}")))
   .exec(http("Delete Person Award")
       .delete("/persons/${personId}/awards/${personAwardId}")
       .basicAuth("admin", "nimda")
@@ -81,7 +80,6 @@ object PersonAwardIntegrationTest extends ComplexTest {
             
             .set("bonus", new Random().nextInt(20) + 1)
             .set("newBonus", new Random().nextInt(30) + 1)
-            .set("note", UUID.randomUUID())
             .set("newNote", UUID.randomUUID())
        })
   }

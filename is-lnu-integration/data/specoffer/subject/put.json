@@ -4,6 +4,5 @@
   "alternative": true,
   "weightSubject": 4,
   "specOfferId": ${specofferId},
-  "enrolmentSubjectId": 2,
-  "note": "${newNote}"
+  "enrolmentSubjectId": 2
 }

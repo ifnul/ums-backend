@@ -42,7 +42,6 @@ object AssetAddressIntegrationTest extends ComplexTest {
         .get("/assets/${assetId}/addresses/${assetAddressId}")
         .basicAuth("admin", "nimda")
         .check(status.is(200))
-        .check(jsonPath("$.note").find.is("${newNote}")))
     .exec(http("Delete Asset Address")
 		    .delete("/assets/${assetId}/addresses/${assetAddressId}")
         .basicAuth("admin", "nimda")
@@ -58,7 +57,6 @@ object AssetAddressIntegrationTest extends ComplexTest {
           session
             .set("invNum", UUID.randomUUID())
             .set("serialNum", UUID.randomUUID())
-            .set("note", UUID.randomUUID())
             .set("newNote", UUID.randomUUID())
         })    
   }

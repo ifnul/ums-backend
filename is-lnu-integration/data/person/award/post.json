@@ -2,6 +2,5 @@
   "bonus": ${bonus},
   "publicActivityAwardId": ${publicActivityId},
   "personPaperId": ${personPaperId},
-  "personId": ${personId},
-  "note": "${note}"
+  "personId": ${personId}
 }

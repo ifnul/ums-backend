@@ -43,7 +43,6 @@ object SpecofferIntegrationTest extends ComplexTest {
         .get("/specoffers/${specofferId}")
         .basicAuth("admin", "nimda")
         .check(status.is(200))
-        .check(jsonPath("$.note").find.is("${newNote}")))
     .exec(http("Delete Specoffer")
         .delete("/specoffers/${specofferId}")
         .basicAuth("admin", "nimda")

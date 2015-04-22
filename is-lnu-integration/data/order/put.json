@@ -11,6 +11,5 @@
   "orderTypeId": 2,
   "assetId": ${assetId},
   "timePeriodId": ${timePeriodId},
-  "title": "new title",
-  "note": "${newNote}"
+  "title": "new title"
 }

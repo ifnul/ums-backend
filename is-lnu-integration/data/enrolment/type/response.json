@@ -20,118 +20,147 @@
   }, {
     "id" : 4,
     "name" : "іноземець за контрактом",
+    "parentId" : 2,
     "uri" : "/enrolments/types/4"
   }, {
     "id" : 5,
     "name" : "громадяни, що звільнились із ЗСУ в цьому році",
+    "parentId" : 2,
     "uri" : "/enrolments/types/5"
   }, {
     "id" : 6,
     "name" : "військовосл., що служать за контрактом (заочна ф.н.)",
+    "parentId" : 2,
     "uri" : "/enrolments/types/6"
   }, {
     "id" : 7,
     "name" : "особи, що мають захворювання із переліку захворювань із Наказу 124/95 МОН/МОЗ",
+    "parentId" : 2,
     "uri" : "/enrolments/types/7"
   }, {
     "id" : 8,
     "name" : "діти-інваліди (до 18 років), інваліди І-ІІ групи (від 18 років)",
+    "parentId" : 2,
     "uri" : "/enrolments/types/8"
   }, {
     "id" : 9,
     "name" : "отримав ПЗСО в 2007 і раніше",
+    "parentId" : 2,
     "uri" : "/enrolments/types/9"
   }, {
     "id" : 10,
     "name" : "другий (третій) предмет – творчий конкурс",
+    "parentId" : 2,
     "uri" : "/enrolments/types/10"
   }, {
     "id" : 11,
     "name" : "перший предмет для не атестованих з української мови",
+    "parentId" : 2,
     "uri" : "/enrolments/types/11"
   }, {
     "id" : 12,
     "name" : "Громадяни України, які в рік вступу здобули повну загальну середню освіту за кордоном",
+    "parentId" : 2,
     "uri" : "/enrolments/types/12"
   }, {
     "id" : 13,
     "name" : "особи, що проживають у Донецькій та Луганській областях та не проходили ЗНО (РКМУ від 27.08.2014р. №785-р)",
+    "parentId" : 2,
     "uri" : "/enrolments/types/13"
   }, {
     "id" : 14,
     "name" : "Вступ не по ЗНО",
+    "parentId" : 2,
     "uri" : "/enrolments/types/14"
   }, {
     "id" : 15,
     "name" : "Вступ з частковим набором предметів ЗНО",
+    "parentId" : 2,
     "uri" : "/enrolments/types/15"
   }, {
     "id" : 16,
     "name" : "Зарахування за співбесідою",
+    "parentId" : 2,
     "uri" : "/enrolments/types/16"
   }, {
     "id" : 17,
     "name" : "Учасник міжнародної олімпіади",
+    "parentId" : 2,
     "uri" : "/enrolments/types/17"
   }, {
     "id" : 18,
     "name" : "іноземець за контрактом",
+    "parentId" : 3,
     "uri" : "/enrolments/types/18"
   }, {
     "id" : 19,
     "name" : "громадяни, що звільнились із ЗСУ в цьому році",
+    "parentId" : 3,
     "uri" : "/enrolments/types/19"
   }, {
     "id" : 20,
     "name" : "військовосл., що служать за контрактом (заочна ф.н.)",
+    "parentId" : 3,
     "uri" : "/enrolments/types/20"
   }, {
     "id" : 21,
     "name" : "особи, що мають захворювання із переліку захворювань із Наказу 124/95 МОН/МОЗ",
+    "parentId" : 3,
     "uri" : "/enrolments/types/21"
   }, {
     "id" : 22,
     "name" : "діти-інваліди (до 18 років), інваліди І-ІІ групи (від 18 років)",
+    "parentId" : 3,
     "uri" : "/enrolments/types/22"
   }, {
     "id" : 23,
     "name" : "отримав ПЗСО в 2007 і раніше",
+    "parentId" : 3,
     "uri" : "/enrolments/types/23"
   }, {
     "id" : 24,
     "name" : "другий (третій) предмет – творчий конкурс",
+    "parentId" : 3,
     "uri" : "/enrolments/types/24"
   }, {
     "id" : 25,
     "name" : "перший предмет для не атестованих з української мови",
+    "parentId" : 3,
     "uri" : "/enrolments/types/25"
   }, {
     "id" : 26,
     "name" : "Громадяни України, які в рік вступу здобули повну загальну середню освіту за кордоном",
+    "parentId" : 3,
     "uri" : "/enrolments/types/26"
   }, {
     "id" : 27,
     "name" : "особи, що проживають у Донецькій та Луганській областях та не проходили ЗНО (РКМУ від 27.08.2014р. №785-р)",
+    "parentId" : 3,
     "uri" : "/enrolments/types/27"
   }, {
     "id" : 28,
     "name" : "Вступ не по ЗНО",
+    "parentId" : 3,
     "uri" : "/enrolments/types/28"
   }, {
     "id" : 29,
     "name" : "Вступ з частковим набором предметів ЗНО",
+    "parentId" : 3,
     "uri" : "/enrolments/types/29"
   }, {
     "id" : 30,
     "name" : "Зарахування за співбесідою",
+    "parentId" : 3,
     "uri" : "/enrolments/types/30"
   }, {
     "id" : 31,
     "name" : "Учасник міжнародної олімпіади",
+    "parentId" : 3,
     "uri" : "/enrolments/types/31"
   }, {
     "id" : 32,
     "name" : "За даними сертифікату",
+    "parentId" : 1,
     "uri" : "/enrolments/types/32"
   } ],
   "uri" : "/types"
