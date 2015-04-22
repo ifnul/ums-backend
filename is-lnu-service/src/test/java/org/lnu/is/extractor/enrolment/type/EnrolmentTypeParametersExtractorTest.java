@@ -1,6 +1,8 @@
 package org.lnu.is.extractor.enrolment.type;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -11,6 +13,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
 import org.lnu.is.security.service.SessionService;
@@ -21,6 +24,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class EnrolmentTypeParametersExtractorTest {
 
+	@Mock
+	private Dao<EnrolmentType, Long> enrolmentTypeDao;
+	
 	@InjectMocks
 	private EnrolmentTypeParametersExtractor unit;
 
@@ -46,23 +52,32 @@ public class EnrolmentTypeParametersExtractorTest {
 	@Test
 	public void testGetParameters() throws Exception {
 		// Given
+		Long parentId = 1L;
+		EnrolmentType parent = new EnrolmentType();
+		parent.setId(parentId);
+		
 		String name = "AddressN";
 		String abbrname = "fsdfds";
 		
 		EnrolmentType entity = new EnrolmentType();
 		entity.setName(name);
 		entity.setAbbrName(abbrname);
+		entity.setParent(parent);
+		
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("parent", parent);
 		expected.put("name", name);
 		expected.put("abbrName", abbrname);
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
 		
 		// When
+		when(enrolmentTypeDao.getEntityById(anyLong())).thenReturn(parent);
 		Map<String, Object> actual = unit.getParameters(entity);
 		
 		// Then
+		verify(enrolmentTypeDao).getEntityById(parentId);
 		assertEquals(expected, actual);
 	}
 	

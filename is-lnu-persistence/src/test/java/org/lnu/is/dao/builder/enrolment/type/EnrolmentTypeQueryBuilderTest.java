@@ -238,11 +238,14 @@ public class EnrolmentTypeQueryBuilderTest {
 		// Given
 		String abbrname = "fsfds";
 		String name = "name";
+		EnrolmentType parent = new EnrolmentType();
+		
 		EnrolmentType context = new EnrolmentType();
 		context.setName(name);
 		context.setAbbrName(abbrname);
+		context.setParent(parent);
 
-		String expectedQuery = "SELECT e FROM EnrolmentType e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM EnrolmentType e WHERE ( e.parent = :parent AND e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<EnrolmentType> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

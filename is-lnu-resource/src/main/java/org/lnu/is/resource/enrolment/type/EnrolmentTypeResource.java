@@ -18,6 +18,8 @@ public class EnrolmentTypeResource extends ApiResource {
 	
 	private String abbrName;
 
+	private Long parentId;
+	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/enrolments/types/{0}", getId());
@@ -44,6 +46,14 @@ public class EnrolmentTypeResource extends ApiResource {
 		this.abbrName = abbrName;
 	}
 
+	public Long getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(final Long parentId) {
+		this.parentId = parentId;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -51,6 +61,7 @@ public class EnrolmentTypeResource extends ApiResource {
 		result = prime * result
 				+ ((abbrName == null) ? 0 : abbrName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((parentId == null) ? 0 : parentId.hashCode());
 		return result;
 	}
 
@@ -80,7 +91,21 @@ public class EnrolmentTypeResource extends ApiResource {
 		} else if (!name.equals(other.name)) {
 			return false;
 		}
+		if (parentId == null) {
+			if (other.parentId != null) {
+				return false;
+			}
+		} else if (!parentId.equals(other.parentId)) {
+			return false;
+		}
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "EnrolmentTypeResource [name=" + name + ", abbrName=" + abbrName
+				+ ", parentId=" + parentId + "]";
+	}
+
+	
 }

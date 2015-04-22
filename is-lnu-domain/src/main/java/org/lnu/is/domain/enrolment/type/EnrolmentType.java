@@ -28,7 +28,7 @@ public class EnrolmentType extends InformationModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
-	private EnrolmentType enrolmentType;
+	private EnrolmentType patent;
 	
 	public String getAbbrName() {
 		return abbrName;
@@ -38,12 +38,12 @@ public class EnrolmentType extends InformationModel {
 		this.abbrName = abbrname;
 	}
 
-	public EnrolmentType getEnrolmentType() {
-		return enrolmentType;
+	public EnrolmentType getParent() {
+		return patent;
 	}
 
-	public void setEnrolmentType(final EnrolmentType enrolmentType) {
-		this.enrolmentType = enrolmentType;
+	public void setParent(final EnrolmentType enrolmentType) {
+		this.patent = enrolmentType;
 	}
 
 	public String getName() {

@@ -34,6 +34,30 @@ public class EnrolmentTypeResourceConverterTest {
 	}
 	
 	@Test
+	public void testConvertWithRelation() throws Exception {
+		// Given
+		String name = "1234";
+		String abbrName = "abbrName";
+		Long parentId = 1L;
+		EnrolmentType parent = new EnrolmentType();
+		parent.setId(parentId);
+		EnrolmentTypeResource source = new EnrolmentTypeResource();
+		source.setName(name);
+		source.setAbbrName(abbrName);
+		source.setParentId(parentId);
+
+		EnrolmentType expected = new EnrolmentType();
+		expected.setName(name);
+		expected.setAbbrName(abbrName);
+		expected.setParent(parent);
+		// When
+		EnrolmentType actual = unit.convert(source);
+
+		// Then
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testConvertAll() throws Exception {
 		// Given
 		Long id = 1l;

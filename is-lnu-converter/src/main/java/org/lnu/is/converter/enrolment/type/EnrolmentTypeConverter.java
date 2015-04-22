@@ -18,6 +18,9 @@ public class EnrolmentTypeConverter extends AbstractConverter<EnrolmentType, Enr
 	public EnrolmentTypeResource convert(final EnrolmentType source, final EnrolmentTypeResource target) {
 		
 		target.setId(source.getId());
+		if (source.getParent() != null) {
+			target.setParentId(source.getParent().getId());
+		}
 		target.setName(source.getName());
 		target.setAbbrName(source.getAbbrName());
 
