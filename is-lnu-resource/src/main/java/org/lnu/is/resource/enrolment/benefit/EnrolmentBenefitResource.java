@@ -9,6 +9,7 @@ import org.lnu.is.resource.ApiResource;
 
 /**
  * Enrolment Benefit Resource.
+ * 
  * @author ivanursul
  *
  */
@@ -17,18 +18,19 @@ public class EnrolmentBenefitResource extends ApiResource {
 	@NotNull
 	@Min(value = 1, message = "Minimal value is 1")
 	private Long enrolmentId;
-	
+
 	@NotNull
 	@Min(value = 1, message = "Minimal value is 1")
 	private Long benefitId;
-	
+
 	@NotNull
 	@Min(value = 1, message = "Minimal value is 1")
 	private Long personPaperId;
-	
+
 	@Override
 	public String getUri() {
-		return MessageFormat.format("/enrolments/{0}/benefits/{1}", enrolmentId, getId());
+		return MessageFormat.format("/enrolments/{0}/benefits/{1}",
+				enrolmentId, getId());
 	}
 
 	@Override

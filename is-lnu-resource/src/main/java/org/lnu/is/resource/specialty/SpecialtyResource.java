@@ -40,9 +40,6 @@ public class SpecialtyResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Date endDate;
 	
-	@NotNull(message = "Field required")
-	private String note;
-	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/specialties/{0}", getId());
@@ -51,16 +48,6 @@ public class SpecialtyResource extends ApiResource {
 	@Override
 	public String getRootUri() {
 		return "/specialties";
-	}
-
-	@Override
-	public String getNote() {
-		return note;
-	}
-
-	@Override
-	public void setNote(final String note) {
-		this.note = note;
 	}
 
 	public Long getSpecialtyTypeId() {
@@ -129,7 +116,6 @@ public class SpecialtyResource extends ApiResource {
 		result = prime * result + ((cipher == null) ? 0 : cipher.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((note == null) ? 0 : note.hashCode());
 		result = prime * result
 				+ ((parentId == null) ? 0 : parentId.hashCode());
 		result = prime * result
@@ -184,13 +170,6 @@ public class SpecialtyResource extends ApiResource {
 		} else if (!name.equals(other.name)) {
 			return false;
 		}
-		if (note == null) {
-			if (other.note != null) {
-				return false;
-			}
-		} else if (!note.equals(other.note)) {
-			return false;
-		}
 		if (parentId == null) {
 			if (other.parentId != null) {
 				return false;
@@ -213,8 +192,7 @@ public class SpecialtyResource extends ApiResource {
 		return "SpecialtyResource [specialtyTypeId="
 				+ specialtyTypeId + ", parentId=" + parentId + ", abbrName="
 				+ abbrName + ", name=" + name + ", cipher=" + cipher
-				+ ", begDate=" + begDate + ", endDate=" + endDate + ", note="
-				+ note + "]";
+				+ ", begDate=" + begDate + ", endDate=" + endDate + "]";
 	}
 
 }

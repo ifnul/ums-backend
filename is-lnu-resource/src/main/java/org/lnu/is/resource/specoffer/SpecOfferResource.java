@@ -59,9 +59,6 @@ public class SpecOfferResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Date endDate;
 	
-	@NotNull(message = "Field required")
-	private String note;
-	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/specoffers/{0}", getId());
@@ -169,16 +166,6 @@ public class SpecOfferResource extends ApiResource {
 	}
 
 	@Override
-	public String getNote() {
-		return note;
-	}
-
-	@Override
-	public void setNote(final String note) {
-		this.note = note;
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -193,7 +180,6 @@ public class SpecOfferResource extends ApiResource {
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result
 				+ ((licCount == null) ? 0 : licCount.hashCode());
-		result = prime * result + ((note == null) ? 0 : note.hashCode());
 		result = prime * result
 				+ ((specialtyId == null) ? 0 : specialtyId.hashCode());
 		result = prime * result
@@ -268,13 +254,6 @@ public class SpecOfferResource extends ApiResource {
 		} else if (!licCount.equals(other.licCount)) {
 			return false;
 		}
-		if (note == null) {
-			if (other.note != null) {
-				return false;
-			}
-		} else if (!note.equals(other.note)) {
-			return false;
-		}
 		if (specialtyId == null) {
 			if (other.specialtyId != null) {
 				return false;
@@ -321,7 +300,7 @@ public class SpecOfferResource extends ApiResource {
 				+ ", docSeries=" + docSeries + ", docNum=" + docNum
 				+ ", educationFormTypeId=" + educationFormTypeId + ", licCount=" + licCount
 				+ ", stateCount=" + stateCount + ", begDate=" + begDate
-				+ ", endDate=" + endDate + ", note=" + note + ", timePeriodCourseId="
+				+ ", endDate=" + endDate + ", timePeriodCourseId="
 					+ timePeriodCourseId + "]";
 	}
 	

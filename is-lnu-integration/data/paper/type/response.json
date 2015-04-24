@@ -150,13 +150,13 @@
     "uri" : "/papers/types/29"
   }, {
     "id" : 30,
-    "name" : "Іспит НУ ЛП",
+    "name" : "Іспит ЛНУ",
     "abbrName" : "exam",
     "paperUsageId" : 6,
     "uri" : "/papers/types/30"
   }, {
     "id" : 31,
-    "name" : "Курси НУ \"Львівська Політехніка\"",
+    "name" : "Курси \"Львівського національного університету імені Івана Франка\"",
     "paperUsageId" : 4,
     "uri" : "/papers/types/31"
   }, {
