@@ -4,6 +4,7 @@ import java.text.MessageFormat;
 import java.util.Date;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
 import org.lnu.is.annotation.CrudableResource;
@@ -61,6 +62,8 @@ public class PersonResource extends ApiResource {
 	private String identifier;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 0, message = "Minimal value is 0")
+	@Max(value = 1, message = "Maximal value is 1")
 	private Integer resident;
 	
 	@NotNull(message = "Field required")
@@ -72,9 +75,13 @@ public class PersonResource extends ApiResource {
 	private Date endDate;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 0, message = "Minimal value is 0")
+	@Max(value = 1, message = "Maximal value is 1")
 	private Integer isMilitary;
 	
 	@NotNull(message = "Field required")
+	@Min(value = 0, message = "Minimal value is 0")
+	@Max(value = 1, message = "Maximal value is 1")
 	private Integer isHostel;
 
 	@Override

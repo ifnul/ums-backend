@@ -3,7 +3,7 @@ package org.lnu.is.converter.address.type;
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.address.type.AddressType;
-import org.lnu.is.resource.addresstype.AddressTypeResource;
+import org.lnu.is.resource.address.type.AddressTypeResource;
 
 /**
  * Address Type Converter.

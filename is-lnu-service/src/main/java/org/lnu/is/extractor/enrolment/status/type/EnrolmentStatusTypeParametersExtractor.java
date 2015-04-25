@@ -1,4 +1,4 @@
-package org.lnu.is.extractor.enrolment.statustype;
+package org.lnu.is.extractor.enrolment.status.type;
 
 import java.util.Map;
 

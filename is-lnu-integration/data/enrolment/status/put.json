@@ -1,5 +1,7 @@
 {
 	"enrolmentId" : ${enrolmentId},
 	"specOfferWaveId" : ${specofferWaveId},
-	"enrolmentStatusTypeId" : 2
+	"enrolmentStatusTypeId" : 2,
+	"isState" : 1,
+	"isContract" : 0
 }

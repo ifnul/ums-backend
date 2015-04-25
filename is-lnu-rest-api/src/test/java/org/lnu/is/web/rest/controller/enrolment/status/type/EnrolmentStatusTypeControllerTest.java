@@ -1,4 +1,4 @@
-package org.lnu.is.web.rest.controller.enrolment.statustype;
+package org.lnu.is.web.rest.controller.enrolment.status.type;
 
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.doThrow;
@@ -22,6 +22,7 @@ import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.controller.AbstractControllerTest;
 import org.lnu.is.web.rest.controller.BaseController;
+import org.lnu.is.web.rest.controller.enrolment.status.type.EnrolmentStatusTypeController;
 import org.mockito.InjectMocks;
 import org.mockito.Matchers;
 import org.mockito.Mock;

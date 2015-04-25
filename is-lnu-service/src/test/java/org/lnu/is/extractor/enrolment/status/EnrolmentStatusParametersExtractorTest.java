@@ -62,6 +62,9 @@ public class EnrolmentStatusParametersExtractorTest {
 	@Test
 	public void testGetParameters() throws Exception {
 		// Given
+	    	Integer isState = 1;
+	    	Integer isContract = 0;
+	    
 		Long enrolmentId = 1L;
 		Enrolment enrolment = new Enrolment();
 		enrolment.setId(enrolmentId);
@@ -78,6 +81,8 @@ public class EnrolmentStatusParametersExtractorTest {
 		entity.setEnrolment(enrolment);
 		entity.setSpecOfferWave(specOfferWave);
 		entity.setEnrolmentStatusType(enrolmentStatusType);
+		entity.setIsContract(isContract);
+		entity.setIsState(isState);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("enrolment", enrolment);
@@ -85,6 +90,8 @@ public class EnrolmentStatusParametersExtractorTest {
 		expected.put("enrolmentStatusType", enrolmentStatusType);
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
+		expected.put("isContract", isContract);
+		expected.put("isState", isState);
 		
 		// When
 		when(enrolmentDao.getEntityById(anyLong())).thenReturn(enrolment);

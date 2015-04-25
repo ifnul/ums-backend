@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 import org.lnu.is.facade.facade.Facade;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.pagination.OrderByType;
-import org.lnu.is.resource.addresstype.AddressTypeResource;
+import org.lnu.is.resource.address.type.AddressTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;

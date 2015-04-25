@@ -8,7 +8,7 @@
 			CREATE TYPE q_en_row_status AS ENUM ('ACTIVE', 'DELETED', 'REATTACHED');
 		</sql>
 	</changeSet>
-
+	
 	<changeSet id="Створення таблиці інформації про партнерів"
 		author="illay">
 		<createTable tableName="q_ob_partner"
@@ -7638,6 +7638,13 @@
 			baseTableName="q_op_user" constraintName="fk_q_op_user_edbo_user_id"
 			deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
 			onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_op_edbo_user" />
+	</changeSet>
+
+	<changeSet id="add some filds in q_dt_enrolmentstatus" author="illay">
+		<addColumn tableName="q_dt_enrolmentstatus">	
+			<column name="isstate" type="INTEGER" remarks="Бюджет"></column>
+			<column name="iscontract" type="INTEGER" remarks="Контракт (навчання за кошти фіз.осіб)"></column>			
+		</addColumn>
 	</changeSet>
 	
 </databaseChangeLog>

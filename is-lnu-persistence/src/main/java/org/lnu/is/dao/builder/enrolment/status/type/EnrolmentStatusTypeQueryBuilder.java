@@ -1,4 +1,4 @@
-package org.lnu.is.dao.builder.enrolment.statustype;
+package org.lnu.is.dao.builder.enrolment.status.type;
 
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;

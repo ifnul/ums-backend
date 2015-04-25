@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.dao.builder.enrolment.statustype.EnrolmentStatusTypeQueryBuilder;
+import org.lnu.is.dao.builder.enrolment.status.type.EnrolmentStatusTypeQueryBuilder;
 import org.lnu.is.domain.enrolment.status.type.EnrolmentStatusType;
 import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.OrderBy;

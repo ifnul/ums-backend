@@ -197,6 +197,9 @@ public class EnrolmentStatusQueryBuilderTest {
 	@Test
 	public void testBuildWithParameters() throws Exception {
 		// Given
+	    	Integer isState = 1;
+	    	Integer isContract = 0;
+	    	
 		Enrolment enrolment = new Enrolment();
 		SpecOfferWave specOfferWave = new SpecOfferWave();
 		EnrolmentStatusType enrolmentStatusType = new EnrolmentStatusType();
@@ -205,8 +208,10 @@ public class EnrolmentStatusQueryBuilderTest {
 		context.setEnrolment(enrolment);
 		context.setSpecOfferWave(specOfferWave);
 		context.setEnrolmentStatusType(enrolmentStatusType);
+		context.setIsContract(isContract);
+		context.setIsState(isState);
 
-		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE ( e.enrolment = :enrolment AND e.specOfferWave =:specOfferWave AND e.enrolmentStatusType =:enrolmentStatusType ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM EnrolmentStatus e WHERE ( e.enrolment = :enrolment AND e.specOfferWave =:specOfferWave AND e.enrolmentStatusType =:enrolmentStatusType AND e.isContract =:isContract AND e.isState =:isState ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<EnrolmentStatus> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

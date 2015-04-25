@@ -19,6 +19,9 @@ public class EnrolmentStatusConverterTest {
 	@Test
 	public void testConvert() throws Exception {
 		// Given
+	    	Integer isState = 1;
+	    	Integer isContract = 1;
+	    
 		Long enrolmentId = 1L;
 		Enrolment enrolment = new Enrolment();
 		enrolment.setId(enrolmentId);
@@ -35,11 +38,15 @@ public class EnrolmentStatusConverterTest {
 		source.setEnrolment(enrolment);
 		source.setSpecOfferWave(specOfferWave);
 		source.setEnrolmentStatusType(enrolmentStatusType);
+		source.setIsContract(isContract);
+		source.setIsState(isState);
 
 		EnrolmentStatusResource expected = new EnrolmentStatusResource();
 		expected.setEnrolmentId(enrolmentId);
 		expected.setSpecOfferWaveId(specOfferWaveId);
 		expected.setEnrolmentStatusTypeId(enrolmentStatusTypeId);
+		expected.setIsContract(isContract);
+		expected.setIsState(isState);
 		
 		// When
 		EnrolmentStatusResource actual = unit.convert(source);

@@ -3,7 +3,7 @@ package org.lnu.is.web.rest.controller.address.type;
 import javax.annotation.Resource;
 
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.resource.addresstype.AddressTypeResource;
+import org.lnu.is.resource.address.type.AddressTypeResource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;

@@ -14,6 +14,8 @@ public class EnrolmentStatusQueryBuilder extends AbstractQueryBuilder<EnrolmentS
 	private static final String ENROLMENT_CONDITION = "e.enrolment = :enrolment ";
 	private static final String SPECOFFERWAVE_CONDITION = "e.specOfferWave =:specOfferWave ";
 	private static final String ENROLMENTSTATUSTYPE_CONDITION = "e.enrolmentStatusType =:enrolmentStatusType ";
+	private static final String ISCONTRACT_CONDITION = "e.isContract =:isContract ";
+	private static final String ISSTATE_CONDITION = "e.isState =:isState ";
 
 	@Override
 	protected String getBaseQuery() {
@@ -29,6 +31,8 @@ public class EnrolmentStatusQueryBuilder extends AbstractQueryBuilder<EnrolmentS
 					.addAndCondition(ENROLMENT_CONDITION, context.getEnrolment())
 					.addAndCondition(SPECOFFERWAVE_CONDITION, context.getSpecOfferWave())
 					.addAndCondition(ENROLMENTSTATUSTYPE_CONDITION, context.getEnrolmentStatusType())
+					.addAndCondition(ISCONTRACT_CONDITION, context.getIsContract())
+					.addAndCondition(ISSTATE_CONDITION, context.getIsState())
 				.closeBracket();
 	}
 

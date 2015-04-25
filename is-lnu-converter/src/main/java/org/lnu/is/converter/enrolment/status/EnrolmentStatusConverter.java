@@ -17,6 +17,8 @@ public class EnrolmentStatusConverter extends AbstractConverter<EnrolmentStatus,
 	public EnrolmentStatusResource convert(final EnrolmentStatus source, final EnrolmentStatusResource target) {
 		
 		target.setId(source.getId());
+		target.setIsState(source.getIsState());
+		target.setIsContract(source.getIsContract());
 		
 		if (source.getEnrolment() != null) {
 			target.setEnrolmentId(source.getEnrolment().getId());

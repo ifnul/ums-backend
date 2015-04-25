@@ -29,7 +29,7 @@ object ResourceByIdIntegrationTest {
         "/employees/statuses", "/employees/types", "/enrolments", "/enrolments/statustypes",
         "/enrolments/subjects", "/enrolments/types", "/enrolmentforeignes/types", "/families/types",
         "/gendertypes", "/honors/types", "/jobtypes", "/languages",
-        "/markscales", "/markscales/types", "/marriedtypes", "/operationtypes",
+        "/marks/scales", "/marks/scales/types", "/marriedtypes", "/operationtypes",
         "/orders", "/orders/types", "/papers/types", "/papers/usages",
         "/partners", "/persons", "/persons/types", "/publicactivities",
         "/publicactivities/types", "/reasons", "/salaries/types", "/specialties",

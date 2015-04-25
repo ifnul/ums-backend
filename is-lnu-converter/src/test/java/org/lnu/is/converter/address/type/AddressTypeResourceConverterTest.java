@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.lnu.is.domain.address.type.AddressType;
-import org.lnu.is.resource.addresstype.AddressTypeResource;
+import org.lnu.is.resource.address.type.AddressTypeResource;
 
 public class AddressTypeResourceConverterTest {
 

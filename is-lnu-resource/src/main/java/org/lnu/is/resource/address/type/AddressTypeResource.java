@@ -1,4 +1,4 @@
-package org.lnu.is.resource.addresstype;
+package org.lnu.is.resource.address.type;
 
 import java.text.MessageFormat;
 

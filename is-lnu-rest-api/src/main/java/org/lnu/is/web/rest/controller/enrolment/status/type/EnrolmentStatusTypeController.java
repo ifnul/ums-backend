@@ -1,4 +1,4 @@
-package org.lnu.is.web.rest.controller.enrolment.statustype;
+package org.lnu.is.web.rest.controller.enrolment.status.type;
 
 import javax.annotation.Resource;
 

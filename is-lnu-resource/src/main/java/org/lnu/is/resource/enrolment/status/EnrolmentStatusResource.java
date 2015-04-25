@@ -28,6 +28,12 @@ public class EnrolmentStatusResource extends ApiResource {
 	@Min(value = 1, message = "Minimal value is 1")
 	private Long enrolmentStatusTypeId;
 	
+	@NotNull
+	private Integer isState;
+	
+	@NotNull
+	private Integer isContract;
+	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/enrolments/{0}/statuses/{1}", enrolmentId, getId()); 
@@ -36,6 +42,22 @@ public class EnrolmentStatusResource extends ApiResource {
 	@Override
 	public String getRootUri() {
 		return MessageFormat.format("/enrolments/{0}/statuses", enrolmentId);
+	}
+
+	public Integer getIsState() {
+	    return isState;
+	}
+
+	public void setIsState(final Integer isState) {
+	    this.isState = isState;
+	}
+
+	public Integer getIsContract() {
+	    return isContract;
+	}
+
+	public void setIsContract(final Integer isContract) {
+	    this.isContract = isContract;
 	}
 
 	public Long getEnrolmentId() {
@@ -74,6 +96,10 @@ public class EnrolmentStatusResource extends ApiResource {
 						.hashCode());
 		result = prime * result
 				+ ((specOfferWaveId == null) ? 0 : specOfferWaveId.hashCode());
+		result = prime * result
+			+ ((isContract == null) ? 0 : isContract.hashCode());
+		result = prime * result
+			+ ((isState == null) ? 0 : isState.hashCode());
 		return result;
 	}
 
@@ -110,14 +136,32 @@ public class EnrolmentStatusResource extends ApiResource {
 		} else if (!specOfferWaveId.equals(other.specOfferWaveId)) {
 			return false;
 		}
+		if (isState == null) {
+			if (other.isState != null) {
+				return false;
+			}
+		} else if (!isState.equals(other.isState)) {
+			return false;
+		}
+		if (isContract == null) {
+			if (other.isContract != null) {
+				return false;
+			}
+		} else if (!isContract.equals(other.isContract)) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "EnrolmentStatusResource [enrolmentId=" + enrolmentId
-				+ ", specOfferWaveId=" + specOfferWaveId
-				+ ", enrolmentStatusTypeId=" + enrolmentStatusTypeId + "]";
+	    return "EnrolmentStatusResource [enrolmentId=" + enrolmentId
+		    + ", specOfferWaveId=" + specOfferWaveId
+		    + ", enrolmentStatusTypeId=" + enrolmentStatusTypeId
+		    + ", isState=" + isState + ", isContract=" + isContract
+		    + "]";
 	}
+
+	
 
 }

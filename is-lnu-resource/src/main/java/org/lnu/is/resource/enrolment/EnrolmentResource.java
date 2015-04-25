@@ -3,6 +3,7 @@ package org.lnu.is.resource.enrolment;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -54,15 +55,23 @@ public class EnrolmentResource extends ApiResource {
 	private String docText;
 
 	@NotNull(message = "Field required")
+	@Min(value = 0, message = "Minimal value is 0")
+	@Max(value = 1, message = "Maximal value is 1")
 	private Integer isState;
 
 	@NotNull(message = "Field required")
+	@Min(value = 0, message = "Minimal value is 0")
+	@Max(value = 1, message = "Maximal value is 1")
 	private Integer isContract;
 
 	@NotNull(message = "Field required")
+	@Min(value = 0, message = "Minimal value is 0")
+	@Max(value = 1, message = "Maximal value is 1")
 	private Integer isPrivilege;
 
 	@NotNull(message = "Field required")
+	@Min(value = 0, message = "Minimal value is 0")
+	@Max(value = 1, message = "Maximal value is 1")
 	private Integer isHostel;
 
 	@NotNull(message = "Field required")
@@ -75,6 +84,8 @@ public class EnrolmentResource extends ApiResource {
 	private Date endDate;
 
 	@NotNull(message = "Field required")
+	@Min(value = 0, message = "Minimal value is 0")
+	@Max(value = 15, message = "Maximal value is 15")
 	private Integer priority;
 	
 	@Override

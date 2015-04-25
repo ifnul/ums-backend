@@ -36,6 +36,9 @@ public class EnrolmentStatusParametersExtractor extends AbstractParametersExtrac
 		addParameter(entity.getSpecOfferWave(), specOfferWaveDao, "specOfferWave", parameters);
 		addParameter(entity.getEnrolmentStatusType(), enrolmentStatusTypeDao, "enrolmentStatusType", parameters);
 		
+		addParameter(entity.getIsContract(), "isContract", parameters);
+		addParameter(entity.getIsState(), "isState", parameters);
+		
 		return parameters;
 	}
 
