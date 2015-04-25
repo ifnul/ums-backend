@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class EnrolmentStatusTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<EnrolmentStatusTypeResource, Long> facade;
+	private Facade<EnrolmentStatusTypeResource, EnrolmentStatusTypeResource, Long> facade;
 
 	@InjectMocks
 	private EnrolmentStatusTypeController unit;

@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class TimeSheetTypeControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<TimeSheetTypeResource, Long> facade;
+	private Facade<TimeSheetTypeResource, TimeSheetTypeResource, Long> facade;
 	
 	@InjectMocks
 	private TimeSheetTypeController unit;

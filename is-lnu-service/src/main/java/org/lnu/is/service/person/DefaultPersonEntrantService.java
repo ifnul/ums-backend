@@ -16,10 +16,10 @@ import org.springframework.stereotype.Service;
 public class DefaultPersonEntrantService implements PersonEntrantService {
 
 	@Resource(name = "entrantDao")
-	private Dao<PersonEntrant, Long> entrantDao;
+	private Dao<PersonEntrant, PersonEntrant, Long> entrantDao;
 	
 	@Resource(name = "entrantAutoDao")
-	private Dao<PersonEntrantAuto, Long> entrantAutoDao;
+	private Dao<PersonEntrantAuto, PersonEntrantAuto, Long> entrantAutoDao;
 	
 	@Override
 	public PersonEntrant getEntrant(final Long id) {

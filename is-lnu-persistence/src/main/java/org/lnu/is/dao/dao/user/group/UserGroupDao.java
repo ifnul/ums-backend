@@ -12,7 +12,7 @@ import org.lnu.is.pagination.MultipleSearch;
  * @author ivanursul
  *
  */
-public interface UserGroupDao extends Dao<UserGroup, Long> {
+public interface UserGroupDao extends Dao<UserGroup, UserGroup, Long> {
 
 	/**
 	 * Method for getting user groups.

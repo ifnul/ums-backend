@@ -30,11 +30,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/jobtypes")
 @ApiModel(value = "Job Types", description = "Job Types")
-public class JobTypeController extends BaseController implements PagedController<JobTypeResource> {
+public class JobTypeController extends BaseController implements PagedController<JobTypeResource, JobTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(JobTypeController.class);
 
 	@Resource(name = "jobTypeFacade")
-	private Facade<JobTypeResource, Long> facade;
+	private Facade<JobTypeResource, JobTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

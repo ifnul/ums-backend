@@ -41,7 +41,7 @@ public class BroadcastingFacadeTest {
 	private Converter<BroadcastingMessage, BroadcastingMessageResource> entityConverter;
 
 	@Mock
-	private DefaultService<BroadcastingMessage, Long, Dao<BroadcastingMessage, Long>> service;
+	private DefaultService<BroadcastingMessage, BroadcastingMessage, Long, Dao<BroadcastingMessage, BroadcastingMessage, Long>> service;
 
 	@Mock
 	private Converter<PagedRequest<BroadcastingMessageResource>, MultiplePagedSearch<BroadcastingMessage>> pagedRequestConverter;

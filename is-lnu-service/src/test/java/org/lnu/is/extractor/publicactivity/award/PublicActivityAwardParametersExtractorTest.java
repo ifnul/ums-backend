@@ -27,10 +27,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class PublicActivityAwardParametersExtractorTest {
 
 	@Mock
-	private Dao<PublicActivity, Long> publicActivityDao;
+	private Dao<PublicActivity, PublicActivity, Long> publicActivityDao;
 
 	@Mock
-	private Dao<EnrolmentSubject, Long> enrolmentSubjectDao;
+	private Dao<EnrolmentSubject, EnrolmentSubject, Long> enrolmentSubjectDao;
 	
 	@Mock
 	private SessionService sessionService;

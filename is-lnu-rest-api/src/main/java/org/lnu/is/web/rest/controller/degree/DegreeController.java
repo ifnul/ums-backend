@@ -27,11 +27,11 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-public class DegreeController extends BaseController implements CrudController<DegreeResource> {
+public class DegreeController extends BaseController implements CrudController<DegreeResource, DegreeResource> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
 	
 	@Resource(name = "degreeFacade")
-	private Facade<DegreeResource, Long> facade;
+	private Facade<DegreeResource, DegreeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

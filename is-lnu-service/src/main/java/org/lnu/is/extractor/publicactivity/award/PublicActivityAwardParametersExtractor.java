@@ -20,10 +20,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class PublicActivityAwardParametersExtractor extends AbstractParametersExtractor<PublicActivityAward> {
 
 	@Resource(name = "publicActivityDao")
-	private Dao<PublicActivity, Long> publicActivityDao;
+	private Dao<PublicActivity, PublicActivity, Long> publicActivityDao;
 	
 	@Resource(name = "enrolmentSubjectDao")
-	private Dao<EnrolmentSubject, Long> enrolmentSubjectDao;
+	private Dao<EnrolmentSubject, EnrolmentSubject, Long> enrolmentSubjectDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final PublicActivityAward entity, final Map<String, Object> parameters) {

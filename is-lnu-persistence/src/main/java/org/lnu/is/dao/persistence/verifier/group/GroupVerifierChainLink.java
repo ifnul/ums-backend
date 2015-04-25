@@ -1,7 +1,7 @@
 package org.lnu.is.dao.persistence.verifier.group;
 
 import org.lnu.is.dao.persistence.verifier.DefaultVerifierChainLink;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 import org.lnu.is.security.service.SessionService;
 
 /**
@@ -11,7 +11,7 @@ import org.lnu.is.security.service.SessionService;
  *
  * @param <T>
  */
-public class GroupVerifierChainLink<T extends Model> extends DefaultVerifierChainLink<T> {
+public class GroupVerifierChainLink<T extends EntityModel> extends DefaultVerifierChainLink<T> {
 
 	private SessionService sessionService;
 	

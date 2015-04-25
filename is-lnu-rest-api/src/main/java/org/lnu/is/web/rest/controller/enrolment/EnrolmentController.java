@@ -34,11 +34,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/enrolments")
 @Api(value = "Enrolments", description = "Enrolments", position = 2)
-public class EnrolmentController extends BaseController implements CrudController<EnrolmentResource> {
+public class EnrolmentController extends BaseController implements CrudController<EnrolmentResource, EnrolmentResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(EnrolmentController.class);
 
 	@Resource(name = "enrolmentFacade")
-	private Facade<EnrolmentResource, Long> facade;
+	private Facade<EnrolmentResource, EnrolmentResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

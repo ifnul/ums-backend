@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class ContactTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<ContactTypeResource, Long> facade;
+	private Facade<ContactTypeResource, ContactTypeResource, Long> facade;
 
 	@InjectMocks
 	private ContactTypeController unit;

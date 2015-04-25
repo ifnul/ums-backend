@@ -33,31 +33,31 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class EmployeeParametersExtractorTest {
 
 	@Mock(name = "employeeTypeDao")
-	private Dao<EmployeeType, Long> employeeTypeDao;
+	private Dao<EmployeeType, EmployeeType, Long> employeeTypeDao;
 	
 	@Mock(name = "personDao")
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Mock(name = "genderTypeDao")
-	private Dao<GenderType, Long> genderTypeDao;
+	private Dao<GenderType, GenderType, Long> genderTypeDao;
 	
 	@Mock(name = "departmentDao")
-	private Dao<Department, Long> departmentDao;
+	private Dao<Department, Department, Long> departmentDao;
 	
 	@Mock(name = "postDao")
-	private Dao<Post, Long> postDao;
+	private Dao<Post, Post, Long> postDao;
 	
 	@Mock(name = "jobTypeDao")
-	private Dao<JobType, Long> jobTypeDao;
+	private Dao<JobType, JobType, Long> jobTypeDao;
 	
 	@Mock(name = "employeeStatusDao")
-	private Dao<EmployeeStatus, Long> employeeStatusDao;
+	private Dao<EmployeeStatus, EmployeeStatus, Long> employeeStatusDao;
 	
 	@Mock(name = "orderDao")
-	private Dao<Order, Long> orderDao;
+	private Dao<Order, Order, Long> orderDao;
 	
 	@Mock(name = "employeeDao")
-	private Dao<Employee, Long> employeeDao;
+	private Dao<Employee, Employee, Long> employeeDao;
 	
 	@InjectMocks
 	private EmployeeParametersExtractor unit;

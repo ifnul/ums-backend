@@ -25,7 +25,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class EnrolmentSubjectParametersExtractorTest {
 
 	@Mock
-	private Dao<EnrolmentSubject, Long> enrolmentSubjectDao;
+	private Dao<EnrolmentSubject, EnrolmentSubject, Long> enrolmentSubjectDao;
 	
 	@InjectMocks
 	private EnrolmentSubjectParametersExtractor unit;

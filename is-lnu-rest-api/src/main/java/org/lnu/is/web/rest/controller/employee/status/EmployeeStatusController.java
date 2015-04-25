@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/employees/statuses")
-public class EmployeeStatusController extends BaseController implements PagedController<EmployeeStatusResource> {
+public class EmployeeStatusController extends BaseController implements PagedController<EmployeeStatusResource, EmployeeStatusResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(EmployeeStatusController.class);
 
 	@Resource(name = "employeeStatusFacade")
-	private Facade<EmployeeStatusResource, Long> facade;
+	private Facade<EmployeeStatusResource, EmployeeStatusResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.lnu.is.facade.facade.Facade;
+import org.lnu.is.multysearch.resource.person.PersonResourceList;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
 import org.lnu.is.resource.person.PersonResource;
@@ -34,11 +35,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/persons")
 @Api(value = "persons", description = "Persons", position = 2)
-public class PersonController extends BaseController implements CrudController<PersonResource> {
+public class PersonController extends BaseController implements CrudController<PersonResource, PersonResourceList> {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonController.class);
 
 	@Resource(name = "personFacade")
-	private Facade<PersonResource, Long> facade;
+	private Facade<PersonResource, PersonResourceList, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)
@@ -83,7 +84,7 @@ public class PersonController extends BaseController implements CrudController<P
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get Persons")
-	public PagedResultResource<PersonResource> getPagedResource(final PagedRequest<PersonResource> request) {
+	public PagedResultResource<PersonResource> getPagedResource(final PagedRequest<PersonResourceList> request) {
 		LOG.info("Retrieving PagedResultResource for Person Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
 	}

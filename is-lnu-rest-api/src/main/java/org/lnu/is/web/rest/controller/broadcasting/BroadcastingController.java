@@ -30,11 +30,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/broadcastings")
-public class BroadcastingController extends BaseController implements CrudController<BroadcastingMessageResource> {
+public class BroadcastingController extends BaseController implements CrudController<BroadcastingMessageResource, BroadcastingMessageResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(BroadcastingController.class);
 	
 	@Resource(name = "broadcastingFacade")
-	private Facade<BroadcastingMessageResource, Long> facade;
+	private Facade<BroadcastingMessageResource, BroadcastingMessageResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

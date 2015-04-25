@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class HonorTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<HonorTypeResource, Long> facade;
+	private Facade<HonorTypeResource, HonorTypeResource, Long> facade;
 
 	@InjectMocks
 	private HonorTypeController unit;

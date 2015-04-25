@@ -6,7 +6,7 @@ import org.lnu.is.converter.Converter;
 import org.lnu.is.domain.Model;
 import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.PagedResult;
-import org.lnu.is.resource.ApiResource;
+import org.lnu.is.resource.Resource;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.service.Service;
@@ -25,14 +25,25 @@ import org.springframework.transaction.annotation.Transactional;
  * @param <KEY> Key.S
  */
 @Transactional
-public class DefaultFacade<ENTITY extends Model, RESOURCE extends ApiResource, SERVICE extends Service<ENTITY, KEY>, KEY> implements Facade<RESOURCE, KEY> {
+public class DefaultFacade<ENTITY extends Model, RESOURCE extends Resource, ENTITYLIST extends Model, RESOURCELIST extends Resource, SERVICE extends Service<ENTITY, ENTITYLIST, KEY>, KEY> implements Facade<RESOURCE, RESOURCELIST, KEY> {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultFacade.class);
 
 	private Converter<RESOURCE, ENTITY> resourceConverter;
 
 	private Converter<ENTITY, RESOURCE> entityConverter;
 
-	private Converter<PagedRequest<RESOURCE>, MultiplePagedSearch<ENTITY>> pagedRequestConverter;
+	public Converter<RESOURCELIST, ENTITYLIST> getResourceListConverter() {
+	    return resourceListConverter;
+	}
+
+	public void setResourceListConverter(
+		Converter<RESOURCELIST, ENTITYLIST> resourceListConverter) {
+	    this.resourceListConverter = resourceListConverter;
+	}
+
+	private Converter<RESOURCELIST, ENTITYLIST> resourceListConverter;
+	
+	private Converter<PagedRequest<RESOURCELIST>, MultiplePagedSearch<ENTITYLIST>> pagedRequestConverter;
 
 	private Converter<PagedResult<ENTITY>, PagedResultResource<RESOURCE>> pagedResultConverter;
 	
@@ -90,11 +101,11 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends ApiResource, S
 	}
 
 	@Override
-	public PagedResultResource<RESOURCE> getResources(final PagedRequest<RESOURCE> request) {
+	public PagedResultResource<RESOURCE> getResources(final PagedRequest<RESOURCELIST> request) {
 		LOG.info("Getting paged result resource for {0}: {1}", request.getResource().getClass().getSimpleName(), request);
 
-		MultiplePagedSearch<ENTITY> pagedSearch = pagedRequestConverter.convert(request);
-		pagedSearch.setEntity(resourceConverter.convert(request.getResource()));
+		MultiplePagedSearch<ENTITYLIST> pagedSearch = pagedRequestConverter.convert(request);
+		pagedSearch.setEntity(resourceListConverter.convert(request.getResource()));
 
 		PagedResult<ENTITY> pagedResult = service.getEntities(pagedSearch);
 
@@ -123,7 +134,7 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends ApiResource, S
 	}
 	
 	@Required
-	public void setPagedRequestConverter(final Converter<PagedRequest<RESOURCE>, MultiplePagedSearch<ENTITY>> pagedRequestConverter) {
+	public void setPagedRequestConverter(final Converter<PagedRequest<RESOURCELIST>, MultiplePagedSearch<ENTITYLIST>> pagedRequestConverter) {
 		this.pagedRequestConverter = pagedRequestConverter;
 	}
 	
@@ -163,7 +174,7 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends ApiResource, S
 		return entityConverter;
 	}
 
-	public Converter<PagedRequest<RESOURCE>, MultiplePagedSearch<ENTITY>> getPagedRequestConverter() {
+	public Converter<PagedRequest<RESOURCELIST>, MultiplePagedSearch<ENTITYLIST>> getPagedRequestConverter() {
 		return pagedRequestConverter;
 	}
 

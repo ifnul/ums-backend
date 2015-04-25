@@ -29,11 +29,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/papers/usages")
 @Api(value = "Paper Usage", description = "Paper Usage")
-public class PaperUsageController extends BaseController implements PagedController<PaperUsageResource> {
+public class PaperUsageController extends BaseController implements PagedController<PaperUsageResource, PaperUsageResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(PaperUsageController.class);
 	
 	@Resource(name = "paperUsageFacade")
-	private Facade<PaperUsageResource, Long> facade;
+	private Facade<PaperUsageResource, PaperUsageResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/benefits/types")
-public class BenefitTypeController extends BaseController implements PagedController<BenefitTypeResource> {
+public class BenefitTypeController extends BaseController implements PagedController<BenefitTypeResource, BenefitTypeResource> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(BenefitTypeController.class);
 	
 	@Resource(name = "benefitTypeFacade")
-	private Facade<BenefitTypeResource, Long> facade;
+	private Facade<BenefitTypeResource, BenefitTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
 public class TimePeriodControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<TimePeriodResource, Long> facade;
+	private Facade<TimePeriodResource, TimePeriodResource, Long> facade;
 	
 	@InjectMocks
 	private TimePeriodController unit;

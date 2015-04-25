@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
 public class AssetAddressControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<AssetAddressResource, Long> facade;
+	private Facade<AssetAddressResource, AssetAddressResource, Long> facade;
 	
 	@InjectMocks
 	private AssetAddressController unit;

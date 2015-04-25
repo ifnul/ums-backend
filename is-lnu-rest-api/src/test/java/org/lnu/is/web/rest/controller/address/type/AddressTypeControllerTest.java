@@ -35,7 +35,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class AddressTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<AddressTypeResource, Long> facade;
+	private Facade<AddressTypeResource, AddressTypeResource, Long> facade;
 
 	@InjectMocks
 	private AddressTypeController unit;

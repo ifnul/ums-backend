@@ -11,7 +11,7 @@ import org.lnu.is.pagination.PagedResult;
  * @param <ENTITY> Entity class.
  * @param <KEY> Identifier class.
  */
-public interface Dao<ENTITY, KEY> {
+public interface Dao<ENTITY, ENTITYLIST, KEY> {
 
 	/**
 	 * Method for finding Entities by Id.
@@ -43,6 +43,6 @@ public interface Dao<ENTITY, KEY> {
 	 * @param pagedSearch
 	 * @return paged result.
 	 */
-	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITY> pagedSearch);
+	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITYLIST> pagedSearch);
 }
 

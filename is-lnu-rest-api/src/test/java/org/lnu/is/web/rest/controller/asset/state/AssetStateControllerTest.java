@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class AssetStateControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<AssetStateResource, Long> facade;
+	private Facade<AssetStateResource, AssetStateResource, Long> facade;
 	
 	@InjectMocks
 	private AssetStateController unit;

@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class StreetTypeControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<StreetTypeResource, Long> facade;
+	private Facade<StreetTypeResource, StreetTypeResource, Long> facade;
 	
 	@InjectMocks
 	private StreetTypeController unit;

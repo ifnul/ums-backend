@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
 public class PersonFamilyControllerTest extends AbstractControllerTest {
 
     @Mock
-    private Facade<PersonFamilyResource, Long> facade;
+    private Facade<PersonFamilyResource, PersonFamilyResource, Long> facade;
 
     @InjectMocks
     private PersonFamilyController unit;

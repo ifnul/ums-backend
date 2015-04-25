@@ -10,7 +10,7 @@ import org.lnu.is.pagination.PagedResult;
  * @param <ENTITY> Entity.
  * @param <KEY> Key.
  */
-public interface Service<ENTITY, KEY> {
+public interface Service<ENTITY, ENTITYLIST, KEY> {
 
 	/**
 	 * Method for creating entity.
@@ -42,6 +42,6 @@ public interface Service<ENTITY, KEY> {
 	 * @param search
 	 * @return paged result with ready entities.
 	 */
-	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITY> search);
+	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITYLIST> search);
 
 }

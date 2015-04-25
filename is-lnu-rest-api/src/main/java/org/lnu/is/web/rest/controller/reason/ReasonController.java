@@ -29,11 +29,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/reasons")
 @Api("Reason Controller")
-public class ReasonController extends BaseController implements PagedController<ReasonResource> {
+public class ReasonController extends BaseController implements PagedController<ReasonResource, ReasonResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(ReasonController.class);
 	
 	@Resource(name = "reasonFacade")
-	private Facade<ReasonResource, Long> facade;
+	private Facade<ReasonResource, ReasonResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

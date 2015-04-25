@@ -59,7 +59,7 @@ public class DefaultEdboPersonFacadeTest {
 	private PersonEntrantService personEntrantService;
 	
 	@Mock
-	private Service<Person, Long> personService;
+	private Service<Person, Person, Long> personService;
 	
 	@InjectMocks
 	private DefaultEdboPersonFacade unit;

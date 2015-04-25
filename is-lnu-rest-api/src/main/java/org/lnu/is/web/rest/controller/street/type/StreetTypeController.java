@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/streets/types")
-public class StreetTypeController extends BaseController implements PagedController<StreetTypeResource> {
+public class StreetTypeController extends BaseController implements PagedController<StreetTypeResource, StreetTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(StreetTypeController.class);
 	
 	@Resource(name = "streetTypeFacade")
-	private Facade<StreetTypeResource, Long> facade;
+	private Facade<StreetTypeResource, StreetTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

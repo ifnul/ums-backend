@@ -29,7 +29,7 @@ public class SubjectParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<SubjectType, Long> subjectTypeDao;
+	private Dao<SubjectType, SubjectType, Long> subjectTypeDao;
 	
 	@InjectMocks
 	private SubjectParametersExtractor unit;

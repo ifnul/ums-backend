@@ -2,7 +2,7 @@ package org.lnu.is.dao.dao;
 
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 import org.lnu.is.pagination.MultiplePagedQuerySearch;
 import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.PagedResult;
@@ -19,12 +19,12 @@ import org.slf4j.LoggerFactory;
  * @param <ENTITY> Entity type.    
  * @param <KEY> Identifier class.
  */
-public class DefaultDao<ENTITY extends Model, KEY> implements Dao<ENTITY, KEY> {
+public class DefaultDao<ENTITY extends EntityModel, ENTITYLIST, KEY> implements Dao<ENTITY, ENTITYLIST, KEY> {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultDao.class);
 	
 	private PersistenceManager<ENTITY, KEY> persistenceManager;
 	
-	private QueryBuilder<ENTITY> queryBuilder;
+	private QueryBuilder<ENTITYLIST> queryBuilder;
 	
 	private Class<ENTITY> entityClass;
 	
@@ -53,7 +53,7 @@ public class DefaultDao<ENTITY extends Model, KEY> implements Dao<ENTITY, KEY> {
 	}
 
 	@Override
-	public PagedResult<ENTITY> getEntities(final MultiplePagedSearch<ENTITY> pagedSearch) {
+	public PagedResult<ENTITY> getEntities(final MultiplePagedSearch<ENTITYLIST> pagedSearch) {
 		LOG.info("Getting paged result for {}: {}", getEntityClass().getSimpleName(), pagedSearch);
 		
 		String querySql = queryBuilder.build(pagedSearch);
@@ -73,7 +73,7 @@ public class DefaultDao<ENTITY extends Model, KEY> implements Dao<ENTITY, KEY> {
 		return persistenceManager;
 	}
 	
-	public QueryBuilder<ENTITY> getQueryBuilder() {
+	public QueryBuilder<ENTITYLIST> getQueryBuilder() {
 		return queryBuilder;
 	}
 
@@ -81,7 +81,7 @@ public class DefaultDao<ENTITY extends Model, KEY> implements Dao<ENTITY, KEY> {
 		this.persistenceManager = persistenceManager;
 	}
 
-	public void setQueryBuilder(final QueryBuilder<ENTITY> queryBuilder) {
+	public void setQueryBuilder(final QueryBuilder<ENTITYLIST> queryBuilder) {
 		this.queryBuilder = queryBuilder;
 	}
 

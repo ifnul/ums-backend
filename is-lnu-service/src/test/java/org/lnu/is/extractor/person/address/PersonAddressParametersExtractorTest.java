@@ -34,19 +34,19 @@ public class PersonAddressParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Mock
-	private Dao<AddressType, Long> addressTypeDao;
+	private Dao<AddressType, AddressType, Long> addressTypeDao;
 	
 	@Mock
-	private Dao<AdminUnit, Long> adminUnitDao;
+	private Dao<AdminUnit, AdminUnit, Long> adminUnitDao;
 	
 	@Mock
-	private Dao<StreetType, Long> streetTypeDao;
+	private Dao<StreetType, StreetType, Long> streetTypeDao;
 	
 	@Mock
-	private Dao<Asset, Long> assetDao;
+	private Dao<Asset, Asset, Long> assetDao;
 	
 	@InjectMocks
 	private PersonAddressParametersExtractor unit;

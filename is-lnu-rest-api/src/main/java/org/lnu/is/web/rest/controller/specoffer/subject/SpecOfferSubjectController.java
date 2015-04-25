@@ -32,11 +32,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/specoffers")
 @Api(value = "SpecOffer Subjects", description = "SpecOffer Subjects")
-public class SpecOfferSubjectController extends BaseController implements CrudController<SpecOfferSubjectResource> {
+public class SpecOfferSubjectController extends BaseController implements CrudController<SpecOfferSubjectResource, SpecOfferSubjectResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOfferSubjectController.class);
 	
 	@Resource(name = "specOfferSubjectFacade")
-	private Facade<SpecOfferSubjectResource, Long> facade;
+	private Facade<SpecOfferSubjectResource, SpecOfferSubjectResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

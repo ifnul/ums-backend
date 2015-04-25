@@ -31,11 +31,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/adminunits")
-public class AdminUnitController extends BaseController implements CrudController<AdminUnitResource> {
+public class AdminUnitController extends BaseController implements CrudController<AdminUnitResource, AdminUnitResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(AdminUnitController.class);
 	
 	@Resource(name = "adminUnitFacade")
-	private Facade<AdminUnitResource, Long> facade;
+	private Facade<AdminUnitResource, AdminUnitResource, Long> facade;
 	
  	@Override
 	@ResponseStatus(HttpStatus.OK)

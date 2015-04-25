@@ -28,11 +28,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/enrolments")
 public class EnrolmentEnrolmentSubjectController extends BaseController
-	implements CrudController<EnrolmentEnrolmentSubjectResource> {
+	implements CrudController<EnrolmentEnrolmentSubjectResource, EnrolmentEnrolmentSubjectResource> {
     private static final Logger LOG = LoggerFactory.getLogger(EnrolmentEnrolmentSubjectController.class);
     
     @Resource(name = "enrolmentEnrolmentSubjectFacade")
-    private Facade<EnrolmentEnrolmentSubjectResource, Long> facade;
+    private Facade<EnrolmentEnrolmentSubjectResource, EnrolmentEnrolmentSubjectResource, Long> facade;
     
     @Override
     @ResponseStatus(HttpStatus.CREATED)

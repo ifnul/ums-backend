@@ -27,12 +27,12 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/enrolmentforeignes/types")
-public class EnrolmentForeignTypeController extends BaseController implements PagedController<EnrolmentForeignTypeResource> {
+public class EnrolmentForeignTypeController extends BaseController implements PagedController<EnrolmentForeignTypeResource, EnrolmentForeignTypeResource> {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(EnrolmentForeignTypeController.class);
 
 	@Resource(name = "enrolmentForeignTypeFacade")
-	private Facade<EnrolmentForeignTypeResource, Long> facade;
+	private Facade<EnrolmentForeignTypeResource, EnrolmentForeignTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

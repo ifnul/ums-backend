@@ -30,11 +30,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/benefits")
-public class BenefitController extends BaseController implements CrudController<BenefitResource> {
+public class BenefitController extends BaseController implements CrudController<BenefitResource, BenefitResource> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
 	
 	@Resource(name = "benefitFacade")
-	private Facade<BenefitResource, Long> facade;
+	private Facade<BenefitResource, BenefitResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

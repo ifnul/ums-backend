@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class LanguageControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<LanguageResource, Long> facade;
+	private Facade<LanguageResource, LanguageResource, Long> facade;
 
 	@InjectMocks
 	private LanguageController unit;

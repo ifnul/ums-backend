@@ -12,7 +12,7 @@ import org.lnu.is.queries.Query;
  * @author ivanursul
  *
  */
-public class DefaultUserDao extends DefaultDao<User, Long> implements UserDao {
+public class DefaultUserDao extends DefaultDao<User,User, Long> implements UserDao {
 	private static final String QUERY = "SELECT u FROM User u WHERE u.login=:login";
 
 	@Override

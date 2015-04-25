@@ -19,7 +19,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class SpecOfferTypeParametersExtractor extends AbstractParametersExtractor<SpecOfferType> {
 
 	@Resource(name = "timePeriodDao")
-	private Dao<TimePeriod, Long> timePeriodDao;
+	private Dao<TimePeriod, TimePeriod, Long> timePeriodDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final SpecOfferType entity, final Map<String, Object> parameters) {

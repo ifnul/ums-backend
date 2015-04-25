@@ -30,10 +30,10 @@ public class PersonNameParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<Language, Long> languageDao;
+	private Dao<Language, Language, Long> languageDao;
 	
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@InjectMocks
 	private PersonNameParametersExtractor unit;

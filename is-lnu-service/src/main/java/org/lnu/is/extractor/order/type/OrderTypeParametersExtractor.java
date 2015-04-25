@@ -18,7 +18,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class OrderTypeParametersExtractor extends AbstractParametersExtractor<OrderType> {
 
 	@Resource(name = "orderTypeDao")
-	private Dao<OrderType, Long> orderTypeDao;
+	private Dao<OrderType, OrderType, Long> orderTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final OrderType entity, final Map<String, Object> parameters) {

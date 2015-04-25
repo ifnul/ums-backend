@@ -28,10 +28,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class PersonContactParametersExtractorTest {
 
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 
 	@Mock
-	private Dao<ContactType, Long> contactTypeDao;
+	private Dao<ContactType, ContactType, Long> contactTypeDao;
 
 	@InjectMocks
 	private PersonContactParametersExtractor unit;

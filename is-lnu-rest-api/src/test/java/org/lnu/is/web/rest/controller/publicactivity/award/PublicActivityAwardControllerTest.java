@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
 public class PublicActivityAwardControllerTest extends AbstractControllerTest {
 
     @Mock
-    private Facade<PublicActivityAwardResource, Long> facade;
+    private Facade<PublicActivityAwardResource, PublicActivityAwardResource, Long> facade;
 
     @InjectMocks
     private PublicActivityAwardController unit;

@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  * @param <ENTITY> Entity type.    
  * @param <KEY> Identifier class.
  */
-public class DefaultViewDao<ENTITY extends View, KEY> implements Dao<ENTITY, KEY> {
+public class DefaultViewDao<ENTITY extends View, KEY> implements Dao<ENTITY,ENTITY, KEY> {
 	private static final String QUERY = "SELECT e FROM %s WHERE e.id=:id ";
 
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultDao.class);

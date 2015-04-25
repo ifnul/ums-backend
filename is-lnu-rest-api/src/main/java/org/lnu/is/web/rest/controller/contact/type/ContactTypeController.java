@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/contacts/types")
-public class ContactTypeController extends BaseController implements PagedController<ContactTypeResource> {
+public class ContactTypeController extends BaseController implements PagedController<ContactTypeResource, ContactTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(ContactTypeController.class);
 
 	@Resource(name = "contactTypeFacade")
-	private Facade<ContactTypeResource, Long> facade;
+	private Facade<ContactTypeResource, ContactTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

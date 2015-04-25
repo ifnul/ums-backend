@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class PaperUsageControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<PaperUsageResource, Long> facade;
+	private Facade<PaperUsageResource, PaperUsageResource, Long> facade;
 	
 	@InjectMocks
 	private PaperUsageController unit;

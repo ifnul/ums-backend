@@ -31,16 +31,16 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DepartmentAddressParametersExtractorTest {
 
 	@Mock
-	private Dao<Department, Long> departmentDao;
+	private Dao<Department, Department, Long> departmentDao;
 
 	@Mock
-	private Dao<AddressType, Long> addressTypeDao;
+	private Dao<AddressType, AddressType, Long> addressTypeDao;
 
 	@Mock
-	private Dao<AdminUnit, Long> adminUnitDao;
+	private Dao<AdminUnit, AdminUnit, Long> adminUnitDao;
 
 	@Mock
-	private Dao<StreetType, Long> streetTypeDao;
+	private Dao<StreetType, StreetType, Long> streetTypeDao;
 	
 	@InjectMocks
 	private DepartmentAddressParametersExtractor unit;

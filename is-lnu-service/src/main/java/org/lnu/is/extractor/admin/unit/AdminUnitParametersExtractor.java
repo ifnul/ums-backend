@@ -19,10 +19,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class AdminUnitParametersExtractor extends AbstractParametersExtractor<AdminUnit> {
 
 	@Resource(name = "adminUnitTypeDao")
-	private Dao<AdminUnitType, Long> adminUnitTypeDao;
+	private Dao<AdminUnitType, AdminUnitType, Long> adminUnitTypeDao;
 	
 	@Resource(name = "adminUnitDao")
-	private Dao<AdminUnit, Long> adminUnitDao;
+	private Dao<AdminUnit, AdminUnit, Long> adminUnitDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final AdminUnit entity, final Map<String, Object> parameters) {

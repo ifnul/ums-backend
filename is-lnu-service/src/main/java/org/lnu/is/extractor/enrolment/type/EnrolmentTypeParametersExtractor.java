@@ -19,7 +19,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class EnrolmentTypeParametersExtractor extends AbstractParametersExtractor<EnrolmentType> {
 
 	@Resource(name = "enrolmentTypeDao")
-	private Dao<EnrolmentType, Long> enrolmentTypeDao;
+	private Dao<EnrolmentType, EnrolmentType, Long> enrolmentTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final EnrolmentType entity, final Map<String, Object> parameters) {

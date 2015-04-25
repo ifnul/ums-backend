@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DutyTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<DutyTypeResource, Long> facade;
+	private Facade<DutyTypeResource, DutyTypeResource, Long> facade;
 
 	@InjectMocks
 	private DutyTypeController unit;

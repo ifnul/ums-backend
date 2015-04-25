@@ -20,11 +20,11 @@ import org.lnu.is.pagination.PagedResult;
  * @param <KEY> Key of corresponding 
  * @param <DAO>
  */
-public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implements Service<ENTITY, KEY> {
+public class DefaultService<ENTITY,ENTITYLIST, KEY, DAO extends Dao<ENTITY, ENTITYLIST, KEY>> implements Service<ENTITY, ENTITYLIST, KEY> {
 
 	private DAO dao;
 	
-	private ParametersExtractor<ENTITY> parametersExtractor;
+	private ParametersExtractor<ENTITYLIST> parametersExtractor;
 	
 	@Override
 	public void createEntity(final ENTITY entity) {
@@ -47,7 +47,7 @@ public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implement
 	}
 
 	@Override
-	public PagedResult<ENTITY> getEntities(final MultiplePagedSearch<ENTITY> search) {
+	public PagedResult<ENTITY> getEntities(final MultiplePagedSearch<ENTITYLIST> search) {
 		Map<String, Object> parameters = parametersExtractor.getParameters(search.getEntity());
 		search.setParameters(parameters);
 		
@@ -58,7 +58,7 @@ public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implement
 		this.dao = defaultDao;
 	}
 
-	public void setParametersExtractor(final ParametersExtractor<ENTITY> parametersExtractor) {
+	public void setParametersExtractor(final ParametersExtractor<ENTITYLIST> parametersExtractor) {
 		this.parametersExtractor = parametersExtractor;
 	}
 
@@ -66,7 +66,7 @@ public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implement
 		return dao;
 	}
 
-	public ParametersExtractor<ENTITY> getParametersExtractor() {
+	public ParametersExtractor<ENTITYLIST> getParametersExtractor() {
 		return parametersExtractor;
 	}
 	

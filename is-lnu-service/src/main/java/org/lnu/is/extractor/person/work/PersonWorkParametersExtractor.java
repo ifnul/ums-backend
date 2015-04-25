@@ -21,13 +21,13 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class PersonWorkParametersExtractor extends AbstractParametersExtractor<PersonWork> {
 
 	@Resource(name = "personDao")
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Resource(name = "jobTypeDao")
-	private Dao<JobType, Long> jobTypeDao;
+	private Dao<JobType, JobType, Long> jobTypeDao;
 	
 	@Resource(name = "specStageTypeDao")
-	private Dao<SpecStageType, Long> specStageTypeDao;
+	private Dao<SpecStageType, SpecStageType, Long> specStageTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final PersonWork entity, final Map<String, Object> parameters) {

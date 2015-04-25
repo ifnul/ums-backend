@@ -20,10 +20,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class PublicActivityParametersExtractor extends AbstractParametersExtractor<PublicActivity> {
 
 	@Resource(name = "publicActivityTypeDao")
-	private Dao<PublicActivityType, Long> publicActivityTypeDao;
+	private Dao<PublicActivityType, PublicActivityType, Long> publicActivityTypeDao;
 	
 	@Resource(name = "timePeriodDao")
-	private Dao<TimePeriod, Long> timePeriodDao;
+	private Dao<TimePeriod, TimePeriod, Long> timePeriodDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final PublicActivity entity, final Map<String, Object> parameters) {

@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OP;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.role.Role;
 import org.lnu.is.domain.user.group.UserGroup;
@@ -28,7 +28,7 @@ import org.lnu.is.domain.user.role.UserRole;
 @OP
 @Entity
 @Table(name = "q_op_user")
-public class User extends Model implements Serializable {
+public class User extends EntityModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "login")

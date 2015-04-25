@@ -33,11 +33,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/assets")
 @Api(value = "Asset Controller")
-public class AssetController extends BaseController implements CrudController<AssetResource> {
+public class AssetController extends BaseController implements CrudController<AssetResource, AssetResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(AssetController.class);
 	
 	@Resource(name = "assetFacade")
-	private Facade<AssetResource, Long> facade;
+	private Facade<AssetResource, AssetResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

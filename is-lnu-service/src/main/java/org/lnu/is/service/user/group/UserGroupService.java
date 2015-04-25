@@ -11,7 +11,7 @@ import org.lnu.is.service.Service;
  * @author ivanursul
  *
  */
-public interface UserGroupService extends Service<UserGroup, Long> {
+public interface UserGroupService extends Service<UserGroup, UserGroup, Long> {
 
 	/**
 	 * Method for getting user groups views.

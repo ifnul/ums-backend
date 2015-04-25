@@ -30,11 +30,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/addresstypes")
 @ApiModel(value = "Address Types", description = "Address Types")
-public class AddressTypeController extends BaseController implements PagedController<AddressTypeResource> {
+public class AddressTypeController extends BaseController implements PagedController<AddressTypeResource, AddressTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(AddressTypeController.class);
 
 	@Resource(name = "addressTypeFacade")
-	private Facade<AddressTypeResource, Long> facade;
+	private Facade<AddressTypeResource, AddressTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

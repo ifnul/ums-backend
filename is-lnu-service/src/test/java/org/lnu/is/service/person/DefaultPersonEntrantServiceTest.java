@@ -18,10 +18,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultPersonEntrantServiceTest {
 
 	@Mock
-	private Dao<PersonEntrant, Long> entrantDao;
+	private Dao<PersonEntrant, PersonEntrant, Long> entrantDao;
 	
 	@Mock
-	private Dao<PersonEntrantAuto, Long> entrantAutoDao;
+	private Dao<PersonEntrantAuto, PersonEntrantAuto, Long> entrantAutoDao;
 	
 	@InjectMocks
 	private DefaultPersonEntrantService unit;

@@ -29,11 +29,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/assets/types")
 @Api("Asset Type Controller")
-public class AssetTypeController extends BaseController implements PagedController<AssetTypeResource> {
+public class AssetTypeController extends BaseController implements PagedController<AssetTypeResource, AssetTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(AssetTypeController.class);
 
 	@Resource(name = "assetTypeFacade")
-	private Facade<AssetTypeResource, Long> facade;
+	private Facade<AssetTypeResource, AssetTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

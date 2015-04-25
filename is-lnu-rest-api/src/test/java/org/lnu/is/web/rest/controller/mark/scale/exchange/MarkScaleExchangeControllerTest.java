@@ -40,7 +40,7 @@ import org.springframework.http.MediaType;
 public class MarkScaleExchangeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<MarkScaleExchangeResource, Long> facade;
+	private Facade<MarkScaleExchangeResource, MarkScaleExchangeResource, Long> facade;
 	
 	@InjectMocks
 	private MarkScaleExchangeController unit;

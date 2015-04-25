@@ -1,9 +1,15 @@
 package org.lnu.is.dao.builder.person;
 
+import java.util.Date;
+
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
+import org.lnu.is.domain.gender.type.GenderType;
+import org.lnu.is.domain.married.type.MarriedType;
 import org.lnu.is.domain.person.Person;
+import org.lnu.is.domain.person.type.PersonType;
+import org.lnu.is.multysearch.person.PersonList;
 
 /**
  * Person Query Builder.
@@ -11,7 +17,7 @@ import org.lnu.is.domain.person.Person;
  *
  */
 @QBuilder("personQueryBuilder")
-public class PersonQueryBuilder extends AbstractQueryBuilder<Person> {
+public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 	private static final String PARENT_CONDITION = "e.parent = :parent ";
 	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
 	private static final String PERSONTYPE_CONDITION = "e.personType = :personType ";
@@ -37,13 +43,13 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<Person> {
 	protected String getBaseQuery() {
 		return "SELECT e FROM Person e %s";
 	}
-
+/*
 	@Override
 	protected BaseQueryBuilder build(final Person context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
 				.openBracket()
-					.addAndCondition(PERSONTYPE_CONDITION, context.getPersonType())
+					.addOCondition(PERSONTYPE_CONDITION, context.getPersonType())
 					.addAndCondition(GENDERTYPE_CONDITION, context.getGenderType())
 					.addAndCondition(MARRIEDTYPE_CONDITION, context.getMarriedType())
 					.addAndCondition(PARENT_CONDITION, context.getParent())
@@ -61,7 +67,144 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<Person> {
 					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 					.addAndCondition(ISMILITARY_CONDITION, context.getIsMilitary())
 					.addAndCondition(ISHOSTEL_CONDITION, context.getIsHostel())
-				.closeBracket();
+				.closeBracket()
+				.and()
+				.openBracket();
+			
+	}*/
+
+	@Override
+	protected BaseQueryBuilder build(PersonList context, BaseQueryBuilder builder) {
+    	    BaseQueryBuilder baseQueryBuilder= builder.where();
+    	    if (context.getPersonType()!=null){
+    		baseQueryBuilder=baseQueryBuilder.openBracket();
+    			for (PersonType personType : context.getPersonType()) {
+    			    baseQueryBuilder=baseQueryBuilder.addOrCondition(PERSONTYPE_CONDITION, personType);
+			}
+    		baseQueryBuilder=baseQueryBuilder.closeBracket();
+    	    }
+    	    if (context.getGenderType()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (GenderType genderType : context.getGenderType()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(GENDERTYPE_CONDITION, genderType);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getMarriedType()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (MarriedType marriedType : context.getMarriedType()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(MARRIEDTYPE_CONDITION, marriedType);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }	
+	if (context.getParent()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (Person person : context.getParent()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(PARENT_CONDITION, person);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getName()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (String name : context.getName()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(NAME_CONDITION, name);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getFirstName()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (String firstName : context.getFirstName()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(FIRSTNAME_CONDITION, firstName);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getFatherName()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (String fatherName : context.getFatherName()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(FATHERNAME_CONDITION, fatherName);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getSurname()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (String surname : context.getSurname()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(SURNAME_CONDITION, surname);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getPhoto()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (String photo : context.getPhoto()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(PHOTO_CONDITION, photo);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getDocSeries()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (String docSeries : context.getDocSeries()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(DOCSERIES_CONDITION, docSeries);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getDocNum()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (String docNum : context.getDocNum()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(DOCNUM_CONDITION, docNum);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+
+	if (context.getIdentifier()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (String identifier : context.getIdentifier()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(IDENTIFIER_CONDITION, identifier);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getResident()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (Integer resident : context.getResident()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(RESIDENT_CONDITION, resident);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getBirthPlace()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (String birthPlace : context.getBirthPlace()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(BIRTHPLACE_CONDITION, birthPlace);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getBegDate()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (Date begDate : context.getBegDate()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(BEGDATE_CONDITION, begDate);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getEndDate()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (Date endDate : context.getEndDate()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(ENDDATE_CONDITION, endDate);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	if (context.getIsMilitary()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (Integer isMilitary : context.getIsMilitary()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(ISMILITARY_CONDITION, isMilitary);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	
+	if (context.getIsHostel()!=null){
+		baseQueryBuilder=baseQueryBuilder.and().openBracket();
+			for (Integer isHostel : context.getIsHostel()) {
+			    baseQueryBuilder=baseQueryBuilder.addOrCondition(ISHOSTEL_CONDITION, isHostel);
+			}
+		baseQueryBuilder=baseQueryBuilder.closeBracket();
+	    }
+	    return baseQueryBuilder;
 	}
 
 }

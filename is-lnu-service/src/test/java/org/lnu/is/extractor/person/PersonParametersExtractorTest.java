@@ -32,16 +32,16 @@ public class PersonParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<PersonType, Long> personTypeDao;
+	private Dao<PersonType, PersonType, Long> personTypeDao;
 	
 	@Mock
-	private Dao<GenderType, Long> genderTypeDao;
+	private Dao<GenderType, GenderType, Long> genderTypeDao;
 
 	@Mock
-	private Dao<MarriedType, Long> marrieTypeDao;
+	private Dao<MarriedType, MarriedType, Long> marrieTypeDao;
 
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@InjectMocks
 	private PersonParametersExtractor unit;

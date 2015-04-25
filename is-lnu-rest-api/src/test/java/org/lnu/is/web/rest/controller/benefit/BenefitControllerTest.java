@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
 public class BenefitControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<BenefitResource, Long> facade;
+	private Facade<BenefitResource, BenefitResource, Long> facade;
 	
 	@InjectMocks
 	private BenefitController unit;

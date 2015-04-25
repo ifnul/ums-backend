@@ -23,22 +23,22 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class SpecOfferParametersExtractor extends AbstractParametersExtractor<SpecOffer> {
 
 	@Resource(name = "specOfferDao")
-	private Dao<SpecOffer, Long> specOfferDao;
+	private Dao<SpecOffer, SpecOffer, Long> specOfferDao;
 	
 	@Resource(name = "specialtyDao")
-	private Dao<Specialty, Long> specialtyDao;
+	private Dao<Specialty, Specialty, Long> specialtyDao;
 	
 	@Resource(name = "departmentDao")
-	private Dao<Department, Long> departmentDao;
+	private Dao<Department, Department, Long> departmentDao;
 	
 	@Resource(name = "timePeriodDao")
-	private Dao<TimePeriod, Long> timePeriodDao;
+	private Dao<TimePeriod, TimePeriod, Long> timePeriodDao;
 	
 	@Resource(name = "eduFormTypeDao")
-	private Dao<EducationFormType, Long> eduFormTypeDao;
+	private Dao<EducationFormType, EducationFormType, Long> eduFormTypeDao;
 	
 	@Resource(name = "specOfferTypeDao")
-	private Dao<SpecOfferType, Long> specOfferTypeDao;
+	private Dao<SpecOfferType, SpecOfferType, Long> specOfferTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final SpecOffer entity, final Map<String, Object> parameters) {

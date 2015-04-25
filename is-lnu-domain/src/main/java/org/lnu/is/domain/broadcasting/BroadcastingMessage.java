@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 import org.lnu.is.domain.group.Group;
 
 /**
@@ -17,7 +17,7 @@ import org.lnu.is.domain.group.Group;
  */
 @Entity
 @Table(name = "q_rp_broadcasting")
-public class BroadcastingMessage extends Model {
+public class BroadcastingMessage extends EntityModel {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "content")

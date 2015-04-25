@@ -23,19 +23,19 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class PersonAddressParametersExtractor extends AbstractParametersExtractor<PersonAddress> {
 
 	@Resource(name = "personDao")
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Resource(name = "addressTypeDao")
-	private Dao<AddressType, Long> addressTypeDao;
+	private Dao<AddressType, AddressType, Long> addressTypeDao;
 	
 	@Resource(name = "adminUnitDao")
-	private Dao<AdminUnit, Long> adminUnitDao;
+	private Dao<AdminUnit, AdminUnit, Long> adminUnitDao;
 	
 	@Resource(name = "streetTypeDao")
-	private Dao<StreetType, Long> streetTypeDao;
+	private Dao<StreetType, StreetType, Long> streetTypeDao;
 	
 	@Resource(name = "assetDao")
-	private Dao<Asset, Long> assetDao;
+	private Dao<Asset, Asset, Long> assetDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final PersonAddress entity, final Map<String, Object> parameters) {

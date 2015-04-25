@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/wave/types")
-public class WaveTypeController extends BaseController implements PagedController<WaveTypeResource> {
+public class WaveTypeController extends BaseController implements PagedController<WaveTypeResource, WaveTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(WaveTypeController.class);
 	
 	@Resource(name = "waveTypeFacade")
-	private Facade<WaveTypeResource, Long> facade;
+	private Facade<WaveTypeResource, WaveTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

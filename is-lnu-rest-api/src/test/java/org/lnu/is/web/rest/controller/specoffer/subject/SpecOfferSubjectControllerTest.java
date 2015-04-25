@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
 public class SpecOfferSubjectControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<SpecOfferSubjectResource, Long> facade;
+	private Facade<SpecOfferSubjectResource, SpecOfferSubjectResource, Long> facade;
 	
 	@InjectMocks
 	private SpecOfferSubjectController unit;

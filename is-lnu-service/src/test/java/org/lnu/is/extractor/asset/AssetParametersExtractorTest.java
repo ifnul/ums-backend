@@ -33,28 +33,28 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class AssetParametersExtractorTest {
 
 	@Mock
-	private Dao<Asset, Long> assetDao;
+	private Dao<Asset, Asset, Long> assetDao;
 
 	@Mock
-	private Dao<Order, Long> orderDao;
+	private Dao<Order, Order, Long> orderDao;
 
 	@Mock
-	private Dao<Partner, Long> partnetDao;
+	private Dao<Partner, Partner, Long> partnetDao;
 
 	@Mock
-	private Dao<Employee, Long> employeeDao;
+	private Dao<Employee, Employee, Long> employeeDao;
 
 	@Mock
-	private Dao<Department, Long> departmentDao;
+	private Dao<Department, Department, Long> departmentDao;
 
 	@Mock
-	private Dao<AssetType, Long> assetTypeDao;
+	private Dao<AssetType, AssetType, Long> assetTypeDao;
 
 	@Mock
-	private Dao<AssetState, Long> assetStateDao;
+	private Dao<AssetState, AssetState, Long> assetStateDao;
 
 	@Mock
-	private Dao<AssetStatus, Long> assetStatusDao;
+	private Dao<AssetStatus, AssetStatus, Long> assetStatusDao;
 	
 	@InjectMocks
 	private AssetParametersExtractor unit;

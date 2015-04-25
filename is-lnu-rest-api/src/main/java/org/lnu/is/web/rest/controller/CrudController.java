@@ -8,7 +8,7 @@ import org.lnu.is.resource.message.MessageResource;
  *
  * @param <RESOURCE>
  */
-public interface CrudController<RESOURCE> extends PagedController<RESOURCE> {
+public interface CrudController<RESOURCE,RESOURCELIST> extends PagedController<RESOURCE, RESOURCELIST> {
 
 	/**
 	 * Method for creating new resource.

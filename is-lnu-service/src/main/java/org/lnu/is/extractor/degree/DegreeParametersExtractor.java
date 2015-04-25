@@ -20,10 +20,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class DegreeParametersExtractor extends AbstractParametersExtractor<Degree> {
 
 	@Resource(name = "degreeTypeDao")
-	private Dao<DegreeType, Long> degreeTypeDao;
+	private Dao<DegreeType, DegreeType, Long> degreeTypeDao;
 	
 	@Resource(name = "personDao")
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final Degree entity, final Map<String, Object> parameters) {

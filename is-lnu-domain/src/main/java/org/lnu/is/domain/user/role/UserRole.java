@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OP;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 import org.lnu.is.domain.role.Role;
 import org.lnu.is.domain.user.User;
 
@@ -19,7 +19,7 @@ import org.lnu.is.domain.user.User;
 @OP
 @Entity
 @Table(name = "q_op_userrole")
-public class UserRole extends Model {
+public class UserRole extends EntityModel {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class MarkScaleTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<MarkScaleTypeResource, Long> facade;
+	private Facade<MarkScaleTypeResource, MarkScaleTypeResource, Long> facade;
 
 	@InjectMocks
 	private MarkScaleTypeController unit;

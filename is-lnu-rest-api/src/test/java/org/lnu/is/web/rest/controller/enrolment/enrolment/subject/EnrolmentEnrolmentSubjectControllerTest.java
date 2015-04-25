@@ -39,7 +39,7 @@ import org.springframework.http.MediaType;
 @RunWith(MockitoJUnitRunner.class)
 public class EnrolmentEnrolmentSubjectControllerTest extends AbstractControllerTest {
     @Mock
-    private Facade<EnrolmentEnrolmentSubjectResource, Long> facade;
+    private Facade<EnrolmentEnrolmentSubjectResource, EnrolmentEnrolmentSubjectResource, Long> facade;
 
     @InjectMocks
     private EnrolmentEnrolmentSubjectController unit;

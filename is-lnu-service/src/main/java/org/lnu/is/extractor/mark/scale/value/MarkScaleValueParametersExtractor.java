@@ -19,7 +19,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class MarkScaleValueParametersExtractor extends AbstractParametersExtractor<MarkScaleValue>  {
 
 	@Resource(name = "markScaleDao")
-	private Dao<MarkScale, Long> markScaleDao;
+	private Dao<MarkScale, MarkScale, Long> markScaleDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final MarkScaleValue entity, final Map<String, Object> parameters) {

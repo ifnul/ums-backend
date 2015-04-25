@@ -19,7 +19,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class SubjectParametersExtractor extends AbstractParametersExtractor<Subject> {
 
 	@Resource(name = "subjectTypeDao")
-	private Dao<SubjectType, Long> subjectTypeDao;
+	private Dao<SubjectType, SubjectType, Long> subjectTypeDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final Subject entity, final Map<String, Object> parameters) {

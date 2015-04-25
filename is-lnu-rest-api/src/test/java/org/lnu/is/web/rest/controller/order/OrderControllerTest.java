@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
 public class OrderControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<OrderResource, Long> facade;
+	private Facade<OrderResource, OrderResource, Long> facade;
 	
 	@InjectMocks
 	private OrderController unit;

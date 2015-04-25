@@ -31,13 +31,13 @@ public class EnrolmentBenefitParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<Benefit, Long> benefitDao;
+	private Dao<Benefit, Benefit, Long> benefitDao;
 
 	@Mock
-	private Dao<PersonPaper, Long> personPaperDao;
+	private Dao<PersonPaper, PersonPaper, Long> personPaperDao;
 
 	@Mock
-	private Dao<Enrolment, Long> enrolmentDao;
+	private Dao<Enrolment, Enrolment, Long> enrolmentDao;
 
 	@InjectMocks
 	private EnrolmentBenefitParametersExtractor unit;

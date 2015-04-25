@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.lnu.is.dao.dao.Dao;
+import org.lnu.is.domain.EntityModel;
 import org.lnu.is.domain.Model;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.security.service.SessionService;
@@ -62,7 +63,7 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	 * @param parameterName
 	 * @param parameters
 	 */
-	protected <E extends Model> void addParameter(final E entity, final Dao<E, Long> dao, final String parameterName, final Map<String, Object> parameters) {
+	protected <E extends EntityModel, R extends Model> void addParameter(final E entity, final Dao<E, R, Long> dao, final String parameterName, final Map<String, Object> parameters) {
 		
 		if (entity != null) {
 			E dbEntity = dao.getEntityById(entity.getId());

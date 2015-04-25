@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class AdminUnitTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<AdminUnitTypeResource, Long> facade;
+	private Facade<AdminUnitTypeResource, AdminUnitTypeResource, Long> facade;
 
 	@InjectMocks
 	private AdminUnitTypeController unit;

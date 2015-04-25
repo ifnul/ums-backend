@@ -40,7 +40,7 @@ import org.springframework.http.MediaType;
 public class PersonLanguageControllerTest extends AbstractControllerTest {
 
     @Mock
-    private Facade<PersonLanguageResource, Long> facade;
+    private Facade<PersonLanguageResource, PersonLanguageResource, Long> facade;
 
     @InjectMocks
     private PersonLanguageController unit;

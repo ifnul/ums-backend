@@ -19,10 +19,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class SpecialtyParametersExtractor extends AbstractParametersExtractor<Specialty> {
 
 	@Resource(name = "specialtyTypeDao")
-	private Dao<SpecialtyType, Long> specialtyTypeDao;
+	private Dao<SpecialtyType, SpecialtyType, Long> specialtyTypeDao;
 	
 	@Resource(name = "specialtyDao")
-	private Dao<Specialty, Long> specialtyDao;
+	private Dao<Specialty, Specialty, Long> specialtyDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final Specialty entity, final Map<String, Object> parameters) {

@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class TimePeriodTypeControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<TimePeriodTypeResource, Long> facade;
+	private Facade<TimePeriodTypeResource, TimePeriodTypeResource, Long> facade;
 	
 	@InjectMocks
 	private TimePeriodTypeController unit;
