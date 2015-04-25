@@ -1,14 +1,8 @@
 package org.lnu.is.dao.builder.person;
 
-import java.util.Date;
-
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.gender.type.GenderType;
-import org.lnu.is.domain.married.type.MarriedType;
-import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.multysearch.person.PersonList;
 
 /**
@@ -18,8 +12,8 @@ import org.lnu.is.multysearch.person.PersonList;
  */
 @QBuilder("personQueryBuilder")
 public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
-	private static final String PARENT_CONDITION = "e.parent = :parent ";
-	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
+	private static final String PARENT_CONDITION = "e.parent in :parent ";
+	private static final String NAME_CONDITION = "e.name LIKE in :name,'%' ";
 	private static final String PERSONTYPE_CONDITION = "e.personType = :personType ";
 	private static final String GENDERTYPE_CONDITION = "e.genderType = :genderType ";
 	private static final String MARRIEDTYPE_CONDITION = "e.marriedType = :marriedType ";
@@ -31,7 +25,7 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 	private static final String IDENTIFIER_CONDITION = "e.identifier LIKE CONCAT('%',:identifier,'%') ";
 	private static final String BIRTHPLACE_CONDITION = "e.birthPlace LIKE CONCAT('%',:birthPlace,'%') ";
 	private static final String PHOTO_CONDITION = "e.photo LIKE CONCAT('%',:photo,'%') ";
-	private static final String DOCNUM_CONDITION = "e.docNum LIKE CONCAT('%',:docNum,'%') ";
+	private static final String DOCNUM_CONDITION = "e.docNum in :docNum ";
 	
 	private static final String RESIDENT_CONDITION = "e.resident = :resident ";
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
@@ -43,13 +37,13 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 	protected String getBaseQuery() {
 		return "SELECT e FROM Person e %s";
 	}
-/*
+
 	@Override
-	protected BaseQueryBuilder build(final Person context, final BaseQueryBuilder builder) {
+	protected BaseQueryBuilder build(final PersonList context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
 				.openBracket()
-					.addOCondition(PERSONTYPE_CONDITION, context.getPersonType())
+					.addAndCondition(PERSONTYPE_CONDITION, context.getPersonType())
 					.addAndCondition(GENDERTYPE_CONDITION, context.getGenderType())
 					.addAndCondition(MARRIEDTYPE_CONDITION, context.getMarriedType())
 					.addAndCondition(PARENT_CONDITION, context.getParent())
@@ -59,7 +53,7 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 					.addAndCondition(SURNAME_CONDITION, context.getSurname())
 					.addAndCondition(PHOTO_CONDITION, context.getPhoto())
 					.addAndCondition(DOCSERIES_CONDITION, context.getDocSeries())
-					.addAndCondition(DOCNUM_CONDITION, context.getDocNum())
+					.addAndCondition(DOCNUM_CONDITION, context.getDocNum().toArray())
 					.addAndCondition(IDENTIFIER_CONDITION, context.getIdentifier())
 					.addAndCondition(RESIDENT_CONDITION, context.getResident())
 					.addAndCondition(BIRTHPLACE_CONDITION, context.getBirthPlace())
@@ -67,12 +61,9 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
 					.addAndCondition(ISMILITARY_CONDITION, context.getIsMilitary())
 					.addAndCondition(ISHOSTEL_CONDITION, context.getIsHostel())
-				.closeBracket()
-				.and()
-				.openBracket();
-			
-	}*/
-
+				.closeBracket();
+	}
+/*
 	@Override
 	protected BaseQueryBuilder build(PersonList context, BaseQueryBuilder builder) {
     	    BaseQueryBuilder baseQueryBuilder= builder.where();
@@ -206,5 +197,5 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 	    }
 	    return baseQueryBuilder;
 	}
-
+*/
 }
