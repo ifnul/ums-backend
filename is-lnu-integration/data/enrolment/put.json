@@ -15,5 +15,8 @@
 	"evDate" : "2014-01-01",
   	"begDate": "2014-01-01",
   	"endDate": "2015-01-01",
-	"priority" : 1
+	"priority" : 1,
+	"isEducationState" : 2,
+	"isInterview" : 1,
+	"isOriginal" : 0
 }

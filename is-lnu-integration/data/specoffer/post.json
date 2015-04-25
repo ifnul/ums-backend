@@ -10,5 +10,6 @@
   "licCount": 3,
   "stateCount": 3,
   "departmentId": ${departmentId},
-  "specialtyId": ${specialtyId}
+  "specialtyId": ${specialtyId},
+  "duration": "2.5"
 }
