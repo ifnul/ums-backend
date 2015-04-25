@@ -30,6 +30,9 @@ public class EnrolmentConverter extends AbstractConverter<Enrolment, EnrolmentRe
 		target.setIsState(source.getIsState());
 		target.setMark(source.getMark());
 		target.setPriority(source.getPriority());
+		target.setIsEducationState(source.getIsEducationState());
+		target.setIsInterview(source.getIsInterview());
+		target.setIsOriginal(source.getIsOriginal());
 		
 		if (source.getPerson() != null) {
 			target.setPersonId(source.getPerson().getId());

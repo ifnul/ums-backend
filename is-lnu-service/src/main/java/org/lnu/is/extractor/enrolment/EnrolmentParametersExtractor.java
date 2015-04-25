@@ -59,6 +59,9 @@ public class EnrolmentParametersExtractor extends AbstractParametersExtractor<En
 		addParameter(entity.getIsHostel(), "isHostel", parameters);
 		addParameter(entity.getIsPrivilege(), "isPrivilege", parameters);
 		addParameter(entity.getIsContract(), "isContract", parameters);
+		addParameter(entity.getIsEducationState(), "isEducationState", parameters);
+		addParameter(entity.getIsInterview(), "isInterview", parameters);
+		addParameter(entity.getIsOriginal(), "isOriginal", parameters);
 		addParameter(entity.getEvDate(), "evDate", parameters);
 		addParameter(entity.getBegDate(), "begDate", parameters);
 		addParameter(entity.getEndDate(), "endDate", parameters);

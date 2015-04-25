@@ -100,7 +100,40 @@ public class Enrolment extends InformationModel {
 
 	@Column(name = "priority")
 	private Integer priority;
+
+	@Column(name = "isedustate")
+	private Integer isEducationState;
 	
+	@Column(name = "isinterview")
+	private Integer isInterview;
+	
+	@Column(name = "isoriginal")
+	private Integer isOriginal;
+	
+	public Integer getIsEducationState() {
+	    return isEducationState;
+	}
+
+	public void setIsEducationState(final Integer isEducationState) {
+	    this.isEducationState = isEducationState;
+	}
+
+	public Integer getIsInterview() {
+	    return isInterview;
+	}
+
+	public void setIsInterview(final Integer isInterview) {
+	    this.isInterview = isInterview;
+	}
+
+	public Integer getIsOriginal() {
+	    return isOriginal;
+	}
+
+	public void setIsOriginal(final Integer isOriginal) {
+	    this.isOriginal = isOriginal;
+	}
+
 	public Person getPerson() {
 		return person;
 	}
@@ -289,6 +322,9 @@ public class Enrolment extends InformationModel {
 		result = prime * result + ((isState == null) ? 0 : isState.hashCode());
 		result = prime * result + ((mark == null) ? 0 : mark.hashCode());
 		result = prime * result + ((priority == null) ? 0 : priority.hashCode());
+		result = prime * result + ((isEducationState == null) ? 0 : isEducationState.hashCode());
+		result = prime * result + ((isInterview == null) ? 0 : isInterview.hashCode());
+		result = prime * result + ((isOriginal == null) ? 0 : isOriginal.hashCode());
 		return result;
 	}
 
@@ -381,11 +417,32 @@ public class Enrolment extends InformationModel {
 		} else if (!mark.equals(other.mark)) {
 			return false;
 		}
-		if (mark == null) {
-			if (other.mark != null) {
+		if (priority == null) {
+			if (other.priority != null) {
 				return false;
 			}
 		} else if (!priority.equals(other.priority)) {
+			return false;
+		}
+		if (isEducationState == null) {
+			if (other.isEducationState != null) {
+				return false;
+			}
+		} else if (!isEducationState.equals(other.isEducationState)) {
+			return false;
+		}
+		if (isInterview == null) {
+			if (other.isInterview != null) {
+				return false;
+			}
+		} else if (!isInterview.equals(other.isInterview)) {
+			return false;
+		}
+		if (isOriginal == null) {
+			if (other.isOriginal != null) {
+				return false;
+			}
+		} else if (!isOriginal.equals(other.isOriginal)) {
 			return false;
 		}
 		return true;
@@ -393,11 +450,15 @@ public class Enrolment extends InformationModel {
 
 	@Override
 	public String toString() {
-		return "Enrolment [mark=" + mark + ", docSeries=" + docSeries
-				+ ", docNum=" + docNum + ", docText=" + docText + ", isState="
-				+ isState + ", isContract=" + isContract + ", isPrivilege="
-				+ isPrivilege + ", isHostel=" + isHostel + ", evDate=" + evDate
-				+ ", begDate=" + begDate + ", endDate=" + endDate + ", priority=" + priority + "]";
+	    return "Enrolment [mark=" + mark + ", docSeries=" + docSeries
+		    + ", docNum=" + docNum + ", docText=" + docText
+		    + ", isState=" + isState + ", isContract=" + isContract
+		    + ", isPrivilege=" + isPrivilege + ", isHostel=" + isHostel
+		    + ", evDate=" + evDate + ", begDate=" + begDate
+		    + ", endDate=" + endDate + ", priority=" + priority
+		    + ", isEducationState=" + isEducationState
+		    + ", isInterview=" + isInterview + ", isOriginal="
+		    + isOriginal + "]";
 	}
 	
 }

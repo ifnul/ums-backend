@@ -7640,11 +7640,28 @@
 			onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_op_edbo_user" />
 	</changeSet>
 
+	<changeSet id="add some fields in database" author="illay">
+		<addColumn tableName="q_dc_enrolment">
+			<column name="isedustate" remarks="Відмітка про отримання/наявність вищої освіти у персони (значання 0 - не отримую освіти, 1 - отримую, 11 - є вища освіта)" type="INTEGER"></column>
+			<column name="isinterview" remarks="Відмітка про співбесіду при поступленні у персони (значання -1 - не пройшов співбесіду, 0 - не потрібно співбесіди, 1 - потребую, 11 - пройдена співбесіда)" type="INTEGER"></column>
+			<column name="isoriginal" remarks="Відмітка про подачу оригіналу до заяви абітурієнта (відмітка супроводжуватиметься статусом)" type="INTEGER"></column>
+		</addColumn>
+	</changeSet>
+
 	<changeSet id="add some filds in q_dt_enrolmentstatus" author="illay">
 		<addColumn tableName="q_dt_enrolmentstatus">	
 			<column name="isstate" type="INTEGER" remarks="Бюджет"></column>
 			<column name="iscontract" type="INTEGER" remarks="Контракт (навчання за кошти фіз.осіб)"></column>			
 		</addColumn>
 	</changeSet>
+		
+	<changeSet id="" author="illay">
+		<addColumn tableName="q_ob_specoffer">
+			<column name="duration" remarks="Тривалість навчання для спеціальності ВУЗу. Формат,
+{кількість років}.{кількість місяців}. Наприклад значення 2.05
+вказує на те, що термін навчання два роки, п''ять місяців." type="VARCHAR(5)"></column>
+		</addColumn>
+	</changeSet>
+	
 	
 </databaseChangeLog>

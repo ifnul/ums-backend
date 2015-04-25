@@ -25,7 +25,7 @@ public class SpecOfferQueryBuilder extends AbstractQueryBuilder<SpecOffer> {
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
 	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate ";
 	private static final String TIMEPERIODCOURSE_CONDITION = "e.timePeriodCourse = :timePeriodCourse ";
-	
+	private static final String DURATION_CONDITION = "e.duration = :duration ";
 	@Override
 	protected String getBaseQuery() {
 		return "SELECT e FROM SpecOffer e %s";
@@ -49,6 +49,7 @@ public class SpecOfferQueryBuilder extends AbstractQueryBuilder<SpecOffer> {
 					.addAndCondition(STATECOUNT_CONDITION, context.getStateCount())
 					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
 					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(DURATION_CONDITION, context.getDuration())
 				.closeBracket();
 	}
 

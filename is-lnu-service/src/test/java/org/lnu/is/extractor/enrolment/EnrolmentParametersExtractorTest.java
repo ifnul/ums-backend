@@ -108,7 +108,10 @@ public class EnrolmentParametersExtractorTest {
 		Date evDate = new Date();
 		Date begDate = new Date();
 		Date endDate = new Date();
-
+		Integer isEducationState = 1;
+		Integer isInterview = 11;
+		Integer isOriginal = 1;
+		
 		Enrolment entity = new Enrolment();
 		entity.setPerson(person);
 		entity.setSpecOffer(specOffer);
@@ -116,6 +119,9 @@ public class EnrolmentParametersExtractorTest {
 		entity.setPersonPaper(personPaper);
 		entity.setEnrolmentType(enrolmentType);
 		entity.setParent(parent);
+		entity.setIsEducationState(isEducationState);
+		entity.setIsInterview(isInterview);
+		entity.setIsOriginal(isOriginal);
 		
 		entity.setMark(mark);
 		entity.setDocSeries(docSeries);
@@ -145,6 +151,9 @@ public class EnrolmentParametersExtractorTest {
 		expected.put("evDate", evDate);
 		expected.put("begDate", begDate);
 		expected.put("endDate", endDate);
+		expected.put("isEducationState", isEducationState);
+		expected.put("isInterview", isInterview);
+		expected.put("isOriginal", isOriginal);
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
 		

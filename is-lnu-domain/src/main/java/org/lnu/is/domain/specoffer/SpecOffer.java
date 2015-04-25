@@ -84,6 +84,17 @@ public class SpecOffer extends InformationModel {
 	@Column(name = "enddate")
 	private Date endDate;
 	
+	@Column(name = "duration")
+	private String duration;
+	
+	public String getDuration() {
+	    return duration;
+	}
+
+	public void setDuration(final String duration) {
+	    this.duration = duration;
+	}
+
 	public TimePeriod getTimePeriodCourse() {
 	    return timePeriodCourse;
 	}
@@ -225,6 +236,8 @@ public class SpecOffer extends InformationModel {
 				+ ((licCount == null) ? 0 : licCount.hashCode());
 		result = prime * result
 				+ ((stateCount == null) ? 0 : stateCount.hashCode());
+		result = prime * result
+			+ ((duration == null) ? 0 : duration.hashCode());
 		return result;
 	}
 
@@ -282,6 +295,13 @@ public class SpecOffer extends InformationModel {
 		} else if (!stateCount.equals(other.stateCount)) {
 			return false;
 		}
+		if (duration == null) {
+			if (other.duration != null) {
+				return false;
+			}
+		} else if (!duration.equals(other.duration)) {
+			return false;
+		}
 		return true;
 	}
 
@@ -289,7 +309,8 @@ public class SpecOffer extends InformationModel {
 	public String toString() {
 		return "SpecOffer [docSeries=" + docSeries + ", docNum=" + docNum
 				+ ", licCount=" + licCount + ", stateCount=" + stateCount
-				+ ", begDate=" + begDate + ", endDate=" + endDate + "]";
+				+ ", begDate=" + begDate + ", endDate=" + endDate
+				+ ", duration=" + duration + "]";
 	}
 
 }

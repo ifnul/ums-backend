@@ -56,6 +56,7 @@ public class SpecOfferParametersExtractor extends AbstractParametersExtractor<Sp
 		addParameter(entity.getStateCount(), "stateCount", parameters);
 		addParameter(entity.getBegDate(), "begDate", parameters);
 		addParameter(entity.getEndDate(), "endDate", parameters);
+		addParameter(entity.getDuration(), "duration", parameters);
 		
 		return parameters;
 	}

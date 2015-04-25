@@ -59,6 +59,9 @@ public class SpecOfferResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private Date endDate;
 	
+	@NotNull(message = "Field required")
+	private String duration;
+	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/specoffers/{0}", getId());
@@ -69,6 +72,14 @@ public class SpecOfferResource extends ApiResource {
 		return "/specoffers";
 	}
 	
+	public String getDuration() {
+	    return duration;
+	}
+
+	public void setDuration(final String duration) {
+	    this.duration = duration;
+	}
+
 	public Long getTimePeriodCourseId() {
 	    return timePeriodCourseId;
 	}
@@ -190,6 +201,8 @@ public class SpecOfferResource extends ApiResource {
 				+ ((timePeriodId == null) ? 0 : timePeriodId.hashCode());
 		result = prime * result
 			+ ((timePeriodCourseId == null) ? 0 : timePeriodCourseId.hashCode());
+		result = prime * result
+			+ ((duration == null) ? 0 : duration.hashCode());
 		return result;
 	}
 
@@ -289,19 +302,27 @@ public class SpecOfferResource extends ApiResource {
 		} else if (!timePeriodCourseId.equals(other.timePeriodCourseId)) {
 			return false;
 		}
+		if (duration == null) {
+			if (other.duration != null) {
+				return false;
+			}
+		} else if (!duration.equals(other.duration)) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "SpecOfferResource [specialtyId=" + specialtyId
-				+ ", departmentId=" + departmentId + ", timePeriodId="
-				+ timePeriodId + ", specofferTypeId=" + specofferTypeId
-				+ ", docSeries=" + docSeries + ", docNum=" + docNum
-				+ ", educationFormTypeId=" + educationFormTypeId + ", licCount=" + licCount
-				+ ", stateCount=" + stateCount + ", begDate=" + begDate
-				+ ", endDate=" + endDate + ", timePeriodCourseId="
-					+ timePeriodCourseId + "]";
+	    return "SpecOfferResource [specialtyId=" + specialtyId
+		    + ", departmentId=" + departmentId + ", timePeriodId="
+		    + timePeriodId + ", timePeriodCourseId="
+		    + timePeriodCourseId + ", specofferTypeId="
+		    + specofferTypeId + ", docSeries=" + docSeries
+		    + ", docNum=" + docNum + ", educationFormTypeId="
+		    + educationFormTypeId + ", licCount=" + licCount
+		    + ", stateCount=" + stateCount + ", begDate=" + begDate
+		    + ", endDate=" + endDate + ", duration=" + duration + "]";
 	}
 	
 }

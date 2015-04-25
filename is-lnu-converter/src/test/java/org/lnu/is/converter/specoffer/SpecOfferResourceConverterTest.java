@@ -27,6 +27,7 @@ public class SpecOfferResourceConverterTest {
 		String docNum = "doc num";
 		String docSeries = "doc series";
 		Date endDate = new Date();
+		String duration = "txt";
 		
 		Long educationFormTypeId = 2L;
 		EducationFormType eduFormType = new EducationFormType();
@@ -71,6 +72,7 @@ public class SpecOfferResourceConverterTest {
 		expected.setStateCount(stateCount);
 		expected.setTimePeriod(timePeriod);
 		expected.setTimePeriodCourse(timePeriodCourse);
+		expected.setDuration(duration);
 
 		SpecOfferResource source = new SpecOfferResource();
 		source.setBegDate(begDate);
@@ -86,6 +88,7 @@ public class SpecOfferResourceConverterTest {
 		source.setTimePeriodId(timePeriodId);
 		source.setEducationFormTypeId(educationFormTypeId);
 		source.setTimePeriodCourseId(timePeriodCourseId);
+		source.setDuration(duration);
 		
 		// When
 		SpecOffer actual = unit.convert(source);

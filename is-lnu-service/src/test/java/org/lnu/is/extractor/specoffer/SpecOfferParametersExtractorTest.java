@@ -84,6 +84,7 @@ public class SpecOfferParametersExtractorTest {
 		Date begDate = new Date();
 		String docNum = "doc num";
 		String docSeries = "doc series";
+		String duration = "213";
 
 		SpecOffer entity = new SpecOffer();
 		entity.setBegDate(begDate);
@@ -91,6 +92,7 @@ public class SpecOfferParametersExtractorTest {
 		entity.setDocNum(docNum);
 		entity.setDocSeries(docSeries);
 		entity.setEducationFormType(eduFormType);
+		entity.setDuration(duration);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("educationFormType", eduFormType);
@@ -100,6 +102,7 @@ public class SpecOfferParametersExtractorTest {
 		expected.put("docSeries", docSeries);
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
+		expected.put("duration", duration);
 		
 		// When
 		when(departmentDao.getEntityById(anyLong())).thenReturn(department);

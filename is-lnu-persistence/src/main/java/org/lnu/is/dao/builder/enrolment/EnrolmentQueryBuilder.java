@@ -30,6 +30,9 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 	private static final String ISCONTRACT_CONDITION = "e.isContract = :isContract ";
 	private static final String ISPRIVELEGE_CONDITION = "e.isPrivilege = :isPrivilege ";
 	private static final String ISHOSTEL_CONDITION = "e.isHostel = :isHostel ";
+	private static final String ISEDUCATIONSTATE_CONDITION = "e.isEducationState = :isEducationState ";
+	private static final String ISINTERVIEW_CONDITION = "e.isInterview = :isInterview ";
+	private static final String ISORIGINALL_CONDITION = "e.isOriginal = :isOriginal ";
 	
 	private static final String EVDATE_CONDITION = "e.evDate = :evDate ";
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
@@ -60,6 +63,9 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 					.addAndCondition(ISCONTRACT_CONDITION, context.getIsContract())
 					.addAndCondition(ISPRIVELEGE_CONDITION, context.getIsPrivilege())
 					.addAndCondition(ISHOSTEL_CONDITION, context.getIsHostel())
+					.addAndCondition(ISEDUCATIONSTATE_CONDITION, context.getIsEducationState())
+					.addAndCondition(ISINTERVIEW_CONDITION, context.getIsInterview())
+					.addAndCondition(ISORIGINALL_CONDITION, context.getIsOriginal())
 					.addAndCondition(EVDATE_CONDITION, context.getEvDate())
 					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
 					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())

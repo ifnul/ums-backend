@@ -20,6 +20,7 @@ public class EnrolmentConverterTest {
 	@Test
 	public void testConvert() throws Exception {
 		// Given
+	    
 		String docNum = "1234";
 		Date begDate = new Date();
 		String docSeries = "doc seroes";
@@ -31,7 +32,10 @@ public class EnrolmentConverterTest {
 		Integer isPrivilege = 3;
 		Integer isState = 4;
 		Double mark = 2.5;
-
+		Integer isOriginal = 0;
+		Integer isEducationState = -1;
+		Integer isInterview = 11;
+		
 		Long personId = 2L;
 		Person person = new Person();
 		person.setId(personId);
@@ -74,7 +78,10 @@ public class EnrolmentConverterTest {
 		source.setPersonPaper(personPaper);
 		source.setEnrolmentType(enrolmentType);
 		source.setParent(parent);
-
+		source.setIsEducationState(isEducationState);
+		source.setIsInterview(isInterview);
+		source.setIsOriginal(isOriginal);
+		
 		EnrolmentResource expected = new EnrolmentResource();
 		expected.setDocNum(docNum);
 		expected.setBegDate(begDate);
@@ -93,7 +100,10 @@ public class EnrolmentConverterTest {
 		expected.setPersonPaperId(personPaperId);
 		expected.setEnrolmentTypeId(enrolmentTypeId);
 		expected.setParentId(parentId);
-
+		expected.setIsEducationState(isEducationState);
+		expected.setIsInterview(isInterview);
+		expected.setIsOriginal(isOriginal);
+		
 		// When
 		EnrolmentResource actual = unit.convert(source);
 

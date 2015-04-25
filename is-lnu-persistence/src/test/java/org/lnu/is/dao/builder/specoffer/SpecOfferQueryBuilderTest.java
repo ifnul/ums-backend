@@ -85,6 +85,7 @@ public class SpecOfferQueryBuilderTest {
 		String docNum = "docNum";
 		Integer licCount = 2;
 		Integer stateCount = 45;
+		String duration = "123123";
 		
 		SpecOffer context = new SpecOffer();
 		context.setBegDate(new Date());
@@ -100,8 +101,9 @@ public class SpecOfferQueryBuilderTest {
 		context.setStateCount(stateCount);
 		context.setTimePeriod(timePeriod);
 		context.setTimePeriodCourse(timePeriodCourse);
+		context.setDuration(duration);
 		
-		String expectedQuery = "SELECT e FROM SpecOffer e WHERE ( e.parent = :parent AND e.specialty = :specialty AND e.department = :department AND e.timePeriod = :timePeriod AND e.timePeriodCourse = :timePeriodCourse AND e.educationFormType = :educationFormType AND e.specOfferType :specOfferType AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.licCount = :licCount AND e.stateCount = :stateCount AND e.begDate <= :begDate AND e.endDate >= :endDate ) ";
+		String expectedQuery = "SELECT e FROM SpecOffer e WHERE ( e.parent = :parent AND e.specialty = :specialty AND e.department = :department AND e.timePeriod = :timePeriod AND e.timePeriodCourse = :timePeriodCourse AND e.educationFormType = :educationFormType AND e.specOfferType :specOfferType AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.licCount = :licCount AND e.stateCount = :stateCount AND e.begDate <= :begDate AND e.endDate >= :endDate AND e.duration = :duration ) ";
 		MultiplePagedSearch<SpecOffer> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		

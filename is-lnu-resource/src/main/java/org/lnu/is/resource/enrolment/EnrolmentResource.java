@@ -88,6 +88,17 @@ public class EnrolmentResource extends ApiResource {
 	@Max(value = 15, message = "Maximal value is 15")
 	private Integer priority;
 	
+	@NotNull(message = "Field required")
+	private Integer isEducationState;
+	
+	@NotNull(message = "Field required")
+	private Integer isInterview;
+	
+	@NotNull(message = "Field required")
+	@Min(value = 0, message = "Minimal value is 0")
+	@Max(value = 1, message = "Maximal value is 1")
+	private Integer isOriginal;
+	
 	@Override
 	public String getUri() {
 		return MessageFormat.format("/enrolments/{0}", getId());
@@ -96,6 +107,30 @@ public class EnrolmentResource extends ApiResource {
 	@Override
 	public String getRootUri() {
 		return "/enrolments";
+	}
+	
+	public Integer getIsEducationState() {
+	    return isEducationState;
+	}
+
+	public void setIsEducationState(final Integer isEducationState) {
+	    this.isEducationState = isEducationState;
+	}
+
+	public Integer getIsInterview() {
+	    return isInterview;
+	}
+
+	public void setIsInterview(final Integer isInterview) {
+	    this.isInterview = isInterview;
+	}
+
+	public Integer getIsOriginal() {
+	    return isOriginal;
+	}
+
+	public void setIsOriginal(final Integer isOriginal) {
+	    this.isOriginal = isOriginal;
 	}
 
 	public Long getPersonId() {
@@ -264,6 +299,9 @@ public class EnrolmentResource extends ApiResource {
 		result = prime * result + ((personPaperId == null) ? 0 : personPaperId.hashCode());
 		result = prime * result + ((specOfferId == null) ? 0 : specOfferId.hashCode());
 		result = prime * result + ((priority == null) ? 0 : priority.hashCode());
+		result = prime * result + ((isEducationState == null) ? 0 : isEducationState.hashCode());
+		result = prime * result + ((isInterview == null) ? 0 : isInterview.hashCode());
+		result = prime * result + ((isOriginal == null) ? 0 : isOriginal.hashCode());
 		return result;
 	}
 
@@ -405,15 +443,45 @@ public class EnrolmentResource extends ApiResource {
 		} else if (!priority.equals(other.priority)) {
 			return false;
 		}
+		if (isEducationState == null) {
+			if (other.isEducationState != null) {
+				return false;
+			}
+		} else if (!isEducationState.equals(other.isEducationState)) {
+			return false;
+		}
+		if (isInterview == null) {
+			if (other.isInterview != null) {
+				return false;
+			}
+		} else if (!isInterview.equals(other.isInterview)) {
+			return false;
+		}
+		if (isOriginal == null) {
+			if (other.isOriginal != null) {
+				return false;
+			}
+		} else if (!isOriginal.equals(other.isOriginal)) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "EnrolmentResource [personId=" + personId + ", specofferId=" + specOfferId + ", departmentId=" + departmentId + ", personPaperId="
-				+ personPaperId + ", enrolmentTypeId=" + enrolmentTypeId + ", parentId=" + parentId + ", mark=" + mark + ", docSeries=" + docSeries
-				+ ", docNum=" + docNum + ", docText=" + docText + ", isState=" + isState + ", isContract=" + isContract + ", isPrivilege=" + isPrivilege
-				+ ", isHostel=" + isHostel + ", evDate=" + evDate + ", begDate=" + begDate + ", endDate=" + endDate + ", priority=" + priority + "]";
-	}
+	    return "EnrolmentResource [parentId=" + parentId + ", personId="
+		    + personId + ", specOfferId=" + specOfferId
+		    + ", departmentId=" + departmentId + ", personPaperId="
+		    + personPaperId + ", enrolmentTypeId=" + enrolmentTypeId
+		    + ", mark=" + mark + ", docSeries=" + docSeries
+		    + ", docNum=" + docNum + ", docText=" + docText
+		    + ", isState=" + isState + ", isContract=" + isContract
+		    + ", isPrivilege=" + isPrivilege + ", isHostel=" + isHostel
+		    + ", evDate=" + evDate + ", begDate=" + begDate
+		    + ", endDate=" + endDate + ", priority=" + priority
+		    + ", isEducationState=" + isEducationState
+		    + ", isInterview=" + isInterview + ", isOriginal="
+		    + isOriginal + "]";
+	}	
 
 }
