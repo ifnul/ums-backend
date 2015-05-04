@@ -12,7 +12,7 @@ import org.lnu.is.domain.enrolment.enrolment.subject.EnrolmentEnrolmentSubject;
 @QBuilder("enrolmentEnrolmentSubjectQueryBuilder")
 public class EnrolmentEnrolmentSubjectQueryBuilder extends AbstractQueryBuilder<EnrolmentEnrolmentSubject> {
 
-    private static final String ENROLMENT_CONDITION = "e.entolment = :enrolmrnt ";
+    private static final String ENROLMENT_CONDITION = "e.enrolment = :enrolment ";
     private static final String ENROLMENTSUBJECT_CONDITION = "e.enrolmentSubject = :enrolmentSubject ";
     private static final String PERSONENROLMENTSUBJECT_CONDITION = "e.personEnrolmentSubject = :personEnrolmentSubject ";
     private static final String MARK_CONDITION = "e.mark = :mark ";

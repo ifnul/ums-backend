@@ -210,7 +210,7 @@ public class EnrolmentEnrolmentQueryBuilderTest {
 		context.setPersonEnrolmentSubject(personEnrolmentSubject);
 		context.setMark(mark);
 		
-		String expectedQuery = "SELECT e FROM EnrolmentEnrolmentSubject e WHERE ( e.entolment = :enrolmrnt AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark AND e.personEnrolmentSubject = :personEnrolmentSubject ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM EnrolmentEnrolmentSubject e WHERE ( e.enrolment = :enrolment AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark AND e.personEnrolmentSubject = :personEnrolmentSubject ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<EnrolmentEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -241,7 +241,7 @@ public class EnrolmentEnrolmentQueryBuilderTest {
 		OrderBy orderBy4 = new OrderBy("mark", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2, orderBy3, orderBy4);
 		
-		String expectedQuery = "SELECT e FROM EnrolmentEnrolmentSubject e WHERE ( e.entolment = :enrolmrnt AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark AND e.personEnrolmentSubject = :personEnrolmentSubject ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.enrolment ASC, e.enrolmentSubject DESC, e.personEnrolmentSubject ASC, e.mark DESC";
+		String expectedQuery = "SELECT e FROM EnrolmentEnrolmentSubject e WHERE ( e.enrolment = :enrolment AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark AND e.personEnrolmentSubject = :personEnrolmentSubject ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.enrolment ASC, e.enrolmentSubject DESC, e.personEnrolmentSubject ASC, e.mark DESC";
 		MultiplePagedSearch<EnrolmentEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -270,7 +270,7 @@ public class EnrolmentEnrolmentQueryBuilderTest {
 		context.setPersonEnrolmentSubject(personEnrolmentSubject);
 		context.setMark(mark);
 		
-		String expectedQuery = "SELECT e FROM EnrolmentEnrolmentSubject e WHERE ( e.entolment = :enrolmrnt AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark AND e.personEnrolmentSubject = :personEnrolmentSubject ) ";
+		String expectedQuery = "SELECT e FROM EnrolmentEnrolmentSubject e WHERE ( e.enrolment = :enrolment AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark AND e.personEnrolmentSubject = :personEnrolmentSubject ) ";
 		MultiplePagedSearch<EnrolmentEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -304,7 +304,7 @@ public class EnrolmentEnrolmentQueryBuilderTest {
 		OrderBy orderBy4 = new OrderBy("mark", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2, orderBy3, orderBy4);
 		
-		String expectedQuery = "SELECT e FROM EnrolmentEnrolmentSubject e WHERE ( e.entolment = :enrolmrnt AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark AND e.personEnrolmentSubject = :personEnrolmentSubject ) ORDER BY e.enrolment ASC, e.enrolmentSubject DESC, e.personEnrolmentSubject ASC, e.mark DESC";
+		String expectedQuery = "SELECT e FROM EnrolmentEnrolmentSubject e WHERE ( e.enrolment = :enrolment AND e.enrolmentSubject = :enrolmentSubject AND e.mark = :mark AND e.personEnrolmentSubject = :personEnrolmentSubject ) ORDER BY e.enrolment ASC, e.enrolmentSubject DESC, e.personEnrolmentSubject ASC, e.mark DESC";
 		MultiplePagedSearch<EnrolmentEnrolmentSubject> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
