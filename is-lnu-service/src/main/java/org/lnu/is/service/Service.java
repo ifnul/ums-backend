@@ -8,6 +8,7 @@ import org.lnu.is.pagination.PagedResult;
  * @author ivanursul
  *
  * @param <ENTITY> Entity.
+ * @param <ENTITYLIST> Entity or MultySearch.
  * @param <KEY> Key.
  */
 public interface Service<ENTITY, ENTITYLIST, KEY> {

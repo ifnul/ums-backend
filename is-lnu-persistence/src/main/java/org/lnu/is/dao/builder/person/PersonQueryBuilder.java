@@ -53,7 +53,7 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 					.addAndCondition(SURNAME_CONDITION, context.getSurname())
 					.addAndCondition(PHOTO_CONDITION, context.getPhoto())
 					.addAndCondition(DOCSERIES_CONDITION, context.getDocSeries())
-					.addAndCondition(DOCNUM_CONDITION, context.getDocNum().toArray())
+					.addAndCondition(DOCNUM_CONDITION, context.getDocNum())
 					.addAndCondition(IDENTIFIER_CONDITION, context.getIdentifier())
 					.addAndCondition(RESIDENT_CONDITION, context.getResident())
 					.addAndCondition(BIRTHPLACE_CONDITION, context.getBirthPlace())

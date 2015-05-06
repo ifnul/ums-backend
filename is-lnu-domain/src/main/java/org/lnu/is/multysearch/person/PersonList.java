@@ -59,7 +59,7 @@ public class PersonList extends MultiSearchModel {
 	    return personType;
 	}
 
-	public void setPersonType(List<PersonType> personType) {
+	public void setPersonType(final List<PersonType> personType) {
 	    this.personType = personType;
 	}
 
@@ -67,7 +67,7 @@ public class PersonList extends MultiSearchModel {
 	    return genderType;
 	}
 
-	public void setGenderType(List<GenderType> genderType) {
+	public void setGenderType(final List<GenderType> genderType) {
 	    this.genderType = genderType;
 	}
 
@@ -75,7 +75,7 @@ public class PersonList extends MultiSearchModel {
 	    return marriedType;
 	}
 
-	public void setMarriedType(List<MarriedType> marriedType) {
+	public void setMarriedType(final List<MarriedType> marriedType) {
 	    this.marriedType = marriedType;
 	}
 
@@ -83,7 +83,7 @@ public class PersonList extends MultiSearchModel {
 	    return citizenCountry;
 	}
 
-	public void setCitizenCountry(List<AdminUnit> citizenCountry) {
+	public void setCitizenCountry(final List<AdminUnit> citizenCountry) {
 	    this.citizenCountry = citizenCountry;
 	}
 
@@ -91,7 +91,7 @@ public class PersonList extends MultiSearchModel {
 	    return parent;
 	}
 
-	public void setParent(List<Person> parent) {
+	public void setParent(final List<Person> parent) {
 	    this.parent = parent;
 	}
 
@@ -99,7 +99,7 @@ public class PersonList extends MultiSearchModel {
 	    return name;
 	}
 
-	public void setName(List<String> name) {
+	public void setName(final List<String> name) {
 	    this.name = name;
 	}
 
@@ -107,7 +107,7 @@ public class PersonList extends MultiSearchModel {
 	    return firstName;
 	}
 
-	public void setFirstName(List<String> firstName) {
+	public void setFirstName(final List<String> firstName) {
 	    this.firstName = firstName;
 	}
 
@@ -115,7 +115,7 @@ public class PersonList extends MultiSearchModel {
 	    return fatherName;
 	}
 
-	public void setFatherName(List<String> fatherName) {
+	public void setFatherName(final List<String> fatherName) {
 	    this.fatherName = fatherName;
 	}
 
@@ -123,7 +123,7 @@ public class PersonList extends MultiSearchModel {
 	    return surname;
 	}
 
-	public void setSurname(List<String> surname) {
+	public void setSurname(final List<String> surname) {
 	    this.surname = surname;
 	}
 
@@ -131,7 +131,7 @@ public class PersonList extends MultiSearchModel {
 	    return photo;
 	}
 
-	public void setPhoto(List<String> photo) {
+	public void setPhoto(final List<String> photo) {
 	    this.photo = photo;
 	}
 
@@ -139,7 +139,7 @@ public class PersonList extends MultiSearchModel {
 	    return docSeries;
 	}
 
-	public void setDocSeries(List<String> docSeries) {
+	public void setDocSeries(final List<String> docSeries) {
 	    this.docSeries = docSeries;
 	}
 
@@ -147,7 +147,7 @@ public class PersonList extends MultiSearchModel {
 	    return docNum;
 	}
 
-	public void setDocNum(List<String> docNum) {
+	public void setDocNum(final List<String> docNum) {
 	    this.docNum = docNum;
 	}
 
@@ -155,7 +155,7 @@ public class PersonList extends MultiSearchModel {
 	    return identifier;
 	}
 
-	public void setIdentifier(List<String> identifier) {
+	public void setIdentifier(final List<String> identifier) {
 	    this.identifier = identifier;
 	}
 
@@ -163,7 +163,7 @@ public class PersonList extends MultiSearchModel {
 	    return resident;
 	}
 
-	public void setResident(List<Integer> resident) {
+	public void setResident(final List<Integer> resident) {
 	    this.resident = resident;
 	}
 
@@ -171,7 +171,7 @@ public class PersonList extends MultiSearchModel {
 	    return birthPlace;
 	}
 
-	public void setBirthPlace(List<String> birthPlace) {
+	public void setBirthPlace(final List<String> birthPlace) {
 	    this.birthPlace = birthPlace;
 	}
 
@@ -179,7 +179,7 @@ public class PersonList extends MultiSearchModel {
 	    return begDate;
 	}
 
-	public void setBegDate(List<Date> begDate) {
+	public void setBegDate(final List<Date> begDate) {
 	    this.begDate = begDate;
 	}
 
@@ -187,7 +187,7 @@ public class PersonList extends MultiSearchModel {
 	    return endDate;
 	}
 
-	public void setEndDate(List<Date> endDate) {
+	public void setEndDate(final List<Date> endDate) {
 	    this.endDate = endDate;
 	}
 
@@ -195,7 +195,7 @@ public class PersonList extends MultiSearchModel {
 	    return isMilitary;
 	}
 
-	public void setIsMilitary(List<Integer> isMilitary) {
+	public void setIsMilitary(final List<Integer> isMilitary) {
 	    this.isMilitary = isMilitary;
 	}
 
@@ -203,7 +203,7 @@ public class PersonList extends MultiSearchModel {
 	    return isHostel;
 	}
 
-	public void setIsHostel(List<Integer> isHostel) {
+	public void setIsHostel(final List<Integer> isHostel) {
 	    this.isHostel = isHostel;
 	}
 

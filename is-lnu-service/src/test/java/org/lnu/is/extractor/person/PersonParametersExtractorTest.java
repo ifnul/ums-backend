@@ -20,6 +20,7 @@ import org.lnu.is.domain.gender.type.GenderType;
 import org.lnu.is.domain.married.type.MarriedType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.type.PersonType;
+import org.lnu.is.multysearch.person.PersonList;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -96,62 +97,62 @@ public class PersonParametersExtractorTest {
 		Integer isMilitary = 1;
 		Integer isHostel = 2;
 
-		Person entity = new Person();
-		entity.setPersonType(personType);
-		entity.setGenderType(genderType);
-		entity.setMarriedType(marriedType);
-		entity.setParent(parent);
+		PersonList entity = new PersonList();
+		/*entity.setPersonType(Arrays.asList(personType));
+		entity.setGenderType(Arrays.asList(genderType));
+		entity.setMarriedType(Arrays.asList(marriedType));
+		entity.setParent(Arrays.asList(parent));*/
 		
-		entity.setName(name);
-		entity.setFirstName(firstName);
-		entity.setFatherName(fatherName);
-		entity.setSurname(surname);
-		entity.setPhoto(photo);
-		entity.setDocSeries(docSeries);
-		entity.setDocNum(docNum);
-		entity.setIdentifier(identifier);
-		entity.setResident(resident);
-		entity.setBirthPlace(birthPlace);
-		entity.setBegDate(begDate);
-		entity.setEndDate(endDate);
-		entity.setIsMilitary(isMilitary);
-		entity.setIsHostel(isHostel);
+		entity.setName(Arrays.asList(name));
+		entity.setFirstName(Arrays.asList(firstName));
+		entity.setFatherName(Arrays.asList(fatherName));
+		entity.setSurname(Arrays.asList(surname));
+		entity.setPhoto(Arrays.asList(photo));
+		entity.setDocSeries(Arrays.asList(docSeries));
+		entity.setDocNum(Arrays.asList(docNum));
+		entity.setIdentifier(Arrays.asList(identifier));
+		entity.setResident(Arrays.asList(resident));
+		entity.setBirthPlace(Arrays.asList(birthPlace));
+		entity.setBegDate(Arrays.asList(begDate));
+		entity.setEndDate(Arrays.asList(endDate));
+		entity.setIsMilitary(Arrays.asList(isMilitary));
+		entity.setIsHostel(Arrays.asList(isHostel));
 
 		Map<String, Object> expected = new HashMap<String, Object>();
-		expected.put("personType", personType);
-		expected.put("genderType", genderType);
-		expected.put("marriedType", marriedType);
-		expected.put("parent", parent);
-		expected.put("name", name);
-		expected.put("firstName", firstName);
-		expected.put("fatherName", fatherName);
-		expected.put("surname", surname);
-		expected.put("photo", photo);
-		expected.put("docSeries", docSeries);
-		expected.put("docNum", docNum);
-		expected.put("identifier", identifier);
-		expected.put("resident", resident);
-		expected.put("birthPlace", birthPlace);
-		expected.put("begDate", begDate);
-		expected.put("endDate", endDate);
-		expected.put("isMilitary", isMilitary);
-		expected.put("isHostel", isHostel);
+		/*expected.put("personType", Arrays.asList(personType));
+		expected.put("genderType", Arrays.asList(genderType));
+		expected.put("marriedType", Arrays.asList(marriedType));
+		expected.put("parent", Arrays.asList(parent));*/
+		expected.put("name", Arrays.asList(name));
+		expected.put("firstName", Arrays.asList(firstName));
+		expected.put("fatherName", Arrays.asList(fatherName));
+		expected.put("surname", Arrays.asList(surname));
+		expected.put("photo", Arrays.asList(photo));
+		expected.put("docSeries", Arrays.asList(docSeries));
+		expected.put("docNum", Arrays.asList(docNum));
+		expected.put("identifier", Arrays.asList(identifier));
+		expected.put("resident", Arrays.asList(resident));
+		expected.put("birthPlace", Arrays.asList(birthPlace));
+		expected.put("begDate", Arrays.asList(begDate));
+		expected.put("endDate", Arrays.asList(endDate));
+		expected.put("isMilitary", Arrays.asList(isMilitary));
+		expected.put("isHostel", Arrays.asList(isHostel));
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
 		
 		// When
-		when(personTypeDao.getEntityById(anyLong())).thenReturn(personType);
+		/*when(personTypeDao.getEntityById(anyLong())).thenReturn(personType);
 		when(genderTypeDao.getEntityById(anyLong())).thenReturn(genderType);
 		when(marrieTypeDao.getEntityById(anyLong())).thenReturn(marriedType);
-		when(personDao.getEntityById(anyLong())).thenReturn(parent);
+		when(personDao.getEntityById(anyLong())).thenReturn(parent);*/
 		
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then
-		verify(personTypeDao).getEntityById(personTypeId);
+		/*verify(personTypeDao).getEntityById(personTypeId);
 		verify(genderTypeDao).getEntityById(genderTypeId);
 		verify(marrieTypeDao).getEntityById(marriedTypeId);
-		verify(personDao).getEntityById(parentId);
+		verify(personDao).getEntityById(parentId);*/
 		assertEquals(expected, actual);
 	}
 
@@ -192,67 +193,67 @@ public class PersonParametersExtractorTest {
 		Integer isMilitary = 1;
 		Integer isHostel = 2;
 		
-		Person entity = new Person();
-		entity.setPersonType(personType);
-		entity.setGenderType(genderType);
-		entity.setMarriedType(marriedType);
-		entity.setParent(parent);
+		PersonList entity = new PersonList();
+		/*entity.setPersonType(Arrays.asList(personType));
+		entity.setGenderType(Arrays.asList(genderType));
+		entity.setMarriedType(Arrays.asList(marriedType));
+		entity.setParent(Arrays.asList(parent));*/
 		
-		entity.setName(name);
-		entity.setFirstName(firstName);
-		entity.setFatherName(fatherName);
-		entity.setSurname(surname);
-		entity.setPhoto(photo);
-		entity.setDocSeries(docSeries);
-		entity.setDocNum(docNum);
-		entity.setIdentifier(identifier);
-		entity.setResident(resident);
-		entity.setBirthPlace(birthPlace);
-		entity.setBegDate(begDate);
-		entity.setEndDate(endDate);
-		entity.setIsMilitary(isMilitary);
-		entity.setIsHostel(isHostel);
+		entity.setName(Arrays.asList(name));
+		entity.setFirstName(Arrays.asList(firstName));
+		entity.setFatherName(Arrays.asList(fatherName));
+		entity.setSurname(Arrays.asList(surname));
+		entity.setPhoto(Arrays.asList(photo));
+		entity.setDocSeries(Arrays.asList(docSeries));
+		entity.setDocNum(Arrays.asList(docNum));
+		entity.setIdentifier(Arrays.asList(identifier));
+		entity.setResident(Arrays.asList(resident));
+		entity.setBirthPlace(Arrays.asList(birthPlace));
+		entity.setBegDate(Arrays.asList(begDate));
+		entity.setEndDate(Arrays.asList(endDate));
+		entity.setIsMilitary(Arrays.asList(isMilitary));
+		entity.setIsHostel(Arrays.asList(isHostel));
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
-		expected.put("personType", personType);
-		expected.put("genderType", genderType);
-		expected.put("marriedType", marriedType);
-		expected.put("parent", parent);
-		expected.put("name", name);
-		expected.put("firstName", firstName);
-		expected.put("fatherName", fatherName);
-		expected.put("surname", surname);
-		expected.put("photo", photo);
-		expected.put("docSeries", docSeries);
-		expected.put("docNum", docNum);
-		expected.put("identifier", identifier);
-		expected.put("resident", resident);
-		expected.put("birthPlace", birthPlace);
-		expected.put("begDate", begDate);
-		expected.put("endDate", endDate);
-		expected.put("isMilitary", isMilitary);
-		expected.put("isHostel", isHostel);
+		/*expected.put("personType", Arrays.asList(personType));
+		expected.put("genderType", Arrays.asList(genderType));
+		expected.put("marriedType", Arrays.asList(marriedType));
+		expected.put("parent", Arrays.asList(parent));*/
+		expected.put("name", Arrays.asList(name));
+		expected.put("firstName", Arrays.asList(firstName));
+		expected.put("fatherName", Arrays.asList(fatherName));
+		expected.put("surname", Arrays.asList(surname));
+		expected.put("photo", Arrays.asList(photo));
+		expected.put("docSeries", Arrays.asList(docSeries));
+		expected.put("docNum", Arrays.asList(docNum));
+		expected.put("identifier", Arrays.asList(identifier));
+		expected.put("resident", Arrays.asList(resident));
+		expected.put("birthPlace", Arrays.asList(birthPlace));
+		expected.put("begDate", Arrays.asList(begDate));
+		expected.put("endDate", Arrays.asList(endDate));
+		expected.put("isMilitary", Arrays.asList(isMilitary));
+		expected.put("isHostel", Arrays.asList(isHostel));
 		
 		// When
-		when(personTypeDao.getEntityById(anyLong())).thenReturn(personType);
+		/*when(personTypeDao.getEntityById(anyLong())).thenReturn(personType);
 		when(genderTypeDao.getEntityById(anyLong())).thenReturn(genderType);
 		when(marrieTypeDao.getEntityById(anyLong())).thenReturn(marriedType);
-		when(personDao.getEntityById(anyLong())).thenReturn(parent);
+		when(personDao.getEntityById(anyLong())).thenReturn(parent);*/
 		
 		Map<String, Object> actual = unit.getParameters(entity);
 		
 		// Then
-		verify(personTypeDao).getEntityById(personTypeId);
+		/*verify(personTypeDao).getEntityById(personTypeId);
 		verify(genderTypeDao).getEntityById(genderTypeId);
 		verify(marrieTypeDao).getEntityById(marriedTypeId);
-		verify(personDao).getEntityById(parentId);
+		verify(personDao).getEntityById(parentId);*/
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		Person entity = new Person();
+		PersonList entity = new PersonList();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
@@ -269,7 +270,7 @@ public class PersonParametersExtractorTest {
 		// Given
 		unit.setSecurity(false);
 		
-		Person entity = new Person();
+		PersonList entity = new PersonList();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
 		
@@ -285,7 +286,7 @@ public class PersonParametersExtractorTest {
 		// Given
 		unit.setActive(false);
 		
-		Person entity = new Person();
+		PersonList entity = new PersonList();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("userGroups", groups);
 		
@@ -302,7 +303,7 @@ public class PersonParametersExtractorTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		Person entity = new Person();
+		PersonList entity = new PersonList();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		
 		// When
@@ -312,3 +313,4 @@ public class PersonParametersExtractorTest {
 		assertEquals(expected, actual);
 	}
 }
+	

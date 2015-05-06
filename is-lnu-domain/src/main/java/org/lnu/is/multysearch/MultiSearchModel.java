@@ -3,8 +3,12 @@ package org.lnu.is.multysearch;
 import java.util.List;
 
 import org.lnu.is.domain.Model;
-
-public class MultiSearchModel extends Model{
+/**
+ * Model for multiSearch.
+ * @author illay
+ *
+ */
+public class MultiSearchModel extends Model {
     
     	private List<Long> id;
 
@@ -14,7 +18,7 @@ public class MultiSearchModel extends Model{
 	    return id;
 	}
 
-	public void setId(List<Long> id) {
+	public void setId(final List<Long> id) {
 	    this.id = id;
 	}
 
@@ -22,7 +26,7 @@ public class MultiSearchModel extends Model{
 	    return note;
 	}
 
-	public void setNote(List<String> note) {
+	public void setNote(final List<String> note) {
 	    this.note = note;
 	}
 
@@ -41,7 +45,7 @@ public class MultiSearchModel extends Model{
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(final Object obj) {
 	    if (this == obj) {
 		return true;
 	    }

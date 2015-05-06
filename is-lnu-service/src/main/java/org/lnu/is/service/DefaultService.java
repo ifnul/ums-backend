@@ -17,6 +17,7 @@ import org.lnu.is.pagination.PagedResult;
  * @author ivanursul
  *
  * @param <ENTITY> Entity, Please see is-lnu-domain module.
+ * @param <ENTITY> Entity, Please see is-lnu-domain module.
  * @param <KEY> Key of corresponding 
  * @param <DAO>
  */

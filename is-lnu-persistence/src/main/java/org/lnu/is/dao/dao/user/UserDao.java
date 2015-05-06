@@ -8,7 +8,7 @@ import org.lnu.is.domain.user.User;
  * @author ivanursul
  *
  */
-public interface UserDao extends Dao<User,User, Long> {
+public interface UserDao extends Dao<User, User, Long> {
 
 	/**
 	 * Method for getting user by login.

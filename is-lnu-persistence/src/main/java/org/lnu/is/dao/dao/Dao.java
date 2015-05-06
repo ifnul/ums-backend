@@ -9,6 +9,7 @@ import org.lnu.is.pagination.PagedResult;
  * @author ivanursul
  *
  * @param <ENTITY> Entity class.
+ * @param <ENTITYLIST> Entity class or MultySearch.
  * @param <KEY> Identifier class.
  */
 public interface Dao<ENTITY, ENTITYLIST, KEY> {

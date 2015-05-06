@@ -16,7 +16,8 @@ import org.slf4j.LoggerFactory;
  * all methods for convenient work with entities.
  * @author ivanursul
  *
- * @param <ENTITY> Entity type.    
+ * @param <ENTITY> Entity type.
+ * @param <ENTITYLIST> Entity type or MultySearch.    
  * @param <KEY> Identifier class.
  */
 public class DefaultDao<ENTITY extends EntityModel, ENTITYLIST, KEY> implements Dao<ENTITY, ENTITYLIST, KEY> {
