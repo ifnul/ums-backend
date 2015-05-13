@@ -334,4 +334,29 @@
 		</rollback>
 	</changeSet>
 	
+	<changeSet id="0.9.0.1.create_enrolment_status_trigger" author="ivaursul">
+		<sql splitStatements="false">
+			<![CDATA[
+			create or replace function process_q_dt_enrolmentstatus() returns trigger as $$
+				begin
+					update q_dt_enrolmentstatus set status='REATTACHED' where enrolment_id=new.enrolment_id;
+					return new;
+				end
+			$$ language 'plpgsql';
+			]]>
+		</sql>
+		<rollback>
+			drop function if exists process_q_dt_enrolmentstatus()
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="0.9.0.1.set_enrolment_status_trigger" author="ivanursul">
+		<sql>
+			create trigger q_dt_enrolmentstatus_itrig before insert on q_dt_enrolmentstatus for each row execute procedure process_q_dt_enrolmentstatus();
+		</sql>
+		<rollback>
+			drop trigger if exists q_dt_enrolmentstatus_itrig on q_dt_enrolmentstatus
+		</rollback>
+	</changeSet>
+		
 </databaseChangeLog>
