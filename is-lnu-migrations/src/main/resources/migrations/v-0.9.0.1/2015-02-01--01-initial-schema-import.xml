@@ -7663,5 +7663,19 @@
 		</addColumn>
 	</changeSet>
 	
+	<changeSet id="adding_fk_person_id_to_qdcentolment" author="ivanursul">
+		<addForeignKeyConstraint baseColumnNames="person_id"
+			baseTableName="q_dc_enrolment" 
+			constraintName="fk_q_ob_person_id"
+			deferrable="false" 
+			initiallyDeferred="false" 
+			onDelete="NO ACTION"
+			onUpdate="NO ACTION" 
+			referencedColumnNames="id" 
+			referencedTableName="q_ob_person" />
+
+	
+	</changeSet>
+	
 	
 </databaseChangeLog>
