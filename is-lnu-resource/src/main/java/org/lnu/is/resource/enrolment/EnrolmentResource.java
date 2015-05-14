@@ -51,7 +51,6 @@ public class EnrolmentResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private String docNum;
 
-	@NotNull(message = "Field required")
 	private String docText;
 
 	@NotNull(message = "Field required")
