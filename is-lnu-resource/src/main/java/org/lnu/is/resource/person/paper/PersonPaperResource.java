@@ -40,7 +40,6 @@ public class PersonPaperResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private String docIssued;
 	
-	@NotNull(message = "Field required")
 	private String docPin;
 	
 	private Double mark;
