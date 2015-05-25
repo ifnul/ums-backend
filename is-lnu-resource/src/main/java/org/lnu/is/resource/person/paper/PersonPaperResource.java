@@ -25,7 +25,6 @@ public class PersonPaperResource extends ApiResource {
 	@Min(value = 1, message = "Minimal value is 1")
 	private Long paperTypeId;
 	
-	@NotNull(message = "Field required")
 	@Min(value = 1, message = "Minimal value is 1")
 	private Long honorsTypeId;
 	
@@ -41,10 +40,8 @@ public class PersonPaperResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private String docIssued;
 	
-	@NotNull(message = "Field required")
 	private String docPin;
 	
-	@NotNull(message = "Field required")
 	private Double mark;
 	
 	@NotNull(message = "Field required")
