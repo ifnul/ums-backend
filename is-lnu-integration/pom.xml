@@ -11,7 +11,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gatling.version>2.1.2</gatling.version>
-		
+		<slf4j.version>1.7.7</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+				
 		<!-- Gatling properties -->
 		<integration.url>http://localhost:8080/is-lnu-rest-api/api</integration.url>
 		<integration.successtests.percent>100</integration.successtests.percent>
@@ -42,6 +44,24 @@
 				<groupId>io.gatling</groupId>
 				<artifactId>gatling-maven-plugin</artifactId>
 				<version>${gatling.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+						<version>${slf4j.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-log4j12</artifactId>
+						<version>${slf4j.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+						<version>${log4j.version}</version>
+						<scope>runtime</scope>
+					</dependency>					
+				</dependencies>
 				<executions>
 					<execution>
 						<phase>test</phase>
