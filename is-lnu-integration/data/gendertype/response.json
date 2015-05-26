@@ -1,0 +1,22 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 3,
+  "resources" : [ {
+    "id" : 1,
+    "abbrName" : "чол.",
+    "name" : "Чоловіча",
+    "uri" : "/gendertypes/1"
+  }, {
+    "id" : 2,
+    "abbrName" : "жін.",
+    "name" : "Жіноча",
+    "uri" : "/gendertypes/2"
+  }, {
+    "id" : 3,
+    "abbrName" : "не визн.",
+    "name" : "Не визначено",
+    "uri" : "/gendertypes/3"
+  } ],
+  "uri" : "/gendertypes"
+}

@@ -1,0 +1,27 @@
+{
+  "offset" : 0,
+  "limit" : 38,
+  "count" : 5,
+  "resources" : [ {
+    "id" : 1,
+    "name" : "денна",
+    "uri" : "/educations/forms/types/1"
+  }, {
+    "id" : 2,
+    "name" : "заочна",
+    "uri" : "/educations/forms/types/2"
+  }, {
+    "id" : 3,
+    "name" : "екстернат",
+    "uri" : "/educations/forms/types/3"
+  }, {
+    "id" : 4,
+    "name" : "вечірня",
+    "uri" : "/educations/forms/types/4"
+  }, {
+    "id" : 5,
+    "name" : "дистанційна",
+    "uri" : "/educations/forms/types/5"
+  } ],
+  "uri" : "/educations/forms/types"
+}

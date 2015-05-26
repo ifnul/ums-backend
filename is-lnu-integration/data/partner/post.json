@@ -1,0 +1,9 @@
+{
+  "name": "${partnerName}",
+  "manager": "${partnerManager}",
+  "phone": "${partnerPhone}",
+  "email": "${partnerEmail}@gmail.com",
+  "abbrName": "${partnerAbbr}",
+  "begDate": "2014-01-01",
+  "endDate": "2015-01-01"
+}

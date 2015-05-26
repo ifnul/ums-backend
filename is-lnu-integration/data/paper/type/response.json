@@ -1,0 +1,280 @@
+{
+  "offset" : 0,
+  "limit" : 60,
+  "count" : 54,
+  "resources" : [ {
+    "id" : 1,
+    "name" : "Свідоцтво про народження",
+    "paperUsageId" : 3,
+    "uri" : "/papers/types/1"
+  }, {
+    "id" : 2,
+    "name" : "Атестат про повну загальну середню освіту",
+    "paperUsageId" : 2,
+    "uri" : "/papers/types/2"
+  }, {
+    "id" : 3,
+    "name" : "Паспорт",
+    "paperUsageId" : 3,
+    "uri" : "/papers/types/3"
+  }, {
+    "id" : 4,
+    "name" : "Сертифікат ЗНО",
+    "abbrName" : "zno",
+    "paperUsageId" : 6,
+    "uri" : "/papers/types/4"
+  }, {
+    "id" : 5,
+    "name" : "Індивідуальний податковий номер",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/5"
+  }, {
+    "id" : 6,
+    "name" : "Медична довідка",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/6"
+  }, {
+    "id" : 7,
+    "name" : "Cвідоцтво про базову загальну середню освіту",
+    "paperUsageId" : 2,
+    "uri" : "/papers/types/7"
+  }, {
+    "id" : 8,
+    "name" : "Свідоцтво про присвоєння(підвищення) робітничої кваліфікації",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/8"
+  }, {
+    "id" : 9,
+    "name" : "Диплом кваліфікованого робітника",
+    "paperUsageId" : 2,
+    "uri" : "/papers/types/9"
+  }, {
+    "id" : 10,
+    "name" : "Диплом молодшого спеціаліста",
+    "paperUsageId" : 2,
+    "uri" : "/papers/types/10"
+  }, {
+    "id" : 11,
+    "name" : "Диплом бакалавра",
+    "paperUsageId" : 2,
+    "uri" : "/papers/types/11"
+  }, {
+    "id" : 12,
+    "name" : "Диплом спеціаліста",
+    "paperUsageId" : 2,
+    "uri" : "/papers/types/12"
+  }, {
+    "id" : 13,
+    "name" : "Диплом магістра",
+    "paperUsageId" : 2,
+    "uri" : "/papers/types/13"
+  }, {
+    "id" : 14,
+    "name" : "Академічна довідка",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/14"
+  }, {
+    "id" : 15,
+    "name" : "Студентський квиток",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/15"
+  }, {
+    "id" : 16,
+    "name" : "Посвідка на постійне проживання в Україні",
+    "paperUsageId" : 3,
+    "uri" : "/papers/types/16"
+  }, {
+    "id" : 17,
+    "name" : "Закордонний паспорт",
+    "paperUsageId" : 3,
+    "uri" : "/papers/types/17"
+  }, {
+    "id" : 18,
+    "name" : "Тимчасове посвідчення",
+    "paperUsageId" : 3,
+    "uri" : "/papers/types/18"
+  }, {
+    "id" : 19,
+    "name" : "Учнівський квиток",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/19"
+  }, {
+    "id" : 20,
+    "name" : "Військовий квиток",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/20"
+  }, {
+    "id" : 21,
+    "name" : "Довідка",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/21"
+  }, {
+    "id" : 22,
+    "name" : "Свідоцтво про закінчення спеціальної загальноосвітньої школи",
+    "paperUsageId" : 2,
+    "uri" : "/papers/types/22"
+  }, {
+    "id" : 23,
+    "name" : "Довідка про навчання у загальноосвітній школі",
+    "paperUsageId" : 2,
+    "uri" : "/papers/types/23"
+  }, {
+    "id" : 24,
+    "name" : "Студентський квиток (банківська карта)",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/24"
+  }, {
+    "id" : 25,
+    "name" : "Учнівський квиток (банківська карта)",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/25"
+  }, {
+    "id" : 26,
+    "name" : "Книжка обліку в гуртожитку",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/26"
+  }, {
+    "id" : 27,
+    "name" : "Довідка про відрахування",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/27"
+  }, {
+    "id" : 28,
+    "name" : "Посвідчення про приписку до призовної дільниці",
+    "paperUsageId" : 1,
+    "uri" : "/papers/types/28"
+  }, {
+    "id" : 29,
+    "name" : "Диплом",
+    "paperUsageId" : 4,
+    "uri" : "/papers/types/29"
+  }, {
+    "id" : 30,
+    "name" : "Іспит ЛНУ",
+    "abbrName" : "exam",
+    "paperUsageId" : 6,
+    "uri" : "/papers/types/30"
+  }, {
+    "id" : 31,
+    "name" : "Курси \"Львівського національного університету імені Івана Франка\"",
+    "paperUsageId" : 4,
+    "uri" : "/papers/types/31"
+  }, {
+    "id" : 32,
+    "name" : "Посвідчення учасника бойових дій.",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/32"
+  }, {
+    "id" : 33,
+    "name" : "свідоцтво про смерть  учасника  бойових  дій",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/33"
+  }, {
+    "id" : 34,
+    "name" : "Посвідчення дитини (матері) як члена сім’ї загиблого (померлого) ветерана війни",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/34"
+  }, {
+    "id" : 35,
+    "name" : "Рішення про надання  статусу дитини-сироти  або дитини, позбавленої батьківського піклування",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/35"
+  }, {
+    "id" : 36,
+    "name" : "Довідка МСЕК (висновок ЛТЕК)",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/36"
+  }, {
+    "id" : 37,
+    "name" : "Посвідчення (пенсійне або отримувача державної соціальної допомоги, у якому зазначена група інвалідності)",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/37"
+  }, {
+    "id" : 38,
+    "name" : "Посвідчення особи, яка постраждала внаслідок Чорнобильської катастрофи. Серія А. Синього кольору",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/38"
+  }, {
+    "id" : 39,
+    "name" : "Посвідчення особи, яка потерпіла внаслідок Чорнобильської катастрофи. Серія Б. Сірого кольору",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/39"
+  }, {
+    "id" : 40,
+    "name" : "Посвідчення потерпілого внаслідок Чорнобильської катастрофи. Серія Б. Зеленого кольору",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/40"
+  }, {
+    "id" : 41,
+    "name" : "Посвідчення дитини, яка потерпіла від Чорнобильської катастрофи. Серія Д. Жовтого кольору",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/41"
+  }, {
+    "id" : 42,
+    "name" : "Довідка про смерть одного (обох) батьків, де встановлено зв’язок з Чорнобильською катастрофою",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/42"
+  }, {
+    "id" : 43,
+    "name" : "Посвідчення дитини з багатодітної родини",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/43"
+  }, {
+    "id" : 44,
+    "name" : "Позитивна характеристика від командування військової частини за місцем проходження строкової військової служби або служби за контрактом",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/44"
+  }, {
+    "id" : 45,
+    "name" : "Посвідчення члена сім’ї загиблого шахтаря",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/45"
+  }, {
+    "id" : 46,
+    "name" : "Посвідчення члена сім’ї загиблого (померлого) військовослужбовця",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/46"
+  }, {
+    "id" : 47,
+    "name" : "Довідка про хворобу згідно з переліком",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/47"
+  }, {
+    "id" : 48,
+    "name" : "Цільове направлення",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/48"
+  }, {
+    "id" : 49,
+    "name" : "Диплом учасника міжнародної олімпіади",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/49"
+  }, {
+    "id" : 50,
+    "name" : "Диплом I - III ступенів IV етапу Всеукраїнських учнівських олімпіад з базових предметів",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/50"
+  }, {
+    "id" : 51,
+    "name" : "Диплом І – ІІІ ступенів ІІІ етапу Всеукраїнських конкурсів-захистів науково-дослідницьких робіт учнів–членів Малої академії наук",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/51"
+  }, {
+    "id" : 52,
+    "name" : "Довідка за результатами підсумкової атестації з зазначенням кількості балів, що додаватимуться до конкурсного бала вступника",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/52"
+  }, {
+    "id" : 53,
+    "name" : "Посвідчення особи, яка проживає на території населеного пункту, якому надано статус гірського",
+    "paperUsageId" : 5,
+    "uri" : "/papers/types/53"
+  }, {
+    "id" : 54,
+    "name" : "Творчий конкурс НУ ЛП",
+    "abbrName" : "create",
+    "paperUsageId" : 6,
+    "uri" : "/papers/types/54"
+  } ],
+  "uri" : "/papers/types"
+}

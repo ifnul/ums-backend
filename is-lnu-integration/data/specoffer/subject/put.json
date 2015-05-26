@@ -1,0 +1,8 @@
+{
+  "mark": 5,
+  "isMajor": true,
+  "alternative": true,
+  "weightSubject": 4,
+  "specOfferId": ${specofferId},
+  "enrolmentSubjectId": 2
+}

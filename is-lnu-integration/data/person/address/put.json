@@ -1,0 +1,12 @@
+{
+  "personId": ${personId},
+  "streetTypeId": 1,
+  "adminUnitId": 214,
+  "addressTypeId": 1,
+  "begDate": "${begDate}",
+  "endDate": "${endDate}",
+  "house": "54",
+  "zipCode": "790901",
+  "street": "Університетська",
+  "apartment": "2"
+}

@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                           http://www.springframework.org/schema/security
+                           http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<bean id="defaultAuthenticationProvider" class="org.lnu.is.security.DefaultAuthenticationProvider" />
+	
+	<security:authentication-manager>
+		<security:authentication-provider ref="defaultAuthenticationProvider" />
+	</security:authentication-manager>
+
+	<bean id="sessionService" class="org.lnu.is.security.service.DefaultSessionService" />
+
+</beans>

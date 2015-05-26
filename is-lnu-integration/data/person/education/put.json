@@ -1,0 +1,7 @@
+{
+	"personId" : ${personId},
+	"educationTypeId" : 2,
+	"personPaperId" : ${personPaperId},
+	"begDate": "2014-02-01",
+	"endDate": "2015-02-01"
+}

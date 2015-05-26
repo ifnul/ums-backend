@@ -1,0 +1,7 @@
+{
+	"enrolmentId" : ${enrolmentId},
+	"specOfferWaveId" : ${specofferWaveId},
+	"enrolmentStatusTypeId" : 1,
+	"isState" : 1,
+	"isContract" : 1
+}

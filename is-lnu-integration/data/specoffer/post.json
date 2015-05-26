@@ -1,0 +1,15 @@
+{
+  "timePeriodId": ${timePeriodId},
+  "timePeriodCourseId": ${timePeriodId},
+  "educationFormTypeId": 1,
+  "specofferTypeId": 1,
+  "docSeries": "123456",
+  "docNum": "123456",
+  "begDate": "2015-02-07",
+  "endDate": "2015-02-07",
+  "licCount": 3,
+  "stateCount": 3,
+  "departmentId": ${departmentId},
+  "specialtyId": ${specialtyId},
+  "duration": "2.5"
+}

@@ -1,0 +1,9 @@
+{
+	"departmentTypeId" : 1,
+	"abbrName" : "t_AbbrName${departmentAbbrName}",
+	"name" : "t_name${departmentName}",
+	"manager" : "t_manager{departmentManager}",
+	"begDate" : "1998-01-01",
+	"endDate" : "2020-01-01",
+	"identifir" : "123"	
+}

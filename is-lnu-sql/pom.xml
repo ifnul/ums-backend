@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>is-lnu</groupId>
+		<artifactId>is-lnu</artifactId>
+		<version>0.0.5-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>is-lnu-sql</artifactId>
+	<name>is-lnu-sql</name>
+	<description>
+		Module for running custom queries for our system.
+		Main idea is that each university, that will fork project,
+		can store his sql scripts(insert departments, etc.) into this
+		module.Some of scripts will be provided by lnu, but in common,
+		you will need to write them by your own.
+	</description>
+
+	<properties>
+		<data.folder>data</data.folder>
+		<data.version>0.9.1</data.version>
+		
+		<cleaning.folder>cleaning</cleaning.folder>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>cleaning</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>sql-maven-plugin</artifactId>
+						<version>1.5</version>
+
+						<dependencies>
+							<dependency>
+								<groupId>postgresql</groupId>
+								<artifactId>postgresql</artifactId>
+								<version>9.1-901-1.jdbc4</version>
+							</dependency>
+						</dependencies>
+
+						<configuration>
+							<driver>${jdbc.driverClassName}</driver>
+							<url>${jdbc.databaseurl}</url>
+							<username>${jdbc.username}</username>
+							<password>${jdbc.password}</password>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>insert-data</id>
+								<phase>install</phase>
+								<goals>
+									<goal>execute</goal>
+								</goals>
+								<configuration>
+									<orderFile>ascending</orderFile>
+									<fileset>
+										<basedir>${basedir}/src/main/resources/${cleaning.folder}</basedir>
+										<includes>
+											<include>clean.sql</include>
+										</includes>
+									</fileset>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>	
+		<profile>
+			<id>data</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>sql-maven-plugin</artifactId>
+						<version>1.5</version>
+
+						<dependencies>
+							<dependency>
+								<groupId>postgresql</groupId>
+								<artifactId>postgresql</artifactId>
+								<version>9.1-901-1.jdbc4</version>
+							</dependency>
+						</dependencies>
+
+						<configuration>
+							<driver>${jdbc.driverClassName}</driver>
+							<url>${jdbc.databaseurl}</url>
+							<username>${jdbc.username}</username>
+							<password>${jdbc.password}</password>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>insert-data</id>
+								<phase>install</phase>
+								<goals>
+									<goal>execute</goal>
+								</goals>
+								<configuration>
+									<orderFile>ascending</orderFile>
+									<fileset>
+										<basedir>${basedir}/src/main/resources/${data.folder}/${data.version}</basedir>
+										<includes>
+											<include>**/*.sql</include>
+										</includes>
+									</fileset>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+
+</project>

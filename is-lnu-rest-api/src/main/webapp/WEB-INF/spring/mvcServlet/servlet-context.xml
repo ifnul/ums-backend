@@ -1,0 +1,37 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:component-scan base-package="org.lnu.is.web.rest" />
+	<context:property-placeholder properties-ref="applicationConfiguration" />
+
+	<import resource="config/message-converters.xml"/>
+	<import resource="config/exception-handlers.xml"/>
+	<import resource="config/documentation-config.xml"/>
+	<import resource="config/validators.xml"/>
+	<import resource="config/resource-entity-relation.xml"/>
+
+	<mvc:annotation-driven validator="validator">
+		<mvc:argument-resolvers>
+			<ref bean="pagedRequestHandlerMethodArgumentResolver" />
+		</mvc:argument-resolvers>
+		<mvc:message-converters>
+			<ref bean="jsonMessageConverter" />
+			<ref bean="xmlMessageConverter" />
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- Bean, that gives information about system -->
+	<bean id="systemResource" class="org.lnu.is.resource.system.SystemResource">
+		<property name="developers" value="#{T(java.util.Arrays).asList('${developers}')}"/> 
+		<property name="version" value="${application.version}"/>
+	</bean>
+	
+</beans>

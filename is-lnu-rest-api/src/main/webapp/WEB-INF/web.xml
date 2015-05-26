@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/main-context.xml
+			classpath*:persistence-context.xml
+			classpath*:service-context.xml
+			classpath*:content-context.xml
+			classpath*:facade-context.xml
+			classpath*:converters-context.xml
+			classpath*:security-context.xml
+			classpath*:mail-context.xml
+			
+			<!-- EDBO specific contexts -->
+	 		classpath*:edbo-context.xml
+	 		classpath*:edbo-guides-dao.xml
+			classpath*:edbo-person-dao.xml
+		</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>CorsFilter</filter-name>
+		<filter-class>org.lnu.is.web.filter.cors.CorsFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/api/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>ModifiableMethodsLoggingFilter</filter-name>
+		<filter-class>org.lnu.is.web.filter.logging.DefaultModifiableMethodsLoggingFilter</filter-class>
+		<init-param>
+			<param-name>httpMethods</param-name>
+			<param-value>post,put</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>ModifiableMethodsLoggingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>PagedRequestServletFilter</filter-name>
+		<filter-class>org.lnu.is.web.filter.pagination.PagedRequestServletFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>PagedRequestServletFilter</filter-name>
+		<url-pattern>/api/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>mvcServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/mvcServlet/servlet-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>mvcServlet</servlet-name>
+		<url-pattern>/api/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Error handling -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/api/error/404</location>
+	</error-page>
+
+	<error-page>
+		<error-code>401</error-code>
+		<location>/api/error/401</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/api/error/500</location>
+	</error-page>
+
+	<!-- Default exception handler -->
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/api/error/500</location>
+	</error-page>
+
+</web-app>

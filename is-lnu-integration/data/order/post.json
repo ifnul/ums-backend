@@ -1,0 +1,15 @@
+{
+  "description": "description",
+  "reasonText": "reason text",
+  "docSeries": "ds",
+  "docNum": "123456",
+  "docDate": "2015-02-28",
+  "docIssued": "Oleh",
+  "evDate": "2015-02-28",
+  "partnerId": ${partnerId},
+  "departmentId": ${departmentId},
+  "orderTypeId": 1,
+  "assetId": ${assetId},
+  "timePeriodId": ${timePeriodId},
+  "title": "title"
+}

@@ -1,0 +1,33 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                        "
+                           >
+	<context:component-scan base-package="org.lnu.is.security" />
+	<import resource="security-context-${environment.active}.xml"/>
+
+	<security:http use-expressions="true" entry-point-ref="restAuthenticationEntryPoint">
+		<security:http-basic />
+		
+		<security:intercept-url pattern="/api/api-docs/**" access="permitAll" />
+		<security:intercept-url pattern="/**" method="OPTIONS" access="permitAll" />
+		<security:intercept-url pattern="/**" access="isAuthenticated()" />
+		<security:form-login 
+			authentication-success-handler-ref="customSuccessHandler"
+			authentication-failure-handler-ref="customFailureHandler" />
+		<security:logout logout-url="/logout" success-handler-ref="logoutSuccessHandler" />	
+	</security:http>
+
+	<bean id="customSuccessHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler" />
+	<bean id="customFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" />
+	<bean id="restAuthenticationEntryPoint" class="org.lnu.is.security.entrypoint.RestAuthenticationEntryPoint" />
+	
+	<bean id="logoutSuccessHandler" class="org.lnu.is.security.LogoutSuccessHandler">
+		<property name="authentificationService" ref="edboAuthentificationService"/>
+	</bean>
+	
+</beans>

@@ -1,0 +1,6 @@
+{
+  "bonus": ${newBonus},
+  "publicActivityAwardId": ${publicActivityId},
+  "personPaperId": ${personPaperId},
+  "personId": ${personId}
+}

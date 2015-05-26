@@ -1,0 +1,6 @@
+{
+	"personId" : ${personId},
+	"personPaperId" : ${personPaperId},
+	"enrolmentSubjectId" : 2,
+	"mark" : 4.37
+}

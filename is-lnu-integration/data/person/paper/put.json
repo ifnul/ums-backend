@@ -1,0 +1,13 @@
+{
+  "personId" : ${personId},
+  "paperTypeId" : 1,
+  "honorsTypeId" : 1,
+  "docSeries" : "${docSeries}",
+  "docNum" : "${docNum}",
+  "docDate" : "${docDate}",
+  "docIssued" :"${docIssued}",
+  "docPin" : "${docPin}",
+  "mark" : 4.8,
+  "isChecked" : 1,
+  "isForeign" : 0
+}

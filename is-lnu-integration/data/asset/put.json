@@ -1,0 +1,15 @@
+{
+  "invNum": "${newInvNum}",
+  "prodDate": "2015-02-07",
+  "endDate": "2015-02-07",
+  "serialNum": "${serialNum}",
+  "begDate": "2015-02-07",
+  "amount": 4,
+  "price": 200,
+  "suma": 800,
+  "assetTypeId": 1,
+  "assetStatusId": 1,
+  "assetStateId": 1,
+  "description": "description",
+  "name": "name"
+}

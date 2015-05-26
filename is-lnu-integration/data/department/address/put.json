@@ -1,0 +1,10 @@
+{
+	"departmentId" : ${departmentId},
+	"addressTypeId" : 1,
+	"adminUnitId" : 245, 
+	"streetTypeId" : 1,
+	"zipCode" : 79090,
+	"street" : "super street",
+	"house" : "new HARA",
+	"apartment" : "apartamentu Joe"
+}

@@ -1,0 +1,20 @@
+{
+  "personTypeId": 1,
+  "citizenCountryId": 25465,
+  "genderTypeId": 2,
+  "marriedTypeId": 2,
+  "begDate": "2014-01-01",
+  "endDate": "2015-01-01",
+  "firstName": "${person_firstname}",
+  "surname": "${person_lastname}",
+  "fatherName": "${person_fathername}",
+  "name": "${person_lastname} ${person_firstname} Ололошович",
+  "identifier": "${person_idnum}",
+  "isHostel": 1,
+  "isMilitary": 1,
+  "resident": 1,
+  "photo": "${person_photo}",
+  "birthPlace": "${person_birthplace}",
+  "docNum": "${person_docnum}",
+  "docSeries": "${person_docseries}"
+}

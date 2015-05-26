@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC
+  "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Console is set to be a ConsoleAppender -->
+	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p] [%t]: |%d| %C{6} (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- Log all logs to a separate log file every day -->
+	<appender name="fileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="${catalina.home}/logs/is-lnu.log" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p] [%t]: |%d| %C{6} (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- Log all logs to a separate log file every day -->
+	<appender name="hibernateFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="${catalina.home}/logs/hibernate.log" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p] [%t]: |%d| %C{6} (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.mangofactory.swagger">
+		<level value="WARN"/>
+	</logger>
+
+	<!-- LOGGER LIST -->
+	<logger name="org.lnu.is">
+		<!-- level info logs -->
+		<level value="INFO" />
+		<appender-ref ref="fileAppender" />
+	</logger>
+
+	<logger name="org.hibernate">
+		<level value="ERROR" />
+		<appender-ref ref="hibernateFileAppender" />
+	</logger>
+
+	<root>
+		<priority value="INFO"></priority>
+		<!-- log all log entries on console -->
+		<appender-ref ref="consoleAppender" />
+		<!-- push all error logs to fileAppender -->
+		<appender-ref ref="fileAppender" />
+	</root>
+
+</log4j:configuration>

@@ -1,0 +1,31 @@
+{
+  "offset" : 0,
+  "limit" : 20,
+  "count" : 6,
+  "resources" : [ {
+    "id" : 1,
+    "name" : "одружений",
+    "uri" : "/marriedtypes/1"
+  }, {
+    "id" : 2,
+    "name" : "не одружений",
+    "uri" : "/marriedtypes/2"
+  }, {
+    "id" : 3,
+    "name" : "заміжня",
+    "uri" : "/marriedtypes/3"
+  }, {
+    "id" : 4,
+    "name" : "не заміжня",
+    "uri" : "/marriedtypes/4"
+  }, {
+    "id" : 5,
+    "name" : "розлучена",
+    "uri" : "/marriedtypes/5"
+  }, {
+    "id" : 6,
+    "name" : "розлучений",
+    "uri" : "/marriedtypes/6"
+  } ],
+  "uri" : "/marriedtypes"
+}

@@ -1,0 +1,8 @@
+{
+	"publicActivityId": ${publicActivityId},
+	"enrolmentSubjectId" : 1,
+	"bonus" : 4.11,
+	"awardName" : "award name1",
+	"begDate": "2014-01-01",
+	"endDate": "2015-01-01"
+}

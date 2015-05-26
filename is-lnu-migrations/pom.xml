@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>is-lnu-migrations</artifactId>
+	<name>is-lnu-migrations</name>
+
+	<properties>
+		<checkstyleDir>${basedir}/../checks</checkstyleDir>
+		<findBugsDir>${basedir}/../findbugs</findBugsDir>
+
+		<!-- Migrations properties -->
+		<migration.changelog.name>db.changelog.xml</migration.changelog.name>
+		<migrations.location>src/main/resources/migrations/${migration.changelog.name}</migrations.location>
+		
+		<!-- Database properties -->
+		<migrations.jdbc.driverClassName>${jdbc.driverClassName}</migrations.jdbc.driverClassName>
+		<migrations.jdbc.host>${jdbc.host}</migrations.jdbc.host>
+		<migrations.jdbc.port>${jdbc.port}</migrations.jdbc.port>
+		<migrations.jdbc.databasename>${jdbc.databasename}</migrations.jdbc.databasename>
+		<migrations.jdbc.databaseurl>jdbc:postgresql://${migrations.jdbc.host}:${migrations.jdbc.port}/${migrations.jdbc.databasename}</migrations.jdbc.databaseurl>
+		<migrations.jdbc.username>${jdbc.username}</migrations.jdbc.username>
+		<migrations.jdbc.password>${jdbc.password}</migrations.jdbc.password>		
+	</properties>
+
+	<parent>
+		<groupId>is-lnu</groupId>
+		<artifactId>is-lnu</artifactId>
+		<version>0.0.5-SNAPSHOT</version>
+	</parent>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>3.2.2</version>
+				<executions>
+					<execution>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>update</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<changeLogFile>${migrations.location}</changeLogFile>
+					<driver>${migrations.jdbc.driverClassName}</driver>
+					<url>${migrations.jdbc.databaseurl}</url>
+					<username>${migrations.jdbc.username}</username>
+					<password>${migrations.jdbc.password}</password>
+					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>9.1-901-1.jdbc4</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>			
+			</plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>			
+			</plugin>					
+		</plugins>
+	</build>
+</project>

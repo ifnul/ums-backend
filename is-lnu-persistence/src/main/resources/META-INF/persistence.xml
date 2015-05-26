@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+<persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        
+        <!-- Asset related entities -->
+        <class>org.lnu.is.domain.asset.Asset</class>
+        <class>org.lnu.is.domain.asset.address.AssetAddress</class>
+        <class>org.lnu.is.domain.asset.property.AssetProperty</class>
+        <class>org.lnu.is.domain.asset.rel.AssetRel</class>
+        <class>org.lnu.is.domain.asset.state.AssetState</class> 
+        <class>org.lnu.is.domain.asset.status.AssetStatus</class> 
+        <class>org.lnu.is.domain.asset.type.AssetType</class> 
+
+        <!-- Benefit related entities -->
+        <class>org.lnu.is.domain.benefit.Benefit</class>
+		<class>org.lnu.is.domain.benefit.BenefitType</class>
+
+		<!-- Department related entities -->
+        <class>org.lnu.is.domain.department.Department</class>
+        <class>org.lnu.is.domain.department.type.DepartmentType</class>
+        <class>org.lnu.is.domain.department.address.DepartmentAddress</class>
+        <class>org.lnu.is.domain.department.contact.DepartmentContact</class>
+        <class>org.lnu.is.domain.department.name.DepartmentName</class>
+        <class>org.lnu.is.domain.department.specialty.DepartmentSpecialty</class>
+
+		<!-- Employee related entities -->
+		<class>org.lnu.is.domain.employee.Employee</class> 
+        <class>org.lnu.is.domain.employee.status.EmployeeStatus</class> 
+        <class>org.lnu.is.domain.employee.type.EmployeeType</class> 
+        <class>org.lnu.is.domain.employee.contact.EmployeeContact</class>
+        <class>org.lnu.is.domain.employee.profession.EmployeeProfession</class>
+        <class>org.lnu.is.domain.employee.salary.EmployeeSalary</class>
+        <class>org.lnu.is.domain.employee.schedule.EmployeeSchedule</class>
+
+		<!-- Partner related entities -->
+        <class>org.lnu.is.domain.partner.Partner</class>
+        <class>org.lnu.is.domain.partner.PartnerAddress</class>
+        
+        <!-- Specialty related entities -->
+        <class>org.lnu.is.domain.specialty.Specialty</class>
+        <class>org.lnu.is.domain.specialty.SpecialtyType</class>
+        
+		<!-- Degree related enities -->
+        <class>org.lnu.is.domain.degree.Degree</class>
+        <class>org.lnu.is.domain.degree.type.DegreeType</class>
+
+		<!-- Language related entities -->
+        <class>org.lnu.is.domain.language.Language</class>
+        <class>org.lnu.is.domain.language.LanguageLevel</class>
+        
+        <!-- MarkScale entities -->
+        <class>org.lnu.is.domain.mark.scale.MarkScale</class>
+        <class>org.lnu.is.domain.mark.scale.exchange.MarkScaleExchange</class>
+        <class>org.lnu.is.domain.mark.scale.type.MarkScaleType</class>
+        <class>org.lnu.is.domain.mark.scale.value.MarkScaleValue</class>
+
+		<!-- Enrolment related entities -->
+        <class>org.lnu.is.domain.enrolment.Enrolment</class>
+        <class>org.lnu.is.domain.enrolment.benefit.EnrolmentBenefit</class>
+        <class>org.lnu.is.domain.enrolment.enrolment.subject.EnrolmentEnrolmentSubject</class>
+        <class>org.lnu.is.domain.enrolment.status.type.EnrolmentStatusType</class>
+        <class>org.lnu.is.domain.enrolment.status.EnrolmentStatus</class>
+        <class>org.lnu.is.domain.enrolment.type.EnrolmentType</class>
+        <class>org.lnu.is.domain.enrolment.subject.EnrolmentSubject</class>
+        <class>org.lnu.is.domain.enrolment.foreign.type.EnrolmentForeignType</class>
+        
+        <!-- Order related entities -->
+        <class>org.lnu.is.domain.order.Order</class>
+        <class>org.lnu.is.domain.order.asset.passport.OrderAssetPassport</class>
+        <class>org.lnu.is.domain.order.asset.transfer.OrderAssetTransfer</class>
+        <class>org.lnu.is.domain.order.duty.OrderDuty</class>
+        <class>org.lnu.is.domain.order.type.OrderType</class>
+        <class>org.lnu.is.domain.order.employee.OrderEmployee</class>
+        <class>org.lnu.is.domain.order.employee.timesheet.OrderEmployeeTimeSheet</class>
+        <class>org.lnu.is.domain.order.asset.OrderNewAsset</class>
+        <class>org.lnu.is.domain.order.employee.OrderNewEmployee</class>
+        <class>org.lnu.is.domain.order.student.OrderNewStudent</class>
+
+        <!-- Person related entities -->
+        <class>org.lnu.is.domain.person.Person</class> 
+        <class>org.lnu.is.domain.person.address.PersonAddress</class>
+        <class>org.lnu.is.domain.person.award.PersonAward</class>
+        <class>org.lnu.is.domain.person.contact.PersonContact</class>
+        <class>org.lnu.is.domain.person.education.PersonEducation</class>
+        <class>org.lnu.is.domain.person.enrolment.subject.PersonEnrolmentSubject</class>
+        <class>org.lnu.is.domain.person.family.PersonFamily</class>
+        <class>org.lnu.is.domain.person.language.PersonLanguage</class>
+        <class>org.lnu.is.domain.person.name.PersonName</class>
+        <class>org.lnu.is.domain.person.paper.PersonPaper</class>
+        <class>org.lnu.is.domain.person.pension.PersonPension</class>
+        <class>org.lnu.is.domain.person.type.PersonType</class> 
+        <class>org.lnu.is.domain.person.work.PersonWork</class>
+        
+        <!-- Spec offer related entities -->
+        <class>org.lnu.is.domain.specoffer.SpecOffer</class>
+        <class>org.lnu.is.domain.specoffer.SpecOfferBenefit</class>
+        <class>org.lnu.is.domain.specoffer.SpecOfferSubject</class>
+        <class>org.lnu.is.domain.specoffer.SpecOfferWave</class>
+        <class>org.lnu.is.domain.specoffer.SpecOfferType</class>
+		
+		<!-- Admin Unit related entities -->        
+        <class>org.lnu.is.domain.admin.unit.AdminUnit</class>
+        <class>org.lnu.is.domain.admin.unit.type.AdminUnitType</class>
+		
+		<!-- Post related entities -->
+        <class>org.lnu.is.domain.post.Post</class> 
+        <class>org.lnu.is.domain.post.PostName</class>
+
+		<!-- Property related entities -->
+        <class>org.lnu.is.domain.property.Property</class>
+        <class>org.lnu.is.domain.property.PropertyValue</class>
+        <class>org.lnu.is.domain.property.PropertyType</class>
+
+		<!-- Public Activity entities -->
+        <class>org.lnu.is.domain.publicactivity.PublicActivity</class>
+        <class>org.lnu.is.domain.publicactivity.PublicActivityAward</class>
+        <class>org.lnu.is.domain.publicactivity.PublicActivityType</class>
+		
+		<!-- Subject related entities -->
+        <class>org.lnu.is.domain.subject.Subject</class>
+        <class>org.lnu.is.domain.subject.SubjectType</class>
+
+		<!-- Absence related entities -->
+        <class>org.lnu.is.domain.absence.Absence</class>
+        <class>org.lnu.is.domain.absence.AbsenceType</class>
+		
+		<!-- Time period related entities -->
+        <class>org.lnu.is.domain.timeperiod.TimePeriod</class> 
+        <class>org.lnu.is.domain.timeperiod.TimePeriodType</class>
+        
+        <!-- StudyPlan related entities -->
+        <class>org.lnu.is.domain.studyplan.cycle.StudyPlanCycle</class>
+
+        <!-- Types - references -->
+        <class>org.lnu.is.domain.family.type.FamilyType</class>
+        <class>org.lnu.is.domain.gender.type.GenderType</class> 
+        <class>org.lnu.is.domain.honors.type.HonorType</class>
+        <class>org.lnu.is.domain.address.type.AddressType</class>
+        <class>org.lnu.is.domain.contact.type.ContactType</class>
+        <class>org.lnu.is.domain.married.type.MarriedType</class> 
+        <class>org.lnu.is.domain.job.type.JobType</class> 
+        <class>org.lnu.is.domain.post.type.PostType</class> 
+        <class>org.lnu.is.domain.pension.type.PensionType</class>
+        <class>org.lnu.is.domain.optype.OperationType</class> 
+        <class>org.lnu.is.domain.paper.type.PaperType</class>
+        <class>org.lnu.is.domain.paper.usage.PaperUsage</class>
+        <class>org.lnu.is.domain.course.type.CourseType</class>
+        <class>org.lnu.is.domain.duty.type.DutyType</class>
+        <class>org.lnu.is.domain.education.type.EducationType</class>
+        <class>org.lnu.is.domain.education.form.type.EducationFormType</class>       
+        <class>org.lnu.is.domain.salary.type.SalaryType</class>
+        <class>org.lnu.is.domain.specstagetype.SpecStageType</class>
+        <class>org.lnu.is.domain.street.type.StreetType</class>
+        <class>org.lnu.is.domain.timesheet.type.TimeSheetType</class>
+        <class>org.lnu.is.domain.wave.type.WaveType</class>
+        <class>org.lnu.is.domain.reason.Reason</class>
+        <class>org.lnu.is.domain.profession.Profession</class>
+		
+		<!-- Not structured yet :| -->
+        <class>org.lnu.is.domain.error.Error</class>
+        <class>org.lnu.is.domain.importexport.ImportExport</class>
+        
+        <!-- Security entities -->
+        <class>org.lnu.is.domain.user.User</class>
+        <class>org.lnu.is.domain.user.EdboUser</class>
+        <class>org.lnu.is.domain.role.Role</class>
+        <class>org.lnu.is.domain.group.Group</class>
+        <class>org.lnu.is.domain.user.group.UserGroup</class>
+        <class>org.lnu.is.domain.user.group.UserGroupView</class>
+        <class>org.lnu.is.domain.user.role.UserRole</class>
+        
+        <!-- Reporting entities -->
+        <class>org.lnu.is.domain.broadcasting.BroadcastingMessage</class>
+        
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <!-- value="create" to build a new database on each run; value="update" to modify an existing database; value="create-drop" means the same as "create" but also drops tables when Hibernate closes; value="validate" makes no changes to the database -->
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+            <property name="hibernate.connection.charSet" value="UTF-8"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,10 @@
+{
+	"specOfferId" : ${specofferId},
+	"waveTypeId" : 1,
+	"licCount" : 14,
+	"stateCount" : 20,
+	"benefitCount" : 56,
+	"targetCount" : 45,
+	"beginDate": "2015-02-07",
+  	"endDate": "2015-02-07"
+}
