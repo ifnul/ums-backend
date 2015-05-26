@@ -11,7 +11,7 @@ public interface EmailSenderAdapter {
 	
 	/**
 	 * Single method for sending emails.
-	 * @param email
+	 * @param email email.
 	 */
 	void send(Email email);
 	

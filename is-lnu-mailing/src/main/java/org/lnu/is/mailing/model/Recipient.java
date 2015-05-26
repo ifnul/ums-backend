@@ -11,7 +11,7 @@ public class Recipient {
 
 	/**
 	 * Default constructor for one field.
-	 * @param email
+	 * @param email email.
 	 */
 	public Recipient(final String email) {
 		super();

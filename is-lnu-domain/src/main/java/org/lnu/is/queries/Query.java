@@ -16,8 +16,8 @@ public final class Query<E> {
 
     /**
      *  Constructor, which takes two parameters: name and query.
-     * @param clazz
-     * @param query
+     * @param clazz clazz
+     * @param query query
      */
     public Query(final Class<E> clazz, final String query) {
         this.clazz = clazz;
@@ -26,9 +26,9 @@ public final class Query<E> {
 
     /**
      * Constructor for three arguments.
-     * @param clazz
-     * @param query
-     * @param parameters
+     * @param clazz clazz
+     * @param query query
+     * @param parameters parameters
      */
     public Query(final Class<E> clazz, final String query, final Map<String, Object> parameters) {
 		super();

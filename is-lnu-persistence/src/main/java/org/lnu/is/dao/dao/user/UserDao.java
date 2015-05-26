@@ -12,7 +12,7 @@ public interface UserDao extends Dao<User, Long> {
 
 	/**
 	 * Method for getting user by login.
-	 * @param login
+	 * @param login login
 	 * @return User.
 	 */
 	User getUserByLogin(String login);

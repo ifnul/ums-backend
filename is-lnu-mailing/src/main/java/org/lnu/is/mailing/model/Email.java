@@ -23,11 +23,11 @@ public class Email extends SimpleEmail {
 
 	/**
 	 * Constructor with all fields.
-	 * @param recipients
-	 * @param ccRecipients
-	 * @param sender
-	 * @param topic
-	 * @param isHtml
+	 * @param recipients recipients
+	 * @param ccRecipients ccRecipients
+	 * @param sender sender
+	 * @param topic topic
+	 * @param isHtml isHtml
 	 */
 	public Email(final List<Recipient> recipients, final List<Recipient> ccRecipients,
 			final String sender, final String topic, final boolean isHtml) {
@@ -37,7 +37,7 @@ public class Email extends SimpleEmail {
 	
 	/**
 	 * Copy constructor.
-	 * @param mail
+	 * @param mail mail
 	 */
 	public Email(final SimpleEmail mail) {
 		this(mail.getRecipients(), mail.getCcRecipients(), mail.getSender(), mail.getTopic(), mail.isHtml());

@@ -21,7 +21,7 @@ public abstract class DefaultVerifierChainLink<T> implements VerifierChainLink<T
 
 	/**
 	 * Template method for all verifiers.
-	 * @param resource
+	 * @param resource resource.
 	 */
 	protected abstract void verifyLink(T resource);
 

@@ -25,11 +25,11 @@ public class EdboAuthentification implements Serializable {
 
 	/**
 	 * Constructor with all parameters.
-	 * @param login
-	 * @param password
-	 * @param applicationKey
-	 * @param clearPreviousSession
-	 * @param sessionGUID
+	 * @param login login
+	 * @param password password
+	 * @param applicationKey application key
+	 * @param clearPreviousSession clear Previous Session
+	 * @param sessionGUID session GUID
 	 */
 	public EdboAuthentification(final String login, final String password,
 			final String applicationKey, final Integer clearPreviousSession,

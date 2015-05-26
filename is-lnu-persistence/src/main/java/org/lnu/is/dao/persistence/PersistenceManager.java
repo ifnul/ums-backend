@@ -56,14 +56,15 @@ public interface PersistenceManager<T, I> {
 
     /**
      * Method for getting single result.
-     * @param query
+     * @param query query
      * @return single result.
      */
 	T getSingleResult(Query<T> query);
 
 	/**
 	 * Method for getting multiple result.
-	 * @param query
+	 * @param query query
+	 * @param <E> Entity 
 	 * @return multiple result.
 	 */
 	<E> List<E> getMultipleResult(Query<E> query);

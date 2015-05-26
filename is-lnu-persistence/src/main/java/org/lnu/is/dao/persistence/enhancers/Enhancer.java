@@ -14,7 +14,7 @@ public interface Enhancer<T> {
 	
 	/**
 	 * Method, that enhance entities.
-	 * @param resource
+	 * @param resource resource
 	 */
 	void enhance(T resource);
 	

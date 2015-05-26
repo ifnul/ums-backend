@@ -10,7 +10,7 @@ import org.lnu.is.domain.street.type.StreetType;
 import org.lnu.is.resource.asset.address.AssetAddressResource;
 
 /**
- * Converter AssetResource -> Asset.
+ * Converter AssetResource Asset.
  * @author ivanursul
  *
  */

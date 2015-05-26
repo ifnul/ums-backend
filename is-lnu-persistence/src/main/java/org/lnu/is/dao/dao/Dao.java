@@ -40,7 +40,7 @@ public interface Dao<ENTITY, KEY> {
 	
 	/**
 	 * Method for getting paged Result.
-	 * @param pagedSearch
+	 * @param pagedSearch pagedSearch
 	 * @return paged result.
 	 */
 	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITY> pagedSearch);

@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
  * 
  * @author ivanursul
  *
- * @param <E>
+ * @param <E> entity.
  */
 public abstract class AbstractQueryBuilder<E> implements QueryBuilder<E> {
 	private static final String STATUS_CONDITION = "e.status=:status ";
@@ -37,8 +37,8 @@ public abstract class AbstractQueryBuilder<E> implements QueryBuilder<E> {
 	/**
 	 * Method, that builds and adds all required constaints.
 	 * This methods add additional constraint for statuses.
-	 * @param context
-	 * @param builder
+	 * @param context context
+	 * @param builder builder
 	 * @return BaseQueryBuilder instance.
 	 */
 	protected abstract BaseQueryBuilder build(final E context, BaseQueryBuilder builder);

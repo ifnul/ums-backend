@@ -13,7 +13,9 @@ public class EntityNotFoundException extends RuntimeException {
 	
 	/**
 	 * Common constuctor.
-	 * @param message
+	 * @param message message
+	 * @param clz clz
+	 * @param identifier identifier
 	 */
 	public EntityNotFoundException(final String message, final Class<?> clz, final Object identifier) {
 		super(message);

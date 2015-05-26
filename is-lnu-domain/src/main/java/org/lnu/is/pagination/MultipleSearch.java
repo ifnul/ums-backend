@@ -39,9 +39,9 @@ public class MultipleSearch<T> {
 	/**
 	 * Constructor for all fields.
 	 * @author ivanursul
-	 * @param parameters
-	 * @param clazz
-	 * @param entity
+	 * @param parameters parameters
+	 * @param clazz clazz
+	 * @param entity entity
 	 */
 	public MultipleSearch(final Map<String, Object> parameters, final Class<T> clazz, final T entity) {
 		super();
@@ -53,9 +53,9 @@ public class MultipleSearch<T> {
 	/**
 	 * Constructor for all fields.
 	 * @author ivanursul
-	 * @param parameters
-	 * @param clazz
-	 * @param entity
+	 * @param parameters parameters
+	 * @param clazz clazz
+	 * @param entity entity
 	 */	
 	public MultipleSearch(final Map<String, Object> parameters, final Class<T> clazz,
 			final T entity, final List<OrderBy> orders) {

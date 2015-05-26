@@ -6,7 +6,7 @@ import org.lnu.is.domain.asset.address.AssetAddress;
 import org.lnu.is.resource.asset.address.AssetAddressResource;
 
 /**
- * Converter AssetAddress -> AssetAddressResource.
+ * Converter AssetAddress AssetAddressResource.
  * @author ivanursul
  *
  */

@@ -18,7 +18,7 @@ import org.lnu.is.pagination.PagedResult;
  *
  * @param <ENTITY> Entity, Please see is-lnu-domain module.
  * @param <KEY> Key of corresponding 
- * @param <DAO>
+ * @param <DAO> Dao
  */
 public class DefaultService<ENTITY, KEY, DAO extends Dao<ENTITY, KEY>> implements Service<ENTITY, KEY> {
 

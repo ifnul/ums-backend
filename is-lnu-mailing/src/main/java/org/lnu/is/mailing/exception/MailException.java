@@ -10,8 +10,8 @@ public class MailException extends RuntimeException {
 
 	/**
 	 * Default constructor.
-	 * @param message
-	 * @param cause
+	 * @param message message
+	 * @param cause cause
 	 */
 	public MailException(final String message, final Throwable cause) {
 		super(message, cause);

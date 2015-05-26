@@ -14,7 +14,7 @@ public interface VerifierChainLink<T> {
 	
 	/**
 	 * Method for verifying all valid cases of entity.
-	 * @param resource
+	 * @param resource resource.
 	 */
 	void verify(T resource);
 	

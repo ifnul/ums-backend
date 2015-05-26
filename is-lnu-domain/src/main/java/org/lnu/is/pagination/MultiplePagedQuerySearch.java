@@ -23,11 +23,11 @@ public class MultiplePagedQuerySearch<E> extends MultiplePagedSearch<E> {
 
 	/**
 	 * Basic constructor.
-	 * @param query
-	 * @param offset
-	 * @param limit
-	 * @param parameters
-	 * @param clazz
+	 * @param query query
+	 * @param offset offset
+	 * @param limit limit
+	 * @param parameters parameters
+	 * @param clazz clazz
 	 */
 	public MultiplePagedQuerySearch(final Query<E> query, final Integer offset, final Integer limit, final Map<String, Object> parameters, final Class<E> clazz) {
 		super(offset, limit, parameters, clazz);

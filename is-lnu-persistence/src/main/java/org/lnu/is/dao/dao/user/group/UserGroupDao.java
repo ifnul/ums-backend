@@ -16,8 +16,8 @@ public interface UserGroupDao extends Dao<UserGroup, Long> {
 
 	/**
 	 * Method for getting user groups.
-	 * @param request
-	 * @param groupsIds 
+	 * @param request request
+	 * @param groupsIds  groupIds.
 	 * @return collection of user groups.
 	 */
 	List<UserGroupView> getUserGroupViews(MultipleSearch<UserGroupView> request, List<Long> groupsIds);

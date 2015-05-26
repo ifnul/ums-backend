@@ -23,10 +23,10 @@ public class MultiplePagedSearch<T> extends MultipleSearch<T> {
 
     /**
      * Constructor for all fields.
-     * @param offset
-     * @param limit
-     * @param parameters
-     * @param clazz
+     * @param offset offset
+     * @param limit limit
+     * @param parameters parameters
+     * @param clazz clazz
      */
 	public MultiplePagedSearch(final Integer offset, final Integer limit, final Map<String, Object> parameters, final Class<T> clazz) {
 		super(parameters, clazz, null, null);

@@ -11,7 +11,7 @@ public enum OrderByType {
 
 	/**
 	 * Method for getting required orderByType by name.
-	 * @param orderByType
+	 * @param orderByType orderByType
 	 * @return ready OrderByType.
 	 */
 	public static OrderByType resolve(final String orderByType) {

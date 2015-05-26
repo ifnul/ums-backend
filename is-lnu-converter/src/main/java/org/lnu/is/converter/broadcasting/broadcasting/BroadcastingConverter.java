@@ -5,7 +5,7 @@ import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.resource.broadcasting.BroadcastingMessageResource;
 
 /**
- * BroadcastintMessageResource -> BroadcastingMessageResource converter.
+ * BroadcastintMessageResource BroadcastingMessageResource converter.
  * @author ivanursul
  *
  */

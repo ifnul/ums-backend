@@ -7,7 +7,7 @@ import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
 
 /**
- * User Group View Query Builder -> This builder works with view.
+ * User Group View Query Builder This builder works with view.
  * @author ivanursul
  *
  */

@@ -43,9 +43,9 @@ public class MessageResource {
 	
 	/**
 	 * Constructor with all fields.
-	 * @param messageType
-	 * @param message
-	 * @param httpCode
+	 * @param messageType messageType
+	 * @param message message
+	 * @param httpCode httpCode
 	 */
 	public MessageResource(final MessageType messageType, final String message, final Integer httpCode) {
 		super();

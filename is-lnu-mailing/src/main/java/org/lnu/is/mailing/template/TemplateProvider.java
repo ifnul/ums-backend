@@ -9,8 +9,8 @@ public interface TemplateProvider {
 
 	/**
 	 * Single method for processing html template.
-	 * @param templateId
-	 * @param data
+	 * @param templateId templateId
+	 * @param data data
 	 * @return rendered email.
 	 */
 	String process(String templateId, Object data);

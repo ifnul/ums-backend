@@ -11,7 +11,7 @@ public interface ExceptionThrower {
 
 	/**
 	 * Method for throwing exception.
-	 * @param error
+	 * @param error error.
 	 */
 	void throwException(DLastError error);
 

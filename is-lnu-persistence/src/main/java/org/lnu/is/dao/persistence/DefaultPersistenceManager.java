@@ -112,14 +112,14 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
 	}    
     
 
-    /**
-     * Gets query count for every.
-     * @param <M> for generic class.
-     * @param querySql query
-     * @param parameters parameters.
-     * @param clazz class isstance.
-     * @return Count of elements in query
-     */
+	/**
+	 * Gets query count for every.
+	 * @param querySql query Sql
+	 * @param parameters parameters
+	 * @param clazz clazz
+	 * @param <M> Generic
+	 * @return query count.
+	 */
     private <M> Long getQueryCount(final String querySql, final Map<String, Object> parameters, final Class<M> clazz) {
 
         String jpQuery = String.format(COUNT_QUERY, clazz.getSimpleName(), querySql);
@@ -132,10 +132,10 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     /**
      * Creates typed Query for entityManager.
      * @param <M> for generic class.
-     * @param querySql query.
-     * @param parameters required parameters(can be empty)
-     * @param clazz class instance.
-     * @return Typed Query instance.
+     * @param querySql
+     * @param parameters
+     * @param clazz
+     * @return Entity.
      */
     private <M> TypedQuery<M> createQuery(final String querySql, final Map<String, Object> parameters, final Class<M> clazz) {
         TypedQuery<M> typedQuery = entityManager.createQuery(querySql, clazz);
@@ -151,8 +151,8 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
     
 	/**
 	 * Method for verifying appropriate logic.
-	 * @param method
-	 * @param resource
+	 * @param method method
+	 * @param resource resource
 	 */
 	protected void verify(final DaoMethod method, final Object resource) {
 		VerifierChainLink<? super Object> verifier = persistenceChains.get(method);
@@ -161,8 +161,8 @@ public class DefaultPersistenceManager<T extends Model, I> implements Persistenc
 
 	/**
 	 * Method for verifying appropriate logic.
-	 * @param method
-	 * @param resource
+	 * @param method method
+	 * @param entity entity
 	 */
 	protected void enhance(final DaoMethod method, final Object entity) {
 		Enhancer<? super Object> enhancer = persistenceEnhancers.get(method);

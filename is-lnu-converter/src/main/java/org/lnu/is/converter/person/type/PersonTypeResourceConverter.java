@@ -6,7 +6,7 @@ import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.resource.person.type.PersonTypeResource;
 
 /**
- * Person Type Resource PersonTypeResource -> PersonType converter.
+ * Person Type Resource PersonTypeResource PersonType converter.
  * @author ivanursul
  *
  */

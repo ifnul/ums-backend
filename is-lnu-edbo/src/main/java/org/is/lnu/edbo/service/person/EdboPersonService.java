@@ -17,21 +17,21 @@ public interface EdboPersonService {
 
 	/**
 	 * Method for finding person by specific parameters.
-	 * @param personFind
+	 * @param personFind personFind
 	 * @return ArrayOfDPersonFind element.
 	 */
 	ArrayOfDPersonsFind findPerson(PersonsFind personFind);
 
 	/**
 	 * Method for manual creation of person.
-	 * @param person
+	 * @param person person
 	 * @return Array of Returned Persons.
 	 */
 	ArrayOfDPersonAddRet createApplicantManually(PersonEntrantAdd person);
 	
 	/**
 	 * Method for automatic creation of person.
-	 * @param person
+	 * @param person person
 	 * @return Array of Returned Persons.
 	 */
 	ArrayOfDPersonAddRet createApplicantAutomatically(PersonEntrantAutoAdd person);

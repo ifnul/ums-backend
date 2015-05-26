@@ -6,7 +6,7 @@ import org.lnu.is.domain.language.Language;
 import org.lnu.is.resource.language.LanguageResource;
 
 /**
- * Language Converter Language -> Language Resource.
+ * Language Converter Language Language Resource.
  * @author ivanursul
  *
  */

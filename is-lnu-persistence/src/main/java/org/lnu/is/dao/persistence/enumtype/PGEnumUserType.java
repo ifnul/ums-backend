@@ -17,7 +17,7 @@ import org.postgresql.util.PGobject;
  * Enum Type for resolving RowStatus Enum.
  * @author ivanursul
  *
- * @param <E>
+ * @param <E> param
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class PGEnumUserType<E extends Enum> implements EnhancedUserType, ParameterizedType {

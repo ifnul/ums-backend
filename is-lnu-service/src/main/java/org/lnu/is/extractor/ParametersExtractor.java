@@ -12,8 +12,8 @@ public interface ParametersExtractor<T> {
 
 	/**
 	 * method for getting parameters from pagedSearch.
-	 * @param pagedSearch
-	 * @return ready parameters.
+	 * @param entity entity.
+	 * @return parameters.
 	 */
 	Map<String, Object> getParameters(T entity);
 

@@ -10,7 +10,7 @@ public interface ExceptionHandler {
 
 	/**
 	 * Method for handling.
-	 * @param sessionGUID
+	 * @param sessionGUID sessionGUID.
 	 */
 	void handle(String sessionGUID);
 	

@@ -12,14 +12,14 @@ public interface AuthentificationService {
 	/**
 	 * Method for authentification session in EDBO service.
 	 * This method will return object with key field - sessionGUID.
-	 * @param authentification
+	 * @param authentification authentification
 	 * @return authentification object with all required params.
 	 */
 	EdboAuthentification login(EdboAuthentification authentification);
 	
 	/**
 	 * Method for logouting from system.
-	 * @param authentification
+	 * @param authentification authentification
 	 */
 	void logout(EdboAuthentification authentification);
 	

@@ -13,7 +13,7 @@ import org.lnu.is.domain.partner.Partner;
 import org.lnu.is.resource.asset.AssetResource;
 
 /**
- * Converter AssetResource -> Asset.
+ * Converter AssetResource Asset.
  * @author ivanursul
  *
  */

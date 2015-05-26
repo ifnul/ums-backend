@@ -9,7 +9,7 @@ import org.lnu.is.security.service.SessionService;
  * group from entity, or not.
  * @author ivanursul
  *
- * @param <T>
+ * @param <T> model.
  */
 public class GroupVerifierChainLink<T extends Model> extends DefaultVerifierChainLink<T> {
 

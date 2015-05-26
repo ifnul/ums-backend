@@ -26,9 +26,8 @@ public class BaseQueryBuilder {
 	
 	/**
 	 * Base Constructor.
-	 * @param query
-	 * @param conditions
-	 * @param parameters
+	 * @param query query
+	 * @param conditions conditions
 	 */
 	public BaseQueryBuilder(final String query, final List<String> conditions) {
 		super();
@@ -47,7 +46,7 @@ public class BaseQueryBuilder {
 	
 	/**
 	 * Method for building Base Query Builder.
-	 * @param query
+	 * @param query query
 	 * @return Base Query Builder instnace.
 	 */
 	public static BaseQueryBuilder getInstance(final String query) {
@@ -56,8 +55,8 @@ public class BaseQueryBuilder {
 	
 	/**
 	 * Method for adding condition with parameter.
-	 * @param condition
-	 * @param parameter
+	 * @param condition condition
+	 * @param parameter parameter
 	 * @return Base query builder instance.
 	 */
 	public BaseQueryBuilder addOrCondition(final String condition, final Object parameter) {
@@ -72,8 +71,8 @@ public class BaseQueryBuilder {
 
 	/**
 	 * Method for adding and conditions.
-	 * @param condition
-	 * @param parameter
+	 * @param condition condition
+	 * @param parameter parameter
 	 * @return this.
 	 */
 	public BaseQueryBuilder addAndCondition(final String condition, final Object parameter) {
@@ -88,7 +87,7 @@ public class BaseQueryBuilder {
 
 	/**
 	 * Method for adding condition withous placeholder.
-	 * @param condition
+	 * @param condition condition
 	 * @return Base Query Builder.
 	 */
 	public BaseQueryBuilder addCondition(final String condition) {
@@ -98,8 +97,8 @@ public class BaseQueryBuilder {
 
 	/**
 	 * Method for adding and conditions.
-	 * @param condition
-	 * @param parameter
+	 * @param condition condition
+	 * @param parameter parameter
 	 * @return this.
 	 */
 	public BaseQueryBuilder addAndCondition(final String condition, final List<?> parameter) {
@@ -114,8 +113,7 @@ public class BaseQueryBuilder {
 
 	/**
 	 * Method for adding and conditions.
-	 * @param condition
-	 * @param parameter
+	 * @param condition condition
 	 * @return this.
 	 */
 	public BaseQueryBuilder addAndCondition(final String condition) {
@@ -202,7 +200,7 @@ public class BaseQueryBuilder {
 	
 	/**
 	 * Method for setting order by.
-	 * @param orders
+	 * @param orders orders
 	 * @return base query builder.
 	 */
 	public BaseQueryBuilder orderBy(final List<OrderBy> orders) {
@@ -217,7 +215,7 @@ public class BaseQueryBuilder {
 	
 	/**
 	 * Internal method for getting order by.
-	 * @param orders
+	 * @param orders orders
 	 * @return order by string.
 	 */
 	private String getOrderBy(final List<OrderBy> orders) {
@@ -249,7 +247,7 @@ public class BaseQueryBuilder {
 	
 	/**
 	 * Method for preparing conditions.
-	 * @param conditions
+	 * @param conditions conditions
 	 * @return Prepared conditions.
 	 */
 	private String prepareConditions(final List<String> conditions) {
@@ -268,7 +266,7 @@ public class BaseQueryBuilder {
 
 	/**
 	 * Method for preparing conditions.
-	 * @param conds
+	 * @param conds conds
 	 */
 	private void prepareUnusedConditions(final List<String> conds) {
 		// If there is where() method and no parameters and at the end we have orderBy();

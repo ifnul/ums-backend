@@ -20,8 +20,8 @@ public class OrderBy {
 
 	/**
 	 * Constgructor with all parameters.
-	 * @param fieldName
-	 * @param type
+	 * @param fieldName fieldName
+	 * @param type type
 	 */
 	public OrderBy(final String fieldName, final OrderByType type) {
 		super();

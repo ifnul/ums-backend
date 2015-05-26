@@ -14,7 +14,7 @@ public class NoGroupForUserException extends RuntimeException {
 	
 	/**
 	 * Default constructor.
-	 * @param message
+	 * @param message message
 	 */
 	public NoGroupForUserException(final String message) {
 		super(message);

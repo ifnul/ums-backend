@@ -47,8 +47,8 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 
 	/**
 	 * Template method for method above(getParameters(entity).
-	 * @param entity
-	 * @param parameters
+	 * @param entity entity.
+	 * @param parameters parameters.
 	 * @return map.
 	 */
 	protected abstract Map<String, Object> getParameters(T entity, Map<String, Object> parameters);
@@ -57,10 +57,10 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	 * 
 	 * Method for foreign key parameters.
 	 * 
-	 * @param entity
-	 * @param dao
-	 * @param parameterName
-	 * @param parameters
+	 * @param entity entity.
+	 * @param dao dao 
+	 * @param parameterName parameterName
+	 * @param parameters parameters
 	 */
 	protected <E extends Model> void addParameter(final E entity, final Dao<E, Long> dao, final String parameterName, final Map<String, Object> parameters) {
 		
@@ -72,9 +72,9 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	
 	/**
 	 * Method for simple fields.
-	 * @param entity
-	 * @param parameterName
-	 * @param parameters
+	 * @param entity entity
+	 * @param parameterName parameterName
+	 * @param parameters parameters
 	 */
 	protected void addParameter(final Object entity, final String parameterName, final Map<String, Object> parameters) {
 		
@@ -86,9 +86,9 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 
 	/**
 	 * Method for simple fields.
-	 * @param entity
-	 * @param parameterName
-	 * @param parameters
+	 * @param entity entity
+	 * @param parameterName parameterName
+	 * @param parameters parameters
 	 */
 	protected void addParameter(final List<?> entity, final String parameterName, final Map<String, Object> parameters) {
 		

@@ -35,10 +35,10 @@ public class PagedRequest<R> {
 	
 	/**
 	 * Constructon with all parameters.
-	 * @param offset
-	 * @param limit
-	 * @param resource
-	 * @param orders
+	 * @param offset offset
+	 * @param limit limit
+	 * @param resource resource
+	 * @param orders orders
 	 */
 	public PagedRequest(final R resource, final Integer offset, final Integer limit, final List<OrderBy> orders) {
 		super();

@@ -6,7 +6,7 @@ import org.lnu.is.domain.broadcasting.BroadcastingMessage;
 import org.lnu.is.resource.broadcasting.BroadcastingMessageResource;
 
 /**
- * Broadcasting converter.
+ * Broadcasting Converter.
  * @author ivanursul
  *
  */

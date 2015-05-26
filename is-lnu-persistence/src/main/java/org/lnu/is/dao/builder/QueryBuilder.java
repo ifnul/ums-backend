@@ -13,7 +13,7 @@ public interface QueryBuilder<C> {
 
 	/**
 	 * Method for building query.
-	 * @param pagedSearch
+	 * @param pagedSearch pagedSearch
 	 * @return Query instance.
 	 */
 	String build(MultiplePagedSearch<C> pagedSearch);

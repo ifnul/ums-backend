@@ -21,7 +21,7 @@ public abstract class DefaultEnhancer<T> implements Enhancer<T> {
 
 	/**
 	 * Template method for all enhancers.
-	 * @param entity
+	 * @param entity entity
 	 */
 	protected abstract void enhanceEntity(T entity);
 

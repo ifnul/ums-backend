@@ -4,8 +4,8 @@ package org.lnu.is.resource.message;
  * Pair class.
  * @author ivanursul
  *
- * @param <TYPE>
- * @param <VALUE>
+ * @param <TYPE> Type
+ * @param <VALUE> Value
  */
 public class Pair<TYPE, VALUE> {
 
@@ -21,8 +21,8 @@ public class Pair<TYPE, VALUE> {
 
 	/**
 	 * Constructor with all parameters.
-	 * @param name
-	 * @param value
+	 * @param name name
+	 * @param value value
 	 */
 	public Pair(final TYPE name, final VALUE value) {
 		super();

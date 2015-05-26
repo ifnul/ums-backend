@@ -24,9 +24,9 @@ public class ValidationMessageResource extends MessageResource {
 
 	/**
 	 * Constructor with all required parameters.
-	 * @param messageType
-	 * @param message
-	 * @param fields
+	 * @param messageType messageType
+	 * @param message message
+	 * @param fields fields
 	 */
 	public ValidationMessageResource(final MessageType messageType, final String message, final List<Pair<String, String>> fields) {
 		super(messageType, message);

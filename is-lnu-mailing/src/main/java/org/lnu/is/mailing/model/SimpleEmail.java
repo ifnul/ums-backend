@@ -18,11 +18,11 @@ public class SimpleEmail {
 	
 	/**
 	 * Constructor with all fields.
-	 * @param recipients
-	 * @param ccRecipients
-	 * @param sender
-	 * @param topic
-	 * @param isHtml
+	 * @param recipients recipients
+	 * @param ccRecipients ccRecipients
+	 * @param sender sender
+	 * @param topic topic
+	 * @param isHtml isHtml
 	 */
 	public SimpleEmail(final List<Recipient> recipients,
 			final List<Recipient> ccRecipients, final String sender, final String topic,
