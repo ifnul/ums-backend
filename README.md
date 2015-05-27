@@ -19,7 +19,7 @@ Kindly asking you to install only those version, that are listed below.
 > **cd {backend.folder}**
 
 
-> Command below will build project with default parameters.That means, that you will have default properties of database, mail parameters, etc. If you want to override them, go to **{backend.folder}/pom.xml** and find **properties** section. There you will find properties, that are mutable and can be changed during deploy process. they are marked as **mutable.***
+> Command below will build project with default parameters.That means, that you will have default properties of database, mail parameters, etc. If you want to override them, go to **{backend.folder}/pom.xml** and find **properties** section. There you will find properties, that are mutable and can be changed during deploy process.They are marked as **mutable.***
 
 > **mvn clean install**
 
