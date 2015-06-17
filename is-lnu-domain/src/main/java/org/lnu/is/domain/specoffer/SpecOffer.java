@@ -1,21 +1,15 @@
 package org.lnu.is.domain.specoffer;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.education.form.type.EducationFormType;
 import org.lnu.is.domain.specialty.Specialty;
 import org.lnu.is.domain.timeperiod.TimePeriod;
+
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Entity, that describes specoffers table.
@@ -86,7 +80,7 @@ public class SpecOffer extends InformationModel {
 	
 	@Column(name = "duration")
 	private String duration;
-	
+
 	public String getDuration() {
 	    return duration;
 	}

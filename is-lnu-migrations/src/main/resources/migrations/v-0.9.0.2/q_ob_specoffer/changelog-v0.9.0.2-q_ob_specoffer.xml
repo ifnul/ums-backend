@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="create-doc-num-generator" author="ivanursul">
+        <sql splitStatements="false">
+            <![CDATA[
+
+            create sequence q_ob_specoffer_docnum_sequence;
+            create or replace function generate_specoffer_doc_num() returns trigger as $$
+                begin
+                    RAISE NOTICE 'Starting trigger for generating doc num';
+                    if new.docnum is null or length(new.docnum) = 0 then
+                        RAISE NOTICE 'Generating doc num';
+                        new.docnum:=nextVal('q_ob_specoffer_docnum_sequence');
+                    end if;
+                    return new;
+                end
+            $$ language 'plpgsql';
+
+            create trigger q_ob_specoffer_doc_num_generator_itrig before insert on q_ob_specoffer for each row execute procedure generate_specoffer_doc_num();
+			]]>
+        </sql>
+        <rollback>
+            drop sequence if exists q_ob_specoffer_docnum_sequence;
+            drop trigger if exists q_ob_specoffer_doc_num_generator_itrig on q_ob_specoffer;
+            drop function if exists generate_specoffer_doc_num();
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
