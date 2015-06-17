@@ -56,6 +56,7 @@ public class MultipleSearch<T> {
 	 * @param parameters parameters
 	 * @param clazz clazz
 	 * @param entity entity
+     * @param orders orders
 	 */	
 	public MultipleSearch(final Map<String, Object> parameters, final Class<T> clazz,
 			final T entity, final List<OrderBy> orders) {
