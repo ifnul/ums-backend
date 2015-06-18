@@ -1,5 +1,6 @@
 package org.lnu.is.web.rest.handler.request;
 
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
 import org.lnu.is.web.rest.handler.BaseExceptionHandler;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import javax.annotation.Resource;
+import java.util.Map;
+
 /**
  * Exception Handlers for handling not valid requests.
  * This exception handler is executed, when you
@@ -22,15 +26,26 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  *
  */
 @ControllerAdvice
-public class MessageNotReadableExceptionHandler implements BaseExceptionHandler<HttpMessageNotReadableException> {
+public class MessageNotReadableExceptionHandler implements BaseExceptionHandler<Exception> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MessageNotReadableExceptionHandler.class);
-	
-	@ExceptionHandler(value = { HttpMessageNotReadableException.class })
+
+	@Resource(name = "validationExceptionHandlers")
+	private Map<String, BaseExceptionHandler> handlers;
+
+	@ExceptionHandler(value = { HttpMessageNotReadableException.class, UnrecognizedPropertyException.class})
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	@ResponseBody
 	@Override
-	public MessageResource handle(final HttpMessageNotReadableException e) throws Exception {
+	public MessageResource handle(final Exception e) throws Exception {
 		LOGGER.error("Handling message not readable exception", e);
-		return new MessageResource(MessageType.ERROR, e.getMessage());
+
+		MessageResource messageResource = new MessageResource(MessageType.ERROR, e.getMessage());
+		BaseExceptionHandler exceptionHandler = handlers.get(e.getCause() != null ? e.getCause().getClass().getName() : "");
+
+		if (exceptionHandler != null) {
+			messageResource = exceptionHandler.handle(e.getCause());
+		}
+
+		return messageResource;
 	}
 }

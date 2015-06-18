@@ -8,7 +8,7 @@ import org.lnu.is.resource.message.MessageResource;
  *
  * @param <EXCEPTION> Exception class. 
  */
-public interface BaseExceptionHandler<EXCEPTION extends Exception> {
+public interface BaseExceptionHandler<EXCEPTION extends Throwable> {
 
 	/**
 	 * Method for handling all types of exception.
