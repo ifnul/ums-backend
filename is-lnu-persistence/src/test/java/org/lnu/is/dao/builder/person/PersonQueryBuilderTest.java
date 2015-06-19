@@ -103,8 +103,8 @@ public class PersonQueryBuilderTest {
 
 		Person context = new Person();
 		context.setName(name);
-		context.setPersonType(personType);
-		context.setMarriedType(marriedType);
+		context.setPersonTypes(personType);
+		context.setMarriedTypes(marriedType);
 		context.setSurname(surname);
 		context.setDocNum(docNum);
 
@@ -133,8 +133,8 @@ public class PersonQueryBuilderTest {
 		
 		Person context = new Person();
 		context.setName(name);
-		context.setPersonType(personType);
-		context.setMarriedType(marriedType);
+		context.setPersonTypes(personType);
+		context.setMarriedTypes(marriedType);
 		context.setSurname(surname);
 		context.setDocNum(docNum);
 		

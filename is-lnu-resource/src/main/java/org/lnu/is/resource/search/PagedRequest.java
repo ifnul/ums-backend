@@ -1,10 +1,11 @@
 package org.lnu.is.resource.search;
 
-import java.util.List;
-
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.lnu.is.annotations.Limit;
 import org.lnu.is.annotations.Offset;
 import org.lnu.is.pagination.OrderBy;
+
+import java.util.List;
 
 
 /**
@@ -81,64 +82,45 @@ public class PagedRequest<R> {
 	}
 
 	@Override
+	public boolean equals(final Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		PagedRequest<?> that = (PagedRequest<?>) o;
+
+		if (offset != null ? !offset.equals(that.offset) : that.offset != null) {
+			return false;
+		}
+		if (limit != null ? !limit.equals(that.limit) : that.limit != null) {
+			return false;
+		}
+		if (resource != null ? !resource.equals(that.resource) : that.resource != null) {
+			return false;
+		}
+		return !(orders != null ? !orders.equals(that.orders) : that.orders != null);
+
+	}
+
+	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((limit == null) ? 0 : limit.hashCode());
-		result = prime * result + ((offset == null) ? 0 : offset.hashCode());
-		result = prime * result + ((orders == null) ? 0 : orders.hashCode());
-		result = prime * result
-				+ ((resource == null) ? 0 : resource.hashCode());
+		int result = offset != null ? offset.hashCode() : 0;
+		result = 31 * result + (limit != null ? limit.hashCode() : 0);
+		result = 31 * result + (resource != null ? resource.hashCode() : 0);
+		result = 31 * result + (orders != null ? orders.hashCode() : 0);
 		return result;
 	}
 
 	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		PagedRequest<?> other = (PagedRequest<?>) obj;
-		if (limit == null) {
-			if (other.limit != null) {
-				return false;
-			}
-		} else if (!limit.equals(other.limit)) {
-			return false;
-		}
-		if (offset == null) {
-			if (other.offset != null) {
-				return false;
-			}
-		} else if (!offset.equals(other.offset)) {
-			return false;
-		}
-		if (orders == null) {
-			if (other.orders != null) {
-				return false;
-			}
-		} else if (!orders.equals(other.orders)) {
-			return false;
-		}
-		if (resource == null) {
-			if (other.resource != null) {
-				return false;
-			}
-		} else if (!resource.equals(other.resource)) {
-			return false;
-		}
-		return true;
-	}
-
-	@Override
 	public String toString() {
-		return "PagedRequest [offset=" + offset + ", limit=" + limit
-				+ ", resource=" + resource + ", orders=" + orders + "]";
+		return new ToStringBuilder(this)
+				.append("offset", offset)
+				.append("limit", limit)
+				.append("resource", resource)
+				.append("orders", orders)
+				.toString();
 	}
-
 }

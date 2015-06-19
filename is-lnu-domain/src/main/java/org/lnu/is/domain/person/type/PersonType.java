@@ -1,11 +1,11 @@
 package org.lnu.is.domain.person.type;
 
+import org.lnu.is.annotation.dbtable.RF;
+import org.lnu.is.domain.InformationModel;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.InformationModel;
 
 /**
  * Person Type entity.
@@ -23,6 +23,21 @@ public class PersonType extends InformationModel {
 	
 	@Column(name = "name")
 	private String name;
+
+	/**
+	 * Default constructor.
+	 */
+	public PersonType() {
+		super();
+	}
+
+	/**
+	 * Default constructor with id.
+	 * @param id
+	 */
+	public PersonType(final Long id) {
+		super(id);
+	}
 
 	public String getAbbrName() {
 		return abbrName;

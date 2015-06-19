@@ -1,14 +1,14 @@
 package org.lnu.is.multysearch.person;
 
-import java.util.Date;
-import java.util.List;
-
 import org.lnu.is.domain.admin.unit.AdminUnit;
 import org.lnu.is.domain.gender.type.GenderType;
 import org.lnu.is.domain.married.type.MarriedType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.multysearch.MultiSearchModel;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Person entity.
@@ -17,122 +17,122 @@ import org.lnu.is.multysearch.MultiSearchModel;
  */
 public class PersonList extends MultiSearchModel {
 	
-	private List<PersonType> personType;
+	private List<Person> parents;
+
+	private List<PersonType> personTypes;
+
+	private List<GenderType> genderTypes;
+
+	private List<MarriedType> marriedTypes;
+
+	private List<AdminUnit> citizenCountries;
+
+	private List<String> names;
 	
-	private List<GenderType> genderType;
+	private List<String> firstNames;
 	
-	private List<MarriedType> marriedType;
+	private List<String> fatherNames;
 	
-	private List<AdminUnit> citizenCountry;
-	 
-	private List<Person> parent;
+	private List<String> surnames;
 	
-	private List<String> name;
-	
-	private List<String> firstName;
-	
-	private List<String> fatherName;
-	
-	private List<String> surname;
-	
-	private List<String> photo;
+	private List<String> photos;
 	
 	private List<String> docSeries;
 	
-	private List<String> docNum;
+	private List<String> docNums;
 	
-	private List<String> identifier;
-	
-	private List<Integer> resident;
-	
-	private List<String> birthPlace;
-	
-	private List<Date> begDate;
-	
-	private List<Date> endDate;
-	
-	private List<Integer> isMilitary;
-	
-	private List<Integer> isHostel;
+	private List<String> identifiers;
 
-	public List<PersonType> getPersonType() {
-	    return personType;
+	private List<String> birthPlaces;
+
+	private Integer resident;
+
+	private Date begDate;
+
+	private Date endDate;
+
+	private Integer isMilitary;
+
+	private Integer isHostel;
+
+	public List<PersonType> getPersonTypes() {
+	    return personTypes;
 	}
 
-	public void setPersonType(final List<PersonType> personType) {
-	    this.personType = personType;
+	public void setPersonTypes(final List<PersonType> personTypes) {
+	    this.personTypes = personTypes;
 	}
 
-	public List<GenderType> getGenderType() {
-	    return genderType;
+	public List<GenderType> getGenderTypes() {
+	    return genderTypes;
 	}
 
-	public void setGenderType(final List<GenderType> genderType) {
-	    this.genderType = genderType;
+	public void setGenderTypes(final List<GenderType> genderTypes) {
+	    this.genderTypes = genderTypes;
 	}
 
-	public List<MarriedType> getMarriedType() {
-	    return marriedType;
+	public List<MarriedType> getMarriedTypes() {
+	    return marriedTypes;
 	}
 
-	public void setMarriedType(final List<MarriedType> marriedType) {
-	    this.marriedType = marriedType;
+	public void setMarriedTypes(final List<MarriedType> marriedTypes) {
+	    this.marriedTypes = marriedTypes;
 	}
 
-	public List<AdminUnit> getCitizenCountry() {
-	    return citizenCountry;
+	public List<AdminUnit> getCitizenCountries() {
+	    return citizenCountries;
 	}
 
-	public void setCitizenCountry(final List<AdminUnit> citizenCountry) {
-	    this.citizenCountry = citizenCountry;
+	public void setCitizenCountries(final List<AdminUnit> citizenCountries) {
+	    this.citizenCountries = citizenCountries;
 	}
 
-	public List<Person> getParent() {
-	    return parent;
+	public List<Person> getParents() {
+	    return parents;
 	}
 
-	public void setParent(final List<Person> parent) {
-	    this.parent = parent;
+	public void setParents(final List<Person> parents) {
+	    this.parents = parents;
 	}
 
-	public List<String> getName() {
-	    return name;
+	public List<String> getNames() {
+	    return names;
 	}
 
-	public void setName(final List<String> name) {
-	    this.name = name;
+	public void setNames(final List<String> names) {
+	    this.names = names;
 	}
 
-	public List<String> getFirstName() {
-	    return firstName;
+	public List<String> getFirstNames() {
+	    return firstNames;
 	}
 
-	public void setFirstName(final List<String> firstName) {
-	    this.firstName = firstName;
+	public void setFirstNames(final List<String> firstNames) {
+	    this.firstNames = firstNames;
 	}
 
-	public List<String> getFatherName() {
-	    return fatherName;
+	public List<String> getFatherNames() {
+	    return fatherNames;
 	}
 
-	public void setFatherName(final List<String> fatherName) {
-	    this.fatherName = fatherName;
+	public void setFatherNames(final List<String> fatherNames) {
+	    this.fatherNames = fatherNames;
 	}
 
-	public List<String> getSurname() {
-	    return surname;
+	public List<String> getSurnames() {
+	    return surnames;
 	}
 
-	public void setSurname(final List<String> surname) {
-	    this.surname = surname;
+	public void setSurnames(final List<String> surnames) {
+	    this.surnames = surnames;
 	}
 
-	public List<String> getPhoto() {
-	    return photo;
+	public List<String> getPhotos() {
+	    return photos;
 	}
 
-	public void setPhoto(final List<String> photo) {
-	    this.photo = photo;
+	public void setPhotos(final List<String> photos) {
+	    this.photos = photos;
 	}
 
 	public List<String> getDocSeries() {
@@ -143,67 +143,67 @@ public class PersonList extends MultiSearchModel {
 	    this.docSeries = docSeries;
 	}
 
-	public List<String> getDocNum() {
-	    return docNum;
+	public List<String> getDocNums() {
+	    return docNums;
 	}
 
-	public void setDocNum(final List<String> docNum) {
-	    this.docNum = docNum;
+	public void setDocNums(final List<String> docNums) {
+	    this.docNums = docNums;
 	}
 
-	public List<String> getIdentifier() {
-	    return identifier;
+	public List<String> getIdentifiers() {
+	    return identifiers;
 	}
 
-	public void setIdentifier(final List<String> identifier) {
-	    this.identifier = identifier;
+	public void setIdentifiers(final List<String> identifiers) {
+	    this.identifiers = identifiers;
 	}
 
-	public List<Integer> getResident() {
+	public Integer getResident() {
 	    return resident;
 	}
 
-	public void setResident(final List<Integer> resident) {
+	public void setResident(final Integer resident) {
 	    this.resident = resident;
 	}
 
 	public List<String> getBirthPlace() {
-	    return birthPlace;
+	    return birthPlaces;
 	}
 
-	public void setBirthPlace(final List<String> birthPlace) {
-	    this.birthPlace = birthPlace;
+	public void setBirthPlaces(final List<String> birthPlaces) {
+	    this.birthPlaces = birthPlaces;
 	}
 
-	public List<Date> getBegDate() {
+	public Date getBegDate() {
 	    return begDate;
 	}
 
-	public void setBegDate(final List<Date> begDate) {
+	public void setBegDate(final Date begDate) {
 	    this.begDate = begDate;
 	}
 
-	public List<Date> getEndDate() {
+	public Date getEndDate() {
 	    return endDate;
 	}
 
-	public void setEndDate(final List<Date> endDate) {
+	public void setEndDate(final Date endDate) {
 	    this.endDate = endDate;
 	}
 
-	public List<Integer> getIsMilitary() {
+	public Integer getIsMilitary() {
 	    return isMilitary;
 	}
 
-	public void setIsMilitary(final List<Integer> isMilitary) {
+	public void setIsMilitary(final Integer isMilitary) {
 	    this.isMilitary = isMilitary;
 	}
 
-	public List<Integer> getIsHostel() {
+	public Integer getIsHostel() {
 	    return isHostel;
 	}
 
-	public void setIsHostel(final List<Integer> isHostel) {
+	public void setIsHostel(final Integer isHostel) {
 	    this.isHostel = isHostel;
 	}
 
@@ -213,26 +213,26 @@ public class PersonList extends MultiSearchModel {
 		int result = super.hashCode();
 		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
 		result = prime * result
-				+ ((birthPlace == null) ? 0 : birthPlace.hashCode());
-		result = prime * result + ((docNum == null) ? 0 : docNum.hashCode());
+				+ ((birthPlaces == null) ? 0 : birthPlaces.hashCode());
+		result = prime * result + ((docNums == null) ? 0 : docNums.hashCode());
 		result = prime * result
 				+ ((docSeries == null) ? 0 : docSeries.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result
-				+ ((fatherName == null) ? 0 : fatherName.hashCode());
+				+ ((fatherNames == null) ? 0 : fatherNames.hashCode());
 		result = prime * result
-				+ ((firstName == null) ? 0 : firstName.hashCode());
+				+ ((firstNames == null) ? 0 : firstNames.hashCode());
 		result = prime * result
-				+ ((identifier == null) ? 0 : identifier.hashCode());
+				+ ((identifiers == null) ? 0 : identifiers.hashCode());
 		result = prime * result
 				+ ((isHostel == null) ? 0 : isHostel.hashCode());
 		result = prime * result
 				+ ((isMilitary == null) ? 0 : isMilitary.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((photo == null) ? 0 : photo.hashCode());
+		result = prime * result + ((names == null) ? 0 : names.hashCode());
+		result = prime * result + ((photos == null) ? 0 : photos.hashCode());
 		result = prime * result
 				+ ((resident == null) ? 0 : resident.hashCode());
-		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		result = prime * result + ((surnames == null) ? 0 : surnames.hashCode());
 		return result;
 	}
 
@@ -255,18 +255,18 @@ public class PersonList extends MultiSearchModel {
 		} else if (!begDate.equals(other.begDate)) {
 			return false;
 		}
-		if (birthPlace == null) {
-			if (other.birthPlace != null) {
+		if (birthPlaces == null) {
+			if (other.birthPlaces != null) {
 				return false;
 			}
-		} else if (!birthPlace.equals(other.birthPlace)) {
+		} else if (!birthPlaces.equals(other.birthPlaces)) {
 			return false;
 		}
-		if (docNum == null) {
-			if (other.docNum != null) {
+		if (docNums == null) {
+			if (other.docNums != null) {
 				return false;
 			}
-		} else if (!docNum.equals(other.docNum)) {
+		} else if (!docNums.equals(other.docNums)) {
 			return false;
 		}
 		if (docSeries == null) {
@@ -283,25 +283,25 @@ public class PersonList extends MultiSearchModel {
 		} else if (!endDate.equals(other.endDate)) {
 			return false;
 		}
-		if (fatherName == null) {
-			if (other.fatherName != null) {
+		if (fatherNames == null) {
+			if (other.fatherNames != null) {
 				return false;
 			}
-		} else if (!fatherName.equals(other.fatherName)) {
+		} else if (!fatherNames.equals(other.fatherNames)) {
 			return false;
 		}
-		if (firstName == null) {
-			if (other.firstName != null) {
+		if (firstNames == null) {
+			if (other.firstNames != null) {
 				return false;
 			}
-		} else if (!firstName.equals(other.firstName)) {
+		} else if (!firstNames.equals(other.firstNames)) {
 			return false;
 		}
-		if (identifier == null) {
-			if (other.identifier != null) {
+		if (identifiers == null) {
+			if (other.identifiers != null) {
 				return false;
 			}
-		} else if (!identifier.equals(other.identifier)) {
+		} else if (!identifiers.equals(other.identifiers)) {
 			return false;
 		}
 		if (isHostel == null) {
@@ -318,18 +318,18 @@ public class PersonList extends MultiSearchModel {
 		} else if (!isMilitary.equals(other.isMilitary)) {
 			return false;
 		}
-		if (name == null) {
-			if (other.name != null) {
+		if (names == null) {
+			if (other.names != null) {
 				return false;
 			}
-		} else if (!name.equals(other.name)) {
+		} else if (!names.equals(other.names)) {
 			return false;
 		}
-		if (photo == null) {
-			if (other.photo != null) {
+		if (photos == null) {
+			if (other.photos != null) {
 				return false;
 			}
-		} else if (!photo.equals(other.photo)) {
+		} else if (!photos.equals(other.photos)) {
 			return false;
 		}
 		if (resident == null) {
@@ -339,11 +339,11 @@ public class PersonList extends MultiSearchModel {
 		} else if (!resident.equals(other.resident)) {
 			return false;
 		}
-		if (surname == null) {
-			if (other.surname != null) {
+		if (surnames == null) {
+			if (other.surnames != null) {
 				return false;
 			}
-		} else if (!surname.equals(other.surname)) {
+		} else if (!surnames.equals(other.surnames)) {
 			return false;
 		}
 		return true;
@@ -351,11 +351,11 @@ public class PersonList extends MultiSearchModel {
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", firstName=" + firstName
-				+ ", fatherName=" + fatherName + ", surname=" + surname
-				+ ", photo=" + photo + ", docSeries=" + docSeries + ", docNum="
-				+ docNum + ", identifier=" + identifier + ", resident="
-				+ resident + ", birthPlace=" + birthPlace + ", begDate="
+		return "Person [names=" + names + ", firstNames=" + firstNames
+				+ ", fatherNames=" + fatherNames + ", surnames=" + surnames
+				+ ", photos=" + photos + ", docSeries=" + docSeries + ", docNums="
+				+ docNums + ", identifiers=" + identifiers + ", resident="
+				+ resident + ", birthPlaces=" + birthPlaces + ", begDate="
 				+ begDate + ", endDate=" + endDate + ", isMilitary="
 				+ isMilitary + ", isHostel=" + isHostel + "]";
 	}

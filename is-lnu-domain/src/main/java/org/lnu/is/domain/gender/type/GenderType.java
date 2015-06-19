@@ -1,11 +1,11 @@
 package org.lnu.is.domain.gender.type;
 
+import org.lnu.is.annotation.dbtable.RF;
+import org.lnu.is.domain.InformationModel;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import org.lnu.is.annotation.dbtable.RF;
-import org.lnu.is.domain.InformationModel;
 
 /**
  * Gender Type entity.
@@ -23,6 +23,21 @@ public class GenderType extends InformationModel {
 	
 	@Column(name = "name")
 	private String name;
+
+	/**
+	 * Default constructor.
+	 */
+	public GenderType() {
+		super();
+	}
+
+	/**
+	 * Default constructor with id.
+	 * @param id id.
+	 */
+	public GenderType(final Long id) {
+		super(id);
+	}
 
 	public String getAbbrName() {
 		return abbrName;
