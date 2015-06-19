@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class OrderTypeControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<OrderTypeResource, Long> facade;
+	private Facade<OrderTypeResource, OrderTypeResource, Long> facade;
 	
 	@InjectMocks
 	private OrderTypeController unit;

@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class SalaryTypeControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<SalaryTypeResource, Long> facade;
+	private Facade<SalaryTypeResource, SalaryTypeResource, Long> facade;
 	
 	@InjectMocks
 	private SalaryTypeController unit;

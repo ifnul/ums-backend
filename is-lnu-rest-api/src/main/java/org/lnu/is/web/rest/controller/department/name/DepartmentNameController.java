@@ -29,11 +29,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/departments")
-public class DepartmentNameController extends BaseController implements CrudController<DepartmentNameResource> {
+public class DepartmentNameController extends BaseController implements CrudController<DepartmentNameResource, DepartmentNameResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(DepartmentNameController.class);
 	
 	@Resource(name = "departmentNameFacade")
-	private Facade<DepartmentNameResource, Long> facade;
+	private Facade<DepartmentNameResource, DepartmentNameResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

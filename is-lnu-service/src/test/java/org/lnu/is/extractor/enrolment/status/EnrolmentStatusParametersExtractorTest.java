@@ -32,13 +32,13 @@ public class EnrolmentStatusParametersExtractorTest {
 	private SessionService sessionService;
 
 	@Mock
-	private Dao<Enrolment, Long> enrolmentDao;
+	private Dao<Enrolment, Enrolment, Long> enrolmentDao;
 
 	@Mock
-	private Dao<SpecOfferWave, Long> specOfferWaveDao;
+	private Dao<SpecOfferWave, SpecOfferWave, Long> specOfferWaveDao;
 
 	@Mock
-	private Dao<EnrolmentStatusType, Long> enrolmentStatusTypeDao;
+	private Dao<EnrolmentStatusType, EnrolmentStatusType, Long> enrolmentStatusTypeDao;
 	
 	@InjectMocks
 	private EnrolmentStatusParametersExtractor unit;

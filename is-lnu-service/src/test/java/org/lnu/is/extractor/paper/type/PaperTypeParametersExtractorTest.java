@@ -28,7 +28,7 @@ public class PaperTypeParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<PaperUsage, Long> paperUsageDao;
+	private Dao<PaperUsage, PaperUsage, Long> paperUsageDao;
 	
 	@InjectMocks
 	private PaperTypeParametersExtractor unit = new PaperTypeParametersExtractor();

@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
 public class BroadcastingControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<BroadcastingMessageResource, Long> facade;
+	private Facade<BroadcastingMessageResource, BroadcastingMessageResource, Long> facade;
 	
 	@InjectMocks
 	private BroadcastingController unit;

@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class GenderTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<GenderTypeResource, Long> facade;
+	private Facade<GenderTypeResource, GenderTypeResource, Long> facade;
 
 	@InjectMocks
 	private GenderTypeController unit;

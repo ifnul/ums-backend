@@ -7663,5 +7663,116 @@
 		</addColumn>
 	</changeSet>
 	
+
+	<changeSet id="add table q_dc_enrolmentrating" author="illay">
+		<createTable tableName="q_dc_enrolmentrating" remarks="Рейтинг заяв">
+			<column name="id" remarks="N'Ідентифікатор" type="BIGINT">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="docseries" remarks="Серія документу" type="VARCHAR(50)"></column>
+			<column name="docnum" remarks="Номер документу" type="VARCHAR(50)"></column>
+			<column name="specoffer_id" remarks="Ідентифікатор пропозиції" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>
+			<column name="department_id" remarks="Ідентифікатор підрозділу" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>
+			<column name="timeperiod_id" remarks="Ідентифікатор часового періоду" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>
+			<column name="evdate" remarks="Час створення рейтингу" type="TIMESTAMP"></column>
+			<column name="begdate" remarks="Дата від якої буде діяти рейтинг" type="TIMESTAMP"></column>
+			<column name="enddate" remarks="Дата від якої буде діяти рейтинг" type="TIMESTAMP"></column>
+            <column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+		</createTable>
+	</changeSet> 
+	
+	<changeSet id="add table q_dt_enrolmantreitingitem" author="illay">
+		<createTable tableName="q_dt_enrolmentratingitem">
+			<column name="id" type="BIGINT" remarks="Ідентифікатор">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="enrolmentrating_id" type="BIGINT" remarks="Ідентифікатор рейтингу">
+				<constraints nullable="false"/>
+			</column>
+			<column name="person_id" type="BIGINT" remarks="Ідентифікатор персони">
+				<constraints nullable="false"/>
+			</column>
+			<column name="enrolment_id" type="BIGINT" remarks="Ідентифікатор заяви">
+				<constraints nullable="false"/>
+			</column>
+			<column name="isstate" remarks="Бюджет" type="INTEGER">
+			</column>
+			<column name="iscontract" type="INTEGER" remarks="Контракт (навчання за кошти фіз.осіб)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="isoriginal" type="INTEGER" remarks="Відмітка про подачу оригіналу до заяви абітурієнта">
+				<constraints nullable="false"/>
+			</column>
+			<column name="isotheroriginal" type="INTEGER" remarks="Відмітка про подачу документів на інший напрям"></column>
+			<column name="priority" type="INTEGER" remarks="Пріоритет заяви"></column>
+			<column name="mark1" type="DOUBLE"></column>
+			<column name="mark2" type="DOUBLE"></column>
+			<column name="mark3" type="DOUBLE"></column>
+			<column name="mark4" type="DOUBLE"></column>
+			<column name="mark5" type="DOUBLE"></column>
+			<column name="mark6" type="DOUBLE"></column>
+			<column name="markdiploma" remarks="Середній бал атестату (диплому)" type="DOUBLE"></column>
+			<column name="markolympiad" remarks="Оцінка за олімпіаду" type="DOUBLE"></column>
+			<column name="marktrainingcourses" remarks="Оцінка за підготовчі курси" type="DOUBLE"></column>
+			<column name="mark" remarks="Загальний рейтинговий бал" type="DOUBLE"></column>
+			<column name="ispositivemark" remarks="Відмітка про позитивний бал (предмет ЗНО більше 124)" type="INTEGER"></column>
+			<column name="enrolmentstatus_id" type="BIGINT" remarks="Ідентифікатор статусів заяви">
+				<constraints nullable="false"/>
+			</column>
+			<column name="newenrolmentstatus_id" type="BIGINT" remarks="Ідентифікатор нових статусів заяви">
+				<constraints nullable="false"/>
+			</column>
+			<column name="enrolmentstatustitle" remarks="Стрічкове значення нових статусів заяви (при потребі внесення статусу заяви вручну для сайту - відмінного від статусу що відображається у клієнті)" type="VARCHAR(200)"></column>
+			<column name="uid" remarks="Унікальний ідентифікатор іншої ІС" type="BIGINT"/>
+            <column name="utid" remarks="Унікальний текстовий ідентифікатор іншої ІС" type="VARCHAR(50)"/>
+            <column name="uapp" remarks="Унікальна інша інформаційна система" type="VARCHAR(50)"/>
+            <column name="status" remarks="Ознака статусу запису" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual" remarks="Актуальність даних" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" remarks="Примітка" type="VARCHAR(250)"/>
+            <column name="crtuser" remarks="Користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crtusergroup" remarks="Група до якої відноситься користувач, що вніс зміни (значення за замовчуванням)" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+         	<column name="update_date" remarks="Дата внесення змін (значення за замовчуванням)" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" remarks="Дата створення" type="TIMESTAMP">
+            	<constraints nullable="false"/>
+        	</column>
+		</createTable>
+	</changeSet>
 	
 </databaseChangeLog>

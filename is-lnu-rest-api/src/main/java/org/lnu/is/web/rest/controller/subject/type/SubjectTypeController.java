@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/subjects/types")
-public class SubjectTypeController extends BaseController implements PagedController<SubjectTypeResource> {
+public class SubjectTypeController extends BaseController implements PagedController<SubjectTypeResource, SubjectTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(SubjectTypeController.class);
 	
 	@Resource(name = "subjectTypeFacade")
-	private Facade<SubjectTypeResource, Long> facade;
+	private Facade<SubjectTypeResource, SubjectTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

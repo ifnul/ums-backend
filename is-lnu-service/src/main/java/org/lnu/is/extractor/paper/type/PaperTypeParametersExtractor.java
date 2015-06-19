@@ -20,7 +20,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class PaperTypeParametersExtractor extends AbstractParametersExtractor<PaperType> {
 
 	@Resource(name = "paperUsageDao")
-	private Dao<PaperUsage, Long> paperUsageDao;
+	private Dao<PaperUsage, PaperUsage, Long> paperUsageDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final PaperType entity, final Map<String, Object> parameters) {

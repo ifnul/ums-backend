@@ -20,13 +20,13 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class EnrolmentEnrolmentSubjectParametersExtractor extends AbstractParametersExtractor<EnrolmentEnrolmentSubject> {
 
     @Resource(name = "enrolmentSubjectDao")
-    private Dao<EnrolmentSubject, Long> enrolmentSubjectDao;
+    private Dao<EnrolmentSubject, EnrolmentSubject, Long> enrolmentSubjectDao;
     
     @Resource(name = "enrolmentDao")
-    private Dao<Enrolment, Long> enrolmentDao;
+    private Dao<Enrolment, Enrolment, Long> enrolmentDao;
     
     @Resource(name = "personEnrolmentSubjectDao")
-    private Dao<PersonEnrolmentSubject, Long> persinEnrolmentSubjectDao;
+    private Dao<PersonEnrolmentSubject, PersonEnrolmentSubject, Long> persinEnrolmentSubjectDao;
     
     @Override
     protected Map<String, Object> getParameters(final EnrolmentEnrolmentSubject entity, final Map<String, Object> parameters) {

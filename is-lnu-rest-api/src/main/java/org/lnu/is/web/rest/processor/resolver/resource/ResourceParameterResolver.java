@@ -17,6 +17,6 @@ public interface ResourceParameterResolver {
 	 * @param parameters
 	 * @return instance of resource for filtering.
 	 */
-	Object getResource(final MethodParameter parameter, final Map<String, String> parameters);
+	Object getResource(final MethodParameter parameter, final Map<String, Object> parameters);
 	
 }

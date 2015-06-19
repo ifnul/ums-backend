@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/timesheets/types")
-public class TimeSheetTypeController extends BaseController implements PagedController<TimeSheetTypeResource> {
+public class TimeSheetTypeController extends BaseController implements PagedController<TimeSheetTypeResource, TimeSheetTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(TimeSheetTypeController.class);
 	
 	@Resource(name = "timeSheetTypeFacade")
-	private Facade<TimeSheetTypeResource, Long> facade;
+	private Facade<TimeSheetTypeResource, TimeSheetTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

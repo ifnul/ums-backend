@@ -33,11 +33,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/orders")
 @Api("Order Controller")
-public class OrderController extends BaseController implements CrudController<OrderResource> {
+public class OrderController extends BaseController implements CrudController<OrderResource, OrderResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(OrderController.class);
 
 	@Resource(name = "orderFacade")
-	private Facade<OrderResource, Long> facade;
+	private Facade<OrderResource, OrderResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

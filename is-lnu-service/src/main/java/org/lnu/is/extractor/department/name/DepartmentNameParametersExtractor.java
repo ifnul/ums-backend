@@ -20,10 +20,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class DepartmentNameParametersExtractor extends AbstractParametersExtractor<DepartmentName> {
 
 	@Resource(name = "departmentDao")
-	private Dao<Department, Long> departmentDao;
+	private Dao<Department, Department, Long> departmentDao;
 
 	@Resource(name = "languageDao")
-	private Dao<Language, Long> languageDao;
+	private Dao<Language, Language, Long> languageDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final DepartmentName entity, final Map<String, Object> parameters) {

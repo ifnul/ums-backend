@@ -19,10 +19,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class TimePeriodParametersExtractor extends AbstractParametersExtractor<TimePeriod> {
 
 	@Resource(name = "timePeriodDao")
-	private Dao<TimePeriod, Long> timePeriodDao;
+	private Dao<TimePeriod, TimePeriod, Long> timePeriodDao;
 	
 	@Resource(name = "timePeriodTypeDao")
-	private Dao<TimePeriodType, Long> timePeriodTypeDao;
+	private Dao<TimePeriodType, TimePeriodType, Long> timePeriodTypeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final TimePeriod entity, final Map<String, Object> parameters) {

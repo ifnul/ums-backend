@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class EnrolmentForeignTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<EnrolmentForeignTypeResource, Long> facade;
+	private Facade<EnrolmentForeignTypeResource, EnrolmentForeignTypeResource, Long> facade;
 
 	@InjectMocks
 	private EnrolmentForeignTypeController unit;

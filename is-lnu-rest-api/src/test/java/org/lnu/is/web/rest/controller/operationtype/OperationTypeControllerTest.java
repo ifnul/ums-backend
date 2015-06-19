@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class OperationTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<OperationTypeResource, Long> facade;
+	private Facade<OperationTypeResource, OperationTypeResource, Long> facade;
 
 	@InjectMocks
 	private OperationTypeController unit;

@@ -31,13 +31,13 @@ public class PersonEducationParametersExtractorTest {
 	private SessionService sessionService;
 
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 
 	@Mock
-	private Dao<EducationType, Long> educationTypeDao;
+	private Dao<EducationType, EducationType, Long> educationTypeDao;
 	
 	@Mock
-	private Dao<PersonPaper, Long> personPaperDao;
+	private Dao<PersonPaper, PersonPaper, Long> personPaperDao;
 	
 	@InjectMocks
 	private PersonEducationParametersExtractor unit;

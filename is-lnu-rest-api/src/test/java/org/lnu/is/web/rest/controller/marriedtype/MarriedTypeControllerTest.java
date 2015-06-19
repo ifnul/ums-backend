@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class MarriedTypeControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<MarriedTypeResource, Long> facade;
+	private Facade<MarriedTypeResource, MarriedTypeResource, Long> facade;
 	
 	@InjectMocks
 	private MarriedTypeController unit;

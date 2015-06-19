@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OP;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.user.User;
 
@@ -21,7 +21,7 @@ import org.lnu.is.domain.user.User;
 @OP
 @Entity
 @Table(name = "q_op_usergroup")
-public class UserGroup extends Model implements Serializable {
+public class UserGroup extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

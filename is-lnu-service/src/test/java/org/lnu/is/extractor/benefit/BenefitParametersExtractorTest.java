@@ -24,10 +24,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class BenefitParametersExtractorTest {
 
 	@Mock
-	private Dao<BenefitType, Long> benefitTypeDao;
+	private Dao<BenefitType, BenefitType, Long> benefitTypeDao;
 	
 	@Mock
-	private Dao<Benefit, Long> benefitDao;
+	private Dao<Benefit, Benefit, Long> benefitDao;
 	
 	@InjectMocks
 	private BenefitParametersExtractor unit;

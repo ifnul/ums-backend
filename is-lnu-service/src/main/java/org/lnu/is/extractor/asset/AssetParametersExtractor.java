@@ -25,28 +25,28 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class AssetParametersExtractor extends AbstractParametersExtractor<Asset> {
 
 	@Resource(name = "assetDao")
-	private Dao<Asset, Long> assetDao;
+	private Dao<Asset, Asset, Long> assetDao;
 
 	@Resource(name = "orderDao")
-	private Dao<Order, Long> orderDao;
+	private Dao<Order, Order, Long> orderDao;
 
 	@Resource(name = "partnerDao")
-	private Dao<Partner, Long> partnetDao;
+	private Dao<Partner, Partner, Long> partnetDao;
 
 	@Resource(name = "employeeDao")
-	private Dao<Employee, Long> employeeDao;
+	private Dao<Employee, Employee, Long> employeeDao;
 	
 	@Resource(name = "departmentDao")
-	private Dao<Department, Long> departmentDao;
+	private Dao<Department, Department, Long> departmentDao;
 	
 	@Resource(name = "assetTypeDao")
-	private Dao<AssetType, Long> assetTypeDao;
+	private Dao<AssetType, AssetType, Long> assetTypeDao;
 
 	@Resource(name = "assetStateDao")
-	private Dao<AssetState, Long> assetStateDao;
+	private Dao<AssetState, AssetState, Long> assetStateDao;
 
 	@Resource(name = "assetStatusDao")
-	private Dao<AssetStatus, Long> assetStatusDao;
+	private Dao<AssetStatus, AssetStatus, Long> assetStatusDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final Asset entity, final Map<String, Object> parameters) {

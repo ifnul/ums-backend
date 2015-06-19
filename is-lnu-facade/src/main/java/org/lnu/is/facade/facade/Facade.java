@@ -10,7 +10,7 @@ import org.lnu.is.resource.search.PagedResultResource;
  * @param <RESOURCE> Resource.
  * @param <KEY> Key.
  */
-public interface Facade<RESOURCE, KEY> {
+public interface Facade<RESOURCE, RESOURCELIST, KEY> {
 	/**
 	 * Method for creating entity.
 	 * @param resource
@@ -47,5 +47,5 @@ public interface Facade<RESOURCE, KEY> {
 	 * @param request
 	 * @return Paged Result.
 	 */
-	PagedResultResource<RESOURCE> getResources(PagedRequest<RESOURCE> request);
+	PagedResultResource<RESOURCE> getResources(PagedRequest<RESOURCELIST> request);
 }

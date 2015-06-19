@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
 public class AssetControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<AssetResource, Long> facade;
+	private Facade<AssetResource, AssetResource, Long> facade;
 	
 	@InjectMocks
 	private AssetController unit;

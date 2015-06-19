@@ -31,10 +31,10 @@ public class PersonFamilyParametersExtractorTest {
 	private SessionService sessionService;
 
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Mock
-	private Dao<FamilyType, Long> familyTypeDao;
+	private Dao<FamilyType, FamilyType, Long> familyTypeDao;
 	
 	@InjectMocks
 	private PersonFamilyParametersExtractor unit;

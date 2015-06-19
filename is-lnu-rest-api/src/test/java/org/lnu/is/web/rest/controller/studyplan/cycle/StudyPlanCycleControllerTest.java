@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class StudyPlanCycleControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<StudyPlanCycleResource, Long> facade;
+	private Facade<StudyPlanCycleResource, StudyPlanCycleResource, Long> facade;
 
 	@InjectMocks
 	private StudyPlanCycleController unit;

@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class FamilyTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<FamilyTypeResource, Long> facade;
+	private Facade<FamilyTypeResource, FamilyTypeResource, Long> facade;
 
 	@InjectMocks
 	private FamilyTypeController unit;

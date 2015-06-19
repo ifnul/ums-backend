@@ -28,7 +28,7 @@ public class SpecOfferTypeParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<TimePeriod, Long> timePeriodDao;
+	private Dao<TimePeriod, TimePeriod, Long> timePeriodDao;
 	
 	@InjectMocks
 	private SpecOfferTypeParametersExtractor unit;

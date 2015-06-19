@@ -28,11 +28,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/assets")
-public class AssetAddressController extends BaseController implements CrudController<AssetAddressResource> {
+public class AssetAddressController extends BaseController implements CrudController<AssetAddressResource, AssetAddressResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(AssetAddressController.class);
 	
 	@Resource(name = "assetAddressFacade")
-	private Facade<AssetAddressResource, Long> facade;
+	private Facade<AssetAddressResource, AssetAddressResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

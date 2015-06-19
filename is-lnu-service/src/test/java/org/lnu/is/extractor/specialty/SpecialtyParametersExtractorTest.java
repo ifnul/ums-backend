@@ -30,10 +30,10 @@ public class SpecialtyParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<SpecialtyType, Long> specialtyTypeDao;
+	private Dao<SpecialtyType, SpecialtyType, Long> specialtyTypeDao;
 	
 	@Mock
-	private Dao<Specialty, Long> specialtyDao;
+	private Dao<Specialty, Specialty, Long> specialtyDao;
 	
 	@InjectMocks
 	private SpecialtyParametersExtractor unit;

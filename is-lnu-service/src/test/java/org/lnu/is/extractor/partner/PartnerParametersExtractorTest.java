@@ -29,7 +29,7 @@ public class PartnerParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<Partner, Long> partnerDao;
+	private Dao<Partner, Partner, Long> partnerDao;
 	
 	@InjectMocks
 	private PartnerParametersExtractor unit;

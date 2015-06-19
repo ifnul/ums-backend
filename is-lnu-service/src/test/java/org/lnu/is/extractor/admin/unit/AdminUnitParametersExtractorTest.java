@@ -27,10 +27,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class AdminUnitParametersExtractorTest {
 
 	@Mock
-	private Dao<AdminUnitType, Long> adminUnitTypeDao;
+	private Dao<AdminUnitType, AdminUnitType, Long> adminUnitTypeDao;
 	
 	@Mock
-	private Dao<AdminUnit, Long> adminUnitDao;
+	private Dao<AdminUnit, AdminUnit, Long> adminUnitDao;
 	
 	@InjectMocks
 	private AdminUnitParametersExtractor unit;

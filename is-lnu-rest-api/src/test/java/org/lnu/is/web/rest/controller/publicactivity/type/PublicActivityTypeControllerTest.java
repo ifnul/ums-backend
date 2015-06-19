@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class PublicActivityTypeControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<PublicActivityTypeResource, Long> facade;
+	private Facade<PublicActivityTypeResource, PublicActivityTypeResource, Long> facade;
 	
 	@InjectMocks
 	private PublicActivityTypeController unit;

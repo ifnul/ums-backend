@@ -26,7 +26,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class MarkScaleParametersExtractorTest {
 
 	@Mock(name = "markScaleTypeDao")
-	private Dao<MarkScaleType, Long> markScaleTypeDao;
+	private Dao<MarkScaleType, MarkScaleType, Long> markScaleTypeDao;
 	
 	@InjectMocks
 	private MarkScaleParametersExtractor unit;

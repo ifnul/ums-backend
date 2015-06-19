@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/degrees/types")
-public class DegreeTypeController extends BaseController implements PagedController<DegreeTypeResource> {
+public class DegreeTypeController extends BaseController implements PagedController<DegreeTypeResource, DegreeTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(DegreeTypeController.class);
 
 	@Resource(name = "degreeTypeFacade")
-	private Facade<DegreeTypeResource, Long> facade;
+	private Facade<DegreeTypeResource, DegreeTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

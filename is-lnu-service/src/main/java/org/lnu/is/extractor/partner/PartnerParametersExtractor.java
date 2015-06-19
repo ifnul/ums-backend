@@ -18,7 +18,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class PartnerParametersExtractor extends AbstractParametersExtractor<Partner> {
 
 	@Resource(name = "partnerDao")
-	private Dao<Partner, Long> partnerDao;
+	private Dao<Partner, Partner, Long> partnerDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final Partner entity, final Map<String, Object> parameters) {

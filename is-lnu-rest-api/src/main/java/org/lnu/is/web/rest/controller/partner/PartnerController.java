@@ -29,11 +29,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/partners")
-public class PartnerController extends BaseController implements CrudController<PartnerResource> {
+public class PartnerController extends BaseController implements CrudController<PartnerResource, PartnerResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(PartnerController.class);
 
 	@Resource(name = "partnerFacade")
-	private Facade<PartnerResource, Long> facade;
+	private Facade<PartnerResource, PartnerResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

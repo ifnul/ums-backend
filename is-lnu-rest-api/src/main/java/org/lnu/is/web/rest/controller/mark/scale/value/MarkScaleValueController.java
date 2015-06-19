@@ -32,12 +32,12 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/marks/scales")
 @Api("MarkScale Value")
-public class MarkScaleValueController extends BaseController implements CrudController<MarkScaleValueResource> {
+public class MarkScaleValueController extends BaseController implements CrudController<MarkScaleValueResource, MarkScaleValueResource> {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(MarkScaleValueController.class);
 
 	@Resource(name = "markScaleValueFacade")
-	private Facade<MarkScaleValueResource, Long> facade;
+	private Facade<MarkScaleValueResource, MarkScaleValueResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

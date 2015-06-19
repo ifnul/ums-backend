@@ -20,10 +20,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class PersonPensionParametersExtractor extends AbstractParametersExtractor<PersonPension> {
 
 	@Resource(name = "personDao")
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Resource(name = "pensionTypeDao")
-	private Dao<PensionType, Long> pensionTypeDao;
+	private Dao<PensionType, PensionType, Long> pensionTypeDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final PersonPension entity, final Map<String, Object> parameters) {

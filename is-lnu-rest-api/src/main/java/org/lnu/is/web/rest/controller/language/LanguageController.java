@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/languages")
-public class LanguageController extends BaseController implements PagedController<LanguageResource> {
+public class LanguageController extends BaseController implements PagedController<LanguageResource, LanguageResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(LanguageController.class);
 
 	@Resource(name = "languageFacade")
-	private Facade<LanguageResource, Long> facade;
+	private Facade<LanguageResource, LanguageResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

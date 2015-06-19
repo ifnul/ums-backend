@@ -28,7 +28,7 @@ public class OrderTypeParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<OrderType, Long> orderTypeDao;
+	private Dao<OrderType, OrderType, Long> orderTypeDao;
 	
 	@InjectMocks
 	private OrderTypeParametersExtractor unit;

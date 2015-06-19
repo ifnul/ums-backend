@@ -11,6 +11,7 @@ import org.lnu.is.domain.married.type.MarriedType;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.type.PersonType;
 import org.lnu.is.extractor.AbstractParametersExtractor;
+import org.lnu.is.multysearch.person.PersonList;
 
 /**
  * Person Parameters extractor.
@@ -18,27 +19,27 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
  *
  */
 @ParametersExtractor("personParametersExtractor")
-public class PersonParametersExtractor extends AbstractParametersExtractor<Person> {
+public class PersonParametersExtractor extends AbstractParametersExtractor<PersonList> {
 
 	@Resource(name = "personTypeDao")
-	private Dao<PersonType, Long> personTypeDao;
+	private Dao<PersonType, PersonType, Long> personTypeDao;
 	
 	@Resource(name = "genderTypeDao")
-	private Dao<GenderType, Long> genderTypeDao;
+	private Dao<GenderType, GenderType, Long> genderTypeDao;
 
 	@Resource(name = "marriedTypeDao")
-	private Dao<MarriedType, Long> marrieTypeDao;
+	private Dao<MarriedType, MarriedType, Long> marrieTypeDao;
 
 	@Resource(name = "personDao")
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Override
-	public Map<String, Object> getParameters(final Person entity, final Map<String, Object> parameters) {
+	public Map<String, Object> getParameters(final PersonList entity, final Map<String, Object> parameters) {
 		
-		addParameter(entity.getPersonType(), personTypeDao, "personType", parameters);
+		/*addParameter(entity.getPersonType(), personTypeDao, "personType", parameters);
 		addParameter(entity.getGenderType(), genderTypeDao, "genderType", parameters);
 		addParameter(entity.getMarriedType(), marrieTypeDao, "marriedType", parameters);
-		addParameter(entity.getParent(), personDao, "parent", parameters);
+		addParameter(entity.getParent(), personDao, "parent", parameters);*/
 
 		addParameter(entity.getName(), "name", parameters);
 		addParameter(entity.getFirstName(), "firstName", parameters);

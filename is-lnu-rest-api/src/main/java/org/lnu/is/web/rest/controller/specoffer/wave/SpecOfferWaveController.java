@@ -30,12 +30,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/specoffers")
 public class SpecOfferWaveController extends BaseController implements
-	CrudController<SpecOfferWaveResource> {
+	CrudController<SpecOfferWaveResource, SpecOfferWaveResource> {
     private static final Logger LOG = LoggerFactory
 	    .getLogger(SpecOfferWaveController.class);
 
     @Resource(name = "specOfferWaveFacade")
-    private Facade<SpecOfferWaveResource, Long> facade;
+    private Facade<SpecOfferWaveResource, SpecOfferWaveResource, Long> facade;
 
     @Override
     @ResponseStatus(HttpStatus.CREATED)

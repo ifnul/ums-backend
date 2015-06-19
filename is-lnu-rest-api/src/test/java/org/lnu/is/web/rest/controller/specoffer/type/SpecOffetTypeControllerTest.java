@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class SpecOffetTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<SpecOfferTypeResource, Long> facade;
+	private Facade<SpecOfferTypeResource, SpecOfferTypeResource, Long> facade;
 
 	@InjectMocks
 	private SpecOffetTypeController unit;

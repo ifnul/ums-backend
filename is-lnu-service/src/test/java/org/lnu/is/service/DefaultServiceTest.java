@@ -27,13 +27,13 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DefaultServiceTest {
 
 	@Mock
-	protected DefaultDao<Department, Long> defaultDao;
+	protected DefaultDao<Department, Department, Long> defaultDao;
 	
 	@Mock
 	protected ParametersExtractor<Department> parametersExtractor;
 	
 	@InjectMocks
-	private DefaultService<Department, Long, DefaultDao<Department, Long>> unit;
+	private DefaultService<Department, Department, Long, DefaultDao<Department, Department, Long>> unit;
 	
 	@Test
 	public void testCreateEntity() throws Exception {

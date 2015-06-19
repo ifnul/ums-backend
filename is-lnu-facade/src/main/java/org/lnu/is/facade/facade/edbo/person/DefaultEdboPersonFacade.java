@@ -36,7 +36,7 @@ public class DefaultEdboPersonFacade implements EdboPersonFacade {
 	
 	private EdboPersonService service;
 	private PersonEntrantService personEntrantService;
-	private Service<Person, Long> personService;
+	private Service<Person,Person, Long> personService;
 	
 	@Override
 	public List<EdboPersonResource> findPersons(final EdboPersonFindRequest request) {
@@ -113,7 +113,7 @@ public class DefaultEdboPersonFacade implements EdboPersonFacade {
 		this.personEntrantService = personEntrantService;
 	}
 
-	public void setPersonService(final Service<Person, Long> personService) {
+	public void setPersonService(final Service<Person,Person, Long> personService) {
 		this.personService = personService;
 	}
 

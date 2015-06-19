@@ -30,11 +30,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/publicactivities")
-public class PublicActivityController extends BaseController implements CrudController<PublicActivityResource> {
+public class PublicActivityController extends BaseController implements CrudController<PublicActivityResource, PublicActivityResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(PublicActivityController.class);
 
 	@Resource(name = "publicActivityFacade")
-	private Facade<PublicActivityResource, Long> facade;
+	private Facade<PublicActivityResource, PublicActivityResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

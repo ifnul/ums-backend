@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class JobTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<JobTypeResource, Long> facade;
+	private Facade<JobTypeResource, JobTypeResource, Long> facade;
 
 	@InjectMocks
 	private JobTypeController unit;

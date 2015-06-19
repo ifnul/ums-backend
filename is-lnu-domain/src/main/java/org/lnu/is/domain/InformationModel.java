@@ -11,7 +11,7 @@ import javax.persistence.MappedSuperclass;
  *
  */
 @MappedSuperclass
-public abstract class InformationModel extends Model implements Serializable {
+public abstract class InformationModel extends EntityModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
 	@Column(name = "uid")

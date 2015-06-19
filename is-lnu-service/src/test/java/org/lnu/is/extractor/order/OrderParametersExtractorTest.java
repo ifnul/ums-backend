@@ -35,25 +35,25 @@ public class OrderParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<OrderType, Long> orderTypeDao;
+	private Dao<OrderType, OrderType, Long> orderTypeDao;
 	
 	@Mock
-	private Dao<Employee, Long> employeeDao;
+	private Dao<Employee, Employee, Long> employeeDao;
 	
 	@Mock
-	private Dao<Asset, Long> assetDao;
+	private Dao<Asset, Asset, Long> assetDao;
 	
 	@Mock
-	private Dao<Partner, Long> partnerDao;
+	private Dao<Partner, Partner, Long> partnerDao;
 	
 	@Mock
-	private Dao<OperationType, Long> operationTypeDao;
+	private Dao<OperationType, OperationType, Long> operationTypeDao;
 	
 	@Mock
-	private Dao<Reason, Long> reasonDao;
+	private Dao<Reason, Reason, Long> reasonDao;
 
 	@Mock
-	private Dao<Order, Long> orderDao;
+	private Dao<Order, Order, Long> orderDao;
 	
 	@InjectMocks
 	private OrderParametersExtractor unit;

@@ -32,7 +32,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class EducationFormTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<EducationFormTypeResource, Long> facade;
+	private Facade<EducationFormTypeResource, EducationFormTypeResource, Long> facade;
 	
 	@InjectMocks
 	private EducationFormTypeController unit;

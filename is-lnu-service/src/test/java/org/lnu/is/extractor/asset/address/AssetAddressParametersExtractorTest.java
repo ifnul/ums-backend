@@ -30,16 +30,16 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class AssetAddressParametersExtractorTest {
 
 	@Mock
-	private Dao<AdminUnit, Long> adminUnitDao;
+	private Dao<AdminUnit, AdminUnit, Long> adminUnitDao;
 
 	@Mock
-	private Dao<Asset, Long> assetDao;
+	private Dao<Asset, Asset, Long> assetDao;
 	
 	@Mock
-	private Dao<AddressType, Long> addressTypeDao;
+	private Dao<AddressType, AddressType, Long> addressTypeDao;
 	
 	@Mock
-	private Dao<StreetType, Long> streetTypeDao;
+	private Dao<StreetType, StreetType, Long> streetTypeDao;
 	
 	@InjectMocks
 	private AssetAddressParametersExtractor unit;

@@ -25,28 +25,28 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class OrderParametersExtractor extends AbstractParametersExtractor<Order> {
 
 	@Resource(name = "orderTypeDao")
-	private Dao<OrderType, Long> orderTypeDao;
+	private Dao<OrderType, OrderType, Long> orderTypeDao;
 	
 	@Resource(name = "employeeDao")
-	private Dao<Employee, Long> employeeDao;
+	private Dao<Employee, Employee, Long> employeeDao;
 	
 	@Resource(name = "assetDao")
-	private Dao<Asset, Long> assetDao;
+	private Dao<Asset, Asset, Long> assetDao;
 	
 	@Resource(name = "partnerDao")
-	private Dao<Partner, Long> partnerDao;
+	private Dao<Partner, Partner, Long> partnerDao;
 	
 	@Resource(name = "operationTypeDao")
-	private Dao<OperationType, Long> operationTypeDao;
+	private Dao<OperationType, OperationType, Long> operationTypeDao;
 	
 	@Resource(name = "reasonDao")
-	private Dao<Reason, Long> reasonDao;
+	private Dao<Reason, Reason, Long> reasonDao;
 	
 	@Resource(name = "orderDao")
-	private Dao<Order, Long> orderDao;
+	private Dao<Order, Order, Long> orderDao;
 	
 	@Resource(name = "timePeriodDao")
-	private Dao<TimePeriod, Long> timePeriodDao;
+	private Dao<TimePeriod, TimePeriod, Long> timePeriodDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final Order entity, final Map<String, Object> parameters) {

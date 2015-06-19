@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OP;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 
 /**
  * Role table.
@@ -15,7 +15,7 @@ import org.lnu.is.domain.Model;
 @OP
 @Entity
 @Table(name = "q_op_role")
-public class Role extends Model {
+public class Role extends EntityModel {
 	private static final long serialVersionUID = 1L;
 
     @Column(name = "title")

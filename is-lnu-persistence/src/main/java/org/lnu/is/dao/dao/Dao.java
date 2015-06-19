@@ -9,9 +9,10 @@ import org.lnu.is.pagination.PagedResult;
  * @author ivanursul
  *
  * @param <ENTITY> Entity class.
+ * @param <ENTITYLIST> Entity class or MultySearch.
  * @param <KEY> Identifier class.
  */
-public interface Dao<ENTITY, KEY> {
+public interface Dao<ENTITY, ENTITYLIST, KEY> {
 
 	/**
 	 * Method for finding Entities by Id.
@@ -43,6 +44,6 @@ public interface Dao<ENTITY, KEY> {
 	 * @param pagedSearch pagedSearch
 	 * @return paged result.
 	 */
-	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITY> pagedSearch);
+	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITYLIST> pagedSearch);
 }
 

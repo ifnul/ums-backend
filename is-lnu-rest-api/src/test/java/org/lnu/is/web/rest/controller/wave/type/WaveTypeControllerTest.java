@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class WaveTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<WaveTypeResource, Long> facade;
+	private Facade<WaveTypeResource, WaveTypeResource, Long> facade;
 	
 	@InjectMocks
 	private WaveTypeController unit;

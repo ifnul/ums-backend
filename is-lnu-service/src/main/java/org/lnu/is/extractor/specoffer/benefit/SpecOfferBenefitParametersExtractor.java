@@ -20,10 +20,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class SpecOfferBenefitParametersExtractor extends AbstractParametersExtractor<SpecOfferBenefit> {
 
 	@Resource(name = "specOfferDao")
-	private Dao<SpecOffer, Long> specOfferDao;
+	private Dao<SpecOffer, SpecOffer, Long> specOfferDao;
 	
 	@Resource(name = "benefitDao")
-	private Dao<Benefit, Long> benefitDao;
+	private Dao<Benefit, Benefit, Long> benefitDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final SpecOfferBenefit entity, final Map<String, Object> parameters) {

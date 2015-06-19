@@ -15,7 +15,7 @@ import org.lnu.is.queries.Query;
  * @author ivanursul
  *
  */
-public class DefaultUserGroupDao extends DefaultDao<UserGroup, Long> implements UserGroupDao {
+public class DefaultUserGroupDao extends DefaultDao<UserGroup, UserGroup, Long> implements UserGroupDao {
 
 	private QueryBuilder<List<Long>> userGroupViewQueryBuilder;
 	

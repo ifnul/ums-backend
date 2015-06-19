@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/marks/scales/types")
-public class MarkScaleTypeController extends BaseController implements PagedController<MarkScaleTypeResource> {
+public class MarkScaleTypeController extends BaseController implements PagedController<MarkScaleTypeResource, MarkScaleTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(MarkScaleTypeController.class);
 
 	@Resource(name = "markScaleTypeFacade")
-	private Facade<MarkScaleTypeResource, Long> facade;
+	private Facade<MarkScaleTypeResource, MarkScaleTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

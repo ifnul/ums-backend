@@ -29,11 +29,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/honors/types")
 @Api(value = "Honor Types", description = "Honor Types")
-public class HonorTypeController extends BaseController implements PagedController<HonorTypeResource> {
+public class HonorTypeController extends BaseController implements PagedController<HonorTypeResource, HonorTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(HonorTypeController.class);
 
 	@Resource(name = "honorTypeFacade")
-	private Facade<HonorTypeResource, Long> facade;
+	private Facade<HonorTypeResource, HonorTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

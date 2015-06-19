@@ -27,10 +27,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class DegreeParametersExtractorTest {
 
 	@Mock
-	private Dao<DegreeType, Long> degreeTypeDao;
+	private Dao<DegreeType, DegreeType, Long> degreeTypeDao;
 	
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@InjectMocks
 	private DegreeParametersExtractor unit;

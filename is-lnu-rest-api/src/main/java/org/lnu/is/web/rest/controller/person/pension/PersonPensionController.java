@@ -28,11 +28,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/persons")
-public class PersonPensionController extends BaseController implements CrudController<PersonPensionResource> {
+public class PersonPensionController extends BaseController implements CrudController<PersonPensionResource, PersonPensionResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonPensionController.class);
 	
 	@Resource(name = "personPensionFacade")
-	private Facade<PersonPensionResource, Long> facade;
+	private Facade<PersonPensionResource, PersonPensionResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

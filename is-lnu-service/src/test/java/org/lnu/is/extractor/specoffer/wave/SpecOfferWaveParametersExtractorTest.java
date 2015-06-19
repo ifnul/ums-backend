@@ -27,10 +27,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class SpecOfferWaveParametersExtractorTest {
 
 	@Mock
-	private Dao<SpecOffer, Long> specOfferDao;
+	private Dao<SpecOffer, SpecOffer, Long> specOfferDao;
 	
 	@Mock
-	private Dao<WaveType, Long> waveTypeDao;
+	private Dao<WaveType, WaveType, Long> waveTypeDao;
 	
 	@Mock
 	private SessionService sessionService;

@@ -30,10 +30,10 @@ public class SpecOfferSubjectParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<SpecOffer, Long> specOfferDao;
+	private Dao<SpecOffer, SpecOffer, Long> specOfferDao;
 	
 	@Mock
-	private Dao<EnrolmentSubject, Long> enrolmenntSubjectDao;
+	private Dao<EnrolmentSubject, EnrolmentSubject, Long> enrolmenntSubjectDao;
 	
 	@InjectMocks
 	private SpecOfferSubjectParametersExtractor unit;

@@ -34,22 +34,22 @@ public class EnrolmentParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 
 	@Mock
-	private Dao<SpecOffer, Long> specOfferDao;
+	private Dao<SpecOffer, SpecOffer, Long> specOfferDao;
 
 	@Mock
-	private Dao<Department, Long> departmentDao;
+	private Dao<Department, Department, Long> departmentDao;
 
 	@Mock
-	private Dao<PersonPaper, Long> personPaperDao;
+	private Dao<PersonPaper, PersonPaper, Long> personPaperDao;
 
 	@Mock
-	private Dao<EnrolmentType, Long> enrolmentTypeDao;
+	private Dao<EnrolmentType, EnrolmentType, Long> enrolmentTypeDao;
 
 	@Mock
-	private Dao<Enrolment, Long> enrolmentDao;
+	private Dao<Enrolment, Enrolment, Long> enrolmentDao;
 
 	@InjectMocks
 	private EnrolmentParametersExtractor unit;

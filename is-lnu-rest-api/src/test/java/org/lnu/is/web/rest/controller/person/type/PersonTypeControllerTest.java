@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class PersonTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<PersonTypeResource, Long> facade;
+	private Facade<PersonTypeResource, PersonTypeResource, Long> facade;
 
 	@InjectMocks
 	private PersonTypeController unit;

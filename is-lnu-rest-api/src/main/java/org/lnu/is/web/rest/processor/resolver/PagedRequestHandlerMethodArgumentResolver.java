@@ -1,5 +1,7 @@
 package org.lnu.is.web.rest.processor.resolver;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +28,8 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.HandlerMapping;
+
+import scala.reflect.internal.Trees.New;
 
 
 /**
@@ -62,7 +66,7 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 		LOG.debug("Debugging PagedRequest Parsing:");
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) webRequest.getNativeRequest();
-		Map<String, String> parameters = getRequestParameters(webRequest);
+		Map<String, Object> parameters = getRequestParameters(webRequest);
 		
         Object resource = resourceParameterResolver.getResource(param, parameters);
         Integer limit = limitParameterResolver.getLimit(param.getParameterAnnotation(Limit.class), param.getParameterType().getDeclaredField("limit"), httpRequest);
@@ -80,21 +84,38 @@ public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodA
 	 * @param webRequest
 	 * @return request parameters.
 	 */
-	private Map<String, String> getRequestParameters(final NativeWebRequest webRequest) {
-		Map<String, String> resultMap = new HashMap<String, String>();
+	private Map<String, Object> getRequestParameters(final NativeWebRequest webRequest) {
+		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
-		@SuppressWarnings("unchecked")
+		//@SuppressWarnings("unchecked")
 		Map<String, String> pathVariables = (Map<String, String>) webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST);
 		Map<String, String[]> requestParams = webRequest.getParameterMap();
 		
 		for (Map.Entry<String, String[]> entry : requestParams.entrySet()) {
-			String value = getSingleValue(entry);
-			resultMap.put(entry.getKey(), value);
+		    	   /*if (isArray(entry)){
+		    	   String value = getSingleValue(entry);
+		    	    resultMap.put(entry.getKey(), value);
+		    	   }
+		    	   else{
+		    	    String value = getSingleValue(entry);
+		    	    resultMap.put(entry.getKey(), value);
+		    	   }*/
+		    	resultMap.put(entry.getKey(), Arrays.asList(entry.getValue()));
 		}
 		
 		resultMap.putAll(pathVariables);
 		
 		return resultMap;
+	}
+
+	private List getListValue(Entry<String, String[]> entry) {
+	    // TODO Auto-generated method stub
+	    return null;
+	}
+
+	private boolean isArray(Entry<String, String[]> entry) {
+	    String[] values = entry.getValue();
+	    return false;
 	}
 
 	/**

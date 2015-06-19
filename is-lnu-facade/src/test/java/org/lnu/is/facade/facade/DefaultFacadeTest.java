@@ -46,7 +46,7 @@ public class DefaultFacadeTest {
 	private Converter<Person, PersonResource> entityConverter;
 
 	@Mock
-	private DefaultService<Person, Long, DefaultDao<Person, Long>> service;
+	private DefaultService<Person, Person, Long, DefaultDao<Person, Person, Long>> service;
 
 	@Mock
 	private Converter<PagedRequest<PersonResource>, MultiplePagedSearch<Person>> pagedRequestConverter;
@@ -57,7 +57,7 @@ public class DefaultFacadeTest {
 	@Mock
 	private Converter<PagedResult<Person>, PagedResultResource<PersonResource>> pagedResultConverter;
 
-	private DefaultFacade<Person, PersonResource, DefaultService<Person, Long, DefaultDao<Person, Long>>, Long> unit = new DefaultFacade<Person, PersonResource, DefaultService<Person,Long,DefaultDao<Person,Long>>, Long>();
+	private DefaultFacade<Person, PersonResource, Person, PersonResource, DefaultService<Person, Person, Long, DefaultDao<Person, Person, Long>>, Long> unit = new DefaultFacade<Person, PersonResource, Person, PersonResource, DefaultService<Person, Person, Long, DefaultDao<Person, Person, Long>>, Long>();
 	
 	@Before
 	public void setup() {

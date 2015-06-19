@@ -26,31 +26,31 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class EmployeeParametersExtractor extends AbstractParametersExtractor<Employee>  {
 	
 	@Resource(name = "personDao")
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Resource(name = "genderTypeDao")
-	private Dao<GenderType, Long> genderTypeDao;
+	private Dao<GenderType, GenderType, Long> genderTypeDao;
 	
 	@Resource(name = "departmentDao")
-	private Dao<Department, Long> departmentDao;
+	private Dao<Department, Department, Long> departmentDao;
 	
 	@Resource(name = "postDao")
-	private Dao<Post, Long> postDao;
+	private Dao<Post, Post, Long> postDao;
 	
 	@Resource(name = "jobTypeDao")
-	private Dao<JobType, Long> jobTypeDao;
+	private Dao<JobType, JobType, Long> jobTypeDao;
 
 	@Resource(name = "employeeTypeDao")
-	private Dao<EmployeeType, Long> employeeTypeDao;
+	private Dao<EmployeeType, EmployeeType, Long> employeeTypeDao;
 	
 	@Resource(name = "employeeStatusDao")
-	private Dao<EmployeeStatus, Long> employeeStatusDao;
+	private Dao<EmployeeStatus, EmployeeStatus, Long> employeeStatusDao;
 	
 	@Resource(name = "orderDao")
-	private Dao<Order, Long> orderDao;
+	private Dao<Order, Order, Long> orderDao;
 	
 	@Resource(name = "employeeDao")
-	private Dao<Employee, Long> employeeDao;
+	private Dao<Employee, Employee, Long> employeeDao;
 	
 	@Override
 	public Map<String, Object> getParameters(final Employee entity, final Map<String, Object> parameters) {

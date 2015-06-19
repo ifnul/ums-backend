@@ -30,11 +30,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/persons")
-public class PersonNameController extends BaseController implements CrudController<PersonNameResource> {
+public class PersonNameController extends BaseController implements CrudController<PersonNameResource, PersonNameResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonNameController.class);
 	
 	@Resource(name = "personNameFacade")
-	private Facade<PersonNameResource, Long> facade;
+	private Facade<PersonNameResource, PersonNameResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

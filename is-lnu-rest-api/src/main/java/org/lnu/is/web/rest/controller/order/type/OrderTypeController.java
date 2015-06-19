@@ -27,11 +27,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/orders/types")
-public class OrderTypeController extends BaseController implements PagedController<OrderTypeResource> {
+public class OrderTypeController extends BaseController implements PagedController<OrderTypeResource, OrderTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(OrderTypeController.class);
 	
 	@Resource(name = "orderTypeFacade")
-	private Facade<OrderTypeResource, Long> facade;
+	private Facade<OrderTypeResource, OrderTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

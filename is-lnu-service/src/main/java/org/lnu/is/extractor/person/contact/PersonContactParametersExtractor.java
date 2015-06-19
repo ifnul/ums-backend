@@ -22,10 +22,10 @@ public class PersonContactParametersExtractor extends
 	AbstractParametersExtractor<PersonContact> {
 
     @Resource(name = "personDao")
-    private Dao<Person, Long> personDao;
+    private Dao<Person, Person, Long> personDao;
 
     @Resource(name = "contactTypeDao")
-    private Dao<ContactType, Long> contactTypeDao;
+    private Dao<ContactType, ContactType, Long> contactTypeDao;
 
     @Override
     protected Map<String, Object> getParameters(final PersonContact entity,

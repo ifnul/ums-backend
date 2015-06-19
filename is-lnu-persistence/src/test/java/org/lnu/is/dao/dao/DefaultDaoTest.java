@@ -35,7 +35,7 @@ public class DefaultDaoTest {
 	private QueryBuilder<Department> queryBuilder;
 	
 	@InjectMocks
-	private DefaultDao<Department, Long> unit;
+	private DefaultDao<Department,Department, Long> unit;
 
 	@Before
 	public void setup() {

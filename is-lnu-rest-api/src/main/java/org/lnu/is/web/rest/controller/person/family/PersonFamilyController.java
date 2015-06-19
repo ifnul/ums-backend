@@ -29,11 +29,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/persons")
-public class PersonFamilyController extends BaseController implements CrudController<PersonFamilyResource> {
+public class PersonFamilyController extends BaseController implements CrudController<PersonFamilyResource, PersonFamilyResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonFamilyController.class);
 	
 	@Resource(name = "personFamilyFacade")
-	private Facade<PersonFamilyResource, Long> facade;
+	private Facade<PersonFamilyResource, PersonFamilyResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)

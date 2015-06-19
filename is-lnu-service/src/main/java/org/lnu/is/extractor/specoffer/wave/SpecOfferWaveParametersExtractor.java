@@ -20,10 +20,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class SpecOfferWaveParametersExtractor extends AbstractParametersExtractor<SpecOfferWave> {
 
 	@Resource(name = "specOfferDao")
-	private Dao<SpecOffer, Long> specOfferDao;
+	private Dao<SpecOffer, SpecOffer, Long> specOfferDao;
 	
 	@Resource(name = "waveTypeDao")
-	private Dao<WaveType, Long> waveTypeDao;
+	private Dao<WaveType, WaveType, Long> waveTypeDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final SpecOfferWave entity, final Map<String, Object> parameters) {

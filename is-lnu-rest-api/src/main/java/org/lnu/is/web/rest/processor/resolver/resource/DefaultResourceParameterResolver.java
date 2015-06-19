@@ -34,7 +34,7 @@ public class DefaultResourceParameterResolver implements ResourceParameterResolv
 	}
 	
 	@Override
-	public Object getResource(final MethodParameter parameter, final Map<String, String> parameters) {
+	public Object getResource(final MethodParameter parameter, final Map<String, Object> parameters) {
 		Object resource = null;
 		try {
 			Type genericParameterType = parameter.getGenericParameterType();

@@ -32,13 +32,13 @@ public class PersonPaperParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Mock
-	private Dao<PaperType, Long> paperTypeDao;
+	private Dao<PaperType, PaperType, Long> paperTypeDao;
 	
 	@Mock
-	private Dao<HonorType, Long> honorTypeDao;
+	private Dao<HonorType, HonorType, Long> honorTypeDao;
 	
 	@InjectMocks
 	private PersonPaperParametersExtractor unit;

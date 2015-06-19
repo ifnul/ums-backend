@@ -28,11 +28,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/specoffers/types")
-public class SpecOffetTypeController extends BaseController implements PagedController<SpecOfferTypeResource> {
+public class SpecOffetTypeController extends BaseController implements PagedController<SpecOfferTypeResource, SpecOfferTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOffetTypeController.class);
 	
 	@Resource(name = "specOfferTypeFacade")
-	private Facade<SpecOfferTypeResource, Long> facade;
+	private Facade<SpecOfferTypeResource, SpecOfferTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

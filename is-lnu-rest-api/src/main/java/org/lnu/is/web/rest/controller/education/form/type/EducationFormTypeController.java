@@ -30,11 +30,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/educations/forms/types")
 @Api("Education Form Types")
-public class EducationFormTypeController extends BaseController implements PagedController<EducationFormTypeResource> {
+public class EducationFormTypeController extends BaseController implements PagedController<EducationFormTypeResource, EducationFormTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(EducationFormTypeController.class);
 	
 	@Resource(name = "eduFormTypeFacade")
-	private Facade<EducationFormTypeResource, Long> facade;
+	private Facade<EducationFormTypeResource, EducationFormTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

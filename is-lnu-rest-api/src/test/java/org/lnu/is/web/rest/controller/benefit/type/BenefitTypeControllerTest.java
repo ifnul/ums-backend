@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class BenefitTypeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<BenefitTypeResource, Long> facade;
+	private Facade<BenefitTypeResource, BenefitTypeResource, Long> facade;
 
 	@InjectMocks
 	private BenefitTypeController unit;

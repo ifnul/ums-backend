@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
 public class DegreeControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<DegreeResource, Long> facade;
+	private Facade<DegreeResource, DegreeResource, Long> facade;
 	
 	@InjectMocks
 	private DegreeController unit;

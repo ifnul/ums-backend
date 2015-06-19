@@ -9,7 +9,7 @@ import org.lnu.is.service.DefaultService;
  * @author ivanursul
  *
  */
-public class DefaultUserService extends DefaultService<User, Long, UserDao> implements UserService {
+public class DefaultUserService extends DefaultService<User, User, Long, UserDao> implements UserService {
 
 	@Override
 	public User getUserByLogin(final String login) {

@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OP;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 
 
 /**
@@ -18,7 +18,7 @@ import org.lnu.is.domain.Model;
 @OP
 @Entity
 @Table(name = "q_op_edbo_user")
-public class EdboUser extends Model implements Serializable {
+public class EdboUser extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     @Column(name = "login")

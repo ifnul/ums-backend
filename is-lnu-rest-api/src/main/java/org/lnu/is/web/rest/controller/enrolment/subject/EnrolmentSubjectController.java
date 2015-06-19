@@ -31,11 +31,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/enrolments/subjects")
 @Api("Enrolment Subjects")
-public class EnrolmentSubjectController extends BaseController implements PagedController<EnrolmentSubjectResource> {
+public class EnrolmentSubjectController extends BaseController implements PagedController<EnrolmentSubjectResource, EnrolmentSubjectResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(EnrolmentSubjectController.class);
 
 	@Resource(name = "enrolmentSubjectFacade")
-	private Facade<EnrolmentSubjectResource, Long> facade;
+	private Facade<EnrolmentSubjectResource, EnrolmentSubjectResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

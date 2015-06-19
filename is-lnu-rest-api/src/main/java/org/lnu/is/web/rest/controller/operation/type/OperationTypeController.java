@@ -31,12 +31,12 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/operationtypes")
 @Api(value = "Operation Types", description = "Operation Types")
-public class OperationTypeController extends BaseController implements PagedController<OperationTypeResource> {
+public class OperationTypeController extends BaseController implements PagedController<OperationTypeResource, OperationTypeResource> {
 
 	private static final Logger LOG = LoggerFactory.getLogger(OperationTypeController.class);
 
 	@Resource(name = "operationTypeFacade")
-	private Facade<OperationTypeResource, Long> facade;
+	private Facade<OperationTypeResource, OperationTypeResource, Long> facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)

@@ -31,7 +31,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class ReasonControllerTest extends AbstractControllerTest {
 	
 	@Mock
-	private Facade<ReasonResource, Long> facade;
+	private Facade<ReasonResource, ReasonResource, Long> facade;
 	
 	@InjectMocks
 	private ReasonController unit;

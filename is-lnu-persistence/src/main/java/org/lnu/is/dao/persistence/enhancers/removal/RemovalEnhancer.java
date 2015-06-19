@@ -1,7 +1,7 @@
 package org.lnu.is.dao.persistence.enhancers.removal;
 
 import org.lnu.is.dao.persistence.enhancers.DefaultEnhancer;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 import org.lnu.is.domain.common.RowStatus;
 
 /**
@@ -10,7 +10,7 @@ import org.lnu.is.domain.common.RowStatus;
  *
  * @param <T> entity.
  */
-public class RemovalEnhancer<T extends Model> extends DefaultEnhancer<T> {
+public class RemovalEnhancer<T extends EntityModel> extends DefaultEnhancer<T> {
 
 	@Override
 	protected void enhanceEntity(final T entity) {

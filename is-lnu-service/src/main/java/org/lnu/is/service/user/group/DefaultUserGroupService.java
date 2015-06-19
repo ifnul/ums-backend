@@ -15,7 +15,7 @@ import org.lnu.is.service.DefaultService;
  * @author ivanursul
  *
  */
-public class DefaultUserGroupService extends DefaultService<UserGroup, Long, UserGroupDao> implements UserGroupService  {
+public class DefaultUserGroupService extends DefaultService<UserGroup, UserGroup, Long, UserGroupDao> implements UserGroupService  {
 
 	private ParametersExtractor<List<Long>> userGroupViewsParametersExtractor;
 	

@@ -21,13 +21,13 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class PersonLanguageParametersExtractor extends AbstractParametersExtractor<PersonLanguage> {
 
 	@Resource(name = "personDao")
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Resource(name = "languageDao")
-	private Dao<Language, Long> languageDao;
+	private Dao<Language, Language, Long> languageDao;
 	
 	@Resource(name = "languageLevelDao")
-	private Dao<LanguageLevel, Long> languageLevelDao;
+	private Dao<LanguageLevel, LanguageLevel, Long> languageLevelDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final PersonLanguage entity, final Map<String, Object> parameters) {

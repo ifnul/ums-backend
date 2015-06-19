@@ -2,15 +2,12 @@ package org.lnu.is.resource;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
 /**
  * Abstract class, that all resources need to implement.
  * @author ivanursul
  *
  */
-public abstract class ApiResource {
+public abstract class ApiResource extends Resource{
 
 	private Long id;
 	private String note;
@@ -27,13 +24,6 @@ public abstract class ApiResource {
 	 * @return uri of string representation.
 	 */
 	public abstract String getUri();
-
-	/**
-	 * Method, that is used for getting uri for list(multiple resources).
-	 * @return root uri.
-	 */
-	@JsonIgnore
-	public abstract String getRootUri();
 	
 	public Long getId() {
 		return id;

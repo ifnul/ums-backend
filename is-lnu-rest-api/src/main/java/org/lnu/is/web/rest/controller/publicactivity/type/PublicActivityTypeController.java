@@ -25,11 +25,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/publicactivities/types")
-public class PublicActivityTypeController extends BaseController implements PagedController<PublicActivityTypeResource> {
+public class PublicActivityTypeController extends BaseController implements PagedController<PublicActivityTypeResource, PublicActivityTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(PublicActivityTypeController.class);
 	
 	@Resource(name = "publicActivityTypeFacade")
-	private Facade<PublicActivityTypeResource, Long> facade;
+	private Facade<PublicActivityTypeResource, PublicActivityTypeResource, Long> facade;
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)

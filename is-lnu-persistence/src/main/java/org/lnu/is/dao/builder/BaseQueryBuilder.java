@@ -270,9 +270,16 @@ public class BaseQueryBuilder {
 	 */
 	private void prepareUnusedConditions(final List<String> conds) {
 		// If there is where() method and no parameters and at the end we have orderBy();
-		if (conds.contains(WHERE) && conds.size() == 2 && conds.get(1).contains("ORDER BY")) {
+	    	if (conds.contains(WHERE)) {
+	    	    Integer ind = conds.indexOf(WHERE);
+	    	    if (ind + 1 < conds.size() && conds.get(ind + 1) == AND) {
+	    		conds.remove(ind + 1);
+	    	    }
+	    	    if (conds.size() == 2 && conds.get(1).contains("ORDER BY")) {
 			conds.remove(WHERE);
-		}
+	    	    }
+	    	}
+		
 	}
 
 	/**

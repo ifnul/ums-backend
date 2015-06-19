@@ -13,7 +13,7 @@ import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.dao.persistence.enhancers.Enhancer;
 import org.lnu.is.dao.persistence.model.DaoMethod;
 import org.lnu.is.dao.persistence.verifier.VerifierChainLink;
-import org.lnu.is.domain.Model;
+import org.lnu.is.domain.EntityModel;
 import org.lnu.is.pagination.MultiplePagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
@@ -29,7 +29,7 @@ import org.springframework.stereotype.Repository;
  * @param <I> IDentifier class.
  */
 @Repository("persistenceManager")
-public class DefaultPersistenceManager<T extends Model, I> implements PersistenceManager<T, I> {
+public class DefaultPersistenceManager<T extends EntityModel, I> implements PersistenceManager<T, I> {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultPersistenceManager.class);
 
     private static final String COUNT_QUERY = "SELECT COUNT(*) FROM %s a WHERE a IN(%s) ";

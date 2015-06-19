@@ -30,10 +30,10 @@ public class PersonAwardParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<Person, Long> personDao;
+	private Dao<Person, Person, Long> personDao;
 	
 	@Mock
-	private Dao<PersonPaper, Long> personPaperDao;
+	private Dao<PersonPaper, PersonPaper, Long> personPaperDao;
 	
 	@InjectMocks
 	private PersonAwardParametersExtractor unit;
