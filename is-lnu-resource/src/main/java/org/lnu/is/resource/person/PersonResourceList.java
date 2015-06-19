@@ -2,6 +2,7 @@ package org.lnu.is.resource.person;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.lnu.is.annotation.CrudableResource;
+import org.lnu.is.resource.MultiSearchResource;
 
 import java.util.Date;
 import java.util.List;
