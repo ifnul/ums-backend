@@ -60,18 +60,6 @@ public class PersonParametersExtractor extends AbstractParametersExtractor<Perso
 		addParameter(entity.getParents(), personDao, "parents", parameters);
 		addParameter(entity.getCitizenCountries(), adminUnitDao, "citizenCountries", parameters);
 
-/*
-		addParameter(entity.getNames(), "names", parameters);
-		addParameter(entity.getFirstNames(), "firstNames", parameters);
-		addParameter(entity.getFatherNames(), "fatherNames", parameters);
-		addParameter(entity.getSurnames(), "surnames", parameters);
-		addParameter(entity.getPhotos(), "photos", parameters);
-		addParameter(entity.getDocSeries(), "docSeries", parameters);
-		addParameter(entity.getDocNums(), "docNums", parameters);
-		addParameter(entity.getIdentifiers(), "identifiers", parameters);
-		addParameter(entity.getBirthPlace(), "birthPlaces", parameters);
-*/
-
 		addParameter(entity.getResident(), "resident", parameters);
 		addParameter(entity.getBegDate(), "begDate", parameters);
 		addParameter(entity.getEndDate(), "endDate", parameters);

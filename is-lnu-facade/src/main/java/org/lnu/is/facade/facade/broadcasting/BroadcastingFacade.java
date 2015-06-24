@@ -16,7 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
  *
  */
 @Transactional
-public class BroadcastingFacade extends DefaultFacade<BroadcastingMessage, BroadcastingMessageResource, BroadcastingMessage, BroadcastingMessageResource, DefaultService<BroadcastingMessage,BroadcastingMessage, Long, Dao<BroadcastingMessage,BroadcastingMessage, Long>>, Long> {
+public class BroadcastingFacade extends DefaultFacade<BroadcastingMessage, BroadcastingMessageResource, BroadcastingMessage,
+		BroadcastingMessageResource, DefaultService<BroadcastingMessage,
+		BroadcastingMessage, Long, Dao<BroadcastingMessage, BroadcastingMessage, Long>>, Long> {
 
 	private Converter<BroadcastingMessageResource, Email> broadcastResourceEmailConverter;
 

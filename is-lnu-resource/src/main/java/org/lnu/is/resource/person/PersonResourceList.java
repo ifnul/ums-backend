@@ -1,5 +1,6 @@
 package org.lnu.is.resource.person;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.MultiSearchResource;
 
@@ -467,39 +468,39 @@ public class PersonResourceList extends MultiSearchResource {
 
 	@Override
 	public String toString() {
-		return "PersonResourceList{" +
-				"parentId=" + parentId +
-				", personTypeId=" + personTypeId +
-				", genderTypeId=" + genderTypeId +
-				", marriedTypeId=" + marriedTypeId +
-				", citizenCountryId=" + citizenCountryId +
-				", name='" + name + '\'' +
-				", firstName='" + firstName + '\'' +
-				", fatherName='" + fatherName + '\'' +
-				", surname='" + surname + '\'' +
-				", photo='" + photo + '\'' +
-				", docNum='" + docNum + '\'' +
-				", identifier='" + identifier + '\'' +
-				", birthPlace='" + birthPlace + '\'' +
-				", parentIds=" + parentIds +
-				", personTypeIds=" + personTypeIds +
-				", genderTypeIds=" + genderTypeIds +
-				", marriedTypeIds=" + marriedTypeIds +
-				", citizenCountryIds=" + citizenCountryIds +
-				", names=" + names +
-				", firstNames=" + firstNames +
-				", fatherNames=" + fatherNames +
-				", surnames=" + surnames +
-				", photos=" + photos +
-				", docSeries=" + docSeries +
-				", docNums=" + docNums +
-				", identifiers=" + identifiers +
-				", birthPlaces=" + birthPlaces +
-				", resident=" + resident +
-				", begDate=" + begDate +
-				", endDate=" + endDate +
-				", isMilitary=" + isMilitary +
-				", isHostel=" + isHostel +
-				"} " + super.toString();
+		return new ToStringBuilder(this)
+				.append("parentId", parentId)
+				.append("personTypeId", personTypeId)
+				.append("genderTypeId", genderTypeId)
+				.append("marriedTypeId", marriedTypeId)
+				.append("citizenCountryId", citizenCountryId)
+				.append("name", name)
+				.append("firstName", firstName)
+				.append("fatherName", fatherName)
+				.append("surname", surname)
+				.append("photo", photo)
+				.append("docNum", docNum)
+				.append("identifier", identifier)
+				.append("birthPlace", birthPlace)
+				.append("parentIds", parentIds)
+				.append("personTypeIds", personTypeIds)
+				.append("genderTypeIds", genderTypeIds)
+				.append("marriedTypeIds", marriedTypeIds)
+				.append("citizenCountryIds", citizenCountryIds)
+				.append("names", names)
+				.append("firstNames", firstNames)
+				.append("fatherNames", fatherNames)
+				.append("surnames", surnames)
+				.append("photos", photos)
+				.append("docSeries", docSeries)
+				.append("docNums", docNums)
+				.append("identifiers", identifiers)
+				.append("birthPlaces", birthPlaces)
+				.append("resident", resident)
+				.append("begDate", begDate)
+				.append("endDate", endDate)
+				.append("isMilitary", isMilitary)
+				.append("isHostel", isHostel)
+				.toString();
 	}
 }

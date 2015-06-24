@@ -566,8 +566,7 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "parentId",
               "personTypeId",
               "genderTypeId",
-              "marriedTypeId"//,
-              //"citizenCountryId"
+              "marriedTypeId"
           ),
           Array(
               "name" -> "String",
@@ -575,7 +574,6 @@ object MultipleGetIntegrationTest extends BaseMultipleGetIntegrationTest {
               "fatherName" -> "String",
               "surname" -> "String",
               "photo" -> "String",
-              "docSeries" -> "String",
               "docNum" -> "String",
               "identifier" -> "String",
               "resident" -> "Integer",

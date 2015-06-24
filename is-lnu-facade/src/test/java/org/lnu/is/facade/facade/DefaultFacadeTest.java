@@ -1,18 +1,5 @@
 package org.lnu.is.facade.facade;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyListOf;
-import static org.mockito.Matchers.anyLong;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +18,19 @@ import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyListOf;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultFacadeTest {
 	@Mock
@@ -41,6 +41,9 @@ public class DefaultFacadeTest {
 
 	@Mock
 	private Converter<PersonResource, Person> resourceConverter;
+
+	@Mock
+	private Converter<PersonResource, Person> resourceListConverter;
 
 	@Mock
 	private Converter<Person, PersonResource> entityConverter;
@@ -69,6 +72,7 @@ public class DefaultFacadeTest {
 		unit.setResourceConverter(resourceConverter);
 		unit.setService(service);
 		unit.setUpdateConverter(updateConverter);
+		unit.setResourceListConverter(resourceListConverter);
 	}
 	
 	@Test

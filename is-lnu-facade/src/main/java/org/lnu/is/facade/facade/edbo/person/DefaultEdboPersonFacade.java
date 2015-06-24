@@ -1,7 +1,5 @@
 package org.lnu.is.facade.facade.edbo.person;
 
-import java.util.List;
-
 import org.is.lnu.edbo.resource.person.EdboPersonFindRequest;
 import org.is.lnu.edbo.resource.person.EdboPersonResource;
 import org.is.lnu.edbo.service.person.EdboPersonService;
@@ -12,12 +10,13 @@ import org.lnu.is.domain.person.entrant.PersonEntrantAuto;
 import org.lnu.is.resource.person.PersonResource;
 import org.lnu.is.service.Service;
 import org.lnu.is.service.person.PersonEntrantService;
-
 import ua.edboservice.ArrayOfDPersonAddRet;
 import ua.edboservice.ArrayOfDPersonsFind;
 import ua.edboservice.PersonEntrantAdd;
 import ua.edboservice.PersonEntrantAutoAdd;
 import ua.edboservice.PersonsFind;
+
+import java.util.List;
 
 /**
  * Default implementation of edbo person facade.
@@ -36,7 +35,7 @@ public class DefaultEdboPersonFacade implements EdboPersonFacade {
 	
 	private EdboPersonService service;
 	private PersonEntrantService personEntrantService;
-	private Service<Person,Person, Long> personService;
+	private Service<Person, Person, Long> personService;
 	
 	@Override
 	public List<EdboPersonResource> findPersons(final EdboPersonFindRequest request) {
@@ -113,7 +112,7 @@ public class DefaultEdboPersonFacade implements EdboPersonFacade {
 		this.personEntrantService = personEntrantService;
 	}
 
-	public void setPersonService(final Service<Person,Person, Long> personService) {
+	public void setPersonService(final Service<Person, Person, Long> personService) {
 		this.personService = personService;
 	}
 

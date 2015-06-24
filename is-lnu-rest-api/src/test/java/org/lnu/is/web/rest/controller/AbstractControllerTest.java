@@ -14,8 +14,9 @@ import org.lnu.is.web.rest.processor.resolver.limit.LimitParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.DefaultOffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
+import org.lnu.is.web.rest.processor.resolver.parameters.DefaultMultipleParameterRetriever;
 import org.lnu.is.web.rest.processor.resolver.parameters.DefaultParametersRetriever;
-import org.lnu.is.web.rest.processor.resolver.parameters.ParametersRetriever;
+import org.lnu.is.web.rest.processor.resolver.parameters.MultipleParameterRetriever;
 import org.lnu.is.web.rest.processor.resolver.resource.DefaultResourceParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.resource.ResourceParameterResolver;
 import org.mockito.Mock;
@@ -47,19 +48,22 @@ public abstract class AbstractControllerTest {
 	
 	private ResourceParameterResolver resourceParameterResolver = new DefaultResourceParameterResolver();
 
-	private ParametersRetriever parametersRetriever = new DefaultParametersRetriever();
+	private DefaultParametersRetriever parametersRetriever = new DefaultParametersRetriever();
 
 	@Before
 	public void setup() {
 		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(Collections.<OrderBy>emptyList());
-		
+
+		MultipleParameterRetriever multipleParameterRetriever = new DefaultMultipleParameterRetriever();
+		parametersRetriever.setMultipleParameterRetriever(multipleParameterRetriever);
+
 		pagedRequestArgumentResolver = new PagedRequestHandlerMethodArgumentResolver();
 		pagedRequestArgumentResolver.setOrderByFieldResolver(orderByFieldResolver);
 		pagedRequestArgumentResolver.setOffsetParameterResolver(offsetParameterResolver);
 		pagedRequestArgumentResolver.setLimitParameterResolver(limitParameterResolver);
 		pagedRequestArgumentResolver.setResourceParamterResolver(resourceParameterResolver);
 		pagedRequestArgumentResolver.setParametersRetriever(parametersRetriever);
-		
+
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
 				.setValidator(getValidator())
 				.setCustomArgumentResolvers(pagedRequestArgumentResolver)

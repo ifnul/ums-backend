@@ -336,7 +336,7 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
 		
 		// Then
-		assertEquals(expected.toString(), actual.toString());
+		assertEquals(expected, actual);
 	}
 	
 	@Test

@@ -7,6 +7,7 @@ import org.lnu.is.resource.search.PagedResultResource;
  * Inteface, that declares paged request method.
  * @author ivanursul
  * @param <RESOURCE> resource, that is used.
+ * @param <RESOURCELIST> resource, that is used.
  */
 public interface PagedController<RESOURCE, RESOURCELIST> {
 	

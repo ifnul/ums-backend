@@ -8,6 +8,7 @@ import org.lnu.is.resource.search.PagedResultResource;
  * @author kushnir
  *
  * @param <RESOURCE> Resource.
+ * @param <RESOURCELIST> RESOURCELIST.
  * @param <KEY> Key.
  */
 public interface Facade<RESOURCE, RESOURCELIST, KEY> {

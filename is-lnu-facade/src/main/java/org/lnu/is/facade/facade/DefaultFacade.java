@@ -20,12 +20,16 @@ import java.util.List;
  * @author kushnir
  *
  * @param <ENTITY> Entity.
+ * @param <ENTITYLIST> ENTITYLIST.
  * @param <RESOURCE> Resource.
+ * @param <RESOURCELIST> RESOURCELIST.
  * @param <SERVICE> Service.
  * @param <KEY> Key.S
  */
 @Transactional
-public class DefaultFacade<ENTITY extends Model, RESOURCE extends Resource, ENTITYLIST extends Model, RESOURCELIST extends Resource, SERVICE extends Service<ENTITY, ENTITYLIST, KEY>, KEY> implements Facade<RESOURCE, RESOURCELIST, KEY> {
+public class DefaultFacade<ENTITY extends Model, RESOURCE extends Resource, ENTITYLIST
+		extends Model, RESOURCELIST extends Resource,
+		SERVICE extends Service<ENTITY, ENTITYLIST, KEY>, KEY> implements Facade<RESOURCE, RESOURCELIST, KEY> {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultFacade.class);
 
 	private Converter<RESOURCE, ENTITY> resourceConverter;
@@ -185,7 +189,7 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends Resource, ENTI
 		return resourceListConverter;
 	}
 
-	public void setResourceListConverter(Converter<RESOURCELIST, ENTITYLIST> resourceListConverter) {
+	public void setResourceListConverter(final Converter<RESOURCELIST, ENTITYLIST> resourceListConverter) {
 		this.resourceListConverter = resourceListConverter;
 	}
 }

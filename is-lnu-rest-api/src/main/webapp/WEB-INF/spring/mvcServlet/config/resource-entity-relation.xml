@@ -457,6 +457,29 @@
 				<entry key="isHostel" value="isHostel" />
 			</util:map>
 		</entry>
+		<entry key="org.lnu.is.resource.person.PersonResourceList">
+			<util:map>
+				<entry key="parentId" value="parent" />
+				<entry key="personTypeId" value="personType" />
+				<entry key="genderTypeId" value="genderType" />
+				<entry key="marriedTypeId" value="marriedType" />
+				<entry key="citizenCountryId" value="citizenCountry" />
+				<entry key="name" value="name" />
+				<entry key="firstName" value="firstName" />
+				<entry key="fatherName" value="fatherName" />
+				<entry key="surname" value="surname" />
+				<entry key="photo" value="photo" />
+				<entry key="docSeries" value="docSeries" />
+				<entry key="docNum" value="docNum" />
+				<entry key="identifier" value="identifier" />
+				<entry key="resident" value="resident" />
+				<entry key="birthPlace" value="birthPlace" />
+				<entry key="begDate" value="begDate" />
+				<entry key="endDate" value="endDate" />
+				<entry key="isMilitary" value="isMilitary" />
+				<entry key="isHostel" value="isHostel" />
+			</util:map>
+		</entry>
 		<entry key="org.lnu.is.resource.person.address.PersonAddressResource">
 			<util:map>
 				<entry key="personId" value="person" />

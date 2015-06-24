@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Default implemntation of Parameters Retriever
+ * Default implemntation of Parameters Retriever.
  */
 @Component("parametersRetriever")
 public class DefaultParametersRetriever implements ParametersRetriever {
@@ -34,6 +34,11 @@ public class DefaultParametersRetriever implements ParametersRetriever {
         return resultMap;
     }
 
+    /**
+     * Method for getting parameteres from web request.
+     * @param webRequest web request.
+     * @return new web request.
+     */
     private Map<String, Object> getRequestParameterMap(final NativeWebRequest webRequest) {
         Map<String, String[]> parameters = webRequest.getParameterMap();
         Map<String, Object> resultMap = new HashMap<>();
@@ -54,9 +59,20 @@ public class DefaultParametersRetriever implements ParametersRetriever {
         return resultMap;
     }
 
+    /**
+     * Method for getting parameter.
+     * @param values values.
+     * @return first element.
+     */
     private String getParameter(final String[] values) {
         return values[0];
     }
 
+    public MultipleParameterRetriever getMultipleParameterRetriever() {
+        return multipleParameterRetriever;
+    }
 
+    public void setMultipleParameterRetriever(final MultipleParameterRetriever multipleParameterRetriever) {
+        this.multipleParameterRetriever = multipleParameterRetriever;
+    }
 }

@@ -4,7 +4,9 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.List;
 
-
+/**
+ * Multi search Resource.
+ */
 public abstract class MultiSearchResource extends Resource {
     
 	private List<Long> id;

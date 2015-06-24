@@ -64,8 +64,10 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	 * @param parameterName parameterName
 	 * @param parameters parameters
 	 */
-	protected <E extends EntityModel, R extends Model> void addParameter(final E entity, final Dao<E, R, Long> dao,
-																		 final String parameterName, final Map<String, Object> parameters) {
+	protected <E extends EntityModel, R extends Model> void addParameter(final E entity,
+																		 final Dao<E, R, Long> dao,
+																		 final String parameterName,
+																		 final Map<String, Object> parameters) {
 		
 		if (entity != null) {
 			E dbEntity = dao.getEntityById(entity.getId());
@@ -73,7 +75,18 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 		}
 	}
 
-	protected <E extends EntityModel, R extends Model> void addParameter(final List<E> entities, final Dao<E, R, Long> dao, final String parameterName, final Map<String, Object> parameters) {
+	/**
+	 * Method for adding to parameters list of entities.
+	 * @param entities entities.
+	 * @param dao dao.
+	 * @param parameterName parameters name
+	 * @param parameters parameters
+	 * @param <E> E
+	 * @param <R> R
+	 */
+	protected <E extends EntityModel, R extends Model> void addParameter(final List<E> entities, final Dao<E, R, Long> dao,
+																		 final String parameterName,
+																		 final Map<String, Object> parameters) {
 
 		if (entities != null) {
 			List<E> dbEntities = entities.stream()

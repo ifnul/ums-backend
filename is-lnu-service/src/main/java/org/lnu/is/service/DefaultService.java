@@ -17,7 +17,7 @@ import java.util.Map;
  * @author ivanursul
  *
  * @param <ENTITY> Entity, Please see is-lnu-domain module.
- * @param <ENTITY> Entity, Please see is-lnu-domain module.
+ * @param <ENTITYLIST> Entity, Please see is-lnu-domain module.
  * @param <KEY> Key of corresponding 
  * @param <DAO> Dao
  */

@@ -2,6 +2,9 @@ package org.lnu.is.resource;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * Resource.
+ */
 public abstract class Resource {
 
 	/**

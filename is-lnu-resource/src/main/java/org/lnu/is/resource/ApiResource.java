@@ -7,7 +7,7 @@ import java.util.Date;
  * @author ivanursul
  *
  */
-public abstract class ApiResource extends Resource{
+public abstract class ApiResource extends Resource {
 
 	private Long id;
 	private String note;

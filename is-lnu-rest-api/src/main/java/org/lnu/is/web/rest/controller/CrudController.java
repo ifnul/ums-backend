@@ -6,9 +6,10 @@ import org.lnu.is.resource.message.MessageResource;
  * Interface, that declares crud operations.
  * @author ivanursul
  *
- * @param <RESOURCE>
+ * @param <RESOURCE> RESOURCE.
+ * @param <RESOURCELIST> RESOURCELIST.
  */
-public interface CrudController<RESOURCE,RESOURCELIST> extends PagedController<RESOURCE, RESOURCELIST> {
+public interface CrudController<RESOURCE, RESOURCELIST> extends PagedController<RESOURCE, RESOURCELIST> {
 
 	/**
 	 * Method for creating new resource.
