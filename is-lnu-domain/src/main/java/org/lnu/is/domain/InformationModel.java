@@ -1,9 +1,8 @@
 package org.lnu.is.domain;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 
 /**
  * Second layer model, with additional identifier fields.
@@ -22,6 +21,21 @@ public abstract class InformationModel extends EntityModel implements Serializab
 	
 	@Column(name = "uapp")
 	private String uapp;
+
+	/**
+	 * Default constructor.
+	 */
+	public InformationModel() {
+		super();
+	}
+
+	/**
+	 * Default constructor with id.
+	 * @param id
+	 */
+	public InformationModel(final Long id) {
+		super(id);
+	}
 
 	public Long getUid() {
 		return uid;

@@ -61,7 +61,7 @@
 		<spring.test.version>4.0.0.RELEASE</spring.test.version>
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
         <spring.ws.version>2.1.2.RELEASE</spring.ws.version>
-		<hibernate.version>4.2.0.Final</hibernate.version>
+		<hibernate.version>4.3.8.Final</hibernate.version>
 		<hibernate.validator.version>5.0.1.Final</hibernate.validator.version>
 		<slf4j.version>1.7.7</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
@@ -331,9 +331,10 @@
 			<!-- Hibernate -->
 			<dependency>
 				<groupId>org.hibernate.javax.persistence</groupId>
-				<artifactId>hibernate-jpa-2.0-api</artifactId>
-				<version>1.0.1.Final</version>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>1.0.0.Final</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>

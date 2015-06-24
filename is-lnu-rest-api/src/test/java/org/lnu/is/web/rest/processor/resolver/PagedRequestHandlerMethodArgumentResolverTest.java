@@ -1,25 +1,5 @@
 package org.lnu.is.web.rest.processor.resolver;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyMapOf;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.when;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Proxy;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -34,6 +14,7 @@ import org.lnu.is.web.exception.InvalidOrderByException;
 import org.lnu.is.web.rest.processor.resolver.limit.LimitParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
+import org.lnu.is.web.rest.processor.resolver.parameters.ParametersRetriever;
 import org.lnu.is.web.rest.processor.resolver.resource.ResourceParameterResolver;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -44,6 +25,25 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.HandlerMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Proxy;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyMapOf;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PagedRequestHandlerMethodArgumentResolverTest {
@@ -62,7 +62,10 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 	
 	@Mock
 	private ResourceParameterResolver resourceParamterResolver;
-	
+
+	@Mock
+	private ParametersRetriever parametersRetriever;
+
 	@Mock
 	private MethodParameter param;
 	
@@ -104,6 +107,10 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		Map<String, String> requestParameters = new HashMap<>();
 		requestParameters.put("id", id);
 		requestParameters.put("name", name);
+
+		Map<String, Object> parameters = new HashMap();
+		parameters.put("id", id);
+		parameters.put("name", Arrays.asList(name));
 		
 		PersonResource resource = new PersonResource();
 		resource.setName(name);
@@ -121,9 +128,9 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
 			.thenReturn(pathVariables);
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		
+		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
 		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -184,7 +191,11 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		Map<String, String> requestParameters = new HashMap<>();
 		requestParameters.put("id", id);
 		requestParameters.put("name", name);
-		
+
+		Map<String, Object> parameters = new HashMap();
+		parameters.put("id", id);
+		parameters.put("name", Arrays.asList(name));
+
 		PersonResource resource = new PersonResource();
 		resource.setName(name);
 		resource.setId(Long.valueOf(id));
@@ -201,9 +212,9 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
 			.thenReturn(pathVariables);
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		
+		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
 		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -263,6 +274,10 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		Map<String, String> requestParameters = new HashMap<>();
 		requestParameters.put("id", id);
 		requestParameters.put("name", name);
+
+		Map<String, Object> parameters = new HashMap();
+		parameters.put("id", id);
+		parameters.put("name", Arrays.asList(name));
 		
 		PersonResource resource = new PersonResource();
 		resource.setName(name);
@@ -279,9 +294,9 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
 		.thenReturn(pathVariables);
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		
+		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
 		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -341,6 +356,10 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		Map<String, String> requestParameters = new HashMap<>();
 		requestParameters.put("id", id);
 		requestParameters.put("name", name);
+
+		Map<String, Object> parameters = new HashMap();
+		parameters.put("id", id);
+		parameters.put("name", Arrays.asList(name));
 		
 		PersonResource resource = new PersonResource();
 		resource.setName(name);
@@ -356,9 +375,9 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
 		.thenReturn(pathVariables);
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		
+		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
 		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -418,6 +437,10 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		Map<String, String> requestParameters = new HashMap<>();
 		requestParameters.put("id", id);
 		requestParameters.put("name", name);
+
+		Map<String, Object> parameters = new HashMap();
+		parameters.put("id", id);
+		parameters.put("name", Arrays.asList(name));
 		
 		PersonResource resource = new PersonResource();
 		resource.setName(name);
@@ -433,9 +456,9 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
 		.thenReturn(pathVariables);
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		
+		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
 		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -495,7 +518,11 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		Map<String, String> requestParameters = new HashMap<>();
 		requestParameters.put("id", id);
 		requestParameters.put("name", name);
-		
+
+		Map<String, Object> parameters = new HashMap();
+		parameters.put("id", id);
+		parameters.put("name", Arrays.asList(name));
+
 		PersonResource resource = new PersonResource();
 		resource.setName(name);
 		resource.setId(Long.valueOf(id));
@@ -510,9 +537,10 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
 		.thenReturn(pathVariables);
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		
+		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
+
 		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
 		
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
@@ -570,11 +598,16 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		pathVariables.put("id", id);
 		Map<String, String[]> parameterMap = new HashMap<>();
 		parameterMap.put("name", new String[] { name });
-		
+
+
 		Map<String, String> requestParameters = new HashMap<>();
 		requestParameters.put("id", id);
 		requestParameters.put("name", name);
-		
+
+		Map<String, Object> parameters = new HashMap();
+		parameters.put("id", id);
+		parameters.put("name", Arrays.asList(name));
+
 		PersonResource resource = new PersonResource();
 		resource.setName(name);
 		resource.setId(Long.valueOf(id));
@@ -589,10 +622,9 @@ public class PagedRequestHandlerMethodArgumentResolverTest {
 		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
 		.thenReturn(pathVariables);
 		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		
+		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
 		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, String.class))).thenReturn(resource);
-		
+		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
 		// Limit when's
 		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
 				new Class[] { Limit.class }, 

@@ -130,6 +130,21 @@ public class Person extends InformationModel {
 	@Column(name = "ishostel")
 	private Integer isHostel;
 
+	/**
+	 * Default constructor.
+	 */
+	public Person() {
+		super();
+	}
+
+	/**
+	 * Default constructor with id.
+	 * @param id
+	 */
+	public Person(final Long id) {
+		super(id);
+	}
+
 	public PersonType getPersonType() {
 		return personType;
 	}

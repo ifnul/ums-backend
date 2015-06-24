@@ -1,7 +1,5 @@
 package org.lnu.is.facade.facade;
 
-import java.util.List;
-
 import org.lnu.is.converter.Converter;
 import org.lnu.is.domain.Model;
 import org.lnu.is.pagination.MultiplePagedSearch;
@@ -14,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * 
@@ -32,17 +32,8 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends Resource, ENTI
 
 	private Converter<ENTITY, RESOURCE> entityConverter;
 
-	public Converter<RESOURCELIST, ENTITYLIST> getResourceListConverter() {
-	    return resourceListConverter;
-	}
-
-	public void setResourceListConverter(
-		Converter<RESOURCELIST, ENTITYLIST> resourceListConverter) {
-	    this.resourceListConverter = resourceListConverter;
-	}
-
 	private Converter<RESOURCELIST, ENTITYLIST> resourceListConverter;
-	
+
 	private Converter<PagedRequest<RESOURCELIST>, MultiplePagedSearch<ENTITYLIST>> pagedRequestConverter;
 
 	private Converter<PagedResult<ENTITY>, PagedResultResource<RESOURCE>> pagedResultConverter;
@@ -190,4 +181,11 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends Resource, ENTI
 		return updateConverter;
 	}
 
+	public Converter<RESOURCELIST, ENTITYLIST> getResourceListConverter() {
+		return resourceListConverter;
+	}
+
+	public void setResourceListConverter(Converter<RESOURCELIST, ENTITYLIST> resourceListConverter) {
+		this.resourceListConverter = resourceListConverter;
+	}
 }

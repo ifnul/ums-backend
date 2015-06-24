@@ -1,7 +1,8 @@
 package org.lnu.is.domain;
 
-import java.io.Serializable;
-import java.util.Date;
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
+import org.lnu.is.domain.common.RowStatus;
 
 import javax.persistence.Column;
 import javax.persistence.EnumType;
@@ -10,10 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-
-import org.hibernate.annotations.Parameter;
-import org.hibernate.annotations.Type;
-import org.lnu.is.domain.common.RowStatus;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Base model.
@@ -57,6 +56,21 @@ public abstract class EntityModel extends Model implements Serializable {
 
 	@Column(name = "update_date")
 	private Date updateDate;
+
+	/**
+	 * Default constructor with no parameters.
+	 */
+	public EntityModel() {
+		super();
+	}
+
+	/**
+	 * Constructor with id.
+	 * @param id id.
+	 */
+	public EntityModel(final Long id) {
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;

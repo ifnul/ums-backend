@@ -1,5 +1,29 @@
 package org.lnu.is.web.rest.controller.person;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.lnu.is.facade.facade.Facade;
+import org.lnu.is.pagination.OrderBy;
+import org.lnu.is.resource.message.MessageResource;
+import org.lnu.is.resource.message.MessageType;
+import org.lnu.is.resource.person.PersonResource;
+import org.lnu.is.resource.person.PersonResourceList;
+import org.lnu.is.resource.search.PagedRequest;
+import org.lnu.is.resource.search.PagedResultResource;
+import org.lnu.is.web.rest.controller.AbstractControllerTest;
+import org.lnu.is.web.rest.controller.BaseController;
+import org.mockito.InjectMocks;
+import org.mockito.Matchers;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.http.MediaType;
+
+import java.nio.file.AccessDeniedException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.doThrow;
@@ -12,34 +36,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.pagination.OrderBy;
-import org.lnu.is.resource.message.MessageResource;
-import org.lnu.is.resource.message.MessageType;
-import org.lnu.is.resource.person.PersonResource;
-import org.lnu.is.resource.search.PagedRequest;
-import org.lnu.is.resource.search.PagedResultResource;
-import org.lnu.is.web.rest.controller.AbstractControllerTest;
-import org.lnu.is.web.rest.controller.BaseController;
-import org.mockito.InjectMocks;
-import org.mockito.Matchers;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.http.MediaType;
-
 @RunWith(MockitoJUnitRunner.class)
 public class PersonControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<PersonResource, PersonResource, Long> facade;
+	private Facade<PersonResource, PersonResourceList, Long> facade;
 	
 	@InjectMocks
 	private PersonController unit;
@@ -163,10 +164,10 @@ public class PersonControllerTest extends AbstractControllerTest {
 		expectedResource.setUri(uri);
 		expectedResource.setResources(entities);
 		
-		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), offset, limit, Collections.<OrderBy>emptyList());
+		PagedRequest<PersonResourceList> pagedRequest = new PagedRequest<PersonResourceList>(new PersonResourceList(), offset, limit, Collections.<OrderBy>emptyList());
 		
 		// When
-		when(facade.getResources(Matchers.<PagedRequest<PersonResource>>any())).thenReturn(expectedResource);
+		when(facade.getResources(Matchers.<PagedRequest<PersonResourceList>>any())).thenReturn(expectedResource);
     	String response = getJson(expectedResource, false);
 
 		// Then

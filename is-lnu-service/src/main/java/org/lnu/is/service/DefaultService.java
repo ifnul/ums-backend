@@ -1,11 +1,11 @@
 package org.lnu.is.service;
 
-import java.util.Map;
-
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.extractor.ParametersExtractor;
 import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.PagedResult;
+
+import java.util.Map;
 
 /**
  * 
@@ -21,7 +21,7 @@ import org.lnu.is.pagination.PagedResult;
  * @param <KEY> Key of corresponding 
  * @param <DAO> Dao
  */
-public class DefaultService<ENTITY,ENTITYLIST, KEY, DAO extends Dao<ENTITY, ENTITYLIST, KEY>> implements Service<ENTITY, ENTITYLIST, KEY> {
+public class DefaultService<ENTITY, ENTITYLIST, KEY, DAO extends Dao<ENTITY, ENTITYLIST, KEY>> implements Service<ENTITY, ENTITYLIST, KEY> {
 
 	private DAO dao;
 	

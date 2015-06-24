@@ -10,7 +10,7 @@ public class EntityNotFoundException extends RuntimeException {
 
 	private Class<?> clz;
 	private Object identifier;
-	
+
 	/**
 	 * Common constuctor.
 	 * @param message message

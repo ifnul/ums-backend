@@ -3,6 +3,7 @@ package org.lnu.is.extractor;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 
@@ -63,11 +64,23 @@ public abstract class AbstractParametersExtractor<T> implements ParametersExtrac
 	 * @param parameterName parameterName
 	 * @param parameters parameters
 	 */
-	protected <E extends EntityModel, R extends Model> void addParameter(final E entity, final Dao<E, R, Long> dao, final String parameterName, final Map<String, Object> parameters) {
+	protected <E extends EntityModel, R extends Model> void addParameter(final E entity, final Dao<E, R, Long> dao,
+																		 final String parameterName, final Map<String, Object> parameters) {
 		
 		if (entity != null) {
 			E dbEntity = dao.getEntityById(entity.getId());
 			parameters.put(parameterName, dbEntity);
+		}
+	}
+
+	protected <E extends EntityModel, R extends Model> void addParameter(final List<E> entities, final Dao<E, R, Long> dao, final String parameterName, final Map<String, Object> parameters) {
+
+		if (entities != null) {
+			List<E> dbEntities = entities.stream()
+					.map(e -> dao.getEntityById(e.getId()))
+					.collect(Collectors.toList());
+
+			parameters.put(parameterName, dbEntities);
 		}
 	}
 	

@@ -15,6 +15,7 @@ public class Constants {
 
     public static final String APPLICATION_API_PROPERTY = "application.api.context.path";
     public static final String DEFAULT_DATEFORMAT = "yyyy-MM-dd";
+    public static final String ORDER_BY = "orderBy";
 	
     public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(DEFAULT_DATEFORMAT);
 

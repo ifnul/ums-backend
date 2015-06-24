@@ -1,11 +1,13 @@
 package org.lnu.is.dao.builder;
 
+import org.lnu.is.pagination.OrderBy;
+
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import org.lnu.is.pagination.OrderBy;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * Base Query Builder.
@@ -108,6 +110,27 @@ public class BaseQueryBuilder {
 			getConditions().add(condition);
 		}
 		
+		return this;
+	}
+
+	public BaseQueryBuilder addAndConditionForLoop(Function<Object, String> func, List<?> values) {
+		StringBuilder builder = new StringBuilder(" (");
+		List<Object> parameters = new ArrayList<>();
+
+		if (values != null) {
+			for (Object value : values) {
+
+				if (!parameters.isEmpty()) {
+					builder.append("OR ");
+				}
+
+				builder.append(func.apply(value));
+				parameters.add(value);
+			}
+			builder.append(") ");
+
+			addAndCondition(builder.toString());
+		}
 		return this;
 	}
 
@@ -289,5 +312,6 @@ public class BaseQueryBuilder {
 	public String build() {
 		return getFinalQuery();
 	}
+
 
 }

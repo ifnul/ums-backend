@@ -1,6 +1,8 @@
 package org.lnu.is.domain.admin.unit;
 
-import java.util.Date;
+import org.lnu.is.annotation.dbtable.OB;
+import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.admin.unit.type.AdminUnitType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,10 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.lnu.is.annotation.dbtable.OB;
-import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.admin.unit.type.AdminUnitType;
+import java.util.Date;
 
 /**
  * Admin Unit entity.
@@ -52,6 +51,21 @@ public class AdminUnit extends InformationModel {
 	
 	@Column(name = "enddate")
 	private Date endDate;
+
+	/**
+	 * Default constructor.
+	 */
+	public AdminUnit() {
+		super();
+	}
+
+	/**
+	 * Default construcot with id.
+	 * @param id
+	 */
+	public AdminUnit(final Long id) {
+		super(id);
+	}
 
 	public AdminUnitType getAdminUnitType() {
 		return adminUnitType;

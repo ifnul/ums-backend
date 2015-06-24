@@ -1,13 +1,11 @@
 package org.lnu.is.web.rest.controller;
 
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
-import java.util.Collections;
-
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.web.rest.processor.resolver.PagedRequestHandlerMethodArgumentResolver;
@@ -16,6 +14,8 @@ import org.lnu.is.web.rest.processor.resolver.limit.LimitParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.DefaultOffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.offset.OffsetParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.order.OrderByFieldResolver;
+import org.lnu.is.web.rest.processor.resolver.parameters.DefaultParametersRetriever;
+import org.lnu.is.web.rest.processor.resolver.parameters.ParametersRetriever;
 import org.lnu.is.web.rest.processor.resolver.resource.DefaultResourceParameterResolver;
 import org.lnu.is.web.rest.processor.resolver.resource.ResourceParameterResolver;
 import org.mockito.Mock;
@@ -23,11 +23,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Collections;
+
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 public abstract class AbstractControllerTest {
 	
@@ -45,7 +46,9 @@ public abstract class AbstractControllerTest {
 	private LimitParameterResolver limitParameterResolver = new DefaultLimitParameterResolver();
 	
 	private ResourceParameterResolver resourceParameterResolver = new DefaultResourceParameterResolver();
-	
+
+	private ParametersRetriever parametersRetriever = new DefaultParametersRetriever();
+
 	@Before
 	public void setup() {
 		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(Collections.<OrderBy>emptyList());
@@ -55,6 +58,7 @@ public abstract class AbstractControllerTest {
 		pagedRequestArgumentResolver.setOffsetParameterResolver(offsetParameterResolver);
 		pagedRequestArgumentResolver.setLimitParameterResolver(limitParameterResolver);
 		pagedRequestArgumentResolver.setResourceParamterResolver(resourceParameterResolver);
+		pagedRequestArgumentResolver.setParametersRetriever(parametersRetriever);
 		
 		this.mockMvc = MockMvcBuilders.standaloneSetup(getUnit())
 				.setValidator(getValidator())

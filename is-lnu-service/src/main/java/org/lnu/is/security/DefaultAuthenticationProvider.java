@@ -1,11 +1,5 @@
 package org.lnu.is.security;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-
-import javax.annotation.Resource;
-
 import org.hibernate.Hibernate;
 import org.is.lnu.edbo.model.authentification.EdboAuthentification;
 import org.is.lnu.edbo.service.login.AuthentificationService;
@@ -27,6 +21,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
+
+import javax.annotation.Resource;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Default Authentication Provider.
@@ -115,6 +114,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
      * @param user
      */
     private void loadLazyFields(final User user) {
+
     	Hibernate.initialize(user.getGroups());
     	Hibernate.initialize(user.getRoles());
         Hibernate.initialize(user.getUserGroups());

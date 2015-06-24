@@ -1,30 +1,25 @@
-package org.lnu.is.multysearch.person;
+package org.lnu.is.resource.person;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.lnu.is.domain.admin.unit.AdminUnit;
-import org.lnu.is.domain.gender.type.GenderType;
-import org.lnu.is.domain.married.type.MarriedType;
-import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.type.PersonType;
-import org.lnu.is.multysearch.MultiSearchModel;
+import org.lnu.is.annotation.CrudableResource;
+import org.lnu.is.resource.MultiSearchResource;
 
 import java.util.Date;
 import java.util.List;
 
 /**
- * Person entity.
+ * Resource for person.
  * @author ivanursul
  *
  */
-public class PersonList extends MultiSearchModel {
+@CrudableResource
+public class PersonResourceList extends MultiSearchResource {
 
 	// Single fields
-	private Person parent;
-	private PersonType personType;
-	private GenderType genderType;
-	private MarriedType marriedType;
-	private AdminUnit citizenCountry;
-
+	private Long parentId;
+	private Long personTypeId;
+	private Long genderTypeId;
+	private Long marriedTypeId;
+	private Long citizenCountryId;
 	private String name;
 	private String firstName;
 	private String fatherName;
@@ -35,12 +30,11 @@ public class PersonList extends MultiSearchModel {
 	private String birthPlace;
 
 	// Multi search fields
-	private List<Person> parents;
-	private List<PersonType> personTypes;
-	private List<GenderType> genderTypes;
-	private List<MarriedType> marriedTypes;
-	private List<AdminUnit> citizenCountries;
-
+	private List<Long> parentIds;
+	private List<Long> personTypeIds;
+	private List<Long> genderTypeIds;
+	private List<Long> marriedTypeIds;
+	private List<Long> citizenCountryIds;
 	private List<String> names;
 	private List<String> firstNames;
 	private List<String> fatherNames;
@@ -52,49 +46,58 @@ public class PersonList extends MultiSearchModel {
 	private List<String> birthPlaces;
 
 	private Integer resident;
+
 	private Date begDate;
+
 	private Date endDate;
+
 	private Integer isMilitary;
+
 	private Integer isHostel;
 
-	public Person getParent() {
-		return parent;
+	@Override
+	public String getRootUri() {
+		return "/persons";
 	}
 
-	public void setParent(final Person parent) {
-		this.parent = parent;
+	public Long getParentId() {
+		return parentId;
 	}
 
-	public PersonType getPersonType() {
-		return personType;
+	public void setParentId(final Long parentId) {
+		this.parentId = parentId;
 	}
 
-	public void setPersonType(final PersonType personType) {
-		this.personType = personType;
+	public Long getPersonTypeId() {
+		return personTypeId;
 	}
 
-	public GenderType getGenderType() {
-		return genderType;
+	public void setPersonTypeId(final Long personTypeId) {
+		this.personTypeId = personTypeId;
 	}
 
-	public void setGenderType(final GenderType genderType) {
-		this.genderType = genderType;
+	public Long getGenderTypeId() {
+		return genderTypeId;
 	}
 
-	public MarriedType getMarriedType() {
-		return marriedType;
+	public void setGenderTypeId(final Long genderTypeId) {
+		this.genderTypeId = genderTypeId;
 	}
 
-	public void setMarriedType(final MarriedType marriedType) {
-		this.marriedType = marriedType;
+	public Long getMarriedTypeId() {
+		return marriedTypeId;
 	}
 
-	public AdminUnit getCitizenCountry() {
-		return citizenCountry;
+	public void setMarriedTypeId(final Long marriedTypeId) {
+		this.marriedTypeId = marriedTypeId;
 	}
 
-	public void setCitizenCountry(final AdminUnit citizenCountry) {
-		this.citizenCountry = citizenCountry;
+	public Long getCitizenCountryId() {
+		return citizenCountryId;
+	}
+
+	public void setCitizenCountryId(final Long citizenCountryId) {
+		this.citizenCountryId = citizenCountryId;
 	}
 
 	public String getName() {
@@ -153,164 +156,164 @@ public class PersonList extends MultiSearchModel {
 		this.identifier = identifier;
 	}
 
+	public String getBirthPlace() {
+		return birthPlace;
+	}
+
 	public void setBirthPlace(final String birthPlace) {
 		this.birthPlace = birthPlace;
+	}
+
+	public List<Long> getParentIds() {
+		return parentIds;
+	}
+
+	public void setParentIds(final List<Long> parentIds) {
+		this.parentIds = parentIds;
+	}
+
+	public List<Long> getPersonTypeIds() {
+		return personTypeIds;
+	}
+
+	public void setPersonTypeIds(final List<Long> personTypeIds) {
+		this.personTypeIds = personTypeIds;
+	}
+
+	public List<Long> getGenderTypeIds() {
+		return genderTypeIds;
+	}
+
+	public void setGenderTypeIds(final List<Long> genderTypeIds) {
+		this.genderTypeIds = genderTypeIds;
+	}
+
+	public List<Long> getMarriedTypeIds() {
+		return marriedTypeIds;
+	}
+
+	public void setMarriedTypeIds(final List<Long> marriedTypeIds) {
+		this.marriedTypeIds = marriedTypeIds;
+	}
+
+	public List<Long> getCitizenCountryIds() {
+		return citizenCountryIds;
+	}
+
+	public void setCitizenCountryIds(final List<Long> citizenCountryIds) {
+		this.citizenCountryIds = citizenCountryIds;
+	}
+
+	public List<String> getNames() {
+		return names;
+	}
+
+	public void setNames(final List<String> names) {
+		this.names = names;
+	}
+
+	public List<String> getFirstNames() {
+		return firstNames;
+	}
+
+	public void setFirstNames(final List<String> firstNames) {
+		this.firstNames = firstNames;
+	}
+
+	public List<String> getFatherNames() {
+		return fatherNames;
+	}
+
+	public void setFatherNames(final List<String> fatherNames) {
+		this.fatherNames = fatherNames;
+	}
+
+	public List<String> getSurnames() {
+		return surnames;
+	}
+
+	public void setSurnames(final List<String> surnames) {
+		this.surnames = surnames;
+	}
+
+	public List<String> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(final List<String> photos) {
+		this.photos = photos;
+	}
+
+	public List<String> getDocSeries() {
+		return docSeries;
+	}
+
+	public void setDocSeries(final List<String> docSeries) {
+		this.docSeries = docSeries;
+	}
+
+	public List<String> getDocNums() {
+		return docNums;
+	}
+
+	public void setDocNums(final List<String> docNums) {
+		this.docNums = docNums;
+	}
+
+	public List<String> getIdentifiers() {
+		return identifiers;
+	}
+
+	public void setIdentifiers(final List<String> identifiers) {
+		this.identifiers = identifiers;
 	}
 
 	public List<String> getBirthPlaces() {
 		return birthPlaces;
 	}
 
-	public List<PersonType> getPersonTypes() {
-	    return personTypes;
-	}
-
-	public void setPersonTypes(final List<PersonType> personTypes) {
-	    this.personTypes = personTypes;
-	}
-
-	public List<GenderType> getGenderTypes() {
-	    return genderTypes;
-	}
-
-	public void setGenderTypes(final List<GenderType> genderTypes) {
-	    this.genderTypes = genderTypes;
-	}
-
-	public List<MarriedType> getMarriedTypes() {
-	    return marriedTypes;
-	}
-
-	public void setMarriedTypes(final List<MarriedType> marriedTypes) {
-	    this.marriedTypes = marriedTypes;
-	}
-
-	public List<AdminUnit> getCitizenCountries() {
-	    return citizenCountries;
-	}
-
-	public void setCitizenCountries(final List<AdminUnit> citizenCountries) {
-	    this.citizenCountries = citizenCountries;
-	}
-
-	public List<Person> getParents() {
-	    return parents;
-	}
-
-	public void setParents(final List<Person> parents) {
-	    this.parents = parents;
-	}
-
-	public List<String> getNames() {
-	    return names;
-	}
-
-	public void setNames(final List<String> names) {
-	    this.names = names;
-	}
-
-	public List<String> getFirstNames() {
-	    return firstNames;
-	}
-
-	public void setFirstNames(final List<String> firstNames) {
-	    this.firstNames = firstNames;
-	}
-
-	public List<String> getFatherNames() {
-	    return fatherNames;
-	}
-
-	public void setFatherNames(final List<String> fatherNames) {
-	    this.fatherNames = fatherNames;
-	}
-
-	public List<String> getSurnames() {
-	    return surnames;
-	}
-
-	public void setSurnames(final List<String> surnames) {
-	    this.surnames = surnames;
-	}
-
-	public List<String> getPhotos() {
-	    return photos;
-	}
-
-	public void setPhotos(final List<String> photos) {
-	    this.photos = photos;
-	}
-
-	public List<String> getDocSeries() {
-	    return docSeries;
-	}
-
-	public void setDocSeries(final List<String> docSeries) {
-	    this.docSeries = docSeries;
-	}
-
-	public List<String> getDocNums() {
-	    return docNums;
-	}
-
-	public void setDocNums(final List<String> docNums) {
-	    this.docNums = docNums;
-	}
-
-	public List<String> getIdentifiers() {
-	    return identifiers;
-	}
-
-	public void setIdentifiers(final List<String> identifiers) {
-	    this.identifiers = identifiers;
+	public void setBirthPlaces(final List<String> birthPlaces) {
+		this.birthPlaces = birthPlaces;
 	}
 
 	public Integer getResident() {
-	    return resident;
+		return resident;
 	}
 
 	public void setResident(final Integer resident) {
-	    this.resident = resident;
-	}
-
-	public List<String> getBirthPlace() {
-	    return birthPlaces;
-	}
-
-	public void setBirthPlaces(final List<String> birthPlaces) {
-	    this.birthPlaces = birthPlaces;
+		this.resident = resident;
 	}
 
 	public Date getBegDate() {
-	    return begDate;
+		return begDate;
 	}
 
 	public void setBegDate(final Date begDate) {
-	    this.begDate = begDate;
+		this.begDate = begDate;
 	}
 
 	public Date getEndDate() {
-	    return endDate;
+		return endDate;
 	}
 
 	public void setEndDate(final Date endDate) {
-	    this.endDate = endDate;
+		this.endDate = endDate;
 	}
 
 	public Integer getIsMilitary() {
-	    return isMilitary;
+		return isMilitary;
 	}
 
 	public void setIsMilitary(final Integer isMilitary) {
-	    this.isMilitary = isMilitary;
+		this.isMilitary = isMilitary;
 	}
 
 	public Integer getIsHostel() {
-	    return isHostel;
+		return isHostel;
 	}
 
 	public void setIsHostel(final Integer isHostel) {
-	    this.isHostel = isHostel;
+		this.isHostel = isHostel;
 	}
 
 	@Override
@@ -325,21 +328,21 @@ public class PersonList extends MultiSearchModel {
 			return false;
 		}
 
-		PersonList that = (PersonList) o;
+		PersonResourceList that = (PersonResourceList) o;
 
-		if (parent != null ? !parent.equals(that.parent) : that.parent != null) {
+		if (parentId != null ? !parentId.equals(that.parentId) : that.parentId != null) {
 			return false;
 		}
-		if (personType != null ? !personType.equals(that.personType) : that.personType != null) {
+		if (personTypeId != null ? !personTypeId.equals(that.personTypeId) : that.personTypeId != null) {
 			return false;
 		}
-		if (genderType != null ? !genderType.equals(that.genderType) : that.genderType != null) {
+		if (genderTypeId != null ? !genderTypeId.equals(that.genderTypeId) : that.genderTypeId != null) {
 			return false;
 		}
-		if (marriedType != null ? !marriedType.equals(that.marriedType) : that.marriedType != null) {
+		if (marriedTypeId != null ? !marriedTypeId.equals(that.marriedTypeId) : that.marriedTypeId != null) {
 			return false;
 		}
-		if (citizenCountry != null ? !citizenCountry.equals(that.citizenCountry) : that.citizenCountry != null) {
+		if (citizenCountryId != null ? !citizenCountryId.equals(that.citizenCountryId) : that.citizenCountryId != null) {
 			return false;
 		}
 		if (name != null ? !name.equals(that.name) : that.name != null) {
@@ -366,19 +369,19 @@ public class PersonList extends MultiSearchModel {
 		if (birthPlace != null ? !birthPlace.equals(that.birthPlace) : that.birthPlace != null) {
 			return false;
 		}
-		if (parents != null ? !parents.equals(that.parents) : that.parents != null) {
+		if (parentIds != null ? !parentIds.equals(that.parentIds) : that.parentIds != null) {
 			return false;
 		}
-		if (personTypes != null ? !personTypes.equals(that.personTypes) : that.personTypes != null) {
+		if (personTypeIds != null ? !personTypeIds.equals(that.personTypeIds) : that.personTypeIds != null) {
 			return false;
 		}
-		if (genderTypes != null ? !genderTypes.equals(that.genderTypes) : that.genderTypes != null) {
+		if (genderTypeIds != null ? !genderTypeIds.equals(that.genderTypeIds) : that.genderTypeIds != null) {
 			return false;
 		}
-		if (marriedTypes != null ? !marriedTypes.equals(that.marriedTypes) : that.marriedTypes != null) {
+		if (marriedTypeIds != null ? !marriedTypeIds.equals(that.marriedTypeIds) : that.marriedTypeIds != null) {
 			return false;
 		}
-		if (citizenCountries != null ? !citizenCountries.equals(that.citizenCountries) : that.citizenCountries != null) {
+		if (citizenCountryIds != null ? !citizenCountryIds.equals(that.citizenCountryIds) : that.citizenCountryIds != null) {
 			return false;
 		}
 		if (names != null ? !names.equals(that.names) : that.names != null) {
@@ -427,11 +430,11 @@ public class PersonList extends MultiSearchModel {
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
-		result = 31 * result + (parent != null ? parent.hashCode() : 0);
-		result = 31 * result + (personType != null ? personType.hashCode() : 0);
-		result = 31 * result + (genderType != null ? genderType.hashCode() : 0);
-		result = 31 * result + (marriedType != null ? marriedType.hashCode() : 0);
-		result = 31 * result + (citizenCountry != null ? citizenCountry.hashCode() : 0);
+		result = 31 * result + (parentId != null ? parentId.hashCode() : 0);
+		result = 31 * result + (personTypeId != null ? personTypeId.hashCode() : 0);
+		result = 31 * result + (genderTypeId != null ? genderTypeId.hashCode() : 0);
+		result = 31 * result + (marriedTypeId != null ? marriedTypeId.hashCode() : 0);
+		result = 31 * result + (citizenCountryId != null ? citizenCountryId.hashCode() : 0);
 		result = 31 * result + (name != null ? name.hashCode() : 0);
 		result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
 		result = 31 * result + (fatherName != null ? fatherName.hashCode() : 0);
@@ -440,11 +443,11 @@ public class PersonList extends MultiSearchModel {
 		result = 31 * result + (docNum != null ? docNum.hashCode() : 0);
 		result = 31 * result + (identifier != null ? identifier.hashCode() : 0);
 		result = 31 * result + (birthPlace != null ? birthPlace.hashCode() : 0);
-		result = 31 * result + (parents != null ? parents.hashCode() : 0);
-		result = 31 * result + (personTypes != null ? personTypes.hashCode() : 0);
-		result = 31 * result + (genderTypes != null ? genderTypes.hashCode() : 0);
-		result = 31 * result + (marriedTypes != null ? marriedTypes.hashCode() : 0);
-		result = 31 * result + (citizenCountries != null ? citizenCountries.hashCode() : 0);
+		result = 31 * result + (parentIds != null ? parentIds.hashCode() : 0);
+		result = 31 * result + (personTypeIds != null ? personTypeIds.hashCode() : 0);
+		result = 31 * result + (genderTypeIds != null ? genderTypeIds.hashCode() : 0);
+		result = 31 * result + (marriedTypeIds != null ? marriedTypeIds.hashCode() : 0);
+		result = 31 * result + (citizenCountryIds != null ? citizenCountryIds.hashCode() : 0);
 		result = 31 * result + (names != null ? names.hashCode() : 0);
 		result = 31 * result + (firstNames != null ? firstNames.hashCode() : 0);
 		result = 31 * result + (fatherNames != null ? fatherNames.hashCode() : 0);
@@ -464,39 +467,39 @@ public class PersonList extends MultiSearchModel {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this)
-				.append("parent", parent)
-				.append("personType", personType)
-				.append("genderType", genderType)
-				.append("marriedType", marriedType)
-				.append("citizenCountry", citizenCountry)
-				.append("name", name)
-				.append("firstName", firstName)
-				.append("fatherName", fatherName)
-				.append("surname", surname)
-				.append("photo", photo)
-				.append("docNum", docNum)
-				.append("identifier", identifier)
-				.append("birthPlace", birthPlace)
-				.append("parents", parents)
-				.append("personTypes", personTypes)
-				.append("genderTypes", genderTypes)
-				.append("marriedTypes", marriedTypes)
-				.append("citizenCountries", citizenCountries)
-				.append("names", names)
-				.append("firstNames", firstNames)
-				.append("fatherNames", fatherNames)
-				.append("surnames", surnames)
-				.append("photos", photos)
-				.append("docSeries", docSeries)
-				.append("docNums", docNums)
-				.append("identifiers", identifiers)
-				.append("birthPlaces", birthPlaces)
-				.append("resident", resident)
-				.append("begDate", begDate)
-				.append("endDate", endDate)
-				.append("isMilitary", isMilitary)
-				.append("isHostel", isHostel)
-				.toString();
+		return "PersonResourceList{" +
+				"parentId=" + parentId +
+				", personTypeId=" + personTypeId +
+				", genderTypeId=" + genderTypeId +
+				", marriedTypeId=" + marriedTypeId +
+				", citizenCountryId=" + citizenCountryId +
+				", name='" + name + '\'' +
+				", firstName='" + firstName + '\'' +
+				", fatherName='" + fatherName + '\'' +
+				", surname='" + surname + '\'' +
+				", photo='" + photo + '\'' +
+				", docNum='" + docNum + '\'' +
+				", identifier='" + identifier + '\'' +
+				", birthPlace='" + birthPlace + '\'' +
+				", parentIds=" + parentIds +
+				", personTypeIds=" + personTypeIds +
+				", genderTypeIds=" + genderTypeIds +
+				", marriedTypeIds=" + marriedTypeIds +
+				", citizenCountryIds=" + citizenCountryIds +
+				", names=" + names +
+				", firstNames=" + firstNames +
+				", fatherNames=" + fatherNames +
+				", surnames=" + surnames +
+				", photos=" + photos +
+				", docSeries=" + docSeries +
+				", docNums=" + docNums +
+				", identifiers=" + identifiers +
+				", birthPlaces=" + birthPlaces +
+				", resident=" + resident +
+				", begDate=" + begDate +
+				", endDate=" + endDate +
+				", isMilitary=" + isMilitary +
+				", isHostel=" + isHostel +
+				"} " + super.toString();
 	}
 }

@@ -1,13 +1,12 @@
 package org.lnu.is.web.rest.controller.person;
 
-import javax.annotation.Resource;
-import javax.validation.Valid;
-
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
 import org.lnu.is.facade.facade.Facade;
-import org.lnu.is.multysearch.resource.person.PersonResourceList;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
 import org.lnu.is.resource.person.PersonResource;
+import org.lnu.is.resource.person.PersonResourceList;
 import org.lnu.is.resource.search.PagedRequest;
 import org.lnu.is.resource.search.PagedResultResource;
 import org.lnu.is.web.rest.constant.Request;
@@ -23,8 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
+import javax.annotation.Resource;
+import javax.validation.Valid;
 
 /**
  * Persons controller.
