@@ -68,7 +68,7 @@ public abstract class EntityModel extends Model implements Serializable {
 	 * Constructor with id.
 	 * @param id id.
 	 */
-	public EntityModel(Long id) {
+	public EntityModel(final Long id) {
 		this.id = id;
 	}
 

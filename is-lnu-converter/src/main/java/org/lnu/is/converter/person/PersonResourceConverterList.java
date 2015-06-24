@@ -41,6 +41,49 @@ public class PersonResourceConverterList extends AbstractConverter<PersonResourc
 		target.setSurnames(source.getSurnames());
 		target.setNote(source.getNote());
 
+		// Single fields
+		target.setName(source.getName());
+		target.setFirstName(source.getFirstName());
+		target.setFatherName(source.getFatherName());
+		target.setSurname(source.getSurname());
+		target.setPhoto(source.getPhoto());
+		target.setDocNum(source.getDocNum());
+		target.setIdentifier(source.getIdentifier());
+		target.setBirthPlace(source.getBirthPlace());
+
+		// Single fields
+		if (source.getParentId() != null) {
+			Person person = new Person();
+			person.setId(source.getParentId());
+			target.setParent(person);
+		}
+
+		if (source.getPersonTypeId() != null) {
+			PersonType personType = new PersonType();
+			personType.setId(source.getPersonTypeId());
+			target.setPersonType(personType);
+		}
+
+		if (source.getGenderTypeId() != null) {
+			GenderType genderType = new GenderType();
+			genderType.setId(source.getGenderTypeId());
+			target.setGenderType(genderType);
+		}
+
+		if (source.getMarriedTypeId() != null) {
+			MarriedType marriedType = new MarriedType();
+			marriedType.setId(source.getMarriedTypeId());
+			target.setMarriedType(marriedType);
+		}
+
+		if (source.getCitizenCountryId() != null) {
+			AdminUnit adminUnit = new AdminUnit();
+			adminUnit.setId(source.getCitizenCountryId());
+			target.setCitizenCountry(adminUnit);
+		}
+
+
+		// Multi search fields
 		if (source.getPersonTypeIds() != null) {
 			List<PersonType> personTypes = source.getPersonTypeIds().stream()
 					.map(id -> new PersonType(id))

@@ -1,14 +1,15 @@
 package org.lnu.is.dao.builder;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import org.lnu.is.pagination.OrderBy;
+import org.lnu.is.pagination.OrderByType;
 
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Test;
-import org.lnu.is.pagination.OrderBy;
-import org.lnu.is.pagination.OrderByType;
+import static org.junit.Assert.assertEquals;
 
 public class BaseQueryBuilderTest {
 
@@ -34,7 +35,7 @@ public class BaseQueryBuilderTest {
 		// Then
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void testBuildWithOrderBy() throws Exception {
 		// Given
@@ -62,7 +63,40 @@ public class BaseQueryBuilderTest {
 		// Then
 		assertEquals(expected, actual);
 	}
-	
+
+	@Test
+	public void testBuildWithOrderByWithLambdaFunction() throws Exception {
+		// Given
+		String query = "SELECT FROM SMTH %s";
+		String condition = "condition ";
+		Object parameter = new Object();
+
+		String condition1 = "condition1 ";
+		Object nullParameter = null;
+
+		String condition3 = "condition2.name = ''{0}'' ";
+		List<String> names = Arrays.asList("name1", "name2", "name3");
+
+		OrderBy orderBy1 = new OrderBy("name1", OrderByType.ASC);
+		OrderBy orderBy2 = new OrderBy("name2", OrderByType.DESC);
+
+		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2);
+
+		String expected = "SELECT FROM SMTH WHERE condition AND  (condition2.name = 'name1' OR condition2.name = 'name2' OR condition2.name = 'name3' ) ORDER BY e.name1 ASC, e.name2 DESC";
+
+		// When
+		String actual = BaseQueryBuilder.getInstance(query)
+				.where()
+					.addOrCondition(condition, parameter)
+					.addOrCondition(condition1, nullParameter)
+					.addAndConditionForLoop(o -> MessageFormat.format(condition3, o), names)
+					.orderBy(orders)
+				.build();
+
+		// Then
+		assertEquals(expected, actual);
+	}
+
 	@Test
 	public void testBuildWithSingleOrderBy() throws Exception {
 		// Given

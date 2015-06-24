@@ -1,6 +1,5 @@
 package org.lnu.is.resource.person;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.MultiSearchResource;
 
@@ -15,47 +14,154 @@ import java.util.List;
 @CrudableResource
 public class PersonResourceList extends MultiSearchResource {
 
+	// Single fields
+	private Long parentId;
+	private Long personTypeId;
+	private Long genderTypeId;
+	private Long marriedTypeId;
+	private Long citizenCountryId;
+	private String name;
+	private String firstName;
+	private String fatherName;
+	private String surname;
+	private String photo;
+	private String docNum;
+	private String identifier;
+	private String birthPlace;
+
+	// Multi search fields
 	private List<Long> parentIds;
-
 	private List<Long> personTypeIds;
-	
 	private List<Long> genderTypeIds;
-	
 	private List<Long> marriedTypeIds;
-	
 	private List<Long> citizenCountryIds;
-
 	private List<String> names;
-	
 	private List<String> firstNames;
-	
 	private List<String> fatherNames;
-	
 	private List<String> surnames;
-	
 	private List<String> photos;
-	
 	private List<String> docSeries;
-	
 	private List<String> docNums;
-	
 	private List<String> identifiers;
-
 	private List<String> birthPlaces;
 
 	private Integer resident;
 
 	private Date begDate;
-	
+
 	private Date endDate;
-	
+
 	private Integer isMilitary;
-	
+
 	private Integer isHostel;
 
 	@Override
 	public String getRootUri() {
 		return "/persons";
+	}
+
+	public Long getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(final Long parentId) {
+		this.parentId = parentId;
+	}
+
+	public Long getPersonTypeId() {
+		return personTypeId;
+	}
+
+	public void setPersonTypeId(final Long personTypeId) {
+		this.personTypeId = personTypeId;
+	}
+
+	public Long getGenderTypeId() {
+		return genderTypeId;
+	}
+
+	public void setGenderTypeId(final Long genderTypeId) {
+		this.genderTypeId = genderTypeId;
+	}
+
+	public Long getMarriedTypeId() {
+		return marriedTypeId;
+	}
+
+	public void setMarriedTypeId(final Long marriedTypeId) {
+		this.marriedTypeId = marriedTypeId;
+	}
+
+	public Long getCitizenCountryId() {
+		return citizenCountryId;
+	}
+
+	public void setCitizenCountryId(final Long citizenCountryId) {
+		this.citizenCountryId = citizenCountryId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(final String name) {
+		this.name = name;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(final String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getFatherName() {
+		return fatherName;
+	}
+
+	public void setFatherName(final String fatherName) {
+		this.fatherName = fatherName;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(final String surname) {
+		this.surname = surname;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(final String photo) {
+		this.photo = photo;
+	}
+
+	public String getDocNum() {
+		return docNum;
+	}
+
+	public void setDocNum(final String docNum) {
+		this.docNum = docNum;
+	}
+
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public void setIdentifier(final String identifier) {
+		this.identifier = identifier;
+	}
+
+	public String getBirthPlace() {
+		return birthPlace;
+	}
+
+	public void setBirthPlace(final String birthPlace) {
+		this.birthPlace = birthPlace;
 	}
 
 	public List<Long> getParentIds() {
@@ -224,6 +330,45 @@ public class PersonResourceList extends MultiSearchResource {
 
 		PersonResourceList that = (PersonResourceList) o;
 
+		if (parentId != null ? !parentId.equals(that.parentId) : that.parentId != null) {
+			return false;
+		}
+		if (personTypeId != null ? !personTypeId.equals(that.personTypeId) : that.personTypeId != null) {
+			return false;
+		}
+		if (genderTypeId != null ? !genderTypeId.equals(that.genderTypeId) : that.genderTypeId != null) {
+			return false;
+		}
+		if (marriedTypeId != null ? !marriedTypeId.equals(that.marriedTypeId) : that.marriedTypeId != null) {
+			return false;
+		}
+		if (citizenCountryId != null ? !citizenCountryId.equals(that.citizenCountryId) : that.citizenCountryId != null) {
+			return false;
+		}
+		if (name != null ? !name.equals(that.name) : that.name != null) {
+			return false;
+		}
+		if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) {
+			return false;
+		}
+		if (fatherName != null ? !fatherName.equals(that.fatherName) : that.fatherName != null) {
+			return false;
+		}
+		if (surname != null ? !surname.equals(that.surname) : that.surname != null) {
+			return false;
+		}
+		if (photo != null ? !photo.equals(that.photo) : that.photo != null) {
+			return false;
+		}
+		if (docNum != null ? !docNum.equals(that.docNum) : that.docNum != null) {
+			return false;
+		}
+		if (identifier != null ? !identifier.equals(that.identifier) : that.identifier != null) {
+			return false;
+		}
+		if (birthPlace != null ? !birthPlace.equals(that.birthPlace) : that.birthPlace != null) {
+			return false;
+		}
 		if (parentIds != null ? !parentIds.equals(that.parentIds) : that.parentIds != null) {
 			return false;
 		}
@@ -285,6 +430,19 @@ public class PersonResourceList extends MultiSearchResource {
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
+		result = 31 * result + (parentId != null ? parentId.hashCode() : 0);
+		result = 31 * result + (personTypeId != null ? personTypeId.hashCode() : 0);
+		result = 31 * result + (genderTypeId != null ? genderTypeId.hashCode() : 0);
+		result = 31 * result + (marriedTypeId != null ? marriedTypeId.hashCode() : 0);
+		result = 31 * result + (citizenCountryId != null ? citizenCountryId.hashCode() : 0);
+		result = 31 * result + (name != null ? name.hashCode() : 0);
+		result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+		result = 31 * result + (fatherName != null ? fatherName.hashCode() : 0);
+		result = 31 * result + (surname != null ? surname.hashCode() : 0);
+		result = 31 * result + (photo != null ? photo.hashCode() : 0);
+		result = 31 * result + (docNum != null ? docNum.hashCode() : 0);
+		result = 31 * result + (identifier != null ? identifier.hashCode() : 0);
+		result = 31 * result + (birthPlace != null ? birthPlace.hashCode() : 0);
 		result = 31 * result + (parentIds != null ? parentIds.hashCode() : 0);
 		result = 31 * result + (personTypeIds != null ? personTypeIds.hashCode() : 0);
 		result = 31 * result + (genderTypeIds != null ? genderTypeIds.hashCode() : 0);
@@ -309,26 +467,39 @@ public class PersonResourceList extends MultiSearchResource {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this)
-				.append("parentIds", parentIds)
-				.append("personTypeIds", personTypeIds)
-				.append("genderTypeIds", genderTypeIds)
-				.append("marriedTypeIds", marriedTypeIds)
-				.append("citizenCountryIds", citizenCountryIds)
-				.append("names", names)
-				.append("firstNames", firstNames)
-				.append("fatherNames", fatherNames)
-				.append("surnames", surnames)
-				.append("photos", photos)
-				.append("docSeries", docSeries)
-				.append("docNums", docNums)
-				.append("identifiers", identifiers)
-				.append("birthPlaces", birthPlaces)
-				.append("resident", resident)
-				.append("begDate", begDate)
-				.append("endDate", endDate)
-				.append("isMilitary", isMilitary)
-				.append("isHostel", isHostel)
-				.toString();
+		return "PersonResourceList{" +
+				"parentId=" + parentId +
+				", personTypeId=" + personTypeId +
+				", genderTypeId=" + genderTypeId +
+				", marriedTypeId=" + marriedTypeId +
+				", citizenCountryId=" + citizenCountryId +
+				", name='" + name + '\'' +
+				", firstName='" + firstName + '\'' +
+				", fatherName='" + fatherName + '\'' +
+				", surname='" + surname + '\'' +
+				", photo='" + photo + '\'' +
+				", docNum='" + docNum + '\'' +
+				", identifier='" + identifier + '\'' +
+				", birthPlace='" + birthPlace + '\'' +
+				", parentIds=" + parentIds +
+				", personTypeIds=" + personTypeIds +
+				", genderTypeIds=" + genderTypeIds +
+				", marriedTypeIds=" + marriedTypeIds +
+				", citizenCountryIds=" + citizenCountryIds +
+				", names=" + names +
+				", firstNames=" + firstNames +
+				", fatherNames=" + fatherNames +
+				", surnames=" + surnames +
+				", photos=" + photos +
+				", docSeries=" + docSeries +
+				", docNums=" + docNums +
+				", identifiers=" + identifiers +
+				", birthPlaces=" + birthPlaces +
+				", resident=" + resident +
+				", begDate=" + begDate +
+				", endDate=" + endDate +
+				", isMilitary=" + isMilitary +
+				", isHostel=" + isHostel +
+				"} " + super.toString();
 	}
 }
