@@ -77,6 +77,29 @@ public class DefaultResourceParameterResolverTest {
 		verify(type).getActualTypeArguments();
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void testGetResourceWithMultipleFieldsId() throws Exception {
+		// Given
+		String id = "1";
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("id", id);
+
+		PersonResourceList expected = new PersonResourceList();
+		expected.setId(Arrays.asList(Long.valueOf(id)));
+
+		// When
+		when(param.getGenericParameterType()).thenReturn(type);
+		when(type.getActualTypeArguments()).thenReturn(types);
+
+		Object actual = unit.getResource(param, parameters);
+
+		// Then
+		verify(param).getGenericParameterType();
+		verify(type).getActualTypeArguments();
+		assertEquals(expected, actual);
+	}
+
 	@Test
 	public void testGetResourceWithMultipleFieldsAndReadyParameters() throws Exception {
 		// Given
