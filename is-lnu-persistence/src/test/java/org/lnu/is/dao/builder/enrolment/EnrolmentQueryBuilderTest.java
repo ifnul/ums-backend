@@ -1,11 +1,5 @@
 package org.lnu.is.dao.builder.enrolment;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
@@ -17,6 +11,12 @@ import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.pagination.OrderByType;
+
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class EnrolmentQueryBuilderTest {
 
@@ -307,7 +307,7 @@ public class EnrolmentQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 
-		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND e.specOffer LIKE CONCAT('%',:specOffer,'%') AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docText LIKE CONCAT('%',:docText,'%') AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.isEducationState = :isEducationState AND e.isInterview = :isInterview AND e.isOriginal = :isOriginal AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND LOWER(e.specOffer) LIKE LOWER(CONCAT('%',:specOffer,'%')) AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND LOWER(e.docSeries) LIKE LOWER(CONCAT('%',:docSeries,'%')) AND LOWER(e.docNum) LIKE LOWER(CONCAT('%',:docNum,'%')) AND LOWER(e.docText) LIKE LOWER(CONCAT('%',:docText,'%')) AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.isEducationState = :isEducationState AND e.isInterview = :isInterview AND e.isOriginal = :isOriginal AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<Enrolment> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -378,7 +378,7 @@ public class EnrolmentQueryBuilderTest {
 		OrderBy orderBy18 = new OrderBy("priority", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2, orderBy3, orderBy4, orderBy5, orderBy6, orderBy7, orderBy8, orderBy9, orderBy10, orderBy11, orderBy12, orderBy13, orderBy14, orderBy15, orderBy16, orderBy17, orderBy18);
 
-		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND e.specOffer LIKE CONCAT('%',:specOffer,'%') AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docText LIKE CONCAT('%',:docText,'%') AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.person ASC, e.specOffer DESC, e.department ASC, e.personPaper DESC, e.enrolmentType ASC, e.parent DESC, e.mark ASC, e.docSeries DESC, e.docNum ASC, e.docText DESC, e.isState ASC, e.isContract DESC, e.isPrivilege ASC, e.isHostel DESC, e.evDate ASC, e.begDate DESC, e.endDate ASC, e.priority DESC";
+		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND LOWER(e.specOffer) LIKE LOWER(CONCAT('%',:specOffer,'%')) AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND LOWER(e.docSeries) LIKE LOWER(CONCAT('%',:docSeries,'%')) AND LOWER(e.docNum) LIKE LOWER(CONCAT('%',:docNum,'%')) AND LOWER(e.docText) LIKE LOWER(CONCAT('%',:docText,'%')) AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ORDER BY e.person ASC, e.specOffer DESC, e.department ASC, e.personPaper DESC, e.enrolmentType ASC, e.parent DESC, e.mark ASC, e.docSeries DESC, e.docNum ASC, e.docText DESC, e.isState ASC, e.isContract DESC, e.isPrivilege ASC, e.isHostel DESC, e.evDate ASC, e.begDate DESC, e.endDate ASC, e.priority DESC";
 		MultiplePagedSearch<Enrolment> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);
@@ -433,7 +433,7 @@ public class EnrolmentQueryBuilderTest {
 		context.setBegDate(begDate);
 		context.setEndDate(endDate);
 		
-		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND e.specOffer LIKE CONCAT('%',:specOffer,'%') AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docText LIKE CONCAT('%',:docText,'%') AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
+		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND LOWER(e.specOffer) LIKE LOWER(CONCAT('%',:specOffer,'%')) AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND LOWER(e.docSeries) LIKE LOWER(CONCAT('%',:docSeries,'%')) AND LOWER(e.docNum) LIKE LOWER(CONCAT('%',:docNum,'%')) AND LOWER(e.docText) LIKE LOWER(CONCAT('%',:docText,'%')) AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) ";
 		MultiplePagedSearch<Enrolment> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
@@ -507,7 +507,7 @@ public class EnrolmentQueryBuilderTest {
 		OrderBy orderBy18 = new OrderBy("priority", OrderByType.DESC);
 		List<OrderBy> orders = Arrays.asList(orderBy1, orderBy2, orderBy3, orderBy4, orderBy5, orderBy6, orderBy7, orderBy8, orderBy9, orderBy10, orderBy11, orderBy12, orderBy13, orderBy14, orderBy15, orderBy16, orderBy17, orderBy18);
 		
-		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND e.specOffer LIKE CONCAT('%',:specOffer,'%') AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND e.docSeries LIKE CONCAT('%',:docSeries,'%') AND e.docNum LIKE CONCAT('%',:docNum,'%') AND e.docText LIKE CONCAT('%',:docText,'%') AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) ORDER BY e.person ASC, e.specOffer DESC, e.department ASC, e.personPaper DESC, e.enrolmentType ASC, e.parent DESC, e.mark ASC, e.docSeries DESC, e.docNum ASC, e.docText DESC, e.isState ASC, e.isContract DESC, e.isPrivilege ASC, e.isHostel DESC, e.evDate ASC, e.begDate DESC, e.endDate ASC, e.priority DESC";
+		String expectedQuery = "SELECT e FROM Enrolment e WHERE ( e.person = :person AND LOWER(e.specOffer) LIKE LOWER(CONCAT('%',:specOffer,'%')) AND e.department = :department AND e.personPaper = :personPaper AND e.enrolmentType = :enrolmentType AND e.parent = :parent AND e.mark = :mark AND LOWER(e.docSeries) LIKE LOWER(CONCAT('%',:docSeries,'%')) AND LOWER(e.docNum) LIKE LOWER(CONCAT('%',:docNum,'%')) AND LOWER(e.docText) LIKE LOWER(CONCAT('%',:docText,'%')) AND e.isState = :isState AND e.isContract = :isContract AND e.isPrivilege = :isPrivilege AND e.isHostel = :isHostel AND e.evDate = :evDate AND e.begDate <= :begDate AND e.endDate >= :endDate) ORDER BY e.person ASC, e.specOffer DESC, e.department ASC, e.personPaper DESC, e.enrolmentType ASC, e.parent DESC, e.mark ASC, e.docSeries DESC, e.docNum ASC, e.docText DESC, e.isState ASC, e.isContract DESC, e.isPrivilege ASC, e.isHostel DESC, e.evDate ASC, e.begDate DESC, e.endDate ASC, e.priority DESC";
 		MultiplePagedSearch<Enrolment> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		pagedSearch.setOrders(orders);

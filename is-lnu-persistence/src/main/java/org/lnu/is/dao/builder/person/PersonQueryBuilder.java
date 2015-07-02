@@ -15,15 +15,15 @@ import java.text.MessageFormat;
 @QBuilder("personQueryBuilder")
 public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 	// Single field conditions
-	private static final String NAMES_CONDITIOIN_PLACEHOLDER = "e.name LIKE ''%{0}%'' ";
-	private static final String FIRSTNAMES_CONDITIOIN_PLACEHOLDER = "e.firstName LIKE ''%{0}%'' ";
-	private static final String SURNNAMES_CONDITIOIN_PLACEHOLDER = "e.surname LIKE ''%{0}%'' ";
-	private static final String FATHERNAMES_CONDITIOIN_PLACEHOLDER = "e.fatherName LIKE ''%{0}%'' ";
-	private static final String PHOTOS_CONDITIOIN_PLACEHOLDER = "e.photo LIKE ''%{0}%'' ";
-	private static final String DOCSERIES_CONDITIOIN_PLACEHOLDER = "e.docSeries LIKE ''%{0}%'' ";
-	private static final String DOCNUMS_CONDITIOIN_PLACEHOLDER = "e.docNum LIKE ''%{0}%'' ";
-	private static final String IDENTIFIERS_CONDITIOIN_PLACEHOLDER = "e.identifier LIKE ''%{0}%'' ";
-	private static final String BIRTHPLACES_CONDITIOIN_PLACEHOLDER = "e.birthPlace LIKE ''%{0}%'' ";
+	private static final String NAMES_CONDITIOIN_PLACEHOLDER = "LOWER(e.name) LIKE LOWER(''%{0}%'') ";
+	private static final String FIRSTNAMES_CONDITIOIN_PLACEHOLDER = "LOWER(e.firstName) LIKE LOWER(''%{0}%'') ";
+	private static final String SURNNAMES_CONDITIOIN_PLACEHOLDER = "LOWER(e.surname) LIKE LOWER(''%{0}%'') ";
+	private static final String FATHERNAMES_CONDITIOIN_PLACEHOLDER = "LOWER(e.fatherName) LIKE LOWER(''%{0}%'') ";
+	private static final String PHOTOS_CONDITIOIN_PLACEHOLDER = "LOWER(e.photo) LIKE LOWER(''%{0}%'') ";
+	private static final String DOCSERIES_CONDITIOIN_PLACEHOLDER = "LOWER(e.docSeries) LIKE LOWER(''%{0}%'') ";
+	private static final String DOCNUMS_CONDITIOIN_PLACEHOLDER = "LOWER(e.docNum) LIKE LOWER(''%{0}%'') ";
+	private static final String IDENTIFIERS_CONDITIOIN_PLACEHOLDER = "LOWER(e.identifier) LIKE LOWER(''%{0}%'') ";
+	private static final String BIRTHPLACES_CONDITIOIN_PLACEHOLDER = "LOWER(e.birthPlace) LIKE LOWER(''%{0}%'') ";
 
 	// Multi search constants
 	private static final String PERSON_TYPES_CONDITION = "e.personType IN (:personTypes) ";

@@ -13,8 +13,12 @@ import org.lnu.is.domain.enrolment.Enrolment;
 
 @QBuilder("enrolmentQueryBuilder")
 public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
+	private static final String SPECOFFER_CONDITION = "LOWER(e.specOffer) LIKE LOWER(CONCAT('%',:specOffer,'%')) ";
+	private static final String DOCSERIES_CONDITION = "LOWER(e.docSeries) LIKE LOWER(CONCAT('%',:docSeries,'%')) ";
+	private static final String DOCNUM_CONDITION = "LOWER(e.docNum) LIKE LOWER(CONCAT('%',:docNum,'%')) ";
+	private static final String DOCTEXT_CONDITION = "LOWER(e.docText) LIKE LOWER(CONCAT('%',:docText,'%')) ";
+
 	private static final String PERSON_CONDITION = "e.person = :person ";
-	private static final String SPECOFFER_CONDITION = "e.specOffer LIKE CONCAT('%',:specOffer,'%') ";
 	private static final String DEPARTMENT_CONDITION = "e.department = :department ";
 	private static final String PERSONPAPER_CONDITION = "e.personPaper = :personPaper ";
 	private static final String ENROLMENTTYPE_CONDITION = "e.enrolmentType = :enrolmentType ";
@@ -22,10 +26,7 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 	private static final String PRIORITY_CONDITION = "e.priority = :priority ";
 
 	private static final String MARK_CONDITION = "e.mark = :mark ";
-	private static final String DOCSERIES_CONDITION = "e.docSeries LIKE CONCAT('%',:docSeries,'%') ";
-	private static final String DOCNUM_CONDITION = "e.docNum LIKE CONCAT('%',:docNum,'%') ";
-	private static final String DOCTEXT_CONDITION = "e.docText LIKE CONCAT('%',:docText,'%') ";
-	
+
 	private static final String ISSTATE_CONDITION = "e.isState = :isState ";
 	private static final String ISCONTRACT_CONDITION = "e.isContract = :isContract ";
 	private static final String ISPRIVELEGE_CONDITION = "e.isPrivilege = :isPrivilege ";

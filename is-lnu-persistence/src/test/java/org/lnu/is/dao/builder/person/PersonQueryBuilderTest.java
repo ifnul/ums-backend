@@ -44,7 +44,7 @@ public class PersonQueryBuilderTest {
 		PersonList context = new PersonList();
 		context.setNames(Arrays.asList("name1", "name2"));
 
-		String expectedQuery = "SELECT e FROM Person e WHERE (  (e.name LIKE '%name1%' OR e.name LIKE '%name2%' ) ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Person e WHERE (  (LOWER(e.name) LIKE LOWER('%name1%') OR LOWER(e.name) LIKE LOWER('%name2%') ) ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonList> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 
@@ -61,7 +61,7 @@ public class PersonQueryBuilderTest {
 		PersonList context = new PersonList();
 		context.setNames(Arrays.asList("name1", "name2"));
 
-		String expectedQuery = "SELECT e FROM Person e WHERE (  (e.name LIKE '%name1%' OR e.name LIKE '%name2%' ) ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Person e WHERE (  (LOWER(e.name) LIKE LOWER('%name1%') OR LOWER(e.name) LIKE LOWER('%name2%') ) ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonList> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 
@@ -80,7 +80,7 @@ public class PersonQueryBuilderTest {
 		context.setFirstNames(Arrays.asList("firtName1", "firtName2", "firtName3", "firtName4"));
 		context.setSurnames(Arrays.asList("surname1", "surname2", "surname3" ));
 
-		String expectedQuery = "SELECT e FROM Person e WHERE (  (e.name LIKE '%name1%' OR e.name LIKE '%name2%' ) AND  (e.firstName LIKE '%firtName1%' OR e.firstName LIKE '%firtName2%' OR e.firstName LIKE '%firtName3%' OR e.firstName LIKE '%firtName4%' ) AND  (e.surname LIKE '%surname1%' OR e.surname LIKE '%surname2%' OR e.surname LIKE '%surname3%' ) ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
+		String expectedQuery = "SELECT e FROM Person e WHERE (  (LOWER(e.name) LIKE LOWER('%name1%') OR LOWER(e.name) LIKE LOWER('%name2%') ) AND  (LOWER(e.firstName) LIKE LOWER('%firtName1%') OR LOWER(e.firstName) LIKE LOWER('%firtName2%') OR LOWER(e.firstName) LIKE LOWER('%firtName3%') OR LOWER(e.firstName) LIKE LOWER('%firtName4%') ) AND  (LOWER(e.surname) LIKE LOWER('%surname1%') OR LOWER(e.surname) LIKE LOWER('%surname2%') OR LOWER(e.surname) LIKE LOWER('%surname3%') ) ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
 		MultiplePagedSearch<PersonList> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 
