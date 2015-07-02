@@ -1,10 +1,9 @@
 package org.lnu.is.web.rest.processor.resolver.offset;
 
-import java.lang.reflect.Field;
+import org.lnu.is.annotations.Offset;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.lnu.is.annotations.Offset;
+import java.lang.reflect.Field;
 
 /**
  * Interface, that declares method for getting offset from parameters.
@@ -15,9 +14,9 @@ public interface OffsetParameterResolver {
 
 	/**
 	 * Method for getting Offset from parameter.
-	 * @param annotation
-	 * @param field
-	 * @param httpRequest
+	 * @param annotation annotation.
+	 * @param field field.
+	 * @param httpRequest http request.
 	 * @return Integer value.
 	 */
 	Integer getOffset(Offset annotation, final Field field, final HttpServletRequest httpRequest);

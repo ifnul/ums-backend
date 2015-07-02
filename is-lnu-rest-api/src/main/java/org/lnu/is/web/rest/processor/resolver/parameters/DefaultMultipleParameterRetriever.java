@@ -18,19 +18,11 @@ public class DefaultMultipleParameterRetriever implements MultipleParameterRetri
     public static final String CLOSE_BRACKET = "]";
 
     @Override
-    public List<?> getMultiParameter(final String value) {
-        String formattedValue = value.replace(OPEN_BRACKET, EMPTY_STRING).replace(CLOSE_BRACKET, EMPTY_STRING).trim().replaceAll("\\s", "");
-        String[] splittedValues = formattedValue.split(COMMA);
-        List<String> stringResult = Arrays.asList(splittedValues);
+    public List<?> getMultiParameter(final String[] values) {
+        List<String> stringResult = Arrays.asList(values);
         boolean isDigits = stringResult.stream().anyMatch(e -> NumberUtils.isNumber(e));
 
         return isDigits ? stringResult.stream().map(e -> Long.valueOf(e)).collect(Collectors.toList()) : stringResult;
-    }
-
-
-    @Override
-    public boolean isMultipleValue(final String value) {
-        return value.charAt(0) == '[' && value.charAt(value.length() - 1) == ']';
     }
 
 }

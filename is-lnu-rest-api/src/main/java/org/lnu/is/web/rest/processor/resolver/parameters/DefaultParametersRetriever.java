@@ -45,11 +45,13 @@ public class DefaultParametersRetriever implements ParametersRetriever {
 
         for (Map.Entry<String, String[]> entry : parameters.entrySet()) {
             String[] value = entry.getValue();
-            String strValue = getParameter(value);
-            Object newValue = strValue;
+            Object newValue = null;
 
-            if (multipleParameterRetriever.isMultipleValue(strValue)) {
-                newValue = multipleParameterRetriever.getMultiParameter(strValue);
+            if (value.length > 1) {
+                newValue = multipleParameterRetriever.getMultiParameter(value);
+            } else {
+                String strValue = getParameter(value);
+                newValue = strValue;
             }
 
             resultMap.put(entry.getKey(), newValue);

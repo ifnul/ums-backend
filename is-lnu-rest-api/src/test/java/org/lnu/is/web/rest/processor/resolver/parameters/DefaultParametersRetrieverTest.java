@@ -7,7 +7,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.web.context.request.NativeWebRequest;
 
-import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -73,7 +72,7 @@ public class DefaultParametersRetrieverTest {
         Long id3 = 3L;
 
         List<Object> idList = Arrays.asList(String.valueOf(id1), String.valueOf(id2), String.valueOf(id3));
-        String value2 = MessageFormat.format("[{0}, {1}, {2}]", id1, id2, id3);
+        String value2 = String.valueOf(id1);
         String[] values2 = {value2};
         String field2 = "field2";
 
@@ -82,19 +81,17 @@ public class DefaultParametersRetrieverTest {
 
         Map<String, Object> expected = new HashMap();
         expected.put(field1, value1);
-        expected.put(field2, idList);
+        expected.put(field2, value2);
+        expected.put(field2, value2);
 
         // When
         when(webRequest.getAttribute(anyString(), anyInt())).thenReturn(pathVariables);
         when(webRequest.getParameterMap()).thenReturn(requestParams);
-        when(multipleParameterRetriever.isMultipleValue(value2)).thenReturn(true);
-        //when(multipleParameterRetriever.getMultiParameter(value2)).thenReturn(idList);
-        doReturn(idList).when(multipleParameterRetriever).getMultiParameter(value2);
+        doReturn(idList).when(multipleParameterRetriever).getMultiParameter(values2);
         Map<String, Object> actual = unit.getParameters(webRequest);
 
         // Then
-        verify(multipleParameterRetriever).isMultipleValue(value2);
-        verify(multipleParameterRetriever).getMultiParameter(value2);
+        verifyZeroInteractions(multipleParameterRetriever);
         assertEquals(expected, actual);
     }
 

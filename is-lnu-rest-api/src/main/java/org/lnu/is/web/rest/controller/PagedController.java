@@ -13,14 +13,14 @@ public interface PagedController<RESOURCE, RESOURCELIST> {
 	
 	/**
 	 * Method that returns paged result resource.
-	 * @param request
+	 * @param request request.
 	 * @return paged result resource.
 	 */
 	PagedResultResource<RESOURCE> getPagedResource(PagedRequest<RESOURCELIST> request);
 	
 	/**
 	 * Method for getting resource.
-	 * @param id
+	 * @param id id.
 	 * @return resource.
 	 */
 	RESOURCE getResource(Long id);

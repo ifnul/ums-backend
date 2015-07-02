@@ -9,15 +9,9 @@ public interface MultipleParameterRetriever {
 
     /**
      * Single method for parsing multi parameter value.
-     * @param value value
+     * @param values value
      * @return value.
      */
-    List<?> getMultiParameter(String value);
+    List<?> getMultiParameter(String[] values);
 
-    /**
-     * Method for finding out if this value is multi.
-     * @param value value
-     * @return boolean value.
-     */
-    boolean isMultipleValue(String value);
 }

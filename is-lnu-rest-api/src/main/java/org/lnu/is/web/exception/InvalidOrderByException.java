@@ -12,7 +12,7 @@ public class InvalidOrderByException extends RuntimeException {
 
 	/**
 	 * Constructor, that takes all required parameters.
-	 * @param value
+	 * @param value value.
 	 */
 	public InvalidOrderByException(final String value) {
 		super("Invalid string for order by field");

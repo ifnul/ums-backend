@@ -1,11 +1,10 @@
 package org.lnu.configuration.converters;
 
-import java.util.Date;
-
-import javax.xml.datatype.XMLGregorianCalendar;
-
 import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
 import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
+
+import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 
 /**
  * Custom Spring Swagger Mvc Plugin.
@@ -16,7 +15,7 @@ public class CustomSwaggerSpringMvcPlugin extends SwaggerSpringMvcPlugin {
 
 	/**
 	 * Default constructor.
-	 * @param springSwaggerConfig
+	 * @param springSwaggerConfig springSwaggerConfig.
 	 */
 	public CustomSwaggerSpringMvcPlugin(final SpringSwaggerConfig springSwaggerConfig) {
 		super(springSwaggerConfig);

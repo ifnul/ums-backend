@@ -1,10 +1,10 @@
 package org.lnu.is.web.rest.controller;
 
-import javax.annotation.Resource;
-
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+
+import javax.annotation.Resource;
 
 
 /**
@@ -20,7 +20,7 @@ public abstract class BaseController {
 
 	/**
 	 * Default init binder method.
-	 * @param binder
+	 * @param binder binder.
 	 */
 	@InitBinder
 	protected void initBinder(final WebDataBinder binder) {

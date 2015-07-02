@@ -13,8 +13,8 @@ public class LimitOutOfRangeException extends RuntimeException {
 	
 	/**
 	 * Default constructor.
-	 * @param actualLimit
-	 * @param message
+	 * @param actualLimit actualLimit.
+	 * @param message message.
 	 */
 	public LimitOutOfRangeException(final Integer actualLimit, final String message) {
 		super(message);

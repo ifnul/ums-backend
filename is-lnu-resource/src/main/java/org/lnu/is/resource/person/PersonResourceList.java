@@ -47,13 +47,9 @@ public class PersonResourceList extends MultiSearchResource {
 	private List<String> birthPlaces;
 
 	private Integer resident;
-
 	private Date begDate;
-
 	private Date endDate;
-
 	private Integer isMilitary;
-
 	private Integer isHostel;
 
 	@Override

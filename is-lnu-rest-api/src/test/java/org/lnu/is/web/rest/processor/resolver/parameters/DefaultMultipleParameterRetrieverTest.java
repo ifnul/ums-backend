@@ -2,7 +2,6 @@ package org.lnu.is.web.rest.processor.resolver.parameters;
 
 import org.junit.Test;
 
-import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class DefaultMultipleParameterRetrieverTest {
         String id2 = "rewr";
         String id3 = "vxcv";
 
-        String value = MessageFormat.format("[{0},{1},{2}]", id1, id2, id3);
+        String[] value = {id1, id2, id3};
         List<String> expected = Arrays.<String>asList(id1, id2, id3);
 
         // When
@@ -36,7 +35,7 @@ public class DefaultMultipleParameterRetrieverTest {
         Long id2 = 2L;
         Long id3 = 3L;
 
-        String value = MessageFormat.format("[{0},{1},{2}]", id1, id2, id3);
+        String[] value = {String.valueOf(id1), String.valueOf(id2), String.valueOf(id3)};
         List<Long> expected = Arrays.<Long>asList(id1, id2, id3);
 
         // When
@@ -51,7 +50,7 @@ public class DefaultMultipleParameterRetrieverTest {
         // Given
         String id1 = "fsdsd";
 
-        String value = MessageFormat.format("[{0}]", id1);
+        String[] value = {id1};
         List<String> expected = Arrays.<String>asList(id1);
 
         // When
@@ -66,7 +65,7 @@ public class DefaultMultipleParameterRetrieverTest {
         // Given
         String id1 = "fsdfsd";
 
-        String value = MessageFormat.format(" [ {0}     ] ", id1);
+        String[] value = {id1};
         List<String> expected = Arrays.<String>asList(id1);
 
         // When
@@ -83,7 +82,7 @@ public class DefaultMultipleParameterRetrieverTest {
         String id2 = "rewr";
         String id3 = "vxcv";
 
-        String value = MessageFormat.format("[ {0} , {1} , {2} ]", id1, id2, id3);
+        String[] value = {id1, id2, id3};
         List<String> expected = Arrays.<String>asList(id1, id2, id3);
 
         // When
@@ -100,7 +99,7 @@ public class DefaultMultipleParameterRetrieverTest {
         String id2 = "rewr";
         String id3 = "vxcv";
 
-        String value = MessageFormat.format("  [ {0} , {1} , {2} ]", id1, id2, id3);
+        String[] value = {id1, id2, id3};
         List<String> expected = Arrays.<String>asList(id1, id2, id3);
 
         // When
@@ -110,27 +109,4 @@ public class DefaultMultipleParameterRetrieverTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void testIsMultiple() throws Exception {
-        // Given
-        boolean expected = false;
-
-        // When
-        boolean actual = unit.isMultipleValue("[3432423");
-
-        // Then
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testIsMultipleWithMultiple() throws Exception {
-        // Given
-        boolean expected = true;
-
-        // When
-        boolean actual = unit.isMultipleValue("[3432423]");
-
-        // Then
-        assertEquals(expected, actual);
-    }
 }
