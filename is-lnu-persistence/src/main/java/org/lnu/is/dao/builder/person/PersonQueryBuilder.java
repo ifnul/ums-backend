@@ -15,22 +15,6 @@ import java.text.MessageFormat;
 @QBuilder("personQueryBuilder")
 public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 	// Single field conditions
-	private static final String PARENT_CONDITION = "e.parent = :parent ";
-	private static final String PERSON_TYPE_CONDITION = "e.personType = :personType ";
-	private static final String GENDERTYPE_CONDITION = "e.genderType = :genderType ";
-	private static final String MARRIEDTYPE_CONDITION = "e.marriedType = :marriedType ";
-	private static final String CITIZEN_COUNTRY_CONDITION = "e.citizenCountry = :citizenCountry ";
-
-	// String fields
-	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
-	private static final String FIRST_NAME_CONDITION = "e.firstName LIKE CONCAT('%',:firstName,'%') ";
-	private static final String FATHER_NAME_CONDITION = "e.fatherName LIKE CONCAT('%',:fatherName,'%') ";
-	private static final String SURNAME_CONDITION = "e.surname LIKE CONCAT('%',:surname,'%') ";
-	private static final String PHOTO_CONDITION = "e.photo LIKE CONCAT('%',:photo,'%') ";
-	private static final String DOCNUM_CONDITION = "e.docNum LIKE CONCAT('%',:docNum,'%') ";
-	private static final String IDENTIFIER_CONDITION = "e.identifier LIKE CONCAT('%',:identifier,'%') ";
-	private static final String BIRTHNAME_CONDITION = "e.birthPlace LIKE CONCAT('%',:birthPlace,'%') ";
-
 	private static final String NAMES_CONDITIOIN_PLACEHOLDER = "e.name LIKE ''%{0}%'' ";
 	private static final String FIRSTNAMES_CONDITIOIN_PLACEHOLDER = "e.firstName LIKE ''%{0}%'' ";
 	private static final String SURNNAMES_CONDITIOIN_PLACEHOLDER = "e.surname LIKE ''%{0}%'' ";
@@ -64,21 +48,6 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 		return builder
 				.where()
 				.openBracket()
-					.addAndCondition(PERSON_TYPE_CONDITION, context.getPersonType())
-					.addAndCondition(GENDERTYPE_CONDITION, context.getGenderType())
-					.addAndCondition(MARRIEDTYPE_CONDITION, context.getMarriedType())
-					.addAndCondition(PARENT_CONDITION, context.getParent())
-					.addAndCondition(CITIZEN_COUNTRY_CONDITION, context.getCitizenCountry())
-
-					.addAndCondition(NAME_CONDITION, context.getName())
-					.addAndCondition(FIRST_NAME_CONDITION, context.getFirstName())
-					.addAndCondition(FATHER_NAME_CONDITION, context.getFatherName())
-					.addAndCondition(SURNAME_CONDITION, context.getSurname())
-					.addAndCondition(PHOTO_CONDITION, context.getPhoto())
-					.addAndCondition(DOCNUM_CONDITION, context.getDocNum())
-					.addAndCondition(IDENTIFIER_CONDITION, context.getIdentifier())
-					.addAndCondition(BIRTHNAME_CONDITION, context.getBirthPlace())
-
 					.addAndCondition(PERSON_TYPES_CONDITION, context.getPersonTypes())
 					.addAndCondition(GENDERTYPES_CONDITION, context.getGenderTypes())
 					.addAndCondition(MARRIEDTYPES_CONDITION, context.getMarriedTypes())

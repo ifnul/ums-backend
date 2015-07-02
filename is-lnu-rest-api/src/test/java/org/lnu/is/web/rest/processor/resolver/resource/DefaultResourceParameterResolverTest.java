@@ -2,14 +2,16 @@ package org.lnu.is.web.rest.processor.resolver.resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.resource.person.PersonResource;
+import org.lnu.is.resource.person.PersonResourceList;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.core.MethodParameter;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -27,27 +29,70 @@ public class DefaultResourceParameterResolverTest {
 	@Mock
 	private ParameterizedType type;
 	
-	private Class<PersonResource> clzType = PersonResource.class;
+	private Class<PersonResourceList> clzType = PersonResourceList.class;
 
 	private Type[] types = new Type[] { clzType };
 	
 	@Test
 	public void testGetResource() throws Exception {
 		// Given
-		String id = "1";
-		String name = "Ivan";
 		Map<String, Object> parameters = new HashMap<>();
-		parameters.put("id", id);
-		parameters.put("name", name);
-		
-		PersonResource expected = new PersonResource();
-		expected.setName(name);
-		expected.setId(Long.valueOf(id));
-		
+		Integer resident = 1;
+		parameters.put("resident", resident);
+
+		PersonResourceList expected = new PersonResourceList();
+		expected.setResident(resident);
+
 		// When
 		when(param.getGenericParameterType()).thenReturn(type);
 		when(type.getActualTypeArguments()).thenReturn(types);
 		
+		Object actual = unit.getResource(param, parameters);
+
+		// Then
+		verify(param).getGenericParameterType();
+		verify(type).getActualTypeArguments();
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testGetResourceWithMultipleFields() throws Exception {
+		// Given
+		String id = "1";
+		String name = "Ivan";
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("name", name);
+
+		PersonResourceList expected = new PersonResourceList();
+		expected.setName(Arrays.asList(name));
+
+		// When
+		when(param.getGenericParameterType()).thenReturn(type);
+		when(type.getActualTypeArguments()).thenReturn(types);
+
+		Object actual = unit.getResource(param, parameters);
+
+		// Then
+		verify(param).getGenericParameterType();
+		verify(type).getActualTypeArguments();
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testGetResourceWithMultipleFieldsAndReadyParameters() throws Exception {
+		// Given
+		String id = "1";
+		String name = "ivan";
+		List<String> names = Arrays.asList(name);
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("name", names);
+
+		PersonResourceList expected = new PersonResourceList();
+		expected.setName(names);
+
+		// When
+		when(param.getGenericParameterType()).thenReturn(type);
+		when(type.getActualTypeArguments()).thenReturn(types);
+
 		Object actual = unit.getResource(param, parameters);
 
 		// Then

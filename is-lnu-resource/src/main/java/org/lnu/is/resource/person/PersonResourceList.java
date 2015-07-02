@@ -15,36 +15,20 @@ import java.util.List;
 @CrudableResource
 public class PersonResourceList extends MultiSearchResource {
 
-	// Single fields
-	private Long parentId;
-	private Long personTypeId;
-	private Long genderTypeId;
-	private Long marriedTypeId;
-	private Long citizenCountryId;
-	private String name;
-	private String firstName;
-	private String fatherName;
-	private String surname;
-	private String photo;
-	private String docNum;
-	private String identifier;
-	private String birthPlace;
-
-	// Multi search fields
-	private List<Long> parentIds;
-	private List<Long> personTypeIds;
-	private List<Long> genderTypeIds;
-	private List<Long> marriedTypeIds;
-	private List<Long> citizenCountryIds;
-	private List<String> names;
-	private List<String> firstNames;
-	private List<String> fatherNames;
-	private List<String> surnames;
-	private List<String> photos;
+	private List<Long> parentId;
+	private List<Long> personTypeId;
+	private List<Long> genderTypeId;
+	private List<Long> marriedTypeId;
+	private List<Long> citizenCountryId;
+	private List<String> name;
+	private List<String> firstName;
+	private List<String> fatherName;
+	private List<String> surname;
+	private List<String> photo;
 	private List<String> docSeries;
-	private List<String> docNums;
-	private List<String> identifiers;
-	private List<String> birthPlaces;
+	private List<String> docNum;
+	private List<String> identifier;
+	private List<String> birthPlace;
 
 	private Integer resident;
 	private Date begDate;
@@ -57,188 +41,84 @@ public class PersonResourceList extends MultiSearchResource {
 		return "/persons";
 	}
 
-	public Long getParentId() {
+	public List<Long> getParentId() {
 		return parentId;
 	}
 
-	public void setParentId(final Long parentId) {
+	public void setParentId(final List<Long> parentId) {
 		this.parentId = parentId;
 	}
 
-	public Long getPersonTypeId() {
+	public List<Long> getPersonTypeId() {
 		return personTypeId;
 	}
 
-	public void setPersonTypeId(final Long personTypeId) {
+	public void setPersonTypeId(final List<Long> personTypeId) {
 		this.personTypeId = personTypeId;
 	}
 
-	public Long getGenderTypeId() {
+	public List<Long> getGenderTypeId() {
 		return genderTypeId;
 	}
 
-	public void setGenderTypeId(final Long genderTypeId) {
+	public void setGenderTypeId(final List<Long> genderTypeId) {
 		this.genderTypeId = genderTypeId;
 	}
 
-	public Long getMarriedTypeId() {
+	public List<Long> getMarriedTypeId() {
 		return marriedTypeId;
 	}
 
-	public void setMarriedTypeId(final Long marriedTypeId) {
+	public void setMarriedTypeId(final List<Long> marriedTypeId) {
 		this.marriedTypeId = marriedTypeId;
 	}
 
-	public Long getCitizenCountryId() {
+	public List<Long> getCitizenCountryId() {
 		return citizenCountryId;
 	}
 
-	public void setCitizenCountryId(final Long citizenCountryId) {
+	public void setCitizenCountryId(final List<Long> citizenCountryId) {
 		this.citizenCountryId = citizenCountryId;
 	}
 
-	public String getName() {
+	public List<String> getName() {
 		return name;
 	}
 
-	public void setName(final String name) {
+	public void setName(final List<String> name) {
 		this.name = name;
 	}
 
-	public String getFirstName() {
+	public List<String> getFirstName() {
 		return firstName;
 	}
 
-	public void setFirstName(final String firstName) {
+	public void setFirstName(final List<String> firstName) {
 		this.firstName = firstName;
 	}
 
-	public String getFatherName() {
+	public List<String> getFatherName() {
 		return fatherName;
 	}
 
-	public void setFatherName(final String fatherName) {
+	public void setFatherName(final List<String> fatherName) {
 		this.fatherName = fatherName;
 	}
 
-	public String getSurname() {
+	public List<String> getSurname() {
 		return surname;
 	}
 
-	public void setSurname(final String surname) {
+	public void setSurname(final List<String> surname) {
 		this.surname = surname;
 	}
 
-	public String getPhoto() {
+	public List<String> getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(final String photo) {
+	public void setPhoto(final List<String> photo) {
 		this.photo = photo;
-	}
-
-	public String getDocNum() {
-		return docNum;
-	}
-
-	public void setDocNum(final String docNum) {
-		this.docNum = docNum;
-	}
-
-	public String getIdentifier() {
-		return identifier;
-	}
-
-	public void setIdentifier(final String identifier) {
-		this.identifier = identifier;
-	}
-
-	public String getBirthPlace() {
-		return birthPlace;
-	}
-
-	public void setBirthPlace(final String birthPlace) {
-		this.birthPlace = birthPlace;
-	}
-
-	public List<Long> getParentIds() {
-		return parentIds;
-	}
-
-	public void setParentIds(final List<Long> parentIds) {
-		this.parentIds = parentIds;
-	}
-
-	public List<Long> getPersonTypeIds() {
-		return personTypeIds;
-	}
-
-	public void setPersonTypeIds(final List<Long> personTypeIds) {
-		this.personTypeIds = personTypeIds;
-	}
-
-	public List<Long> getGenderTypeIds() {
-		return genderTypeIds;
-	}
-
-	public void setGenderTypeIds(final List<Long> genderTypeIds) {
-		this.genderTypeIds = genderTypeIds;
-	}
-
-	public List<Long> getMarriedTypeIds() {
-		return marriedTypeIds;
-	}
-
-	public void setMarriedTypeIds(final List<Long> marriedTypeIds) {
-		this.marriedTypeIds = marriedTypeIds;
-	}
-
-	public List<Long> getCitizenCountryIds() {
-		return citizenCountryIds;
-	}
-
-	public void setCitizenCountryIds(final List<Long> citizenCountryIds) {
-		this.citizenCountryIds = citizenCountryIds;
-	}
-
-	public List<String> getNames() {
-		return names;
-	}
-
-	public void setNames(final List<String> names) {
-		this.names = names;
-	}
-
-	public List<String> getFirstNames() {
-		return firstNames;
-	}
-
-	public void setFirstNames(final List<String> firstNames) {
-		this.firstNames = firstNames;
-	}
-
-	public List<String> getFatherNames() {
-		return fatherNames;
-	}
-
-	public void setFatherNames(final List<String> fatherNames) {
-		this.fatherNames = fatherNames;
-	}
-
-	public List<String> getSurnames() {
-		return surnames;
-	}
-
-	public void setSurnames(final List<String> surnames) {
-		this.surnames = surnames;
-	}
-
-	public List<String> getPhotos() {
-		return photos;
-	}
-
-	public void setPhotos(final List<String> photos) {
-		this.photos = photos;
 	}
 
 	public List<String> getDocSeries() {
@@ -249,28 +129,28 @@ public class PersonResourceList extends MultiSearchResource {
 		this.docSeries = docSeries;
 	}
 
-	public List<String> getDocNums() {
-		return docNums;
+	public List<String> getDocNum() {
+		return docNum;
 	}
 
-	public void setDocNums(final List<String> docNums) {
-		this.docNums = docNums;
+	public void setDocNum(final List<String> docNum) {
+		this.docNum = docNum;
 	}
 
-	public List<String> getIdentifiers() {
-		return identifiers;
+	public List<String> getIdentifier() {
+		return identifier;
 	}
 
-	public void setIdentifiers(final List<String> identifiers) {
-		this.identifiers = identifiers;
+	public void setIdentifier(final List<String> identifier) {
+		this.identifier = identifier;
 	}
 
-	public List<String> getBirthPlaces() {
-		return birthPlaces;
+	public List<String> getBirthPlace() {
+		return birthPlace;
 	}
 
-	public void setBirthPlaces(final List<String> birthPlaces) {
-		this.birthPlaces = birthPlaces;
+	public void setBirthPlace(final List<String> birthPlace) {
+		this.birthPlace = birthPlace;
 	}
 
 	public Integer getResident() {
@@ -357,6 +237,9 @@ public class PersonResourceList extends MultiSearchResource {
 		if (photo != null ? !photo.equals(that.photo) : that.photo != null) {
 			return false;
 		}
+		if (docSeries != null ? !docSeries.equals(that.docSeries) : that.docSeries != null) {
+			return false;
+		}
 		if (docNum != null ? !docNum.equals(that.docNum) : that.docNum != null) {
 			return false;
 		}
@@ -364,48 +247,6 @@ public class PersonResourceList extends MultiSearchResource {
 			return false;
 		}
 		if (birthPlace != null ? !birthPlace.equals(that.birthPlace) : that.birthPlace != null) {
-			return false;
-		}
-		if (parentIds != null ? !parentIds.equals(that.parentIds) : that.parentIds != null) {
-			return false;
-		}
-		if (personTypeIds != null ? !personTypeIds.equals(that.personTypeIds) : that.personTypeIds != null) {
-			return false;
-		}
-		if (genderTypeIds != null ? !genderTypeIds.equals(that.genderTypeIds) : that.genderTypeIds != null) {
-			return false;
-		}
-		if (marriedTypeIds != null ? !marriedTypeIds.equals(that.marriedTypeIds) : that.marriedTypeIds != null) {
-			return false;
-		}
-		if (citizenCountryIds != null ? !citizenCountryIds.equals(that.citizenCountryIds) : that.citizenCountryIds != null) {
-			return false;
-		}
-		if (names != null ? !names.equals(that.names) : that.names != null) {
-			return false;
-		}
-		if (firstNames != null ? !firstNames.equals(that.firstNames) : that.firstNames != null) {
-			return false;
-		}
-		if (fatherNames != null ? !fatherNames.equals(that.fatherNames) : that.fatherNames != null) {
-			return false;
-		}
-		if (surnames != null ? !surnames.equals(that.surnames) : that.surnames != null) {
-			return false;
-		}
-		if (photos != null ? !photos.equals(that.photos) : that.photos != null) {
-			return false;
-		}
-		if (docSeries != null ? !docSeries.equals(that.docSeries) : that.docSeries != null) {
-			return false;
-		}
-		if (docNums != null ? !docNums.equals(that.docNums) : that.docNums != null) {
-			return false;
-		}
-		if (identifiers != null ? !identifiers.equals(that.identifiers) : that.identifiers != null) {
-			return false;
-		}
-		if (birthPlaces != null ? !birthPlaces.equals(that.birthPlaces) : that.birthPlaces != null) {
 			return false;
 		}
 		if (resident != null ? !resident.equals(that.resident) : that.resident != null) {
@@ -437,23 +278,10 @@ public class PersonResourceList extends MultiSearchResource {
 		result = 31 * result + (fatherName != null ? fatherName.hashCode() : 0);
 		result = 31 * result + (surname != null ? surname.hashCode() : 0);
 		result = 31 * result + (photo != null ? photo.hashCode() : 0);
+		result = 31 * result + (docSeries != null ? docSeries.hashCode() : 0);
 		result = 31 * result + (docNum != null ? docNum.hashCode() : 0);
 		result = 31 * result + (identifier != null ? identifier.hashCode() : 0);
 		result = 31 * result + (birthPlace != null ? birthPlace.hashCode() : 0);
-		result = 31 * result + (parentIds != null ? parentIds.hashCode() : 0);
-		result = 31 * result + (personTypeIds != null ? personTypeIds.hashCode() : 0);
-		result = 31 * result + (genderTypeIds != null ? genderTypeIds.hashCode() : 0);
-		result = 31 * result + (marriedTypeIds != null ? marriedTypeIds.hashCode() : 0);
-		result = 31 * result + (citizenCountryIds != null ? citizenCountryIds.hashCode() : 0);
-		result = 31 * result + (names != null ? names.hashCode() : 0);
-		result = 31 * result + (firstNames != null ? firstNames.hashCode() : 0);
-		result = 31 * result + (fatherNames != null ? fatherNames.hashCode() : 0);
-		result = 31 * result + (surnames != null ? surnames.hashCode() : 0);
-		result = 31 * result + (photos != null ? photos.hashCode() : 0);
-		result = 31 * result + (docSeries != null ? docSeries.hashCode() : 0);
-		result = 31 * result + (docNums != null ? docNums.hashCode() : 0);
-		result = 31 * result + (identifiers != null ? identifiers.hashCode() : 0);
-		result = 31 * result + (birthPlaces != null ? birthPlaces.hashCode() : 0);
 		result = 31 * result + (resident != null ? resident.hashCode() : 0);
 		result = 31 * result + (begDate != null ? begDate.hashCode() : 0);
 		result = 31 * result + (endDate != null ? endDate.hashCode() : 0);
@@ -475,23 +303,10 @@ public class PersonResourceList extends MultiSearchResource {
 				.append("fatherName", fatherName)
 				.append("surname", surname)
 				.append("photo", photo)
+				.append("docSeries", docSeries)
 				.append("docNum", docNum)
 				.append("identifier", identifier)
 				.append("birthPlace", birthPlace)
-				.append("parentIds", parentIds)
-				.append("personTypeIds", personTypeIds)
-				.append("genderTypeIds", genderTypeIds)
-				.append("marriedTypeIds", marriedTypeIds)
-				.append("citizenCountryIds", citizenCountryIds)
-				.append("names", names)
-				.append("firstNames", firstNames)
-				.append("fatherNames", fatherNames)
-				.append("surnames", surnames)
-				.append("photos", photos)
-				.append("docSeries", docSeries)
-				.append("docNums", docNums)
-				.append("identifiers", identifiers)
-				.append("birthPlaces", birthPlaces)
 				.append("resident", resident)
 				.append("begDate", begDate)
 				.append("endDate", endDate)

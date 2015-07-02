@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 /**
  * Person converter.
- * @author illay
+ * @author illay, ivanursul
  *
  */
 @Converter("personListResourceConverter")
@@ -26,89 +26,53 @@ public class PersonResourceConverterList extends AbstractConverter<PersonResourc
 
 		target.setId(source.getId());
 		target.setBegDate(source.getBegDate());
-		target.setBirthPlaces(source.getBirthPlaces());
-		target.setDocNums(source.getDocNums());
+		target.setBirthPlaces(source.getBirthPlace());
+		target.setDocNums(source.getDocNum());
 		target.setDocSeries(source.getDocSeries());
 		target.setEndDate(source.getEndDate());
-		target.setFatherNames(source.getFatherNames());
-		target.setFirstNames(source.getFirstNames());
-		target.setIdentifiers(source.getIdentifiers());
+
+		target.setFatherNames(source.getFatherName());
+		target.setFirstNames(source.getFirstName());
+		target.setIdentifiers(source.getIdentifier());
 		target.setIsHostel(source.getIsHostel());
 		target.setIsMilitary(source.getIsMilitary());
-		target.setNames(source.getNames());
-		target.setPhotos(source.getPhotos());
+		target.setNames(source.getName());
+		target.setPhotos(source.getPhoto());
 		target.setResident(source.getResident());
-		target.setSurnames(source.getSurnames());
+		target.setSurnames(source.getSurname());
 		target.setNote(source.getNote());
 
-		// Single fields
-		target.setName(source.getName());
-		target.setFirstName(source.getFirstName());
-		target.setFatherName(source.getFatherName());
-		target.setSurname(source.getSurname());
-		target.setPhoto(source.getPhoto());
-		target.setDocNum(source.getDocNum());
-		target.setIdentifier(source.getIdentifier());
-		target.setBirthPlace(source.getBirthPlace());
-
-		// Single fields
-		if (source.getParentId() != null) {
-			Person person = new Person(source.getParentId());
-			target.setParent(person);
-		}
-
-		if (source.getPersonTypeId() != null) {
-			PersonType personType = new PersonType(source.getPersonTypeId());
-			target.setPersonType(personType);
-		}
-
-		if (source.getGenderTypeId() != null) {
-			GenderType genderType = new GenderType(source.getGenderTypeId());
-			target.setGenderType(genderType);
-		}
-
-		if (source.getMarriedTypeId() != null) {
-			MarriedType marriedType = new MarriedType(source.getMarriedTypeId());
-			target.setMarriedType(marriedType);
-		}
-
-		if (source.getCitizenCountryId() != null) {
-			AdminUnit adminUnit = new AdminUnit(source.getCitizenCountryId());
-			target.setCitizenCountry(adminUnit);
-		}
-
-
 		// Multi search fields
-		if (source.getPersonTypeIds() != null) {
-			List<PersonType> personTypes = source.getPersonTypeIds().stream()
+		if (source.getPersonTypeId() != null) {
+			List<PersonType> personTypes = source.getPersonTypeId().stream()
 					.map(id -> new PersonType(id))
 					.collect(Collectors.toList());
 			target.setPersonTypes(personTypes);
 		}
 
-		if (source.getParentIds() != null) {
-			List<Person> parents = source.getParentIds().stream()
+		if (source.getParentId() != null) {
+			List<Person> parents = source.getParentId().stream()
 					.map(id -> new Person(id))
 					.collect(Collectors.toList());
 			target.setParents(parents);
 		}
 
-		if (source.getMarriedTypeIds() != null) {
-			List<MarriedType> marriedTypes = source.getMarriedTypeIds().stream()
+		if (source.getMarriedTypeId() != null) {
+			List<MarriedType> marriedTypes = source.getMarriedTypeId().stream()
 					.map(id -> new MarriedType(id))
 					.collect(Collectors.toList());
 			target.setMarriedTypes(marriedTypes);
 		}
 
-		if (source.getCitizenCountryIds() != null) {
-			List<AdminUnit> adminUnits = source.getCitizenCountryIds().stream()
+		if (source.getCitizenCountryId() != null) {
+			List<AdminUnit> adminUnits = source.getCitizenCountryId().stream()
 					.map(id -> new AdminUnit(id))
 					.collect(Collectors.toList());
 			target.setCitizenCountries(adminUnits);
 		}
 
-		if (source.getGenderTypeIds() != null) {
-			List<GenderType> genderTypes = source.getGenderTypeIds().stream()
+		if (source.getGenderTypeId() != null) {
+			List<GenderType> genderTypes = source.getGenderTypeId().stream()
 					.map(id -> new GenderType(id))
 					.collect(Collectors.toList());
 			target.setGenderTypes(genderTypes);

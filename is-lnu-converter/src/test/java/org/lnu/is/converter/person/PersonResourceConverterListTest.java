@@ -42,24 +42,13 @@ public class PersonResourceConverterListTest extends TestCase {
         Long citizenCountryId = 5L;
 
         PersonResourceList source = new PersonResourceList();
-        source.setParentId(parentId);
-        source.setPersonTypeId(personTypeId);
-        source.setGenderTypeId(genderTypeId);
-        source.setMarriedTypeId(marriedTypeId);
-        source.setCitizenCountryId(citizenCountryId);
-
-        source.setPersonTypeIds(Arrays.asList(personTypeId));
-        source.setParentIds(Arrays.asList(parentId));
-        source.setMarriedTypeIds(Arrays.asList(marriedTypeId));
-        source.setCitizenCountryIds(Arrays.asList(citizenCountryId));
-        source.setGenderTypeIds(Arrays.asList(genderTypeId));
+        source.setPersonTypeId(Arrays.asList(personTypeId));
+        source.setParentId(Arrays.asList(parentId));
+        source.setMarriedTypeId(Arrays.asList(marriedTypeId));
+        source.setCitizenCountryId(Arrays.asList(citizenCountryId));
+        source.setGenderTypeId(Arrays.asList(genderTypeId));
 
         PersonList expected = new PersonList();
-        expected.setParent(new Person(parentId));
-        expected.setPersonType(new PersonType(personTypeId));
-        expected.setGenderType(new GenderType(genderTypeId));
-        expected.setMarriedType(new MarriedType(marriedTypeId));
-        expected.setCitizenCountry(new AdminUnit(citizenCountryId));
 
         expected.setPersonTypes(Arrays.asList(new PersonType(personTypeId)));
         expected.setParents(Arrays.asList(new Person(parentId)));

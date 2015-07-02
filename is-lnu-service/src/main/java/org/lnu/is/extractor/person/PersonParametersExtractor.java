@@ -39,21 +39,6 @@ public class PersonParametersExtractor extends AbstractParametersExtractor<Perso
 	@Override
 	public Map<String, Object> getParameters(final PersonList entity, final Map<String, Object> parameters) {
 
-		addParameter(entity.getParent(), personDao, "parent", parameters);
-		addParameter(entity.getPersonType(), personTypeDao, "personType", parameters);
-		addParameter(entity.getGenderType(), genderTypeDao, "genderType", parameters);
-		addParameter(entity.getMarriedType(), marrieTypeDao, "marridType", parameters);
-		addParameter(entity.getCitizenCountry(), adminUnitDao, "citizenCountry", parameters);
-
-		addParameter(entity.getName(), "name", parameters);
-		addParameter(entity.getFirstName(), "firstName", parameters);
-		addParameter(entity.getFatherName(), "fatherName", parameters);
-		addParameter(entity.getSurname(), "surname", parameters);
-		addParameter(entity.getPhoto(), "photo", parameters);
-		addParameter(entity.getDocNum(), "docNum", parameters);
-		addParameter(entity.getIdentifier(), "identifier", parameters);
-		addParameter(entity.getBirthPlace(), "birthPlace", parameters);
-
 		addParameter(entity.getPersonTypes(), personTypeDao, "personTypes", parameters);
 		addParameter(entity.getGenderTypes(), genderTypeDao, "genderTypes", parameters);
 		addParameter(entity.getMarriedTypes(), marrieTypeDao, "marriedTypes", parameters);

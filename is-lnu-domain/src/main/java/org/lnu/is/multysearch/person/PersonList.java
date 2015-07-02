@@ -18,22 +18,6 @@ import java.util.List;
  */
 public class PersonList extends MultiSearchModel {
 
-	// Single fields
-	private Person parent;
-	private PersonType personType;
-	private GenderType genderType;
-	private MarriedType marriedType;
-	private AdminUnit citizenCountry;
-
-	private String name;
-	private String firstName;
-	private String fatherName;
-	private String surname;
-	private String photo;
-	private String docNum;
-	private String identifier;
-	private String birthPlace;
-
 	// Multi search fields
 	private List<Person> parents;
 	private List<PersonType> personTypes;
@@ -56,106 +40,6 @@ public class PersonList extends MultiSearchModel {
 	private Date endDate;
 	private Integer isMilitary;
 	private Integer isHostel;
-
-	public Person getParent() {
-		return parent;
-	}
-
-	public void setParent(final Person parent) {
-		this.parent = parent;
-	}
-
-	public PersonType getPersonType() {
-		return personType;
-	}
-
-	public void setPersonType(final PersonType personType) {
-		this.personType = personType;
-	}
-
-	public GenderType getGenderType() {
-		return genderType;
-	}
-
-	public void setGenderType(final GenderType genderType) {
-		this.genderType = genderType;
-	}
-
-	public MarriedType getMarriedType() {
-		return marriedType;
-	}
-
-	public void setMarriedType(final MarriedType marriedType) {
-		this.marriedType = marriedType;
-	}
-
-	public AdminUnit getCitizenCountry() {
-		return citizenCountry;
-	}
-
-	public void setCitizenCountry(final AdminUnit citizenCountry) {
-		this.citizenCountry = citizenCountry;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(final String name) {
-		this.name = name;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(final String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getFatherName() {
-		return fatherName;
-	}
-
-	public void setFatherName(final String fatherName) {
-		this.fatherName = fatherName;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(final String surname) {
-		this.surname = surname;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(final String photo) {
-		this.photo = photo;
-	}
-
-	public String getDocNum() {
-		return docNum;
-	}
-
-	public void setDocNum(final String docNum) {
-		this.docNum = docNum;
-	}
-
-	public String getIdentifier() {
-		return identifier;
-	}
-
-	public void setIdentifier(final String identifier) {
-		this.identifier = identifier;
-	}
-
-	public void setBirthPlace(final String birthPlace) {
-		this.birthPlace = birthPlace;
-	}
 
 	public List<String> getBirthPlaces() {
 		return birthPlaces;
@@ -273,10 +157,6 @@ public class PersonList extends MultiSearchModel {
 	    this.resident = resident;
 	}
 
-	public List<String> getBirthPlace() {
-	    return birthPlaces;
-	}
-
 	public void setBirthPlaces(final List<String> birthPlaces) {
 	    this.birthPlaces = birthPlaces;
 	}
@@ -326,46 +206,6 @@ public class PersonList extends MultiSearchModel {
 		}
 
 		PersonList that = (PersonList) o;
-
-		if (parent != null ? !parent.equals(that.parent) : that.parent != null) {
-			return false;
-		}
-		if (personType != null ? !personType.equals(that.personType) : that.personType != null) {
-			return false;
-		}
-		if (genderType != null ? !genderType.equals(that.genderType) : that.genderType != null) {
-			return false;
-		}
-		if (marriedType != null ? !marriedType.equals(that.marriedType) : that.marriedType != null) {
-			return false;
-		}
-		if (citizenCountry != null ? !citizenCountry.equals(that.citizenCountry) : that.citizenCountry != null) {
-			return false;
-		}
-		if (name != null ? !name.equals(that.name) : that.name != null) {
-			return false;
-		}
-		if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) {
-			return false;
-		}
-		if (fatherName != null ? !fatherName.equals(that.fatherName) : that.fatherName != null) {
-			return false;
-		}
-		if (surname != null ? !surname.equals(that.surname) : that.surname != null) {
-			return false;
-		}
-		if (photo != null ? !photo.equals(that.photo) : that.photo != null) {
-			return false;
-		}
-		if (docNum != null ? !docNum.equals(that.docNum) : that.docNum != null) {
-			return false;
-		}
-		if (identifier != null ? !identifier.equals(that.identifier) : that.identifier != null) {
-			return false;
-		}
-		if (birthPlace != null ? !birthPlace.equals(that.birthPlace) : that.birthPlace != null) {
-			return false;
-		}
 		if (parents != null ? !parents.equals(that.parents) : that.parents != null) {
 			return false;
 		}
@@ -427,19 +267,6 @@ public class PersonList extends MultiSearchModel {
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
-		result = 31 * result + (parent != null ? parent.hashCode() : 0);
-		result = 31 * result + (personType != null ? personType.hashCode() : 0);
-		result = 31 * result + (genderType != null ? genderType.hashCode() : 0);
-		result = 31 * result + (marriedType != null ? marriedType.hashCode() : 0);
-		result = 31 * result + (citizenCountry != null ? citizenCountry.hashCode() : 0);
-		result = 31 * result + (name != null ? name.hashCode() : 0);
-		result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-		result = 31 * result + (fatherName != null ? fatherName.hashCode() : 0);
-		result = 31 * result + (surname != null ? surname.hashCode() : 0);
-		result = 31 * result + (photo != null ? photo.hashCode() : 0);
-		result = 31 * result + (docNum != null ? docNum.hashCode() : 0);
-		result = 31 * result + (identifier != null ? identifier.hashCode() : 0);
-		result = 31 * result + (birthPlace != null ? birthPlace.hashCode() : 0);
 		result = 31 * result + (parents != null ? parents.hashCode() : 0);
 		result = 31 * result + (personTypes != null ? personTypes.hashCode() : 0);
 		result = 31 * result + (genderTypes != null ? genderTypes.hashCode() : 0);
@@ -465,19 +292,6 @@ public class PersonList extends MultiSearchModel {
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this)
-				.append("parent", parent)
-				.append("personType", personType)
-				.append("genderType", genderType)
-				.append("marriedType", marriedType)
-				.append("citizenCountry", citizenCountry)
-				.append("name", name)
-				.append("firstName", firstName)
-				.append("fatherName", fatherName)
-				.append("surname", surname)
-				.append("photo", photo)
-				.append("docNum", docNum)
-				.append("identifier", identifier)
-				.append("birthPlace", birthPlace)
 				.append("parents", parents)
 				.append("personTypes", personTypes)
 				.append("genderTypes", genderTypes)
