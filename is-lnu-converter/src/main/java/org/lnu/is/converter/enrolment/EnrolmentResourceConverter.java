@@ -5,6 +5,7 @@ import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
+import org.lnu.is.domain.mark.scale.MarkScale;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
@@ -36,6 +37,12 @@ public class EnrolmentResourceConverter extends AbstractConverter<EnrolmentResou
 		target.setIsEducationState(source.getIsEducationState());
 		target.setIsInterview(source.getIsInterview());
 		target.setIsOriginal(source.getIsOriginal());
+		
+		if (source.getMarkScaleId() != null) {
+			MarkScale markScale = new MarkScale();
+			markScale.setId(source.getMarkScaleId());
+			target.setMarkScale(markScale);
+		}
 		
 		if (source.getPersonId() != null) {
 			Person person = new Person();

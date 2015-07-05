@@ -43,6 +43,10 @@ public class EnrolmentResource extends ApiResource {
 	private Long enrolmentTypeId;
 
 	@NotNull(message = "Field required")
+	@Min(value = 1, message = "Minimal value is 1")
+	private Long markScaleId;
+	
+	@NotNull(message = "Field required")
 	private Double mark;
 
 	@NotNull(message = "Field required")
@@ -129,6 +133,14 @@ public class EnrolmentResource extends ApiResource {
 
 	public void setIsOriginal(final Integer isOriginal) {
 	    this.isOriginal = isOriginal;
+	}
+
+	public Long getMarkScaleId() {
+		return markScaleId;
+	}
+
+	public void setMarkScaleId(final Long markScaleId) {
+		this.markScaleId = markScaleId;
 	}
 
 	public Long getPersonId() {
