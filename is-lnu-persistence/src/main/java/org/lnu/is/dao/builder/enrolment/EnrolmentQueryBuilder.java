@@ -18,6 +18,7 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 	private static final String DOCNUM_CONDITION = "LOWER(e.docNum) LIKE LOWER(CONCAT('%',:docNum,'%')) ";
 	private static final String DOCTEXT_CONDITION = "LOWER(e.docText) LIKE LOWER(CONCAT('%',:docText,'%')) ";
 
+	private static final String MARKSCALE_CONDITION = "e.markScale = :markScale ";
 	private static final String PERSON_CONDITION = "e.person = :person ";
 	private static final String DEPARTMENT_CONDITION = "e.department = :department ";
 	private static final String PERSONPAPER_CONDITION = "e.personPaper = :personPaper ";
@@ -37,7 +38,7 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 	
 	private static final String EVDATE_CONDITION = "e.evDate = :evDate ";
 	private static final String BEGDATE_CONDITION = "e.begDate <= :begDate ";
-	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate";
+	private static final String ENDDATE_CONDITION = "e.endDate >= :endDate ";
 
 	@Override
 	protected String getBaseQuery() {
@@ -70,6 +71,7 @@ public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
 					.addAndCondition(EVDATE_CONDITION, context.getEvDate())
 					.addAndCondition(BEGDATE_CONDITION, context.getBegDate())
 					.addAndCondition(ENDDATE_CONDITION, context.getEndDate())
+					.addAndCondition(MARKSCALE_CONDITION, context.getMarkScale())
 				.closeBracket();
 	}
 

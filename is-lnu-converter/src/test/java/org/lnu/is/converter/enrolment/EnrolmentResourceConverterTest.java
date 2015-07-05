@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
+import org.lnu.is.domain.mark.scale.MarkScale;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
@@ -32,7 +33,11 @@ public class EnrolmentResourceConverterTest {
 		Integer isState = 4;
 		Double mark = 2.5;
 		Integer priority = 5;
-
+		
+		Long markScaleId = 8L;
+		MarkScale markScale = new MarkScale();
+		markScale.setId(markScaleId);
+		
 		Long personId = 2L;
 		Person person = new Person();
 		person.setId(personId);
@@ -69,6 +74,7 @@ public class EnrolmentResourceConverterTest {
 		expected.setIsPrivilege(isPrivilege);
 		expected.setIsState(isState);
 		expected.setMark(mark);
+		expected.setMarkScale(markScale);
 		expected.setPerson(person);
 		expected.setSpecOffer(specOffer);
 		expected.setDepartment(department);
@@ -89,6 +95,7 @@ public class EnrolmentResourceConverterTest {
 		source.setIsPrivilege(isPrivilege);
 		source.setIsState(isState);
 		source.setMark(mark);
+		source.setMarkScaleId(markScaleId);
 		source.setPersonId(personId);
 		source.setSpecOfferId(specOfferId);
 		source.setDepartmentId(departmentId);

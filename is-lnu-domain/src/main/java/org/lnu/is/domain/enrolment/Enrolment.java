@@ -17,6 +17,7 @@ import org.lnu.is.domain.enrolment.benefit.EnrolmentBenefit;
 import org.lnu.is.domain.enrolment.enrolment.subject.EnrolmentEnrolmentSubject;
 import org.lnu.is.domain.enrolment.status.EnrolmentStatus;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
+import org.lnu.is.domain.mark.scale.MarkScale;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
@@ -55,6 +56,10 @@ public class Enrolment extends InformationModel {
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
 	private Enrolment parent;
+	
+	@ManyToOne
+	@JoinColumn(name = "markscale_id")
+	private MarkScale markScale;
 	
 	@OneToMany(mappedBy = "enrolment")
 	private List<EnrolmentBenefit> benefits;
@@ -110,6 +115,14 @@ public class Enrolment extends InformationModel {
 	@Column(name = "isoriginal")
 	private Integer isOriginal;
 	
+	public MarkScale getMarkScale() {
+		return markScale;
+	}
+
+	public void setMarkScale(final MarkScale markScale) {
+		this.markScale = markScale;
+	}
+
 	public Integer getIsEducationState() {
 	    return isEducationState;
 	}

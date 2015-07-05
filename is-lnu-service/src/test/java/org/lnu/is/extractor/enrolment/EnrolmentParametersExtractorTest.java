@@ -19,6 +19,7 @@ import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
+import org.lnu.is.domain.mark.scale.MarkScale;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
@@ -32,6 +33,9 @@ public class EnrolmentParametersExtractorTest {
 
 	@Mock
 	private SessionService sessionService;
+	
+	@Mock
+	private Dao<MarkScale, MarkScale, Long> markScaleDao;
 	
 	@Mock
 	private Dao<Person, Person, Long> personDao;
@@ -75,6 +79,10 @@ public class EnrolmentParametersExtractorTest {
 		// Given
 		String docNum = "1213344";
 
+		Long markScaleId = 1L;
+		MarkScale markScale = new MarkScale();
+		markScale.setId(markScaleId);
+		
 		Long personId = 1L;
 		Person person = new Person();
 		person.setId(personId);
@@ -113,6 +121,7 @@ public class EnrolmentParametersExtractorTest {
 		Integer isOriginal = 1;
 		
 		Enrolment entity = new Enrolment();
+		entity.setMarkScale(markScale);
 		entity.setPerson(person);
 		entity.setSpecOffer(specOffer);
 		entity.setDepartment(department);
@@ -135,6 +144,7 @@ public class EnrolmentParametersExtractorTest {
 		entity.setEndDate(endDate);
 
 		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("markScale", markScale);
 		expected.put("person", person);
 		expected.put("specOffer", specOffer);
 		expected.put("department", department);
@@ -158,6 +168,7 @@ public class EnrolmentParametersExtractorTest {
 		expected.put("userGroups", groups);
 		
 		// When
+		when(markScaleDao.getEntityById(anyLong())).thenReturn(markScale);
 		when(personDao.getEntityById(anyLong())).thenReturn(person);
 		when(specOfferDao.getEntityById(anyLong())).thenReturn(specOffer);
 		when(departmentDao.getEntityById(anyLong())).thenReturn(department);
@@ -168,7 +179,8 @@ public class EnrolmentParametersExtractorTest {
 		Map<String, Object> actual = unit.getParameters(entity);
 
 		// Then
-		verify(personDao).getEntityById(anyLong());
+		verify(markScaleDao).getEntityById(markScaleId);
+		verify(personDao).getEntityById(personId);
 		verify(specOfferDao).getEntityById(specOfferId);
 		verify(departmentDao).getEntityById(departmentId);
 		verify(personPaperDao).getEntityById(personPaperId);
@@ -184,6 +196,10 @@ public class EnrolmentParametersExtractorTest {
 		unit.setSecurity(false);
 		
 		String docNum = "1213344";
+		
+		Long markScaleId = 1L;
+		MarkScale markScale = new MarkScale();
+		markScale.setId(markScaleId);
 		
 		Long personId = 1L;
 		Person person = new Person();
@@ -220,6 +236,7 @@ public class EnrolmentParametersExtractorTest {
 		Date endDate = new Date();
 		
 		Enrolment entity = new Enrolment();
+		entity.setMarkScale(markScale);
 		entity.setPerson(person);
 		entity.setSpecOffer(specOffer);
 		entity.setDepartment(department);
@@ -239,6 +256,7 @@ public class EnrolmentParametersExtractorTest {
 		entity.setEndDate(endDate);
 		
 		Map<String, Object> expected = new HashMap<String, Object>();
+		expected.put("markScale", markScale);
 		expected.put("person", person);
 		expected.put("specOffer", specOffer);
 		expected.put("department", department);
@@ -257,6 +275,7 @@ public class EnrolmentParametersExtractorTest {
 		expected.put("endDate", endDate);
 		
 		// When
+		when(markScaleDao.getEntityById(anyLong())).thenReturn(markScale);
 		when(personDao.getEntityById(anyLong())).thenReturn(person);
 		when(specOfferDao.getEntityById(anyLong())).thenReturn(specOffer);
 		when(departmentDao.getEntityById(anyLong())).thenReturn(department);
@@ -267,7 +286,8 @@ public class EnrolmentParametersExtractorTest {
 		Map<String, Object> actual = unit.getParameters(entity);
 		
 		// Then
-		verify(personDao).getEntityById(anyLong());
+		verify(markScaleDao).getEntityById(markScaleId);
+		verify(personDao).getEntityById(personId);
 		verify(specOfferDao).getEntityById(specOfferId);
 		verify(departmentDao).getEntityById(departmentId);
 		verify(personPaperDao).getEntityById(personPaperId);

@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
+import org.lnu.is.domain.mark.scale.MarkScale;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
@@ -35,6 +36,10 @@ public class EnrolmentConverterTest {
 		Integer isOriginal = 0;
 		Integer isEducationState = -1;
 		Integer isInterview = 11;
+		
+		Long markScaleId = 8L;
+		MarkScale markScale = new MarkScale();
+		markScale.setId(markScaleId);
 		
 		Long personId = 2L;
 		Person person = new Person();
@@ -72,6 +77,7 @@ public class EnrolmentConverterTest {
 		source.setIsPrivilege(isPrivilege);
 		source.setIsState(isState);
 		source.setMark(mark);
+		source.setMarkScale(markScale);
 		source.setPerson(person);
 		source.setSpecOffer(specOffer);
 		source.setDepartment(department);
@@ -94,6 +100,7 @@ public class EnrolmentConverterTest {
 		expected.setIsPrivilege(isPrivilege);
 		expected.setIsState(isState);
 		expected.setMark(mark);
+		expected.setMarkScaleId(markScaleId);
 		expected.setPersonId(personId);
 		expected.setSpecOfferId(specOfferId);
 		expected.setDepartmentId(departmentId);

@@ -102,6 +102,7 @@ object EnrolmentIntegrationTest extends ComplexTest {
         .asJSON
         .check(status.is(201))
         .check(jsonPath("$.id").find.saveAs("timePeriodId")))
+    
     // Creating new Department
     .exec(http("Post Department")
         .post("/departments")
@@ -111,6 +112,7 @@ object EnrolmentIntegrationTest extends ComplexTest {
         .asJSON
         .check(status.is(201))
         .check(jsonPath("$.id").find.saveAs("departmentId")))
+    
     // Create new Specialty
     .exec(http("Post Specialty")
         .post("/specialties")
@@ -120,6 +122,7 @@ object EnrolmentIntegrationTest extends ComplexTest {
         .asJSON
         .check(status.is(201))
         .check(jsonPath("$.id").find.saveAs("specialtyId")))         
+    
     // Creating new Spec Offer    
     .exec(http("Post Specoffer")
         .post("/specoffers")
@@ -147,10 +150,26 @@ object EnrolmentIntegrationTest extends ComplexTest {
         .asJSON
         .check(status.is(201))
         .check(jsonPath("$.id").find.saveAs("personPaperId")))   
+
+    // Creating new MarkScale
+    .exec(http("Post MarkScale")
+        .post("/marks/scales")
+        .basicAuth("admin", "nimda")
+        .header("Content-Type", "application/json")
+        .body(ELFileBody("data/mark/scale/post.json"))
+        .asJSON
+        .check(status.is(201))
+        .check(jsonPath("$.id").find.saveAs("markScaleId")))
+    
   }
 
   def after(): ChainBuilder = {
-    // Deleting person
+    // Deleting Mark Scale
+    exec(http("Delete Mark Scale")
+        .delete("/marks/scales/${markScaleId}")
+        .basicAuth("admin", "nimda"))
+
+    // Deleting person paper
     exec(http("Delete Person Paper")
         .delete("/persons/${personId}/papers/${personPaperId}")
         .basicAuth("admin", "nimda")
