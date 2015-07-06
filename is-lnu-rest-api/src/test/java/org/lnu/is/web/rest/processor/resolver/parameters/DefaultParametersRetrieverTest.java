@@ -59,6 +59,22 @@ public class DefaultParametersRetrieverTest {
     }
 
     @Test
+    public void testGetParametersWithEmptyMap() throws Exception {
+        // Given
+        Map<String, String> pathVariables = new HashMap<>();
+        Map<String,String[]> requestParams = new HashMap();
+        Map<String, Object> expected = new HashMap();
+
+        // When
+        when(webRequest.getAttribute(anyString(), anyInt())).thenReturn(pathVariables);
+        when(webRequest.getParameterMap()).thenReturn(requestParams);
+        Map<String, Object> actual = unit.getParameters(webRequest);
+
+        // Then
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetParametersWithMultipleParameter() throws Exception {
         // Given
         String field1 = "field1";
