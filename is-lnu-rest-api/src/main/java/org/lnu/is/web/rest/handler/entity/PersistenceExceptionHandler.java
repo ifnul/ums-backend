@@ -16,7 +16,7 @@ import javax.persistence.PersistenceException;
 import java.text.MessageFormat;
 
 /**
- * Handlers for handling persistence violation exceptions.
+ * Handler for handling persistence exceptions.
  * Date: 07/10/2015
  *
  * @author : Lebedev S.V. aka Moro
@@ -30,7 +30,7 @@ public class PersistenceExceptionHandler implements BaseExceptionHandler<Persist
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(value = {PersistenceException.class})
     public MessageResource handle(final PersistenceException e) {
-        LOGGER.error("Handling constraint violation exception", e);
+        LOGGER.error("Handling persistence exception", e);
 
         MessageResource message = new MessageResource();
         message.setMessageType(MessageType.ERROR);
