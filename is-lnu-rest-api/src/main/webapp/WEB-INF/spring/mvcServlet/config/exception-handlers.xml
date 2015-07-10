@@ -20,6 +20,7 @@
 	<bean class="org.lnu.is.web.rest.handler.access.NoGroupForUserExceptionHandler" />
 	<bean class="org.lnu.is.web.rest.handler.request.InvalidOrderByExceptionHandler" />
 	<bean class="org.lnu.is.web.rest.handler.request.BindExceptionHandler" />
+	<bean class="org.lnu.is.web.rest.handler.entity.PersistenceExceptionHandler" />
 	<bean id="unrecognizedPropertyExceptionHandler" class="org.lnu.is.web.rest.handler.unrecognized.UnrecognizedPropertyExceptionHandler"/>
 	
 	<!-- EDBO related exception handlers -->
