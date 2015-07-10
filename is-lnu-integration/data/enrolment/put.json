@@ -3,6 +3,7 @@
 	"specOfferId" : ${specofferId},
 	"departmentId" : ${departmentId},
 	"personPaperId" : ${personPaperId},
+	"markScaleId" : ${markScaleId},
 	"enrolmentTypeId" : 1,
 	"mark" : 4.7,
 	"docSeries" : "TEST_KC",

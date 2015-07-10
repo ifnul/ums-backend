@@ -9,6 +9,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.type.EnrolmentType;
+import org.lnu.is.domain.mark.scale.MarkScale;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.paper.PersonPaper;
 import org.lnu.is.domain.specoffer.SpecOffer;
@@ -23,6 +24,9 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 @ParametersExtractor("enrolmentParametersExtractor")
 public class EnrolmentParametersExtractor extends AbstractParametersExtractor<Enrolment> {
 
+	@Resource(name = "markScaleDao")
+	private Dao<MarkScale, MarkScale, Long> markScaleDao;
+	
 	@Resource(name = "personDao")
 	private Dao<Person, Person, Long> personDao;
 
@@ -50,6 +54,7 @@ public class EnrolmentParametersExtractor extends AbstractParametersExtractor<En
 		addParameter(entity.getPersonPaper(), personPaperDao, "personPaper", parameters);
 		addParameter(entity.getEnrolmentType(), enrolmentTypeDao, "enrolmentType", parameters);
 		addParameter(entity.getParent(), enrolmentDao, "parent", parameters);
+		addParameter(entity.getMarkScale(), markScaleDao, "markScale", parameters);
 
 		addParameter(entity.getMark(), "mark", parameters);
 		addParameter(entity.getDocSeries(), "docSeries", parameters);

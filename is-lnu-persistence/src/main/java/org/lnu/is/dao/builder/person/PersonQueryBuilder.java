@@ -6,6 +6,7 @@ import org.lnu.is.dao.builder.BaseQueryBuilder;
 import org.lnu.is.multysearch.person.PersonList;
 
 import java.text.MessageFormat;
+import java.util.function.Function;
 
 /**
  * Person Query Builder.
@@ -21,7 +22,7 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 	private static final String FATHERNAMES_CONDITIOIN_PLACEHOLDER = "LOWER(e.fatherName) LIKE LOWER(''%{0}%'') ";
 	private static final String PHOTOS_CONDITIOIN_PLACEHOLDER = "LOWER(e.photo) LIKE LOWER(''%{0}%'') ";
 	private static final String DOCSERIES_CONDITIOIN_PLACEHOLDER = "LOWER(e.docSeries) LIKE LOWER(''%{0}%'') ";
-	private static final String DOCNUMS_CONDITIOIN_PLACEHOLDER = "LOWER(e.docNum) LIKE LOWER(''%{0}%'') ";
+	private static final String DOCNUMS_CONDITIOIN_PLACEHOLDER = "LOWER(e.docNum) LIKE LOWER(''%{0,number,#}%'') ";
 	private static final String IDENTIFIERS_CONDITIOIN_PLACEHOLDER = "LOWER(e.identifier) LIKE LOWER(''%{0}%'') ";
 	private static final String BIRTHPLACES_CONDITIOIN_PLACEHOLDER = "LOWER(e.birthPlace) LIKE LOWER(''%{0}%'') ";
 
@@ -45,6 +46,10 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 
 	@Override
 	protected BaseQueryBuilder build(final PersonList context, final BaseQueryBuilder builder) {
+		Function<Object, String> docNumFunction = value -> {
+			return "LOWER(e.docNum) LIKE LOWER('%" + value + "%') ";
+		};
+
 		return builder
 				.where()
 				.openBracket()
@@ -60,7 +65,7 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 					.addAndConditionForLoop(value -> MessageFormat.format(FATHERNAMES_CONDITIOIN_PLACEHOLDER, value), context.getFatherNames())
 					.addAndConditionForLoop(value -> MessageFormat.format(PHOTOS_CONDITIOIN_PLACEHOLDER, value), context.getPhotos())
 					.addAndConditionForLoop(value -> MessageFormat.format(DOCSERIES_CONDITIOIN_PLACEHOLDER, value), context.getDocSeries())
-					.addAndConditionForLoop(value -> MessageFormat.format(DOCNUMS_CONDITIOIN_PLACEHOLDER, value), context.getDocNums())
+					.addAndConditionForLoop(docNumFunction, context.getDocNums())
 					.addAndConditionForLoop(value -> MessageFormat.format(IDENTIFIERS_CONDITIOIN_PLACEHOLDER, value), context.getIdentifiers())
 					.addAndConditionForLoop(value -> MessageFormat.format(BIRTHPLACES_CONDITIOIN_PLACEHOLDER, value), context.getBirthPlaces())
 
@@ -71,5 +76,4 @@ public class PersonQueryBuilder extends AbstractQueryBuilder<PersonList> {
 					.addAndCondition(ISHOSTEL_CONDITION, context.getIsHostel())
 				.closeBracket();
 	}
-
 }
