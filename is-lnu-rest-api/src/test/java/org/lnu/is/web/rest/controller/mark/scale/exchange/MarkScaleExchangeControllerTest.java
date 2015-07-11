@@ -14,9 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.text.MessageFormat;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -164,7 +162,12 @@ public class MarkScaleExchangeControllerTest extends AbstractControllerTest {
 		
 		MarkScaleExchangeResource resource = new MarkScaleExchangeResource();
 		resource.setMarkScaleId(markScaleId);
-		PagedRequest<MarkScaleExchangeResource> pagedRequest = new PagedRequest<MarkScaleExchangeResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("offset", String.valueOf(offset));
+		params.put("limit", String.valueOf(limit));
+		params.put("markScaleId", String.valueOf(markScaleId));
+		PagedRequest<MarkScaleExchangeResource> pagedRequest = new PagedRequest<MarkScaleExchangeResource>(resource, offset, limit, Collections.<OrderBy>emptyList(),params);
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<MarkScaleExchangeResource>>any())).thenReturn(expectedResource);

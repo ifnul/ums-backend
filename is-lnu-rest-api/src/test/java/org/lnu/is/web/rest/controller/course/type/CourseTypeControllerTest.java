@@ -9,9 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,88 +28,91 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class CourseTypeControllerTest extends AbstractControllerTest {
 
-	@Mock
-	private Facade<CourseTypeResource, CourseTypeResource, Long> facade;
+    @Mock
+    private Facade<CourseTypeResource, CourseTypeResource, Long> facade;
 
-	@InjectMocks
-	private CourseTypeController unit;
-	
-	@Override
-	protected BaseController getUnit() {
-		return unit;
-	}
-	
-	
-	@Test
-	public void testGetCourseTypes() throws Exception {
-		// Given
-		String name = "AddressN";
-		Integer offset = 0;
-		Integer limit = 20;
-		long count = 1;
+    @InjectMocks
+    private CourseTypeController unit;
 
-		CourseTypeResource resource = new CourseTypeResource();
-		resource.setName(name);
+    @Override
+    protected BaseController getUnit() {
+        return unit;
+    }
 
-		List<CourseTypeResource> entities = Arrays.asList(resource);
-		PagedResultResource<CourseTypeResource> expected = new PagedResultResource<>(
-				"/courses/types");
-		expected.setResources(entities);
-		expected.setCount(count);
-		expected.setLimit(limit);
-		expected.setOffset(offset);
 
-		CourseTypeResource paramResource = new CourseTypeResource();
-		paramResource.setName(name);
+    @Test
+    public void testGetCourseTypes() throws Exception {
+        // Given
+        String name = "AddressN";
+        Integer offset = 0;
+        Integer limit = 20;
+        long count = 1;
 
-		PagedRequest<CourseTypeResource> request = new PagedRequest<CourseTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
+        CourseTypeResource resource = new CourseTypeResource();
+        resource.setName(name);
 
-		// When
-		when(facade.getResources(Matchers.<PagedRequest<CourseTypeResource>> any())).thenReturn(expected);
-		String response = getJson(expected, false);
+        List<CourseTypeResource> entities = Arrays.asList(resource);
+        PagedResultResource<CourseTypeResource> expected = new PagedResultResource<>(
+                "/courses/types");
+        expected.setResources(entities);
+        expected.setCount(count);
+        expected.setLimit(limit);
+        expected.setOffset(offset);
 
-		// Then
-		mockMvc.perform(get("/courses/types").param("name", name))
-				.andExpect(status().isOk())
-				.andExpect(content().string(response));
+        CourseTypeResource paramResource = new CourseTypeResource();
+        paramResource.setName(name);
 
-		verify(facade).getResources(request);
-	}
-	
-	@Test
-	public void testGetResource() throws Exception {
-		// Given
-		Long id = 1L;
-		String name = "all difficult";
-		String abbrName = "ad";
-		CourseTypeResource expected = new CourseTypeResource();
-		expected.setName(name);
-		expected.setAbbrName(abbrName);
-		expected.setId(id);
-		
-		// When
-		when(facade.getResource(anyLong())).thenReturn(expected);
-		String response = getJson(expected, false);
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        PagedRequest<CourseTypeResource> request = new PagedRequest<CourseTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList(), params);
 
-		// Then
-		mockMvc.perform(get("/courses/types/{id}", id))
-			.andExpect(status().isOk())
-			.andExpect(content().string(response));
-		
-		verify(facade).getResource(id);
-	}
+        // When
+        when(facade.getResources(Matchers.<PagedRequest<CourseTypeResource>>any())).thenReturn(expected);
+        String response = getJson(expected, false);
 
-	@Test(expected = AccessDeniedException.class)
-	public void testGetResourceWithAccessDeniedException() throws Exception {
-		// Given
-		Long id = 1L;
-		
-		// When
-		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
-		
-		// Then
-		mockMvc.perform(get("/courses/types/{id}", id));
-		
-		verify(facade).getResource(id);
-	}
+        // Then
+        mockMvc.perform(get("/courses/types")
+                .param("name", name))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResources(request);
+    }
+
+    @Test
+    public void testGetResource() throws Exception {
+        // Given
+        Long id = 1L;
+        String name = "all difficult";
+        String abbrName = "ad";
+        CourseTypeResource expected = new CourseTypeResource();
+        expected.setName(name);
+        expected.setAbbrName(abbrName);
+        expected.setId(id);
+
+        // When
+        when(facade.getResource(anyLong())).thenReturn(expected);
+        String response = getJson(expected, false);
+
+        // Then
+        mockMvc.perform(get("/courses/types/{id}", id))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResource(id);
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void testGetResourceWithAccessDeniedException() throws Exception {
+        // Given
+        Long id = 1L;
+
+        // When
+        doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+
+        // Then
+        mockMvc.perform(get("/courses/types/{id}", id));
+
+        verify(facade).getResource(id);
+    }
 }

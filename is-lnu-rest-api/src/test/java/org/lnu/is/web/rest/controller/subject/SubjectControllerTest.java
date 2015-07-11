@@ -9,9 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -61,8 +59,10 @@ public class SubjectControllerTest extends AbstractControllerTest {
 		
 		SubjectResource paramResource = new SubjectResource();
 		paramResource.setName(name);
-		
-		PagedRequest<SubjectResource> request = new PagedRequest<SubjectResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("name", name);
+		PagedRequest<SubjectResource> request = new PagedRequest<SubjectResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList(), params);
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<SubjectResource>> any())).thenReturn(expected);

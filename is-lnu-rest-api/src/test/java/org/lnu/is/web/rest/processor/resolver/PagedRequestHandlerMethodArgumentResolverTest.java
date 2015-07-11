@@ -48,624 +48,520 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class PagedRequestHandlerMethodArgumentResolverTest {
 
-	@InjectMocks
-	private PagedRequestHandlerMethodArgumentResolver unit;
+    @InjectMocks
+    private PagedRequestHandlerMethodArgumentResolver unit;
 
-	@Mock
-	private OrderByFieldResolver orderByFieldResolver;
+    @Mock
+    private OrderByFieldResolver orderByFieldResolver;
 
-	@Mock
-	private OffsetParameterResolver offsetParameteResolver;
-	
-	@Mock
-	private LimitParameterResolver limitParameterResolver;
-	
-	@Mock
-	private ResourceParameterResolver resourceParamterResolver;
+    @Mock
+    private OffsetParameterResolver offsetParameteResolver;
 
-	@Mock
-	private ParametersRetriever parametersRetriever;
+    @Mock
+    private LimitParameterResolver limitParameterResolver;
 
-	@Mock
-	private MethodParameter param;
-	
-	@Mock
-	private ModelAndViewContainer mavContainer;
-	
-	@Mock
-	private NativeWebRequest webRequest;
-	
-	@Mock
-	private WebDataBinderFactory binderFactory;
+    @Mock
+    private ResourceParameterResolver resourceParamterResolver;
 
-	@Mock
-	private HttpServletRequest httpRequest;
+    @Mock
+    private ParametersRetriever parametersRetriever;
 
-	@Mock
-	private ParameterizedType type;
-	
-	@Rule
-	public ExpectedException exception = ExpectedException.none();
+    @Mock
+    private MethodParameter param;
 
-	@SuppressWarnings("rawtypes")
-	private Class<PagedRequest> paramType = PagedRequest.class;
+    @Mock
+    private ModelAndViewContainer mavContainer;
 
-	@Test
-	public void testResolveArgument() throws Exception {
-		// Given
-		final Integer limitValue = 20;
-		final Integer offsetValue = 0;
-		String orderByParameterValue = "name-asc, description-desc";
-		
-		String id = "1";
-		String name = "Ivan";
-		Map<String, String> pathVariables = new HashMap<>();
-		pathVariables.put("id", id);
-		Map<String, String[]> parameterMap = new HashMap<>();
-		parameterMap.put("name", new String[] { name });
+    @Mock
+    private NativeWebRequest webRequest;
 
-		Map<String, String> requestParameters = new HashMap<>();
-		requestParameters.put("id", id);
-		requestParameters.put("name", name);
+    @Mock
+    private WebDataBinderFactory binderFactory;
 
-		Map<String, Object> parameters = new HashMap();
-		parameters.put("id", id);
-		parameters.put("name", Arrays.asList(name));
-		
-		PersonResource resource = new PersonResource();
-		resource.setName(name);
-		resource.setId(Long.valueOf(id));
+    @Mock
+    private HttpServletRequest httpRequest;
 
-		OrderBy order1 = new OrderBy("name", OrderByType.ASC);
-		OrderBy order2 = new OrderBy("description", OrderByType.DESC);
-		List<OrderBy> orders = Arrays.asList(order1, order2);
-		PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, 
-				offsetValue, limitValue, orders);
-		
-		// When
-		// Init when's
-		when(webRequest.getNativeRequest()).thenReturn(httpRequest);
-		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
-			.thenReturn(pathVariables);
-		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
-		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
-		
-		// Limit when's
-		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
-			new Class[] { Limit.class }, 
-			new InvocationHandler() {
-				@Override
-				public Object invoke(final Object proxy, final Method method, final Object[] args)
-						throws Throwable {
-					return String.valueOf(limitValue);
-				}
-		});
-		
-		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
-		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
-		
-		// Offset when's
-		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
-			new Class[] { Offset.class }, 
-			new InvocationHandler() {
-				@Override
-				public Object invoke(final Object proxy, final Method method, final Object[] args)
-						throws Throwable {
-					return String.valueOf(offsetValue);
-				}
-		});
-		
-		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
-		
-		// Orders when's
-		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(orders);
-		
-		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
+    @Mock
+    private ParameterizedType type;
 
-		// Then
-		assertEquals(expected, actual);
-	}
-	
-	@Test
-	public void testResolveArgumentWithCapitalLetter() throws Exception {
-		// Given
-		final Integer limitValue = 20;
-		final Integer offsetValue = 0;
-		String orderByParameterValue = "name-ASC, description-desc";
-		
-		String id = "1";
-		String name = "Ivan";
-		Map<String, String> pathVariables = new HashMap<>();
-		pathVariables.put("id", id);
-		Map<String, String[]> parameterMap = new HashMap<>();
-		parameterMap.put("name", new String[] { name });
-		
-		Map<String, String> requestParameters = new HashMap<>();
-		requestParameters.put("id", id);
-		requestParameters.put("name", name);
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
-		Map<String, Object> parameters = new HashMap();
-		parameters.put("id", id);
-		parameters.put("name", Arrays.asList(name));
+    @SuppressWarnings("rawtypes")
+    private Class<PagedRequest> paramType = PagedRequest.class;
 
-		PersonResource resource = new PersonResource();
-		resource.setName(name);
-		resource.setId(Long.valueOf(id));
-		
-		OrderBy order1 = new OrderBy("name", OrderByType.ASC);
-		OrderBy order2 = new OrderBy("description", OrderByType.DESC);
-		List<OrderBy> orders = Arrays.asList(order1, order2);
-		PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, 
-				offsetValue, limitValue, orders);
-		
-		// When
-		// Init when's
-		when(webRequest.getNativeRequest()).thenReturn(httpRequest);
-		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
-			.thenReturn(pathVariables);
-		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
-		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
-		
-		// Limit when's
-		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
-				new Class[] { Limit.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(limitValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
-		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
-		
-		// Offset when's
-		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
-				new Class[] { Offset.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(offsetValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
-		
-		// Orders when's
-		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(orders);
-		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
-		
-		// Then
-		assertEquals(expected, actual);
-	}
-	
-	@Test
-	public void testResolveArgumentWithSingleOrder() throws Exception {
-		// Given
-		final Integer limitValue = 20;
-		final Integer offsetValue = 0;
-		String orderByParameterValue = "name-asc";
-		
-		String id = "1";
-		String name = "Ivan";
-		Map<String, String> pathVariables = new HashMap<>();
-		pathVariables.put("id", id);
-		Map<String, String[]> parameterMap = new HashMap<>();
-		parameterMap.put("name", new String[] { name });
-		
-		Map<String, String> requestParameters = new HashMap<>();
-		requestParameters.put("id", id);
-		requestParameters.put("name", name);
+    @Test
+    public void testResolveArgument() throws Exception {
+        // Given
+        final Integer limitValue = 20;
+        final Integer offsetValue = 0;
+        String orderByParameterValue = "name-asc, description-desc";
 
-		Map<String, Object> parameters = new HashMap();
-		parameters.put("id", id);
-		parameters.put("name", Arrays.asList(name));
-		
-		PersonResource resource = new PersonResource();
-		resource.setName(name);
-		resource.setId(Long.valueOf(id));
-		
-		OrderBy order1 = new OrderBy("name", OrderByType.ASC);
-		List<OrderBy> orders = Arrays.asList(order1);
-		PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, 
-				offsetValue, limitValue, orders);
-		
-		// When
-		// Init when's
-		when(webRequest.getNativeRequest()).thenReturn(httpRequest);
-		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
-		.thenReturn(pathVariables);
-		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
-		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
-		
-		// Limit when's
-		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
-				new Class[] { Limit.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(limitValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
-		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
-		
-		// Offset when's
-		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
-				new Class[] { Offset.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(offsetValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
-		
-		// Orders when's
-		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(orders);
-		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
-		
-		// Then
-		assertEquals(expected, actual);
-	}
-	
-	@Test
-	public void testResolveArgumentWithEmptyOrders() throws Exception {
-		// Given
-		final Integer limitValue = 20;
-		final Integer offsetValue = 0;
-		String orderByParameterValue = "";
-		
-		String id = "1";
-		String name = "Ivan";
-		Map<String, String> pathVariables = new HashMap<>();
-		pathVariables.put("id", id);
-		Map<String, String[]> parameterMap = new HashMap<>();
-		parameterMap.put("name", new String[] { name });
-		
-		Map<String, String> requestParameters = new HashMap<>();
-		requestParameters.put("id", id);
-		requestParameters.put("name", name);
+        String id = "1";
+        String name = "Ivan";
+        Map<String, String> pathVariables = new HashMap<>();
+        pathVariables.put("id", id);
+        Map<String, String[]> parameterMap = new HashMap<>();
+        parameterMap.put("name", new String[]{name});
 
-		Map<String, Object> parameters = new HashMap();
-		parameters.put("id", id);
-		parameters.put("name", Arrays.asList(name));
-		
-		PersonResource resource = new PersonResource();
-		resource.setName(name);
-		resource.setId(Long.valueOf(id));
-		
-		List<OrderBy> orders = Collections.emptyList();
-		PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, 
-				offsetValue, limitValue, orders);
-		
-		// When
-		// Init when's
-		when(webRequest.getNativeRequest()).thenReturn(httpRequest);
-		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
-		.thenReturn(pathVariables);
-		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
-		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
-		
-		// Limit when's
-		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
-				new Class[] { Limit.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(limitValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
-		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
-		
-		// Offset when's
-		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
-				new Class[] { Offset.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(offsetValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
-		
-		// Orders when's
-		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		
-		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
-		
-		// Then
-		assertEquals(expected, actual);
-	}
-	
-	@Test
-	public void testResolveArgumentWithNullOrders() throws Exception {
-		// Given
-		final Integer limitValue = 20;
-		final Integer offsetValue = 0;
-		String orderByParameterValue = null;
-		
-		String id = "1";
-		String name = "Ivan";
-		Map<String, String> pathVariables = new HashMap<>();
-		pathVariables.put("id", id);
-		Map<String, String[]> parameterMap = new HashMap<>();
-		parameterMap.put("name", new String[] { name });
-		
-		Map<String, String> requestParameters = new HashMap<>();
-		requestParameters.put("id", id);
-		requestParameters.put("name", name);
+        Map<String, String> requestParameters = new HashMap<>();
+        requestParameters.put("id", id);
+        requestParameters.put("name", name);
 
-		Map<String, Object> parameters = new HashMap();
-		parameters.put("id", id);
-		parameters.put("name", Arrays.asList(name));
-		
-		PersonResource resource = new PersonResource();
-		resource.setName(name);
-		resource.setId(Long.valueOf(id));
-		
-		List<OrderBy> orders = Collections.emptyList();
-		PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, 
-				offsetValue, limitValue, orders);
-		
-		// When
-		// Init when's
-		when(webRequest.getNativeRequest()).thenReturn(httpRequest);
-		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
-		.thenReturn(pathVariables);
-		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
-		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
-		
-		// Limit when's
-		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
-				new Class[] { Limit.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(limitValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
-		when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
-		
-		// Offset when's
-		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
-				new Class[] { Offset.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(offsetValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
-		
-		// Orders when's
-		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		
-		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
-		
-		// Then
-		assertEquals(expected, actual);
-	}
-	
-	@Test
-	public void testResolveArgumentWithInvalidOrderFormat() throws Exception {
-		// Given
-		final Integer limitValue = 20;
-		final Integer offsetValue = 0;
-		String orderByParameterValue = "name*asc, description\\-desc";
-		
-		String id = "1";
-		String name = "Ivan";
-		Map<String, String> pathVariables = new HashMap<>();
-		pathVariables.put("id", id);
-		Map<String, String[]> parameterMap = new HashMap<>();
-		parameterMap.put("name", new String[] { name });
-		
-		Map<String, String> requestParameters = new HashMap<>();
-		requestParameters.put("id", id);
-		requestParameters.put("name", name);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("id", id);
+        parameters.put("name", Arrays.asList(name));
 
-		Map<String, Object> parameters = new HashMap();
-		parameters.put("id", id);
-		parameters.put("name", Arrays.asList(name));
+        PersonResource resource = new PersonResource();
+        resource.setName(name);
+        resource.setId(Long.valueOf(id));
 
-		PersonResource resource = new PersonResource();
-		resource.setName(name);
-		resource.setId(Long.valueOf(id));
-		
-		List<OrderBy> orders = Collections.emptyList();
-		PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, 
-				offsetValue, limitValue, orders);
-		
-		// When
-		// Init when's
-		when(webRequest.getNativeRequest()).thenReturn(httpRequest);
-		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
-		.thenReturn(pathVariables);
-		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
+        OrderBy order1 = new OrderBy("name", OrderByType.ASC);
+        OrderBy order2 = new OrderBy("description", OrderByType.DESC);
+        List<OrderBy> orders = Arrays.asList(order1, order2);
+        PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource,
+                offsetValue, limitValue, orders, parameters);
 
-		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
-		
-		// Limit when's
-		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
-				new Class[] { Limit.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(limitValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
-		
-		// Offset when's
-		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
-				new Class[] { Offset.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(offsetValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
-		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
-		
-		// Orders when's
-		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenThrow(new InvalidOrderByException("Invalid string for order by field"));
-		exception.expect(InvalidOrderByException.class);
-		exception.expectMessage("Invalid string for order by field");
-		
-		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
-		
-		// Then
-		assertEquals(expected.toString(), actual.toString());
-	}
-	
-	@Test
-	public void testResolveArgumentWithInvalidOrderField() throws Exception {
-		// Given
-		final Integer limitValue = 20;
-		final Integer offsetValue = 0;
-		String orderByParameterValue = "name-asc, personId-desc";
-		
-		String id = "1";
-		String name = "Ivan";
-		Map<String, String> pathVariables = new HashMap<>();
-		pathVariables.put("id", id);
-		Map<String, String[]> parameterMap = new HashMap<>();
-		parameterMap.put("name", new String[] { name });
+        // When
+        // Init when's
+        when(webRequest.getNativeRequest()).thenReturn(httpRequest);
+        when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
+                .thenReturn(pathVariables);
+        when(webRequest.getParameterMap()).thenReturn(parameterMap);
+        when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
+        // Resource when's
+        when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
+
+        // Limit when's
+        Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(),
+                new Class[]{Limit.class}, (proxy, method, args) -> String.valueOf(limitValue));
+
+        when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+        when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
+
+        // Offset when's
+        Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(),
+                new Class[]{Offset.class}, (proxy, method, args) -> String.valueOf(offsetValue));
+
+        when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+        when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+
+        // Orders when's
+        when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
+        when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(orders);
+
+        Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
+
+        // Then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testResolveArgumentWithCapitalLetter() throws Exception {
+        // Given
+        final Integer limitValue = 20;
+        final Integer offsetValue = 0;
+        String orderByParameterValue = "name-ASC, description-desc";
+
+        String id = "1";
+        String name = "Ivan";
+        Map<String, String> pathVariables = new HashMap<>();
+        pathVariables.put("id", id);
+        Map<String, String[]> parameterMap = new HashMap<>();
+        parameterMap.put("name", new String[]{name});
+
+        Map<String, String> requestParameters = new HashMap<>();
+        requestParameters.put("id", id);
+        requestParameters.put("name", name);
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("id", id);
+        parameters.put("name", Collections.singletonList(name));
+
+        PersonResource resource = new PersonResource();
+        resource.setName(name);
+        resource.setId(Long.valueOf(id));
+
+        OrderBy order1 = new OrderBy("name", OrderByType.ASC);
+        OrderBy order2 = new OrderBy("description", OrderByType.DESC);
+        List<OrderBy> orders = Arrays.asList(order1, order2);
+        PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, offsetValue, limitValue, orders, parameters);
+
+        // When
+        // Init when's
+        when(webRequest.getNativeRequest()).thenReturn(httpRequest);
+        when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
+                .thenReturn(pathVariables);
+        when(webRequest.getParameterMap()).thenReturn(parameterMap);
+        when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
+        // Resource when's
+        when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
+
+        // Limit when's
+        Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(),
+                new Class[]{Limit.class}, (proxy, method, args) -> String.valueOf(limitValue));
+
+        when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+        when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
+
+        // Offset when's
+        Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(),
+                new Class[]{Offset.class}, (proxy, method, args) -> String.valueOf(offsetValue));
+
+        when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+        when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+
+        // Orders when's
+        when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
+        when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(orders);
+        Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
+
+        // Then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testResolveArgumentWithSingleOrder() throws Exception {
+        // Given
+        final Integer limitValue = 20;
+        final Integer offsetValue = 0;
+        String orderByParameterValue = "name-asc";
+
+        String id = "1";
+        String name = "Ivan";
+        Map<String, String> pathVariables = new HashMap<>();
+        pathVariables.put("id", id);
+        Map<String, String[]> parameterMap = new HashMap<>();
+        parameterMap.put("name", new String[]{name});
+
+        Map<String, String> requestParameters = new HashMap<>();
+        requestParameters.put("id", id);
+        requestParameters.put("name", name);
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("id", id);
+        parameters.put("name", Collections.singletonList(name));
+
+        PersonResource resource = new PersonResource();
+        resource.setName(name);
+        resource.setId(Long.valueOf(id));
+
+        OrderBy order1 = new OrderBy("name", OrderByType.ASC);
+        List<OrderBy> orders = Arrays.asList(order1);
+        PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, offsetValue, limitValue, orders, parameters);
+
+        // When
+        // Init when's
+        when(webRequest.getNativeRequest()).thenReturn(httpRequest);
+        when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
+                .thenReturn(pathVariables);
+        when(webRequest.getParameterMap()).thenReturn(parameterMap);
+        when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
+        // Resource when's
+        when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
+
+        // Limit when's
+        Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(),
+                new Class[]{Limit.class}, (proxy, method, args) -> String.valueOf(limitValue));
+
+        when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+        when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
+
+        // Offset when's
+        Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(),
+                new Class[]{Offset.class}, (proxy, method, args) -> String.valueOf(offsetValue));
+
+        when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+        when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+
+        // Orders when's
+        when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
+        when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenReturn(orders);
+        Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
+
+        // Then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testResolveArgumentWithEmptyOrders() throws Exception {
+        // Given
+        final Integer limitValue = 20;
+        final Integer offsetValue = 0;
+        String orderByParameterValue = "";
+
+        String id = "1";
+        String name = "Ivan";
+        Map<String, String> pathVariables = new HashMap<>();
+        pathVariables.put("id", id);
+        Map<String, String[]> parameterMap = new HashMap<>();
+        parameterMap.put("name", new String[]{name});
+
+        Map<String, String> requestParameters = new HashMap<>();
+        requestParameters.put("id", id);
+        requestParameters.put("name", name);
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("id", id);
+        parameters.put("name", Collections.singletonList(name));
+
+        PersonResource resource = new PersonResource();
+        resource.setName(name);
+        resource.setId(Long.valueOf(id));
+
+        List<OrderBy> orders = Collections.emptyList();
+        PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, offsetValue, limitValue, orders, parameters);
+
+        // When
+        // Init when's
+        when(webRequest.getNativeRequest()).thenReturn(httpRequest);
+        when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
+                .thenReturn(pathVariables);
+        when(webRequest.getParameterMap()).thenReturn(parameterMap);
+        when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
+        // Resource when's
+        when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
+
+        // Limit when's
+        Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(),
+                new Class[]{Limit.class}, (proxy, method, args) -> String.valueOf(limitValue));
+
+        when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+        when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
+
+        // Offset when's
+        Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(),
+                new Class[]{Offset.class}, (proxy, method, args) -> String.valueOf(offsetValue));
+
+        when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+        when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+
+        // Orders when's
+        when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
+
+        Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
+
+        // Then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testResolveArgumentWithNullOrders() throws Exception {
+        // Given
+        final Integer limitValue = 20;
+        final Integer offsetValue = 0;
+        String orderByParameterValue = null;
+
+        String id = "1";
+        String name = "Ivan";
+        Map<String, String> pathVariables = new HashMap<>();
+        pathVariables.put("id", id);
+        Map<String, String[]> parameterMap = new HashMap<>();
+        parameterMap.put("name", new String[]{name});
+
+        Map<String, String> requestParameters = new HashMap<>();
+        requestParameters.put("id", id);
+        requestParameters.put("name", name);
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("id", id);
+        parameters.put("name", Collections.singletonList(name));
+
+        PersonResource resource = new PersonResource();
+        resource.setName(name);
+        resource.setId(Long.valueOf(id));
+
+        List<OrderBy> orders = Collections.emptyList();
+        PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, offsetValue, limitValue, orders, parameters);
+
+        // When
+        // Init when's
+        when(webRequest.getNativeRequest()).thenReturn(httpRequest);
+        when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
+                .thenReturn(pathVariables);
+        when(webRequest.getParameterMap()).thenReturn(parameterMap);
+        when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
+        // Resource when's
+        when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
+
+        // Limit when's
+        Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(),
+                new Class[]{Limit.class}, (proxy, method, args) -> String.valueOf(limitValue));
+
+        when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+        when(limitParameterResolver.getLimit(any(Limit.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(limitValue);
+
+        // Offset when's
+        Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(),
+                new Class[]{Offset.class}, (proxy, method, args) -> String.valueOf(offsetValue));
+
+        when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+        when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+
+        // Orders when's
+        when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
+
+        Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
+
+        // Then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testResolveArgumentWithInvalidOrderFormat() throws Exception {
+        // Given
+        final Integer limitValue = 20;
+        final Integer offsetValue = 0;
+        String orderByParameterValue = "name*asc, description\\-desc";
+
+        String id = "1";
+        String name = "Ivan";
+        Map<String, String> pathVariables = new HashMap<>();
+        pathVariables.put("id", id);
+        Map<String, String[]> parameterMap = new HashMap<>();
+        parameterMap.put("name", new String[]{name});
+
+        Map<String, String> requestParameters = new HashMap<>();
+        requestParameters.put("id", id);
+        requestParameters.put("name", name);
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("id", id);
+        parameters.put("name", Collections.singletonList(name));
+
+        PersonResource resource = new PersonResource();
+        resource.setName(name);
+        resource.setId(Long.valueOf(id));
+
+        List<OrderBy> orders = Collections.emptyList();
+        PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, offsetValue, limitValue, orders, parameters);
+
+        // When
+        // Init when's
+        when(webRequest.getNativeRequest()).thenReturn(httpRequest);
+        when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
+                .thenReturn(pathVariables);
+        when(webRequest.getParameterMap()).thenReturn(parameterMap);
+        when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
+
+        // Resource when's
+        when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
+
+        // Limit when's
+        Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(),
+                new Class[]{Limit.class}, (proxy, method, args) -> String.valueOf(limitValue));
+
+        when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+
+        // Offset when's
+        Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(),
+                new Class[]{Offset.class}, (proxy, method, args) -> String.valueOf(offsetValue));
+
+        when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(limitValue));
+        when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+
+        // Orders when's
+        when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
+        when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenThrow(new InvalidOrderByException("Invalid string for order by field"));
+        exception.expect(InvalidOrderByException.class);
+        exception.expectMessage("Invalid string for order by field");
+
+        Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
+
+        // Then
+        assertEquals(expected.toString(), actual.toString());
+    }
+
+    @Test
+    public void testResolveArgumentWithInvalidOrderField() throws Exception {
+        // Given
+        final Integer limitValue = 20;
+        final Integer offsetValue = 0;
+        String orderByParameterValue = "name-asc, personId-desc";
+
+        String id = "1";
+        String name = "Ivan";
+        Map<String, String> pathVariables = new HashMap<>();
+        pathVariables.put("id", id);
+        Map<String, String[]> parameterMap = new HashMap<>();
+        parameterMap.put("name", new String[]{name});
 
 
-		Map<String, String> requestParameters = new HashMap<>();
-		requestParameters.put("id", id);
-		requestParameters.put("name", name);
+        Map<String, String> requestParameters = new HashMap<>();
+        requestParameters.put("id", id);
+        requestParameters.put("name", name);
 
-		Map<String, Object> parameters = new HashMap();
-		parameters.put("id", id);
-		parameters.put("name", Arrays.asList(name));
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("id", id);
+        parameters.put("name", Collections.singletonList(name));
 
-		PersonResource resource = new PersonResource();
-		resource.setName(name);
-		resource.setId(Long.valueOf(id));
-		
-		List<OrderBy> orders = Collections.emptyList();
-		PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, 
-				offsetValue, limitValue, orders);
-		
-		// When
-		// Init when's
-		when(webRequest.getNativeRequest()).thenReturn(httpRequest);
-		when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
-		.thenReturn(pathVariables);
-		when(webRequest.getParameterMap()).thenReturn(parameterMap);
-		when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
-		// Resource when's
-		when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
-		// Limit when's
-		Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(), 
-				new Class[] { Limit.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(limitValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
-		
-		// Offset when's
-		Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(), 
-				new Class[] { Offset.class }, 
-				new InvocationHandler() {
-			@Override
-			public Object invoke(final Object proxy, final Method method, final Object[] args)
-					throws Throwable {
-				return String.valueOf(offsetValue);
-			}
-		});
-		
-		when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
-		doReturn(paramType).when(param).getParameterType();
-		when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(offsetValue));
-		when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
-		
-		// Orders when's
-		when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
-		when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenThrow(new IllegalArgumentException("Fields that contains 'Id' are not supported for ordering"));
-		exception.expect(IllegalArgumentException.class);
-		exception.expectMessage("Fields that contains 'Id' are not supported for ordering");
-		
-		Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
-		
-		// Then
-		assertEquals(expected.toString(), actual.toString());
-	}
-	
+        PersonResource resource = new PersonResource();
+        resource.setName(name);
+        resource.setId(Long.valueOf(id));
+
+        List<OrderBy> orders = Collections.emptyList();
+        PagedRequest<PersonResource> expected = new PagedRequest<PersonResource>(resource, offsetValue, limitValue, orders, parameters);
+
+        // When
+        // Init when's
+        when(webRequest.getNativeRequest()).thenReturn(httpRequest);
+        when(webRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST))
+                .thenReturn(pathVariables);
+        when(webRequest.getParameterMap()).thenReturn(parameterMap);
+        when(parametersRetriever.getParameters(any(NativeWebRequest.class))).thenReturn(parameters);
+        // Resource when's
+        when(resourceParamterResolver.getResource(any(MethodParameter.class), anyMapOf(String.class, Object.class))).thenReturn(resource);
+        // Limit when's
+        Limit limit = (Limit) Proxy.newProxyInstance(Limit.class.getClassLoader(),
+                new Class[]{Limit.class}, (proxy, method, args) -> String.valueOf(limitValue));
+
+        when(param.getParameterAnnotation(Limit.class)).thenReturn(limit);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("limit")).thenReturn(String.valueOf(limitValue));
+
+        // Offset when's
+        Offset offset = (Offset) Proxy.newProxyInstance(Offset.class.getClassLoader(),
+                new Class[]{Offset.class}, (proxy, method, args) -> String.valueOf(offsetValue));
+
+        when(param.getParameterAnnotation(Offset.class)).thenReturn(offset);
+        doReturn(paramType).when(param).getParameterType();
+        when(httpRequest.getParameter("offset")).thenReturn(String.valueOf(offsetValue));
+        when(offsetParameteResolver.getOffset(any(Offset.class), any(Field.class), any(HttpServletRequest.class))).thenReturn(offsetValue);
+
+        // Orders when's
+        when(httpRequest.getParameter("orderBy")).thenReturn(orderByParameterValue);
+        when(orderByFieldResolver.getOrdersBy(anyString(), any())).thenThrow(new IllegalArgumentException("Fields that contains 'Id' are not supported for ordering"));
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Fields that contains 'Id' are not supported for ordering");
+
+        Object actual = unit.resolveArgument(param, mavContainer, webRequest, binderFactory);
+
+        // Then
+        assertEquals(expected.toString(), actual.toString());
+    }
+
 }

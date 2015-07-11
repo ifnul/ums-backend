@@ -19,10 +19,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
@@ -163,8 +160,11 @@ public class PersonControllerTest extends AbstractControllerTest {
 		expectedResource.setOffset(offset);
 		expectedResource.setUri(uri);
 		expectedResource.setResources(entities);
-		
-		PagedRequest<PersonResourceList> pagedRequest = new PagedRequest<PersonResourceList>(new PersonResourceList(), offset, limit, Collections.<OrderBy>emptyList());
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("offset", String.valueOf(offset));
+		params.put("limit", String.valueOf(limit));
+		PagedRequest<PersonResourceList> pagedRequest = new PagedRequest<PersonResourceList>(new PersonResourceList(), offset, limit, Collections.<OrderBy>emptyList(), params);
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<PersonResourceList>>any())).thenReturn(expectedResource);

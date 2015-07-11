@@ -13,10 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -153,8 +150,11 @@ public class PartnerControllerTest extends AbstractControllerTest {
 		expectedResource.setOffset(offset);
 		expectedResource.setUri(uri);
 		expectedResource.setResources(entities);
-		
-		PagedRequest<PartnerResource> pagedRequest = new PagedRequest<PartnerResource>(new PartnerResource(), offset, limit, Collections.<OrderBy>emptyList());
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("offset", String.valueOf(offset));
+		params.put("limit", String.valueOf(limit));
+		PagedRequest<PartnerResource> pagedRequest = new PagedRequest<PartnerResource>(new PartnerResource(), offset, limit, Collections.<OrderBy>emptyList(), params);
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<PartnerResource>>any())).thenReturn(expectedResource);

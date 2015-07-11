@@ -14,9 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.text.MessageFormat;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,171 +44,176 @@ public class EnrolmentEnrolmentSubjectControllerTest extends AbstractControllerT
 
     @Override
     protected BaseController getUnit() {
-	return unit;
+        return unit;
     }
 
     @Test
     public void testCreateEnrolmentEnrolmentSubject() throws Exception {
-	// Given
-	Long id = 1L;
-	Long enrolmentId = 2L;
-	EnrolmentEnrolmentSubjectResource enrolmentEnrolmentSubjectResource = new EnrolmentEnrolmentSubjectResource();
-	enrolmentEnrolmentSubjectResource.setId(id);
-	enrolmentEnrolmentSubjectResource.setEnrolmentId(enrolmentId);
-	
-	// When
-	String request = getJson(enrolmentEnrolmentSubjectResource, true);
-	String response = getJson(enrolmentEnrolmentSubjectResource, false);
+        // Given
+        Long id = 1L;
+        Long enrolmentId = 2L;
+        EnrolmentEnrolmentSubjectResource enrolmentEnrolmentSubjectResource = new EnrolmentEnrolmentSubjectResource();
+        enrolmentEnrolmentSubjectResource.setId(id);
+        enrolmentEnrolmentSubjectResource.setEnrolmentId(enrolmentId);
 
-	when(facade.createResource(any(EnrolmentEnrolmentSubjectResource.class)))
-		.thenReturn(enrolmentEnrolmentSubjectResource);
+        // When
+        String request = getJson(enrolmentEnrolmentSubjectResource, true);
+        String response = getJson(enrolmentEnrolmentSubjectResource, false);
 
-	// Then
-	mockMvc.perform(
-		post("/enrolments/{enrolmentId}/enrolmentsubjects", enrolmentId)
-			.contentType(MediaType.APPLICATION_JSON).content(
-				request)).andExpect(status().isCreated())
-		.andExpect(content().string(response));
+        when(facade.createResource(any(EnrolmentEnrolmentSubjectResource.class)))
+                .thenReturn(enrolmentEnrolmentSubjectResource);
 
-	verify(facade).createResource(enrolmentEnrolmentSubjectResource);
+        // Then
+        mockMvc.perform(
+                post("/enrolments/{enrolmentId}/enrolmentsubjects", enrolmentId)
+                        .contentType(MediaType.APPLICATION_JSON).content(
+                        request)).andExpect(status().isCreated())
+                .andExpect(content().string(response));
+
+        verify(facade).createResource(enrolmentEnrolmentSubjectResource);
     }
 
     @Test
     public void testUpdateEnrolmentEnrolmentSubject() throws Exception {
-	// Given
-	Long id = 5L;
-	Long enrolmentId = 2L;
-	Long enrolmentSubjectId = 6L;
-	Long personEnrolmentSubjectId = 3L;
-	Double mark = 4D;
-	EnrolmentEnrolmentSubjectResource enrolmentEnrolmentSubjectResource = new EnrolmentEnrolmentSubjectResource();
-	enrolmentEnrolmentSubjectResource.setId(id);
-	enrolmentEnrolmentSubjectResource.setEnrolmentSubjectId(enrolmentSubjectId);
-	enrolmentEnrolmentSubjectResource.setEnrolmentId(enrolmentId);
-	enrolmentEnrolmentSubjectResource.setPersonEnrolmentSubjectId(personEnrolmentSubjectId);
-	enrolmentEnrolmentSubjectResource.setMark(mark);
+        // Given
+        Long id = 5L;
+        Long enrolmentId = 2L;
+        Long enrolmentSubjectId = 6L;
+        Long personEnrolmentSubjectId = 3L;
+        Double mark = 4D;
+        EnrolmentEnrolmentSubjectResource enrolmentEnrolmentSubjectResource = new EnrolmentEnrolmentSubjectResource();
+        enrolmentEnrolmentSubjectResource.setId(id);
+        enrolmentEnrolmentSubjectResource.setEnrolmentSubjectId(enrolmentSubjectId);
+        enrolmentEnrolmentSubjectResource.setEnrolmentId(enrolmentId);
+        enrolmentEnrolmentSubjectResource.setPersonEnrolmentSubjectId(personEnrolmentSubjectId);
+        enrolmentEnrolmentSubjectResource.setMark(mark);
 
-	MessageResource responseResource = new MessageResource(
-		MessageType.INFO, "Enrolment Enrolment Subject Updated");
+        MessageResource responseResource = new MessageResource(
+                MessageType.INFO, "Enrolment Enrolment Subject Updated");
 
-	// When
-	String request = getJson(enrolmentEnrolmentSubjectResource, true);
-	String response = getJson(responseResource, false);
+        // When
+        String request = getJson(enrolmentEnrolmentSubjectResource, true);
+        String response = getJson(responseResource, false);
 
-	// Then
-	mockMvc.perform(
-		put(
-			"/enrolments/{enrolmentId}/enrolmentsubjects/{enrolmentEnrolmentSubjectId}",
-			enrolmentId, id).contentType(MediaType.APPLICATION_JSON)
-			.content(request)).andExpect(status().isOk())
-		.andExpect(content().string(response));
+        // Then
+        mockMvc.perform(
+                put(
+                        "/enrolments/{enrolmentId}/enrolmentsubjects/{enrolmentEnrolmentSubjectId}",
+                        enrolmentId, id).contentType(MediaType.APPLICATION_JSON)
+                        .content(request)).andExpect(status().isOk())
+                .andExpect(content().string(response));
 
-	verify(facade).updateResource(id, enrolmentEnrolmentSubjectResource);
+        verify(facade).updateResource(id, enrolmentEnrolmentSubjectResource);
     }
 
     @Test
     public void testDeleteEnrolmentEnrolmentSubject() throws Exception {
-	// Given
-	Long enrolmentId = 2L;
-	Long enrolmentSubjectId = 5L;
+        // Given
+        Long enrolmentId = 2L;
+        Long enrolmentSubjectId = 5L;
 
-	// When
+        // When
 
-	// Then
-	mockMvc.perform(
-		delete("/enrolments/{enrolmentId}/enrolmentsubjects/{enrolmentSubjectId}",
-			enrolmentId, enrolmentSubjectId)).andExpect(
-		status().is(204));
+        // Then
+        mockMvc.perform(
+                delete("/enrolments/{enrolmentId}/enrolmentsubjects/{enrolmentSubjectId}",
+                        enrolmentId, enrolmentSubjectId)).andExpect(
+                status().is(204));
 
-	verify(facade).removeResource(enrolmentSubjectId);
+        verify(facade).removeResource(enrolmentSubjectId);
     }
 
     @Test
     public void testGetPersonEnrolmentSubjects() throws Exception {
-	// Given
-	Long enrolmentId = 2L;
-	Long id = 5L;
+        // Given
+        Long enrolmentId = 2L;
+        Long id = 5L;
 
-	EnrolmentEnrolmentSubjectResource enrolmentEnrolmentSubjectResource = new EnrolmentEnrolmentSubjectResource();
-	enrolmentEnrolmentSubjectResource.setId(id);
-	enrolmentEnrolmentSubjectResource.setEnrolmentId(enrolmentId);
-	
+        EnrolmentEnrolmentSubjectResource enrolmentEnrolmentSubjectResource = new EnrolmentEnrolmentSubjectResource();
+        enrolmentEnrolmentSubjectResource.setId(id);
+        enrolmentEnrolmentSubjectResource.setEnrolmentId(enrolmentId);
 
-	// When
-	String response = getJson(enrolmentEnrolmentSubjectResource, false);
 
-	when(facade.getResource(anyLong())).thenReturn(
-		enrolmentEnrolmentSubjectResource);
+        // When
+        String response = getJson(enrolmentEnrolmentSubjectResource, false);
 
-	// Then
-	mockMvc.perform(
-		get("/enrolments/{enrolmentId}/enrolmentsubjects/{enrolmentEnrolmentSubjectId}",
-			enrolmentId, id)).andExpect(status().isOk())
-		.andExpect(content().string(response));
+        when(facade.getResource(anyLong())).thenReturn(
+                enrolmentEnrolmentSubjectResource);
 
-	verify(facade).getResource(id);
+        // Then
+        mockMvc.perform(
+                get("/enrolments/{enrolmentId}/enrolmentsubjects/{enrolmentEnrolmentSubjectId}",
+                        enrolmentId, id)).andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResource(id);
     }
 
     @Test
     public void testGetEnrolmentSubjects() throws Exception {
-	// Given
-	Long id = 5L;
-	Long enrolmentId = 2L;
+        // Given
+        Long id = 5L;
+        Long enrolmentId = 2L;
 
-	EnrolmentEnrolmentSubjectResource enrolmentSubjectResource = new EnrolmentEnrolmentSubjectResource();
-	enrolmentSubjectResource.setId(id);
-	enrolmentSubjectResource.setEnrolmentId(enrolmentId);
+        EnrolmentEnrolmentSubjectResource enrolmentSubjectResource = new EnrolmentEnrolmentSubjectResource();
+        enrolmentSubjectResource.setId(id);
+        enrolmentSubjectResource.setEnrolmentId(enrolmentId);
 
-	long count = 100;
-	int limit = 25;
-	Integer offset = 10;
-	String uri = MessageFormat.format("/enrolments/{0}/enrolmentsubjects",
-		enrolmentId);
-	List<EnrolmentEnrolmentSubjectResource> entities = Arrays
-		.asList(enrolmentSubjectResource);
-	PagedResultResource<EnrolmentEnrolmentSubjectResource> expectedResource = new PagedResultResource<>();
-	expectedResource.setCount(count);
-	expectedResource.setLimit(limit);
-	expectedResource.setOffset(offset);
-	expectedResource.setUri(uri);
-	expectedResource.setResources(entities);
+        long count = 100;
+        int limit = 25;
+        Integer offset = 10;
+        String uri = MessageFormat.format("/enrolments/{0}/enrolmentsubjects",
+                enrolmentId);
+        List<EnrolmentEnrolmentSubjectResource> entities = Arrays
+                .asList(enrolmentSubjectResource);
+        PagedResultResource<EnrolmentEnrolmentSubjectResource> expectedResource = new PagedResultResource<>();
+        expectedResource.setCount(count);
+        expectedResource.setLimit(limit);
+        expectedResource.setOffset(offset);
+        expectedResource.setUri(uri);
+        expectedResource.setResources(entities);
 
-	EnrolmentEnrolmentSubjectResource resource = new EnrolmentEnrolmentSubjectResource();
-	resource.setEnrolmentId(enrolmentId);
-	PagedRequest<EnrolmentEnrolmentSubjectResource> pagedRequest = new PagedRequest<EnrolmentEnrolmentSubjectResource>(
-		resource, offset, limit, Collections.<OrderBy> emptyList());
+        EnrolmentEnrolmentSubjectResource resource = new EnrolmentEnrolmentSubjectResource();
+        resource.setEnrolmentId(enrolmentId);
 
-	// When
-	when(
-		facade.getResources(Matchers
-			.<PagedRequest<EnrolmentEnrolmentSubjectResource>> any()))
-		.thenReturn(expectedResource);
-	String response = getJson(expectedResource, false);
+        Map<String, Object> params = new HashMap<>();
+        params.put("offset", String.valueOf(offset));
+        params.put("limit", String.valueOf(limit));
+        params.put("enrolmentId", String.valueOf(enrolmentId));
+        PagedRequest<EnrolmentEnrolmentSubjectResource> pagedRequest = new PagedRequest<EnrolmentEnrolmentSubjectResource>(
+                resource, offset, limit, Collections.<OrderBy>emptyList(), params);
 
-	// Then
-	mockMvc.perform(
-		get("/enrolments/{enrolmentId}/enrolmentsubjects", enrolmentId).param(
-			"offset", String.valueOf(offset)).param("limit",
-			String.valueOf(limit))).andExpect(status().isOk())
-		.andExpect(content().string(response));
+        // When
+        when(
+                facade.getResources(Matchers
+                        .<PagedRequest<EnrolmentEnrolmentSubjectResource>>any()))
+                .thenReturn(expectedResource);
+        String response = getJson(expectedResource, false);
 
-	verify(facade).getResources(pagedRequest);
+        // Then
+        mockMvc.perform(
+                get("/enrolments/{enrolmentId}/enrolmentsubjects", enrolmentId).param(
+                        "offset", String.valueOf(offset)).param("limit",
+                        String.valueOf(limit))).andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResources(pagedRequest);
     }
 
     @Test(expected = AccessDeniedException.class)
     public void testGetResourceWithAccessDeniedException() throws Exception {
-	// Given
-	Long id = 5L;
-	Long enrolmentId = 2L;
+        // Given
+        Long id = 5L;
+        Long enrolmentId = 2L;
 
-	// When
-	doThrow(AccessDeniedException.class).when(facade)
-		.getResource(anyLong());
+        // When
+        doThrow(AccessDeniedException.class).when(facade)
+                .getResource(anyLong());
 
-	// Then
-	mockMvc.perform(get("/enrolments/{enrolmentId}/enrolmentsubjects/{id}",
-		enrolmentId, id));
+        // Then
+        mockMvc.perform(get("/enrolments/{enrolmentId}/enrolmentsubjects/{id}",
+                enrolmentId, id));
 
-	verify(facade).getResource(id);
+        verify(facade).getResource(id);
     }
 }

@@ -13,10 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,160 +43,162 @@ public class PublicActivityAwardControllerTest extends AbstractControllerTest {
 
     @Override
     protected BaseController getUnit() {
-	return unit;
+        return unit;
     }
 
     @Test
     public void testCreate() throws Exception {
-	// Given
-	Long publicActivityId = 1L;
-	PublicActivityAwardResource resource = new PublicActivityAwardResource();
-	resource.setPublicActivityId(publicActivityId);
-	resource.setBegDate(new Date());
+        // Given
+        Long publicActivityId = 1L;
+        PublicActivityAwardResource resource = new PublicActivityAwardResource();
+        resource.setPublicActivityId(publicActivityId);
+        resource.setBegDate(new Date());
 
-	// When
-	String request = getJson(resource, true);
-	String response = getJson(resource, false);
+        // When
+        String request = getJson(resource, true);
+        String response = getJson(resource, false);
 
-	when(facade.createResource(any(PublicActivityAwardResource.class)))
-		.thenReturn(resource);
+        when(facade.createResource(any(PublicActivityAwardResource.class)))
+                .thenReturn(resource);
 
-	// Then
-	mockMvc.perform(
-		post("/publicactivities/{publicActivityId}/awards",
-			publicActivityId).contentType(
-			MediaType.APPLICATION_JSON).content(request))
-		.andExpect(status().isCreated())
-		.andExpect(content().string(response));
+        // Then
+        mockMvc.perform(
+                post("/publicactivities/{publicActivityId}/awards",
+                        publicActivityId).contentType(
+                        MediaType.APPLICATION_JSON).content(request))
+                .andExpect(status().isCreated())
+                .andExpect(content().string(response));
 
-	verify(facade).createResource(resource);
+        verify(facade).createResource(resource);
     }
 
     @Test
     public void testUpdate() throws Exception {
-	// Given
-	Long id = 1L;
-	Long publicActivityId = 1L;
-	PublicActivityAwardResource resource = new PublicActivityAwardResource();
-	resource.setPublicActivityId(publicActivityId);
-	resource.setBegDate(new Date());
-	resource.setId(id);
+        // Given
+        Long id = 1L;
+        Long publicActivityId = 1L;
+        PublicActivityAwardResource resource = new PublicActivityAwardResource();
+        resource.setPublicActivityId(publicActivityId);
+        resource.setBegDate(new Date());
+        resource.setId(id);
 
-	MessageResource responseResource = new MessageResource(MessageType.INFO);
+        MessageResource responseResource = new MessageResource(MessageType.INFO);
 
-	// When
-	String request = getJson(resource, true);
-	String response = getJson(responseResource, false);
+        // When
+        String request = getJson(resource, true);
+        String response = getJson(responseResource, false);
 
-	// Then
-	mockMvc.perform(
-		put("/publicactivities/{publicActivityId}/awards/{id}",
-			publicActivityId, id).contentType(
-			MediaType.APPLICATION_JSON).content(request))
-		.andExpect(status().isOk())
-		.andExpect(content().string(response));
+        // Then
+        mockMvc.perform(
+                put("/publicactivities/{publicActivityId}/awards/{id}",
+                        publicActivityId, id).contentType(
+                        MediaType.APPLICATION_JSON).content(request))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
 
-	verify(facade).updateResource(id, resource);
+        verify(facade).updateResource(id, resource);
     }
 
     @Test
     public void testGetResource() throws Exception {
-	// Given
-	Long id = 1L;
-	Long publicActivityId = 1L;
-	PublicActivityAwardResource resource = new PublicActivityAwardResource();
-	resource.setPublicActivityId(publicActivityId);
-	resource.setBegDate(new Date());
-	resource.setId(id);
+        // Given
+        Long id = 1L;
+        Long publicActivityId = 1L;
+        PublicActivityAwardResource resource = new PublicActivityAwardResource();
+        resource.setPublicActivityId(publicActivityId);
+        resource.setBegDate(new Date());
+        resource.setId(id);
 
-	// When
-	String response = getJson(resource, false);
+        // When
+        String response = getJson(resource, false);
 
-	when(facade.getResource(anyLong())).thenReturn(resource);
+        when(facade.getResource(anyLong())).thenReturn(resource);
 
-	// Then
-	mockMvc.perform(
-		get("/publicactivities/{publicActivityId}/awards/{id}",
-			publicActivityId, id)).andExpect(status().isOk())
-		.andExpect(content().string(response));
+        // Then
+        mockMvc.perform(
+                get("/publicactivities/{publicActivityId}/awards/{id}",
+                        publicActivityId, id)).andExpect(status().isOk())
+                .andExpect(content().string(response));
 
-	verify(facade).getResource(id);
+        verify(facade).getResource(id);
     }
 
     @Test
     public void testDelete() throws Exception {
-	// Given
-	Long id = 1L;
-	Long publicActivityId = 2L;
-	// When
+        // Given
+        Long id = 1L;
+        Long publicActivityId = 2L;
+        // When
 
-	// Then
-	mockMvc.perform(
-		delete("/publicactivities/{publicActivityId}/awards/{id}",
-			publicActivityId, id)).andExpect(status().is(204));
+        // Then
+        mockMvc.perform(
+                delete("/publicactivities/{publicActivityId}/awards/{id}",
+                        publicActivityId, id)).andExpect(status().is(204));
 
-	verify(facade).removeResource(id);
+        verify(facade).removeResource(id);
     }
 
     @Test
     public void testGetResources() throws Exception {
-	// Given
-	Long id = 1L;
-	Long publicActivityId = 1L;
-	PublicActivityAwardResource resource = new PublicActivityAwardResource();
-	resource.setPublicActivityId(publicActivityId);
-	resource.setBegDate(new Date());
-	resource.setId(id);
+        // Given
+        Long id = 1L;
+        Long publicActivityId = 1L;
+        PublicActivityAwardResource resource = new PublicActivityAwardResource();
+        resource.setPublicActivityId(publicActivityId);
+        resource.setBegDate(new Date());
+        resource.setId(id);
 
-	long count = 100;
-	int limit = 25;
-	Integer offset = 10;
-	String uri = "/publicactivities";
-	List<PublicActivityAwardResource> entities = Arrays.asList(resource);
-	PagedResultResource<PublicActivityAwardResource> expectedResource = new PagedResultResource<>();
-	expectedResource.setCount(count);
-	expectedResource.setLimit(limit);
-	expectedResource.setOffset(offset);
-	expectedResource.setUri(uri);
-	expectedResource.setResources(entities);
+        long count = 100;
+        int limit = 25;
+        Integer offset = 10;
+        String uri = "/publicactivities";
+        List<PublicActivityAwardResource> entities = Arrays.asList(resource);
+        PagedResultResource<PublicActivityAwardResource> expectedResource = new PagedResultResource<>();
+        expectedResource.setCount(count);
+        expectedResource.setLimit(limit);
+        expectedResource.setOffset(offset);
+        expectedResource.setUri(uri);
+        expectedResource.setResources(entities);
 
-	PublicActivityAwardResource parameters = new PublicActivityAwardResource();
-	parameters.setPublicActivityId(publicActivityId);
-	PagedRequest<PublicActivityAwardResource> pagedRequest = new PagedRequest<PublicActivityAwardResource>(
-		parameters, offset, limit, Collections.<OrderBy> emptyList());
+        PublicActivityAwardResource parameters = new PublicActivityAwardResource();
+        parameters.setPublicActivityId(publicActivityId);
 
-	// When
-	when(
-		facade.getResources(Matchers
-			.<PagedRequest<PublicActivityAwardResource>> any()))
-		.thenReturn(expectedResource);
-	String response = getJson(expectedResource, false);
+        Map<String, Object> params = new HashMap<>();
+        params.put("offset", String.valueOf(offset));
+        params.put("limit", String.valueOf(limit));
+        params.put("publicActivityId", String.valueOf(publicActivityId));
+        PagedRequest<PublicActivityAwardResource> pagedRequest = new PagedRequest<PublicActivityAwardResource>(
+                parameters, offset, limit, Collections.<OrderBy>emptyList(), params);
 
-	// Then
-	mockMvc.perform(
-		get("/publicactivities/{publicActivityId}/awards",
-			publicActivityId).param("offset",
-			String.valueOf(offset)).param("limit",
-			String.valueOf(limit))).andExpect(status().isOk())
-		.andExpect(content().string(response));
+        // When
+        when(facade.getResources(Matchers.<PagedRequest<PublicActivityAwardResource>>any()))
+                .thenReturn(expectedResource);
+        String response = getJson(expectedResource, false);
 
-	verify(facade).getResources(pagedRequest);
+        // Then
+        mockMvc.perform(get("/publicactivities/{publicActivityId}/awards", publicActivityId)
+                .param("offset", String.valueOf(offset))
+                .param("limit", String.valueOf(limit)))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResources(pagedRequest);
     }
 
     @Test(expected = AccessDeniedException.class)
     public void testGetResourceWithAccessDeniedException() throws Exception {
-	// Given
-	Long id = 1L;
-	Long publicActivityId = 2L;
+        // Given
+        Long id = 1L;
+        Long publicActivityId = 2L;
 
-	// When
-	doThrow(AccessDeniedException.class).when(facade)
-		.getResource(anyLong());
+        // When
+        doThrow(AccessDeniedException.class).when(facade)
+                .getResource(anyLong());
 
-	// Then
-	mockMvc.perform(get("/publicactivities/{publicActivityId}/awards/{id}",
-		publicActivityId, id));
+        // Then
+        mockMvc.perform(get("/publicactivities/{publicActivityId}/awards/{id}",
+                publicActivityId, id));
 
-	verify(facade).getResource(id);
+        verify(facade).getResource(id);
     }
 }

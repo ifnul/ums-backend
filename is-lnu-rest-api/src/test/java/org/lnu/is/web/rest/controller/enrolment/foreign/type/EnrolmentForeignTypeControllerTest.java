@@ -9,9 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,87 +29,90 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class EnrolmentForeignTypeControllerTest extends AbstractControllerTest {
 
-	@Mock
-	private Facade<EnrolmentForeignTypeResource, EnrolmentForeignTypeResource, Long> facade;
+    @Mock
+    private Facade<EnrolmentForeignTypeResource, EnrolmentForeignTypeResource, Long> facade;
 
-	@InjectMocks
-	private EnrolmentForeignTypeController unit;
-	
-	@Override
-	protected BaseController getUnit() {
-		return unit;
-	}
-	
-	@Test
-	public void testGetEnrolmentForeignTypes() throws Exception {
-		// Given
-		String name = "AddressN";
-		Integer offset = 0;
-		Integer limit = 20;
-		long count = 1;
+    @InjectMocks
+    private EnrolmentForeignTypeController unit;
 
-		EnrolmentForeignTypeResource resource = new EnrolmentForeignTypeResource();
-		resource.setName(name);
+    @Override
+    protected BaseController getUnit() {
+        return unit;
+    }
 
-		List<EnrolmentForeignTypeResource> entities = Arrays.asList(resource);
-		PagedResultResource<EnrolmentForeignTypeResource> expected = new PagedResultResource<>("/enrolmentforeignes/types");
-		expected.setResources(entities);
-		expected.setCount(count);
-		expected.setLimit(limit);
-		expected.setOffset(offset);
+    @Test
+    public void testGetEnrolmentForeignTypes() throws Exception {
+        // Given
+        String name = "AddressN";
+        Integer offset = 0;
+        Integer limit = 20;
+        long count = 1;
 
-		EnrolmentForeignTypeResource paramResource = new EnrolmentForeignTypeResource();
-		paramResource.setName(name);
+        EnrolmentForeignTypeResource resource = new EnrolmentForeignTypeResource();
+        resource.setName(name);
 
-		PagedRequest<EnrolmentForeignTypeResource> request = new PagedRequest<EnrolmentForeignTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
+        List<EnrolmentForeignTypeResource> entities = Arrays.asList(resource);
+        PagedResultResource<EnrolmentForeignTypeResource> expected = new PagedResultResource<>("/enrolmentforeignes/types");
+        expected.setResources(entities);
+        expected.setCount(count);
+        expected.setLimit(limit);
+        expected.setOffset(offset);
 
-		// When
-		when(facade.getResources(Matchers.<PagedRequest<EnrolmentForeignTypeResource>> any())).thenReturn(expected);
-		String response = getJson(expected, false);
+        EnrolmentForeignTypeResource paramResource = new EnrolmentForeignTypeResource();
+        paramResource.setName(name);
 
-		// Then
-		mockMvc.perform(get("/enrolmentforeignes/types").param("name", name))
-				.andExpect(status().isOk())
-				.andExpect(content().string(response));
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        PagedRequest<EnrolmentForeignTypeResource> request = new PagedRequest<EnrolmentForeignTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList(), params);
 
-		verify(facade).getResources(request);
+        // When
+        when(facade.getResources(Matchers.<PagedRequest<EnrolmentForeignTypeResource>>any())).thenReturn(expected);
+        String response = getJson(expected, false);
 
-	}
+        // Then
+        mockMvc.perform(get("/enrolmentforeignes/types")
+                .param("name", name))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
 
-	@Test
-	public void testGetResource() throws Exception {
-		// Given
-		Long id = 1L;
-		String name = "all difficult";
-		String abbrName = "ad";
-		EnrolmentForeignTypeResource expected = new EnrolmentForeignTypeResource();
-		expected.setName(name);
-		expected.setAbbrName(abbrName);
-		expected.setId(id);
-		
-		// When
-		when(facade.getResource(anyLong())).thenReturn(expected);
-		String response = getJson(expected, false);
+        verify(facade).getResources(request);
 
-		// Then
-		mockMvc.perform(get("/enrolmentforeignes/types/{id}", id))
-			.andExpect(status().isOk())
-			.andExpect(content().string(response));
-		
-		verify(facade).getResource(id);
-	}
+    }
 
-	@Test(expected = AccessDeniedException.class)
-	public void testGetResourceWithAccessDeniedException() throws Exception {
-		// Given
-		Long id = 1L;
-		
-		// When
-		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
-		
-		// Then
-		mockMvc.perform(get("/enrolmentforeignes/types/{id}", id));
-		
-		verify(facade).getResource(id);
-	}
+    @Test
+    public void testGetResource() throws Exception {
+        // Given
+        Long id = 1L;
+        String name = "all difficult";
+        String abbrName = "ad";
+        EnrolmentForeignTypeResource expected = new EnrolmentForeignTypeResource();
+        expected.setName(name);
+        expected.setAbbrName(abbrName);
+        expected.setId(id);
+
+        // When
+        when(facade.getResource(anyLong())).thenReturn(expected);
+        String response = getJson(expected, false);
+
+        // Then
+        mockMvc.perform(get("/enrolmentforeignes/types/{id}", id))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResource(id);
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void testGetResourceWithAccessDeniedException() throws Exception {
+        // Given
+        Long id = 1L;
+
+        // When
+        doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+
+        // Then
+        mockMvc.perform(get("/enrolmentforeignes/types/{id}", id));
+
+        verify(facade).getResource(id);
+    }
 }

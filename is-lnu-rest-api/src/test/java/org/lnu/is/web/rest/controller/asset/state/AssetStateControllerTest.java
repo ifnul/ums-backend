@@ -9,9 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,86 +27,88 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AssetStateControllerTest extends AbstractControllerTest {
-	
-	@Mock
-	private Facade<AssetStateResource, AssetStateResource, Long> facade;
-	
-	@InjectMocks
-	private AssetStateController unit;
-	
-	@Override
-	protected BaseController getUnit() {
-		return unit;
-	}
 
-	@Test
-	public void testGetAssetStates() throws Exception {
-		// Given
-		String name = "all difficult";
-		AssetStateResource resource = new AssetStateResource();
-		resource.setName(name);
-		
-		List<AssetStateResource> entities = Arrays.asList(resource);
-		
-		int offset = 0;
-		int limit = 20;
-		long count = 1;
-		PagedResultResource<AssetStateResource> expected = new PagedResultResource<>("/assets/states");
-		expected.setResources(entities);
-		expected.setOffset(offset);
-		expected.setLimit(limit);
-		expected.setCount(count);
-		
-		AssetStateResource paramResource = new AssetStateResource();
-		paramResource.setName(name);
-		
-		PagedRequest<AssetStateResource> request = new PagedRequest<AssetStateResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
-		
-		// When
-		when(facade.getResources(Matchers.<PagedRequest<AssetStateResource>> any())).thenReturn(expected);
-		String response = getJson(expected, false);
-		
-		// Then
-		mockMvc.perform(get("/assets/states")
-				.param("name", name))
-				.andExpect(status().isOk())
-				.andExpect(content().string(response));
-		
-		verify(facade).getResources(request);
-	}
+    @Mock
+    private Facade<AssetStateResource, AssetStateResource, Long> facade;
 
-	@Test
-	public void testGetResource() throws Exception {
-		// Given
-		Long id = 1L;
-		String name = "all difficult";
-		AssetStateResource expected = new AssetStateResource();
-		expected.setName(name);
-		expected.setId(id);
-		
-		// When
-		when(facade.getResource(anyLong())).thenReturn(expected);
-		String response = getJson(expected, false);
+    @InjectMocks
+    private AssetStateController unit;
 
-		// Then
-		mockMvc.perform(get("/assets/states/{id}", id))
-			.andExpect(status().isOk())
-			.andExpect(content().string(response));
-		
-		verify(facade).getResource(id);
-	}
+    @Override
+    protected BaseController getUnit() {
+        return unit;
+    }
 
-	@Test(expected = AccessDeniedException.class)
-	public void testGetResourceWithAccessDeniedException() throws Exception {
-		// Given
-		Long id = 1L;
-		
-		// When
-		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
-		
-		// Then
-		mockMvc.perform(get("/assets/states/{id}", id));
-		
-		verify(facade).getResource(id);
-	}
+    @Test
+    public void testGetAssetStates() throws Exception {
+        // Given
+        String name = "all difficult";
+        AssetStateResource resource = new AssetStateResource();
+        resource.setName(name);
+
+        List<AssetStateResource> entities = Arrays.asList(resource);
+
+        int offset = 0;
+        int limit = 20;
+        long count = 1;
+        PagedResultResource<AssetStateResource> expected = new PagedResultResource<>("/assets/states");
+        expected.setResources(entities);
+        expected.setOffset(offset);
+        expected.setLimit(limit);
+        expected.setCount(count);
+
+        AssetStateResource paramResource = new AssetStateResource();
+        paramResource.setName(name);
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        PagedRequest<AssetStateResource> request = new PagedRequest<AssetStateResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList(), params);
+
+        // When
+        when(facade.getResources(Matchers.<PagedRequest<AssetStateResource>>any())).thenReturn(expected);
+        String response = getJson(expected, false);
+
+        // Then
+        mockMvc.perform(get("/assets/states")
+                .param("name", name))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResources(request);
+    }
+
+    @Test
+    public void testGetResource() throws Exception {
+        // Given
+        Long id = 1L;
+        String name = "all difficult";
+        AssetStateResource expected = new AssetStateResource();
+        expected.setName(name);
+        expected.setId(id);
+
+        // When
+        when(facade.getResource(anyLong())).thenReturn(expected);
+        String response = getJson(expected, false);
+
+        // Then
+        mockMvc.perform(get("/assets/states/{id}", id))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResource(id);
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void testGetResourceWithAccessDeniedException() throws Exception {
+        // Given
+        Long id = 1L;
+
+        // When
+        doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+
+        // Then
+        mockMvc.perform(get("/assets/states/{id}", id));
+
+        verify(facade).getResource(id);
+    }
 }

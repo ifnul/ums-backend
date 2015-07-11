@@ -13,9 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,169 +43,171 @@ public class EnrolmentBenefitControllerTest extends AbstractControllerTest {
 
     @Override
     protected BaseController getUnit() {
-	return unit;
+        return unit;
     }
 
     @Test
     public void testCreateEnrolmentBenefit() throws Exception {
-	// Given
-	Long id = 1L;
-	Long enrolmentId = 2L;
-	Long benefitId = 3L;
+        // Given
+        Long id = 1L;
+        Long enrolmentId = 2L;
+        Long benefitId = 3L;
 
-	EnrolmentBenefitResource resource = new EnrolmentBenefitResource();
-	resource.setId(id);
-	resource.setEnrolmentId(enrolmentId);
-	resource.setBenefitId(benefitId);
+        EnrolmentBenefitResource resource = new EnrolmentBenefitResource();
+        resource.setId(id);
+        resource.setEnrolmentId(enrolmentId);
+        resource.setBenefitId(benefitId);
 
-	// When
-	String request = getJson(resource, true);
-	String response = getJson(resource, false);
+        // When
+        String request = getJson(resource, true);
+        String response = getJson(resource, false);
 
-	when(facade.createResource(any(EnrolmentBenefitResource.class)))
-		.thenReturn(resource);
+        when(facade.createResource(any(EnrolmentBenefitResource.class)))
+                .thenReturn(resource);
 
-	// Then
-	mockMvc.perform(
-		post("/enrolments/{enrolmentId}/benefits", enrolmentId)
-			.contentType(MediaType.APPLICATION_JSON).content(
-				request)).andExpect(status().isCreated())
-		.andExpect(content().string(response));
+        // Then
+        mockMvc.perform(post("/enrolments/{enrolmentId}/benefits", enrolmentId)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(request))
+                .andExpect(status().isCreated())
+                .andExpect(content().string(response));
 
-	verify(facade).createResource(resource);
+        verify(facade).createResource(resource);
     }
 
     @Test
     public void testUpdateEnrolmentBenefit() throws Exception {
-	// Given
-	Long id = 1L;
-	Long enrolmentId = 2L;
-	Long benefitId = 3L;
+        // Given
+        Long id = 1L;
+        Long enrolmentId = 2L;
+        Long benefitId = 3L;
 
-	EnrolmentBenefitResource resource = new EnrolmentBenefitResource();
-	resource.setId(id);
-	resource.setEnrolmentId(enrolmentId);
-	resource.setBenefitId(benefitId);
+        EnrolmentBenefitResource resource = new EnrolmentBenefitResource();
+        resource.setId(id);
+        resource.setEnrolmentId(enrolmentId);
+        resource.setBenefitId(benefitId);
 
-	MessageResource responseResource = new MessageResource(
-		MessageType.INFO, "EnrolmentBenefit Updated");
+        MessageResource responseResource = new MessageResource(
+                MessageType.INFO, "EnrolmentBenefit Updated");
 
-	// When
-	String request = getJson(resource, true);
-	String response = getJson(responseResource, false);
+        // When
+        String request = getJson(resource, true);
+        String response = getJson(responseResource, false);
 
-	// Then
-	mockMvc.perform(
-		put("/enrolments/{enrolmentId}/benefits/{id}", enrolmentId, id)
-			.contentType(MediaType.APPLICATION_JSON).content(
-				request)).andExpect(status().isOk())
-		.andExpect(content().string(response));
+        // Then
+        mockMvc.perform(put("/enrolments/{enrolmentId}/benefits/{id}", enrolmentId, id)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(request))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
 
-	verify(facade).updateResource(id, resource);
+        verify(facade).updateResource(id, resource);
     }
 
     @Test
     public void testGetEnrolmentBenefit() throws Exception {
-	// Given
-	Long id = 1L;
-	Long enrolmentId = 2L;
-	Long benefitId = 3L;
+        // Given
+        Long id = 1L;
+        Long enrolmentId = 2L;
+        Long benefitId = 3L;
 
-	EnrolmentBenefitResource resource = new EnrolmentBenefitResource();
-	resource.setId(id);
-	resource.setEnrolmentId(enrolmentId);
-	resource.setBenefitId(benefitId);
+        EnrolmentBenefitResource resource = new EnrolmentBenefitResource();
+        resource.setId(id);
+        resource.setEnrolmentId(enrolmentId);
+        resource.setBenefitId(benefitId);
 
-	// When
-	String response = getJson(resource, false);
+        // When
+        String response = getJson(resource, false);
 
-	when(facade.getResource(anyLong())).thenReturn(resource);
+        when(facade.getResource(anyLong())).thenReturn(resource);
 
-	// Then
-	mockMvc.perform(
-		get("/enrolments/{enrolmentId}/benefits/{id}", enrolmentId, id))
-		.andExpect(status().isOk())
-		.andExpect(content().string(response));
+        // Then
+        mockMvc.perform(
+                get("/enrolments/{enrolmentId}/benefits/{id}", enrolmentId, id))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
 
-	verify(facade).getResource(id);
+        verify(facade).getResource(id);
     }
 
     @Test
     public void testRemoveEnrolmentBenefit() throws Exception {
-	// Given
-	Long id = 1L;
-	Long enrolmentId = 2L;
+        // Given
+        Long id = 1L;
+        Long enrolmentId = 2L;
 
-	// When
+        // When
 
-	// Then
-	mockMvc.perform(
-		delete("/enrolments/{enrolmentId}/benefits/{id}", enrolmentId,
-			id)).andExpect(status().is(204));
+        // Then
+        mockMvc.perform(
+                delete("/enrolments/{enrolmentId}/benefits/{id}", enrolmentId,
+                        id)).andExpect(status().is(204));
 
-	verify(facade).removeResource(id);
+        verify(facade).removeResource(id);
     }
 
     @Test
     public void testGetEnrolmentBenefits() throws Exception {
-	// Given
-	Long id = 1L;
-	Long enrolmentId = 2L;
-	Long benefitId = 3L;
+        // Given
+        Long id = 1L;
+        Long enrolmentId = 2L;
+        Long benefitId = 3L;
 
-	EnrolmentBenefitResource resource = new EnrolmentBenefitResource();
-	resource.setId(id);
-	resource.setEnrolmentId(enrolmentId);
-	resource.setBenefitId(benefitId);
+        EnrolmentBenefitResource resource = new EnrolmentBenefitResource();
+        resource.setId(id);
+        resource.setEnrolmentId(enrolmentId);
+        resource.setBenefitId(benefitId);
 
-	long count = 100;
-	int limit = 25;
-	Integer offset = 10;
-	String uri = "/enrolments";
-	List<EnrolmentBenefitResource> entities = Arrays.asList(resource);
-	PagedResultResource<EnrolmentBenefitResource> expectedResource = new PagedResultResource<>();
-	expectedResource.setCount(count);
-	expectedResource.setLimit(limit);
-	expectedResource.setOffset(offset);
-	expectedResource.setUri(uri);
-	expectedResource.setResources(entities);
+        long count = 100;
+        int limit = 25;
+        Integer offset = 10;
+        String uri = "/enrolments";
+        List<EnrolmentBenefitResource> entities = Arrays.asList(resource);
+        PagedResultResource<EnrolmentBenefitResource> expectedResource = new PagedResultResource<>();
+        expectedResource.setCount(count);
+        expectedResource.setLimit(limit);
+        expectedResource.setOffset(offset);
+        expectedResource.setUri(uri);
+        expectedResource.setResources(entities);
 
-	EnrolmentBenefitResource pagedResource = new EnrolmentBenefitResource();
-	pagedResource.setEnrolmentId(enrolmentId);
-	PagedRequest<EnrolmentBenefitResource> pagedRequest = new PagedRequest<EnrolmentBenefitResource>(
-		pagedResource, offset, limit, Collections.<OrderBy> emptyList());
+        EnrolmentBenefitResource pagedResource = new EnrolmentBenefitResource();
+        pagedResource.setEnrolmentId(enrolmentId);
 
-	// When
-	when(
-		facade.getResources(Matchers
-			.<PagedRequest<EnrolmentBenefitResource>> any()))
-		.thenReturn(expectedResource);
-	String response = getJson(expectedResource, false);
+        Map<String, Object> params = new HashMap<>();
+        params.put("offset", String.valueOf(offset));
+        params.put("limit", String.valueOf(limit));
+        params.put("enrolmentId", String.valueOf(enrolmentId));
+        PagedRequest<EnrolmentBenefitResource> pagedRequest = new PagedRequest<EnrolmentBenefitResource>(
+                pagedResource, offset, limit, Collections.<OrderBy>emptyList(), params);
 
-	// Then
-	mockMvc.perform(
-		get("/enrolments/{enrolmentId}/benefits", enrolmentId).param(
-			"offset", String.valueOf(offset)).param("limit",
-			String.valueOf(limit))).andExpect(status().isOk())
-		.andExpect(content().string(response));
+        // When
+        when(facade.getResources(Matchers.<PagedRequest<EnrolmentBenefitResource>>any())).thenReturn(expectedResource);
+        String response = getJson(expectedResource, false);
 
-	verify(facade).getResources(pagedRequest);
+        // Then
+        mockMvc.perform(get("/enrolments/{enrolmentId}/benefits", enrolmentId)
+                .param("offset", String.valueOf(offset))
+                .param("limit", String.valueOf(limit)))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResources(pagedRequest);
     }
 
     @Test(expected = AccessDeniedException.class)
     public void testGetResourceWithAccessDeniedException() throws Exception {
-	// Given
-	Long id = 1L;
-	Long enrolmentId = 2L;
+        // Given
+        Long id = 1L;
+        Long enrolmentId = 2L;
 
-	// When
-	doThrow(AccessDeniedException.class).when(facade)
-		.getResource(anyLong());
+        // When
+        doThrow(AccessDeniedException.class)
+                .when(facade)
+                .getResource(anyLong());
 
-	// Then
-	mockMvc.perform(get("/enrolments/{enrolmentId}/benefits/{id}",
-		enrolmentId, id));
+        // Then
+        mockMvc.perform(get("/enrolments/{enrolmentId}/benefits/{id}", enrolmentId, id));
 
-	verify(facade).getResource(id);
+        verify(facade).getResource(id);
     }
 }

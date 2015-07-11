@@ -9,9 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -63,7 +61,10 @@ public class HonorTypeControllerTest extends AbstractControllerTest {
 
 		HonorTypeResource paramResource = new HonorTypeResource();
 		paramResource.setName(name);
-		PagedRequest<HonorTypeResource> request = new PagedRequest<HonorTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("name", name);
+		PagedRequest<HonorTypeResource> request = new PagedRequest<HonorTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList(), params);
 
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<HonorTypeResource>> any())).thenReturn(expected);

@@ -9,9 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -64,9 +62,12 @@ public class MarriedTypeControllerTest extends AbstractControllerTest {
 		
 		MarriedTypeResource paramResource = new MarriedTypeResource();
 		paramResource.setName(name);
-		paramResource.setAbbrName(abbrName);		
-		
-		PagedRequest<MarriedTypeResource> request = new PagedRequest<MarriedTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
+		paramResource.setAbbrName(abbrName);
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("name", name);
+		params.put("abbrName", abbrName);
+		PagedRequest<MarriedTypeResource> request = new PagedRequest<MarriedTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList(), params);
 		
 		// When
 		when(facade.getResources(Matchers.<PagedRequest<MarriedTypeResource>> any())).thenReturn(expected);

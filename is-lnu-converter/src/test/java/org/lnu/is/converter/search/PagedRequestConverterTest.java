@@ -41,6 +41,7 @@ public class PagedRequestConverterTest {
 		expected.setLimit(limit);
 		expected.setOffset(offset);
 		expected.setOrders(orders);
+		expected.setParameters(source.getParameters());
 
 		
 		// When

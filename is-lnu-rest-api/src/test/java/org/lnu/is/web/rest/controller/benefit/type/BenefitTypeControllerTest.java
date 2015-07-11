@@ -9,9 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,85 +28,88 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class BenefitTypeControllerTest extends AbstractControllerTest {
 
-	@Mock
-	private Facade<BenefitTypeResource, BenefitTypeResource, Long> facade;
+    @Mock
+    private Facade<BenefitTypeResource, BenefitTypeResource, Long> facade;
 
-	@InjectMocks
-	private BenefitTypeController unit;
-	
-	@Override
-	protected BaseController getUnit() {
-		return unit;
-	}
+    @InjectMocks
+    private BenefitTypeController unit;
 
-	@Test
-	public void testGetAssetTypes() throws Exception {
-		// Given
-		String name = "AssetN";
-		Integer offset = 0;
-		Integer limit = 20;
-		long count = 1;
+    @Override
+    protected BaseController getUnit() {
+        return unit;
+    }
 
-		BenefitTypeResource resource = new BenefitTypeResource();
-		resource.setName(name);
+    @Test
+    public void testGetAssetTypes() throws Exception {
+        // Given
+        String name = "AssetN";
+        Integer offset = 0;
+        Integer limit = 20;
+        long count = 1;
 
-		List<BenefitTypeResource> entities = Arrays.asList(resource);
-		PagedResultResource<BenefitTypeResource> expected = new PagedResultResource<>(
-				"/benefits/types");
-		expected.setResources(entities);
-		expected.setCount(count);
-		expected.setLimit(limit);
-		expected.setOffset(offset);
+        BenefitTypeResource resource = new BenefitTypeResource();
+        resource.setName(name);
 
-		BenefitTypeResource paramResource = new BenefitTypeResource();
-		paramResource.setName(name);
+        List<BenefitTypeResource> entities = Arrays.asList(resource);
+        PagedResultResource<BenefitTypeResource> expected = new PagedResultResource<>(
+                "/benefits/types");
+        expected.setResources(entities);
+        expected.setCount(count);
+        expected.setLimit(limit);
+        expected.setOffset(offset);
 
-		PagedRequest<BenefitTypeResource> request = new PagedRequest<BenefitTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
+        BenefitTypeResource paramResource = new BenefitTypeResource();
+        paramResource.setName(name);
 
-		// When
-		when(facade.getResources(Matchers.<PagedRequest<BenefitTypeResource>> any())).thenReturn(expected);
-		String response = getJson(expected, false);
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        PagedRequest<BenefitTypeResource> request = new PagedRequest<BenefitTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList(), params);
 
-		// Then
-		mockMvc.perform(get("/benefits/types").param("name", name))
-				.andExpect(status().isOk())
-				.andExpect(content().string(response));
+        // When
+        when(facade.getResources(Matchers.<PagedRequest<BenefitTypeResource>>any())).thenReturn(expected);
+        String response = getJson(expected, false);
 
-		verify(facade).getResources(request);
-	}
+        // Then
+        mockMvc.perform(get("/benefits/types")
+                .param("name", name))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
 
-	@Test
-	public void testGetResource() throws Exception {
-		// Given
-		Long id = 1L;
-		String name = "all difficult";
-		BenefitTypeResource expected = new BenefitTypeResource();
-		expected.setName(name);
-		expected.setId(id);
-		
-		// When
-		when(facade.getResource(anyLong())).thenReturn(expected);
-		String response = getJson(expected, false);
+        verify(facade).getResources(request);
+    }
 
-		// Then
-		mockMvc.perform(get("/benefits/types/{id}", id))
-			.andExpect(status().isOk())
-			.andExpect(content().string(response));
-		
-		verify(facade).getResource(id);
-	}
+    @Test
+    public void testGetResource() throws Exception {
+        // Given
+        Long id = 1L;
+        String name = "all difficult";
+        BenefitTypeResource expected = new BenefitTypeResource();
+        expected.setName(name);
+        expected.setId(id);
 
-	@Test(expected = AccessDeniedException.class)
-	public void testGetResourceWithAccessDeniedException() throws Exception {
-		// Given
-		Long id = 1L;
-		
-		// When
-		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
-		
-		// Then
-		mockMvc.perform(get("/benefits/types/{id}", id));
-		
-		verify(facade).getResource(id);
-	}
+        // When
+        when(facade.getResource(anyLong())).thenReturn(expected);
+        String response = getJson(expected, false);
+
+        // Then
+        mockMvc.perform(get("/benefits/types/{id}", id))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResource(id);
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void testGetResourceWithAccessDeniedException() throws Exception {
+        // Given
+        Long id = 1L;
+
+        // When
+        doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+
+        // Then
+        mockMvc.perform(get("/benefits/types/{id}", id));
+
+        verify(facade).getResource(id);
+    }
 }

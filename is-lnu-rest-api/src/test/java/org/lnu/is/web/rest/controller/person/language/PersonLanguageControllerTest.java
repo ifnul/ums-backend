@@ -15,9 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.nio.file.AccessDeniedException;
 import java.text.MessageFormat;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -169,7 +167,12 @@ public class PersonLanguageControllerTest extends AbstractControllerTest {
 	
 		PersonLanguageResource resource = new PersonLanguageResource();
 		resource.setPersonId(personId);
-		PagedRequest<PersonLanguageResource> pagedRequest = new PagedRequest<PersonLanguageResource>(resource, offset, limit, Collections.<OrderBy>emptyList());
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("offset", String.valueOf(offset));
+		params.put("limit", String.valueOf(limit));
+		params.put("personId", String.valueOf(personId));
+		PagedRequest<PersonLanguageResource> pagedRequest = new PagedRequest<PersonLanguageResource>(resource, offset, limit, Collections.<OrderBy>emptyList(), params);
 	
 		// When
 		when(

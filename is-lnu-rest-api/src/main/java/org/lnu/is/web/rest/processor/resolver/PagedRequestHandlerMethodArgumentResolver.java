@@ -28,73 +28,72 @@ import java.util.Map;
 /**
  * Paged request argument resolver.
  * TODO: Ivan Ursul - Split this class to four separated resolvers - for offset, limit, resource and order by
- * @author ivanursul
  *
+ * @author ivanursul
  */
 @Component("pagedRequestHandlerMethodArgumentResolver")
 public class PagedRequestHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
-	private static final Logger LOG = LoggerFactory.getLogger(PagedRequestHandlerMethodArgumentResolver.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PagedRequestHandlerMethodArgumentResolver.class);
 
-	@Resource(name = "orderByFieldResolver")
-	private OrderByFieldResolver orderByFieldResolver;
-	
-	@Resource(name = "offsetParameterResolver")
-	private OffsetParameterResolver offsetParameterResolver;
-	
-	@Resource(name = "limitParameterResolver")
-	private LimitParameterResolver limitParameterResolver;
-	
-	@Resource(name = "resourceParameterResolver")
-	private ResourceParameterResolver resourceParameterResolver;
+    @Resource(name = "orderByFieldResolver")
+    private OrderByFieldResolver orderByFieldResolver;
 
-	@Resource(name = "parametersRetriever")
-	private ParametersRetriever parametersRetriever;
+    @Resource(name = "offsetParameterResolver")
+    private OffsetParameterResolver offsetParameterResolver;
 
-	@Override
-	public boolean supportsParameter(final MethodParameter parameter) {
-		return PagedRequest.class.isAssignableFrom(parameter.getParameterType());
-	}
+    @Resource(name = "limitParameterResolver")
+    private LimitParameterResolver limitParameterResolver;
 
-	@Override
-	public Object resolveArgument(final MethodParameter param,
-			final ModelAndViewContainer mavContainer, final NativeWebRequest webRequest,
-			final WebDataBinderFactory binderFactory) throws Exception {
-		LOG.debug("Debugging PagedRequest Parsing:");
-		
-		HttpServletRequest httpRequest = (HttpServletRequest) webRequest.getNativeRequest();
+    @Resource(name = "resourceParameterResolver")
+    private ResourceParameterResolver resourceParameterResolver;
 
-		Map<String, Object> parameters = parametersRetriever.getParameters(webRequest);
+    @Resource(name = "parametersRetriever")
+    private ParametersRetriever parametersRetriever;
+
+    @Override
+    public boolean supportsParameter(final MethodParameter parameter) {
+        return PagedRequest.class.isAssignableFrom(parameter.getParameterType());
+    }
+
+    @Override
+    public Object resolveArgument(final MethodParameter param,
+                                  final ModelAndViewContainer mavContainer, final NativeWebRequest webRequest,
+                                  final WebDataBinderFactory binderFactory) throws Exception {
+        LOG.debug("Debugging PagedRequest Parsing:");
+
+        HttpServletRequest httpRequest = (HttpServletRequest) webRequest.getNativeRequest();
+
+        Map<String, Object> parameters = parametersRetriever.getParameters(webRequest);
         Object resource = resourceParameterResolver.getResource(param, parameters);
         Integer limit = limitParameterResolver.getLimit(param.getParameterAnnotation(Limit.class), param.getParameterType().getDeclaredField("limit"), httpRequest);
         Integer offset = offsetParameterResolver.getOffset(param.getParameterAnnotation(Offset.class), param.getParameterType().getDeclaredField("offset"), httpRequest);
         List<OrderBy> orders = orderByFieldResolver.getOrdersBy(httpRequest.getParameter(Constants.ORDER_BY), resource);
-		
-        PagedRequest<Object> pagedRequest = new PagedRequest<Object>(resource, offset, limit, orders);
-		return pagedRequest;
-	}
 
-	public void setResourceParameterResolver(final ResourceParameterResolver resourceParameterResolver) {
-		this.resourceParameterResolver = resourceParameterResolver;
-	}
+        return new PagedRequest<>(resource, offset, limit, orders, parameters);
+    }
 
-	public void setParametersRetriever(final ParametersRetriever parametersRetriever) {
-		this.parametersRetriever = parametersRetriever;
-	}
+    public void setResourceParameterResolver(final ResourceParameterResolver resourceParameterResolver) {
+        this.resourceParameterResolver = resourceParameterResolver;
+    }
 
-	public void setOrderByFieldResolver(final OrderByFieldResolver orderByFieldResolver) {
-		this.orderByFieldResolver = orderByFieldResolver;
-	}
+    public void setParametersRetriever(final ParametersRetriever parametersRetriever) {
+        this.parametersRetriever = parametersRetriever;
+    }
 
-	public void setOffsetParameterResolver(final OffsetParameterResolver offsetParameterResolver) {
-		this.offsetParameterResolver = offsetParameterResolver;
-	}
+    public void setOrderByFieldResolver(final OrderByFieldResolver orderByFieldResolver) {
+        this.orderByFieldResolver = orderByFieldResolver;
+    }
 
-	public void setLimitParameterResolver(final LimitParameterResolver limitParameterResolver) {
-		this.limitParameterResolver = limitParameterResolver;
-	}
+    public void setOffsetParameterResolver(final OffsetParameterResolver offsetParameterResolver) {
+        this.offsetParameterResolver = offsetParameterResolver;
+    }
 
-	public void setResourceParamterResolver(final ResourceParameterResolver resourceParamterResolver) {
-		this.resourceParameterResolver = resourceParamterResolver;
-	}
+    public void setLimitParameterResolver(final LimitParameterResolver limitParameterResolver) {
+        this.limitParameterResolver = limitParameterResolver;
+    }
+
+    public void setResourceParamterResolver(final ResourceParameterResolver resourceParamterResolver) {
+        this.resourceParameterResolver = resourceParamterResolver;
+    }
 
 }

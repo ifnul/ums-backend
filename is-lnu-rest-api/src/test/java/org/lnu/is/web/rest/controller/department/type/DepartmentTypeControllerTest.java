@@ -9,9 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,87 +28,90 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class DepartmentTypeControllerTest extends AbstractControllerTest {
 
-	@Mock
-	private Facade<DepartmentTypeResource, DepartmentTypeResource, Long> facade;
+    @Mock
+    private Facade<DepartmentTypeResource, DepartmentTypeResource, Long> facade;
 
-	@InjectMocks
-	private DepartmentTypeController unit;
-	
-	@Override
-	protected BaseController getUnit() {
-		return unit;
-	}
+    @InjectMocks
+    private DepartmentTypeController unit;
 
-	@Test
-	public void testGetResources() throws Exception {
-		// Given
-		String name = "Gender Type One";
-		DepartmentTypeResource resource = new DepartmentTypeResource();
-		resource.setName(name);
+    @Override
+    protected BaseController getUnit() {
+        return unit;
+    }
 
-		List<DepartmentTypeResource> entities = Arrays.asList(resource);
+    @Test
+    public void testGetResources() throws Exception {
+        // Given
+        String name = "Gender Type One";
+        DepartmentTypeResource resource = new DepartmentTypeResource();
+        resource.setName(name);
 
-		Integer offset = 0;
-		long count = 1;
-		Integer limit = 20;
+        List<DepartmentTypeResource> entities = Collections.singletonList(resource);
 
-		PagedResultResource<DepartmentTypeResource> expected = new PagedResultResource<>("/departments/types");
-		expected.setResources(entities);
-		expected.setCount(count);
-		expected.setLimit(limit);
-		expected.setOffset(offset);
+        Integer offset = 0;
+        long count = 1;
+        Integer limit = 20;
 
-		DepartmentTypeResource paramResource = new DepartmentTypeResource();
-		paramResource.setName(name);
-		PagedRequest<DepartmentTypeResource> request = new PagedRequest<DepartmentTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
+        PagedResultResource<DepartmentTypeResource> expected = new PagedResultResource<>("/departments/types");
+        expected.setResources(entities);
+        expected.setCount(count);
+        expected.setLimit(limit);
+        expected.setOffset(offset);
 
-		// When
-		when(facade.getResources(Matchers.<PagedRequest<DepartmentTypeResource>> any())).thenReturn(expected);
-		String response = getJson(expected, false);
+        DepartmentTypeResource paramResource = new DepartmentTypeResource();
+        paramResource.setName(name);
 
-		// Then
-		mockMvc.perform(get("/departments/types")
-				.param("name", name))
-				.andExpect(status().isOk())
-				.andExpect(content().string(response));
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        PagedRequest<DepartmentTypeResource> request = new PagedRequest<DepartmentTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList(), params);
 
-		verify(facade).getResources(request);
-	}
-	
-	@Test
-	public void testGetResource() throws Exception {
-		// Given
-		Long id = 1L;
-		String name = "all difficult";
-		String abbrName = "ad";
-		DepartmentTypeResource expected = new DepartmentTypeResource();
-		expected.setName(name);
-		expected.setAbbrName(abbrName);
-		expected.setId(id);
-		
-		// When
-		when(facade.getResource(anyLong())).thenReturn(expected);
-		String response = getJson(expected, false);
+        // When
+        when(facade.getResources(Matchers.<PagedRequest<DepartmentTypeResource>>any())).thenReturn(expected);
+        String response = getJson(expected, false);
 
-		// Then
-		mockMvc.perform(get("/departments/types/{id}", id))
-			.andExpect(status().isOk())
-			.andExpect(content().string(response));
-		
-		verify(facade).getResource(id);
-	}
+        // Then
+        mockMvc.perform(get("/departments/types")
+                .param("name", name))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
 
-	@Test(expected = AccessDeniedException.class)
-	public void testGetResourceWithAccessDeniedException() throws Exception {
-		// Given
-		Long id = 1L;
-		
-		// When
-		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
-		
-		// Then
-		mockMvc.perform(get("/departments/types/{id}", id));
-		
-		verify(facade).getResource(id);
-	}	
+        verify(facade).getResources(request);
+    }
+
+    @Test
+    public void testGetResource() throws Exception {
+        // Given
+        Long id = 1L;
+        String name = "all difficult";
+        String abbrName = "ad";
+        DepartmentTypeResource expected = new DepartmentTypeResource();
+        expected.setName(name);
+        expected.setAbbrName(abbrName);
+        expected.setId(id);
+
+        // When
+        when(facade.getResource(anyLong())).thenReturn(expected);
+        String response = getJson(expected, false);
+
+        // Then
+        mockMvc.perform(get("/departments/types/{id}", id))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResource(id);
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void testGetResourceWithAccessDeniedException() throws Exception {
+        // Given
+        Long id = 1L;
+
+        // When
+        doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+
+        // Then
+        mockMvc.perform(get("/departments/types/{id}", id));
+
+        verify(facade).getResource(id);
+    }
 }

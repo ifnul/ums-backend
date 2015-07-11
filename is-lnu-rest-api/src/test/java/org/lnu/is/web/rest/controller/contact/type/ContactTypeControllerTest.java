@@ -9,9 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,89 +28,91 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class ContactTypeControllerTest extends AbstractControllerTest {
 
-	@Mock
-	private Facade<ContactTypeResource, ContactTypeResource, Long> facade;
+    @Mock
+    private Facade<ContactTypeResource, ContactTypeResource, Long> facade;
 
-	@InjectMocks
-	private ContactTypeController unit;
-	
-	@Override
-	protected BaseController getUnit() {
-		return unit;
-	}
-	
-	
-	@Test
-	public void testGetContactTypes() throws Exception {
-		// Given
-		String name = "AddressN";
-		Integer offset = 0;
-		Integer limit = 20;
-		long count = 1;
+    @InjectMocks
+    private ContactTypeController unit;
 
-		ContactTypeResource resource = new ContactTypeResource();
-		resource.setName(name);
+    @Override
+    protected BaseController getUnit() {
+        return unit;
+    }
 
-		List<ContactTypeResource> entities = Arrays.asList(resource);
-		PagedResultResource<ContactTypeResource> expected = new PagedResultResource<>(
-				"/contacts/types");
-		expected.setResources(entities);
-		expected.setCount(count);
-		expected.setLimit(limit);
-		expected.setOffset(offset);
 
-		ContactTypeResource paramResource = new ContactTypeResource();
-		paramResource.setName(name);
+    @Test
+    public void testGetContactTypes() throws Exception {
+        // Given
+        String name = "AddressN";
+        Integer offset = 0;
+        Integer limit = 20;
+        long count = 1;
 
-		PagedRequest<ContactTypeResource> request = new PagedRequest<ContactTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList());
+        ContactTypeResource resource = new ContactTypeResource();
+        resource.setName(name);
 
-		// When
-		when(facade.getResources(Matchers.<PagedRequest<ContactTypeResource>> any())).thenReturn(expected);
-		String response = getJson(expected, false);
+        List<ContactTypeResource> entities = Collections.singletonList(resource);
+        PagedResultResource<ContactTypeResource> expected = new PagedResultResource<>(
+                "/contacts/types");
+        expected.setResources(entities);
+        expected.setCount(count);
+        expected.setLimit(limit);
+        expected.setOffset(offset);
 
-		// Then
-		mockMvc.perform(get("/contacts/types").param("name", name))
-				.andExpect(status().isOk())
-				.andExpect(content().string(response));
+        ContactTypeResource paramResource = new ContactTypeResource();
+        paramResource.setName(name);
 
-		verify(facade).getResources(request);
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        PagedRequest<ContactTypeResource> request = new PagedRequest<ContactTypeResource>(paramResource, offset, limit, Collections.<OrderBy>emptyList(), params);
 
-	}
+        // When
+        when(facade.getResources(Matchers.<PagedRequest<ContactTypeResource>>any())).thenReturn(expected);
+        String response = getJson(expected, false);
 
-	@Test
-	public void testGetResource() throws Exception {
-		// Given
-		Long id = 1L;
-		String name = "all difficult";
-		String abbrName = "ad";
-		ContactTypeResource expected = new ContactTypeResource();
-		expected.setName(name);
-		expected.setAbbrName(abbrName);
-		expected.setId(id);
-		
-		// When
-		when(facade.getResource(anyLong())).thenReturn(expected);
-		String response = getJson(expected, false);
+        // Then
+        mockMvc.perform(get("/contacts/types").param("name", name))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
 
-		// Then
-		mockMvc.perform(get("/contacts/types/{id}", id))
-			.andExpect(status().isOk())
-			.andExpect(content().string(response));
-		
-		verify(facade).getResource(id);
-	}
+        verify(facade).getResources(request);
 
-	@Test(expected = AccessDeniedException.class)
-	public void testGetResourceWithAccessDeniedException() throws Exception {
-		// Given
-		Long id = 1L;
-		
-		// When
-		doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
-		
-		// Then
-		mockMvc.perform(get("/contacts/types/{id}", id));
-		
-		verify(facade).getResource(id);
-	}
+    }
+
+    @Test
+    public void testGetResource() throws Exception {
+        // Given
+        Long id = 1L;
+        String name = "all difficult";
+        String abbrName = "ad";
+        ContactTypeResource expected = new ContactTypeResource();
+        expected.setName(name);
+        expected.setAbbrName(abbrName);
+        expected.setId(id);
+
+        // When
+        when(facade.getResource(anyLong())).thenReturn(expected);
+        String response = getJson(expected, false);
+
+        // Then
+        mockMvc.perform(get("/contacts/types/{id}", id))
+                .andExpect(status().isOk())
+                .andExpect(content().string(response));
+
+        verify(facade).getResource(id);
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void testGetResourceWithAccessDeniedException() throws Exception {
+        // Given
+        Long id = 1L;
+
+        // When
+        doThrow(AccessDeniedException.class).when(facade).getResource(anyLong());
+
+        // Then
+        mockMvc.perform(get("/contacts/types/{id}", id));
+
+        verify(facade).getResource(id);
+    }
 }

@@ -18,10 +18,7 @@ import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -33,239 +30,239 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultFacadeTest {
-	@Mock
-	private Converter<PersonResource, Person> insertConverter;
+    @Mock
+    private Converter<PersonResource, Person> insertConverter;
 
-	@Mock
-	private Converter<PersonResource, Person> updateConverter;
+    @Mock
+    private Converter<PersonResource, Person> updateConverter;
 
-	@Mock
-	private Converter<PersonResource, Person> resourceConverter;
+    @Mock
+    private Converter<PersonResource, Person> resourceConverter;
 
-	@Mock
-	private Converter<PersonResource, Person> resourceListConverter;
+    @Mock
+    private Converter<PersonResource, Person> resourceListConverter;
 
-	@Mock
-	private Converter<Person, PersonResource> entityConverter;
+    @Mock
+    private Converter<Person, PersonResource> entityConverter;
 
-	@Mock
-	private DefaultService<Person, Person, Long, DefaultDao<Person, Person, Long>> service;
+    @Mock
+    private DefaultService<Person, Person, Long, DefaultDao<Person, Person, Long>> service;
 
-	@Mock
-	private Converter<PagedRequest<PersonResource>, MultiplePagedSearch<Person>> pagedRequestConverter;
+    @Mock
+    private Converter<PagedRequest<PersonResource>, MultiplePagedSearch<Person>> pagedRequestConverter;
 
-	@Mock
-	private Converter<Person, PersonResource> entityDetailsConverter;
-	
-	@Mock
-	private Converter<PagedResult<Person>, PagedResultResource<PersonResource>> pagedResultConverter;
+    @Mock
+    private Converter<Person, PersonResource> entityDetailsConverter;
 
-	private DefaultFacade<Person, PersonResource, Person, PersonResource, DefaultService<Person, Person, Long, DefaultDao<Person, Person, Long>>, Long> unit = new DefaultFacade<Person, PersonResource, Person, PersonResource, DefaultService<Person, Person, Long, DefaultDao<Person, Person, Long>>, Long>();
-	
-	@Before
-	public void setup() {
-		unit.setEntityConverter(entityConverter);
-		unit.setEntityDetailsConverter(entityDetailsConverter);
-		unit.setInsertConverter(insertConverter);
-		unit.setPagedRequestConverter(pagedRequestConverter);
-		unit.setPagedResultConverter(pagedResultConverter);
-		unit.setResourceConverter(resourceConverter);
-		unit.setService(service);
-		unit.setUpdateConverter(updateConverter);
-		unit.setResourceListConverter(resourceListConverter);
-	}
-	
-	@Test
-	public void testCreateEntity() throws Exception {
-		// Given
-		String name = "LightMan";
-		Long personTypeId = 25L;
+    @Mock
+    private Converter<PagedResult<Person>, PagedResultResource<PersonResource>> pagedResultConverter;
 
-		PersonResource expected = new PersonResource();
-		expected.setBegDate(new Date());
-		expected.setEndDate(new Date());
-		expected.setName(name);
-		expected.setPersonTypeId(personTypeId);
+    private DefaultFacade<Person, PersonResource, Person, PersonResource, DefaultService<Person, Person, Long, DefaultDao<Person, Person, Long>>, Long> unit = new DefaultFacade<Person, PersonResource, Person, PersonResource, DefaultService<Person, Person, Long, DefaultDao<Person, Person, Long>>, Long>();
 
-		PersonType personType = new PersonType();
+    @Before
+    public void setup() {
+        unit.setEntityConverter(entityConverter);
+        unit.setEntityDetailsConverter(entityDetailsConverter);
+        unit.setInsertConverter(insertConverter);
+        unit.setPagedRequestConverter(pagedRequestConverter);
+        unit.setPagedResultConverter(pagedResultConverter);
+        unit.setResourceConverter(resourceConverter);
+        unit.setService(service);
+        unit.setUpdateConverter(updateConverter);
+        unit.setResourceListConverter(resourceListConverter);
+    }
 
-		Person person = new Person();
-		person.setBegDate(new Date());
-		person.setEndDate(new Date());
-		person.setName(name);
-		person.setPersonType(personType);
+    @Test
+    public void testCreateEntity() throws Exception {
+        // Given
+        String name = "LightMan";
+        Long personTypeId = 25L;
 
-		// When
-		when(resourceConverter.convert(any(PersonResource.class))).thenReturn(person);
-		when(entityConverter.convert(any(Person.class))).thenReturn(expected);
+        PersonResource expected = new PersonResource();
+        expected.setBegDate(new Date());
+        expected.setEndDate(new Date());
+        expected.setName(name);
+        expected.setPersonTypeId(personTypeId);
 
-		PersonResource actual = unit.createResource(expected);
+        PersonType personType = new PersonType();
 
-		// Then
-		verify(resourceConverter).convert(expected);
-		verify(service).createEntity(person);
-		verify(insertConverter).convert(expected, person);
+        Person person = new Person();
+        person.setBegDate(new Date());
+        person.setEndDate(new Date());
+        person.setName(name);
+        person.setPersonType(personType);
 
-		assertEquals(expected, actual);
-	}
+        // When
+        when(resourceConverter.convert(any(PersonResource.class))).thenReturn(person);
+        when(entityConverter.convert(any(Person.class))).thenReturn(expected);
 
-	@Test
-	public void testUpdateEntity() throws Exception {
-		// Given
-		Long id = 1L;
-		String name = "LightMan";
-		Long personTypeId = 25L;
-		String group = "developers";
+        PersonResource actual = unit.createResource(expected);
 
-		PersonResource expected = new PersonResource();
-		expected.setBegDate(new Date());
-		expected.setEndDate(new Date());
-		expected.setName(name);
-		expected.setPersonTypeId(personTypeId);
+        // Then
+        verify(resourceConverter).convert(expected);
+        verify(service).createEntity(person);
+        verify(insertConverter).convert(expected, person);
 
-		PersonType personType = new PersonType();
+        assertEquals(expected, actual);
+    }
 
-		Person person = new Person();
-		person.setBegDate(new Date());
-		person.setEndDate(new Date());
-		person.setName(name);
-		person.setPersonType(personType);
-		person.setCrtUserGroup(group);
+    @Test
+    public void testUpdateEntity() throws Exception {
+        // Given
+        Long id = 1L;
+        String name = "LightMan";
+        Long personTypeId = 25L;
+        String group = "developers";
 
-		// When
-		when(service.getEntity(anyLong())).thenReturn(person);
+        PersonResource expected = new PersonResource();
+        expected.setBegDate(new Date());
+        expected.setEndDate(new Date());
+        expected.setName(name);
+        expected.setPersonTypeId(personTypeId);
 
-		unit.updateResource(id, expected);
+        PersonType personType = new PersonType();
 
-		// Then
-		verify(service).getEntity(id);
-		verify(resourceConverter).convert(expected, person);
-		verify(service).updateEntity(person);
-		verify(updateConverter).convert(expected, person);
-	}
+        Person person = new Person();
+        person.setBegDate(new Date());
+        person.setEndDate(new Date());
+        person.setName(name);
+        person.setPersonType(personType);
+        person.setCrtUserGroup(group);
 
-	@Test
-	public void testGetEntity() throws Exception {
-		// Given
-		Long id = 1L;
-		String name = "fsd person";
-		Long personTypeId = 25L;
+        // When
+        when(service.getEntity(anyLong())).thenReturn(person);
 
-		PersonResource expected = new PersonResource();
-		expected.setBegDate(new Date());
-		expected.setEndDate(new Date());
-		expected.setName(name);
-		expected.setPersonTypeId(personTypeId);
+        unit.updateResource(id, expected);
 
-		PersonType personType = new PersonType();
+        // Then
+        verify(service).getEntity(id);
+        verify(resourceConverter).convert(expected, person);
+        verify(service).updateEntity(person);
+        verify(updateConverter).convert(expected, person);
+    }
 
-		Person person = new Person();
-		person.setBegDate(new Date());
-		person.setEndDate(new Date());
-		person.setName(name);
-		person.setPersonType(personType);
+    @Test
+    public void testGetEntity() throws Exception {
+        // Given
+        Long id = 1L;
+        String name = "fsd person";
+        Long personTypeId = 25L;
 
-		// When
-		when(service.getEntity(anyLong())).thenReturn(person);
-		when(entityConverter.convert(any(Person.class))).thenReturn(expected);
-		PersonResource actual = unit.getResource(id);
+        PersonResource expected = new PersonResource();
+        expected.setBegDate(new Date());
+        expected.setEndDate(new Date());
+        expected.setName(name);
+        expected.setPersonTypeId(personTypeId);
 
-		// Then
-		verify(service).getEntity(id);
-		verify(entityConverter).convert(person);
-		verify(entityDetailsConverter).convert(person, expected);
-		assertEquals(expected, actual);
-	}
+        PersonType personType = new PersonType();
 
-	@Test
-	public void testRemoveEntity() throws Exception {
-		// Given
-		Long id = 1L;
-		String group = "developers";
+        Person person = new Person();
+        person.setBegDate(new Date());
+        person.setEndDate(new Date());
+        person.setName(name);
+        person.setPersonType(personType);
 
-		Person person = new Person();
-		person.setId(id);
-		person.setCrtUserGroup(group);
+        // When
+        when(service.getEntity(anyLong())).thenReturn(person);
+        when(entityConverter.convert(any(Person.class))).thenReturn(expected);
+        PersonResource actual = unit.getResource(id);
 
-		// When
-		when(service.getEntity(anyLong())).thenReturn(person);
-		unit.removeResource(id);
+        // Then
+        verify(service).getEntity(id);
+        verify(entityConverter).convert(person);
+        verify(entityDetailsConverter).convert(person, expected);
+        assertEquals(expected, actual);
+    }
 
-		// Then
-		verify(service).getEntity(id);
-		verify(service).removeEntity(person);
-	}
+    @Test
+    public void testRemoveEntity() throws Exception {
+        // Given
+        Long id = 1L;
+        String group = "developers";
 
-	@Test
-	public void testGetEntities() throws Exception {
-		// Given
-		PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), 10, 10, Collections.<OrderBy>emptyList());
-		List<PersonResource> resources = Collections.singletonList(new PersonResource());
-		PagedResultResource<PersonResource> expectedPagedResultResource = new PagedResultResource<>(pagedRequest.getResource().getRootUri());
-		expectedPagedResultResource.setResources(resources);
+        Person person = new Person();
+        person.setId(id);
+        person.setCrtUserGroup(group);
 
-		int offset = 8;
-		int limit = 3;
-		int count = 100;
+        // When
+        when(service.getEntity(anyLong())).thenReturn(person);
+        unit.removeResource(id);
 
-		MultiplePagedSearch<Person> pagedSearch = new MultiplePagedSearch<Person>(offset, limit, Collections.<String, Object> emptyMap(), Person.class);
-		List<Person> entities = Arrays.asList(new Person());
-		PagedResult<Person> pagedResult = new PagedResult<Person>(offset, limit, count, entities);
+        // Then
+        verify(service).getEntity(id);
+        verify(service).removeEntity(person);
+    }
 
-		// When
-		when(pagedRequestConverter.convert(Matchers.<PagedRequest<PersonResource>> any())).thenReturn(pagedSearch);
-		when(service.getEntities(Matchers.<MultiplePagedSearch<Person>> any())).thenReturn(pagedResult);
-		when(entityConverter.convertAll(anyListOf(Person.class))).thenReturn(resources);
+    @Test
+    public void testGetEntities() throws Exception {
+        // Given
+        PagedRequest<PersonResource> pagedRequest = new PagedRequest<PersonResource>(new PersonResource(), 10, 10, Collections.<OrderBy>emptyList(), Collections.emptyMap());
+        List<PersonResource> resources = Collections.singletonList(new PersonResource());
+        PagedResultResource<PersonResource> expectedPagedResultResource = new PagedResultResource<>(pagedRequest.getResource().getRootUri());
+        expectedPagedResultResource.setResources(resources);
 
-		PagedResultResource<PersonResource> actualFunnies = unit.getResources(pagedRequest);
+        int offset = 8;
+        int limit = 3;
+        int count = 100;
 
-		// Then
-		verify(pagedRequestConverter).convert(pagedRequest);
-		verify(service).getEntities(pagedSearch);
-		verify(entityConverter).convertAll(entities);
-		verify(pagedResultConverter).convert(pagedResult, expectedPagedResultResource);
+        MultiplePagedSearch<Person> pagedSearch = new MultiplePagedSearch<Person>(offset, limit, Collections.<String, Object>emptyMap(), Person.class);
+        List<Person> entities = Arrays.asList(new Person());
+        PagedResult<Person> pagedResult = new PagedResult<Person>(offset, limit, count, entities);
 
-		assertEquals(expectedPagedResultResource, actualFunnies);
-	}
-	
-	@Test
-	public void testEntityConverter() throws Exception {
-		assertNotNull(unit.getEntityConverter());
-	}
-	
-	@Test
-	public void testEntityDetailsConverter() throws Exception {
-		assertNotNull(unit.getEntityDetailsConverter());
-	}
-	
-	@Test
-	public void testInsertConverter() throws Exception {
-		assertNotNull(unit.getInsertConverter());
-	}
-	
-	@Test
-	public void testPagedResultConverter() throws Exception {
-		assertNotNull(unit.getPagedResultConverter());
-	}
-	
-	@Test
-	public void testResourceConverter() throws Exception {
-		assertNotNull(unit.getResourceConverter());
-	}
-	
-	@Test
-	public void testService() throws Exception {
-		assertNotNull(unit.getService());
-	}
-	
-	@Test
-	public void testPagedRequestConverter() throws Exception {
-		assertNotNull(unit.getPagedRequestConverter());
-	}
+        // When
+        when(pagedRequestConverter.convert(Matchers.<PagedRequest<PersonResource>>any())).thenReturn(pagedSearch);
+        when(service.getEntities(Matchers.<MultiplePagedSearch<Person>>any())).thenReturn(pagedResult);
+        when(entityConverter.convertAll(anyListOf(Person.class))).thenReturn(resources);
 
-	@Test
-	public void testPagedUpdateConverter() throws Exception {
-		assertNotNull(unit.getUpdateConverter());
-	}
+        PagedResultResource<PersonResource> actualFunnies = unit.getResources(pagedRequest);
+
+        // Then
+        verify(pagedRequestConverter).convert(pagedRequest);
+        verify(service).getEntities(pagedSearch);
+        verify(entityConverter).convertAll(entities);
+        verify(pagedResultConverter).convert(pagedResult, expectedPagedResultResource);
+
+        assertEquals(expectedPagedResultResource, actualFunnies);
+    }
+
+    @Test
+    public void testEntityConverter() throws Exception {
+        assertNotNull(unit.getEntityConverter());
+    }
+
+    @Test
+    public void testEntityDetailsConverter() throws Exception {
+        assertNotNull(unit.getEntityDetailsConverter());
+    }
+
+    @Test
+    public void testInsertConverter() throws Exception {
+        assertNotNull(unit.getInsertConverter());
+    }
+
+    @Test
+    public void testPagedResultConverter() throws Exception {
+        assertNotNull(unit.getPagedResultConverter());
+    }
+
+    @Test
+    public void testResourceConverter() throws Exception {
+        assertNotNull(unit.getResourceConverter());
+    }
+
+    @Test
+    public void testService() throws Exception {
+        assertNotNull(unit.getService());
+    }
+
+    @Test
+    public void testPagedRequestConverter() throws Exception {
+        assertNotNull(unit.getPagedRequestConverter());
+    }
+
+    @Test
+    public void testPagedUpdateConverter() throws Exception {
+        assertNotNull(unit.getUpdateConverter());
+    }
 
 }
