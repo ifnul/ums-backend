@@ -58,7 +58,6 @@ public class PersonResource extends ApiResource {
 	@NotNull(message = "Field required")
 	private String docNum;
 	
-	@NotNull(message = "Field required")
 	private String identifier;
 	
 	@NotNull(message = "Field required")
