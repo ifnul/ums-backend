@@ -11,6 +11,7 @@
     <properties>
         <checkstyleDir>${basedir}/../checks</checkstyleDir>
         <findBugsDir>${basedir}/../findbugs</findBugsDir>
+        <tomcat7.port>8080</tomcat7.port>
     </properties>
 
     <parent>
@@ -168,7 +169,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <port>8080</port>
+                    <port>${tomcat7.port}</port>
                     <path>/is-lnu-rest-api</path>
                 </configuration>
             </plugin>

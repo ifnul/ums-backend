@@ -1,0 +1,55 @@
+#!/bin/bash
+
+BACKEND_PATH=`pwd`
+MVN_PATH=$(cd ../ums-tools/maven; pwd)
+
+COMMAND=$1
+ARGS=${@:2}
+
+function main() {
+      case "$COMMAND" in
+      build) build $ARGS
+          ;;
+      run) run $ARGS
+          ;;
+      test) integrationTest $ARGS
+          ;;
+      migrate) migrate $ARGS
+          ;;
+      seed) seed $ARGS
+          ;;
+      *) echo "invalid command: build.sh build|run|test|migrate|seed"
+          ;;
+      esac
+}
+
+# build project
+function build() {
+    ${MVN_PATH}/bin/mvn clean install ${@:1}
+}
+
+# set up database
+function migrate() {
+    cd ${BACKEND_PATH}/is-lnu-migrations
+    ${MVN_PATH}/bin/mvn liquibase:update ${@:1}
+}
+
+# seed db with data
+function seed() {
+    cd ${BACKEND_PATH}/is-lnu-sql
+    ${MVN_PATH}/bin/mvn -Pdata clean install ${@:1}
+}
+
+# start tomcat using maven plugin
+function run() {
+    cd ${BACKEND_PATH}/is-lnu-rest-api
+    ${MVN_PATH}/bin/mvn tomcat7:run ${@:1}
+}
+
+# run integration tests
+function integrationTest() {
+    cd ${BACKEND_PATH}/is-lnu-integration
+    ${MVN_PATH}/bin/mvn clean test ${@:1}
+}
+
+main
