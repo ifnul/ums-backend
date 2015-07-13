@@ -1,12 +1,11 @@
 package org.lnu.is.domain.session;
 
-import java.io.Serializable;
-import java.util.List;
-
-import org.is.lnu.edbo.model.authentification.EdboAuthentification;
 import org.lnu.is.domain.group.Group;
 import org.lnu.is.domain.role.Role;
 import org.lnu.is.domain.user.User;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Content for storing session details.
@@ -18,7 +17,6 @@ public class Session implements Serializable {
 	
 	private String name;
 	private User user;
-	private EdboAuthentification edboAuthentification;
 	private List<Role> roles;
 	private List<Group> groups;
 	
@@ -52,14 +50,6 @@ public class Session implements Serializable {
 	
 	public void setName(final String name) {
 		this.name = name;
-	}
-
-	public EdboAuthentification getEdboAuthentification() {
-		return edboAuthentification;
-	}
-
-	public void setEdboAuthentification(final EdboAuthentification edboAuthentification) {
-		this.edboAuthentification = edboAuthentification;
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package org.lnu.is.multysearch.person;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.lnu.is.domain.admin.unit.AdminUnit;
 import org.lnu.is.domain.gender.type.GenderType;
 import org.lnu.is.domain.married.type.MarriedType;
@@ -291,26 +290,27 @@ public class PersonList extends MultiSearchModel {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this)
-				.append("parents", parents)
-				.append("personTypes", personTypes)
-				.append("genderTypes", genderTypes)
-				.append("marriedTypes", marriedTypes)
-				.append("citizenCountries", citizenCountries)
-				.append("names", names)
-				.append("firstNames", firstNames)
-				.append("fatherNames", fatherNames)
-				.append("surnames", surnames)
-				.append("photos", photos)
-				.append("docSeries", docSeries)
-				.append("docNums", docNums)
-				.append("identifiers", identifiers)
-				.append("birthPlaces", birthPlaces)
-				.append("resident", resident)
-				.append("begDate", begDate)
-				.append("endDate", endDate)
-				.append("isMilitary", isMilitary)
-				.append("isHostel", isHostel)
-				.toString();
+		final StringBuilder sb = new StringBuilder("PersonList{");
+		sb.append("parents=").append(parents);
+		sb.append(", personTypes=").append(personTypes);
+		sb.append(", genderTypes=").append(genderTypes);
+		sb.append(", marriedTypes=").append(marriedTypes);
+		sb.append(", citizenCountries=").append(citizenCountries);
+		sb.append(", names=").append(names);
+		sb.append(", firstNames=").append(firstNames);
+		sb.append(", fatherNames=").append(fatherNames);
+		sb.append(", surnames=").append(surnames);
+		sb.append(", photos=").append(photos);
+		sb.append(", docSeries=").append(docSeries);
+		sb.append(", docNums=").append(docNums);
+		sb.append(", identifiers=").append(identifiers);
+		sb.append(", birthPlaces=").append(birthPlaces);
+		sb.append(", resident=").append(resident);
+		sb.append(", begDate=").append(begDate);
+		sb.append(", endDate=").append(endDate);
+		sb.append(", isMilitary=").append(isMilitary);
+		sb.append(", isHostel=").append(isHostel);
+		sb.append('}');
+		return sb.toString();
 	}
 }

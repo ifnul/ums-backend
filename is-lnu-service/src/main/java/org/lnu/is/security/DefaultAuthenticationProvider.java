@@ -1,10 +1,7 @@
 package org.lnu.is.security;
 
 import org.hibernate.Hibernate;
-import org.is.lnu.edbo.model.authentification.EdboAuthentification;
-import org.is.lnu.edbo.service.login.AuthentificationService;
 import org.lnu.is.domain.session.Session;
-import org.lnu.is.domain.user.EdboUser;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.domain.user.group.UserGroup;
 import org.lnu.is.domain.user.role.UserRole;
@@ -38,9 +35,6 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
     @Resource(name = "userService")
     private UserService userService;
     
-    @Resource(name = "edboAuthentificationService")
-    private AuthentificationService edboAuthentificationService;
-    
     @Value("${edbo.status}")
     private String edboStatus;
     
@@ -67,8 +61,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
      */
     private Authentication getAuthentication(final String login, final String password) {
         User user = getUser(login, password);
-        EdboAuthentification authentification = getEdboAuthentication(user);
-        
+
         loadLazyFields(user);
         
         Collection<GrantedAuthority> authorities = getAuthorities(user);
@@ -77,37 +70,12 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
         session.setUser(user);
 		session.setGroups(user.getGroups());
 		session.setRoles(user.getRoles());
-        session.setEdboAuthentification(authentification);
-        
+
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(login, password, authorities);
         token.setDetails(session);
 
         return token;
     }
-
-    /**
-     * Method for getting edbo authentification.
-     * @param user
-     * @return authentification.
-     */
-    private EdboAuthentification getEdboAuthentication(final User user) {
-    	EdboAuthentification authentification = null;
-    	
-    	if ("disabled".equals(edboStatus)) {
-    		return authentification;
-    	}
-    	
-    	EdboUser edboUser = user.getEdboUser();
-    	
-    	if (edboUser != null) {
-    		EdboAuthentification auth = new EdboAuthentification();
-    		auth.setLogin(edboUser.getLogin());
-    		auth.setPassword(edboUser.getPassword());
-			authentification = edboAuthentificationService.login(auth);
-    	}
-    	
-		return authentification;
-	}
 
 	/**
      * Method for loading lazy objects.

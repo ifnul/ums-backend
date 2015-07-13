@@ -26,8 +26,6 @@
 	<bean id="customFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" />
 	<bean id="restAuthenticationEntryPoint" class="org.lnu.is.security.entrypoint.RestAuthenticationEntryPoint" />
 	
-	<bean id="logoutSuccessHandler" class="org.lnu.is.security.LogoutSuccessHandler">
-		<property name="authentificationService" ref="edboAuthentificationService"/>
-	</bean>
-	
+	<bean id="logoutSuccessHandler" class="org.lnu.is.security.LogoutSuccessHandler"/>
+
 </beans>

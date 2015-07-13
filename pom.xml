@@ -35,15 +35,7 @@
 		<module>is-lnu-domain</module>
 		<module>is-lnu-security</module>
    		<module>is-lnu-mailing</module>
-    	<module>is-lnu-edbo-resource</module>
-   		
-   		<!-- EDBO Modules -->
-    	<module>is-lnu-edbo</module>
-    	<module>is-lnu-edbo-common</module>
-    	<module>is-lnu-edbo-person-dao</module>
-    	<module>is-lnu-edbo-guides-dao</module>
-    	<module>is-lnu-edbo-model</module>
-  </modules>
+  	</modules>
 
 	<properties>
 		<version>${project.version}</version>
