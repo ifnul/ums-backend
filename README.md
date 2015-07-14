@@ -1,4 +1,4 @@
-## What is this repository for?
+## What is this repository for ?
 
 This project contains backend part for UMS (University Management System).
 
