@@ -9,7 +9,6 @@
 
 	<name>is-lnu</name>
 	<url>http://lnu.edu.ua/</url>
-
 	<scm>
 		<connection>scm:git:ssh://git@bit-infosystemlnu/illay1994/is-lnu.git</connection>
 		<developerConnection>scm:git:git@bit-infosystemlnu:illay1994/is-lnu.git</developerConnection>
