@@ -52,7 +52,6 @@ $ ./backend test # run integration tests
 ```
 Up you go, backend is ready and fully tested.
 
-
 If you want to modify some properties without chaning pom.xml - use maven command line options: 
 
 ```
@@ -60,3 +59,5 @@ $ ./backend migrate -Dmigrations.jdbc.host=somehost -Dmigrations.jdbc.port=1234
 $ ./backend run -Dtomcat7.port=9090
 $ ./backend test -Dintegration.url=http://localhost:9090/is-lnu-rest-api/api
 ```
+
+P.S. For Windows users there is backend.bat script available
