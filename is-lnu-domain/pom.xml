@@ -19,10 +19,6 @@
 
 
 	<dependencies>
-		<dependency>
-			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-edbo-model</artifactId>
-		</dependency>			
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>

@@ -21,11 +21,6 @@
 		
 		<dependency>
 			<groupId>is-lnu</groupId>
-			<artifactId>is-lnu-edbo</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>is-lnu</groupId>
 			<artifactId>is-lnu-security</artifactId>
 		</dependency>
 		
