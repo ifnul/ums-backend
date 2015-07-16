@@ -8,7 +8,6 @@ import org.lnu.is.domain.user.role.UserRole;
 import org.lnu.is.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,9 +33,6 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
 
     @Resource(name = "userService")
     private UserService userService;
-    
-    @Value("${edbo.status}")
-    private String edboStatus;
     
     @Override
     public boolean supports(final Class<?> clazz) {
@@ -129,8 +125,4 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
         return authorities;
     }
 
-	public void setEdboStatus(final String edboStatus) {
-		this.edboStatus = edboStatus;
-	}
-    
 }
