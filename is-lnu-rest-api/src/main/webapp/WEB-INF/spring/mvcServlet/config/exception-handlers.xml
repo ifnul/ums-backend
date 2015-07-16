@@ -23,9 +23,6 @@
 	<bean class="org.lnu.is.web.rest.handler.entity.PersistenceExceptionHandler" />
 	<bean id="unrecognizedPropertyExceptionHandler" class="org.lnu.is.web.rest.handler.unrecognized.UnrecognizedPropertyExceptionHandler"/>
 	
-	<!-- EDBO related exception handlers -->
-	<bean class="org.lnu.is.web.rest.handler.edbo.filter.NoFilterProvidedExceptionHandler"/>
-
 	<util:map id="validationExceptionHandlers">
 		<entry key="com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException" value-ref="unrecognizedPropertyExceptionHandler" />
 	</util:map>
