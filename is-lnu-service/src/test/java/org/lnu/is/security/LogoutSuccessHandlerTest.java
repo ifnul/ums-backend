@@ -1,7 +1,5 @@
 package org.lnu.is.security;
 
-import org.is.lnu.edbo.model.authentification.EdboAuthentification;
-import org.is.lnu.edbo.service.login.AuthentificationService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.session.Session;
@@ -20,9 +18,6 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class LogoutSuccessHandlerTest {
 
-	@Mock
-	private AuthentificationService authentificationService;
-	
 	@InjectMocks
 	private LogoutSuccessHandler unit;
 
@@ -38,22 +33,17 @@ public class LogoutSuccessHandlerTest {
 	@Test
 	public void testOnLogouSuccess() throws Exception {
 		// Given
-		EdboAuthentification edboAuthentification = new EdboAuthentification();
 		Session session = new Session();
 
 		// When
 		when(authentication.getDetails()).thenReturn(session);
 		
 		unit.onLogoutSuccess(request, response, authentication);
-		
-		// Then
-		verify(authentificationService, times(0)).logout(edboAuthentification);
 	}
 
 	@Test
 	public void testOnLogouSuccessWithEmptySession() throws Exception {
 		// Given
-		EdboAuthentification edboAuthentification = new EdboAuthentification();
 		Session session = new Session();
 
 		// When
