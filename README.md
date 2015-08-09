@@ -8,7 +8,7 @@ P.S - I assume, that you are using Linux or other Unix systems. For those guys, 
 
 Kindly asking you to install only those version, that are listed below.
 
-* java -version = 1.8
+* java -version = 1.8 
 
 ## How do I get set up?
 
