@@ -1,6 +1,5 @@
 package org.lnu.is.dao.dao.user;
 
-import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.user.User;
 
 /**
@@ -8,7 +7,7 @@ import org.lnu.is.domain.user.User;
  * @author ivanursul
  *
  */
-public interface UserDao extends Dao<User, User, Long> {
+public interface UserDao {
 
 	/**
 	 * Method for getting user by login.

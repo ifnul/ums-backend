@@ -38,7 +38,11 @@ public interface Dao<ENTITY, ENTITYLIST, KEY> {
 	 * @param entity entity.
 	 */
 	void delete(ENTITY entity);
-	
+
+	ENTITY getByUidAndUap(long uid, String uapp);
+
+	ENTITY getByUidOrUtidAndUap(long uid, String utid, String uapp);
+
 	/**
 	 * Method for getting paged Result.
 	 * @param pagedSearch pagedSearch

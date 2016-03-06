@@ -23,6 +23,9 @@ import java.sql.Statement;
 
 public abstract class CallService {
 
+    //@Resource(name = "personDao")
+    //private Dao<User, User, Long> personDao;
+
     private static CallService instance;
 
     protected Connection c = null;
