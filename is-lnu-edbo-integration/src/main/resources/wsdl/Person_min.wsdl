@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://edboservice.ua/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://edboservice.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://edboservice.ua/">
+
+      <s:element name="PersonDocumentsGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsEntrantDocument" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonDocumentsGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentsGetResult" type="tns:ArrayOfDPersonDocuments" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonDocuments">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocuments" nillable="true" type="tns:dPersonDocuments" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonDocuments">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstitutionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstitutionName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonEducationDateBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonEducationDateEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationForm" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationFormName" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonEducationFormName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationTypeName" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonEducationTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentSeries" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentNumbers" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentDateGet" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentExpiredDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentIssued" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ZNOBall" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AtestatValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ZNOPin" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCheckForPaperCopy" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsForeinghEntrantDocumet" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsNotCheckAttestat" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsEntrantDocument" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentsAwardType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentsAwardTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cancellad" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonDocumentTypesGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonDocumentTypesGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentTypesGetResult" type="tns:ArrayOfDPersonDocumentTypes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonDocumentTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentTypes" nillable="true" type="tns:dPersonDocumentTypes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonDocumentTypes">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentTypeNames" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsEntrantDocument" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonsFind">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FIOMask" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentSeries" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ids_DocumentTypes" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Hundred" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonsFindResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonsFindResult" type="tns:ArrayOfDPersonsFind" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonsFind">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonsFind" nillable="true" type="tns:dPersonsFind" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonsFind">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Resident" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Birthday" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonName" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonNameDateBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonNameDateEnd" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="FIO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PasportSeries" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PasportNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PasportDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PasportIssued" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AtestatSeries" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AtestatNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AtestatDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonSex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonSexName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentPasp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentAtestat" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonTypeDict" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Father" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mother" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FatherPhones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotherPhones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Birthplace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguagesAreStudied" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonAddressesGet2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonAddress" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonAddressesGet2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonAddressesGet2Result" type="tns:ArrayOfDPersonAddresses2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonAddresses2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonAddresses2" nillable="true" type="tns:dPersonAddresses2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonAddresses2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonAddress" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="KOATUUCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KOATUUFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_StreetType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetTypeFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetTypeShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Adress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonHomeAddressDetaeBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonHomeAddressDetaeEnd" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoResidentAdress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostIndex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Country" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apartment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Housing" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonBenefitsGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonBenefitsGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonBenefitsGetResult" type="tns:ArrayOfDPersonBenefits" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonBenefits">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonBenefits" nillable="true" type="tns:dPersonBenefits" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonBenefits">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonBenefit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Benefit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_BenefitGroup" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_BenefitName" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BenefitName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BenefitsGroupsName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonDocumentsSubjectsGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonDocumentsSubjectsGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentsSubjectsGetResult" type="tns:ArrayOfDPersonDocumentsSubjects" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonDocumentsSubjects">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonDocumentsSubjects" nillable="true" type="tns:dPersonDocumentsSubjects" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonDocumentsSubjects">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentSubject" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Subject" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdZnoSubject" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentSubjectValue" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonOlympiadsAwardsGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasons" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonOlympiadsAwardsGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonOlympiadsAwardsGetResult" type="tns:ArrayOfDPersonOlympiadsAwards" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonOlympiadsAwards">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonOlympiadsAwards" nillable="true" type="tns:dPersonOlympiadsAwards" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonOlympiadsAwards">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonOlympiadAward" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_OlympiadAward" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLastChangePersonOlympiadAward" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OlympiadAwardName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OlympiadAwardBonus" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Olimpiad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasons" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OlimpiadName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+
+      <s:element name="PersonRequestBenefitsGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonRequestBenefitsGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonRequestBenefitsGetResult" type="tns:ArrayOfDPersonRequestBenefits" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonRequestBenefits">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonRequestBenefits" nillable="true" type="tns:dPersonRequestBenefits" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonRequestBenefits">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestBenefit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonBenefit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonRequestBenefitDateLastChange" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Benefit" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BenefitName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_BenefitGroup" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BenefitsGroupsName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonRequestQuotasGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonRequestQuotasGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonRequestQuotasGetResult" type="tns:ArrayOfDPersonRequestQuotas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonRequestQuotas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonRequestQuotas" nillable="true" type="tns:dPersonRequestQuotas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonRequestQuotas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestQuotas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversitySpecialitiesQuota" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLastChangePersonRequestQuotas" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesQuotaPriority" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesQuotaDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLastChangeUniversitySpecialitiesQuota" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesQuotaValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Quota" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuotaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuotaDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonRequestDocumentSubjectsGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonRequestDocumentSubjectsGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonRequestDocumentSubjectsGetResult" type="tns:ArrayOfDPersonRequestDocumentSubjects" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonRequestDocumentSubjects">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonRequestDocumentSubjects" nillable="true" type="tns:dPersonRequestDocumentSubjects" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonRequestDocumentSubjects">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestDocumentSubject" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentSubject" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLastChange" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Subject" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonDocumentSubjectValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdZnoSubject" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentNumbers" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ZNOPin" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentDateGet" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonRequestOlympiadsAwardsGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonRequestOlympiadsAwardsGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonRequestOlympiadsAwardsGetResult" type="tns:ArrayOfDPersonRequestOlympiadsAwards" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonRequestOlympiadsAwards">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonRequestOlympiadsAwards" nillable="true" type="tns:dPersonRequestOlympiadsAwards" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonRequestOlympiadsAwards">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestOlympiadAward" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonOlympiadAward" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonRequestOlympiadAwardBonus" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLastChangePersonRequestOlympiadAward" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Person" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_OlympiadAward" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OlympiadAwardName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Olimpiad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasons" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OlimpiadName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="PersonRequestExaminationsGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonRequestExaminationsGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonRequestExaminationsGetResult" type="tns:ArrayOfDPersonRequestExaminations" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDPersonRequestExaminations">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dPersonRequestExaminations" nillable="true" type="tns:dPersonRequestExaminations" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dPersonRequestExaminations">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestExamination" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversitySpecialitiesSubject" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonRequestExaminationValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLastChange" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Subject" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesSubjectsName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesSubjectsDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsProfiled" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InGroup" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdZnoSubject" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentSubject" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="GetLastError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GUIDSession" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastErrorResult" type="tns:ArrayOfDLastError"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDLastError">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dLastError" nillable="true" type="tns:dLastError"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dLastError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LastErrorCode" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LastErrorDescription" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+
+    </s:schema>
+  </wsdl:types>
+
+  <wsdl:message name="PersonAddressesGet2SoapIn">
+    <wsdl:part name="parameters" element="tns:PersonAddressesGet2" />
+  </wsdl:message>
+  <wsdl:message name="PersonAddressesGet2SoapOut">
+    <wsdl:part name="parameters" element="tns:PersonAddressesGet2Response" />
+  </wsdl:message>
+
+  <wsdl:message name="PersonBenefitsGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonBenefitsGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonBenefitsGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonBenefitsGetResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="PersonDocumentsGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonDocumentsGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentsGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonDocumentsGetResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="PersonDocumentsSubjectsGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonDocumentsSubjectsGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentsSubjectsGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonDocumentsSubjectsGetResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="PersonDocumentTypesGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonDocumentTypesGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonDocumentTypesGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonDocumentTypesGetResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="PersonsFindSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonsFind" />
+  </wsdl:message>
+  <wsdl:message name="PersonsFindSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonsFindResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="PersonOlympiadsAwardsGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonOlympiadsAwardsGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonOlympiadsAwardsGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonOlympiadsAwardsGetResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="PersonRequestBenefitsGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonRequestBenefitsGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonRequestBenefitsGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonRequestBenefitsGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonRequestQuotasGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonRequestQuotasGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonRequestQuotasGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonRequestQuotasGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonRequestDocumentSubjectsGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonRequestDocumentSubjectsGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonRequestDocumentSubjectsGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonRequestDocumentSubjectsGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonRequestOlympiadsAwardsGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonRequestOlympiadsAwardsGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonRequestOlympiadsAwardsGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonRequestOlympiadsAwardsGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonRequestExaminationsGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonRequestExaminationsGet" />
+  </wsdl:message>
+  <wsdl:message name="PersonRequestExaminationsGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonRequestExaminationsGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastError"/>
+  </wsdl:message>
+  <wsdl:message name="GetLastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastErrorResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="EDBOPersonSoap">
+
+    <wsdl:operation name="PersonsFind">
+      <wsdl:input message="tns:PersonsFindSoapIn" />
+      <wsdl:output message="tns:PersonsFindSoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonAddressesGet2">
+      <wsdl:input message="tns:PersonAddressesGet2SoapIn" />
+      <wsdl:output message="tns:PersonAddressesGet2SoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonBenefitsGet">
+      <wsdl:input message="tns:PersonBenefitsGetSoapIn" />
+      <wsdl:output message="tns:PersonBenefitsGetSoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonDocumentsGet">
+      <wsdl:input message="tns:PersonDocumentsGetSoapIn" />
+      <wsdl:output message="tns:PersonDocumentsGetSoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonDocumentsSubjectsGet">
+      <wsdl:input message="tns:PersonDocumentsSubjectsGetSoapIn" />
+      <wsdl:output message="tns:PersonDocumentsSubjectsGetSoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonDocumentTypesGet">
+      <wsdl:input message="tns:PersonDocumentTypesGetSoapIn" />
+      <wsdl:output message="tns:PersonDocumentTypesGetSoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonOlympiadsAwardsGet">
+      <wsdl:input message="tns:PersonOlympiadsAwardsGetSoapIn" />
+      <wsdl:output message="tns:PersonOlympiadsAwardsGetSoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonRequestBenefitsGet">
+      <wsdl:input message="tns:PersonRequestBenefitsGetSoapIn" />
+      <wsdl:output message="tns:PersonRequestBenefitsGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonRequestQuotasGet">
+      <wsdl:input message="tns:PersonRequestQuotasGetSoapIn" />
+      <wsdl:output message="tns:PersonRequestQuotasGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonRequestDocumentSubjectsGet">
+      <wsdl:input message="tns:PersonRequestDocumentSubjectsGetSoapIn" />
+      <wsdl:output message="tns:PersonRequestDocumentSubjectsGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonRequestOlympiadsAwardsGet">
+      <wsdl:input message="tns:PersonRequestOlympiadsAwardsGetSoapIn" />
+      <wsdl:output message="tns:PersonRequestOlympiadsAwardsGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonRequestExaminationsGet">
+      <wsdl:input message="tns:PersonRequestExaminationsGetSoapIn" />
+      <wsdl:output message="tns:PersonRequestExaminationsGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <wsdl:input message="tns:GetLastErrorSoapIn"/>
+      <wsdl:output message="tns:GetLastErrorSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EDBOPersonSoap" type="tns:EDBOPersonSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+
+    <wsdl:operation name="PersonAddressesGet2">
+      <soap:operation soapAction="http://edboservice.ua/PersonAddressesGet2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonBenefitsGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonBenefitsGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonDocumentsGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonDocumentsGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonDocumentsSubjectsGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonDocumentsSubjectsGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonDocumentTypesGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonDocumentTypesGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonsFind">
+      <soap:operation soapAction="http://edboservice.ua/PersonsFind" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonOlympiadsAwardsGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonOlympiadsAwardsGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="PersonRequestBenefitsGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonRequestBenefitsGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonRequestQuotasGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonRequestQuotasGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonRequestDocumentSubjectsGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonRequestDocumentSubjectsGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonRequestOlympiadsAwardsGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonRequestOlympiadsAwardsGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonRequestExaminationsGet">
+      <soap:operation soapAction="http://edboservice.ua/PersonRequestExaminationsGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <soap:operation soapAction="http://edboservice.ua/GetLastError" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EDBOPerson">
+    <wsdl:port name="EDBOPersonSoap" binding="tns:EDBOPersonSoap">
+      <soap:address location="http://10.2.4.35:8080/EDBOPerson/EDBOPerson.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

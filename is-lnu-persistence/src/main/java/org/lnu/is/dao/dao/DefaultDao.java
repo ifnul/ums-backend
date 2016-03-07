@@ -57,6 +57,17 @@ public class DefaultDao<ENTITY extends InformationModel, ENTITYLIST, KEY> implem
 	}
 
 	@Override
+	public ENTITY getByUid(long uid) {
+		String queryJpql = String.format("SELECT e FROM %s WHERE uid=:uid", getEntityClass().getSimpleName());
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("uid", uid);
+
+		Query<ENTITY> query = new Query<>(getEntityClass(), queryJpql, params);
+		return persistenceManager.getSingleResult(query);
+	}
+
+
+	@Override
 	public ENTITY getByUidAndUap(long uid, String uapp) {
 		String queryJpql = String.format("SELECT e FROM %s WHERE uid=:uid AND uapp=uapp", getEntityClass().getSimpleName());
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -77,6 +88,17 @@ public class DefaultDao<ENTITY extends InformationModel, ENTITYLIST, KEY> implem
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("uid", uid);
 		params.put("uapp", uapp);
+		params.put("utid", utid);
+
+		Query<ENTITY> query = new Query<>(getEntityClass(), queryJpql, params);
+		return persistenceManager.getSingleResult(query);
+	}
+
+	@Override
+	public ENTITY getByUtid(String utid) {
+		String queryJpql = String.format("SELECT e FROM %s " +
+				"WHERE utid=:utid", getEntityClass().getSimpleName());
+		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("utid", utid);
 
 		Query<ENTITY> query = new Query<>(getEntityClass(), queryJpql, params);

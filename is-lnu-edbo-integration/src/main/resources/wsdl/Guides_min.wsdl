@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://edboservice.ua/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://edboservice.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://edboservice.ua/">
+    <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ClearPreviewSession" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    
+      <s:element name="Logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogoutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+	<s:element name="LanguagesGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LanguagesGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LanguagesGetResult" type="tns:ArrayOfDLanguages" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDLanguages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dLanguages" nillable="true" type="tns:dLanguages" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dLanguages">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameLanguage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+ <s:element name="SpecSpecializationFind">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpecDirectionsCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SpecSpecializationFindResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SpecSpecializationFindResult" type="tns:ArrayOfDSpecSpecialization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDSpecSpecialization">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dSpecSpecialization" nillable="true" type="tns:dSpecSpecialization" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dSpecSpecialization">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SpecScecializationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecScecializationName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      
+	<s:element name="UniversitiesGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UniversitiesGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniversitiesGetResult" type="tns:ArrayOfDUniversities" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDUniversities">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dUniversities" nillable="true" type="tns:dUniversities" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dUniversities">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_University" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversityDateBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversityDateEnd" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EDRPO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateRegistration" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityEMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Website" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityBossPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityBossEMail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityName" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KOATUUCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostIndex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KOATUUFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_StreetType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetTypeFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetTypeShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityAdress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HouceNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityBossLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityBossFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityBossMidleName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_EducationType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_EducationClass" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EducationOrganizationFullTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EducationOrganizationShortTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EducationOrganizationClassName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityAcreditatin" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityAcreditatinType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitiyAcreditatinTypeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUniversityVerifed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExistNeedVerification" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityGovernanceType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityGovernanceTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityRegistration" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityRegistrationType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityRegistrationTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_RegulationDocument" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversityRegistrationDateBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversityRegistrationDateEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversityRegistrationDateLastChange" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversityRegistrationIsActive" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversityRegistrationusersCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityTypeOfFinansing" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityTypeOfFinansingName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityKodeParent" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityPanent" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFullNameParent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KOATUUCodeU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostIndexU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityAdressU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_StreetTypeU" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HouceNumU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_KOATUUU" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="KOATUUFullNameU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetTypeFullNameU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Closed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowAccessFromParetn" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniverityFacultetNumberKode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityJuristicalType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityJuristicalTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityBossOperatedType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityBossOperatedTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BossPost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarrantNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WarrantDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityCloseStatusTypes" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityCloseStatusTypesName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Give23Nk" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GiveRaiting" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PtnzLevel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPerepidgotovka" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentOrganisationKode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityParentOrganisation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFullNameParentOrganisation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityRoleType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityRoleTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsResech" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFullNameEn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityShortNameEn" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnableEducationalCycles" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsMONGiveBudget" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PublishOnWebSite" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsProgramDoubleDiploms" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsExpirimentKoeficient" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU_Boss" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BossOrderNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BossOrderDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversitiesBossOrderOrganisation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitiesBossOrderOrganisationName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsGoverningBody" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsGoverningBodyDateEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityGovernanceTypesCategory" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityGovernanceTypesCategory" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityManagmentOrganisationsTypes" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityManagmentOrganisationsTypesTypes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityKodeEarlyPreview" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityKodeEarlyPreview" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFullNameEarlyPreview" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnableDocuemntEWithoutPersons" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsExistVariatDisc" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCustomSpecNameInEDocuments" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+
+       <s:element name="UniversityFacultetSpecialitiesGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetKode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpecCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasons" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationForm" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpecDirectionsCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UniversityFacultetSpecialitiesGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetSpecialitiesGetResult" type="tns:ArrayOfDUniversityFacultetSpecialities" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDUniversityFacultetSpecialities">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dUniversityFacultetSpecialities" nillable="true" type="tns:dUniversityFacultetSpecialities" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dUniversityFacultetSpecialities">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversitySpecialities" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesDateBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesDateEnd" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetKode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecClasifierCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecIndastryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecIndastryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecDirectionsCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecDirectionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecializationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecializationName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesLicenseCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesContractCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasons" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameRequestSeasons" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasonDetails" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationForm" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonEducationFormName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateBeginPersonRequestSeason" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateEndPersonRequestSeason" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Qualification" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualificationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subjects" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityClasifierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Quotas" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Course" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DurationEducation" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CourseName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesLicenseCountOld" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EducationDateBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EducationDateEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSecondEducation" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+
+ <s:element name="UniversityFacultetSpecialitiesSubjectsGet2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UniversityFacultetSpecialitiesSubjectsGet2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetSpecialitiesSubjectsGet2Result" type="tns:ArrayOfDUniversityFacultetSpecialitiesSubjects2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDUniversityFacultetSpecialitiesSubjects2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dUniversityFacultetSpecialitiesSubjects2" nillable="true" type="tns:dUniversityFacultetSpecialitiesSubjects2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dUniversityFacultetSpecialitiesSubjects2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversitySpecialitiesSubject" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Subject" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLastChange" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsProfiled" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InGroup" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesSubjectsName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesSubjectsDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversitySpecialitiesSubjectParent" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Detalization" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Koeficient" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="UniversityFacultetSpecialitiesQuotasGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Quota" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UniversityFacultetSpecialitiesQuotasGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetSpecialitiesQuotasGetResult" type="tns:ArrayOfDUniversityFacultetSpecialitiesQuotas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDUniversityFacultetSpecialitiesQuotas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dUniversityFacultetSpecialitiesQuotas" nillable="true" type="tns:dUniversityFacultetSpecialitiesQuotas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dUniversityFacultetSpecialitiesQuotas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversitySpecialitiesQuota" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesQuotaPriority" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesQuotaValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Quota" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuotaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuotaDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLastChange" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecDirectionsCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecClasifierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecDirectionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityClasifierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasons" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversitySpecialities" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesDateBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesDateEnd" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_University" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="UniversityFacultetsGetRequests2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasons" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetKode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Hundred" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MinDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestStatusType1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestStatusType2" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestStatusType3" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationForm" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id_Qualification" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UniversityFacultetsGetRequests2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetsGetRequests2Result" type="tns:ArrayOfDUniversityFacultetsRequests2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDUniversityFacultetsRequests2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dUniversityFacultetsRequests2" nillable="true" type="tns:dUniversityFacultetsRequests2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dUniversityFacultetsRequests2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequest" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasons" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCodeU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FIO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversitySpecialitiesKode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameRequestSeason" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestPerPerson" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversitySpecialities" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesDateBegin" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniversitySpecialitiesDateEnd" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityKode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetKode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityFacultetShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecClasifierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecIndastryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecDirectionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Language" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecScecializationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecScecializationName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OriginalDocumentsAdd" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestStatusType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonRequestStatusCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestStatusTypeName" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonRequestStatusTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descryption" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLastChange" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsNeedHostel" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeOfBusiness" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEnteranceTypes" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonEnteranceTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestExaminationCause" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonRequestExaminationCauseName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsContract" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsBudget" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonEducationForm" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonEducationFormName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="KonkursValue" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="KonkursValueSource" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriorityRequest" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="KonkursValueCorrectValue" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="KonkursValueCorrectValueDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonRequestSeasonDetails" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Qualification" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualificationName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocumentType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonDocumentTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonDocument" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntrantDocumentSeries" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntrantDocumentNumbers" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntrantDocumentDateGet" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntrantDocumentIssued" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntrantDocumentValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCheckForPaperCopy" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsNotCheckAttestat" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsForeinghEntrantDocumet" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestEnteranseCodes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_UniversityEntrantWave" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestStatusIsBudejt" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestStatusIsContract" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniversityEntrantWaveName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsHigherEducation" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SkipDocumentValue" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_EntrantDocumentAwardType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntrantDocumentAwardTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecSpecialityClasifierCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExistBenefitsPershocherg" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExistBenefitsPozacherg" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZNOSubjects" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_LanguageEx" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageExName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsEz" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsForeignWay" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_ForeignType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForeignTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Course" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExistQuotasCiloviy" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_PersonSex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Resident" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="KoatuType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Birthday" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntranceCodes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestPriority" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="GetLastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastErrorResult" type="tns:ArrayOfDLastError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="dLastError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LastErrorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="GetLastError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GUIDSession" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDLastError">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dLastError" nillable="true" type="tns:dLastError"/>
+        </s:sequence>
+      </s:complexType>
+
+    </s:schema>
+ </wsdl:types>
+
+ <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="LanguagesGetSoapIn">
+    <wsdl:part name="parameters" element="tns:LanguagesGet" />
+  </wsdl:message>
+  <wsdl:message name="LanguagesGetSoapOut">
+    <wsdl:part name="parameters" element="tns:LanguagesGetResponse" />
+  </wsdl:message>
+  
+<wsdl:message name="SpecSpecializationFindSoapIn">
+    <wsdl:part name="parameters" element="tns:SpecSpecializationFind" />
+  </wsdl:message>
+  <wsdl:message name="SpecSpecializationFindSoapOut">
+    <wsdl:part name="parameters" element="tns:SpecSpecializationFindResponse" />
+  </wsdl:message>
+
+   <wsdl:message name="UniversitiesGetSoapIn">
+    <wsdl:part name="parameters" element="tns:UniversitiesGet" />
+  </wsdl:message>
+  <wsdl:message name="UniversitiesGetSoapOut">
+    <wsdl:part name="parameters" element="tns:UniversitiesGetResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="UniversityFacultetSpecialitiesGetSoapIn">
+    <wsdl:part name="parameters" element="tns:UniversityFacultetSpecialitiesGet" />
+  </wsdl:message>
+  <wsdl:message name="UniversityFacultetSpecialitiesGetSoapOut">
+    <wsdl:part name="parameters" element="tns:UniversityFacultetSpecialitiesGetResponse" />
+  </wsdl:message> 
+
+  <wsdl:message name="UniversityFacultetSpecialitiesSubjectsGet2SoapIn">
+    <wsdl:part name="parameters" element="tns:UniversityFacultetSpecialitiesSubjectsGet2" />
+  </wsdl:message>
+  <wsdl:message name="UniversityFacultetSpecialitiesSubjectsGet2SoapOut">
+    <wsdl:part name="parameters" element="tns:UniversityFacultetSpecialitiesSubjectsGet2Response" />
+  </wsdl:message>
+
+  <wsdl:message name="UniversityFacultetSpecialitiesQuotasGetSoapIn">
+    <wsdl:part name="parameters" element="tns:UniversityFacultetSpecialitiesQuotasGet" />
+  </wsdl:message>
+  <wsdl:message name="UniversityFacultetSpecialitiesQuotasGetSoapOut">
+    <wsdl:part name="parameters" element="tns:UniversityFacultetSpecialitiesQuotasGetResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="UniversityFacultetsGetRequests2SoapIn">
+    <wsdl:part name="parameters" element="tns:UniversityFacultetsGetRequests2" />
+  </wsdl:message>
+  <wsdl:message name="UniversityFacultetsGetRequests2SoapOut">
+    <wsdl:part name="parameters" element="tns:UniversityFacultetsGetRequests2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetLastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastError"/>
+  </wsdl:message>
+  <wsdl:message name="GetLastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastErrorResponse"/>
+  </wsdl:message>
+
+  <wsdl:portType name="EDBOGuidesSoap">
+
+  	<wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Підключенння до системи </wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+
+  	<wsdl:operation name="LanguagesGet">
+      <wsdl:input message="tns:LanguagesGetSoapIn" />
+      <wsdl:output message="tns:LanguagesGetSoapOut" />
+    </wsdl:operation>
+
+	<wsdl:operation name="SpecSpecializationFind">
+      <wsdl:input message="tns:SpecSpecializationFindSoapIn" />
+      <wsdl:output message="tns:SpecSpecializationFindSoapOut" />
+    </wsdl:operation>
+ 	
+ 	<wsdl:operation name="UniversitiesGet">
+      <wsdl:input message="tns:UniversitiesGetSoapIn" />
+      <wsdl:output message="tns:UniversitiesGetSoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="UniversityFacultetSpecialitiesGet">
+      <wsdl:input message="tns:UniversityFacultetSpecialitiesGetSoapIn" />
+      <wsdl:output message="tns:UniversityFacultetSpecialitiesGetSoapOut" />
+    </wsdl:operation>
+    
+    <wsdl:operation name="UniversityFacultetSpecialitiesSubjectsGet2">
+      <wsdl:input message="tns:UniversityFacultetSpecialitiesSubjectsGet2SoapIn" />
+      <wsdl:output message="tns:UniversityFacultetSpecialitiesSubjectsGet2SoapOut" />
+    </wsdl:operation>
+    
+    <wsdl:operation name="UniversityFacultetSpecialitiesQuotasGet">
+      <wsdl:input message="tns:UniversityFacultetSpecialitiesQuotasGetSoapIn" />
+      <wsdl:output message="tns:UniversityFacultetSpecialitiesQuotasGetSoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="UniversityFacultetsGetRequests2">
+      <wsdl:input message="tns:UniversityFacultetsGetRequests2SoapIn" />
+      <wsdl:output message="tns:UniversityFacultetsGetRequests2SoapOut" />
+    </wsdl:operation>
+
+    <wsdl:operation name="GetLastError">
+      <wsdl:input message="tns:GetLastErrorSoapIn"/>
+      <wsdl:output message="tns:GetLastErrorSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EDBOGuidesSoap" type="tns:EDBOGuidesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+  
+     <wsdl:operation name="Login">
+      <soap:operation soapAction="http://edboservice.ua/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://edboservice.ua/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    
+	<wsdl:operation name="LanguagesGet">
+      <soap:operation soapAction="http://edboservice.ua/LanguagesGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="SpecSpecializationFind">
+      <soap:operation soapAction="http://edboservice.ua/SpecSpecializationFind" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+	<wsdl:operation name="UniversitiesGet">
+      <soap:operation soapAction="http://edboservice.ua/UniversitiesGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="UniversityFacultetSpecialitiesGet">
+      <soap:operation soapAction="http://edboservice.ua/UniversityFacultetSpecialitiesGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="UniversityFacultetSpecialitiesSubjectsGet2">
+      <soap:operation soapAction="http://edboservice.ua/UniversityFacultetSpecialitiesSubjectsGet2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="UniversityFacultetSpecialitiesQuotasGet">
+      <soap:operation soapAction="http://edboservice.ua/UniversityFacultetSpecialitiesQuotasGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="UniversityFacultetsGetRequests2">
+      <soap:operation soapAction="http://edboservice.ua/UniversityFacultetsGetRequests2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <soap:operation soapAction="http://edboservice.ua/GetLastError" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EDBOGuides">
+    <wsdl:port name="EDBOGuidesSoap" binding="tns:EDBOGuidesSoap">
+      <soap:address location="http://10.2.4.35:8080/EDBOGuides/EDBOGuides.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
