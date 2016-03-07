@@ -1,6 +1,5 @@
 package org.lnu.is.dao.dao;
 
-import com.google.common.collect.ImmutableMap;
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.InformationModel;
@@ -11,6 +10,7 @@ import org.lnu.is.queries.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -59,10 +59,9 @@ public class DefaultDao<ENTITY extends InformationModel, ENTITYLIST, KEY> implem
 	@Override
 	public ENTITY getByUidAndUap(long uid, String uapp) {
 		String queryJpql = String.format("SELECT e FROM %s WHERE uid=:uid AND uapp=uapp", getEntityClass().getSimpleName());
-		Map<String, Object> params = ImmutableMap.<String, Object>builder()
-				.put("uid", uid)
-				.put("uapp", uapp)
-				.build();
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("uid", uid);
+		params.put("uapp", uapp);
 
 		Query<ENTITY> query = new Query<>(getEntityClass(), queryJpql, params);
 		return persistenceManager.getSingleResult(query);
@@ -75,11 +74,11 @@ public class DefaultDao<ENTITY extends InformationModel, ENTITYLIST, KEY> implem
 					"(uid IS NOT NULL AND uid=:uid) OR " +
 					"(utid IS NOT NULL AND utid=:utid)" +
 				")", getEntityClass().getSimpleName());
-		Map<String, Object> params = ImmutableMap.<String, Object>builder()
-				.put("uid", uid)
-				.put("uapp", uapp)
-				.put("utid", utid)
-				.build();
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("uid", uid);
+		params.put("uapp", uapp);
+		params.put("utid", utid);
+
 		Query<ENTITY> query = new Query<>(getEntityClass(), queryJpql, params);
 		return persistenceManager.getSingleResult(query);
 	}

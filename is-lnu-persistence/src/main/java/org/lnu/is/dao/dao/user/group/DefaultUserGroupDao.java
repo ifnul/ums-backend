@@ -8,7 +8,6 @@ import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.MultipleSearch;
 import org.lnu.is.queries.Query;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,7 +17,6 @@ import java.util.List;
  */
 public class DefaultUserGroupDao implements UserGroupDao {
 
-	@Resource
 	private PersistenceManager<UserGroup, Long> persistenceManager;
 
 	private QueryBuilder<List<Long>> userGroupViewQueryBuilder;
@@ -36,4 +34,7 @@ public class DefaultUserGroupDao implements UserGroupDao {
 		this.userGroupViewQueryBuilder = userGroupViewQueryBuilder;
 	}
 
+	public void setPersistenceManager(PersistenceManager<UserGroup, Long> persistenceManager) {
+		this.persistenceManager = persistenceManager;
+	}
 }

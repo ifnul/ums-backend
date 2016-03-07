@@ -442,13 +442,13 @@
 		<property name="queryBuilder" ref="timeSheetTypeQueryBuilder" />
 	</bean>
 
-	<bean id="userDao" class="org.lnu.is.dao.dao.user.DefaultUserDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.user.User" />
+	<bean id="userDao" class="org.lnu.is.dao.dao.user.DefaultUserDao" >
+		<property name="persistenceManager" ref="persistenceManager" />
 	</bean>
 	
-	<bean id="userGroupDao" class="org.lnu.is.dao.dao.user.group.DefaultUserGroupDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.user.group.UserGroup" />
+	<bean id="userGroupDao" class="org.lnu.is.dao.dao.user.group.DefaultUserGroupDao">
 		<property name="userGroupViewQueryBuilder" ref="userGroupViewQueryBuilder"/>
+		<property name="persistenceManager" ref="persistenceManager" />
 	</bean>
 
 	<bean id="waveTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">

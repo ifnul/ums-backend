@@ -4,7 +4,6 @@ import org.lnu.is.dao.persistence.PersistenceManager;
 import org.lnu.is.domain.user.User;
 import org.lnu.is.queries.Query;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.Map;
 
@@ -16,7 +15,6 @@ import java.util.Map;
 public class DefaultUserDao implements UserDao {
 	private static final String QUERY = "SELECT u FROM User u WHERE u.login=:login";
 
-	@Resource
 	private PersistenceManager<User, Long> persistenceManager;
 
 	@Override
@@ -27,4 +25,7 @@ public class DefaultUserDao implements UserDao {
 		return persistenceManager.getSingleResult(query);
 	}
 
+	public void setPersistenceManager(PersistenceManager<User, Long> persistenceManager) {
+		this.persistenceManager = persistenceManager;
+	}
 }

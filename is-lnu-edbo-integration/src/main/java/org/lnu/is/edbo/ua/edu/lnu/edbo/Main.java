@@ -28,7 +28,7 @@ public class Main {
 	public void synchronize() {
 		try {
 			Edbo.Instanse().GetAllSpecoffer();
-			//Edbo.Instanse().GetAllRequest();
+			//Edbo.Instans	e().GetAllRequest();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
