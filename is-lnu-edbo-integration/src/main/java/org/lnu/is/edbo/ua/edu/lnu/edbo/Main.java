@@ -1,11 +1,14 @@
 package org.lnu.is.edbo.ua.edu.lnu.edbo;
 
 
+import org.springframework.stereotype.Component;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+@Component
 public class Main {
 
 	public static String getActualDate(int year,int month,int date) {
@@ -21,8 +24,8 @@ public class Main {
 		DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 		return formatter.format(now);
 	}
-	
-	public static void main(String[] args) {
+
+	public void synchronize() {
 		try {
 			Edbo.Instanse().GetAllSpecoffer();
 			//Edbo.Instanse().GetAllRequest();
@@ -31,5 +34,15 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
+/*
+	public static void main(String[] args) {
+		try {
+			Edbo.Instanse().GetAllSpecoffer();
+			//Edbo.Instanse().GetAllRequest();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}*/
 
 }
