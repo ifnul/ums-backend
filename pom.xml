@@ -116,6 +116,11 @@
 			</dependency>
 			<dependency>
 				<groupId>is-lnu</groupId>
+				<artifactId>is-lnu-edbo-integration</artifactId>
+				<version>${version}</version>
+			</dependency>
+			<dependency>
+				<groupId>is-lnu</groupId>
 				<artifactId>is-lnu-facade</artifactId>
 				<version>${version}</version>
 			</dependency>

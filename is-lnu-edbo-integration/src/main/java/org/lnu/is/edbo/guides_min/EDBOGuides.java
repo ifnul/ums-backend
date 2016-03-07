@@ -1,14 +1,15 @@
 
 package org.lnu.is.edbo.guides_min;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import org.lnu.is.edbo.person_min.EDBOPerson;
+
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import javax.xml.ws.WebEndpoint;
 import javax.xml.ws.WebServiceClient;
 import javax.xml.ws.WebServiceException;
 import javax.xml.ws.WebServiceFeature;
+import java.net.URL;
 
 
 /**
@@ -29,11 +30,14 @@ public class EDBOGuides
     static {
         URL url = null;
         WebServiceException e = null;
-        try {
+   /*     try {
             url = new URL("file:./resource/Guides_min.wsdl");
+
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
+*/
+        url = EDBOPerson.class.getClassLoader().getResource("Guides_min.wsdl");
         EDBOGUIDES_WSDL_LOCATION = url;
         EDBOGUIDES_EXCEPTION = e;
     }

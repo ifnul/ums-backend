@@ -37,6 +37,11 @@
 
         <dependency>
             <groupId>is-lnu</groupId>
+            <artifactId>is-lnu-edbo-integration</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>is-lnu</groupId>
             <artifactId>is-lnu-converter</artifactId>
         </dependency>
 
