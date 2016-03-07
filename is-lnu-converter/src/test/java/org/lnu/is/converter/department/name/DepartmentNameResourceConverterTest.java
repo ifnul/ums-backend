@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.name.DepartmentName;
-import org.lnu.is.domain.language.Language;
+import org.lnu.is.domain.language.language;
 import org.lnu.is.resource.department.name.DepartmentNameResource;
 
 public class DepartmentNameResourceConverterTest {
@@ -26,7 +26,7 @@ public class DepartmentNameResourceConverterTest {
 		department.setId(departmentId);
 		
 		Long languageId = 2L;
-		Language language = new Language();
+		language language = new language();
 		language.setId(languageId);
 
 		DepartmentName expected = new DepartmentName();
@@ -74,7 +74,7 @@ public class DepartmentNameResourceConverterTest {
 		department.setId(departmentId);
 		
 		Long languageId = 2L;
-		Language language = new Language();
+		language language = new language();
 		language.setId(languageId);
 
 		DepartmentName expected = new DepartmentName();

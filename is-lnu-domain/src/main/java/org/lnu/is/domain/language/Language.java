@@ -15,7 +15,7 @@ import org.lnu.is.domain.InformationModel;
 @RF
 @Entity
 @Table(name = "q_rf_language")
-public class Language extends InformationModel {
+public class language extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "abbrname")
@@ -61,7 +61,7 @@ public class Language extends InformationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		Language other = (Language) obj;
+		language other = (language) obj;
 		if (abbrName == null) {
 			if (other.abbrName != null) {
 				return false;

@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
-import org.lnu.is.domain.language.Language;
+import org.lnu.is.domain.language.language;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.name.PersonName;
 import org.lnu.is.extractor.AbstractParametersExtractor;
@@ -20,7 +20,7 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
 public class PersonNameParametersExtractor extends AbstractParametersExtractor<PersonName> {
 
 	@Resource(name = "languageDao")
-	private Dao<Language, Language, Long> languageDao;
+	private Dao<language, language, Long> languageDao;
 	
 	@Resource(name = "personDao")
 	private Dao<Person, Person, Long> personDao;

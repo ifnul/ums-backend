@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.language.Language;
+import org.lnu.is.domain.language.language;
 import org.lnu.is.pagination.MultiplePagedSearch;
 
 public class LanguageQueryBuilderTest {
@@ -23,10 +23,10 @@ public class LanguageQueryBuilderTest {
 	@Test
 	public void testBuild() throws Exception {
 		// Given
-		Language context = new Language();
+		language context = new language();
 		
 		String expectedQuery = "SELECT e FROM Language e WHERE e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-		MultiplePagedSearch<Language> pagedSearch = new MultiplePagedSearch<>();
+		MultiplePagedSearch<language> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
 		// When
@@ -41,10 +41,10 @@ public class LanguageQueryBuilderTest {
 		// Given
 		unit.setSecurity(false);
 		
-		Language context = new Language();
+		language context = new language();
 		
 		String expectedQuery = "SELECT e FROM Language e WHERE e.status=:status ";
-		MultiplePagedSearch<Language> pagedSearch = new MultiplePagedSearch<>();
+		MultiplePagedSearch<language> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
 		// When
@@ -59,10 +59,10 @@ public class LanguageQueryBuilderTest {
 		// Given
 		unit.setActive(false);
 		
-		Language context = new Language();
+		language context = new language();
 		
 		String expectedQuery = "SELECT e FROM Language e WHERE e.crtUserGroup IN (:userGroups) ";
-		MultiplePagedSearch<Language> pagedSearch = new MultiplePagedSearch<>();
+		MultiplePagedSearch<language> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
 		// When
@@ -78,10 +78,10 @@ public class LanguageQueryBuilderTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		Language context = new Language();
+		language context = new language();
 		
 		String expectedQuery = "SELECT e FROM Language e ";
-		MultiplePagedSearch<Language> pagedSearch = new MultiplePagedSearch<>();
+		MultiplePagedSearch<language> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
 		// When
@@ -97,12 +97,12 @@ public class LanguageQueryBuilderTest {
 		String abbrName = "LieToMe";
 		String name = "name";
 		
-		Language context = new Language();
+		language context = new language();
 		context.setAbbrName(abbrName);
 		context.setName(name);
 
 		String expectedQuery = "SELECT e FROM Language e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) AND e.status=:status AND e.crtUserGroup IN (:userGroups) ";
-		MultiplePagedSearch<Language> pagedSearch = new MultiplePagedSearch<>();
+		MultiplePagedSearch<language> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
 		// When
@@ -120,12 +120,12 @@ public class LanguageQueryBuilderTest {
 		String abbrName = "LieToMe";
 		String name = "name";
 		
-		Language context = new Language();
+		language context = new language();
 		context.setAbbrName(abbrName);
 		context.setName(name);
 		
 		String expectedQuery = "SELECT e FROM Language e WHERE ( e.name LIKE CONCAT('%',:name,'%') AND e.abbrName LIKE CONCAT('%',:abbrName,'%') ) ";
-		MultiplePagedSearch<Language> pagedSearch = new MultiplePagedSearch<>();
+		MultiplePagedSearch<language> pagedSearch = new MultiplePagedSearch<>();
 		pagedSearch.setEntity(context);
 		
 		// When

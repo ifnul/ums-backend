@@ -3,6 +3,7 @@ package org.lnu.is.edbo;
 
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,6 +11,9 @@ import java.util.Date;
 
 @Component
 public class Main {
+
+	@Resource
+	private Edbo edbo;
 
 	public static String getActualDate(int year,int month,int date) {
 		Calendar c = Calendar.getInstance();
@@ -26,7 +30,7 @@ public class Main {
 	}
 	public void synchronize() {
 		try {
-			Edbo.Instanse().GetAllSpecoffer();
+			edbo.GetAllSpecoffer();
 			//Edbo.Instans	e().GetAllRequest();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

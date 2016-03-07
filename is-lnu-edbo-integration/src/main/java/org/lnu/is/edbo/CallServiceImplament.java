@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Created by illya on 20.07.15.
  */
-@Component
+@Component("callService")
 public class CallServiceImplament extends CallService {
 
     @Resource(name = "benefitDao")

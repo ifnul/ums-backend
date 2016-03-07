@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
-import org.lnu.is.domain.language.Language;
+
 /**
  * Post Name entity.
  * @author illay
@@ -27,7 +27,7 @@ public class PostName extends InformationModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "language_id")
-	private Language language;
+	private org.lnu.is.domain.language.language language;
 	
 	@Column(name = "abbrname")
 	private String abbrname;
@@ -43,11 +43,11 @@ public class PostName extends InformationModel {
 		this.post = post;
 	}
 
-	public Language getLanguage() {
+	public org.lnu.is.domain.language.language getLanguage() {
 		return language;
 	}
 
-	public void setLanguage(final Language language) {
+	public void setLanguage(final org.lnu.is.domain.language.language language) {
 		this.language = language;
 	}
 

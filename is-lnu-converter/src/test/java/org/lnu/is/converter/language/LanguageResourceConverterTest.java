@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.language.Language;
+import org.lnu.is.domain.language.language;
 import org.lnu.is.resource.language.LanguageResource;
 
 public class LanguageResourceConverterTest {
@@ -18,7 +18,7 @@ public class LanguageResourceConverterTest {
 		// Given
 		String name = "name";
 		String abbrName = "abbr name";
-		Language expected = new Language();
+		language expected = new language();
 		expected.setAbbrName(abbrName);
 		expected.setName(name);
 
@@ -27,7 +27,7 @@ public class LanguageResourceConverterTest {
 		source.setName(name);
 		
 		// When
-		Language actual = unit.convert(source);
+		language actual = unit.convert(source);
 
 		// Then
 		assertEquals(expected, actual);
@@ -47,15 +47,15 @@ public class LanguageResourceConverterTest {
 		
 		List<LanguageResource> sources = Arrays.asList(source); 
 		
-		Language expected = new Language();
+		language expected = new language();
 		expected.setId(id);
 		expected.setAbbrName(abbrName);
 		expected.setName(name);
 		
-		List<Language> expecteds = Arrays.asList(expected);
+		List<language> expecteds = Arrays.asList(expected);
 		
 		// Where
-		List<Language> actuals = unit.convertAll(sources);
+		List<language> actuals = unit.convertAll(sources);
 		
 		//Then
 		assertEquals(expecteds, actuals);

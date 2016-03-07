@@ -9,10 +9,6 @@ public abstract class CallService {
 
     private static CallService instance;
 
-    public static CallService Instance() {
-        return (instance == null) ? instance = new CallServiceImplament() : instance;
-    }
-
     protected CallService() {
 
     }

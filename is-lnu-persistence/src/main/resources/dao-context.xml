@@ -212,7 +212,7 @@
 	</bean>
 
 	<bean id="languageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.language.Language" />
+		<property name="entityClass" value="org.lnu.is.domain.language.language" />
 		<property name="queryBuilder" ref="languageQueryBuilder"/>
 	</bean>
 

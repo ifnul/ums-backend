@@ -2,6 +2,6 @@
                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                jaxb:version="2.0">
     <jaxb:bindings >
-        <jaxb:globalBindings typesafeEnumMaxMembers="2000"/>
+        <jaxb:globalBindings typesafeEnumMaxMembers="4000"/>
     </jaxb:bindings>
 </jaxb:bindings>

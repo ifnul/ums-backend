@@ -3,7 +3,7 @@ package org.lnu.is.dao.builder.language;
 import org.lnu.is.dao.annotations.QBuilder;
 import org.lnu.is.dao.builder.AbstractQueryBuilder;
 import org.lnu.is.dao.builder.BaseQueryBuilder;
-import org.lnu.is.domain.language.Language;
+import org.lnu.is.domain.language.language;
 
 /**
  * Language query builder.
@@ -11,7 +11,7 @@ import org.lnu.is.domain.language.Language;
  *
  */
 @QBuilder("languageQueryBuilder")
-public class LanguageQueryBuilder extends AbstractQueryBuilder<Language> {
+public class LanguageQueryBuilder extends AbstractQueryBuilder<language> {
 	private static final String NAME_CONDITION = "e.name LIKE CONCAT('%',:name,'%') ";
 	private static final String ABBR_NAME_CONDITION = "e.abbrName LIKE CONCAT('%',:abbrName,'%') ";
 
@@ -21,7 +21,7 @@ public class LanguageQueryBuilder extends AbstractQueryBuilder<Language> {
 	}
 
 	@Override
-	protected BaseQueryBuilder build(final Language context, final BaseQueryBuilder builder) {
+	protected BaseQueryBuilder build(final language context, final BaseQueryBuilder builder) {
 		return builder
 				.where()
 				.openBracket()

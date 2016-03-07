@@ -8,7 +8,7 @@ import org.lnu.is.annotations.ParametersExtractor;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.name.DepartmentName;
-import org.lnu.is.domain.language.Language;
+import org.lnu.is.domain.language.language;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**
@@ -23,7 +23,7 @@ public class DepartmentNameParametersExtractor extends AbstractParametersExtract
 	private Dao<Department, Department, Long> departmentDao;
 
 	@Resource(name = "languageDao")
-	private Dao<Language, Language, Long> languageDao;
+	private Dao<language, language, Long> languageDao;
 	
 	@Override
 	protected Map<String, Object> getParameters(final DepartmentName entity, final Map<String, Object> parameters) {

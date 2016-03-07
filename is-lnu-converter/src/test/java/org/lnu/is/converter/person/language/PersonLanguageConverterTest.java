@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.language.Language;
+import org.lnu.is.domain.language.language;
 import org.lnu.is.domain.language.LanguageLevel;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.language.PersonLanguage;
@@ -25,7 +25,7 @@ public class PersonLanguageConverterTest {
 		person.setId(personId);
 		
 		Long languageId = 2L;
-		Language language = new Language();
+		language language = new language();
 		language.setId(languageId);
 		
 		Long languageLevelId = 3L;
@@ -73,7 +73,7 @@ public class PersonLanguageConverterTest {
 		person.setId(personId);
 		
 		Long languageId = 2L;
-		Language language = new Language();
+		language language = new language();
 		language.setId(languageId);
 		
 		Long languageLevelId = 3L;

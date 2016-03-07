@@ -2,7 +2,7 @@ package org.lnu.is.converter.language;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.language.Language;
+import org.lnu.is.domain.language.language;
 import org.lnu.is.resource.language.LanguageResource;
 
 /**
@@ -11,10 +11,10 @@ import org.lnu.is.resource.language.LanguageResource;
  *
  */
 @Converter("languageResourceConverter")
-public class LanguageResourceConverter extends AbstractConverter<LanguageResource, Language> {
+public class LanguageResourceConverter extends AbstractConverter<LanguageResource, language> {
 
 	@Override
-	public Language convert(final LanguageResource source, final Language target) {
+	public language convert(final LanguageResource source, final language target) {
 		
 		target.setAbbrName(source.getAbbrName());
 		target.setName(source.getName());
@@ -23,8 +23,8 @@ public class LanguageResourceConverter extends AbstractConverter<LanguageResourc
 	}
 
 	@Override
-	public Language convert(final LanguageResource source) {
-		return convert(source, new Language());
+	public language convert(final LanguageResource source) {
+		return convert(source, new language());
 	}
 
 }

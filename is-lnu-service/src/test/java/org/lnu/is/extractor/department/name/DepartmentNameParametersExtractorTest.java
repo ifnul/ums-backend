@@ -18,7 +18,7 @@ import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.name.DepartmentName;
-import org.lnu.is.domain.language.Language;
+import org.lnu.is.domain.language.language;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -31,7 +31,7 @@ public class DepartmentNameParametersExtractorTest {
 	private Dao<Department, Department, Long> departmentDao;
 	
 	@Mock
-	private Dao<Language, Language, Long> languageDao;
+	private Dao<language, language, Long> languageDao;
 	
 	@InjectMocks
 	private DepartmentNameParametersExtractor unit;
@@ -63,7 +63,7 @@ public class DepartmentNameParametersExtractorTest {
 		department.setId(departmentId);
 
 		Long languageId = 2L;
-		Language language = new Language();
+		language language = new language();
 		language.setId(languageId);
 
 		String abbrName = "abbr name";
@@ -140,7 +140,7 @@ public class DepartmentNameParametersExtractorTest {
 		department.setId(departmentId);
 
 		Long languageId = 2L;
-		Language language = new Language();
+		language language = new language();
 		language.setId(languageId);
 
 		String abbrName = "abbr name";
