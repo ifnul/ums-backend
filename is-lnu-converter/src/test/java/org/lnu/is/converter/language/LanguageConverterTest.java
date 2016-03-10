@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.resource.language.LanguageResource;
 
 public class LanguageConverterTest {
@@ -19,7 +19,7 @@ public class LanguageConverterTest {
 		Long id = 1L;
 		String name = "name";
 		String abbrName = "abbr name";
-		language source = new language();
+		Language source = new Language();
 		source.setAbbrName(abbrName);
 		source.setName(name);
 		source.setId(id);
@@ -43,12 +43,12 @@ public class LanguageConverterTest {
 		String abbrName = "abbr Name";
 		String name = "n a m e";
 		
-		language source = new language();
+		Language source = new Language();
 		source.setId(id);
 		source.setAbbrName(abbrName);
 		source.setName(name);
 		
-		List<language> sources = Arrays.asList(source);
+		List<Language> sources = Arrays.asList(source);
 		
 		LanguageResource expected = new LanguageResource();
 		expected.setId(id);

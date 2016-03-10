@@ -2,7 +2,7 @@ package org.lnu.is.converter.person.language;
 
 import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.language.LanguageLevel;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.language.PersonLanguage;
@@ -26,7 +26,7 @@ public class PersonLanguageResourceConverter extends AbstractConverter<PersonLan
 		}
 		
 		if (source.getLanguageId() != null) {
-			language language = new language();
+			Language language = new Language();
 			language.setId(source.getLanguageId());
 			target.setLanguage(language);
 		}

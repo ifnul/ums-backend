@@ -60,23 +60,31 @@
 								<id>generate-sources</id>
 								<phase>generate-sources</phase>
 								<configuration>
-
-									<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
-									<defaultOptions>
-										<bindingFiles>
-											<bindingFile>${basedir}/src/main/resources/bind.xml</bindingFile>
-										</bindingFiles>
-										<noAddressBinding>true</noAddressBinding>
-									</defaultOptions>
-									<wsdlRoot>${basedir}/src/main/resources/wsdl</wsdlRoot>
-									<includes>
-										<include>*_min.wsdl</include>
-									</includes>
+									<sourceRoot>${basedir}/src/main/java</sourceRoot>
+									<wsdlOptions>
+										<wsdlOption>
+											<wsdl>${basedir}/src/main/resources/wsdl/Guides_min.wsdl</wsdl>
+											<wsdlLocation>classpath:wsdl/Guides_min.wsdl</wsdlLocation>
+											<extraargs>
+												<extraarg>-p</extraarg>
+												<extraarg>org.lnu.is.edbo.proxy</extraarg>
+											</extraargs>
+										</wsdlOption>
+										<wsdlOption>
+											<wsdl>${basedir}/src/main/resources/wsdl/Person_min.wsdl</wsdl>
+											<wsdlLocation>classpath:wsdl/Person_min.wsdl</wsdlLocation>
+											<extraargs>
+												<extraarg>-p</extraarg>
+												<extraarg>org.lnu.is.edbo.proxy</extraarg>
+											</extraargs>
+										</wsdlOption>
+									</wsdlOptions>
 								</configuration>
 								<goals>
 									<goal>wsdl2java</goal>
 								</goals>
 							</execution>
+
 						</executions>
 					</plugin>
 				</plugins>

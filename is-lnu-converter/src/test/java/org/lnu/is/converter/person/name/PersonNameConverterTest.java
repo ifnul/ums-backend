@@ -3,7 +3,7 @@ package org.lnu.is.converter.person.name;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.name.PersonName;
 import org.lnu.is.resource.person.name.PersonNameResource;
@@ -16,7 +16,7 @@ public class PersonNameConverterTest {
 	public void testConvert() throws Exception {
 		// Given
 		Long languageId = 1L;
-		language language = new language();
+		Language language = new Language();
 		language.setId(languageId);
 		
 		Long personId = 2L;

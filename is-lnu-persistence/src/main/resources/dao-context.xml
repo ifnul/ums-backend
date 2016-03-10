@@ -21,9 +21,10 @@
 		<property name="queryBuilder" ref="personEnrolmentSubjectQueryBuilder" />		
 	</bean>	
 	
-	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.adminunit.AdminUnitDao" parent="abstractDao">
+	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.adminunit.AdminUnitDao">
 		<property name="entityClass" value="org.lnu.is.domain.admin.unit.AdminUnit" />
-		<property name="queryBuilder" ref="adminUnitQueryBuilder" />		
+		<property name="queryBuilder" ref="adminUnitQueryBuilder" />
+		<property name="persistenceManager" ref="persistenceManager" />
 	</bean>
 
 	<bean id="adminUnitTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
@@ -212,7 +213,7 @@
 	</bean>
 
 	<bean id="languageDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
-		<property name="entityClass" value="org.lnu.is.domain.language.language" />
+		<property name="entityClass" value="org.lnu.is.domain.language.Language" />
 		<property name="queryBuilder" ref="languageQueryBuilder"/>
 	</bean>
 

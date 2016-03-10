@@ -14,7 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.language.LanguageLevel;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.language.PersonLanguage;
@@ -33,7 +33,7 @@ public class PersonLanguageParametersExtractorTest {
 	private Dao<Person, Person, Long> personDao;
 
 	@Mock
-	private Dao<language, language, Long> languageDao;
+	private Dao<Language, Language, Long> languageDao;
 	
 	@Mock
 	private Dao<LanguageLevel, LanguageLevel, Long> languageLevelDao;	
@@ -65,7 +65,7 @@ public class PersonLanguageParametersExtractorTest {
 		person.setId(personId);
 		
 		Long languageId = 3L;
-		language language = new language();
+		Language language = new Language();
 		language.setId(languageId);
 		
 		Long languageLevelId = 1L;
@@ -106,7 +106,7 @@ public class PersonLanguageParametersExtractorTest {
 		person.setId(personId);
 		
 		Long languageId = 3L;
-		language language = new language();
+		Language language = new Language();
 		language.setId(languageId);
 		
 		Long languageLevelId = 1L;

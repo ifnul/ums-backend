@@ -8,6 +8,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 /**
  * @since 3/10/16
  */
@@ -44,7 +46,10 @@ public class EntrantAdminUnitAllocationDao {
     private EntityManager entityManager;
 
     public List<AdminUnitEntrantAllocation> getAdminUnitEntrantsAllocation(long mainAdminUnitId) {
-        Query query = entityManager.createNativeQuery(String.format(QUERY_SQL, mainAdminUnitId), AdminUnitEntrantAllocation.class);
-        return query.getResultList();
+        Query query = entityManager.createNativeQuery(String.format(QUERY_SQL, mainAdminUnitId));
+        List<Object[]> resultList = query.getResultList();
+        return resultList.stream()
+                .map(arr -> new AdminUnitEntrantAllocation(String.valueOf(arr[1]), Long.valueOf(arr[2].toString()), Integer.valueOf(arr[0].toString())))
+                .collect(toList());
     }
 }

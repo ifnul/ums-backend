@@ -13,6 +13,14 @@ public class AdminUnitEntrantAllocation {
     private long adminUnitId;
     private int entrantCount;
 
+    public AdminUnitEntrantAllocation() {}
+
+    public AdminUnitEntrantAllocation(String adminUnit, long adminUnitId, int entrantCount) {
+        this.adminUnit = adminUnit;
+        this.adminUnitId = adminUnitId;
+        this.entrantCount = entrantCount;
+    }
+
     public String getAdminUnit() {
         return adminUnit;
     }

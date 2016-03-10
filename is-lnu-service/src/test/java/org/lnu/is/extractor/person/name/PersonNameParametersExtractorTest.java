@@ -15,7 +15,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.dao.dao.Dao;
 import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.name.PersonName;
 import org.lnu.is.security.service.SessionService;
@@ -30,7 +30,7 @@ public class PersonNameParametersExtractorTest {
 	private SessionService sessionService;
 	
 	@Mock
-	private Dao<language, language, Long> languageDao;
+	private Dao<Language, Language, Long> languageDao;
 	
 	@Mock
 	private Dao<Person, Person, Long> personDao;
@@ -62,7 +62,7 @@ public class PersonNameParametersExtractorTest {
 		person.setId(personId);
 		
 		Long languageId = 2L;
-		language language = new language();
+		Language language = new Language();
 		language.setId(languageId);
 
 		String firstName = "first name";
@@ -104,7 +104,7 @@ public class PersonNameParametersExtractorTest {
 		person.setId(personId);
 		
 		Long languageId = 2L;
-		language language = new language();
+		Language language = new Language();
 		language.setId(languageId);
 		
 		String firstName = "first name";

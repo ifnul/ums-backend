@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.language.LanguageLevel;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.language.PersonLanguage;
@@ -99,7 +99,7 @@ public class PersonLanguageQueryBuilderTest {
 		// Given
 
 		Person person = new Person();
-		language language = new language();
+		Language language = new Language();
 		LanguageLevel languageLevel = new LanguageLevel();
 
 		PersonLanguage context = new PersonLanguage();
@@ -125,7 +125,7 @@ public class PersonLanguageQueryBuilderTest {
 		unit.setSecurity(false);
 
 		Person person = new Person();
-		language language = new language();
+		Language language = new Language();
 		LanguageLevel languageLevel = new LanguageLevel();
 
 		PersonLanguage context = new PersonLanguage();

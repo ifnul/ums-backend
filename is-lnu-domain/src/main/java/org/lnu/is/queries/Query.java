@@ -1,5 +1,6 @@
 package org.lnu.is.queries;
 
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -22,6 +23,7 @@ public final class Query<E> {
     public Query(final Class<E> clazz, final String query) {
         this.clazz = clazz;
     	this.query = query;
+		this.parameters = Collections.emptyMap();
     }
 
     /**

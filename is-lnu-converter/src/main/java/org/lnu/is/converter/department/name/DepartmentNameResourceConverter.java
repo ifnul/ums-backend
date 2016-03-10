@@ -4,7 +4,7 @@ import org.lnu.is.annotations.Converter;
 import org.lnu.is.converter.AbstractConverter;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.name.DepartmentName;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.resource.department.name.DepartmentNameResource;
 
 /**
@@ -25,7 +25,7 @@ public class DepartmentNameResourceConverter extends AbstractConverter<Departmen
 		}
 		
 		if (source.getLanguageId() != null) {
-			language language = new language();
+			Language language = new Language();
 			language.setId(source.getLanguageId());
 			target.setLanguage(language);
 		}

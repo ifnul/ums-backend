@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.person.name.PersonName;
 import org.lnu.is.pagination.MultiplePagedSearch;
@@ -96,7 +96,7 @@ public class PersonNameQueryBuilderTest {
 	public void testBuildWithParameters() throws Exception {
 		// Given
 		Person person = new Person();
-		language language = new language();
+		Language language = new Language();
 		String name = "fdsfds";
 		String firstName = "fdsfds";
 		String fatherName = "rewrtewt";
@@ -128,7 +128,7 @@ public class PersonNameQueryBuilderTest {
 		unit.setSecurity(false);
 		
 		Person person = new Person();
-		language language = new language();
+		Language language = new Language();
 		String name = "fdsfds";
 		String firstName = "fdsfds";
 		String fatherName = "rewrtewt";

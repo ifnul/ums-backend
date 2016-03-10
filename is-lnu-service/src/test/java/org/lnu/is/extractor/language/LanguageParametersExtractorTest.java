@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lnu.is.domain.common.RowStatus;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.security.service.SessionService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -48,7 +48,7 @@ public class LanguageParametersExtractorTest {
 		// Given
 		String name = "name";
 		String abbrName = "abbr name";
-		language entity = new language();
+		Language entity = new Language();
 		entity.setAbbrName(abbrName);
 		entity.setName(name);
 		
@@ -73,7 +73,7 @@ public class LanguageParametersExtractorTest {
 		
 		String name = "name";
 		String abbrName = "abbr name";
-		language entity = new language();
+		Language entity = new Language();
 		entity.setAbbrName(abbrName);
 		entity.setName(name);
 		
@@ -91,7 +91,7 @@ public class LanguageParametersExtractorTest {
 	@Test
 	public void testGetParametersWithDefaultEntity() throws Exception {
 		// Given
-		language entity = new language();
+		Language entity = new Language();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
 		expected.put("userGroups", groups);
@@ -108,7 +108,7 @@ public class LanguageParametersExtractorTest {
 		// Given
 		unit.setSecurity(false);
 		
-		language entity = new language();
+		Language entity = new Language();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("status", RowStatus.ACTIVE);
 		
@@ -124,7 +124,7 @@ public class LanguageParametersExtractorTest {
 		// Given
 		unit.setActive(false);
 		
-		language entity = new language();
+		Language entity = new Language();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		expected.put("userGroups", groups);
 		
@@ -141,7 +141,7 @@ public class LanguageParametersExtractorTest {
 		unit.setActive(false);
 		unit.setSecurity(false);
 		
-		language entity = new language();
+		Language entity = new Language();
 		Map<String, Object> expected = new HashMap<String, Object>();
 		
 		// When
