@@ -1,7 +1,11 @@
 package org.lnu.is.edbo;
 
-import org.springframework.stereotype.Component;
-import ua.edboservice.*;
+import ua.edboservice.ArrayOfDLanguages;
+import ua.edboservice.DLanguages;
+import ua.edboservice.DUniversities;
+import ua.edboservice.DUniversityFacultetSpecialities;
+import ua.edboservice.DUniversityFacultetsRequests2;
+import ua.edboservice.EDBOGuidesSoap;
 
 import javax.annotation.Resource;
 import java.rmi.RemoteException;
@@ -14,7 +18,7 @@ import java.util.concurrent.Executors;
 
 
 
-@Component
+//@Component
 public class Edbo {
 
 	@Resource(name = "callService")

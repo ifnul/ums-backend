@@ -21,7 +21,7 @@
 		<property name="queryBuilder" ref="personEnrolmentSubjectQueryBuilder" />		
 	</bean>	
 	
-	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+	<bean id="adminUnitDao" class="org.lnu.is.dao.dao.adminunit.AdminUnitDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.admin.unit.AdminUnit" />
 		<property name="queryBuilder" ref="adminUnitQueryBuilder" />		
 	</bean>

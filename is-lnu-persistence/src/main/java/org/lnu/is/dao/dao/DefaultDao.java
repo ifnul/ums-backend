@@ -114,8 +114,12 @@ public class DefaultDao<ENTITY extends InformationModel, ENTITYLIST, KEY> implem
 		
 		MultiplePagedQuerySearch<ENTITY> pagedQuerySearch = new MultiplePagedQuerySearch<ENTITY>(queries, pagedSearch.getOffset(), 
 				pagedSearch.getLimit(), pagedSearch.getParameters(), getEntityClass());
-		
+
 		return persistenceManager.search(pagedQuerySearch);
+	}
+
+	public ENTITY getSingleResult(Query<ENTITY> query) {
+		return persistenceManager.getSingleResult(query);
 	}
 
 	public Class<ENTITY> getEntityClass() {
