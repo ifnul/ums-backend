@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 import org.lnu.is.annotation.dbtable.OD;
 import org.lnu.is.domain.InformationModel;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.domain.language.LanguageLevel;
 import org.lnu.is.domain.person.Person;
 
@@ -27,7 +28,7 @@ public class PersonLanguage extends InformationModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "language_id")
-	private org.lnu.is.domain.language.language language;
+	private Language language;
 	
 	@ManyToOne
 	@JoinColumn(name = "languagelevel_id")
@@ -41,11 +42,11 @@ public class PersonLanguage extends InformationModel {
 		this.person = person;
 	}
 
-	public org.lnu.is.domain.language.language getLanguage() {
+	public Language getLanguage() {
 		return language;
 	}
 
-	public void setLanguage(final org.lnu.is.domain.language.language language) {
+	public void setLanguage(final Language language) {
 		this.language = language;
 	}
 

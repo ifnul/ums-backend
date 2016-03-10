@@ -46,7 +46,7 @@
         <class>org.lnu.is.domain.degree.type.DegreeType</class>
 
 		<!-- Language related entities -->
-        <class>org.lnu.is.domain.language.language</class>
+        <class>org.lnu.is.domain.language.Language</class>
         <class>org.lnu.is.domain.language.LanguageLevel</class>
         
         <!-- MarkScale entities -->

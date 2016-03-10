@@ -3,7 +3,7 @@ package org.lnu.is.extractor.language;
 import java.util.Map;
 
 import org.lnu.is.annotations.ParametersExtractor;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.extractor.AbstractParametersExtractor;
 
 /**
@@ -12,10 +12,10 @@ import org.lnu.is.extractor.AbstractParametersExtractor;
  *
  */
 @ParametersExtractor("languageParametersExtractor")
-public class LanguageParametersExtractor extends AbstractParametersExtractor<language> {
+public class LanguageParametersExtractor extends AbstractParametersExtractor<Language> {
 
 	@Override
-	public Map<String, Object> getParameters(final language entity, final Map<String, Object> parameters) {
+	public Map<String, Object> getParameters(final Language entity, final Map<String, Object> parameters) {
 		
 		addParameter(entity.getAbbrName(), "abbrName", parameters);
 		addParameter(entity.getName(), "name", parameters);

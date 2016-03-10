@@ -1,6 +1,5 @@
 package org.lnu.is.edbo;
 
-
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -30,8 +29,8 @@ public class Main {
 	}
 	public void synchronize() {
 		try {
-			edbo.GetAllSpecoffer();
-			//Edbo.Instans	e().GetAllRequest();
+			edbo.GetAllSpecoffer(false, "", 0);
+			edbo.GetAllRequest("",0);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

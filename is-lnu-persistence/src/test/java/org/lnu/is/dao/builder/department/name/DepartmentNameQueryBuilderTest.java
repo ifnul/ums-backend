@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lnu.is.domain.department.Department;
 import org.lnu.is.domain.department.name.DepartmentName;
-import org.lnu.is.domain.language.language;
+import org.lnu.is.domain.language.Language;
 import org.lnu.is.pagination.MultiplePagedSearch;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.pagination.OrderByType;
@@ -201,7 +201,7 @@ public class DepartmentNameQueryBuilderTest {
 	public void testBuildWithParameters() throws Exception {
 		// Given
 		Department department = new Department();
-		language language = new language();
+		Language language = new Language();
 		String name = "fdfds";
 		String abbrName = "asfasf";
 		DepartmentName context = new DepartmentName();
@@ -225,7 +225,7 @@ public class DepartmentNameQueryBuilderTest {
 	public void testBuildWithParametersWithOrderBy() throws Exception {
 		// Given
 		Department department = new Department();
-		language language = new language();
+		Language language = new Language();
 		String name = "fdfds";
 		String abbrName = "asfasf";
 		DepartmentName context = new DepartmentName();
@@ -259,7 +259,7 @@ public class DepartmentNameQueryBuilderTest {
 		unit.setSecurity(false);
 		
 		Department department = new Department();
-		language language = new language();
+		Language language = new Language();
 		String name = "fdfds";
 		String abbrName = "asfasf";
 		DepartmentName context = new DepartmentName();
@@ -286,7 +286,7 @@ public class DepartmentNameQueryBuilderTest {
 		unit.setSecurity(false);
 		
 		Department department = new Department();
-		language language = new language();
+		Language language = new Language();
 		String name = "fdfds";
 		String abbrName = "asfasf";
 		DepartmentName context = new DepartmentName();
