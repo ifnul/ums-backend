@@ -31,7 +31,7 @@ public class EntrantPlaceDao {
                 .map(arr -> new EntrantPlace(
                         arr[0] != null ? Double.parseDouble(arr[0].toString()) : 0,
                         arr[1] != null ? arr[1].toString():  null,
-                        arr[2] != null ? Long.parseLong(arr[2].toString())))
+                        arr[2] != null ? Long.parseLong(arr[2].toString()) : 0))
                 .collect(Collectors.toList());
     }
 }
