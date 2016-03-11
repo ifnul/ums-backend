@@ -2,6 +2,7 @@ package org.lnu.is.web.rest.controller.statistics;
 
 import org.lnu.is.facade.facade.statistics.StatisticsFacade;
 import org.lnu.is.resource.adminunit.AdminUnitEntrantAllocationResource;
+import org.lnu.is.resource.department.DepartmentEntrantAllocationResource;
 import org.lnu.is.resource.priority.PriorityStatResource;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
@@ -39,7 +40,7 @@ public class StatisticsController extends BaseController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/entrants/allocations/departments", method = RequestMethod.GET)
-    public List<AdminUnitEntrantAllocationResource> getDepartmentsAllocation() {
+    public List<DepartmentEntrantAllocationResource> getDepartmentsAllocation() {
         LOG.info("Getting allocation of entrants per admin units of Ukraine");
         return statisticsFacade.getDepartmentEntrantsAllocation();
     }
