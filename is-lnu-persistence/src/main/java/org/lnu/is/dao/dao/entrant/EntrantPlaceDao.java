@@ -12,9 +12,10 @@ import java.util.stream.Collectors;
 @Repository
 public class EntrantPlaceDao {
     private static final String QUERY_SQL = "SELECT \n" +
-            "\tROUND((1.0 * COUNT(e.id)/s.statecount), 3) AS entrant_per_place, \n" +
-            "\td.name AS name, \n" +
-            "\td.id AS id \n" +
+            //"ROUND((1.0 * COUNT(e.id)/s.statecount), 3) AS entrant_per_place, \n" +
+            "1.0 AS entrant_per_place, \n" +
+            "d.name AS name, \n" +
+            "d.id AS id \n" +
             "FROM q_dc_enrolment e\n" +
             "LEFT OUTER JOIN q_ob_specoffer s ON s.id = e.specoffer_id\n" +
             "LEFT OUTER JOIN q_ob_department d ON d.id = e.department_id\n" +

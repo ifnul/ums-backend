@@ -68,7 +68,7 @@ public class SystemController extends BaseController {
         
         MessageResource message = new MessageResource(MessageType.ERROR, msg, responseCode);
 
-        return new ResponseEntity<>(message, HttpStatus.valueOf(responseCode));
+        return new ResponseEntity<MessageResource>(message, HttpStatus.valueOf(responseCode));
     }
 
 }
