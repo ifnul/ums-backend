@@ -29,10 +29,13 @@ public class EntrantPlaceDao {
         Query query = entityManager.createNativeQuery(QUERY_SQL);
         List<Object[]> result = query.getResultList();
         return result.stream()
-                .map(arr -> new EntrantPlace(
-                        Double.valueOf(arr[0].toString()) / Double.valueOf(arr[1].toString()),
-                        arr[2].toString(),
-                        Long.parseLong(arr[3].toString())))
+                .map(arr -> {
+                    Double stateCount = Double.valueOf(arr[1].toString());
+                    return new EntrantPlace(
+                            stateCount > 0.0  ? Double.valueOf(arr[0].toString()) / stateCount : 0.0,
+                            arr[2].toString(),
+                            Long.parseLong(arr[3].toString()));
+                })
                 .collect(Collectors.toList());
     }
 }
