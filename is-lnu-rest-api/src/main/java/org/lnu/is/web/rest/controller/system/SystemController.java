@@ -1,15 +1,5 @@
 package org.lnu.is.web.rest.controller.system;
 
-import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_EXCEPTION;
-import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_MESSAGE;
-import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_STATUS_CODE;
-
-import java.text.MessageFormat;
-
-import javax.annotation.Resource;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
-
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
 import org.lnu.is.resource.system.SystemResource;
@@ -21,6 +11,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+import java.text.MessageFormat;
+
+import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_EXCEPTION;
+import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_MESSAGE;
+import static org.lnu.is.web.rest.constant.Constants.JAVAX_SERVLET_ERROR_STATUS_CODE;
 /**
  * Controller for system stuff.
  * @author ivanursul
@@ -69,7 +68,7 @@ public class SystemController extends BaseController {
         
         MessageResource message = new MessageResource(MessageType.ERROR, msg, responseCode);
 
-        return new ResponseEntity<MessageResource>(message, HttpStatus.valueOf(responseCode));
+        return new ResponseEntity<>(message, HttpStatus.valueOf(responseCode));
     }
 
 }

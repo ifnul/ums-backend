@@ -30,8 +30,8 @@ public class EntrantPlaceDao {
         return result.stream()
                 .map(arr -> new EntrantPlace(
                         arr[0] != null ? Double.parseDouble(arr[0].toString()) : 0,
-                        arr[1] != null ? arr[1].toString(), null,
-                        arr[2] != null ? Long.parseLong(arr[2].toString()) : 0))
+                        arr[1] != null ? arr[1].toString():  null,
+                        arr[2] != null ? Long.parseLong(arr[2].toString())))
                 .collect(Collectors.toList());
     }
 }
