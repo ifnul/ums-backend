@@ -12,15 +12,15 @@ import java.util.stream.Collectors;
 @Repository
 public class EntrantPlaceDao {
     private static final String QUERY_SQL = "SELECT \n" +
-            //"ROUND((1.0 * COUNT(e.id)/s.statecount), 3) AS entrant_per_place, \n" +
-            "1.0 AS entrant_per_place, \n" +
-            "d.name AS name, \n" +
-            "d.id AS id \n" +
+            "\tCOUNT(e.id) AS enrolments_count,\n" +
+            "\ts.statecount,\n" +
+            "\td.name AS name, \n" +
+            "\td.id AS id \n" +
             "FROM q_dc_enrolment e\n" +
             "LEFT OUTER JOIN q_ob_specoffer s ON s.id = e.specoffer_id\n" +
             "LEFT OUTER JOIN q_ob_department d ON d.id = e.department_id\n" +
             "GROUP BY d.name, d.id, s.statecount\n" +
-            "ORDER BY entrant_per_place DESC";
+            "ORDER BY enrolments_count DESC";
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -30,9 +30,9 @@ public class EntrantPlaceDao {
         List<Object[]> result = query.getResultList();
         return result.stream()
                 .map(arr -> new EntrantPlace(
-                        arr[0] != null ? Double.parseDouble(arr[0].toString()) : 0,
-                        arr[1] != null ? arr[1].toString():  null,
-                        arr[2] != null ? Long.parseLong(arr[2].toString()) : 0))
+                        Double.valueOf(arr[0].toString()) / Double.valueOf(arr[1].toString()),
+                        arr[2].toString(),
+                        Long.parseLong(arr[3].toString())))
                 .collect(Collectors.toList());
     }
 }
