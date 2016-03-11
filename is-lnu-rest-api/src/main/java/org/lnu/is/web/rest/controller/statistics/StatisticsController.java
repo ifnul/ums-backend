@@ -31,10 +31,17 @@ public class StatisticsController extends BaseController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/entrants/allocations/adminunits")
+    @RequestMapping(value = "/entrants/allocations/adminunits", method = RequestMethod.GET)
     public List<AdminUnitEntrantAllocationResource> getAdminUnitAllocation() {
         LOG.info("Getting allocation of entrants per admin units of Ukraine");
         return statisticsFacade.getAdminUnitEntrantsAllocation();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/entrants/allocations/departments", method = RequestMethod.GET)
+    public List<AdminUnitEntrantAllocationResource> getDepartmentsAllocation() {
+        LOG.info("Getting allocation of entrants per admin units of Ukraine");
+        return statisticsFacade.getDepartmentEntrantsAllocation();
     }
 
 }
