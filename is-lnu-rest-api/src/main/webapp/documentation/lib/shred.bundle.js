@@ -2605,6 +2605,8 @@ Request.prototype.write = function (s) {
 
 Request.prototype.end = function (s) {
     if (s !== undefined) this.write(s);
+
+    this.xhr.setRequestHeader("Authorization", "Basic YWRtaW46bmltZGE=");
     this.xhr.send(this.body);
 };
 
