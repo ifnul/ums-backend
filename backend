@@ -42,6 +42,7 @@ function seed() {
 
 # start tomcat using maven plugin
 function run() {
+    ${MVN_PATH}/bin/mvn clean install ${@:1}
     cd ${BACKEND_PATH}/is-lnu-rest-api
     ${MVN_PATH}/bin/mvn tomcat7:run ${@:1}
 }
