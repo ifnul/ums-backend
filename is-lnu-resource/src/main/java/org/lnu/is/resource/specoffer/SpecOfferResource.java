@@ -1,14 +1,14 @@
 package org.lnu.is.resource.specoffer;
 
-import java.text.MessageFormat;
-import java.util.Date;
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.lnu.is.annotation.CrudableResource;
 import org.lnu.is.resource.ApiResource;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import java.text.MessageFormat;
+import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -43,6 +43,10 @@ public class SpecOfferResource extends ApiResource {
 	private String docSeries;
 	
 	private String docNum;
+
+	private Double weightCertificate;
+
+	private Double weightAward;
 	
 	@NotNull(message = "Field required")
 	private Long educationFormTypeId;
@@ -176,153 +180,68 @@ public class SpecOfferResource extends ApiResource {
 		this.endDate = endDate;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
-		result = prime * result
-				+ ((departmentId == null) ? 0 : departmentId.hashCode());
-		result = prime * result + ((docNum == null) ? 0 : docNum.hashCode());
-		result = prime * result
-				+ ((docSeries == null) ? 0 : docSeries.hashCode());
-		result = prime * result
-				+ ((educationFormTypeId == null) ? 0 : educationFormTypeId.hashCode());
-		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
-		result = prime * result
-				+ ((licCount == null) ? 0 : licCount.hashCode());
-		result = prime * result
-				+ ((specialtyId == null) ? 0 : specialtyId.hashCode());
-		result = prime * result
-				+ ((specofferTypeId == null) ? 0 : specofferTypeId.hashCode());
-		result = prime * result
-				+ ((stateCount == null) ? 0 : stateCount.hashCode());
-		result = prime * result
-				+ ((timePeriodId == null) ? 0 : timePeriodId.hashCode());
-		result = prime * result
-			+ ((timePeriodCourseId == null) ? 0 : timePeriodCourseId.hashCode());
-		result = prime * result
-			+ ((duration == null) ? 0 : duration.hashCode());
-		return result;
+	public Double getWeightCertificate() {
+		return weightCertificate;
+	}
+
+	public void setWeightCertificate(Double weightCertificate) {
+		this.weightCertificate = weightCertificate;
+	}
+
+	public Double getWeightAward() {
+		return weightAward;
+	}
+
+	public void setWeightAward(Double weightAward) {
+		this.weightAward = weightAward;
 	}
 
 	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		SpecOfferResource other = (SpecOfferResource) obj;
-		if (begDate == null) {
-			if (other.begDate != null) {
-				return false;
-			}
-		} else if (!begDate.equals(other.begDate)) {
-			return false;
-		}
-		if (departmentId == null) {
-			if (other.departmentId != null) {
-				return false;
-			}
-		} else if (!departmentId.equals(other.departmentId)) {
-			return false;
-		}
-		if (docNum == null) {
-			if (other.docNum != null) {
-				return false;
-			}
-		} else if (!docNum.equals(other.docNum)) {
-			return false;
-		}
-		if (docSeries == null) {
-			if (other.docSeries != null) {
-				return false;
-			}
-		} else if (!docSeries.equals(other.docSeries)) {
-			return false;
-		}
-		if (educationFormTypeId == null) {
-			if (other.educationFormTypeId != null) {
-				return false;
-			}
-		} else if (!educationFormTypeId.equals(other.educationFormTypeId)) {
-			return false;
-		}
-		if (endDate == null) {
-			if (other.endDate != null) {
-				return false;
-			}
-		} else if (!endDate.equals(other.endDate)) {
-			return false;
-		}
-		if (licCount == null) {
-			if (other.licCount != null) {
-				return false;
-			}
-		} else if (!licCount.equals(other.licCount)) {
-			return false;
-		}
-		if (specialtyId == null) {
-			if (other.specialtyId != null) {
-				return false;
-			}
-		} else if (!specialtyId.equals(other.specialtyId)) {
-			return false;
-		}
-		if (specofferTypeId == null) {
-			if (other.specofferTypeId != null) {
-				return false;
-			}
-		} else if (!specofferTypeId.equals(other.specofferTypeId)) {
-			return false;
-		}
-		if (stateCount == null) {
-			if (other.stateCount != null) {
-				return false;
-			}
-		} else if (!stateCount.equals(other.stateCount)) {
-			return false;
-		}
-		if (timePeriodId == null) {
-			if (other.timePeriodId != null) {
-				return false;
-			}
-		} else if (!timePeriodId.equals(other.timePeriodId)) {
-			return false;
-		}
-		if (timePeriodCourseId == null) {
-			if (other.timePeriodCourseId != null) {
-				return false;
-			}
-		} else if (!timePeriodCourseId.equals(other.timePeriodCourseId)) {
-			return false;
-		}
-		if (duration == null) {
-			if (other.duration != null) {
-				return false;
-			}
-		} else if (!duration.equals(other.duration)) {
-			return false;
-		}
-		return true;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		if (!super.equals(o)) return false;
+		SpecOfferResource that = (SpecOfferResource) o;
+		return Objects.equals(specialtyId, that.specialtyId) &&
+				Objects.equals(departmentId, that.departmentId) &&
+				Objects.equals(timePeriodId, that.timePeriodId) &&
+				Objects.equals(timePeriodCourseId, that.timePeriodCourseId) &&
+				Objects.equals(specofferTypeId, that.specofferTypeId) &&
+				Objects.equals(docSeries, that.docSeries) &&
+				Objects.equals(docNum, that.docNum) &&
+				Objects.equals(weightCertificate, that.weightCertificate) &&
+				Objects.equals(weightAward, that.weightAward) &&
+				Objects.equals(educationFormTypeId, that.educationFormTypeId) &&
+				Objects.equals(licCount, that.licCount) &&
+				Objects.equals(stateCount, that.stateCount) &&
+				Objects.equals(begDate, that.begDate) &&
+				Objects.equals(endDate, that.endDate) &&
+				Objects.equals(duration, that.duration);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), specialtyId, departmentId, timePeriodId, timePeriodCourseId, specofferTypeId, docSeries, docNum, weightCertificate, weightAward, educationFormTypeId, licCount, stateCount, begDate, endDate, duration);
 	}
 
 	@Override
 	public String toString() {
-	    return "SpecOfferResource [specialtyId=" + specialtyId
-		    + ", departmentId=" + departmentId + ", timePeriodId="
-		    + timePeriodId + ", timePeriodCourseId="
-		    + timePeriodCourseId + ", specofferTypeId="
-		    + specofferTypeId + ", docSeries=" + docSeries
-		    + ", docNum=" + docNum + ", educationFormTypeId="
-		    + educationFormTypeId + ", licCount=" + licCount
-		    + ", stateCount=" + stateCount + ", begDate=" + begDate
-		    + ", endDate=" + endDate + ", duration=" + duration + "]";
+		return new ToStringBuilder(this)
+				.append("specialtyId", specialtyId)
+				.append("departmentId", departmentId)
+				.append("timePeriodId", timePeriodId)
+				.append("timePeriodCourseId", timePeriodCourseId)
+				.append("specofferTypeId", specofferTypeId)
+				.append("docSeries", docSeries)
+				.append("docNum", docNum)
+				.append("weightCertificate", weightCertificate)
+				.append("weightAward", weightAward)
+				.append("educationFormTypeId", educationFormTypeId)
+				.append("licCount", licCount)
+				.append("stateCount", stateCount)
+				.append("begDate", begDate)
+				.append("endDate", endDate)
+				.append("duration", duration)
+				.toString();
 	}
-	
 }

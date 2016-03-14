@@ -30,4 +30,11 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="add_additional_specoffer_fields" author="ivanursul">
+        <addColumn tableName="q_ob_specoffer">
+            <column name="weight_certification" type="double" remarks="Коефіцієнт для сертифікату"/>
+            <column name="weight_award" type="double" remarks="Коефіцієнт для олімпіад"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

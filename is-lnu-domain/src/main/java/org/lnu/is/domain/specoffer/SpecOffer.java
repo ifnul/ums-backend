@@ -1,5 +1,6 @@
 package org.lnu.is.domain.specoffer;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.lnu.is.annotation.dbtable.OB;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.domain.department.Department;
@@ -15,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Entity, that describes specoffers table.
@@ -75,6 +77,12 @@ public class SpecOffer extends InformationModel {
 
     @Column(name = "statecount")
     private Integer stateCount;
+
+    @Column(name = "weight_certification")
+    private Double weightCertificate;
+
+    @Column(name = "weight_award")
+    private Double weightAward;
 
     @Column(name = "begdate")
     private Date begDate;
@@ -221,94 +229,56 @@ public class SpecOffer extends InformationModel {
         this.waves = waves;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + ((begDate == null) ? 0 : begDate.hashCode());
-        result = prime * result + ((docNum == null) ? 0 : docNum.hashCode());
-        result = prime * result
-                + ((docSeries == null) ? 0 : docSeries.hashCode());
-        result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
-        result = prime * result
-                + ((licCount == null) ? 0 : licCount.hashCode());
-        result = prime * result
-                + ((stateCount == null) ? 0 : stateCount.hashCode());
-        result = prime * result
-                + ((duration == null) ? 0 : duration.hashCode());
-        return result;
+    public Double getWeightCertificate() {
+        return weightCertificate;
+    }
+
+    public void setWeightCertificate(Double weightCertificate) {
+        this.weightCertificate = weightCertificate;
+    }
+
+    public Double getWeightAward() {
+        return weightAward;
+    }
+
+    public void setWeightAward(Double weightAward) {
+        this.weightAward = weightAward;
     }
 
     @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!super.equals(obj)) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        SpecOffer other = (SpecOffer) obj;
-        if (begDate == null) {
-            if (other.begDate != null) {
-                return false;
-            }
-        } else if (!begDate.equals(other.begDate)) {
-            return false;
-        }
-        if (docNum == null) {
-            if (other.docNum != null) {
-                return false;
-            }
-        } else if (!docNum.equals(other.docNum)) {
-            return false;
-        }
-        if (docSeries == null) {
-            if (other.docSeries != null) {
-                return false;
-            }
-        } else if (!docSeries.equals(other.docSeries)) {
-            return false;
-        }
-        if (endDate == null) {
-            if (other.endDate != null) {
-                return false;
-            }
-        } else if (!endDate.equals(other.endDate)) {
-            return false;
-        }
-        if (licCount == null) {
-            if (other.licCount != null) {
-                return false;
-            }
-        } else if (!licCount.equals(other.licCount)) {
-            return false;
-        }
-        if (stateCount == null) {
-            if (other.stateCount != null) {
-                return false;
-            }
-        } else if (!stateCount.equals(other.stateCount)) {
-            return false;
-        }
-        if (duration == null) {
-            if (other.duration != null) {
-                return false;
-            }
-        } else if (!duration.equals(other.duration)) {
-            return false;
-        }
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SpecOffer specOffer = (SpecOffer) o;
+        return Objects.equals(docSeries, specOffer.docSeries) &&
+                Objects.equals(docNum, specOffer.docNum) &&
+                Objects.equals(licCount, specOffer.licCount) &&
+                Objects.equals(stateCount, specOffer.stateCount) &&
+                Objects.equals(weightCertificate, specOffer.weightCertificate) &&
+                Objects.equals(weightAward, specOffer.weightAward) &&
+                Objects.equals(begDate, specOffer.begDate) &&
+                Objects.equals(endDate, specOffer.endDate) &&
+                Objects.equals(duration, specOffer.duration);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), docSeries, docNum, licCount, stateCount, weightCertificate, weightAward, begDate, endDate, duration);
     }
 
     @Override
     public String toString() {
-        return "SpecOffer [docSeries=" + docSeries + ", docNum=" + docNum
-                + ", licCount=" + licCount + ", stateCount=" + stateCount
-                + ", begDate=" + begDate + ", endDate=" + endDate
-                + ", duration=" + duration + "]";
+        return new ToStringBuilder(this)
+                .append("duration", duration)
+                .append("endDate", endDate)
+                .append("begDate", begDate)
+                .append("weightAward", weightAward)
+                .append("weightCertificate", weightCertificate)
+                .append("stateCount", stateCount)
+                .append("licCount", licCount)
+                .append("docNum", docNum)
+                .append("docSeries", docSeries)
+                .toString();
     }
-
 }
