@@ -16,6 +16,8 @@ function main() {
           ;;
       migrate) migrate $ARGS
           ;;
+      dropDb) dropDb $ARGS
+          ;;
       seed) seed $ARGS
           ;;
       *) echo "invalid command: build.sh build|run|test|migrate|seed"
@@ -33,6 +35,12 @@ function migrate() {
     cd ${BACKEND_PATH}/is-lnu-migrations
     ${MVN_PATH}/bin/mvn liquibase:update ${@:1}
 }
+
+function dropDb() {
+    cd ${BACKEND_PATH}/is-lnu-migrations
+    ${MVN_PATH}/bin/mvn liquibase:dropAll ${@:1}
+}
+
 
 # seed db with data
 function seed() {
