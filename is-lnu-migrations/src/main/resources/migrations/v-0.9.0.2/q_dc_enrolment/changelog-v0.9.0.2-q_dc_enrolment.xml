@@ -4,65 +4,52 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
-
-    <changeSet id="create-v_zno_score_sum" author="ivanursul" runAlways="true">
-        <createView viewName="v_dc_enrolment_zno_score_sum" replaceIfExists="true">
-            <![CDATA[
-                SELECT
-                    SUM(mse.markexchange * ss.weightsubject) AS zno_score_sum,
-                    ees.enrolment_id
-                FROM q_dt_enrolmentenrolsubject ees
-                LEFT OUTER JOIN q_dc_enrolment ei ON ees.enrolment_id = ei.id
-                LEFT OUTER JOIN q_ob_specoffer si ON ei.specoffer_id = si.id
-                LEFT OUTER JOIN q_od_specoffersubject ss ON ss.specoffer_id = si.id
-                LEFT OUTER JOIN q_od_markscaleexchange mse ON ees.markscale_id = mse.markscale_id AND markmin <= ees.mark AND markmax >= ees.mark
-                LEFT OUTER JOIN q_od_personenrolsubject pes ON ees.personenrolsubject_id = pes.id
-                GROUP BY ees.enrolment_id
-            ]]>
-        </createView>
-    </changeSet>
-
-    <changeSet id="create-v_certificate" author="ivanursul" runAlways="true">
-        <createView viewName="v_dc_enrolment_certificate" replaceIfExists="true">
-            <![CDATA[
-                SELECT
-                    mse.markexchange AS certification_sum,
-                    pp.person_id
-                FROM q_od_personpaper pp
-                LEFT OUTER JOIN q_rf_papertype pt ON pt.id = pp.papertype_id
-                LEFT OUTER JOIN q_od_markscaleexchange mse ON pp.markscale_id = mse.markscale_id AND markmin <=  pp.mark AND markmax >=  pp.mark
-                WHERE pt.name = 'Атестат про повну загальну середню освіту'
-            ]]>
-        </createView>
-    </changeSet>
-
-    <changeSet id="create-v_other" author="ivanursul" runAlways="true">
-        <createView viewName="v_dc_enrolment_other" replaceIfExists="true">
-            <![CDATA[
-                SELECT
-                    MAX(ees.id) AS id,
-                    ees.enrolment_id
-                FROM q_dt_enrolmentenrolsubject ees
-                LEFT OUTER JOIN q_dc_enrolment ei ON ees.enrolment_id = ei.id
-                LEFT OUTER JOIN q_ob_specoffer si ON ei.specoffer_id = si.id
-                LEFT OUTER JOIN q_od_personenrolsubject pes ON ees.personenrolsubject_id = pes.id
-                WHERE ees.personaward_id IS NOT NULL
-                GROUP BY ees.enrolment_id
-            ]]>
-        </createView>
-    </changeSet>
-
     <changeSet id="create-v_enrolment_view" author="ivanursul" runAlways="true" runOnChange="true">
         <createView viewName="v_dc_enrolment_contest_score" replaceIfExists="true">
             <![CDATA[
             SELECT
-                zno.zno_score_sum + certificate.certification_sum * s.weight_certification + mse.markexchange * s.weight_award AS kb,
-                e.id as enrolment_id
+            COALESCE(zno.zno_score_sum, 0) + COALESCE(certificate.certification_sum * s.weight_certification, 0) + COALESCE(mse.markexchange * s.weight_award, 0) AS kb,
+            zno.zno_score_sum,
+            certificate.certification_sum,
+            s.weight_certification,
+            mse.markexchange,
+            s.weight_award,
+            e.id as enrolment_id
             FROM q_dc_enrolment e
             LEFT OUTER JOIN q_ob_specoffer s ON e.specoffer_id = s.id
-            LEFT OUTER JOIN v_dc_enrolment_zno_score_sum zno ON zno.enrolment_id = e.id
-            LEFT OUTER JOIN v_dc_enrolment_certificate certificate ON certificate.person_id = e.person_id
-            LEFT OUTER JOIN v_dc_enrolment_other other ON other.enrolment_id = e.id
+            LEFT OUTER JOIN (
+            -- бали за зно, посумовані
+            SELECT
+            SUM(mse.markexchange * ss.weightsubject) AS zno_score_sum,
+            ees.enrolment_id
+            FROM q_dt_enrolmentenrolsubject ees
+            LEFT OUTER JOIN q_dc_enrolment ei ON ees.enrolment_id = ei.id
+            LEFT OUTER JOIN q_ob_specoffer si ON ei.specoffer_id = si.id
+            LEFT OUTER JOIN q_od_specoffersubject ss ON ss.specoffer_id = si.id
+            LEFT OUTER JOIN q_od_markscaleexchange mse ON ees.markscale_id = mse.markscale_id AND markmin <= ees.mark AND markmax >= ees.mark
+            LEFT OUTER JOIN q_od_personenrolsubject pes ON ees.personenrolsubject_id = pes.id
+            GROUP BY ees.enrolment_id
+            ) zno ON zno.enrolment_id = e.id
+            LEFT OUTER JOIN (
+            -- Бали з атестату, не помножені на ваговий коефіцієнт
+            SELECT mse.markexchange AS certification_sum, pp.person_id FROM q_od_personpaper pp
+            LEFT OUTER JOIN q_rf_papertype pt ON pt.id = pp.papertype_id
+            LEFT OUTER JOIN q_od_markscaleexchange mse ON pp.markscale_id = mse.markscale_id AND markmin <=  pp.mark AND markmax >=  pp.mark
+            WHERE pt.name = 'Атестат про повну загальну середню освіту'
+            ) certificate ON certificate.person_id = e.person_id
+            LEFT OUTER JOIN (
+            -- Всі решта бали(дивись фільтрування)
+            SELECT
+            MAX(ees.id) AS id,
+            --mse.markexchange AS award_score,
+            ees.enrolment_id
+            FROM q_dt_enrolmentenrolsubject ees
+            LEFT OUTER JOIN q_dc_enrolment ei ON ees.enrolment_id = ei.id
+            LEFT OUTER JOIN q_ob_specoffer si ON ei.specoffer_id = si.id
+            LEFT OUTER JOIN q_od_personenrolsubject pes ON ees.personenrolsubject_id = pes.id
+            WHERE ees.personaward_id IS NOT NULL
+            GROUP BY ees.enrolment_id
+            ) other ON other.enrolment_id = e.id
             LEFT OUTER JOIN q_dt_enrolmentenrolsubject aees ON aees.id = other.id
             LEFT OUTER JOIN q_od_markscaleexchange mse ON aees.markscale_id = mse.markscale_id AND mse.markmin <= aees.mark AND mse.markmax >= aees.mark
             ]]>
