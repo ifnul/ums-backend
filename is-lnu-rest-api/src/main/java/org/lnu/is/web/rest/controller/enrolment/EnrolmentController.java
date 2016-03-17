@@ -2,7 +2,7 @@ package org.lnu.is.web.rest.controller.enrolment;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
-import org.lnu.is.facade.facade.EnrolmentFacade;
+import org.lnu.is.facade.facade.enrolment.EnrolmentFacade;
 import org.lnu.is.resource.enrolment.EnrolmentRatingResource;
 import org.lnu.is.resource.enrolment.EnrolmentResource;
 import org.lnu.is.resource.message.MessageResource;

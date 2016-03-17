@@ -150,7 +150,7 @@ public class DefaultPersistenceManager<T extends EntityModel, I> implements Pers
 
 
     public List<Object[]> executeNativeQuery(String sql) {
-        return entityManager.createNamedQuery(sql).getResultList();
+        return entityManager.createNativeQuery(sql).getResultList();
     }
     
 	/**

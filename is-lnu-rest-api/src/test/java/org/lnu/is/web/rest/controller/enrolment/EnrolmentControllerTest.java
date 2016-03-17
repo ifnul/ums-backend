@@ -2,7 +2,7 @@ package org.lnu.is.web.rest.controller.enrolment;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.EnrolmentFacade;
+import org.lnu.is.facade.facade.enrolment.EnrolmentFacade;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.resource.enrolment.EnrolmentResource;
 import org.lnu.is.resource.message.MessageResource;

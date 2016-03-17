@@ -19,12 +19,9 @@ import java.util.Objects;
 public class EnrolmentRating extends InformationModel {
 	private static final long serialVersionUID = 1L;
 
-
 	private double kb;
 
 	private int ratingPriority;
-
-	private Long parentId;
 
 	private Long personId;
 
@@ -212,14 +209,6 @@ public class EnrolmentRating extends InformationModel {
 		this.markScaleId = markScaleId;
 	}
 
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
-
 	public Long getPersonId() {
 		return personId;
 	}
@@ -272,7 +261,6 @@ public class EnrolmentRating extends InformationModel {
 		EnrolmentRating that = (EnrolmentRating) o;
 		return Objects.equals(getKb(), that.getKb()) &&
 				Objects.equals(getRatingPriority(), that.getRatingPriority()) &&
-				Objects.equals(getParentId(), that.getParentId()) &&
 				Objects.equals(getPersonId(), that.getPersonId()) &&
 				Objects.equals(getSpecOfferId(), that.getSpecOfferId()) &&
 				Objects.equals(getDepartmentId(), that.getDepartmentId()) &&
@@ -298,7 +286,7 @@ public class EnrolmentRating extends InformationModel {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), getKb(), getRatingPriority(), getParentId(), getPersonId(), getSpecOfferId(), getDepartmentId(), getPersonPaperId(), getEnrolmentTypeId(), getMarkScaleId(), getMark(), getDocSeries(), getDocNum(), getDocText(), getIsState(), getIsContract(), getIsPrivilege(), getIsHostel(), getEvDate(), getBegDate(), getEndDate(), getPriority(), getIsEducationState(), getIsInterview(), getIsOriginal());
+		return Objects.hash(super.hashCode(), getKb(), getRatingPriority(), getPersonId(), getSpecOfferId(), getDepartmentId(), getPersonPaperId(), getEnrolmentTypeId(), getMarkScaleId(), getMark(), getDocSeries(), getDocNum(), getDocText(), getIsState(), getIsContract(), getIsPrivilege(), getIsHostel(), getEvDate(), getBegDate(), getEndDate(), getPriority(), getIsEducationState(), getIsInterview(), getIsOriginal());
 	}
 
 	@Override
@@ -307,7 +295,6 @@ public class EnrolmentRating extends InformationModel {
 				"begDate=" + begDate +
 				", kb=" + kb +
 				", ratingPriority=" + ratingPriority +
-				", parentId=" + parentId +
 				", personId=" + personId +
 				", specOfferId=" + specOfferId +
 				", departmentId=" + departmentId +
