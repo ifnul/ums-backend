@@ -9,10 +9,10 @@ INSERT INTO q_dt_enrolmentbenefit(
             (5, 103, 1, 1, 'utid', 'uapp', 'ACTIVE', 1, 'note', 'crtuser', 'crtusergroup', now(), now()),
 
             -- Цільовий вступ
-            (5, 104, 1, 1, 'utid', 'uapp', 'ACTIVE', 1, 'note', 'crtuser', 'crtusergroup', now(), now()),
             (6, 104, 1, 1, 'utid', 'uapp', 'ACTIVE', 1, 'note', 'crtuser', 'crtusergroup', now(), now()),
+            (7, 104, 1, 1, 'utid', 'uapp', 'ACTIVE', 1, 'note', 'crtuser', 'crtusergroup', now(), now()),
 
             -- Поза конкурсний вступ
-            (7, 11, 1, 1, 'utid', 'uapp', 'ACTIVE', 1, 'note', 'crtuser', 'crtusergroup', now(), now()),
             (8, 11, 1, 1, 'utid', 'uapp', 'ACTIVE', 1, 'note', 'crtuser', 'crtusergroup', now(), now()),
-            (9, 11, 1, 1, 'utid', 'uapp', 'ACTIVE', 1, 'note', 'crtuser', 'crtusergroup', now(), now());
+            (9, 11, 1, 1, 'utid', 'uapp', 'ACTIVE', 1, 'note', 'crtuser', 'crtusergroup', now(), now()),
+            (10, 11, 1, 1, 'utid', 'uapp', 'ACTIVE', 1, 'note', 'crtuser', 'crtusergroup', now(), now());

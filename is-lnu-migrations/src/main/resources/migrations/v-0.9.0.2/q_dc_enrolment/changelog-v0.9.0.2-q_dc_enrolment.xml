@@ -4,8 +4,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
-    <changeSet id="create-v_enrolment_view" author="ivanursul" runAlways="true" runOnChange="true">
-        <createView viewName="v_dc_enrolment_contest_score" replaceIfExists="true">
+    <changeSet id="create-v_enrolment_view" author="ivanursul">
+        <createView viewName="v_dc_enrolment_contest_score">
             <![CDATA[
             SELECT
             COALESCE(zno.zno_score_sum, 0) + COALESCE(certificate.certification_sum * s.weight_certification, 0) + COALESCE(mse.markexchange * s.weight_award, 0) AS kb,
@@ -53,6 +53,88 @@
             LEFT OUTER JOIN q_dt_enrolmentenrolsubject aees ON aees.id = other.id
             LEFT OUTER JOIN q_od_markscaleexchange mse ON aees.markscale_id = mse.markscale_id AND mse.markmin <= aees.mark AND mse.markmax >= aees.mark
             ]]>
+        </createView>
+    </changeSet>
+
+    <changeSet id="create_v_mon_view" author="ivanursul">
+        <createView viewName="v_enrolment_mon">
+            SELECT
+                e.id as enrolment_id,
+                e.specoffer_id AS specoffer_id,
+                score.kb as kb,
+                kvota_mon.priority AS priority
+            FROM q_dc_enrolment e
+            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.id = score.enrolment_id
+            INNER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.id
+            INNER JOIN (
+                SELECT
+                    eb.enrolment_id,
+                    bt.priority,
+                    bt.name
+                FROM q_dt_enrolmentbenefit eb
+                INNER JOIN q_ob_benefit b ON b.id = eb.benefit_id
+                INNER JOIN q_rf_benefittype bt ON b.benefittype_id = bt.id
+                WHERE bt.priority = 4
+            )  kvota_mon ON kvota_mon.enrolment_id = e.id
+            ORDER BY score.kb
+        </createView>
+    </changeSet>
+
+    <changeSet id="create_v_enrolment_destination_admission" author="ivanursul">
+        <createView viewName="v_enrolment_destination_admission">
+            SELECT
+                e.id as enrolment_id,
+                e.specoffer_id AS specoffer_id,
+                score.kb as kb,
+                cil_vstup.priority AS priority
+            FROM q_dc_enrolment e
+            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.id = score.enrolment_id
+            LEFT OUTER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.id
+            INNER JOIN (
+                SELECT
+                    eb.enrolment_id,
+                    bt.priority,
+                    bt.name
+                FROM q_dt_enrolmentbenefit eb
+                INNER JOIN q_ob_benefit b ON b.id = eb.benefit_id
+                INNER JOIN q_rf_benefittype bt ON b.benefittype_id = bt.id
+                WHERE bt.priority = 3
+            )  cil_vstup ON cil_vstup.enrolment_id = e.id
+            ORDER BY score.kb
+        </createView>
+    </changeSet>
+
+    <changeSet id="create_v_enrolment_off_competition_entty" author="ivanursul">
+        <createView viewName="v_enrolment_off_competition_entry">
+            SELECT
+                e.id as enrolment_id,
+                e.specoffer_id AS specoffer_id,
+                score.kb as kb,
+                poz_kon_vstup.priority AS priority
+            FROM q_dc_enrolment e
+            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.id = score.enrolment_id
+            LEFT OUTER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.id
+            INNER JOIN (
+                SELECT eb.enrolment_id, bt.priority, bt.name FROM q_dt_enrolmentbenefit eb
+                INNER JOIN q_ob_benefit b ON b.id = eb.benefit_id
+                INNER JOIN q_rf_benefittype bt ON b.benefittype_id = bt.id
+                WHERE bt.priority = 2
+            )  poz_kon_vstup ON poz_kon_vstup.enrolment_id = e.id
+            ORDER BY score.kb
+        </createView>
+    </changeSet>
+
+    <changeSet id="create_v_enrolment_default_entry" author="ivanursul">
+        <createView viewName="v_enrolment_default_entry">
+            SELECT
+                e.id as enrolment_id,
+                e.specoffer_id AS specoffer_id,
+                score.kb as kb,
+                1 AS priority
+            FROM q_dc_enrolment e
+            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.id = score.enrolment_id
+            LEFT OUTER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.id
+            ORDER BY score.kb
         </createView>
     </changeSet>
 

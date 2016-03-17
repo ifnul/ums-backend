@@ -1,9 +1,9 @@
 package org.lnu.is.web.rest.controller.enrolment;
 
-import javax.annotation.Resource;
-import javax.validation.Valid;
-
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
 import org.lnu.is.facade.facade.Facade;
+import org.lnu.is.resource.enrolment.EnrolmentRatingResource;
 import org.lnu.is.resource.enrolment.EnrolmentResource;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
@@ -15,15 +15,11 @@ import org.lnu.is.web.rest.controller.CrudController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
+import javax.annotation.Resource;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Controller for enrolments.
@@ -86,6 +82,11 @@ public class EnrolmentController extends BaseController implements CrudControlle
 	public PagedResultResource<EnrolmentResource> getPagedResource(final PagedRequest<EnrolmentResource> request) {
 		LOG.info("Retrieving enrolments with offset {}, limit {} ", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
+	}
+
+	@RequestMapping(value = "/{specofferId}/ratings/")
+	public List<EnrolmentRatingResource> getEnrolmentsRatingResource(@PathVariable("specofferId") long specofferId) {
+		return null;
 	}
 
 }
