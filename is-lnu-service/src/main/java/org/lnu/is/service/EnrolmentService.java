@@ -16,7 +16,7 @@ public class EnrolmentService extends DefaultService<Enrolment, Enrolment, Long,
     private SpecOfferWaveDao specOfferWaveDao;
 
     public List<EnrolmentRating> getRatingEnrolments(long specofferId) {
-        SpecOffer specOffer = specOfferDao.getByUid(specofferId);
+        SpecOffer specOffer = specOfferDao.getEntityById(specofferId);
         SpecOfferWave specOfferWave = specOfferWaveDao.getLastSpecOfferWave(specOffer);
         // todo: count limit for цільовий вступ
         // todo: count limit for першочерговий вступ

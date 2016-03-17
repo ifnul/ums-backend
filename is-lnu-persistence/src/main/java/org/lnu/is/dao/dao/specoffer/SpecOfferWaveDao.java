@@ -13,7 +13,7 @@ public class SpecOfferWaveDao extends DefaultDao<SpecOfferWave, SpecOfferWave, L
     public SpecOfferWave getLastSpecOfferWave(SpecOffer specOffer) {
         Map<String, Object> params = Collections.singletonMap("specOffer", specOffer);
         String sql = "SELECT sw FROM SpecOfferWave sw " +
-                "WHERE sw.id = (SELECT isw.id FROM SpecOfferWave isw WHERE isw.specOffer = :specOffer)";
+                "WHERE sw.id = (SELECT MAX(isw.id) FROM SpecOfferWave isw WHERE isw.specOffer = :specOffer)";
         Query<SpecOfferWave> query = new Query<>(SpecOfferWave.class, sql, params);
         return getSingleResult(query);
     }
