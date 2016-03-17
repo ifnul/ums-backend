@@ -52,8 +52,13 @@ $ ./backend test # run integration tests
 ```
 Up you go, backend is ready and fully tested.
 
+PS - If you want to debug your application while using ./backend run command, just execute following command before run command.
+```
+export MAVEN_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n
+```
+Then connect to debugging port 8000 on your IDE.
 
-If you want to modify some properties without chaning pom.xml - use maven command line options: 
+If you want to modify some properties without chaning pom.xml - use maven command line options:
 
 ```
 $ ./backend migrate -Dmigrations.jdbc.host=somehost -Dmigrations.jdbc.port=1234
