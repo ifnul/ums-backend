@@ -156,7 +156,7 @@
 		<property name="service" ref="enrolmentTypeService" />
 	</bean>
 
-	<bean id="enrolmentFacade" class="org.lnu.is.facade.facade.DefaultFacade"
+	<bean id="enrolmentFacade" class="org.lnu.is.facade.facade.EnrolmentFacade"
 		parent="defaultFacade">
 		<property name="resourceConverter" ref="enrolmentResourceConverter" />
 		<property name="resourceListConverter" ref="enrolmentResourceConverter" />

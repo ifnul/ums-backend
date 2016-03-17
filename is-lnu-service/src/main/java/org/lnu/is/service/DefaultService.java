@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class DefaultService<ENTITY, ENTITYLIST, KEY, DAO extends Dao<ENTITY, ENTITYLIST, KEY>> implements Service<ENTITY, ENTITYLIST, KEY> {
 
-	private DAO dao;
+	protected DAO dao;
 	
 	private ParametersExtractor<ENTITYLIST> parametersExtractor;
 	

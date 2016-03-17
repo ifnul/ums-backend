@@ -26,7 +26,7 @@ import java.util.Map;
 public class DefaultDao<ENTITY extends InformationModel, ENTITYLIST, KEY> implements Dao<ENTITY, ENTITYLIST, KEY> {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultDao.class);
 	
-	private PersistenceManager<ENTITY, KEY> persistenceManager;
+	protected PersistenceManager<ENTITY, KEY> persistenceManager;
 	
 	private QueryBuilder<ENTITYLIST> queryBuilder;
 	

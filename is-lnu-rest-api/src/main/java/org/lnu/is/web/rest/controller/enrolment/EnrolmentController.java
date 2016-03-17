@@ -2,7 +2,7 @@ package org.lnu.is.web.rest.controller.enrolment;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
-import org.lnu.is.facade.facade.Facade;
+import org.lnu.is.facade.facade.EnrolmentFacade;
 import org.lnu.is.resource.enrolment.EnrolmentRatingResource;
 import org.lnu.is.resource.enrolment.EnrolmentResource;
 import org.lnu.is.resource.message.MessageResource;
@@ -34,7 +34,7 @@ public class EnrolmentController extends BaseController implements CrudControlle
 	private static final Logger LOG = LoggerFactory.getLogger(EnrolmentController.class);
 
 	@Resource(name = "enrolmentFacade")
-	private Facade<EnrolmentResource, EnrolmentResource, Long> facade;
+	private EnrolmentFacade facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)
@@ -86,7 +86,8 @@ public class EnrolmentController extends BaseController implements CrudControlle
 
 	@RequestMapping(value = "/{specofferId}/ratings/")
 	public List<EnrolmentRatingResource> getEnrolmentsRatingResource(@PathVariable("specofferId") long specofferId) {
-		return null;
+		LOG.info("Getting rating enrolment list for ");
+		return facade.getRatingEnrolments(specofferId);
 	}
 
 }

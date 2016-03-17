@@ -152,7 +152,7 @@
 		<property name="queryBuilder" ref="employeeTypeQueryBuilder"/>
 	</bean>
 
-	<bean id="enrolmentDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+	<bean id="enrolmentDao" class="org.lnu.is.dao.dao.enrolment.EnrolmentDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.enrolment.Enrolment" />
 		<property name="queryBuilder" ref="enrolmentQueryBuilder" />
 	</bean>

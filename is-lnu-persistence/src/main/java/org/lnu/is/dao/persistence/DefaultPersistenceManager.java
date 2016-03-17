@@ -1,14 +1,5 @@
 package org.lnu.is.dao.persistence;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
 import org.lnu.is.dao.exception.EntityNotFoundException;
 import org.lnu.is.dao.persistence.enhancers.Enhancer;
 import org.lnu.is.dao.persistence.model.DaoMethod;
@@ -20,6 +11,14 @@ import org.lnu.is.queries.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+
+import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Persistance Manager to work with entityManager.
@@ -147,6 +146,11 @@ public class DefaultPersistenceManager<T extends EntityModel, I> implements Pers
         }
 
         return typedQuery;
+    }
+
+
+    public List<Object[]> executeNativeQuery(String sql) {
+        return entityManager.createNamedQuery(sql).getResultList();
     }
     
 	/**

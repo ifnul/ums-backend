@@ -1,10 +1,10 @@
 package org.lnu.is.dao.persistence;
 
-import java.util.List;
-
 import org.lnu.is.pagination.MultiplePagedQuerySearch;
 import org.lnu.is.pagination.PagedResult;
 import org.lnu.is.queries.Query;
+
+import java.util.List;
 
 /**
  * Interface, that is used to incapsulate all work
@@ -68,4 +68,6 @@ public interface PersistenceManager<T, I> {
 	 * @return multiple result.
 	 */
 	<E> List<E> getMultipleResult(Query<E> query);
+
+    List<Object[]> executeNativeQuery(String sql);
 }

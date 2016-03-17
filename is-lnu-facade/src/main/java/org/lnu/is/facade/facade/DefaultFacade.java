@@ -48,7 +48,7 @@ public class DefaultFacade<ENTITY extends Model, RESOURCE extends Resource, ENTI
 
 	private Converter<RESOURCE, ENTITY> updateConverter;
 
-	private SERVICE service;
+	protected SERVICE service;
 
 	@Override
 	public RESOURCE createResource(final RESOURCE resource) {
