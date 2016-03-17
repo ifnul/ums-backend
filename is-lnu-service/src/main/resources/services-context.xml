@@ -187,6 +187,7 @@
 		<property name="parametersExtractor" ref="enrolmentParametersExtractor" />
 		<property name="dao" ref="enrolmentDao" />
 		<property name="specOfferWaveDao" ref="specOfferWaveDao"/>
+		<property name="specOfferDao" ref="specOfferDao"/>
 	</bean>
 
 	<bean id="familyTypeService" class="org.lnu.is.service.DefaultService">
