@@ -56,4 +56,20 @@ public class EnrolmentDao extends DefaultDao<Enrolment, Enrolment, Long> {
     }
 
 
+    public List<EnrolmentRating> getDestinationEntryEnrolments(long specofferId) {
+        String queryTemplate = Try.apply(() ->
+                IOUtils.toString(this.getClass().getResourceAsStream("/queries/enrolment_destination_entry.sql"), "UTF-8")).get();
+        String sql = queryTemplate.replace(SPECOFFER_ID_PLACEHOLDER, String.valueOf(specofferId));
+        List<Object[]> destinationEntries = getPersistenceManager().executeNativeQuery(sql);
+
+        return destinationEntries.stream()
+                .map(arr -> {
+                    EnrolmentRating enrolmentRating = new EnrolmentRating();
+                    enrolmentRating.setId(Objects.nonNull(arr[0]) ? Long.parseLong(String.valueOf(arr[0])): null);
+                    enrolmentRating.setKb((Double) arr[1]);
+
+                    return enrolmentRating;
+                }).collect(Collectors.toList());
+
+    }
 }
