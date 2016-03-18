@@ -23,7 +23,7 @@ public class StatisticsController extends BaseController {
     private StatisticsFacade statisticsFacade;
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/{timePeriodId}/priorities", method = RequestMethod.GET)
+    @RequestMapping(value = "/stats/{timePeriodId}/priorities", method = RequestMethod.GET)
     public List<PriorityStatResource> getPriorityStat(@PathVariable("timePeriodId") long timePeriodId) {
         LOG.info("Getting priority statistics");
         return statisticsFacade.getPriorityStat(timePeriodId);
