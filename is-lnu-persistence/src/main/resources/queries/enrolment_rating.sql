@@ -36,43 +36,64 @@ FROM (
         eda.enrolment_id,
         eda.kb,
         eda.priority
-    FROM v_enrolment_destination_admission eda
-    WHERE
-    eda.specoffer_id = $$SPECOFFER_ID$$
-    AND eda.enrolment_id NOT IN (
+    FROM (
         SELECT
-            mon.enrolment_id
-        FROM v_enrolment_mon mon
-        WHERE mon.specoffer_id = $$SPECOFFER_ID$$
-        )
-    UNION
-    SELECT
-        eoce.enrolment_id,
-        eoce.kb,
-        eoce.priority
-    FROM v_enrolment_off_competition_entry eoce
-    WHERE
-    eoce.specoffer_id = $$SPECOFFER_ID$$
-    AND eoce.enrolment_id NOT IN (
-
-        SELECT
-            mon.enrolment_id
-        FROM v_enrolment_mon mon
-        WHERE mon.specoffer_id = $$SPECOFFER_ID$$
-        UNION
-        SELECT
-            eda.enrolment_id
-        FROM v_enrolment_destination_admission eda
-        WHERE eda.specoffer_id = $$SPECOFFER_ID$$
-        AND eda.enrolment_id NOT IN (
+            internal_eda.enrolment_id,
+            internal_eda.kb,
+            internal_eda.priority
+        FROM v_enrolment_destination_admission internal_eda
+        WHERE
+        internal_eda.specoffer_id = $$SPECOFFER_ID$$
+        AND internal_eda.enrolment_id NOT IN (
             SELECT
                 mon.enrolment_id
             FROM v_enrolment_mon mon
             WHERE mon.specoffer_id = $$SPECOFFER_ID$$
-        )
+            )
+        LIMIT $$EDA_LIMIT$$
+    ) AS eda
 
-    )
     UNION
+
+    SELECT
+        eoce.enrolment_id,
+        eoce.kb,
+        eoce.priority
+    FROM (
+        SELECT
+            eoce.enrolment_id,
+            eoce.kb,
+            eoce.priority
+        FROM v_enrolment_off_competition_entry eoce
+        WHERE eoce.specoffer_id = $$SPECOFFER_ID$$
+        AND eoce.enrolment_id NOT IN (
+
+            SELECT
+                mon.enrolment_id
+            FROM v_enrolment_mon mon
+            WHERE mon.specoffer_id = $$SPECOFFER_ID$$
+
+            UNION
+
+            SELECT eda.enrolment_id FROM (
+                SELECT
+                    internal_eda.enrolment_id
+                FROM v_enrolment_destination_admission internal_eda
+                WHERE internal_eda.specoffer_id = $$SPECOFFER_ID$$
+                AND internal_eda.enrolment_id NOT IN (
+                    SELECT
+                        mon.enrolment_id
+                    FROM v_enrolment_mon mon
+                    WHERE mon.specoffer_id = $$SPECOFFER_ID$$
+                )
+                LIMIT $$EDA_LIMIT$$
+            ) AS eda
+        )
+    LIMIT $$EOCE_LIMIT$$
+    )  AS eoce
+
+    UNION
+
     SELECT
         default_entry.enrolment_id,
         default_entry.kb,
@@ -84,28 +105,11 @@ FROM (
             mon.enrolment_id
         FROM v_enrolment_mon mon
         WHERE mon.specoffer_id = $$SPECOFFER_ID$$
+
         UNION
-        SELECT
-            eda.enrolment_id
-        FROM v_enrolment_destination_admission eda
-        WHERE eda.specoffer_id = $$SPECOFFER_ID$$
-        AND eda.enrolment_id NOT IN (
-            SELECT
-                mon.enrolment_id
-            FROM v_enrolment_mon mon
-            WHERE mon.specoffer_id = $$SPECOFFER_ID$$
-            )
-        UNION
-        SELECT
-            eoce.enrolment_id
-        FROM v_enrolment_off_competition_entry eoce
-        WHERE eoce.specoffer_id = $$SPECOFFER_ID$$
-        AND eoce.enrolment_id NOT IN (
-            SELECT
-                mon.enrolment_id
-            FROM v_enrolment_mon mon
-            WHERE mon.specoffer_id = $$SPECOFFER_ID$$
-            UNION
+
+        SELECT eda.enrolment_id
+        FROM (
             SELECT
                 eda.enrolment_id
             FROM v_enrolment_destination_admission eda
@@ -115,9 +119,38 @@ FROM (
                     mon.enrolment_id
                 FROM v_enrolment_mon mon
                 WHERE mon.specoffer_id = $$SPECOFFER_ID$$
-            )
+                )
+            LIMIT $$EDA_LIMIT$$
+        ) as eda
 
-        )
+        UNION
+
+        SELECT
+            eoce.enrolment_id
+        FROM (
+            SELECT
+                eoce.enrolment_id
+            FROM v_enrolment_off_competition_entry eoce
+            WHERE eoce.specoffer_id = $$SPECOFFER_ID$$
+            AND eoce.enrolment_id NOT IN (
+                SELECT
+                    mon.enrolment_id
+                FROM v_enrolment_mon mon
+                WHERE mon.specoffer_id = $$SPECOFFER_ID$$
+                UNION
+                SELECT
+                    eda.enrolment_id
+                FROM v_enrolment_destination_admission eda
+                WHERE eda.specoffer_id = $$SPECOFFER_ID$$
+                AND eda.enrolment_id NOT IN (
+                    SELECT
+                        mon.enrolment_id
+                    FROM v_enrolment_mon mon
+                    WHERE mon.specoffer_id = $$SPECOFFER_ID$$
+                )
+            )
+        LIMIT $$EOCE_L  IMIT$$
+        ) AS eoce
     )
     ORDER BY priority DESC,kb
 ) AS rating

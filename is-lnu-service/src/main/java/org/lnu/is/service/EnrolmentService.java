@@ -20,28 +20,33 @@ public class EnrolmentService extends DefaultService<Enrolment, Enrolment, Long,
         SpecOffer specOffer = specOfferDao.getEntityById(specofferId);
         SpecOfferWave specOfferWave = specOfferWaveDao.getLastSpecOfferWave(specOffer);
 
-        // todo: count limit for цільовий вступ
         List<EnrolmentRating> destEnrolments = dao.getDestinationEntryEnrolments(specofferId);
+        List<EnrolmentRating> offCompetitionEnrolments = dao.getOffCompetitionEnrolments(specofferId);
+
         int destinationLimit = countLimit(destEnrolments, specOfferWave.getTargetCount());
+        int offDestinationCount = countLimit(offCompetitionEnrolments, specOfferWave.getBenefitCount());
 
-        // todo: count limit for першочерговий вступ
-
-        return dao.getRatingEnrolments(specofferId);
+        return dao.getRatingEnrolments(specofferId, destinationLimit, offDestinationCount);
     }
 
-    private int countLimit(List<EnrolmentRating> enrolments, Integer count) {
+    private int countLimit(List<EnrolmentRating> enrolments, int count) {
         int result;
 
-        if (enrolments.size() <= count) {
+        if (count == 0) {
+          result  = enrolments.size();
+        } else if (enrolments.size() < count) {
             result = count;
         } else {
-            List<EnrolmentRating> enrolmentRatings = Lists.reverse(enrolments.subList(0, count - 1));
+            List<EnrolmentRating> enrolmentRatings = Lists.reverse(enrolments.subList(0, count));
             result = enrolmentRatings.size();
+            EnrolmentRating rating = enrolmentRatings.stream().findFirst().get();
 
-            for (int i = enrolmentRatings.size() - 1; i >= 0; i--) {
-                if (i - 1 >= 0 && enrolmentRatings.get(i - 1).getKb() == enrolmentRatings.get(i).getKb()) {
-                    result--;
-                }
+            long lastEqualKbCount = enrolmentRatings.stream()
+                    .filter(rat -> rat.getKb() == rating.getKb())
+                    .count();
+
+            if (lastEqualKbCount > 1) {
+                result -= lastEqualKbCount;
             }
         }
 

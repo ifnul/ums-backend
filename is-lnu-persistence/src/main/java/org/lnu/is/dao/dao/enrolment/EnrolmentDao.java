@@ -15,11 +15,17 @@ import java.util.stream.Collectors;
  */
 public class EnrolmentDao extends DefaultDao<Enrolment, Enrolment, Long> {
     private static final String SPECOFFER_ID_PLACEHOLDER = "$$SPECOFFER_ID$$";
+    private static final String EDA_LIMIT_PLACEHOLDER = "$$EDA_LIMIT$$";
+    private static final String EOCE_LIMIT_PLACEHOLDER = "$$EOCE_LIMIT$$";
 
-    public List<EnrolmentRating> getRatingEnrolments(long specofferId) {
+    public List<EnrolmentRating> getRatingEnrolments(long specofferId, int destinationLimit, int offDestinationCount) {
         String queryTemplate = Try.apply(() ->
                 IOUtils.toString(this.getClass().getResourceAsStream("/queries/enrolment_rating.sql"), "UTF-8")).get();
-        String sql = queryTemplate.replace(SPECOFFER_ID_PLACEHOLDER, String.valueOf(specofferId));
+
+        String sql = queryTemplate
+                .replace(SPECOFFER_ID_PLACEHOLDER, String.valueOf(specofferId))
+                .replace(EDA_LIMIT_PLACEHOLDER, String.valueOf(destinationLimit))
+                .replace(EOCE_LIMIT_PLACEHOLDER, String.valueOf(offDestinationCount));
 
         List<Object[]> enrolmentRatings = getPersistenceManager().executeNativeQuery(sql);
 
@@ -70,6 +76,21 @@ public class EnrolmentDao extends DefaultDao<Enrolment, Enrolment, Long> {
 
                     return enrolmentRating;
                 }).collect(Collectors.toList());
+    }
 
+    public List<EnrolmentRating> getOffCompetitionEnrolments(long specofferId) {
+        String queryTemplate = Try.apply(() ->
+                IOUtils.toString(this.getClass().getResourceAsStream("/queries/enrolment_off_competitions.sql"), "UTF-8")).get();
+        String sql = queryTemplate.replace(SPECOFFER_ID_PLACEHOLDER, String.valueOf(specofferId));
+        List<Object[]> destinationEntries = getPersistenceManager().executeNativeQuery(sql);
+
+        return destinationEntries.stream()
+                .map(arr -> {
+                    EnrolmentRating enrolmentRating = new EnrolmentRating();
+                    enrolmentRating.setId(Objects.nonNull(arr[0]) ? Long.parseLong(String.valueOf(arr[0])): null);
+                    enrolmentRating.setKb((Double) arr[1]);
+
+                    return enrolmentRating;
+                }).collect(Collectors.toList());
     }
 }
