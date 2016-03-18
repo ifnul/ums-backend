@@ -52,8 +52,8 @@ public class StatisticsFacade {
         return priorityConverter.convertAll(priorityStats);
     }
 
-    public List<AdminUnitEntrantAllocationResource> getAdminUnitEntrantsAllocation() {
-        List<AdminUnitEntrantAllocation> adminUnitsAllocation = adminUnitEntrantAllocationService.getAdminUnitsAllocation();
+    public List<AdminUnitEntrantAllocationResource> getAdminUnitEntrantsAllocation(long timePeriodId) {
+        List<AdminUnitEntrantAllocation> adminUnitsAllocation = adminUnitEntrantAllocationService.getAdminUnitsAllocation(timePeriodId);
         return entrantAdminUnitAllocationConverter.convertAll(adminUnitsAllocation);
     }
 

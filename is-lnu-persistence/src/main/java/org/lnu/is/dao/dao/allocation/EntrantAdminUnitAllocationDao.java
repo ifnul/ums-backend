@@ -45,7 +45,7 @@ public class EntrantAdminUnitAllocationDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<AdminUnitEntrantAllocation> getAdminUnitEntrantsAllocation(long mainAdminUnitId) {
+    public List<AdminUnitEntrantAllocation> getAdminUnitEntrantsAllocation(long mainAdminUnitId, long timePeriodId) {
         Query query = entityManager.createNativeQuery(String.format(QUERY_SQL, mainAdminUnitId));
         List<Object[]> resultList = query.getResultList();
         return resultList.stream()

@@ -18,8 +18,8 @@ public class AdminUnitEntrantAllocationService {
     @Resource
     private EntrantAdminUnitAllocationDao entrantAdminUnitAllocationDao;
 
-    public List<AdminUnitEntrantAllocation> getAdminUnitsAllocation() {
+    public List<AdminUnitEntrantAllocation> getAdminUnitsAllocation(long timePeriodId) {
         AdminUnit rootAdminUnit = adminUnitDao.getRootAdminUnit();
-        return entrantAdminUnitAllocationDao.getAdminUnitEntrantsAllocation(rootAdminUnit.getId());
+        return entrantAdminUnitAllocationDao.getAdminUnitEntrantsAllocation(rootAdminUnit.getId(), timePeriodId);
     }
 }
