@@ -13,7 +13,7 @@ public class DepartmentEntrantAllocationService {
     @Resource
     private DepartmentEntrantAllocationDao departmentEntrantAllocationDao;
 
-    public List<DepartmentEntrantAllocation> getDepartmentsAllocations() {
-        return departmentEntrantAllocationDao.getDepartmentsAllocations();
+    public List<DepartmentEntrantAllocation> getDepartmentsAllocations(long timePeriodId) {
+        return departmentEntrantAllocationDao.getDepartmentsAllocations(timePeriodId);
     }
 }

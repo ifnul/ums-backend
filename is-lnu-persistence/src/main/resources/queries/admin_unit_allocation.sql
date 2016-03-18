@@ -22,5 +22,6 @@ INNER JOIN (
   SELECT path[1] AS admin_unit_id, id, name FROM recursetree ORDER BY path
 ) AS admin_unit_root ON admin_unit_root.id = person_address.adminunit_id
 INNER JOIN q_ob_adminunit au ON au.id = admin_unit_root.admin_unit_id
-INNER JOIN q_ob_specoffer s ON s.id = enrolment.specoffer_id WHERE s.timeperiod_id = $$TIME_PERIOD_ID$$
+INNER JOIN q_ob_specoffer s ON s.id = enrolment.specoffer_id
+WHERE s.timeperiod_id = $$TIME_PERIOD_ID$$
 GROUP BY au.name, au.id

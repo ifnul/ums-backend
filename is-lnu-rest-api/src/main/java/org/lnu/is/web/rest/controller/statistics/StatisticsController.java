@@ -37,10 +37,10 @@ public class StatisticsController extends BaseController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/entrants/allocations/departments", method = RequestMethod.GET)
-    public List<DepartmentEntrantAllocationResource> getDepartmentsAllocation() {
+    @RequestMapping(value = "/stats/{timePeriodId}/entrants/allocations/departments", method = RequestMethod.GET)
+    public List<DepartmentEntrantAllocationResource> getDepartmentsAllocation(@PathVariable("timePeriodId") long timePeriodId) {
         LOG.info("Getting allocation of entrants per admin units of Ukraine");
-        return statisticsFacade.getDepartmentEntrantsAllocation();
+        return statisticsFacade.getDepartmentEntrantsAllocation(timePeriodId);
     }
 
     @ResponseStatus(HttpStatus.OK)

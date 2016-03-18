@@ -57,8 +57,8 @@ public class StatisticsFacade {
         return entrantAdminUnitAllocationConverter.convertAll(adminUnitsAllocation);
     }
 
-    public List<DepartmentEntrantAllocationResource> getDepartmentEntrantsAllocation() {
-        List<DepartmentEntrantAllocation> departmentEntrantAllocation = departmentEntrantAllocationService.getDepartmentsAllocations();
+    public List<DepartmentEntrantAllocationResource> getDepartmentEntrantsAllocation(long timePeriodId) {
+        List<DepartmentEntrantAllocation> departmentEntrantAllocation = departmentEntrantAllocationService.getDepartmentsAllocations(timePeriodId);
         return entrantDepartmentAllocationConverter.convertAll(departmentEntrantAllocation);
     }
 
