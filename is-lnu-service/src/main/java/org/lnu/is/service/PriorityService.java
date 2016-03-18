@@ -13,7 +13,7 @@ public class PriorityService {
     @Resource
     private PriorityDao priorityDao;
 
-    public List<PriorityStat> getPriorityStat() {
-        return priorityDao.getPriorityStat();
+    public List<PriorityStat> getPriorityStat(long timePeriodId) {
+        return priorityDao.getPriorityStat(timePeriodId);
     }
 }

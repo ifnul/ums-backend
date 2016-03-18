@@ -9,10 +9,7 @@ import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -26,10 +23,10 @@ public class StatisticsController extends BaseController {
     private StatisticsFacade statisticsFacade;
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/priorities", method = RequestMethod.GET)
-    public List<PriorityStatResource> getPriorityStat() {
+    @RequestMapping(value = "/{timePeriodId}/priorities", method = RequestMethod.GET)
+    public List<PriorityStatResource> getPriorityStat(@PathVariable("timePeriodId") long timePeriodId) {
         LOG.info("Getting priority statistics");
-        return statisticsFacade.getPriorityStat();
+        return statisticsFacade.getPriorityStat(timePeriodId);
     }
 
     @ResponseStatus(HttpStatus.OK)

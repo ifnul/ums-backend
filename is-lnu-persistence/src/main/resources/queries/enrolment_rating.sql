@@ -149,7 +149,7 @@ FROM (
                     WHERE mon.specoffer_id = $$SPECOFFER_ID$$
                 )
             )
-        LIMIT $$EOCE_L  IMIT$$
+        LIMIT $$EOCE_LIMIT$$
         ) AS eoce
     )
     ORDER BY priority DESC,kb

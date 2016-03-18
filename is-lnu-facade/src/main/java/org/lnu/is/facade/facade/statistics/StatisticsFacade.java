@@ -47,8 +47,8 @@ public class StatisticsFacade {
     @Resource(name = "entrantPlaceResourceConverter")
     private Converter<EntrantPlace, EntrantPlaceResource> entrantPlaceResourceConverter;
 
-    public List<PriorityStatResource> getPriorityStat() {
-        List<PriorityStat> priorityStats = priorityService.getPriorityStat();
+    public List<PriorityStatResource> getPriorityStat(long timePeriodId) {
+        List<PriorityStat> priorityStats = priorityService.getPriorityStat(timePeriodId);
         return priorityConverter.convertAll(priorityStats);
     }
 
