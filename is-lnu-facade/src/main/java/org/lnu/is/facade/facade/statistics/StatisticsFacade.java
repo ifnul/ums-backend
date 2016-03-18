@@ -62,8 +62,8 @@ public class StatisticsFacade {
         return entrantDepartmentAllocationConverter.convertAll(departmentEntrantAllocation);
     }
 
-    public List<EntrantPlaceResource> getEntrantsPerPlace() {
-        List<EntrantPlace> entrantsPerPlace = entrantPlaceService.getEntrantsPerPlace();
+    public List<EntrantPlaceResource> getEntrantsPerPlace(long timePeriodId) {
+        List<EntrantPlace> entrantsPerPlace = entrantPlaceService.getEntrantsPerPlace(timePeriodId);
         return entrantPlaceResourceConverter.convertAll(entrantsPerPlace);
     }
 }

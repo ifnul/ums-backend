@@ -44,10 +44,10 @@ public class StatisticsController extends BaseController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/entrants/places")
-    public List<EntrantPlaceResource> getEntrantsPerPlace() {
+    @RequestMapping(value = "/stats/{timePeriodId}/entrants/places")
+    public List<EntrantPlaceResource> getEntrantsPerPlace(@PathVariable("timePeriodId") long timePeriodId) {
         LOG.info("Getting entrants per place");
-        return statisticsFacade.getEntrantsPerPlace();
+        return statisticsFacade.getEntrantsPerPlace(timePeriodId);
     }
 
 }

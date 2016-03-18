@@ -1,5 +1,7 @@
 package org.lnu.is.dao.dao.entrant;
 
+import com.lambdista.util.Try;
+import org.apache.commons.io.IOUtils;
 import org.lnu.is.domain.enrolment.EntrantPlace;
 import org.springframework.stereotype.Repository;
 
@@ -11,22 +13,18 @@ import java.util.stream.Collectors;
 
 @Repository
 public class EntrantPlaceDao {
-    private static final String QUERY_SQL = "SELECT \n" +
-            "\tCOUNT(e.id) AS enrolments_count,\n" +
-            "\ts.statecount,\n" +
-            "\td.name AS name, \n" +
-            "\td.id AS id \n" +
-            "FROM q_dc_enrolment e\n" +
-            "LEFT OUTER JOIN q_ob_specoffer s ON s.id = e.specoffer_id\n" +
-            "LEFT OUTER JOIN q_ob_department d ON d.id = e.department_id\n" +
-            "GROUP BY d.name, d.id, s.statecount\n" +
-            "ORDER BY enrolments_count DESC";
+    private static final String TIME_PERIOD_ID_PLACEHOLDER = "$$TIME_PERIOD_ID$$";
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<EntrantPlace> getEntrantsPerPlace() {
-        Query query = entityManager.createNativeQuery(QUERY_SQL);
+    public List<EntrantPlace> getEntrantsPerPlace(long timePeriodId) {
+        String queryTemplate = Try.apply(() ->
+                IOUtils.toString(this.getClass().getResourceAsStream("/queries/entrant_per_place.sql"), "UTF-8")).get();
+        String sql = queryTemplate
+                .replace(TIME_PERIOD_ID_PLACEHOLDER, String.valueOf(timePeriodId));
+
+        Query query = entityManager.createNativeQuery(sql);
         List<Object[]> result = query.getResultList();
         return result.stream()
                 .map(arr -> {

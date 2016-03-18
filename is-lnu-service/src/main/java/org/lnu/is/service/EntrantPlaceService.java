@@ -13,7 +13,7 @@ public class EntrantPlaceService {
     @Resource
     private EntrantPlaceDao entrantPlaceDao;
 
-    public List<EntrantPlace> getEntrantsPerPlace() {
-        return entrantPlaceDao.getEntrantsPerPlace();
+    public List<EntrantPlace> getEntrantsPerPlace(long timePeriodId) {
+        return entrantPlaceDao.getEntrantsPerPlace(timePeriodId);
     }
 }
