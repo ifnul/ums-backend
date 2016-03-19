@@ -52,18 +52,18 @@ public class StatisticsFacade {
         return priorityConverter.convertAll(priorityStats);
     }
 
-    public List<AdminUnitEntrantAllocationResource> getAdminUnitEntrantsAllocation() {
-        List<AdminUnitEntrantAllocation> adminUnitsAllocation = adminUnitEntrantAllocationService.getAdminUnitsAllocation();
+    public List<AdminUnitEntrantAllocationResource> getAdminUnitEntrantsAllocation(long timePeriodId) {
+        List<AdminUnitEntrantAllocation> adminUnitsAllocation = adminUnitEntrantAllocationService.getAdminUnitsAllocation(timePeriodId);
         return entrantAdminUnitAllocationConverter.convertAll(adminUnitsAllocation);
     }
 
-    public List<DepartmentEntrantAllocationResource> getDepartmentEntrantsAllocation() {
-        List<DepartmentEntrantAllocation> departmentEntrantAllocation = departmentEntrantAllocationService.getDepartmentsAllocations();
+    public List<DepartmentEntrantAllocationResource> getDepartmentEntrantsAllocation(long timePeriodId) {
+        List<DepartmentEntrantAllocation> departmentEntrantAllocation = departmentEntrantAllocationService.getDepartmentsAllocations(timePeriodId);
         return entrantDepartmentAllocationConverter.convertAll(departmentEntrantAllocation);
     }
 
-    public List<EntrantPlaceResource> getEntrantsPerPlace() {
-        List<EntrantPlace> entrantsPerPlace = entrantPlaceService.getEntrantsPerPlace();
+    public List<EntrantPlaceResource> getEntrantsPerPlace(long timePeriodId) {
+        List<EntrantPlace> entrantsPerPlace = entrantPlaceService.getEntrantsPerPlace(timePeriodId);
         return entrantPlaceResourceConverter.convertAll(entrantsPerPlace);
     }
 }

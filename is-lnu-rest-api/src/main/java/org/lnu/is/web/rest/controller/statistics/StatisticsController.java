@@ -30,24 +30,24 @@ public class StatisticsController extends BaseController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/entrants/allocations/adminunits", method = RequestMethod.GET)
-    public List<AdminUnitEntrantAllocationResource> getAdminUnitAllocation() {
+    @RequestMapping(value = "/stats/{timePeriodId}/entrants/allocations/adminunits", method = RequestMethod.GET)
+    public List<AdminUnitEntrantAllocationResource> getAdminUnitAllocation(@PathVariable("timePeriodId") long timePeriodId) {
         LOG.info("Getting allocation of entrants per admin units of Ukraine");
-        return statisticsFacade.getAdminUnitEntrantsAllocation();
+        return statisticsFacade.getAdminUnitEntrantsAllocation(timePeriodId);
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/entrants/allocations/departments", method = RequestMethod.GET)
-    public List<DepartmentEntrantAllocationResource> getDepartmentsAllocation() {
+    @RequestMapping(value = "/stats/{timePeriodId}/entrants/allocations/departments", method = RequestMethod.GET)
+    public List<DepartmentEntrantAllocationResource> getDepartmentsAllocation(@PathVariable("timePeriodId") long timePeriodId) {
         LOG.info("Getting allocation of entrants per admin units of Ukraine");
-        return statisticsFacade.getDepartmentEntrantsAllocation();
+        return statisticsFacade.getDepartmentEntrantsAllocation(timePeriodId);
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/entrants/places")
-    public List<EntrantPlaceResource> getEntrantsPerPlace() {
+    @RequestMapping(value = "/stats/{timePeriodId}/entrants/places")
+    public List<EntrantPlaceResource> getEntrantsPerPlace(@PathVariable("timePeriodId") long timePeriodId) {
         LOG.info("Getting entrants per place");
-        return statisticsFacade.getEntrantsPerPlace();
+        return statisticsFacade.getEntrantsPerPlace(timePeriodId);
     }
 
 }
