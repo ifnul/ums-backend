@@ -1,7 +1,5 @@
 package org.lnu.is.dao.dao.enrolment;
 
-import com.lambdista.util.Try;
-import org.apache.commons.io.IOUtils;
 import org.lnu.is.dao.dao.DefaultDao;
 import org.lnu.is.dao.utils.DaoUtils;
 import org.lnu.is.domain.enrolment.Enrolment;
@@ -61,9 +59,7 @@ public class EnrolmentDao extends DefaultDao<Enrolment, Enrolment, Long> {
 
 
     public List<EnrolmentRating> getDestinationEntryEnrolments(long specofferId) {
-        String queryTemplate = Try.apply(() ->
-                IOUtils.toString(this.getClass().getResourceAsStream("/queries/enrolment_destination_entry.sql"), "UTF-8")).get();
-        String sql = queryTemplate.replace(SPECOFFER_ID_PLACEHOLDER, String.valueOf(specofferId));
+        String sql = DaoUtils.getQuery("enrolment_destination_entry.sql").replace(SPECOFFER_ID_PLACEHOLDER, String.valueOf(specofferId));
         List<Object[]> destinationEntries = getPersistenceManager().executeNativeQuery(sql);
 
         return destinationEntries.stream()
@@ -77,9 +73,7 @@ public class EnrolmentDao extends DefaultDao<Enrolment, Enrolment, Long> {
     }
 
     public List<EnrolmentRating> getOffCompetitionEnrolments(long specofferId) {
-        String queryTemplate = Try.apply(() ->
-                IOUtils.toString(this.getClass().getResourceAsStream("/queries/enrolment_off_competitions.sql"), "UTF-8")).get();
-        String sql = queryTemplate.replace(SPECOFFER_ID_PLACEHOLDER, String.valueOf(specofferId));
+        String sql = DaoUtils.getQuery("enrolment_off_competitions.sql").replace(SPECOFFER_ID_PLACEHOLDER, String.valueOf(specofferId));
         List<Object[]> destinationEntries = getPersistenceManager().executeNativeQuery(sql);
 
         return destinationEntries.stream()
