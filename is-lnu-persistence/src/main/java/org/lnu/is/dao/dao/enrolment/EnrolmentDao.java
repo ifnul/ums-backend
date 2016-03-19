@@ -3,6 +3,7 @@ package org.lnu.is.dao.dao.enrolment;
 import com.lambdista.util.Try;
 import org.apache.commons.io.IOUtils;
 import org.lnu.is.dao.dao.DefaultDao;
+import org.lnu.is.dao.utils.DaoUtils;
 import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.EnrolmentRating;
 
@@ -19,10 +20,7 @@ public class EnrolmentDao extends DefaultDao<Enrolment, Enrolment, Long> {
     private static final String EOCE_LIMIT_PLACEHOLDER = "$$EOCE_LIMIT$$";
 
     public List<EnrolmentRating> getRatingEnrolments(long specofferId, int destinationLimit, int offDestinationCount) {
-        String queryTemplate = Try.apply(() ->
-                IOUtils.toString(this.getClass().getResourceAsStream("/queries/enrolment_rating.sql"), "UTF-8")).get();
-
-        String sql = queryTemplate
+        String sql = DaoUtils.getQuery("enrolment_rating.sql")
                 .replace(SPECOFFER_ID_PLACEHOLDER, String.valueOf(specofferId))
                 .replace(EDA_LIMIT_PLACEHOLDER, String.valueOf(destinationLimit))
                 .replace(EOCE_LIMIT_PLACEHOLDER, String.valueOf(offDestinationCount));
