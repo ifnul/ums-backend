@@ -84,7 +84,7 @@ public class EnrolmentController extends BaseController implements CrudControlle
 		return facade.getResources(request);
 	}
 
-	@RequestMapping(value = "/{specofferId}/ratings/")
+	@RequestMapping(value = "/{specofferId}/ratings")
 	public List<EnrolmentRatingResource> getEnrolmentsRatingResource(@PathVariable("specofferId") long specofferId) {
 		LOG.info("Getting rating enrolment list for specofferId: {}", specofferId);
 		return facade.getRatingEnrolments(specofferId);
