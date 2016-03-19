@@ -1,7 +1,6 @@
 package org.lnu.is.dao.dao.allocation;
 
-import com.lambdista.util.Try;
-import org.apache.commons.io.IOUtils;
+import org.lnu.is.dao.utils.DaoUtils;
 import org.lnu.is.domain.admin.unit.AdminUnitEntrantAllocation;
 import org.springframework.stereotype.Repository;
 
@@ -24,9 +23,7 @@ public class EntrantAdminUnitAllocationDao {
     private EntityManager entityManager;
 
     public List<AdminUnitEntrantAllocation> getAdminUnitEntrantsAllocation(long mainAdminUnitId, long timePeriodId) {
-        String queryTemplate = Try.apply(() ->
-                IOUtils.toString(this.getClass().getResourceAsStream("/queries/admin_unit_allocation.sql"), "UTF-8")).get();
-        String sql = queryTemplate
+        String sql = DaoUtils.getQuery("admin_unit_allocation.sql")
                 .replace(TIME_PERIOD_ID_PLACEHOLDER, String.valueOf(timePeriodId))
                 .replace(MAIN_ADMIN_UNIT_ID_PLACEHOLDER, String.valueOf(mainAdminUnitId));
 

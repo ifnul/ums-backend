@@ -1,7 +1,6 @@
 package org.lnu.is.dao.dao.allocation;
 
-import com.lambdista.util.Try;
-import org.apache.commons.io.IOUtils;
+import org.lnu.is.dao.utils.DaoUtils;
 import org.lnu.is.domain.department.DepartmentEntrantAllocation;
 import org.springframework.stereotype.Repository;
 
@@ -19,9 +18,7 @@ public class DepartmentEntrantAllocationDao {
     private EntityManager entityManager;
 
     public List<DepartmentEntrantAllocation> getDepartmentsAllocations(long timePeriodId) {
-        String queryTemplate = Try.apply(() ->
-                IOUtils.toString(this.getClass().getResourceAsStream("/queries/department_allocation.sql"), "UTF-8")).get();
-        String sql = queryTemplate
+        String sql = DaoUtils.getQuery("department_allocation.sql")
                 .replace(TIME_PERIOD_ID_PLACEHOLDER, String.valueOf(timePeriodId));
 
         Query query = entityManager.createNativeQuery(sql);

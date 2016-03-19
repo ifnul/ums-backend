@@ -1,7 +1,6 @@
 package org.lnu.is.dao.dao.priority;
 
-import com.lambdista.util.Try;
-import org.apache.commons.io.IOUtils;
+import org.lnu.is.dao.utils.DaoUtils;
 import org.lnu.is.domain.priority.PriorityStat;
 import org.springframework.stereotype.Component;
 
@@ -19,9 +18,7 @@ public class PriorityDao {
     private EntityManager entityManager;
 
     public List<PriorityStat> getPriorityStat(long timePeriodId) {
-        String queryTemplate = Try.apply(() ->
-                IOUtils.toString(this.getClass().getResourceAsStream("/queries/priority_stat.sql"), "UTF-8")).get();
-        String sql = queryTemplate.replace(TIME_PERIOD_ID_PLACEHOLDER, String.valueOf(timePeriodId));
+        String sql = DaoUtils.getQuery("priority_stat.sql").replace(TIME_PERIOD_ID_PLACEHOLDER, String.valueOf(timePeriodId));
         List<Object[]> destinationEntries = entityManager.createNativeQuery(sql).getResultList();
 
         return destinationEntries.stream()
