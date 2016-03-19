@@ -70,4 +70,6 @@ public interface PersistenceManager<T, I> {
 	<E> List<E> getMultipleResult(Query<E> query);
 
     List<Object[]> executeNativeQuery(String sql);
+
+    Object[] executeSingleResultNativeQuery(String sql);
 }

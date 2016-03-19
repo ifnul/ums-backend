@@ -52,5 +52,7 @@ public interface Dao<ENTITY, ENTITYLIST, KEY> {
 	 * @return paged result.
 	 */
 	PagedResult<ENTITY> getEntities(MultiplePagedSearch<ENTITYLIST> pagedSearch);
+
+
 }
 

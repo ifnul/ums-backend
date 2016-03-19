@@ -197,7 +197,7 @@
 		<property name="queryBuilder" ref="familyTypeQueryBuilder"/>
 	</bean>
 
-	<bean id="genderTypeDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+	<bean id="genderTypeDao" class="org.lnu.is.dao.dao.gendertype.DefaultGenderTypeDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.gender.type.GenderType" />
 		<property name="queryBuilder" ref="genderTypeQueryBuilder" />
 	</bean>

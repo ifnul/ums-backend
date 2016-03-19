@@ -152,7 +152,12 @@ public class DefaultPersistenceManager<T extends EntityModel, I> implements Pers
     public List<Object[]> executeNativeQuery(String sql) {
         return entityManager.createNativeQuery(sql).getResultList();
     }
-    
+
+	@Override
+	public Object[] executeSingleResultNativeQuery(String sql) {
+		return (Object[])entityManager.createNativeQuery(sql).getSingleResult();
+	}
+
 	/**
 	 * Method for verifying appropriate logic.
 	 * @param method method

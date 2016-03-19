@@ -195,7 +195,7 @@
 		<property name="dao" ref="familyTypeDao" />
 	</bean>
 	
-	<bean id="genderTypeService" class="org.lnu.is.service.DefaultService">
+	<bean id="genderTypeService" class="org.lnu.is.service.gender.DefaultGenderTypeService">
 		<property name="parametersExtractor" ref="genderTypeParametersExtractor" />
 		<property name="dao" ref="genderTypeDao" />
 	</bean>

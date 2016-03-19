@@ -4,6 +4,7 @@ import org.lnu.is.facade.facade.statistics.StatisticsFacade;
 import org.lnu.is.resource.adminunit.AdminUnitEntrantAllocationResource;
 import org.lnu.is.resource.department.DepartmentEntrantAllocationResource;
 import org.lnu.is.resource.enrolment.EntrantPlaceResource;
+import org.lnu.is.resource.gender.type.GenderTypeAllocationResource;
 import org.lnu.is.resource.priority.PriorityStatResource;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
@@ -48,6 +49,14 @@ public class StatisticsController extends BaseController {
     public List<EntrantPlaceResource> getEntrantsPerPlace(@PathVariable("timePeriodId") long timePeriodId) {
         LOG.info("Getting entrants per place");
         return statisticsFacade.getEntrantsPerPlace(timePeriodId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/stats/{timePeriodId}/specoffers/{specOfferId}/genders")
+    public GenderTypeAllocationResource getGenderAllocations(@PathVariable("timePeriodId") long timePeriodId,
+                                                                   @PathVariable("specOfferId") long specOfferId) {
+        LOG.info("Getting gender allocations by timePeriodId : {} and specOffer: {}", timePeriodId, specOfferId);
+        return statisticsFacade.getGenderAllocation(timePeriodId, specOfferId);
     }
 
 }

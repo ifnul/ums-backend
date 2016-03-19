@@ -4,15 +4,18 @@ import org.lnu.is.converter.Converter;
 import org.lnu.is.domain.admin.unit.AdminUnitEntrantAllocation;
 import org.lnu.is.domain.department.DepartmentEntrantAllocation;
 import org.lnu.is.domain.enrolment.EntrantPlace;
+import org.lnu.is.domain.gender.type.GenderTypeAllocation;
 import org.lnu.is.domain.priority.PriorityStat;
 import org.lnu.is.resource.adminunit.AdminUnitEntrantAllocationResource;
 import org.lnu.is.resource.department.DepartmentEntrantAllocationResource;
 import org.lnu.is.resource.enrolment.EntrantPlaceResource;
+import org.lnu.is.resource.gender.type.GenderTypeAllocationResource;
 import org.lnu.is.resource.priority.PriorityStatResource;
 import org.lnu.is.service.AdminUnitEntrantAllocationService;
 import org.lnu.is.service.DepartmentEntrantAllocationService;
 import org.lnu.is.service.EntrantPlaceService;
 import org.lnu.is.service.PriorityService;
+import org.lnu.is.service.gender.GenderTypeService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,6 +38,9 @@ public class StatisticsFacade {
     @Resource
     private EntrantPlaceService entrantPlaceService;
 
+    @Resource
+    private GenderTypeService genderTypeService;
+
     @Resource(name = "priorityStatsConverter")
     private Converter<PriorityStat, PriorityStatResource> priorityConverter;
 
@@ -46,6 +52,9 @@ public class StatisticsFacade {
 
     @Resource(name = "entrantPlaceResourceConverter")
     private Converter<EntrantPlace, EntrantPlaceResource> entrantPlaceResourceConverter;
+
+    @Resource(name = "genderTypeAllocationConverter")
+    private Converter<GenderTypeAllocation, GenderTypeAllocationResource> genderTypeAllocationConverter;
 
     public List<PriorityStatResource> getPriorityStat(long timePeriodId) {
         List<PriorityStat> priorityStats = priorityService.getPriorityStat(timePeriodId);
@@ -65,5 +74,10 @@ public class StatisticsFacade {
     public List<EntrantPlaceResource> getEntrantsPerPlace(long timePeriodId) {
         List<EntrantPlace> entrantsPerPlace = entrantPlaceService.getEntrantsPerPlace(timePeriodId);
         return entrantPlaceResourceConverter.convertAll(entrantsPerPlace);
+    }
+
+    public GenderTypeAllocationResource getGenderAllocation(long timePeriodId, long specOfferId) {
+        GenderTypeAllocation genderTypeAllocation = genderTypeService.getGenderTypeAllocation(timePeriodId, specOfferId);
+        return genderTypeAllocationConverter.convert(genderTypeAllocation);
     }
 }

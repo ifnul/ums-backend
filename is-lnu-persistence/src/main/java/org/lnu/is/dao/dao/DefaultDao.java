@@ -2,6 +2,7 @@ package org.lnu.is.dao.dao;
 
 import org.lnu.is.dao.builder.QueryBuilder;
 import org.lnu.is.dao.persistence.PersistenceManager;
+import org.lnu.is.dao.utils.NativeQueryResultsMapper;
 import org.lnu.is.domain.InformationModel;
 import org.lnu.is.pagination.MultiplePagedQuerySearch;
 import org.lnu.is.pagination.MultiplePagedSearch;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -116,6 +118,14 @@ public class DefaultDao<ENTITY extends InformationModel, ENTITYLIST, KEY> implem
 				pagedSearch.getLimit(), pagedSearch.getParameters(), getEntityClass());
 
 		return persistenceManager.search(pagedQuerySearch);
+	}
+
+	protected <E> List<E> getResultListFromNativeQuery(String sql, Class<E> clz) {
+		return NativeQueryResultsMapper.map(persistenceManager.executeNativeQuery(sql), clz);
+	}
+
+	protected <E> E getSingleResultFromNativeQuery(String sql, Class<E> clz) {
+		return NativeQueryResultsMapper.map(persistenceManager.executeSingleResultNativeQuery(sql), clz);
 	}
 
 	public ENTITY getSingleResult(Query<ENTITY> query) {
