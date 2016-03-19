@@ -1,7 +1,6 @@
 package org.lnu.is.dao.dao.entrant;
 
-import com.lambdista.util.Try;
-import org.apache.commons.io.IOUtils;
+import org.lnu.is.dao.utils.DaoUtils;
 import org.lnu.is.domain.enrolment.EntrantPlace;
 import org.springframework.stereotype.Repository;
 
@@ -19,9 +18,7 @@ public class EntrantPlaceDao {
     private EntityManager entityManager;
 
     public List<EntrantPlace> getEntrantsPerPlace(long timePeriodId) {
-        String queryTemplate = Try.apply(() ->
-                IOUtils.toString(this.getClass().getResourceAsStream("/queries/entrant_per_place.sql"), "UTF-8")).get();
-        String sql = queryTemplate
+        String sql = DaoUtils.getQuery("entrant_per_place.sql")
                 .replace(TIME_PERIOD_ID_PLACEHOLDER, String.valueOf(timePeriodId));
 
         Query query = entityManager.createNativeQuery(sql);
