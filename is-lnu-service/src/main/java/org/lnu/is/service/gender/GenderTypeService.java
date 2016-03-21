@@ -6,5 +6,5 @@ import org.lnu.is.service.Service;
 
 public interface GenderTypeService extends Service<GenderType, GenderType, Long> {
 
-    GenderTypeAllocation getGenderTypeAllocation(long timePeriodId, long specOfferId);
+    GenderTypeAllocation getGenderTypeAllocation(long specOfferId);
 }

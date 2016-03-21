@@ -196,7 +196,7 @@
 		<property name="service" ref="addressTypeService" />
 	</bean>
 
-	<bean id="departmentFacade" class="org.lnu.is.facade.facade.DefaultFacade"
+	<bean id="departmentFacade" class="org.lnu.is.facade.facade.department.DefaultDepartmentFacade"
 		parent="defaultFacade">
 		<property name="resourceConverter" ref="departmentResourceConverter" />
 		<property name="resourceListConverter" ref="departmentResourceConverter" />

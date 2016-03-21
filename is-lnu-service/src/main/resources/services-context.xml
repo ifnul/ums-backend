@@ -78,7 +78,7 @@
 		<property name="dao" ref="courseTypeDao"/>
 	</bean>
 	
-	<bean id="departmentService" class="org.lnu.is.service.DefaultService">
+	<bean id="departmentService" class="org.lnu.is.service.department.DepartmentService">
 		<property name="parametersExtractor" ref="departmentParametersExtractor" />
 		<property name="dao" ref="departmentDao" />
 	</bean>

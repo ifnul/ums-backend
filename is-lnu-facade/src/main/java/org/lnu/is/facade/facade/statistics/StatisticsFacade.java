@@ -76,8 +76,8 @@ public class StatisticsFacade {
         return entrantPlaceResourceConverter.convertAll(entrantsPerPlace);
     }
 
-    public GenderTypeAllocationResource getGenderAllocation(long timePeriodId, long specOfferId) {
-        GenderTypeAllocation genderTypeAllocation = genderTypeService.getGenderTypeAllocation(timePeriodId, specOfferId);
+    public GenderTypeAllocationResource getGenderAllocation(long specOfferId) {
+        GenderTypeAllocation genderTypeAllocation = genderTypeService.getGenderTypeAllocation(specOfferId);
         return genderTypeAllocationConverter.convert(genderTypeAllocation);
     }
 }

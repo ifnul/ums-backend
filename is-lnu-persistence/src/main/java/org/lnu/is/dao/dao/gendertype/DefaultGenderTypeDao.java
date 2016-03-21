@@ -9,7 +9,7 @@ public class DefaultGenderTypeDao extends DefaultDao<GenderType, GenderType, Lon
     private static final String SPECOFFER_ID_PL = "$$SPECOFFER_ID$$";
 
     @Override
-    public GenderTypeAllocation getGenderTypeAllocation(long timePeriodId, long specOfferId) {
+    public GenderTypeAllocation getGenderTypeAllocation(long specOfferId) {
         String sql = DaoUtils.getQuery("gendertype_allocation.sql")
                 .replace(SPECOFFER_ID_PL, String.valueOf(specOfferId));
         return getSingleResultFromNativeQuery(sql, GenderTypeAllocation.class);

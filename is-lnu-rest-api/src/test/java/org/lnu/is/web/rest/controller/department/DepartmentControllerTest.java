@@ -1,26 +1,8 @@
 package org.lnu.is.web.rest.controller.department;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyLong;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.nio.file.AccessDeniedException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.lnu.is.facade.facade.Facade;
+import org.lnu.is.facade.facade.department.DepartmentFacade;
 import org.lnu.is.pagination.OrderBy;
 import org.lnu.is.resource.department.DepartmentResource;
 import org.lnu.is.resource.message.MessageResource;
@@ -35,11 +17,24 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 
+import java.nio.file.AccessDeniedException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @RunWith(MockitoJUnitRunner.class)
 public class DepartmentControllerTest extends AbstractControllerTest {
 
 	@Mock
-	private Facade<DepartmentResource, DepartmentResource, Long> facade;
+	private DepartmentFacade facade;
 	
 	@InjectMocks
 	private DepartmentController unit;

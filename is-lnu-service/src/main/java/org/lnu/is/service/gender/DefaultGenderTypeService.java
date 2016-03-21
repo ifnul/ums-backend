@@ -8,8 +8,8 @@ import org.lnu.is.service.DefaultService;
 public class DefaultGenderTypeService extends DefaultService<GenderType, GenderType, Long, GenderTypeDao> implements GenderTypeService {
 
     @Override
-    public GenderTypeAllocation getGenderTypeAllocation(long timePeriodId, long specOfferId) {
-        return dao.getGenderTypeAllocation(timePeriodId, specOfferId);
+    public GenderTypeAllocation getGenderTypeAllocation(long specOfferId) {
+        return dao.getGenderTypeAllocation(specOfferId);
     }
 
 }

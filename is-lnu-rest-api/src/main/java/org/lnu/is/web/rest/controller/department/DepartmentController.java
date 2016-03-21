@@ -1,9 +1,10 @@
 package org.lnu.is.web.rest.controller.department;
 
-import javax.annotation.Resource;
-
-import org.lnu.is.facade.facade.Facade;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import org.lnu.is.facade.facade.department.DepartmentFacade;
 import org.lnu.is.resource.department.DepartmentResource;
+import org.lnu.is.resource.department.DepartmentSpecofferResource;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
 import org.lnu.is.resource.search.PagedRequest;
@@ -14,15 +15,10 @@ import org.lnu.is.web.rest.controller.CrudController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Controller, that handles all API with department entity.
@@ -36,7 +32,7 @@ public class DepartmentController extends BaseController implements CrudControll
 	private static final Logger LOG = LoggerFactory.getLogger(DepartmentController.class);
 	
 	@Resource(name = "departmentFacade")
-	private Facade<DepartmentResource, DepartmentResource, Long> facade;
+	private DepartmentFacade facade;
 
 	@Override
 	@ResponseStatus(HttpStatus.CREATED)
@@ -84,5 +80,11 @@ public class DepartmentController extends BaseController implements CrudControll
 	public PagedResultResource<DepartmentResource> getPagedResource(final PagedRequest<DepartmentResource> request) {
 		LOG.info("Retrieving PagedResultResource for Department Resources with offset: {}, limit: {}", request.getOffset(), request.getLimit());
 		return facade.getResources(request);
-	}	
+	}
+
+	@RequestMapping(value = "/timeperiods/{timePeriodId}/specoffers", method = RequestMethod.GET)
+	@ResponseStatus(HttpStatus.OK)
+	public List<DepartmentSpecofferResource> getDepartmentSpecoffers(@PathVariable("timePeriodId") long timePeriodId) {
+		return facade.getDepartmentByTimePeriodGroupedByDepartment(timePeriodId);
+	}
 }

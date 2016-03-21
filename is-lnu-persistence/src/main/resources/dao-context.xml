@@ -92,7 +92,7 @@
 		<property name="queryBuilder" ref="degreeTypeQueryBuilder"/>
 	</bean>
 
-	<bean id="departmentDao" class="org.lnu.is.dao.dao.DefaultDao" parent="abstractDao">
+	<bean id="departmentDao" class="org.lnu.is.dao.dao.department.DepartmentDao" parent="abstractDao">
 		<property name="entityClass" value="org.lnu.is.domain.department.Department" />
 		<property name="queryBuilder" ref="departmentQueryBuilder" />
 	</bean>

@@ -53,10 +53,9 @@ public class StatisticsController extends BaseController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/stats/{timePeriodId}/specoffers/{specOfferId}/genders")
-    public GenderTypeAllocationResource getGenderAllocations(@PathVariable("timePeriodId") long timePeriodId,
-                                                                   @PathVariable("specOfferId") long specOfferId) {
-        LOG.info("Getting gender allocations by timePeriodId : {} and specOffer: {}", timePeriodId, specOfferId);
-        return statisticsFacade.getGenderAllocation(timePeriodId, specOfferId);
+    public GenderTypeAllocationResource getGenderAllocations(@PathVariable("specOfferId") long specOfferId) {
+        LOG.info("Getting gender allocations by timePeriodId : {} and specOffer: {}", specOfferId);
+        return statisticsFacade.getGenderAllocation(specOfferId);
     }
 
 }
