@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/specoffers")
+@Api(value = "specoffers wave", description = "Specoffers Wave")
 public class SpecOfferWaveController extends BaseController implements
 	CrudController<SpecOfferWaveResource, SpecOfferWaveResource> {
     private static final Logger LOG = LoggerFactory
@@ -40,6 +41,7 @@ public class SpecOfferWaveController extends BaseController implements
     @Override
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/{specOfferId}/waves", method = RequestMethod.POST)
+    @ApiOperation(value = "Create Specoffer Wave", position = 1)
     public SpecOfferWaveResource createResource(
 	    @Valid @RequestBody final SpecOfferWaveResource resource) {
 	LOG.info("Creating spec offer wave: {}", resource);
@@ -49,6 +51,7 @@ public class SpecOfferWaveController extends BaseController implements
     @Override
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{specOfferId}/waves/{specOfferWaveId}", method = RequestMethod.PUT)
+    @ApiOperation(value = "Update SpecOffer Wave", position = 2)
     public MessageResource updateResource(
 	    @PathVariable("specOfferWaveId") final Long specOfferWaveId,
 	    @RequestBody final SpecOfferWaveResource resource) {
@@ -61,6 +64,7 @@ public class SpecOfferWaveController extends BaseController implements
     @Override
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{specOfferId}/waves/{id}", method = RequestMethod.GET)
+    @ApiOperation(value = "Get's SpecOffer Wave", position = 3)
     public SpecOfferWaveResource getResource(@PathVariable("id") final Long id) {
 	LOG.info("Retrieving Spec Offer Wave with id: {}", id);
 	return facade.getResource(id);
@@ -69,6 +73,7 @@ public class SpecOfferWaveController extends BaseController implements
     @Override
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/{specOfferId}/waves/{id}", method = RequestMethod.DELETE)
+    @ApiOperation(value = "Remove Specoffer Wave", position = 4)
     public MessageResource removeResource(@PathVariable("id") final Long id) {
 	LOG.info("Removing Spec Offer Wave with id: {}", id);
 	facade.removeResource(id);
@@ -78,6 +83,7 @@ public class SpecOfferWaveController extends BaseController implements
     @Override
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{specOfferId}/waves", method = RequestMethod.GET)
+    @ApiOperation(value = "Get's All SpecOffers Wave", position = 5)
     public PagedResultResource<SpecOfferWaveResource> getPagedResource(
 	    final PagedRequest<SpecOfferWaveResource> request) {
 	LOG.info("Retrieving PagedResultResource for Spec Offer Wave: {}",
