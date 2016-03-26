@@ -28,6 +28,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/specoffers/types")
+@Api(value = "specoffers type", description = "Specoffers Type")
 public class SpecOffetTypeController extends BaseController implements PagedController<SpecOfferTypeResource, SpecOfferTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOffetTypeController.class);
 	
