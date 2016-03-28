@@ -1,14 +1,14 @@
 package org.lnu.is.resource.enrolment;
 
-import java.text.MessageFormat;
-import java.util.Date;
+import com.wordnik.swagger.annotations.ApiModel;
+import org.lnu.is.annotation.CrudableResource;
+import org.lnu.is.resource.ApiResource;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
-import org.lnu.is.annotation.CrudableResource;
-import org.lnu.is.resource.ApiResource;
+import java.text.MessageFormat;
+import java.util.Date;
 
 /**
  * Enrolment Resource.
@@ -17,6 +17,7 @@ import org.lnu.is.resource.ApiResource;
  *
  */
 @CrudableResource
+@ApiModel(value = "EnrolmentResource")
 public class EnrolmentResource extends ApiResource {
 
 	@Min(value = 1, message = "Minimal value is 1")

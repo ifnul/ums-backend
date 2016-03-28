@@ -23,8 +23,10 @@ public class EnrolmentDao extends DefaultDao<Enrolment, Enrolment, Long> {
                 .replace(EDA_LIMIT_PLACEHOLDER, String.valueOf(destinationLimit))
                 .replace(EOCE_LIMIT_PLACEHOLDER, String.valueOf(offDestinationCount));
 
-        List<Object[]> enrolmentRatings = getPersistenceManager().executeNativeQuery(sql);
+        //List<Object[]> enrolmentRatings = getPersistenceManager().executeNativeQuery(sql);
 
+        return getResultListFromNativeQuery(sql, EnrolmentRating.class);
+        /*
         return enrolmentRatings.stream()
                 .map(arr -> {
                     EnrolmentRating enrolmentRating = new EnrolmentRating();
@@ -47,14 +49,14 @@ public class EnrolmentDao extends DefaultDao<Enrolment, Enrolment, Long> {
                     enrolmentRating.setUid(Objects.nonNull(arr[16]) ? Long.parseLong(String.valueOf(arr[16])) : null);
                     enrolmentRating.setUtid((String) arr[17]);
                     enrolmentRating.setUapp((String) arr[18]);
-                    enrolmentRating.setMarkScaleId(Objects.nonNull(arr[3]) ? Long.parseLong(String.valueOf(arr[19])) : null);
+                    enrolmentRating.setMarkScaleId(Objects.nonNull(arr[19]) ? Long.parseLong(String.valueOf(arr[19])) : null);
                     enrolmentRating.setIsEducationState((Integer) arr[20]);
                     enrolmentRating.setIsInterview((Integer) arr[21]);
                     enrolmentRating.setIsOriginal((Integer) arr[22]);
 
                     return enrolmentRating;
                 })
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
     }
 
 

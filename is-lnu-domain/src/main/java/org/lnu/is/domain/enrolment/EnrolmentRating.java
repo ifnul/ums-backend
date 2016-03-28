@@ -1,11 +1,8 @@
 package org.lnu.is.domain.enrolment;
 
-import org.lnu.is.annotation.dbtable.DC;
-import org.lnu.is.domain.InformationModel;
+import org.lnu.is.annotation.NativeQueryResultColumn;
+import org.lnu.is.annotation.NativeQueryResultEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -13,64 +10,110 @@ import java.util.Objects;
  * @author ivanursul
  *
  */
-@DC
-@Entity
-@Table(name = "q_dc_enrolment")
-public class EnrolmentRating extends InformationModel {
+@NativeQueryResultEntity
+public class EnrolmentRating {
 	private static final long serialVersionUID = 1L;
 
+	@NativeQueryResultColumn(index = 0)
+	private long id;
+
+	@NativeQueryResultColumn(index = 1)
 	private double kb;
 
+	@NativeQueryResultColumn(index = 2)
 	private int ratingPriority;
 
+	@NativeQueryResultColumn(index = 3)
 	private Long personId;
 
-	private Long specOfferId;
-
-	private Long departmentId;
-
-	private Long personPaperId;
-
-	private Long enrolmentTypeId;
-
-	private Long markScaleId;
-
-	private Double mark;
-
+	@NativeQueryResultColumn(index = 4)
 	private String docSeries;
 
+	@NativeQueryResultColumn(index = 5)
 	private String docNum;
 
+	@NativeQueryResultColumn(index = 6)
 	private String docText;
 
+	@NativeQueryResultColumn(index = 7)
 	private Integer isState;
 
+	@NativeQueryResultColumn(index = 8)
 	private Integer isContract;
 
+	@NativeQueryResultColumn(index = 9)
+	private Long specOfferId;
+
+	@NativeQueryResultColumn(index = 10)
+	private Long departmentId;
+
+	@NativeQueryResultColumn(index = 11)
+	private Long personPaperId;
+
+	@NativeQueryResultColumn(index = 12)
+	private Double mark;
+
+	@NativeQueryResultColumn(index = 13)
 	private Integer isPrivilege;
 
+	@NativeQueryResultColumn(index = 14)
 	private Integer isHostel;
 
-	private Date evDate;
+	@NativeQueryResultColumn(index = 15)
+	private Long enrolmentTypeId;
 
-	private Date begDate;
+	@NativeQueryResultColumn(index = 16)
+	private Long uid;
 
-	private Date endDate;
+	@NativeQueryResultColumn(index = 17)
+	private String utid;
 
-	private Integer priority;
+	@NativeQueryResultColumn(index = 18)
+	private String uapp;
 
+	@NativeQueryResultColumn(index = 19)
+	private Long markScaleId;
+
+	@NativeQueryResultColumn(index = 20)
 	private Integer isEducationState;
 
+	@NativeQueryResultColumn(index = 21)
 	private Integer isInterview;
 
+	@NativeQueryResultColumn(index = 22)
 	private Integer isOriginal;
 
-	public Date getBegDate() {
-		return begDate;
+
+	public long getId() {
+		return id;
 	}
 
-	public void setBegDate(Date begDate) {
-		this.begDate = begDate;
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Long getUid() {
+		return uid;
+	}
+
+	public void setUid(Long uid) {
+		this.uid = uid;
+	}
+
+	public String getUtid() {
+		return utid;
+	}
+
+	public void setUtid(String utid) {
+		this.utid = utid;
+	}
+
+	public String getUapp() {
+		return uapp;
+	}
+
+	public void setUapp(String uapp) {
+		this.uapp = uapp;
 	}
 
 	public Long getDepartmentId() {
@@ -105,28 +148,12 @@ public class EnrolmentRating extends InformationModel {
 		this.docText = docText;
 	}
 
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
 	public Long getEnrolmentTypeId() {
 		return enrolmentTypeId;
 	}
 
 	public void setEnrolmentTypeId(Long enrolmentTypeId) {
 		this.enrolmentTypeId = enrolmentTypeId;
-	}
-
-	public Date getEvDate() {
-		return evDate;
-	}
-
-	public void setEvDate(Date evDate) {
-		this.evDate = evDate;
 	}
 
 	public Integer getIsContract() {
@@ -225,14 +252,6 @@ public class EnrolmentRating extends InformationModel {
 		this.personPaperId = personPaperId;
 	}
 
-	public Integer getPriority() {
-		return priority;
-	}
-
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
-
 	public int getRatingPriority() {
 		return ratingPriority;
 	}
@@ -275,10 +294,6 @@ public class EnrolmentRating extends InformationModel {
 				Objects.equals(getIsContract(), that.getIsContract()) &&
 				Objects.equals(getIsPrivilege(), that.getIsPrivilege()) &&
 				Objects.equals(getIsHostel(), that.getIsHostel()) &&
-				Objects.equals(getEvDate(), that.getEvDate()) &&
-				Objects.equals(getBegDate(), that.getBegDate()) &&
-				Objects.equals(getEndDate(), that.getEndDate()) &&
-				Objects.equals(getPriority(), that.getPriority()) &&
 				Objects.equals(getIsEducationState(), that.getIsEducationState()) &&
 				Objects.equals(getIsInterview(), that.getIsInterview()) &&
 				Objects.equals(getIsOriginal(), that.getIsOriginal());
@@ -286,13 +301,12 @@ public class EnrolmentRating extends InformationModel {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), getKb(), getRatingPriority(), getPersonId(), getSpecOfferId(), getDepartmentId(), getPersonPaperId(), getEnrolmentTypeId(), getMarkScaleId(), getMark(), getDocSeries(), getDocNum(), getDocText(), getIsState(), getIsContract(), getIsPrivilege(), getIsHostel(), getEvDate(), getBegDate(), getEndDate(), getPriority(), getIsEducationState(), getIsInterview(), getIsOriginal());
+		return Objects.hash(super.hashCode(), getKb(), getRatingPriority(), getPersonId(), getSpecOfferId(), getDepartmentId(), getPersonPaperId(), getEnrolmentTypeId(), getMarkScaleId(), getMark(), getDocSeries(), getDocNum(), getDocText(), getIsState(), getIsContract(), getIsPrivilege(), getIsHostel(), getIsEducationState(), getIsInterview(), getIsOriginal());
 	}
 
 	@Override
 	public String toString() {
 		return "EnrolmentRating{" +
-				"begDate=" + begDate +
 				", kb=" + kb +
 				", ratingPriority=" + ratingPriority +
 				", personId=" + personId +
@@ -309,9 +323,6 @@ public class EnrolmentRating extends InformationModel {
 				", isContract=" + isContract +
 				", isPrivilege=" + isPrivilege +
 				", isHostel=" + isHostel +
-				", evDate=" + evDate +
-				", endDate=" + endDate +
-				", priority=" + priority +
 				", isEducationState=" + isEducationState +
 				", isInterview=" + isInterview +
 				", isOriginal=" + isOriginal +

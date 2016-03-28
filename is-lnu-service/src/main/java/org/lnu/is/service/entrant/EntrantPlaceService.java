@@ -1,4 +1,4 @@
-package org.lnu.is.service;
+package org.lnu.is.service.entrant;
 
 import org.lnu.is.dao.dao.entrant.EntrantPlaceDao;
 import org.lnu.is.domain.enrolment.EntrantPlace;

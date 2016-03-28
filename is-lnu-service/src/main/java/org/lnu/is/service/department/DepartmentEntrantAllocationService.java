@@ -1,4 +1,4 @@
-package org.lnu.is.service;
+package org.lnu.is.service.department;
 
 import org.lnu.is.dao.dao.allocation.DepartmentEntrantAllocationDao;
 import org.lnu.is.domain.department.DepartmentEntrantAllocation;

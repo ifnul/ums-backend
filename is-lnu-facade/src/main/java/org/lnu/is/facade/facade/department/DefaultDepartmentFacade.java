@@ -18,6 +18,7 @@ import static java.util.stream.Collectors.toList;
 
 public class DefaultDepartmentFacade extends DefaultFacade<Department, DepartmentResource, Department, DepartmentResource,
         DepartmentService, Long> implements DepartmentFacade {
+
     @Override
     public List<DepartmentSpecofferResource> getDepartmentByTimePeriodGroupedByDepartment(long timePeriodId) {
         List<DepartmentSpecoffer> departments = service.getDepartmentByTimePeriodGroupedByDepartment(timePeriodId);

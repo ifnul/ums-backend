@@ -1,4 +1,4 @@
-package org.lnu.is.service;
+package org.lnu.is.service.adminunit;
 
 import org.lnu.is.dao.dao.adminunit.AdminUnitDao;
 import org.lnu.is.dao.dao.allocation.EntrantAdminUnitAllocationDao;

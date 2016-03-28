@@ -6,7 +6,7 @@ import org.lnu.is.domain.enrolment.EnrolmentRating;
 import org.lnu.is.facade.facade.DefaultFacade;
 import org.lnu.is.resource.enrolment.EnrolmentRatingResource;
 import org.lnu.is.resource.enrolment.EnrolmentResource;
-import org.lnu.is.service.EnrolmentService;
+import org.lnu.is.service.enrolment.EnrolmentService;
 
 import java.util.List;
 

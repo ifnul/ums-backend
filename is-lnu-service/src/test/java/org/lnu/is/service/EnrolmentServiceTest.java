@@ -8,6 +8,7 @@ import org.lnu.is.dao.dao.specoffer.SpecOfferWaveDao;
 import org.lnu.is.domain.enrolment.EnrolmentRating;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
+import org.lnu.is.service.enrolment.EnrolmentService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;

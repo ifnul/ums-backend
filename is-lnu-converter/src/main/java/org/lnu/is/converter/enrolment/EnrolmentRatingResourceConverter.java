@@ -15,16 +15,13 @@ public class EnrolmentRatingResourceConverter extends AbstractConverter<Enrolmen
         target.setIsInterview(source.getIsInterview());
         target.setIsEducationState(source.getIsEducationState());
         target.setMarkScaleId(source.getMarkScaleId());
-        target.setBegDate(source.getBegDate());
         target.setDepartmentId(source.getDepartmentId());
         target.setDocNum(source.getDocNum());
         target.setDocSeries(source.getDocSeries());
         target.setDocText(source.getDocText());
-        target.setEndDate(source.getEndDate());
         target.setEnrolmentTypeId(source.getEnrolmentTypeId());
         target.setIsContract(source.getIsContract());
         target.setIsEducationState(source.getIsEducationState());
-        target.setEvDate(source.getEvDate());
         target.setIsPrivilege(source.getIsPrivilege());
         target.setKb(source.getKb());
         target.setRatingPriority(source.getRatingPriority());

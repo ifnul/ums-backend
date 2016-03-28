@@ -5,17 +5,20 @@ import org.lnu.is.domain.admin.unit.AdminUnitEntrantAllocation;
 import org.lnu.is.domain.department.DepartmentEntrantAllocation;
 import org.lnu.is.domain.enrolment.EntrantPlace;
 import org.lnu.is.domain.gender.type.GenderTypeAllocation;
+import org.lnu.is.domain.kb.AverageKb;
 import org.lnu.is.domain.priority.PriorityStat;
 import org.lnu.is.resource.adminunit.AdminUnitEntrantAllocationResource;
 import org.lnu.is.resource.department.DepartmentEntrantAllocationResource;
 import org.lnu.is.resource.enrolment.EntrantPlaceResource;
 import org.lnu.is.resource.gender.type.GenderTypeAllocationResource;
+import org.lnu.is.resource.kb.AverageGlobalKbResource;
 import org.lnu.is.resource.priority.PriorityStatResource;
-import org.lnu.is.service.AdminUnitEntrantAllocationService;
-import org.lnu.is.service.DepartmentEntrantAllocationService;
-import org.lnu.is.service.EntrantPlaceService;
-import org.lnu.is.service.PriorityService;
+import org.lnu.is.service.adminunit.AdminUnitEntrantAllocationService;
+import org.lnu.is.service.department.DepartmentEntrantAllocationService;
+import org.lnu.is.service.entrant.EntrantPlaceService;
 import org.lnu.is.service.gender.GenderTypeService;
+import org.lnu.is.service.kb.KbService;
+import org.lnu.is.service.priority.PriorityService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +43,9 @@ public class StatisticsFacade {
 
     @Resource
     private GenderTypeService genderTypeService;
+
+    @Resource
+    private KbService kbService;
 
     @Resource(name = "priorityStatsConverter")
     private Converter<PriorityStat, PriorityStatResource> priorityConverter;
@@ -79,5 +85,10 @@ public class StatisticsFacade {
     public GenderTypeAllocationResource getGenderAllocation(long specOfferId) {
         GenderTypeAllocation genderTypeAllocation = genderTypeService.getGenderTypeAllocation(specOfferId);
         return genderTypeAllocationConverter.convert(genderTypeAllocation);
+    }
+
+    public AverageGlobalKbResource getAverageKb(long timePeriodId) {
+        List<AverageKb> averageKbs = kbService.getAverageKb(timePeriodId);
+        return null;
     }
 }

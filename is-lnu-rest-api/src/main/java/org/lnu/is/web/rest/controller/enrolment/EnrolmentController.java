@@ -1,6 +1,8 @@
 package org.lnu.is.web.rest.controller.enrolment;
 
 import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiImplicitParam;
+import com.wordnik.swagger.annotations.ApiImplicitParams;
 import com.wordnik.swagger.annotations.ApiOperation;
 import org.lnu.is.facade.facade.enrolment.EnrolmentFacade;
 import org.lnu.is.resource.enrolment.EnrolmentRatingResource;
@@ -79,6 +81,11 @@ public class EnrolmentController extends BaseController implements CrudControlle
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get Enrolments")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name = "offset", value = "Offset", required = false, defaultValue = "0", dataType = "long", paramType = "query"),
+			@ApiImplicitParam(name = "limit", value = "limit", required = false, defaultValue = "20", dataType = "long", paramType = "query"),
+			@ApiImplicitParam(name = "resource", value = "resource", required = false, dataType = "EnrolmentResource", paramType = "EnrolmentResource")
+	})
 	public PagedResultResource<EnrolmentResource> getPagedResource(final PagedRequest<EnrolmentResource> request) {
 		LOG.info("Retrieving enrolments with offset {}, limit {} ", request.getOffset(), request.getLimit());
 		return facade.getResources(request);

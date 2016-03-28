@@ -1,4 +1,4 @@
-package org.lnu.is.service;
+package org.lnu.is.service.priority;
 
 import org.lnu.is.dao.dao.priority.PriorityDao;
 import org.lnu.is.domain.priority.PriorityStat;

@@ -5,6 +5,7 @@ import org.lnu.is.resource.adminunit.AdminUnitEntrantAllocationResource;
 import org.lnu.is.resource.department.DepartmentEntrantAllocationResource;
 import org.lnu.is.resource.enrolment.EntrantPlaceResource;
 import org.lnu.is.resource.gender.type.GenderTypeAllocationResource;
+import org.lnu.is.resource.kb.AverageGlobalKbResource;
 import org.lnu.is.resource.priority.PriorityStatResource;
 import org.lnu.is.web.rest.controller.BaseController;
 import org.slf4j.Logger;
@@ -56,6 +57,12 @@ public class StatisticsController extends BaseController {
     public GenderTypeAllocationResource getGenderAllocations(@PathVariable("specOfferId") long specOfferId) {
         LOG.info("Getting gender allocations by timePeriodId : {} and specOffer: {}", specOfferId);
         return statisticsFacade.getGenderAllocation(specOfferId);
+    }
+
+    @RequestMapping(value = "/stats/{timePeriodId}/kb")
+    public AverageGlobalKbResource getAverageKb(@PathVariable("timePeriodId") long timePeriodId) {
+        LOG.info("Getting average Kb per specoffer");
+        return statisticsFacade.getAverageKb(timePeriodId);
     }
 
 }

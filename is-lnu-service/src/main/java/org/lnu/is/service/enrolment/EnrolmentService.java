@@ -1,4 +1,4 @@
-package org.lnu.is.service;
+package org.lnu.is.service.enrolment;
 
 import com.google.common.collect.Lists;
 import org.lnu.is.dao.dao.Dao;
@@ -8,6 +8,8 @@ import org.lnu.is.domain.enrolment.Enrolment;
 import org.lnu.is.domain.enrolment.EnrolmentRating;
 import org.lnu.is.domain.specoffer.SpecOffer;
 import org.lnu.is.domain.specoffer.SpecOfferWave;
+import org.lnu.is.service.DefaultService;
+import org.lnu.is.service.Service;
 
 import java.util.List;
 

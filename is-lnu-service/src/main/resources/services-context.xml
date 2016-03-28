@@ -183,7 +183,7 @@
 		<property name="dao" ref="enrolmentForeignTypeDao"/>
 	</bean>
 
-	<bean id="enrolmentService" class="org.lnu.is.service.EnrolmentService">
+	<bean id="enrolmentService" class="org.lnu.is.service.enrolment.EnrolmentService">
 		<property name="parametersExtractor" ref="enrolmentParametersExtractor" />
 		<property name="dao" ref="enrolmentDao" />
 		<property name="specOfferWaveDao" ref="specOfferWaveDao"/>
