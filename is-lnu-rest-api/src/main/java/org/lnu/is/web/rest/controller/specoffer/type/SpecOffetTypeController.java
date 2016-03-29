@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
 /**
@@ -28,6 +29,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/specoffers/types")
+@Api(value = "specoffers type", description = "Specoffers Type")
 public class SpecOffetTypeController extends BaseController implements PagedController<SpecOfferTypeResource, SpecOfferTypeResource> {
 	private static final Logger LOG = LoggerFactory.getLogger(SpecOffetTypeController.class);
 	
