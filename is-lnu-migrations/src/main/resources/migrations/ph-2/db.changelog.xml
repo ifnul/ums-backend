@@ -1305,31 +1305,31 @@
 
         <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studyplanitem" tableName="q_dt_studyplanitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
+        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>        
 
-        <addForeignKeyConstraint baseColumnNames="studyplanpart_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplanpart_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplanpart"/>
+        <addForeignKeyConstraint baseColumnNames="studyplanpart_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplanpart_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplanpart"/>        
 
-        <addForeignKeyConstraint baseColumnNames="studyplanvariant_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplanvariant_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplanvariant"/>
+        <addForeignKeyConstraint baseColumnNames="studyplanvariant_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplanvariant_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplanvariant"/> 
 
-        <addForeignKeyConstraint baseColumnNames="studyplancycle_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplancycle_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplancycle"/>
+        <addForeignKeyConstraint baseColumnNames="studyplancycle_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplancycle_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplancycle"/> 
 
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/> 
         
-        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/> 
         <!--
-        <addForeignKeyConstraint baseColumnNames="markscalestate_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="markscalestate_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/> 
         --><!--
-        <addForeignKeyConstraint baseColumnNames="markscaleects_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="markscaleects_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/> 
         --><!--
-        <addForeignKeyConstraint baseColumnNames="destsemestrtimeperiod_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="destsemestrtimeperiod_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/> 
         --><!--
-        <addForeignKeyConstraint baseColumnNames="semestrtimeperiod_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="semestrtimeperiod_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/> 
         -->
-        <addForeignKeyConstraint baseColumnNames="diplomasupplementitem_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_diplomasupplementitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_diplomasupplementitem"/>
+        <addForeignKeyConstraint baseColumnNames="diplomasupplementitem_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_diplomasupplementitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_diplomasupplementitem"/> 
 
-        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_subject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_subject"/>
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_subject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_subject"/> 
 
-        <addForeignKeyConstraint baseColumnNames="studycontroltype_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studycontroltype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studycontroltype"/>
+        <addForeignKeyConstraint baseColumnNames="studycontroltype_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studycontroltype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studycontroltype"/> 
 
         <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
                 

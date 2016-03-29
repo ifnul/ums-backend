@@ -7252,7 +7252,7 @@
 	<changeSet id="adding_view_for_getting_groups_users" author="">
 		<createView viewName="v_op_user_groups" replaceIfExists="true">
 			SELECT 
-				usergroup.id as id,
+				usergroup.id as id, 
 				usergroup.status as status, 
 				usergroup.actual as actual, 
 				usergroup.note as note, 
@@ -7263,13 +7263,13 @@
 		        usergroup.major as major, 
 		        usergroup.title as title, 
 		        usergroup.description as description,	
-				gr.id as group_id,
+				gr.id as group_id, 
 				gr.title as group_title, 
 				usr.id as user_id,
 				usr.email as user_email 
 			FROM q_op_usergroup usergroup
-			INNER JOIN q_op_group gr ON gr.id=usergroup.group_id
-			INNER JOIN q_op_user usr ON usr.id=usergroup.user_id
+			INNER JOIN q_op_group gr ON gr.id=usergroup.group_id 
+			INNER JOIN q_op_user usr ON usr.id=usergroup.user_id	
 		</createView>
 	</changeSet>
 	
@@ -7489,7 +7489,7 @@
 
         <addForeignKeyConstraint baseColumnNames="markscaleexchange_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscale_id1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
         
-        <addForeignKeyConstraint baseColumnNames="markscaleexchangevalue_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscalevalue_id1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_markscalevalue"/>
+        <addForeignKeyConstraint baseColumnNames="markscaleexchangevalue_id" baseTableName="q_od_markscaleexchange" constraintName="fk_q_od_markscalevalue_id1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_od_markscalevalue"/>	
 	</changeSet>
 
 	<changeSet id="create table q_rf_enrolmentforeigntype" author="illay">

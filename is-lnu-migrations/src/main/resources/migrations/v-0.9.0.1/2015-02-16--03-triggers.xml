@@ -31,7 +31,7 @@
 						update q_ob_degree set person_id=n_person_id where person_id=old.id;
 						update q_ob_employee set person_id=n_person_id where person_id=old.id;
 						update q_od_absence set person_id=n_person_id where person_id=old.id;
-						update q_od_employeeprofession set person_id=n_person_id where person_id=old.id;
+						update q_od_employeeprofession set person_id=n_person_id where person_id=old.id;		
 						update q_od_personaddress set person_id=n_person_id where person_id=old.id;
 						update q_od_personaward set person_id=n_person_id where person_id=old.id;
 						update q_od_personcontact set person_id=n_person_id where person_id=old.id;
