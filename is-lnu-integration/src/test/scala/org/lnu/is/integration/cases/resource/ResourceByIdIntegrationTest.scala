@@ -75,12 +75,12 @@ object ResourceByIdIntegrationTest {
                   .foreach("${resources}", "resource") {
                             exec( session => {
                                 val resource = session("resource").as[Map[String, Any]]
-                                val resourceId = resource("id")
+                                val resourceId = resource("enrolmentId")
                                 
                                 session.set("resourceId", resourceId)
                             })
                             .exec(
-                                http("Checking resource by id")
+                                http("Checking resource by enrolmentId")
                                   .get("${url}/${resourceId}")
                                   .basicAuth("admin", "nimda")
                                   .check(status.is(200))

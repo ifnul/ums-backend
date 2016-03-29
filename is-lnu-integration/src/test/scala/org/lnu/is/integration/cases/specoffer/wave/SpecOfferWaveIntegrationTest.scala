@@ -27,7 +27,7 @@ object SpecOfferWaveIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specoffer/wave/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specofferWaveId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("specofferWaveId")))
     .exec(http("Get Specoffer Wave")
         .get("/specoffers/${specofferId}/waves/${specofferWaveId}")
         .basicAuth("admin", "nimda")
@@ -81,7 +81,7 @@ object SpecOfferWaveIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/timeperiod/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("timePeriodId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("timePeriodId")))
     .exec(http("Post Department")
         .post("/departments")
         .basicAuth("admin", "nimda")
@@ -89,7 +89,7 @@ object SpecOfferWaveIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/department/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("departmentId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("departmentId")))
     .exec(http("Post Specialty")
         .post("/specialties")
         .basicAuth("admin", "nimda")
@@ -97,7 +97,7 @@ object SpecOfferWaveIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specialty/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specialtyId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("specialtyId")))
     .exec(http("Post Specoffer")
         .post("/specoffers")
         .basicAuth("admin", "nimda")
@@ -105,7 +105,7 @@ object SpecOfferWaveIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specoffer/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specofferId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("specofferId")))
   }
 
   def init(): ChainBuilder = {

@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
-    <changeSet id="create-v_enrolment_view" author="ivanursul">
+    <changeSet enrolmentId="create-v_enrolment_view" author="ivanursul">
         <createView viewName="v_dc_enrolment_contest_score">
             <![CDATA[
             SELECT
@@ -14,126 +14,126 @@
             s.weight_certification,
             mse.markexchange,
             s.weight_award,
-            e.id as enrolment_id
+            e.enrolmentId as enrolment_id
             FROM q_dc_enrolment e
-            LEFT OUTER JOIN q_ob_specoffer s ON e.specoffer_id = s.id
+            LEFT OUTER JOIN q_ob_specoffer s ON e.specoffer_id = s.enrolmentId
             LEFT OUTER JOIN (
             -- бали за зно, посумовані
             SELECT
             SUM(mse.markexchange * ss.weightsubject) AS zno_score_sum,
             ees.enrolment_id
             FROM q_dt_enrolmentenrolsubject ees
-            LEFT OUTER JOIN q_dc_enrolment ei ON ees.enrolment_id = ei.id
-            LEFT OUTER JOIN q_ob_specoffer si ON ei.specoffer_id = si.id
-            LEFT OUTER JOIN q_od_specoffersubject ss ON ss.specoffer_id = si.id
+            LEFT OUTER JOIN q_dc_enrolment ei ON ees.enrolment_id = ei.enrolmentId
+            LEFT OUTER JOIN q_ob_specoffer si ON ei.specoffer_id = si.enrolmentId
+            LEFT OUTER JOIN q_od_specoffersubject ss ON ss.specoffer_id = si.enrolmentId
             LEFT OUTER JOIN q_od_markscaleexchange mse ON ees.markscale_id = mse.markscale_id AND markmin <= ees.mark AND markmax >= ees.mark
-            LEFT OUTER JOIN q_od_personenrolsubject pes ON ees.personenrolsubject_id = pes.id
+            LEFT OUTER JOIN q_od_personenrolsubject pes ON ees.personenrolsubject_id = pes.enrolmentId
             GROUP BY ees.enrolment_id
-            ) zno ON zno.enrolment_id = e.id
+            ) zno ON zno.enrolment_id = e.enrolmentId
             LEFT OUTER JOIN (
             -- Бали з атестату, не помножені на ваговий коефіцієнт
             SELECT mse.markexchange AS certification_sum, pp.person_id FROM q_od_personpaper pp
-            LEFT OUTER JOIN q_rf_papertype pt ON pt.id = pp.papertype_id
+            LEFT OUTER JOIN q_rf_papertype pt ON pt.enrolmentId = pp.papertype_id
             LEFT OUTER JOIN q_od_markscaleexchange mse ON pp.markscale_id = mse.markscale_id AND markmin <=  pp.mark AND markmax >=  pp.mark
             WHERE pt.name = 'Атестат про повну загальну середню освіту'
             ) certificate ON certificate.person_id = e.person_id
             LEFT OUTER JOIN (
             -- Всі решта бали(дивись фільтрування)
             SELECT
-            MAX(ees.id) AS id,
+            MAX(ees.enrolmentId) AS enrolmentId,
             --mse.markexchange AS award_score,
             ees.enrolment_id
             FROM q_dt_enrolmentenrolsubject ees
-            LEFT OUTER JOIN q_dc_enrolment ei ON ees.enrolment_id = ei.id
-            LEFT OUTER JOIN q_ob_specoffer si ON ei.specoffer_id = si.id
-            LEFT OUTER JOIN q_od_personenrolsubject pes ON ees.personenrolsubject_id = pes.id
+            LEFT OUTER JOIN q_dc_enrolment ei ON ees.enrolment_id = ei.enrolmentId
+            LEFT OUTER JOIN q_ob_specoffer si ON ei.specoffer_id = si.enrolmentId
+            LEFT OUTER JOIN q_od_personenrolsubject pes ON ees.personenrolsubject_id = pes.enrolmentId
             WHERE ees.personaward_id IS NOT NULL
             GROUP BY ees.enrolment_id
-            ) other ON other.enrolment_id = e.id
-            LEFT OUTER JOIN q_dt_enrolmentenrolsubject aees ON aees.id = other.id
+            ) other ON other.enrolment_id = e.enrolmentId
+            LEFT OUTER JOIN q_dt_enrolmentenrolsubject aees ON aees.enrolmentId = other.enrolmentId
             LEFT OUTER JOIN q_od_markscaleexchange mse ON aees.markscale_id = mse.markscale_id AND mse.markmin <= aees.mark AND mse.markmax >= aees.mark
             ]]>
         </createView>
     </changeSet>
 
-    <changeSet id="create_v_mon_view" author="ivanursul">
+    <changeSet enrolmentId="create_v_mon_view" author="ivanursul">
         <createView viewName="v_enrolment_mon">
             SELECT
-                e.id as enrolment_id,
+                e.enrolmentId as enrolment_id,
                 e.specoffer_id AS specoffer_id,
                 score.kb as kb,
                 kvota_mon.priority AS priority
             FROM q_dc_enrolment e
-            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.id = score.enrolment_id
-            INNER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.id
+            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.enrolmentId = score.enrolment_id
+            INNER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.enrolmentId
             INNER JOIN (
                 SELECT
                     eb.enrolment_id,
                     bt.priority,
                     bt.name
                 FROM q_dt_enrolmentbenefit eb
-                INNER JOIN q_ob_benefit b ON b.id = eb.benefit_id
-                INNER JOIN q_rf_benefittype bt ON b.benefittype_id = bt.id
+                INNER JOIN q_ob_benefit b ON b.enrolmentId = eb.benefit_id
+                INNER JOIN q_rf_benefittype bt ON b.benefittype_id = bt.enrolmentId
                 WHERE bt.priority = 4
-            )  kvota_mon ON kvota_mon.enrolment_id = e.id
+            )  kvota_mon ON kvota_mon.enrolment_id = e.enrolmentId
             ORDER BY score.kb
         </createView>
     </changeSet>
 
-    <changeSet id="create_v_enrolment_destination_admission" author="ivanursul">
+    <changeSet enrolmentId="create_v_enrolment_destination_admission" author="ivanursul">
         <createView viewName="v_enrolment_destination_admission">
             SELECT
-                e.id as enrolment_id,
+                e.enrolmentId as enrolment_id,
                 e.specoffer_id AS specoffer_id,
                 score.kb as kb,
                 cil_vstup.priority AS priority
             FROM q_dc_enrolment e
-            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.id = score.enrolment_id
-            LEFT OUTER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.id
+            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.enrolmentId = score.enrolment_id
+            LEFT OUTER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.enrolmentId
             INNER JOIN (
                 SELECT
                     eb.enrolment_id,
                     bt.priority,
                     bt.name
                 FROM q_dt_enrolmentbenefit eb
-                INNER JOIN q_ob_benefit b ON b.id = eb.benefit_id
-                INNER JOIN q_rf_benefittype bt ON b.benefittype_id = bt.id
+                INNER JOIN q_ob_benefit b ON b.enrolmentId = eb.benefit_id
+                INNER JOIN q_rf_benefittype bt ON b.benefittype_id = bt.enrolmentId
                 WHERE bt.priority = 3
-            )  cil_vstup ON cil_vstup.enrolment_id = e.id
+            )  cil_vstup ON cil_vstup.enrolment_id = e.enrolmentId
             ORDER BY score.kb
         </createView>
     </changeSet>
 
-    <changeSet id="create_v_enrolment_off_competition_entty" author="ivanursul">
+    <changeSet enrolmentId="create_v_enrolment_off_competition_entty" author="ivanursul">
         <createView viewName="v_enrolment_off_competition_entry">
             SELECT
-                e.id as enrolment_id,
+                e.enrolmentId as enrolment_id,
                 e.specoffer_id AS specoffer_id,
                 score.kb as kb,
                 poz_kon_vstup.priority AS priority
             FROM q_dc_enrolment e
-            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.id = score.enrolment_id
-            LEFT OUTER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.id
+            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.enrolmentId = score.enrolment_id
+            LEFT OUTER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.enrolmentId
             INNER JOIN (
                 SELECT eb.enrolment_id, bt.priority, bt.name FROM q_dt_enrolmentbenefit eb
-                INNER JOIN q_ob_benefit b ON b.id = eb.benefit_id
-                INNER JOIN q_rf_benefittype bt ON b.benefittype_id = bt.id
+                INNER JOIN q_ob_benefit b ON b.enrolmentId = eb.benefit_id
+                INNER JOIN q_rf_benefittype bt ON b.benefittype_id = bt.enrolmentId
                 WHERE bt.priority = 2
-            )  poz_kon_vstup ON poz_kon_vstup.enrolment_id = e.id
+            )  poz_kon_vstup ON poz_kon_vstup.enrolment_id = e.enrolmentId
             ORDER BY score.kb
         </createView>
     </changeSet>
 
-    <changeSet id="create_v_enrolment_default_entry" author="ivanursul">
+    <changeSet enrolmentId="create_v_enrolment_default_entry" author="ivanursul">
         <createView viewName="v_enrolment_default_entry">
             SELECT
-                e.id as enrolment_id,
+                e.enrolmentId as enrolment_id,
                 e.specoffer_id AS specoffer_id,
                 score.kb as kb,
                 1 AS priority
             FROM q_dc_enrolment e
-            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.id = score.enrolment_id
-            LEFT OUTER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.id
+            LEFT OUTER JOIN v_dc_enrolment_contest_score score ON e.enrolmentId = score.enrolment_id
+            LEFT OUTER JOIN q_dt_enrolmentbenefit eb ON eb.enrolment_id = e.enrolmentId
             ORDER BY score.kb
         </createView>
     </changeSet>

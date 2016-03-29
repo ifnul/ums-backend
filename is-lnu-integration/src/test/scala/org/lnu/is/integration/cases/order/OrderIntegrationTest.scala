@@ -26,7 +26,7 @@ object OrderIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/order/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("orderId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("orderId")))
     .exec(http("Get Order")
         .get("/orders/${orderId}")
         .basicAuth("admin", "nimda")
@@ -76,14 +76,14 @@ object OrderIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/asset/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("assetId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("assetId")))
     .exec(http("Post Partner")
         .post("/partners")
         .header("Content-Type", "application/json")
         .body(ELFileBody("data/partner/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("partnerId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("partnerId")))
     .exec(http("Post Department")
         .post("/departments")
         .basicAuth("admin", "nimda")
@@ -91,7 +91,7 @@ object OrderIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/department/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("departmentId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("departmentId")))
     .exec(http("Post TimePeriod")
         .post("/timeperiods")
         .basicAuth("admin", "nimda")
@@ -99,7 +99,7 @@ object OrderIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/timeperiod/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("timePeriodId")))  
+        .check(jsonPath("$.enrolmentId").find.saveAs("timePeriodId")))
   }
   
   def after(): ChainBuilder = {

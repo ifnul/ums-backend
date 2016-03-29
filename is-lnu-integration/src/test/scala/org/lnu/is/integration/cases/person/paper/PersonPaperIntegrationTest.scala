@@ -34,7 +34,7 @@ object PersonPaperIntegrationTest extends ComplexTest {
       .body(ELFileBody("data/person/paper/post.json"))
       .asJSON
       .check(status.is(201))
-      .check(jsonPath("$.id").find.saveAs("personPaperId")))
+      .check(jsonPath("$.enrolmentId").find.saveAs("personPaperId")))
   .exec(http("Get Person Paper")
       .get("/persons/${personId}/papers/${personPaperId}")
       .basicAuth("admin", "nimda")
@@ -72,7 +72,7 @@ object PersonPaperIntegrationTest extends ComplexTest {
       .body(ELFileBody("data/person/post.json"))
       .asJSON
       .check(status.is(201))
-      .check(jsonPath("$.id").find.saveAs("personId")))
+      .check(jsonPath("$.enrolmentId").find.saveAs("personId")))
   }
 
   def init(): ChainBuilder = {

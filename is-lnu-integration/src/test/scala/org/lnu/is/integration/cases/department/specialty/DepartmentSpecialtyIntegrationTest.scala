@@ -29,7 +29,7 @@ object DepartmentSpecialtyIntegrationTest extends ComplexTest {
       .body(ELFileBody("data/department/specialty/post.json"))
       .asJSON
       .check(status.is(201))
-      .check(jsonPath("$.id").find.saveAs("departmentSpecialtytId")))
+      .check(jsonPath("$.enrolmentId").find.saveAs("departmentSpecialtytId")))
   .exec(http("Get Department Specialty")
       .get("/departments/${departmentId}/specialties/${departmentSpecialtytId}")
       .basicAuth("admin", "nimda")
@@ -71,7 +71,7 @@ object DepartmentSpecialtyIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/department/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("departmentId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("departmentId")))
     .exec(http("Post Specialty")
         .post("/specialties")
         .basicAuth("admin", "nimda")
@@ -79,7 +79,7 @@ object DepartmentSpecialtyIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specialty/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specialtyId"))) 
+        .check(jsonPath("$.enrolmentId").find.saveAs("specialtyId")))
   }
 
   def init(): ChainBuilder = {

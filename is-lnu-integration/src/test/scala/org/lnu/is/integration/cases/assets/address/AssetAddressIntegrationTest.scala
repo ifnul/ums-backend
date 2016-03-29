@@ -26,7 +26,7 @@ object AssetAddressIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/asset/address/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("assetAddressId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("assetAddressId")))
     .exec(http("Get Asset Address")
         .get("/assets/${assetId}/addresses/${assetAddressId}")
         .basicAuth("admin", "nimda")
@@ -68,7 +68,7 @@ object AssetAddressIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/asset/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("assetId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("assetId")))
   }
   
   def after(): ChainBuilder = {

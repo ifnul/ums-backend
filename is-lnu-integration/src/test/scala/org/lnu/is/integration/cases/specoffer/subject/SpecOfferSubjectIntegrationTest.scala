@@ -27,7 +27,7 @@ object SpecOfferSubjectIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specoffer/subject/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specofferSubjectId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("specofferSubjectId")))
     .exec(http("Get Specoffer Subject")
         .get("/specoffers/${specofferId}/subjects/${specofferSubjectId}")
         .basicAuth("admin", "nimda")
@@ -72,7 +72,7 @@ object SpecOfferSubjectIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/timeperiod/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("timePeriodId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("timePeriodId")))
     .exec(http("Post Department")
         .post("/departments")
         .basicAuth("admin", "nimda")
@@ -80,7 +80,7 @@ object SpecOfferSubjectIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/department/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("departmentId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("departmentId")))
     .exec(http("Post Specialty")
         .post("/specialties")
         .basicAuth("admin", "nimda")
@@ -88,7 +88,7 @@ object SpecOfferSubjectIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specialty/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specialtyId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("specialtyId")))
     .exec(http("Post Specoffer")
         .post("/specoffers")
         .basicAuth("admin", "nimda")
@@ -96,7 +96,7 @@ object SpecOfferSubjectIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specoffer/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specofferId")))    
+        .check(jsonPath("$.enrolmentId").find.saveAs("specofferId")))
   }
   
   def after(): ChainBuilder = {

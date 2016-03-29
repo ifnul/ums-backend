@@ -34,7 +34,7 @@ object PersonAwardIntegrationTest extends ComplexTest {
       .body(ELFileBody("data/person/award/post.json"))
       .asJSON
       .check(status.is(201))
-      .check(jsonPath("$.id").find.saveAs("personAwardId")))
+      .check(jsonPath("$.enrolmentId").find.saveAs("personAwardId")))
   .exec(http("Get Person Award")
       .get("/persons/${personId}/awards/${personAwardId}")
       .basicAuth("admin", "nimda")
@@ -92,7 +92,7 @@ object PersonAwardIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/timeperiod/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("timePeriodId")))    
+        .check(jsonPath("$.enrolmentId").find.saveAs("timePeriodId")))
     .exec(http("Post Public Activity")
         .post("/publicactivities")
         .basicAuth("admin", "nimda")
@@ -100,7 +100,7 @@ object PersonAwardIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/publicactivity/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("publicActivityId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("publicActivityId")))
     .exec(http("Post Person")
         .post("/persons")
         .basicAuth("admin", "nimda")
@@ -108,7 +108,7 @@ object PersonAwardIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/person/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("personId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("personId")))
      .exec(http("Post Person Paper")
         .post("/persons/${personId}/papers")
         .basicAuth("admin", "nimda")
@@ -116,7 +116,7 @@ object PersonAwardIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/person/paper/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("personPaperId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("personPaperId")))
   }
 
   def after(): ChainBuilder = {

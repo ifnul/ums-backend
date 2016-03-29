@@ -35,7 +35,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/enrolment/status/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("enrolmentStatusId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("enrolmentStatusId")))
     .exec(http("Get Enrolment Status")
         .get("/enrolments/${enrolmentId}/statuses/${enrolmentStatusId}")
         .basicAuth("admin", "nimda")
@@ -118,7 +118,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/timeperiod/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("timePeriodId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("timePeriodId")))
     // Creating new Department
     .exec(http("Post Department")
         .post("/departments")
@@ -127,7 +127,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/department/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("departmentId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("departmentId")))
     // Create new Specialty
     .exec(http("Post Specialty")
         .post("/specialties")
@@ -136,7 +136,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specialty/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specialtyId")))         
+        .check(jsonPath("$.enrolmentId").find.saveAs("specialtyId")))
     // Creating new Spec Offer    
     .exec(http("Post Specoffer")
         .post("/specoffers")
@@ -145,7 +145,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specoffer/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specofferId")))        
+        .check(jsonPath("$.enrolmentId").find.saveAs("specofferId")))
 
     // Creating new person
     .exec(http("Post Person")
@@ -155,7 +155,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/person/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("personId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("personId")))
     // Creating new person Paper
     .exec(http("Post Person Paper")
         .post("/persons/${personId}/papers")
@@ -164,7 +164,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/person/paper/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("personPaperId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("personPaperId")))
     // Creating new Enrolment
     .exec(http("Post Enrolment")
         .post("/enrolments")
@@ -173,7 +173,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/enrolment/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("enrolmentId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("enrolmentId")))
     .exec(http("Post Specoffer Wave")
         .post("/specoffers/${specofferId}/waves")
         .basicAuth("admin", "nimda")
@@ -181,7 +181,7 @@ object EnrolmentStatusIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/specoffer/wave/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specofferWaveId")))      
+        .check(jsonPath("$.enrolmentId").find.saveAs("specofferWaveId")))
   }
 
   def init(): ChainBuilder = {

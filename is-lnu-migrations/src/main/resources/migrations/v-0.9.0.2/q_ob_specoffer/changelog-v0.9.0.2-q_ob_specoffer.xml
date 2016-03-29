@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
-    <changeSet id="create-doc-num-generator" author="ivanursul">
+    <changeSet enrolmentId="create-doc-num-generator" author="ivanursul">
         <sql splitStatements="false">
             <![CDATA[
 
@@ -30,7 +30,7 @@
         </rollback>
     </changeSet>
 
-    <changeSet id="add_additional_specoffer_fields" author="ivanursul">
+    <changeSet enrolmentId="add_additional_specoffer_fields" author="ivanursul">
         <addColumn tableName="q_ob_specoffer">
             <column name="weight_certification" type="double" remarks="Коефіцієнт для сертифікату"/>
             <column name="weight_award" type="double" remarks="Коефіцієнт для олімпіад"/>

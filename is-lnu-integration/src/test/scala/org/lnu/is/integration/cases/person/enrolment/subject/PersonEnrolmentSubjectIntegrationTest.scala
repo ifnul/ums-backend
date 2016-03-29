@@ -34,7 +34,7 @@ object PersonEnrolmentSubjectIntegrationTest {
       .body(ELFileBody("data/person/enrolment/subject/post.json"))
       .asJSON
       .check(status.is(201))
-      .check(jsonPath("$.id").find.saveAs("personEnrolmentSubjectId")))
+      .check(jsonPath("$.enrolmentId").find.saveAs("personEnrolmentSubjectId")))
   .exec(http("Get Person Enrolment Subject")
       .get("/persons/${personId}/enrolmentsubjects/${personEnrolmentSubjectId}")
       .basicAuth("admin", "nimda")
@@ -101,7 +101,7 @@ object PersonEnrolmentSubjectIntegrationTest {
         .body(ELFileBody("data/timeperiod/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("timePeriodId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("timePeriodId")))
     .exec(http("Post Department")
         .post("/departments")
         .basicAuth("admin", "nimda")
@@ -109,7 +109,7 @@ object PersonEnrolmentSubjectIntegrationTest {
         .body(ELFileBody("data/department/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("departmentId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("departmentId")))
     .exec(http("Post Specialty")
         .post("/specialties")
         .basicAuth("admin", "nimda")
@@ -117,7 +117,7 @@ object PersonEnrolmentSubjectIntegrationTest {
         .body(ELFileBody("data/specialty/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specialtyId")))         
+        .check(jsonPath("$.enrolmentId").find.saveAs("specialtyId")))
     .exec(http("Post Specoffer")
         .post("/specoffers")
         .basicAuth("admin", "nimda")
@@ -125,7 +125,7 @@ object PersonEnrolmentSubjectIntegrationTest {
         .body(ELFileBody("data/specoffer/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("specofferId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("specofferId")))
     .exec(http("Post Person")
         .post("/persons")
         .basicAuth("admin", "nimda")
@@ -133,7 +133,7 @@ object PersonEnrolmentSubjectIntegrationTest {
         .body(ELFileBody("data/person/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("personId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("personId")))
     .exec(http("Post Person Paper")
         .post("/persons/${personId}/papers")
         .basicAuth("admin", "nimda")
@@ -141,7 +141,7 @@ object PersonEnrolmentSubjectIntegrationTest {
         .body(ELFileBody("data/person/paper/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("personPaperId")))         
+        .check(jsonPath("$.enrolmentId").find.saveAs("personPaperId")))
     .exec(http("Post Enrolment")
         .post("/enrolments")
         .basicAuth("admin", "nimda")
@@ -149,7 +149,7 @@ object PersonEnrolmentSubjectIntegrationTest {
         .body(ELFileBody("data/enrolment/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.id").find.saveAs("enrolmentId")))
+        .check(jsonPath("$.enrolmentId").find.saveAs("enrolmentId")))
   }
 
   def init(): ChainBuilder = {

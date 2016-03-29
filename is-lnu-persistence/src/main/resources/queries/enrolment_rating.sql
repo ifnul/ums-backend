@@ -3,25 +3,9 @@ SELECT
     rating.kb,
     rating.priority,
     e.person_id,
-    e.docseries,
-    e.docnum,
-    e.doctext,
-    e.isstate,
-    e.iscontract,
-    e.specoffer_id,
-    e.department_id,
-    e.personpaper_id,
-    e.mark,
-    e.isprivilege,
-    e.ishostel,
-    e.enrolmenttype_id,
-    e.uid,
-    e.utid,
-    e.uapp,
-    e.markscale_id,
-    e.isedustate,
-    e.isinterview,
-    e.isoriginal
+    p.firstname,
+    p.fathername,
+    p.surname
 FROM (
     SELECT
         mon.enrolment_id,
@@ -155,3 +139,4 @@ FROM (
     ORDER BY priority DESC,kb
 ) AS rating
 INNER JOIN q_dc_enrolment e ON e.id = rating.enrolment_id
+INNER JOIN q_ob_person p ON e.person_id = p.id

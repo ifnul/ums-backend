@@ -124,7 +124,7 @@ abstract class BaseIntegrationTest {
           .foreach("${resources}", "resource") {
             exec(session => {
               val resource = session("resource").as[Map[String, Any]]
-              val resourceId = resource("id")
+              val resourceId = resource("enrolmentId")
 
               session.set("resourceId", resourceId)
             })

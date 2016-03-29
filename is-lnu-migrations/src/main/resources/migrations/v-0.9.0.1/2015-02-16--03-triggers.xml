@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 	
-	<changeSet id="0.9.0.1.create_process_person function" author="ivaursul">
+	<changeSet enrolmentId="0.9.0.1.create_process_person function" author="ivaursul">
 		<sql splitStatements="false">
 			<![CDATA[
 			create or replace function process_person() returns trigger as $$
@@ -20,29 +20,29 @@
 						values (new.persontype_id, new.name, new.firstname, new.fathername, new.surname, new.photo, 
 							    new.gendertype_id, new.gendertype_id, new.citizencountry_id, new.docseries, 
 							    new.docnum, new.identifier, new.resident, new.birthplace, new.begdate, new.enddate, 
-							    new.ismilitary, new.ishostel, new.id, new.uid, new.utid, new.uapp, new.status, new.actual,
+							    new.ismilitary, new.ishostel, new.enrolmentId, new.uid, new.utid, new.uapp, new.status, new.actual,
 							    new.note, new.crtuser, new.crtusergroup, new.update_date, new.create_date)
-						returning id into n_person_id;
+						returning enrolmentId into n_person_id;
 			
-						update q_ob_person set status='REATTACHED' where id=old.id;
+						update q_ob_person set status='REATTACHED' where enrolmentId=old.enrolmentId;
 			
-						update q_dt_ordernewemployee set person_id=n_person_id where person_id=old.id;
-						update q_dt_ordernewstudentitem set person_id=n_person_id where person_id=old.id;
-						update q_ob_degree set person_id=n_person_id where person_id=old.id;
-						update q_ob_employee set person_id=n_person_id where person_id=old.id;
-						update q_od_absence set person_id=n_person_id where person_id=old.id;
-						update q_od_employeeprofession set person_id=n_person_id where person_id=old.id;		
-						update q_od_personaddress set person_id=n_person_id where person_id=old.id;
-						update q_od_personaward set person_id=n_person_id where person_id=old.id;
-						update q_od_personcontact set person_id=n_person_id where person_id=old.id;
-						update q_od_personeducation set person_id=n_person_id where person_id=old.id;
-						update q_od_personenrolsubject set person_id=n_person_id where person_id=old.id;
-						update q_od_personfamily set person_id=n_person_id where person_id=old.id;
-						update q_od_personlanguage set person_id=n_person_id where person_id=old.id;
-						update q_od_personname set person_id=n_person_id where person_id=old.id;
-						update q_od_personpaper set person_id=n_person_id where person_id=old.id;
-						update q_od_personpension set person_id=n_person_id where person_id=old.id;
-						update q_od_personwork set person_id=n_person_id where person_id=old.id;
+						update q_dt_ordernewemployee set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_dt_ordernewstudentitem set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_ob_degree set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_ob_employee set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_absence set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_employeeprofession set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personaddress set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personaward set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personcontact set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personeducation set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personenrolsubject set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personfamily set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personlanguage set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personname set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personpaper set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personpension set person_id=n_person_id where person_id=old.enrolmentId;
+						update q_od_personwork set person_id=n_person_id where person_id=old.enrolmentId;
 						
 						return old;
 					end if;
@@ -56,7 +56,7 @@
 		</rollback>
 	</changeSet>
 	
-	<changeSet id="0.9.0.1.create_person_trigger" author="ivanursul">
+	<changeSet enrolmentId="0.9.0.1.create_person_trigger" author="ivanursul">
 		<sql>
 			create trigger q_ob_person_iutrig before update on q_ob_person for each row execute procedure process_person();
 		</sql>
@@ -65,7 +65,7 @@
 		</rollback>
 	</changeSet>
 	
-	<changeSet id="0.9.0.1.create_update_date_function" author="ivanursul">
+	<changeSet enrolmentId="0.9.0.1.create_update_date_function" author="ivanursul">
 		<sql splitStatements="false">
 			create or replace function update_date()
 			returns trigger as $$
@@ -80,7 +80,7 @@
 		</rollback>
 	</changeSet>
 	
-	<changeSet id="0.9.0.1.map_update_date_trigger" author="ivanursul">
+	<changeSet enrolmentId="0.9.0.1.map_update_date_trigger" author="ivanursul">
 		<sql>
 			create trigger update_date_trigger before insert or update on q_rf_propertytype for each row execute procedure update_date();
 			create trigger update_date_trigger before insert or update on q_rf_language for each row execute procedure update_date();
@@ -315,7 +315,7 @@
 		</rollback>
 	</changeSet>
 	
-	<changeSet id="0.9.0.1.map_update_date_trigger_to_new_fields" author="ivanursul">
+	<changeSet enrolmentId="0.9.0.1.map_update_date_trigger_to_new_fields" author="ivanursul">
 		<sql>
 			create trigger update_date_trigger before insert or update on q_rf_studyplancycle for each row execute procedure update_date();
 			create trigger update_date_trigger before insert or update on q_rf_markscaletype for each row execute procedure update_date();
@@ -334,7 +334,7 @@
 		</rollback>
 	</changeSet>
 	
-	<changeSet id="0.9.0.1.create_enrolment_status_trigger" author="ivaursul">
+	<changeSet enrolmentId="0.9.0.1.create_enrolment_status_trigger" author="ivaursul">
 		<sql splitStatements="false">
 			<![CDATA[
 			create or replace function process_q_dt_enrolmentstatus() returns trigger as $$
@@ -350,7 +350,7 @@
 		</rollback>
 	</changeSet>
 	
-	<changeSet id="0.9.0.1.set_enrolment_status_trigger" author="ivanursul">
+	<changeSet enrolmentId="0.9.0.1.set_enrolment_status_trigger" author="ivanursul">
 		<sql>
 			create trigger q_dt_enrolmentstatus_itrig before insert on q_dt_enrolmentstatus for each row execute procedure process_q_dt_enrolmentstatus();
 		</sql>

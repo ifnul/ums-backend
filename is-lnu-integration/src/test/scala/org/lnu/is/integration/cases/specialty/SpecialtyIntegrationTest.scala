@@ -27,7 +27,7 @@ object SpecialtyIntegrationTest {
     		.body(ELFileBody("data/specialty/post.json"))
     		.asJSON
     		.check(status.is(201))
-    		.check(jsonPath("$.id").find.saveAs("specialtyId")))
+    		.check(jsonPath("$.enrolmentId").find.saveAs("specialtyId")))
     .exec(http("Get Specialty")
         .get("/specialties/${specialtyId}")
         .basicAuth("admin", "nimda")
