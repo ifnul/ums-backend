@@ -41,7 +41,7 @@ object PersonIntegrationTest {
     		.body(ELFileBody("data/person/post.json"))
     		.asJSON
     		.check(status.is(201))
-    		.check(jsonPath("$.enrolmentId").find.saveAs("identifier")))
+    		.check(jsonPath("$.id").find.saveAs("identifier")))
     .exec(http("Get Person")
         .get("/persons/${identifier}")
         .basicAuth("admin", "nimda")

@@ -22,7 +22,7 @@ object TimePeriodIntegrationTest {
     		.body(ELFileBody("data/timeperiod/post.json"))
     		.asJSON
     		.check(status.is(201))
-    		.check(jsonPath("$.enrolmentId").find.saveAs("timePeriodId")))
+    		.check(jsonPath("$.id").find.saveAs("timePeriodId")))
     .pause(500 milliseconds, 2 seconds)
     .exec(http("Get TimePeriod")
         .get("/timeperiods/${timePeriodId}")

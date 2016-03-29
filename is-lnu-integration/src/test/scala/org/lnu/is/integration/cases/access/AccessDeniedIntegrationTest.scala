@@ -23,7 +23,7 @@ import scala.concurrent.duration.DurationInt
  * that security of web service is working well.
  * That's why we retrieve multiple results using
  * admin credentials, and, after that, when we 
- * will get enrolmentId of resource, we send
+ * will get id of resource, we send 
  * "Resource By ID" request with fake credentials.
  * 
  */
@@ -48,7 +48,7 @@ object AccessDeniedIntegrationTest {
           .foreach("${resources}", "resource"){
                     exec( session => {
                         val resource = session("resource").as[Map[String, Any]]
-                        val resourceId = resource("enrolmentId")
+                        val resourceId = resource("id")
                         session.set("resourceId", resourceId)
                     })
                     .exec(

@@ -33,7 +33,7 @@ object PartnerIntegrationTest {
   		  .body(ELFileBody("data/partner/post.json"))
   		  .asJSON
   		  .check(status.is(201))
-  		  .check(jsonPath("$.enrolmentId").find.saveAs("partnerId")))
+  		  .check(jsonPath("$.id").find.saveAs("partnerId")))
     .exec(http("Get Partner")
         .get("/partners/${partnerId}")
         .basicAuth("admin", "nimda")

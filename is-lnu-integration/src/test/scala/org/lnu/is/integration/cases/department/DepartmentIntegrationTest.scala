@@ -32,7 +32,7 @@ object DepartmentIntegrationTest {
         .body(ELFileBody("data/department/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.enrolmentId").find.saveAs("department_identifier")))
+        .check(jsonPath("$.id").find.saveAs("department_identifier")))
     .pause(500 milliseconds, 2 seconds)
     .exec(
       http("Get Department")

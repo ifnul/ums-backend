@@ -34,7 +34,7 @@ object PersonLanguageIntegrationTest extends ComplexTest {
       .body(ELFileBody("data/person/language/post.json"))
       .asJSON
       .check(status.is(201))
-      .check(jsonPath("$.enrolmentId").find.saveAs("personLanguageId")))
+      .check(jsonPath("$.id").find.saveAs("personLanguageId")))
   .exec(http("Get Person Language")
       .get("/persons/${personId}/languages/${personLanguageId}")
       .basicAuth("admin", "nimda")
@@ -78,7 +78,7 @@ object PersonLanguageIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/person/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.enrolmentId").find.saveAs("personId")))
+        .check(jsonPath("$.id").find.saveAs("personId")))
   }
 
   def init(): ChainBuilder = {

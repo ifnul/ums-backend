@@ -27,7 +27,7 @@ object PublicActivityIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/publicactivity/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.enrolmentId").find.saveAs("publicActivityId")))
+        .check(jsonPath("$.id").find.saveAs("publicActivityId")))
     .exec(http("Get Public Activity")
         .get("/publicactivities/${publicActivityId}")
         .basicAuth("admin", "nimda")
@@ -69,7 +69,7 @@ object PublicActivityIntegrationTest extends ComplexTest {
             .body(ELFileBody("data/timeperiod/post.json"))
             .asJSON
             .check(status.is(201))
-            .check(jsonPath("$.enrolmentId").find.saveAs("timePeriodId")))
+            .check(jsonPath("$.id").find.saveAs("timePeriodId")))  
   }
 
   def init(): ChainBuilder = { exec(session => { session }) }

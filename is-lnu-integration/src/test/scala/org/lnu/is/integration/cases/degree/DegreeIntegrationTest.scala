@@ -27,7 +27,7 @@ object DegreeIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/degree/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.enrolmentId").find.saveAs("degreeId")))
+        .check(jsonPath("$.id").find.saveAs("degreeId")))
     .exec(http("Get Degree")
         .get("/degrees/${degreeId}")
         .basicAuth("admin", "nimda")
@@ -65,7 +65,7 @@ object DegreeIntegrationTest extends ComplexTest {
         .body(ELFileBody("data/person/post.json"))
         .asJSON
         .check(status.is(201))
-        .check(jsonPath("$.enrolmentId").find.saveAs("personId")))
+        .check(jsonPath("$.id").find.saveAs("personId")))
   }
 
   def init(): ChainBuilder = {

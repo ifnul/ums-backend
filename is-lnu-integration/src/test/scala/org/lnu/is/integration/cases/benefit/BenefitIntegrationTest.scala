@@ -30,7 +30,7 @@ object BenefitIntegrationTest {
     		.body(ELFileBody("data/benefit/post.json"))
     		.asJSON
     		.check(status.is(201))
-    		.check(jsonPath("$.enrolmentId").find.saveAs("benefitId")))
+    		.check(jsonPath("$.id").find.saveAs("benefitId")))
     .exec(http("Get Benefit")
         .get("/benefits/${benefitId}")
         .basicAuth("admin", "nimda")

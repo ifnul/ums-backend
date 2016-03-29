@@ -30,7 +30,7 @@ object AssetIntegrationTest {
 		  .body(ELFileBody("data/asset/post.json"))
 		  .asJSON
 		  .check(status.is(201))
-		  .check(jsonPath("$.enrolmentId").find.saveAs("assetId")))
+		  .check(jsonPath("$.id").find.saveAs("assetId")))
     .pause(500 milliseconds, 2 seconds)
     .exec(http("Get Asset")
       .get("/assets/${assetId}")
