@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     
-    <changeSet enrolmentId="Деякі таблиці (2015-02-04-18-00)" author="OlehZanevych">
+    <changeSet id="Деякі таблиці (2015-02-04-18-00)" author="OlehZanevych">
         
         <createTable tableName="q_ob_calcrule" remarks="Правила підрахунку сумарної оцінки в додатку до диплома" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="name" type="character varying" remarks="Назва" >
@@ -34,11 +34,11 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_ob_calcrule" tableName="q_ob_calcrule"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_calcrule" tableName="q_ob_calcrule"/>
         
         
         <createTable tableName="q_rf_diplomasupplementitemtype" remarks="Довідник типів записів у додатку до диплома (звичайний запис на зворотній стороні, державний екзамен і т.д.)" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="name" type="character varying" remarks="Назва" >
@@ -68,14 +68,14 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_diplomasupplementitemtype" tableName="q_rf_diplomasupplementitemtype"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_diplomasupplementitemtype" tableName="q_rf_diplomasupplementitemtype"/>
         
         
         
         
         
         <createTable tableName="q_rf_studentratingtype" remarks="Довідників типів рейтингів студента (рейтинг за 1 семестр, рейтинг за 2 семестр, рейтинг за ККР, рейтингн за ДА, сумарний семестровий рейтинг і т.д.)" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="character varying" remarks="Абревіатура типу рейтингу"/>
@@ -106,10 +106,10 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_studentratingtype" tableName="q_rf_studentratingtype"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studentratingtype" tableName="q_rf_studentratingtype"/>
                 
         <createTable tableName="q_rf_studycontroltype" remarks="Довідник типів контрольних заходів" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="character varying" remarks="Абревіатура"/>
@@ -140,10 +140,10 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_studycontroltype" tableName="q_rf_studycontroltype"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studycontroltype" tableName="q_rf_studycontroltype"/>
                 
         <createTable tableName="q_rf_markrolltype" remarks="Типи документів з оцінками (відомостей, талонів і т.д.)" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="name" type="character varying" remarks="Назва документу" >
@@ -174,13 +174,13 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_markrolltype" tableName="q_rf_markrolltype"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_markrolltype" tableName="q_rf_markrolltype"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_markrolltype" constraintName="fk_q_rf_markrolltype_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_markrolltype"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_markrolltype" constraintName="fk_q_rf_markrolltype_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_markrolltype"/>
 
     
         <createTable tableName="q_rf_studyplantype" remarks="Довідник типів навчальних компонент (навчальна програма, навчальний план, альтернанивний-вибірковий блок та ін.)" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="character varying" remarks="Абревіатура типу властивості"/>
@@ -211,10 +211,10 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_studyplantype" tableName="q_rf_studyplantype"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplantype" tableName="q_rf_studyplantype"/>
                 
         <createTable tableName="q_rf_studyplanvariant" remarks="Довідник варіантів навчального плану: основний, для іноземних студентів, ......" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="character varying" remarks="Абревіатура варіанту навчального плану"/>
@@ -245,10 +245,10 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_studyplanvariant" tableName="q_rf_studyplanvariant"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplanvariant" tableName="q_rf_studyplanvariant"/>
         
         <createTable tableName="q_rf_studenttype" remarks="Довідник типів студентів: студенти, аспіранти, слухачі курсів, тощо" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="character varying" remarks="Абревіатура типу студента"/>
@@ -279,10 +279,10 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_studenttype" tableName="q_rf_studenttype"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studenttype" tableName="q_rf_studenttype"/>
                 
         <createTable tableName="q_rf_studytype" remarks="Довідник типів навчання: теоретичний курс, практика, курсова робота, курсовий проект, виконання ДКР,..." >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="character varying" remarks="Абревіатура типу навчання"/>
@@ -313,10 +313,10 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_studytype" tableName="q_rf_studytype"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studytype" tableName="q_rf_studytype"/>
             
         <createTable tableName="q_ob_studygroup" remarks="Інформація про академічну групу " >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор академічної групи студентів"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор академічної групи студентів"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="name" type="character varying" remarks="Назва академічної групи" >
@@ -355,16 +355,16 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_ob_studygroup" tableName="q_ob_studygroup"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_studygroup" tableName="q_ob_studygroup"/>
 
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_ob_studygroup" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_ob_studygroup" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
 
-        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_ob_studygroup" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_timeperiod"/>
+        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_ob_studygroup" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
 
-        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_ob_studygroup" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_employee"/>
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_ob_studygroup" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
         
         <createTable tableName="q_rf_studentstatus" remarks="Довідник статусів студента" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="character varying" remarks="Абревіатура"/>
@@ -395,10 +395,10 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_studentstatus" tableName="q_rf_studentstatus"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studentstatus" tableName="q_rf_studentstatus"/>
                 
         <createTable tableName="q_dc_studyplan" remarks="Інформація про заголовок навчального плану" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="student_id" type="bigint" remarks="Ідентифікатор студента (Якщо NULL, то це базовий навчальний план)" >
@@ -452,24 +452,24 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dc_studyplan" tableName="q_dc_studyplan"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_studyplan" tableName="q_dc_studyplan"/>
 
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_studyplan" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_studyplan" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
 
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dc_studyplan" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_specoffer"/>
+        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dc_studyplan" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dc_studyplan" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_studyplan"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dc_studyplan" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
 
-        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_studyplan" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_timeperiod"/>
+        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_studyplan" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
 
-        <addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_dc_studyplan" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_specialtytype"/>
+        <addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_dc_studyplan" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplantype_id" baseTableName="q_dc_studyplan" constraintName="fk_q_rf_studyplantype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studyplantype"/>
+        <addForeignKeyConstraint baseColumnNames="studyplantype_id" baseTableName="q_dc_studyplan" constraintName="fk_q_rf_studyplantype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplantype"/>
 
-        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_dc_studyplan" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_eduformtype"/>
+        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_dc_studyplan" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
     
         <createTable tableName="q_dc_diplomasupplement" remarks="Додаток до диплома" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="department_id" type="bigint" remarks="Ідентифікатор підрозділу (інституту) до якого відноситься додаток" >
@@ -580,22 +580,22 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dc_diplomasupplement" tableName="q_dc_diplomasupplement"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_diplomasupplement" tableName="q_dc_diplomasupplement"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_dc_diplomasupplement_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_diplomasupplement"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_dc_diplomasupplement_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_diplomasupplement"/>
 
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_studyplan"/>
+        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
 
-        <addForeignKeyConstraint baseColumnNames="adminunit_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_adminunit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_adminunit"/>
+        <addForeignKeyConstraint baseColumnNames="adminunit_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_adminunit_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_adminunit"/>
 
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_specoffer"/>
+        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
 
-        <addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_specialty"/>
+        <addForeignKeyConstraint baseColumnNames="specialty_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_ob_specialty_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specialty"/>
                 
         <createTable tableName="q_ob_student" remarks="Інформація про студента" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор студента"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор студента"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="studenttype_id" type="bigint" remarks="Ідентифікатор типу студента" >
@@ -664,36 +664,36 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_ob_student" tableName="q_ob_student"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_student" tableName="q_ob_student"/>
 
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_ob_student" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_specoffer"/>
+        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_ob_student" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_student" constraintName="fk_q_ob_student_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_student"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_ob_student" constraintName="fk_q_ob_student_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
-        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_ob_student" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_studygroup"/>
+        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_ob_student" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_studygroup"/>
 
-        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_ob_student" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_timeperiod"/>
+        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_ob_student" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
 
-        <addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_ob_student" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_specialtytype"/>
+        <addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_ob_student" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
 
-        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_ob_student" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_eduformtype"/>
+        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_ob_student" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
 
-        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_ob_student" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_order"/>
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_ob_student" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
 
-        <addForeignKeyConstraint baseColumnNames="studenttype_id" baseTableName="q_ob_student" constraintName="fk_q_rf_studenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studenttype"/>
+        <addForeignKeyConstraint baseColumnNames="studenttype_id" baseTableName="q_ob_student" constraintName="fk_q_rf_studenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studenttype"/>
 
-        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_ob_student" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_person"/>
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="q_ob_student" constraintName="fk_q_ob_person_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_person"/>
 
-        <addForeignKeyConstraint baseColumnNames="gendertype_id" baseTableName="q_ob_student" constraintName="fk_q_rf_gendertype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_gendertype"/>
+        <addForeignKeyConstraint baseColumnNames="gendertype_id" baseTableName="q_ob_student" constraintName="fk_q_rf_gendertype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_gendertype"/>
 
-        <addForeignKeyConstraint baseColumnNames="studentstatus_id" baseTableName="q_ob_student" constraintName="fk_q_rf_studentstatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studentstatus"/>
+        <addForeignKeyConstraint baseColumnNames="studentstatus_id" baseTableName="q_ob_student" constraintName="fk_q_rf_studentstatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studentstatus"/>
 
-        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_studyplan" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_student"/>
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_studyplan" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
-        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_student"/>
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_diplomasupplement" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
         
         <createTable tableName="q_dc_diplomasupplementname" remarks="Додатки до диплома на іноземних мовах" >
-            <column name="enrolmentId" type="bigint"  autoIncrement="true" remarks="Ідентифікатор">
+            <column name="id" type="bigint"  autoIncrement="true" remarks="Ідентифікатор">
                 <constraints nullable="false"/>
             </column>
             <column name="department_id" type="bigint" remarks="Ідентифікатор підрозділу (інституту) до якого відноситься додаток">
@@ -806,18 +806,18 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dc_diplomasupplementname" tableName="q_dc_diplomasupplementname"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_diplomasupplementname" tableName="q_dc_diplomasupplementname"/>
 
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_studyplan"/>
+        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
 
-        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_student"/>
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_dc_diplomasupplementname_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_diplomasupplementname"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dc_diplomasupplementname" constraintName="fk_q_dc_diplomasupplementname_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_diplomasupplementname"/>
         
         <createTable tableName="q_dc_markroll" remarks="Інформація про документ з оцінками (відомість, талон і т.д. )" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="markrolltype_id" type="integer" remarks="Ідентифікатор типу документа (відомості, талона)" >
@@ -872,20 +872,20 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dc_markroll" tableName="q_dc_markroll"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_markroll" tableName="q_dc_markroll"/>
 
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_markroll" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dc_markroll" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dc_markroll" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_studyplan"/>
+        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dc_markroll" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
 
-        <addForeignKeyConstraint baseColumnNames="markrolltype_id" baseTableName="q_dc_markroll" constraintName="fk_q_rf_markrolltype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_markrolltype"/>
+        <addForeignKeyConstraint baseColumnNames="markrolltype_id" baseTableName="q_dc_markroll" constraintName="fk_q_rf_markrolltype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_markrolltype"/>
 
-        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_dc_markroll" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_studygroup"/>
+        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_dc_markroll" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_studygroup"/>
         
-        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_markroll" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_timeperiod"/>
+        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_markroll" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
         
         <createTable tableName="q_dc_studentestimate" remarks="Кошториси для студентів" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="student_id" type="bigint" remarks="Ідентифікатор студента" >
@@ -934,18 +934,18 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dc_studentestimate" tableName="q_dc_studentestimate"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dc_studentestimate" tableName="q_dc_studentestimate"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_studyplan"/>
+        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
 
-        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_student"/>
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
-        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_studygroup"/>
+        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_studygroup"/>
 
-        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_timeperiod"/>
+        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dc_studentestimate" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
 
         <createTable tableName="q_dt_diplomasupplementitem" remarks="Інформація про контент додатку до доплома" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор навчального плану "  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор навчального плану "  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="diplomasupplement_id" type="bigint" remarks="Ідентифікатор додатку до диплома" >
@@ -997,16 +997,16 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_diplomasupplementitem" tableName="q_dt_diplomasupplementitem"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_diplomasupplementitem" tableName="q_dt_diplomasupplementitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="diplomasupplement_id" baseTableName="q_dt_diplomasupplementitem" constraintName="fk_q_dt_diplomasupplementitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_diplomasupplementitem"/>
+        <addForeignKeyConstraint baseColumnNames="diplomasupplement_id" baseTableName="q_dt_diplomasupplementitem" constraintName="fk_q_dt_diplomasupplementitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_diplomasupplementitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="diplomasupplementitemtype_id" baseTableName="q_dt_diplomasupplementitem" constraintName="fk_q_rf_diplomasupplementitemtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_diplomasupplementitemtype"/>
+        <addForeignKeyConstraint baseColumnNames="diplomasupplementitemtype_id" baseTableName="q_dt_diplomasupplementitem" constraintName="fk_q_rf_diplomasupplementitemtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_diplomasupplementitemtype"/>
 
-        <addForeignKeyConstraint baseColumnNames="calcrule_id" baseTableName="q_dt_diplomasupplementitem" constraintName="fk_q_ob_calcrule_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_calcrule"/>
+        <addForeignKeyConstraint baseColumnNames="calcrule_id" baseTableName="q_dt_diplomasupplementitem" constraintName="fk_q_ob_calcrule_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_calcrule"/>
         
         <createTable tableName="q_dt_diplomasupplementname" remarks="Додатки до диплома на іноземних мовах" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="diplomasupplement_id" type="bigint" remarks="Ідентифікатор додатку до диплома" >
@@ -1116,16 +1116,16 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_diplomasupplementname" tableName="q_dt_diplomasupplementname"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_diplomasupplementname" tableName="q_dt_diplomasupplementname"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_diplomasupplementname" constraintName="fk_q_dt_diplomasupplementname_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_diplomasupplementname"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_diplomasupplementname" constraintName="fk_q_dt_diplomasupplementname_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_diplomasupplementname"/>
         
-        <addForeignKeyConstraint baseColumnNames="diplomasupplement_id" baseTableName="q_dt_diplomasupplementname" constraintName="fk_q_dc_diplomasupplement_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_diplomasupplement"/>
+        <addForeignKeyConstraint baseColumnNames="diplomasupplement_id" baseTableName="q_dt_diplomasupplementname" constraintName="fk_q_dc_diplomasupplement_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_diplomasupplement"/>
 
-        <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_dt_diplomasupplementname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_language"/>
+        <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_dt_diplomasupplementname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
                 
         <createTable tableName="q_dt_markrollduty" remarks="Тіло докуметна з оцінками (відомості, талона). Відповідальні особи за заповнення відомості (талона)." >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="markroll_id" type="bigint" remarks="Ідентифікатор документа з оцінками (відомості, талона)" >
@@ -1164,18 +1164,18 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_markrollduty" tableName="q_dt_markrollduty"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_markrollduty" tableName="q_dt_markrollduty"/>
 
-        <addForeignKeyConstraint baseColumnNames="markroll_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_dc_markroll_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_markroll"/>
+        <addForeignKeyConstraint baseColumnNames="markroll_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_dc_markroll_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_markroll"/>
 
-        <addForeignKeyConstraint baseColumnNames="dutytype_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_rf_dutytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_dutytype"/>
+        <addForeignKeyConstraint baseColumnNames="dutytype_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_rf_dutytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_dutytype"/>
 
-        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_employee"/>
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
         
-        <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_ob_post_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_post"/>
+        <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="q_dt_markrollduty" constraintName="fk_q_ob_post_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_post"/>
         
         <createTable tableName="q_rf_studyplanpart" remarks="Довідник розділів (частин) навчального плану: обов'язкові дисципліни, вибіркові дисципліни ВНЗ, дисципліни за вибором студента, факультативні дисципліни" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="abbrname" type="character varying" remarks="Абревіатура розділу (частини) навчального плану"/>
@@ -1207,12 +1207,12 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_studyplanpart" tableName="q_rf_studyplanpart"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studyplanpart" tableName="q_rf_studyplanpart"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_studyplanpart" constraintName="fk_q_rf_studyplanpart_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studyplanpart"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_rf_studyplanpart" constraintName="fk_q_rf_studyplanpart_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplanpart"/>
         
         <createTable tableName="q_dt_studyplanitem" remarks="Інформація про контент навчального плану" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="studyplan_id" type="bigint" remarks="Ідентифікатор заголовку навчального плану" >
@@ -1303,38 +1303,38 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_studyplanitem" tableName="q_dt_studyplanitem"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studyplanitem" tableName="q_dt_studyplanitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_studyplan"/>
+        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplanpart_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplanpart_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studyplanpart"/>
+        <addForeignKeyConstraint baseColumnNames="studyplanpart_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplanpart_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplanpart"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplanvariant_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplanvariant_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studyplanvariant"/>
+        <addForeignKeyConstraint baseColumnNames="studyplanvariant_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplanvariant_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplanvariant"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplancycle_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplancycle_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studyplancycle"/>
+        <addForeignKeyConstraint baseColumnNames="studyplancycle_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studyplancycle_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studyplancycle"/>
 
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
         
-        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
         <!--
-        <addForeignKeyConstraint baseColumnNames="markscalestate_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="markscalestate_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
         --><!--
-        <addForeignKeyConstraint baseColumnNames="markscaleects_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="markscaleects_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
         --><!--
-        <addForeignKeyConstraint baseColumnNames="destsemestrtimeperiod_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="destsemestrtimeperiod_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
         --><!--
-        <addForeignKeyConstraint baseColumnNames="semestrtimeperiod_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="semestrtimeperiod_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
         -->
-        <addForeignKeyConstraint baseColumnNames="diplomasupplementitem_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_diplomasupplementitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_diplomasupplementitem"/>
+        <addForeignKeyConstraint baseColumnNames="diplomasupplementitem_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_diplomasupplementitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_diplomasupplementitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_subject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_subject"/>
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_ob_subject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_subject"/>
 
-        <addForeignKeyConstraint baseColumnNames="studycontroltype_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studycontroltype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studycontroltype"/>
+        <addForeignKeyConstraint baseColumnNames="studycontroltype_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_rf_studycontroltype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studycontroltype"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_studyplanitem"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
                 
         <createTable tableName="q_dt_markrollitem" remarks="Контент документа з оцінками (відомості або талона)" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="markroll_id" type="bigint" remarks="Ідентифікатор заголовку документа з оцінками (відомості, талона)" >
@@ -1401,23 +1401,23 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_markrollitem" tableName="q_dt_markrollitem"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_markrollitem" tableName="q_dt_markrollitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_student"/>
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_dt_markrollitem_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_markrollitem"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_dt_markrollitem_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_markrollitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="markroll_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_dc_markroll_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_markroll"/>
+        <addForeignKeyConstraint baseColumnNames="markroll_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_dc_markroll_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_markroll"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_studyplanitem"/>
+        <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_markscale"/>
+        <addForeignKeyConstraint baseColumnNames="markscale_id" baseTableName="q_dt_markrollitem" constraintName="fk_q_ob_markscale_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_markscale"/>
 
 
-        <addForeignKeyConstraint baseColumnNames="markrollitem_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_markrollitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_markrollitem"/>
+        <addForeignKeyConstraint baseColumnNames="markrollitem_id" baseTableName="q_dt_studyplanitem" constraintName="fk_q_dt_markrollitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_markrollitem"/>
                 
         <createTable tableName="q_dt_orderfinancial" remarks="Накази пов'язані із фінансами для студентів " >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="order_id" type="bigint" remarks="Ідентифікатор наказу" >
@@ -1461,24 +1461,24 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_orderfinancial" tableName="q_dt_orderfinancial"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderfinancial" tableName="q_dt_orderfinancial"/>
 
-        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_student"/>
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dt_orderfinancial_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_orderfinancial"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dt_orderfinancial_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_orderfinancial"/>
 
-        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_studygroup"/>
+        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_studygroup"/>
 
-        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_employee"/>
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
 
-        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_order"/>
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
 
-        <addForeignKeyConstraint baseColumnNames="asset_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_ob_asset_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_asset"/>
+        <addForeignKeyConstraint baseColumnNames="asset_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_ob_asset_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_asset"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_studyplanitem"/>
+        <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_orderfinancial" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
     
         <createTable tableName="q_dt_ordernewdepartment" remarks="Тіло наказу на зарахування працівника на роботу" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="order_id" type="bigint" remarks="Ідентифікатор наказу"/>
@@ -1513,16 +1513,16 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_ordernewdepartment" tableName="q_dt_ordernewdepartment"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_ordernewdepartment" tableName="q_dt_ordernewdepartment"/>
 
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_department"/>
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_ob_department_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_department"/>
 
-        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_order"/>
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
 
-        <addForeignKeyConstraint baseColumnNames="departmenttype_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_rf_departmenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_departmenttype"/>
+        <addForeignKeyConstraint baseColumnNames="departmenttype_id" baseTableName="q_dt_ordernewdepartment" constraintName="fk_q_rf_departmenttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_departmenttype"/>
         
         <createTable tableName="q_dt_orderstudenttransfer" remarks="Накази на переведення та зміну статусу студента" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="order_id" type="bigint" remarks="Ідентифікатор наказу" >
@@ -1568,26 +1568,26 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_orderstudenttransfer" tableName="q_dt_orderstudenttransfer"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_orderstudenttransfer" tableName="q_dt_orderstudenttransfer"/>
 
-        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_student"/>
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_specoffer"/>
+        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
 
-        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_studygroup"/>
+        <addForeignKeyConstraint baseColumnNames="studygroup_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_ob_studygroup_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_studygroup"/>
 
-        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_timeperiod"/>
+        <addForeignKeyConstraint baseColumnNames="timeperiod_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_ob_timeperiod_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_timeperiod"/>
         
-        <addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_specialtytype"/>
+        <addForeignKeyConstraint baseColumnNames="specialtytype_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_rf_specialtytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_specialtytype"/>
 
-        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_eduformtype"/>
+        <addForeignKeyConstraint baseColumnNames="eduformtype_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_rf_eduformtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_eduformtype"/>
 
-        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_order"/>
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_dc_order_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_order"/>
 
-        <addForeignKeyConstraint baseColumnNames="studentstatus_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_rf_studentstatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studentstatus"/>
+        <addForeignKeyConstraint baseColumnNames="studentstatus_id" baseTableName="q_dt_orderstudenttransfer" constraintName="fk_q_rf_studentstatus_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studentstatus"/>
                 
         <createTable tableName="q_dt_studentestimateitem" remarks="Контент кошторису" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="studentestimate_id" type="bigint" remarks="Ідентифікатор кошторису" >
@@ -1636,16 +1636,16 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_studentestimateitem" tableName="q_dt_studentestimateitem"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studentestimateitem" tableName="q_dt_studentestimateitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dt_studentestimateitem_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_studentestimateitem"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dt_studentestimateitem_id" deferrable="false" initiallyDeferred="    false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studentestimateitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dt_studyplanitem"/>
+        <addForeignKeyConstraint baseColumnNames="studyplanitem_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dt_studyplanitem_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dt_studyplanitem"/>
 
-        <addForeignKeyConstraint baseColumnNames="studentestimate_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dc_studentestimate_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_studentestimate"/>
+        <addForeignKeyConstraint baseColumnNames="studentestimate_id" baseTableName="q_dt_studentestimateitem" constraintName="fk_q_dc_studentestimate_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studentestimate"/>
                 
         <createTable tableName="q_dt_studyplanduty" remarks="Тіло навчального плану. Відповідальні особи за затвердження." >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="studyplan_id" type="bigint" remarks="Ідентифікатор заголовку навчального плану" >
@@ -1681,16 +1681,16 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_dt_studyplanduty" tableName="q_dt_studyplanduty"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_dt_studyplanduty" tableName="q_dt_studyplanduty"/>
 
-        <addForeignKeyConstraint baseColumnNames="dutytype_id" baseTableName="q_dt_studyplanduty" constraintName="fk_q_rf_dutytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_dutytype"/>
+        <addForeignKeyConstraint baseColumnNames="dutytype_id" baseTableName="q_dt_studyplanduty" constraintName="fk_q_rf_dutytype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_dutytype"/>
 
-        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_studyplanduty" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_employee"/>
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="q_dt_studyplanduty" constraintName="fk_q_ob_employee_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_employee"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dt_studyplanduty" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_studyplan"/>
+        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_dt_studyplanduty" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
         
         <createTable tableName="q_ob_studentrating" remarks="Інформація про рейтинги студента" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="studyplan_id" type="bigint" remarks="Ідентифікатор заголовку індивідуального навчального плану" >
@@ -1724,14 +1724,14 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_ob_studentrating" tableName="q_ob_studentrating"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_ob_studentrating" tableName="q_ob_studentrating"/>
 
-        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_ob_studentrating" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_dc_studyplan"/>
+        <addForeignKeyConstraint baseColumnNames="studyplan_id" baseTableName="q_ob_studentrating" constraintName="fk_q_dc_studyplan_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_dc_studyplan"/>
 
-        <addForeignKeyConstraint baseColumnNames="studentratingtype_id" baseTableName="q_ob_studentrating" constraintName="fk_q_rf_studentratingtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_studentratingtype"/>
+        <addForeignKeyConstraint baseColumnNames="studentratingtype_id" baseTableName="q_ob_studentrating" constraintName="fk_q_rf_studentratingtype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_studentratingtype"/>
         
         <createTable tableName="q_od_studentcontact" remarks="Контакти студента" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="student_id" type="bigint" remarks="Ідентифікатор студента" >
@@ -1767,14 +1767,14 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_od_studentcontact" tableName="q_od_studentcontact"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_studentcontact" tableName="q_od_studentcontact"/>
 
-        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_od_studentcontact" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_student"/>
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="q_od_studentcontact" constraintName="fk_q_dc_student_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_student"/>
 
-        <addForeignKeyConstraint baseColumnNames="contacttype_id" baseTableName="q_od_studentcontact" constraintName="fk_q_rf_contacttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_contacttype"/>
+        <addForeignKeyConstraint baseColumnNames="contacttype_id" baseTableName="q_od_studentcontact" constraintName="fk_q_rf_contacttype_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_contacttype"/>
         
         <createTable tableName="q_od_subjectname" remarks="Довідник назв навчальних дисциплін на іноземній мові" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="subject_id" type="bigint" remarks="Ідентифікатор назви дисципліни" >
@@ -1808,14 +1808,14 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_od_subjectname" tableName="q_od_subjectname"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_od_subjectname" tableName="q_od_subjectname"/>
 
-        <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_subjectname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_language"/>
+        <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_od_subjectname" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
 
-        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="q_od_subjectname" constraintName="fk_q_ob_subject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_subject"/>
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="q_od_subjectname" constraintName="fk_q_ob_subject_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_subject"/>
                 
         <createTable tableName="q_op_markscale" remarks="Довідник позначень специфічних оцінок (НЗ, НД, НА)" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="databasevalue" type="integer" remarks="Позначення оцінки в базі даних" >
@@ -1854,10 +1854,10 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_op_markscale" tableName="q_op_markscale"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_op_markscale" tableName="q_op_markscale"/>
             
         <createTable tableName="q_rf_studygroupnamerules" remarks="Правила (пропозиції) іменування академічних груп" >
-            <column name="enrolmentId" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
+            <column name="id" type="bigint" remarks="Ідентифікатор"  autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
             <column name="specoffer_id" type="bigint" remarks="Ідентифікатор пропозиції напрямів та спеціальностей" >
@@ -1892,11 +1892,11 @@
         	</column>
         </createTable>
 
-        <addPrimaryKey columnNames="enrolmentId" constraintName="pk_q_rf_studygroupnamerules" tableName="q_rf_studygroupnamerules"/>
+        <addPrimaryKey columnNames="id" constraintName="pk_q_rf_studygroupnamerules" tableName="q_rf_studygroupnamerules"/>
 
-        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_rf_studygroupnamerules" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_ob_specoffer"/>
+        <addForeignKeyConstraint baseColumnNames="specoffer_id" baseTableName="q_rf_studygroupnamerules" constraintName="fk_q_ob_specoffer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_ob_specoffer"/>
 
-        <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_rf_studygroupnamerules" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="enrolmentId" referencedTableName="q_rf_language"/>
+        <addForeignKeyConstraint baseColumnNames="language_id" baseTableName="q_rf_studygroupnamerules" constraintName="fk_q_rf_language_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="q_rf_language"/>
 
     </changeSet>
     
