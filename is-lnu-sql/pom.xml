@@ -29,7 +29,7 @@
 
 	<profiles>
 		<profile>
-			<enrolmentId>cleaning</enrolmentId>
+			<id>cleaning</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -54,7 +54,7 @@
 
 						<executions>
 							<execution>
-								<enrolmentId>insert-data</enrolmentId>
+								<id>insert-data</id>
 								<phase>install</phase>
 								<goals>
 									<goal>execute</goal>
@@ -75,7 +75,7 @@
 			</build>
 		</profile>	
 		<profile>
-			<enrolmentId>data</enrolmentId>
+			<id>data</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -100,7 +100,7 @@
 
 						<executions>
 							<execution>
-								<enrolmentId>insert-data</enrolmentId>
+								<id>insert-data</id>
 								<phase>install</phase>
 								<goals>
 									<goal>execute</goal>
