@@ -13,7 +13,7 @@ import org.lnu.is.domain.enrolment.Enrolment;
 
 @QBuilder("enrolmentQueryBuilder")
 public class EnrolmentQueryBuilder extends AbstractQueryBuilder<Enrolment> {
-	private static final String SPECOFFER_CONDITION = "LOWER(e.specOffer) LIKE LOWER(CONCAT('%',:specOffer,'%')) ";
+	private static final String SPECOFFER_CONDITION = "e.specOffer = :specOffer ";
 	private static final String DOCSERIES_CONDITION = "LOWER(e.docSeries) LIKE LOWER(CONCAT('%',:docSeries,'%')) ";
 	private static final String DOCNUM_CONDITION = "LOWER(e.docNum) LIKE LOWER(CONCAT('%',:docNum,'%')) ";
 	private static final String DOCTEXT_CONDITION = "LOWER(e.docText) LIKE LOWER(CONCAT('%',:docText,'%')) ";
