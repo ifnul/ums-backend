@@ -5,8 +5,8 @@ import com.wordnik.swagger.annotations.ApiImplicitParam;
 import com.wordnik.swagger.annotations.ApiImplicitParams;
 import com.wordnik.swagger.annotations.ApiOperation;
 import org.lnu.is.facade.facade.enrolment.EnrolmentFacade;
-import org.lnu.is.resource.enrolment.EnrolmentRatingResource;
 import org.lnu.is.resource.enrolment.EnrolmentResource;
+import org.lnu.is.resource.enrolment.RatingResource;
 import org.lnu.is.resource.message.MessageResource;
 import org.lnu.is.resource.message.MessageType;
 import org.lnu.is.resource.search.PagedRequest;
@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * Controller for enrolments.
@@ -92,7 +91,7 @@ public class EnrolmentController extends BaseController implements CrudControlle
 	}
 
 	@RequestMapping(value = "/{specofferId}/ratings")
-	public List<EnrolmentRatingResource> getEnrolmentsRatingResource(@PathVariable("specofferId") long specofferId) {
+	public RatingResource getEnrolmentsRatingResource(@PathVariable("specofferId") long specofferId) {
 		LOG.info("Getting rating enrolment list for specofferId: {}", specofferId);
 		return facade.getRatingEnrolments(specofferId);
 	}

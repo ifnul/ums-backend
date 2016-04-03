@@ -162,6 +162,7 @@
 		<property name="resourceListConverter" ref="enrolmentResourceConverter" />
 		<property name="entityConverter" ref="enrolmentConverter" />
 		<property name="service" ref="enrolmentService" />
+		<property name="specOfferService" ref="specOfferService"/>
 	</bean>
 
 	<bean id="enrolmentBenefitFacade" class="org.lnu.is.facade.facade.DefaultFacade"

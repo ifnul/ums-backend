@@ -39,7 +39,9 @@ public class SpecOfferResource extends ApiResource {
 	@NotNull(message = "Field required")
 	@Min(value = 1, message = "Minimal value is 1")
 	private Long specofferTypeId;
-	
+
+	private String name;
+
 	private String docSeries;
 	
 	private String docNum;
@@ -75,7 +77,15 @@ public class SpecOfferResource extends ApiResource {
 	public String getRootUri() {
 		return "/specoffers";
 	}
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getDuration() {
 	    return duration;
 	}
