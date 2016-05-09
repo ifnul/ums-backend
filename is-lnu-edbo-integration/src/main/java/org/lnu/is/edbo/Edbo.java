@@ -1,99 +1,89 @@
 package org.lnu.is.edbo;
 
+import org.lnu.is.domain.enrolment.Enrolment;
+import org.lnu.is.domain.person.Person;
 import org.lnu.is.domain.specoffer.SpecOffer;
-import org.lnu.is.edbo.proxy.DLanguages;
-import org.lnu.is.edbo.proxy.DPersonAddresses2;
-import org.lnu.is.edbo.proxy.DPersonBenefits;
-import org.lnu.is.edbo.proxy.DPersonDocuments;
-import org.lnu.is.edbo.proxy.DPersonDocumentsSubjects;
-import org.lnu.is.edbo.proxy.DPersonOlympiadsAwards;
-import org.lnu.is.edbo.proxy.DPersonRequestBenefits;
-import org.lnu.is.edbo.proxy.DPersonRequestDocumentSubjects;
-import org.lnu.is.edbo.proxy.DPersonRequestExaminations;
-import org.lnu.is.edbo.proxy.DPersonRequestOlympiadsAwards;
-import org.lnu.is.edbo.proxy.DPersonRequestQuotas;
-import org.lnu.is.edbo.proxy.DPersonsFind;
-import org.lnu.is.edbo.proxy.DUniversities;
-import org.lnu.is.edbo.proxy.DUniversityFacultetSpecialities;
-import org.lnu.is.edbo.proxy.DUniversityFacultetSpecialitiesQuotas;
-import org.lnu.is.edbo.proxy.DUniversityFacultetSpecialitiesSubjects2;
-import org.lnu.is.edbo.proxy.DUniversityFacultetsRequests2;
+import org.lnu.is.edbo.exeption.EdboExeption;
+import org.lnu.is.edbo.exeption.EdboType;
+import org.lnu.is.edbo.proxy.*;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.rmi.RemoteException;
 import java.util.List;
 
-@Component
+@Component("edboIntegration")
 public class Edbo {
 
 	@Resource(name = "callService")
 	private CallService callService;
 
-	@Resource(name = "edboClient")
-	private EdboClient edbo;
+	@Resource
+	private EDBOPerson EDBOPerson;
 
-	private String dateTimeNow = Main.getActualDate();
+	@Resource
+	private EDBOGuides EDBOGuides;
+
 	private DLanguages languages;
     private DUniversities universities;
 
+	public EDBOPersonSoap edboPerson(){
+		return EDBOPerson.getEDBOPersonSoap();
+	}
+
+	public EDBOGuidesSoap edboGuides(){
+		return EDBOGuides.getEDBOGuidesSoap();
+	}
+
 	private Integer getIdLanguage(String sessionGuid) {
 		if (languages == null) {
-			languages = edbo.languagesGet(sessionGuid).getDLanguages().get(0);
+			languages = edboGuides().languagesGet(sessionGuid).getDLanguages().get(0);
 		}
 
 		return languages.getIdLanguage();
 	}
 
-	private String getUniversityKode(String sessionGuid) {
+	private String getUniversityKode(String sessionGuid, String actualDate) {
 		if (universities == null) {
 
-			universities = edbo.universitiesGet(sessionGuid, "0176a9d2-e37c-4123-9688-a952e1374077",
-					getIdLanguage(sessionGuid), dateTimeNow, "").getDUniversities().get(0);
+			universities = edboGuides().universitiesGet(sessionGuid, "0176a9d2-e37c-4123-9688-a952e1374077",
+					getIdLanguage(sessionGuid), actualDate, "").getDUniversities().get(0);
 		}
 		return universities.getUniversityKode();
 	}
 
-    public void GetAllSpecoffer(boolean updateData, String sessionGuid, int yearSeason) throws RemoteException {
+    public void synchronizeSpecoffers(boolean updateData, String sessionGuid, int yearSeason, String actualDate) {
 
-		List<DUniversityFacultetSpecialities> soecialities = edbo.universityFacultetSpecialitiesGet(sessionGuid, getUniversityKode(sessionGuid), "", "",
-						getIdLanguage(sessionGuid), dateTimeNow, yearSeason, 0, "", "", "", "").getDUniversityFacultetSpecialities();
+			List<DUniversityFacultetSpecialities> soecialities = edboGuides().universityFacultetSpecialitiesGet(sessionGuid, getUniversityKode(sessionGuid, actualDate), "", "",
+					getIdLanguage(sessionGuid), actualDate, yearSeason, 0, "", "", "", "").getDUniversityFacultetSpecialities();
 
-		for (DUniversityFacultetSpecialities spec : soecialities)
-		{
-            String actualDate = Main.getActualDate();
+			for (DUniversityFacultetSpecialities spec : soecialities) {
 
-			SpecOffer specOffer = callService.AddSpecoffer(spec, updateData, sessionGuid, yearSeason);
+				SpecOffer specOffer = callService.AddSpecoffer(spec, updateData, sessionGuid, yearSeason);
 
-			List<DUniversityFacultetSpecialitiesSubjects2> subjects = null;
+				List<DUniversityFacultetSpecialitiesSubjects2> subjects = EDBOGuides.getEDBOGuidesSoap()
+						.universityFacultetSpecialitiesSubjectsGet2(sessionGuid, getIdLanguage(sessionGuid),
+								actualDate, spec.getUniversitySpecialitiesKode()).getDUniversityFacultetSpecialitiesSubjects2();
 
-			subjects = edbo
-					.universityFacultetSpecialitiesSubjectsGet2(sessionGuid, getIdLanguage(sessionGuid),
-							actualDate, spec.getUniversitySpecialitiesKode()).getDUniversityFacultetSpecialitiesSubjects2();
+				for (DUniversityFacultetSpecialitiesSubjects2 subject : subjects)
+					callService.AddSpecofferSubject(specOffer, subject, updateData);
 
-			for (DUniversityFacultetSpecialitiesSubjects2 subject : subjects)
-				callService.AddSpecofferSubject(specOffer, subject, updateData);
-
-			List<DUniversityFacultetSpecialitiesQuotas> quotas = edbo
-					.universityFacultetSpecialitiesQuotasGet(sessionGuid, getIdLanguage(sessionGuid),
-							actualDate, spec.getUniversitySpecialitiesKode(), 0).getDUniversityFacultetSpecialitiesQuotas();
-			for (DUniversityFacultetSpecialitiesQuotas quota : quotas)
-				callService.AddSpecofferQuota(specOffer, quota, updateData);
-        }
-
+				List<DUniversityFacultetSpecialitiesQuotas> quotas = edboGuides()
+						.universityFacultetSpecialitiesQuotasGet(sessionGuid, getIdLanguage(sessionGuid),
+								actualDate, spec.getUniversitySpecialitiesKode(), 0).getDUniversityFacultetSpecialitiesQuotas();
+				for (DUniversityFacultetSpecialitiesQuotas quota : quotas)
+					callService.AddSpecofferQuota(specOffer, quota, updateData);
+			}
 	}
 
-    public void GetAllRequest(String sessionGuid, int yearSeason) throws Exception {
+    public void synchronizeRequests(boolean updateExist, String sessionGuid, int yearSeason, String actualDate ) {
 
-		String actualDate = Main.getActualDate();
-
-		List<DUniversityFacultetSpecialities> soecialities = edbo
-				.universityFacultetSpecialitiesGet(sessionGuid, getUniversityKode(sessionGuid), "", "",
+		List<DUniversityFacultetSpecialities> soecialities = edboGuides()
+				.universityFacultetSpecialitiesGet(sessionGuid, getUniversityKode(sessionGuid, actualDate), "", "",
 						getIdLanguage(sessionGuid), actualDate, yearSeason, 0, "", "", "", "").getDUniversityFacultetSpecialities();
 		int i = 0 ;
 
 		for (DUniversityFacultetSpecialities spec : soecialities) {
-			List<DUniversityFacultetsRequests2> reqst = edbo
+			List<DUniversityFacultetsRequests2> reqst = edboGuides()
 					.universityFacultetsGetRequests2(sessionGuid, yearSeason, "",
 							spec.getUniversitySpecialitiesKode(), getIdLanguage(sessionGuid), actualDate, "", 1, "",
 							//1, 4, 9, // Нові, допущені затримані
@@ -101,108 +91,108 @@ public class Edbo {
 							0, spec.getUniversityKode(), 0, "").getDUniversityFacultetsRequests2();
 
 			if (reqst == null)
-				throw new Exception("null");
+				throw new EdboExeption("null", EdboType.Request);
 			if (reqst.size() == 0)
 				continue;
 
 			for (DUniversityFacultetsRequests2 zayava : reqst) {
 
-				Long requestId = callService.AddRequest(zayava);
+				Enrolment requestId = callService.AddRequest(zayava, updateExist);
 
 				List<DPersonsFind> persons = null;
 
-				persons = edbo.personsFind(
+				persons = edboPerson().personsFind(
 						sessionGuid, actualDate, getIdLanguage(sessionGuid), "", "", "", "", 1,
 						zayava.getPersonCodeU(), "").getDPersonsFind();
 
 				if (persons == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.Person);
 				DPersonsFind person = persons.get(0);
-				Long personId = callService.AddPerson(person);
+				Person personId = callService.AddPerson(person, updateExist);
 
-				List<DPersonAddresses2> personAddresses = edbo.personAddressesGet2(
+				List<DPersonAddresses2> personAddresses = edboPerson().personAddressesGet2(
 						sessionGuid, actualDate, getIdLanguage(sessionGuid), person.getPersonCodeU(),
 						0).getDPersonAddresses2();
 				if (personAddresses == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.PersonAddres);
 				for (DPersonAddresses2 addresses : personAddresses) {
-					callService.AddPersonAddresses(personId, addresses);
+					callService.AddPersonAddresses(personId, addresses, updateExist);
 				}
-				List<DPersonDocuments> docs = edbo.personDocumentsGet(
+				List<DPersonDocuments> docs = edboPerson().personDocumentsGet(
 						sessionGuid, actualDate, getIdLanguage(sessionGuid), person.getPersonCodeU(),
 						0, 0, "", 0).getDPersonDocuments();
 				if (docs == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.PersonDocument);
 				for (DPersonDocuments doc : docs) {
 					callService.AddPersonDocs(personId, doc);
 				}
-				List<DPersonBenefits> personBenefits = edbo
+				List<DPersonBenefits> personBenefits = edboPerson()
 						.personBenefitsGet(sessionGuid, actualDate, getIdLanguage(sessionGuid),
 								person.getIdPerson()).getDPersonBenefits();
 				if (personBenefits == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.PersonBenefit);
 				for (DPersonBenefits benefits : personBenefits) {
 					callService.AddPersonBenefit(personId, benefits);
 				}
-				List<DPersonDocumentsSubjects> znoPerson = edbo
+				List<DPersonDocumentsSubjects> znoPerson = edboPerson()
 						.personDocumentsSubjectsGet(sessionGuid, actualDate,
 								getIdLanguage(sessionGuid), 0, person.getIdPerson(), 4).getDPersonDocumentsSubjects();
 				if (znoPerson == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.PersonDocumentSubject);
 				for (DPersonDocumentsSubjects docSubj : znoPerson)
 					callService.AddPersonDocumentsSubjects(personId, docSubj);
 
-				List<DPersonOlympiadsAwards> olympPerson = edbo
+				List<DPersonOlympiadsAwards> olympPerson = edboPerson()
 						.personOlympiadsAwardsGet(sessionGuid, actualDate,
 								getIdLanguage(sessionGuid), person.getPersonCodeU(), yearSeason).getDPersonOlympiadsAwards();
 				if (olympPerson == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.PersonOlympiadsAwards);
 				for (DPersonOlympiadsAwards olymp : olympPerson) {
 					callService.AddPersonOlymp(personId, olymp);
 				}
 
-				List<DPersonRequestBenefits> requestBenefits = edbo
+				List<DPersonRequestBenefits> requestBenefits = edboPerson()
 						.personRequestBenefitsGet(sessionGuid, actualDate, getIdLanguage(sessionGuid),
 								zayava.getIdPersonRequest()).getDPersonRequestBenefits();
 				if (requestBenefits == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.RequestBenefits);
 				for (DPersonRequestBenefits benefit : requestBenefits) {
-					callService.AddRequestOlymp(requestId, benefit);
+					callService.AddRequestBenefits(requestId, benefit, updateExist);
 				}
 
-				List<DPersonRequestQuotas> requestKvota = edbo.personRequestQuotasGet(
+				List<DPersonRequestQuotas> requestKvota = edboPerson().personRequestQuotasGet(
 						sessionGuid, actualDate, getIdLanguage(sessionGuid),
 						zayava.getIdPersonRequest()).getDPersonRequestQuotas();
 				if (requestKvota == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.RequestQuota);
 				for (DPersonRequestQuotas kvotas : requestKvota) {
 					callService.AddRequestKvota(requestId, kvotas);
 				}
 
-				List<DPersonRequestDocumentSubjects> zno = edbo
+				List<DPersonRequestDocumentSubjects> zno = edboPerson()
 						.personRequestDocumentSubjectsGet(sessionGuid, actualDate,
 								getIdLanguage(sessionGuid), zayava.getIdPersonRequest()).getDPersonRequestDocumentSubjects();
 				if (zno == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.RequestDocumentSubject);
 
 				for (DPersonRequestDocumentSubjects znoSubj : zno) {
 					callService.AddRequestDocumentSubjects(requestId, znoSubj);
 				}
 
-				List<DPersonRequestOlympiadsAwards> olymp = edbo
+				List<DPersonRequestOlympiadsAwards> olymp = edboPerson()
 						.personRequestOlympiadsAwardsGet(sessionGuid, actualDate,
 								getIdLanguage(sessionGuid), zayava.getIdPersonRequest()).getDPersonRequestOlympiadsAwards();
 				if (olymp == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.RequestOlympiadAward);
 				for (DPersonRequestOlympiadsAwards olympiadsAwards : olymp) {
 					callService.AddRequestOlympiadsAwards(requestId, olympiadsAwards);
 				}
 
-				List<DPersonRequestExaminations> exam = edbo
+				List<DPersonRequestExaminations> exam = edboPerson()
 						.personRequestExaminationsGet(sessionGuid, actualDate,
 								getIdLanguage(sessionGuid), zayava.getIdPersonRequest()).getDPersonRequestExaminations();
 				if (exam == null)
-					throw new Exception("null");
+					throw new EdboExeption("null", EdboType.RequestExaminations);
 				for (DPersonRequestExaminations examSubj : exam) {
 					callService.AddRequestExaminations(requestId, examSubj);
 				}
@@ -210,4 +200,3 @@ public class Edbo {
 		}
     }
 }
-

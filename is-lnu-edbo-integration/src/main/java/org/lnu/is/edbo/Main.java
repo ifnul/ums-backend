@@ -11,10 +11,10 @@ import java.util.Date;
 @Component
 public class Main {
 
-	@Resource
+	@Resource(name = "edboIntegration")
 	private Edbo edbo;
 
-	public static String getActualDate(int year,int month,int date) {
+	public String getActualDate(int year,int month,int date) {
 		Calendar c = Calendar.getInstance();
 		c.set(year, month, date);
 
@@ -22,19 +22,25 @@ public class Main {
 		return formatter.format(c.getTime());
 	}
 	
-	public static String getActualDate() {
+	public String getActualDate() {
 		Date now = new Date();
 		DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 		return formatter.format(now);
 	}
-	public void synchronize() {
-		try {
-			edbo.GetAllSpecoffer(false, "", 0);
-			edbo.GetAllRequest("",0);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+	public void synchronizeAll(boolean updateExist, String  sessionGuid, Integer year) {
+		 String actualDate = getActualDate();
+
+		edbo.synchronizeSpecoffers(updateExist, sessionGuid, year,actualDate);
+		edbo.synchronizeRequests(updateExist,sessionGuid, year,actualDate);
+
+	}
+
+	public void synchronizeSpecoffers(boolean updateExist, String  sessionGuid, Integer year){
+
+		String actualDate = getActualDate();
+		edbo.synchronizeSpecoffers(updateExist, sessionGuid, year, actualDate);
+
 	}
 
 }

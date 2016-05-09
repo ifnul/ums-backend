@@ -39,13 +39,13 @@ public class DefaultParametersRetrieverTest {
 
         Map<String, String> pathVariables = new HashMap<>();
         pathVariables.put(field1, value1);
-        Map<String,String[]> requestParams = new HashMap();
+        Map<String,String[]> requestParams = new HashMap<>();
         String value2 = "value2";
         String[] values2 = {value2};
         String field2 = "field2";
         requestParams.put(field2, values2);
 
-        Map<String, Object> expected = new HashMap();
+        Map<String, Object> expected = new HashMap<>();
         expected.put(field1, value1);
         expected.put(field2, value2);
 
@@ -62,8 +62,8 @@ public class DefaultParametersRetrieverTest {
     public void testGetParametersWithEmptyMap() throws Exception {
         // Given
         Map<String, String> pathVariables = new HashMap<>();
-        Map<String,String[]> requestParams = new HashMap();
-        Map<String, Object> expected = new HashMap();
+        Map<String,String[]> requestParams = new HashMap<>();
+        Map<String, Object> expected = new HashMap<>();
 
         // When
         when(webRequest.getAttribute(anyString(), anyInt())).thenReturn(pathVariables);
@@ -92,10 +92,10 @@ public class DefaultParametersRetrieverTest {
         String[] values2 = {value2};
         String field2 = "field2";
 
-        Map<String,String[]> requestParams = new HashMap();
+        Map<String,String[]> requestParams = new HashMap<>();
         requestParams.put(field2, values2);
 
-        Map<String, Object> expected = new HashMap();
+        Map<String, Object> expected = new HashMap<>();
         expected.put(field1, value1);
         expected.put(field2, value2);
         expected.put(field2, value2);
