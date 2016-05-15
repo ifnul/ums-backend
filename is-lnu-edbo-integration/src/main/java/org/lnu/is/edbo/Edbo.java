@@ -199,4 +199,8 @@ public class Edbo {
 			}
 		}
     }
+
+	public String login(String login, String password) {
+		return edboGuides().login(login, password, 1, "application_key");
+	}
 }

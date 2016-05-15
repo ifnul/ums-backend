@@ -43,4 +43,7 @@ public class Main {
 
 	}
 
+	public String login(String login, String password) {
+		return edbo.login(login, password);
+	}
 }

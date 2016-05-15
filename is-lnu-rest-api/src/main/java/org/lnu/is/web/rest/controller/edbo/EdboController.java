@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by illya on 07.03.16.
@@ -17,27 +18,41 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/edbo")
 @Api(value = "edbo", description = "Edbo")
+@SessionAttributes("sessionGuid")
 public class EdboController  extends BaseController {
     private static final Logger LOG = LoggerFactory.getLogger(EdboController.class);
 
     @Resource
     private Main main;
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(
+            @RequestParam("login") String login,
+            @RequestParam("password") String password,
+            HttpSession httpSession
+    ) {
+        String sessionGuid = main.login(login, password);
+        httpSession.setAttribute("sessionGuid", sessionGuid);
+        return sessionGuid;
+    }
+
+
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/all", method = RequestMethod.POST)
     @ApiOperation(value = "Synchronize")
-    public void synchronize() {
+    public void synchronize(@ModelAttribute(value = "sessionGuid") String sessionGuid) {
         LOG.info("Edbo synchronize");
-        main.synchronizeAll(false, "", 0);
+
+        main.synchronizeAll(false, sessionGuid, 0);
     }
 
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/specOffer", method = RequestMethod.POST)
     @ApiOperation(value = "Synchronize SpecOffers")
-    public void synchronizeSpecoffers() {
+    public void synchronizeSpecoffers(@ModelAttribute(value = "sessionGuid") String sessionGuid) {
         LOG.info("Edbo synchronize");
-        main.synchronizeSpecoffers(false, "", 0);
+        main.synchronizeSpecoffers(false, sessionGuid, 0);
     }
 
 }
