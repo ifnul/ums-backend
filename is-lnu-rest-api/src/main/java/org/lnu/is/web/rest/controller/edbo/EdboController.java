@@ -25,15 +25,16 @@ public class EdboController  extends BaseController {
     @Resource
     private Main main;
 
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(
+    @ApiOperation(value = "Login")
+    public void login(
             @RequestParam("login") String login,
             @RequestParam("password") String password,
             HttpSession httpSession
     ) {
         String sessionGuid = main.login(login, password);
         httpSession.setAttribute("sessionGuid", sessionGuid);
-        return sessionGuid;
     }
 
 

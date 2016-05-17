@@ -1,5 +1,7 @@
 package org.lnu.is.edbo.proxy;
 
+import org.springframework.stereotype.Component;
+
 import java.net.URL;
 import javax.xml.namespace.QName;
 import javax.xml.ws.WebEndpoint;
@@ -15,7 +17,8 @@ import javax.xml.ws.Service;
  */
 @WebServiceClient(name = "EDBOGuides", 
                   wsdlLocation = "classpath:wsdl/Guides_min.wsdl",
-                  targetNamespace = "http://edboservice.ua/") 
+                  targetNamespace = "http://edboservice.ua/")
+@Component
 public class EDBOGuides extends Service {
 
     public final static URL WSDL_LOCATION;
