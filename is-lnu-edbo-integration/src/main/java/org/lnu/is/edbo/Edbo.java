@@ -17,10 +17,10 @@ public class Edbo {
 	@Resource(name = "callService")
 	private CallService callService;
 
-	@Resource
+	@Resource(name="edboperson")
 	private EDBOPerson EDBOPerson;
 
-	@Resource
+	@Resource(name="edboguides")
 	private EDBOGuides EDBOGuides;
 
 	private DLanguages languages;

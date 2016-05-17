@@ -18,7 +18,7 @@ import javax.xml.ws.Service;
 @WebServiceClient(name = "EDBOGuides", 
                   wsdlLocation = "classpath:wsdl/Guides_min.wsdl",
                   targetNamespace = "http://edboservice.ua/")
-@Component
+@Component("edboguides")
 public class EDBOGuides extends Service {
 
     public final static URL WSDL_LOCATION;
